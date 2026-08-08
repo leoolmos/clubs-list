@@ -30,7 +30,7 @@ const ROOT        = __dirname;
 const SITE_JSON   = path.join(ROOT, 'clubs.json');
 const APP_FILE    = path.join(ROOT, 'index.html');
 const CONFIG_FILE = path.join(ROOT, 'publish.json');
-const TRACKED     = ['clubs.json', 'index.html', '.nojekyll'];
+const TRACKED     = ['clubs.json', 'status.json', 'index.html', '.nojekyll'];
 
 /* ------------------------------------------------------------------ */
 function readConfig(){

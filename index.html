@@ -39,6 +39,30 @@ body{
 .courtline{height:2px;background:var(--line);margin:0}
 .hair{height:1px;background:var(--rule)}
 
+/* ---- collector status ---- */
+.collector{
+  border:1px solid var(--rule); border-left:3px solid var(--line);
+  padding:12px 16px; margin:0 0 18px; border-radius:3px;
+  font-size:13px; line-height:1.55;
+}
+.st-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.st-dot{width:8px;height:8px;border-radius:50%;flex:none}
+.st-on{background:#1a8f3c;box-shadow:0 0 0 3px rgba(26,143,60,.16)}
+.st-idle{background:#b8860b;box-shadow:0 0 0 3px rgba(184,134,11,.14)}
+.st-off{background:#b33;box-shadow:0 0 0 3px rgba(187,51,51,.14)}
+.st-line{margin:3px 0}
+.st-note{opacity:.72}
+.st-warn{color:#a33}
+.st-log{margin-top:8px}
+.st-log summary{cursor:pointer;opacity:.75;font-family:"IBM Plex Mono",monospace;font-size:11.5px}
+.st-log pre{
+  margin:8px 0 0; padding:10px; overflow-x:auto;
+  background:rgba(0,0,0,.045); border-radius:3px;
+  font-family:"IBM Plex Mono",monospace; font-size:11px; line-height:1.5;
+  white-space:pre-wrap; word-break:break-word;
+}
+@media (prefers-color-scheme:dark){ .st-log pre{background:rgba(255,255,255,.06)} }
+
 /* ---- header ---- */
 header{padding:32px 0 20px}
 .eyebrow{
@@ -230,6 +254,8 @@ footer a{color:var(--grass)}
   <div class="bar"><i id="mBar"></i></div>
   <div class="bar-ticks"><span>0</span><span>2,500</span><span>5,000</span><span>7,500</span><span>10,000</span></div>
 </header>
+
+<div id="collector" class="collector" style="display:none"></div>
 
 <div class="courtline"></div>
 
@@ -487,6 +513,92 @@ async function loadFrom(url){
   }catch(e){ return false; }   // opened as a file:// page — expected, fall through
 }
 
+/* ------------------------------------------------------------------
+   COLLECTOR STATUS
+   A club count on its own is not visibility. It sat at 589 for hours while
+   the collector was working the whole time — every OpenStreetMap query was
+   being refused and every site in the crawl queue was inside its retry
+   backoff. Both are ordinary states; neither was visible, so from outside
+   the only honest reading was that the thing had died.
+------------------------------------------------------------------ */
+var STATUS = null;
+
+async function loadStatus(){
+  try{
+    var r = await fetch("status.json", {cache:"no-store"});
+    if(!r.ok) return;
+    STATUS = await r.json();
+  }catch(e){ /* opened as a file, or not published yet */ }
+}
+
+function ago(iso){
+  if(!iso) return "";
+  var s = Math.max(0, (Date.now() - new Date(iso).getTime())/1000);
+  if(s < 90) return Math.round(s) + "s ago";
+  if(s < 5400) return Math.round(s/60) + " min ago";
+  if(s < 172800) return Math.round(s/3600) + "h ago";
+  return Math.round(s/86400) + " days ago";
+}
+
+function renderStatus(){
+  var el = document.getElementById("collector");
+  if(!el) return;
+  if(!STATUS){ el.style.display = "none"; return; }
+  el.style.display = "";
+
+  var s = STATUS, c = s.crawl || {}, o = s.osm || {};
+  var stale = (Date.now() - new Date(s.generated).getTime()) > 45*60*1000;
+
+  var doing = stale
+    ? "Not running — last heard from " + ago(s.generated)
+    : (s.running ? s.phase : (s.phase || "resting between rounds"));
+
+  var bits = [];
+
+  bits.push("<div class='st-row'><span class='st-dot " + (stale ? "st-off" : (s.running ? "st-on" : "st-idle")) +
+            "'></span><b>" + esc(doing) + "</b><span class='meta'> &middot; updated " + esc(ago(s.generated)) + "</span></div>");
+
+  if(s.lastRound){
+    var lr = s.lastRound;
+    bits.push("<div class='st-line'>Last round " + esc(ago(lr.at)) + ", took " + esc(String(lr.minutes)) +
+              " min: " + esc(lr.summary || "") + "</div>");
+  }
+
+  // The crawl queue, which is the usual reason the number is not moving
+  var totalQ = (c.ready||0) + (c.waiting||0) + (c.exhausted||0);
+  if(totalQ){
+    bits.push("<div class='st-line'><b>Clubs found but no email yet: " + totalQ + "</b> &mdash; " +
+      (c.ready||0) + " ready to try, " +
+      (c.waiting||0) + " waiting out a retry, " +
+      (c.exhausted||0) + " give no address" +
+      ((c.ready===0 && c.waiting>0) ? " <span class='st-note'>(nothing to crawl right now: the rest are backing off for a day or so)</span>" : "") +
+      "</div>");
+  }
+
+  bits.push("<div class='st-line'>Countries from OpenStreetMap: " + (o.imported||0) + " done, " +
+            (o.failed||0) + " refused, " + (o.pending||0) + " to go, of " + (o.total||0) + "</div>");
+
+  if(o.lastError){
+    bits.push("<div class='st-line st-warn'>OpenStreetMap is refusing queries &mdash; last: " +
+              esc(o.lastError.cc) + ", " + esc(String(o.lastError.error).slice(0,110)) +
+              ". Those countries stay unimported and are retried each round.</div>");
+  }
+
+  if(s.leads) bits.push("<div class='st-line'>" + s.leads + " clubs known by name with no contact published anywhere yet</div>");
+
+  if(s.crawlReasons && s.crawlReasons.length){
+    bits.push("<div class='st-line meta'>Where addresses came from, or did not: " +
+      s.crawlReasons.map(function(r){ return esc(r.note) + " " + r.n; }).join(" &middot; ") + "</div>");
+  }
+
+  if(s.recent && s.recent.length){
+    bits.push("<details class='st-log'><summary>Collector log, last " + s.recent.length + " lines</summary><pre>" +
+              esc(s.recent.join("\n")) + "</pre></details>");
+  }
+
+  el.innerHTML = bits.join("");
+}
+
 async function load(){
   // 1. Data baked in by the daemon. A file generated by `node daemon.js`
   //    carries its own payload, so opening it always shows the current list
@@ -536,6 +648,10 @@ async function refreshLive(){
     renderAll();
     if(clubs.length !== before) flashLive(clubs.length - before);
   }catch(e){}
+  // Status refreshes on the same beat. It is the half that moves when the
+  // club count does not, which is most of the time.
+  await loadStatus();
+  renderStatus();
 }
 function flashLive(delta){
   var n = document.getElementById("liveNote");
@@ -842,10 +958,15 @@ function wire(){
 ------------------------------------------------------------------ */
 (async function(){
   await load();
+  await loadStatus();
   wire();
   renderAll();
+  renderStatus();
+  // Two minutes on Pages, not ten. The club count only moves when a round
+  // finds something, but the status line moves constantly, and that is the
+  // part worth watching when the count is standing still.
   var onPages = liveMode && liveSource.indexOf("/api/") < 0;
-  if(liveMode) setInterval(refreshLive, onPages ? 600000 : 30000);
+  if(liveMode) setInterval(refreshLive, onPages ? 120000 : 30000);
   if(bakedAt){
     var when = "";
     try{ when = new Date(bakedAt).toLocaleString(); }catch(e){ when = bakedAt; }

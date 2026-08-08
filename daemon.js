@@ -36,6 +36,7 @@ const CSV_FILE  = path.join(DATA_DIR, 'clubs-export.csv');
 const SEEDS_FILE= path.join(ROOT, 'seeds.txt');
 const APP_FILE  = path.join(ROOT, 'index.html');
 const SITE_JSON = path.join(ROOT, 'clubs.json');            // what the page reads
+const STATUS_JSON = path.join(ROOT, 'status.json');         // what the collector is doing
 const STANDALONE_FILE = path.join(DATA_DIR, 'clubs-database.html');
 
 const CFG = {
@@ -494,6 +495,79 @@ function publishable(db){
     .sort((a,b)=>a.country.localeCompare(b.country) || a.name.localeCompare(b.name));
 }
 
+/* ------------------------------------------------------------------ *
+ * status.json — what the collector is doing, and why the number is not
+ * moving
+ * ------------------------------------------------------------------ *
+ * A club count on its own is not visibility. It sat at 589 for hours while
+ * the collector was working the whole time: every Overpass query was being
+ * refused, and every site in the crawl queue was inside its retry backoff.
+ * Both are ordinary states, and neither was visible, so the only honest
+ * reading from outside was "it is broken".
+ *
+ * Written at the start and end of every round and after each phase, so the
+ * page can say what is happening right now rather than what happened last.
+ */
+function writeStatusJSON(extra){
+  const db    = readJSON(DB_FILE, {});
+  const queue = readJSON(QUEUE_FILE, {});
+  const osmState = readJSON(path.join(DATA_DIR,'osm-state.json'), {});
+  const now = Date.now();
+
+  const all = Object.values(db);
+  const noEmail = all.filter(r => !r.email && r.website);
+
+  const crawl = {
+    ready:     noEmail.filter(r => (r.attempts||0) < CFG.maxAttempts && !(r.retryAfter && now < r.retryAfter)).length,
+    waiting:   noEmail.filter(r => r.retryAfter && now < r.retryAfter).length,
+    exhausted: noEmail.filter(r => (r.attempts||0) >= CFG.maxAttempts).length
+  };
+
+  // Why sites were given up on, which is the difference between "the crawler
+  // is broken" and "these clubs do not publish an address"
+  const reasons = {};
+  for(const r of all){ if(r.crawlNote) reasons[r.crawlNote] = (reasons[r.crawlNote]||0) + 1; }
+  const topReasons = Object.entries(reasons).sort((a,b)=>b[1]-a[1]).slice(0,6);
+
+  const seeds = Object.values(queue);
+  const countries = require('./lib/countries').PRIORITY;
+  const osm = {
+    imported: countries.filter(cc => osmState[cc] && !osmState[cc].error).length,
+    failed:   countries.filter(cc => osmState[cc] && osmState[cc].error).length,
+    pending:  countries.filter(cc => !osmState[cc]).length,
+    total:    countries.length,
+    lastError: (()=>{
+      const errs = countries.filter(cc=>osmState[cc] && osmState[cc].error)
+        .sort((a,b)=>String(osmState[b].at||'').localeCompare(String(osmState[a].at||'')));
+      return errs.length ? {cc: errs[0], error: osmState[errs[0]].error, at: osmState[errs[0]].at} : null;
+    })()
+  };
+
+  let recent = [];
+  try{
+    recent = fs.readFileSync(LOG_FILE,'utf8').split(/\r?\n/).filter(Boolean).slice(-14);
+  }catch(e){}
+
+  const status = Object.assign({
+    generated: new Date().toISOString(),
+    clubs:     publishable(db).length,
+    records:   all.length,
+    crawl, osm,
+    crawlReasons: topReasons.map(([note,n])=>({note, n})),
+    seeds: {
+      total:     seeds.length,
+      working:   seeds.filter(s=>!s.done).length,
+      exhausted: seeds.filter(s=>s.done).length,
+      pagesRead: seeds.reduce((n,s)=>n+(s.pagesRead||0), 0)
+    },
+    leads: Object.keys(readJSON(path.join(DATA_DIR,'osm-leads.json'), {})).length,
+    recent
+  }, extra||{});
+
+  fs.writeFileSync(STATUS_JSON, JSON.stringify(status, null, 1));
+  return status;
+}
+
 /* clubs.json — the file the page reads, both on GitHub Pages and locally.
  * Written every tick; publish.js is what pushes it. */
 function writeSiteJSON(db){
@@ -557,13 +631,18 @@ async function tick(){
       running = false; return;
     }
 
+    const roundStarted = new Date().toISOString();
+    const busy = phase => writeStatusJSON({running:true, phase, roundStarted});
+
     // Emails first: it is the point of the whole thing, and the queue of
     // uncrawled sites is what actually converts into records.
+    busy('crawling club websites for email addresses');
     const c = await phaseCrawl(db, deadline);
     writeJSON(DB_FILE, db);
 
     // Then extend the frontier if there is time left
     let h = {pages:0, added:0, source:null};
+    busy('reading directory pages');
     if(Date.now() < deadline) h = await phaseHarvest(db, queue, deadline);
 
     // Save between phases, not only at the end. A round that hangs in a
@@ -573,9 +652,9 @@ async function tick(){
     writeJSON(DB_FILE, db);
     writeJSON(QUEUE_FILE, queue);
 
-    // One country from OpenStreetMap per tick. Slow on purpose — it is a free
-    // shared service — but it is what reaches the countries with no federation
-    // directory to walk, and over a day it works through the whole list.
+    // Countries from OpenStreetMap. This is what reaches the places with no
+    // federation directory to walk.
+    busy('importing countries from OpenStreetMap');
     const o = await phaseOSM(db, deadline);
 
     writeJSON(DB_FILE, db);
@@ -583,15 +662,28 @@ async function tick(){
     const total = writeExport(db);
     writeSiteJSON(db);
     writeStandalone(db);
-    publishIfConfigured();
 
     const mins = ((Date.now()-started)/60000).toFixed(1);
     const queued = Object.values(db).filter(r=>!r.email && r.website && (r.attempts||0)<CFG.maxAttempts).length;
-    log(`tick done in ${mins}m — crawled ${c.tried} sites, +${c.found} emails` +
+    const summary = `crawled ${c.tried} sites, +${c.found} emails` +
         (h.pages ? `; read ${h.pages} pages from ${h.source}, +${h.added} clubs` : '') +
         (o.cc ? `; osm ${o.countries||0} countries (${o.cc}) +${o.added}` +
-                (o.failed ? `, ${o.failed} failed` : '') : '') +
-        ` | ${total} emails total, ${queued} still queued`);
+                (o.failed ? `, ${o.failed} failed` : '') : '');
+
+    writeStatusJSON({
+      running: false,
+      phase: 'resting between rounds',
+      roundStarted,
+      lastRound: {
+        at: new Date().toISOString(), minutes: Number(mins), summary,
+        crawled: c.tried, emailsFound: c.found,
+        pagesRead: h.pages, clubsAdded: h.added,
+        osmCountries: o.countries||0, osmAdded: o.added||0, osmFailed: o.failed||0
+      }
+    });
+    publishIfConfigured();
+
+    log(`tick done in ${mins}m — ${summary} | ${total} emails total, ${queued} still queued`);
   }catch(e){
     log('tick failed: '+e.message);
   }finally{
@@ -624,6 +716,11 @@ function cmdServe(){
 
   http.createServer((req, res) => {
     const u = (req.url || '/').split('?')[0];
+
+    if(u === '/status.json'){
+      res.writeHead(200, {'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});
+      return res.end(JSON.stringify(readJSON(STATUS_JSON, {})));
+    }
 
     if(u === '/api/clubs.json' || u === '/clubs.json'){
       const clubs = publishable(readJSON(DB_FILE, {}));
