@@ -1,0 +1,8 @@
+# The working store: every record with all its crawl bookkeeping, plus the
+# queue bookmarks and logs. Big, rewritten every round, and of no use to the
+# published page. clubs.json at the root is the published extract and IS
+# committed — that is what the site reads.
+data/
+
+# Written by `node publish.js setup`, holds this machine's push target
+publish.json

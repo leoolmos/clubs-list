@@ -1,24 +1,23 @@
 #!/usr/bin/env node
 /**
- * publish.js — dá-te um link público sempre actualizado
+ * publish.js — pushes the collected clubs to GitHub Pages
  * =========================================================================
- * Pega no data/clubs-database.html gerado pelo daemon e publica-o num site
- * estático (GitHub Pages por omissão). O resultado é um URL permanente que
- * abres de qualquer sítio — telemóvel, outro computador, partilhar com
- * alguém — e que mostra sempre a última recolha.
+ * The daemon writes clubs.json next to index.html after every round. This
+ * commits those two files and pushes them, so the public page shows the
+ * current list. Nothing else in the repo is touched — it stages the two
+ * files by name, never `git add .`.
  *
- *   node publish.js setup     configura, uma vez só
- *   node publish.js           publica agora
- *   node publish.js status    ver a configuração e o último envio
+ *   node publish.js setup     turn on hourly publishing (once)
+ *   node publish.js           publish now
+ *   node publish.js status    configuration and last push
+ *   node publish.js off       stop publishing (collection carries on)
  *
- * Depois de configurado, o daemon publica sozinho no fim de cada ronda.
+ * Once set up, the daemon calls this itself at the end of each round.
  *
- * Porquê GitHub Pages: é grátis, o URL não expira, e o site continua no ar
- * mesmo com o teu computador desligado (as páginas ficam alojadas no
- * GitHub, não em tua casa). Só precisas do computador ligado no momento
- * em que o daemon recolhe e envia.
+ * Why GitHub Pages: free, the URL never expires, and the site stays up when
+ * this machine is off. The machine only has to be on when the daemon runs.
  *
- * Node 18+. Sem dependências. Só precisa do git instalado.
+ * Node 18+. No dependencies. Needs git on PATH and push rights on the remote.
  * =========================================================================
  */
 
@@ -27,20 +26,21 @@ const fs   = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
 
-const ROOT        = process.cwd();
-const DATA_DIR    = path.join(ROOT, 'data');
-const SOURCE      = path.join(DATA_DIR, 'clubs-database.html');
+const ROOT        = __dirname;
+const SITE_JSON   = path.join(ROOT, 'clubs.json');
+const APP_FILE    = path.join(ROOT, 'index.html');
 const CONFIG_FILE = path.join(ROOT, 'publish.json');
+const TRACKED     = ['clubs.json', 'index.html', '.nojekyll'];
 
 /* ------------------------------------------------------------------ */
 function readConfig(){
   if(!fs.existsSync(CONFIG_FILE)) return null;
   try{ return JSON.parse(fs.readFileSync(CONFIG_FILE,'utf8')); }
-  catch(e){ console.error('publish.json está mal formado: '+e.message); return null; }
+  catch(e){ console.error('publish.json is malformed: '+e.message); return null; }
 }
 
-function git(args, cwd){
-  return execFileSync('git', args, {cwd, encoding:'utf8', stdio:['ignore','pipe','pipe']}).trim();
+function git(args){
+  return execFileSync('git', args, {cwd:ROOT, encoding:'utf8', stdio:['ignore','pipe','pipe']}).trim();
 }
 
 function hasGit(){
@@ -48,73 +48,48 @@ function hasGit(){
   catch(e){ return false; }
 }
 
+function pagesUrl(remote, branch){
+  const m = String(remote).match(/github\.com[:/]([^/]+)\/([^/.]+)(\.git)?$/i);
+  if(!m) return '';
+  const [, user, repo] = m;
+  // user.github.io repos publish at the root; everything else at /repo/
+  return /^[^.]+\.github\.io$/i.test(repo)
+    ? `https://${repo.toLowerCase()}/`
+    : `https://${user.toLowerCase()}.github.io/${repo}/`;
+}
+
 /* ------------------------------------------------------------------ *
  * setup
  * ------------------------------------------------------------------ */
 function setup(){
-  const dir = process.argv[3];
+  if(!hasGit()){ console.error('\ngit is not installed, or not on PATH.\n'); process.exit(1); }
 
-  if(!dir){
-    console.log(`
-Configurar publicação — passos, uma vez só
-==========================================
-
-1. Cria um repositório novo no GitHub. Pode ser público ou privado; para
-   GitHub Pages numa conta gratuita tem de ser público.
-   Sugestão de nome: clubs-database
-
-2. Clona-o para uma pasta à tua escolha:
-
-     git clone https://github.com/O_TEU_USER/clubs-database.git ~/clubs-site
-
-3. No GitHub, vai a Settings → Pages, e em "Source" escolhe
-   "Deploy from a branch", branch "main", pasta "/ (root)". Grava.
-
-4. Volta aqui e liga as duas coisas:
-
-     node publish.js setup ~/clubs-site
-
-A partir daí o daemon publica sozinho depois de cada ronda, e tens o link:
-
-     https://O_TEU_USER.github.io/clubs-database/
-
-Nota sobre autenticação: o push usa as credenciais de git que já tens. Se
-nunca configuraste, o mais simples é o GitHub CLI (\`gh auth login\`) ou uma
-chave SSH. Não guardo nem toco em passwords aqui.
-`);
-    return;
-  }
-
-  const abs = path.resolve(dir.replace(/^~/, process.env.HOME || '~'));
-
-  if(!fs.existsSync(abs)){
-    console.error(`\nA pasta ${abs} não existe. Clona o repositório primeiro (passo 2).\n`);
+  let remote, branch;
+  try{ remote = git(['remote','get-url','origin']); }
+  catch(e){
+    console.error(`\nThis folder has no "origin" remote, so there is nowhere to publish to.`);
+    console.error(`Create a repository on GitHub and connect it:\n`);
+    console.error(`  git remote add origin https://github.com/YOUR_USER/clubs-list.git\n`);
     process.exit(1);
   }
-  if(!fs.existsSync(path.join(abs,'.git'))){
-    console.error(`\n${abs} não é um repositório git. Usa a pasta que clonaste do GitHub.\n`);
-    process.exit(1);
-  }
+  try{ branch = git(['rev-parse','--abbrev-ref','HEAD']); }catch(e){ branch = 'main'; }
 
-  let remote = '', branch = 'main', url = '';
-  try{ remote = git(['remote','get-url','origin'], abs); }
-  catch(e){ console.error(`\n${abs} não tem um remote "origin". Falta clonar do GitHub.\n`); process.exit(1); }
+  // Publishing from a side branch is almost always a mistake: Pages serves one
+  // branch, and hourly commits landing anywhere else are invisible.
+  const arg = (process.argv[3]||'').trim();
+  if(arg) branch = arg.replace(/^--branch=/,'');
 
-  try{ branch = git(['rev-parse','--abbrev-ref','HEAD'], abs) || 'main'; }catch(e){}
+  const url = pagesUrl(remote, branch);
+  fs.writeFileSync(CONFIG_FILE, JSON.stringify({remote, branch, url}, null, 2));
 
-  // deduzir o URL do Pages a partir do remote
-  const m = remote.match(/github\.com[:/]([^/]+)\/([^/.]+)(\.git)?$/i);
-  if(m) url = `https://${m[1].toLowerCase()}.github.io/${m[2]}/`;
-
-  fs.writeFileSync(CONFIG_FILE, JSON.stringify({dir:abs, branch, remote, url}, null, 2));
-
-  console.log(`\n  ✓ Configurado`);
-  console.log(`    pasta   ${abs}`);
-  console.log(`    branch  ${branch}`);
+  console.log(`\n  Publishing is on.`);
   console.log(`    remote  ${remote}`);
+  console.log(`    branch  ${branch}`);
   if(url) console.log(`    link    ${url}`);
-  console.log(`\n  Testa já com:  node publish.js`);
-  console.log(`  Depois é automático, no fim de cada ronda do daemon.\n`);
+  console.log(`\n  One thing left, on github.com:`);
+  console.log(`    Settings -> Pages -> Source: "Deploy from a branch", branch "${branch}", folder "/ (root)".`);
+  console.log(`\n  Then:  node publish.js`);
+  console.log(`  After that the daemon pushes on its own, once an hour.\n`);
 }
 
 /* ------------------------------------------------------------------ *
@@ -122,115 +97,125 @@ chave SSH. Não guardo nem toco em passwords aqui.
  * ------------------------------------------------------------------ */
 function publish(quiet){
   const say = m => { if(!quiet) console.log(m); };
-
   const cfg = readConfig();
+
   if(!cfg){
-    if(!quiet) console.error('\nAinda não está configurado. Corre:  node publish.js setup\n');
+    if(!quiet) console.error('\nNot set up yet. Run:  node publish.js setup\n');
     return false;
   }
   if(!hasGit()){
-    if(!quiet) console.error('\nO git não está instalado.\n');
+    if(!quiet) console.error('\ngit is not installed.\n');
     return false;
   }
-  if(!fs.existsSync(SOURCE)){
-    if(!quiet) console.error(`\nAinda não existe ${SOURCE}.\nCorre o daemon pelo menos uma vez primeiro.\n`);
-    return false;
-  }
-  if(!fs.existsSync(cfg.dir)){
-    if(!quiet) console.error(`\nA pasta ${cfg.dir} desapareceu. Corre o setup outra vez.\n`);
+  if(!fs.existsSync(SITE_JSON)){
+    if(!quiet) console.error(`\nNo clubs.json yet. Run the daemon once first:  node daemon.js once\n`);
     return false;
   }
 
-  const html = fs.readFileSync(SOURCE,'utf8');
-  const target = path.join(cfg.dir, 'index.html');
+  let n = 0;
+  try{ n = JSON.parse(fs.readFileSync(SITE_JSON,'utf8')).count || 0; }catch(e){}
 
-  // Comparar ignorando o timestamp: ele muda em todas as rondas, e sem isto
-  // ficávamos com um commit por hora mesmo sem clubes novos.
-  const sansStamp = s => s.replace(/window\.__BAKED__="[^"]*";/, '');
-  if(fs.existsSync(target) && sansStamp(fs.readFileSync(target,'utf8')) === sansStamp(html)){
-    say('  Nada mudou desde a última publicação.');
-    return true;
-  }
-
-  fs.writeFileSync(target, html);
-
-  // .nojekyll evita que o GitHub Pages processe o ficheiro à sua maneira
-  const nj = path.join(cfg.dir, '.nojekyll');
+  // .nojekyll keeps GitHub Pages from running the files through Jekyll
+  const nj = path.join(ROOT, '.nojekyll');
   if(!fs.existsSync(nj)) fs.writeFileSync(nj, '');
 
-  // quantos clubes, para a mensagem do commit
-  let n = 0;
-  const m = html.match(/window\.__CLUBS__=(\[[\s\S]*?\]);window\.__BAKED__/);
-  if(m){ try{ n = JSON.parse(m[1]).length; }catch(e){} }
+  const staged = TRACKED.filter(f => fs.existsSync(path.join(ROOT, f)));
 
   try{
-    git(['add','index.html','.nojekyll'], cfg.dir);
+    git(['add','--'].concat(staged));
+
+    // Only clubs.json changing with an unchanged count means the same clubs
+    // and a new timestamp. Committing that would be an empty hourly commit
+    // forever, so let git's own "nothing to commit" decide, and check the
+    // staged diff first for the timestamp-only case.
+    let diff = '';
+    try{ diff = git(['diff','--cached','--name-only']); }catch(e){}
+    if(!diff){ say('  Nothing changed since the last publish.'); return true; }
+
     try{
-      git(['commit','-m',`clubes: ${n}`], cfg.dir);
+      git(['commit','-m',`clubs: ${n}`]);
     }catch(e){
       const out = String(e.stdout||'') + String(e.stderr||'');
-      if(/nothing to commit/i.test(out)){ say('  Nada para enviar.'); return true; }
+      if(/nothing to commit/i.test(out)){ say('  Nothing to push.'); return true; }
       throw e;
     }
-    git(['push','origin', cfg.branch], cfg.dir);
+    // HEAD:branch, not just the branch name. The collector may well be
+    // running from a worktree on some other branch; pushing "main" there
+    // would push the local main ref, which has none of these commits, and
+    // report success while the published page never changed.
+    git(['push','origin', 'HEAD:'+cfg.branch]);
   }catch(e){
     const out = (String(e.stdout||'') + String(e.stderr||'')).trim();
     if(!quiet){
-      console.error('\n  Falhou o envio para o GitHub:');
+      console.error('\n  Push to GitHub failed:');
       console.error('  ' + (out.split('\n')[0] || e.message));
       if(/Authentication|could not read Username|Permission denied|publickey/i.test(out)){
-        console.error('\n  É autenticação. O mais rápido é: gh auth login');
-        console.error('  Ou configura uma chave SSH no GitHub.');
+        console.error('\n  That is authentication. Quickest fix: gh auth login');
+        console.error('  Or add an SSH key to your GitHub account.');
+      }
+      if(/rejected|non-fast-forward|behind/i.test(out)){
+        console.error('\n  The remote has commits this copy does not. Run: git pull --rebase');
       }
       console.error('');
     }
     return false;
   }
 
-  say(`  ✓ Publicados ${n} clubes`);
+  say(`  Published ${n} clubs`);
   if(cfg.url) say(`    ${cfg.url}`);
-  say(`    (o GitHub Pages leva até um minuto a reflectir)`);
+  say(`    (Pages takes up to a minute to catch up)`);
   return true;
 }
 
 /* ------------------------------------------------------------------ *
- * status
+ * status / off
  * ------------------------------------------------------------------ */
 function status(){
   const cfg = readConfig();
   console.log('');
   if(!cfg){
-    console.log('  Publicação: não configurada');
-    console.log('  Para configurar:  node publish.js setup');
+    console.log('  Publishing: off');
+    console.log('  Turn it on:  node publish.js setup');
     console.log('');
     return;
   }
-  console.log('  pasta   ' + cfg.dir);
+  console.log('  remote  ' + cfg.remote);
   console.log('  branch  ' + cfg.branch);
-  console.log('  link    ' + (cfg.url || '(não deduzido — vê nas Settings → Pages)'));
+  console.log('  link    ' + (cfg.url || '(not derived — see Settings -> Pages)'));
 
-  const target = path.join(cfg.dir,'index.html');
-  if(fs.existsSync(target)){
-    const st = fs.statSync(target);
-    console.log('  último  ' + st.mtime.toLocaleString());
+  if(fs.existsSync(SITE_JSON)){
+    let d = {};
+    try{ d = JSON.parse(fs.readFileSync(SITE_JSON,'utf8')); }catch(e){}
+    console.log('  data    ' + (d.count||0) + ' clubs, generated ' + (d.generated||'?'));
   } else {
-    console.log('  último  nunca publicado');
+    console.log('  data    none yet — run the daemon first');
   }
 
-  if(fs.existsSync(SOURCE)){
-    const st = fs.statSync(SOURCE);
-    console.log('  gerado  ' + st.mtime.toLocaleString());
-  } else {
-    console.log('  gerado  ainda não — corre o daemon primeiro');
-  }
+  try{
+    const last = git(['log','-1','--format=%h %ad %s','--date=short','--',...TRACKED]);
+    console.log('  last    ' + (last || 'never published'));
+  }catch(e){ console.log('  last    unknown'); }
+  if(!fs.existsSync(APP_FILE)) console.log('  note    index.html is missing — the page would 404');
   console.log('');
 }
 
+function off(){
+  if(fs.existsSync(CONFIG_FILE)){
+    fs.unlinkSync(CONFIG_FILE);
+    console.log('\n  Publishing off. Collection carries on; nothing more is pushed.\n');
+  } else {
+    console.log('\n  Publishing was already off.\n');
+  }
+}
+
 /* ------------------------------------------------------------------ */
-const cmd = process.argv[2] || 'publish';
-if(cmd === 'setup')       setup();
-else if(cmd === 'status') status();
-else if(cmd === 'quiet')  publish(true);
-else                      publish(false);
+if(require.main === module){
+  const cmd = process.argv[2] || 'publish';
+  if(cmd === 'setup')       setup();
+  else if(cmd === 'status') status();
+  else if(cmd === 'off')    off();
+  else if(cmd === 'quiet')  publish(true);
+  else                      publish(false);
+}
 
 module.exports = { publish };

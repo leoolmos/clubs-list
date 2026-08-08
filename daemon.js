@@ -24,14 +24,18 @@
 const fs   = require('fs');
 const path = require('path');
 
-const ROOT      = process.cwd();
+/* Anchored to the script, not the shell's working directory. A scheduler —
+ * cron, launchd, Windows Task Scheduler — starts jobs from wherever it likes,
+ * and with cwd the daemon would quietly build a second, empty database there. */
+const ROOT      = __dirname;
 const DATA_DIR  = path.join(ROOT, 'data');
-const DB_FILE   = path.join(DATA_DIR, 'clubs.json');
+const DB_FILE   = path.join(DATA_DIR, 'clubs.json');        // working store, all fields
 const QUEUE_FILE= path.join(DATA_DIR, 'queue.json');
 const LOG_FILE  = path.join(DATA_DIR, 'daemon.log');
 const CSV_FILE  = path.join(DATA_DIR, 'clubs-export.csv');
 const SEEDS_FILE= path.join(ROOT, 'seeds.txt');
-const APP_FILE  = path.join(ROOT, 'racket-club-database.html');
+const APP_FILE  = path.join(ROOT, 'index.html');
+const SITE_JSON = path.join(ROOT, 'clubs.json');            // what the page reads
 const STANDALONE_FILE = path.join(DATA_DIR, 'clubs-database.html');
 
 const CFG = {
@@ -43,185 +47,20 @@ const CFG = {
   maxAttempts:   3
 };
 
-/* ------------------------------------------------------------------ *
- * Countries
- * ------------------------------------------------------------------ */
-const COUNTRIES = {
-  AR:['Argentina','Spanish'], BO:['Bolivia','Spanish'], CL:['Chile','Spanish'],
-  CO:['Colombia','Spanish'], CR:['Costa Rica','Spanish'], CU:['Cuba','Spanish'],
-  DO:['Dominican Republic','Spanish'], EC:['Ecuador','Spanish'], SV:['El Salvador','Spanish'],
-  GQ:['Equatorial Guinea','Spanish'], GT:['Guatemala','Spanish'], HN:['Honduras','Spanish'],
-  MX:['Mexico','Spanish'], NI:['Nicaragua','Spanish'], PA:['Panama','Spanish'],
-  PY:['Paraguay','Spanish'], PE:['Peru','Spanish'], ES:['Spain','Spanish'],
-  UY:['Uruguay','Spanish'], VE:['Venezuela','Spanish'],
-  AO:['Angola','Portuguese'], BR:['Brazil','Portuguese'], CV:['Cape Verde','Portuguese'],
-  TL:['East Timor','Portuguese'], GW:['Guinea-Bissau','Portuguese'], MZ:['Mozambique','Portuguese'],
-  PT:['Portugal','Portuguese'], ST:['São Tomé and Príncipe','Portuguese'],
-  AG:['Antigua and Barbuda','English'], AU:['Australia','English'], BS:['Bahamas','English'],
-  BB:['Barbados','English'], BZ:['Belize','English'], BW:['Botswana','English'],
-  CA:['Canada','English'], DM:['Dominica','English'], FJ:['Fiji','English'],
-  GM:['Gambia','English'], GH:['Ghana','English'], GD:['Grenada','English'],
-  GY:['Guyana','English'], IN:['India','English'], IE:['Ireland','English'],
-  JM:['Jamaica','English'], KE:['Kenya','English'], KI:['Kiribati','English'],
-  LS:['Lesotho','English'], LR:['Liberia','English'], MW:['Malawi','English'],
-  MT:['Malta','English'], MH:['Marshall Islands','English'], MU:['Mauritius','English'],
-  FM:['Micronesia','English'], NA:['Namibia','English'], NR:['Nauru','English'],
-  NZ:['New Zealand','English'], NG:['Nigeria','English'], PK:['Pakistan','English'],
-  PW:['Palau','English'], PG:['Papua New Guinea','English'], PH:['Philippines','English'],
-  RW:['Rwanda','English'], KN:['Saint Kitts and Nevis','English'], LC:['Saint Lucia','English'],
-  VC:['Saint Vincent and the Grenadines','English'], WS:['Samoa','English'],
-  SC:['Seychelles','English'], SL:['Sierra Leone','English'], SG:['Singapore','English'],
-  SB:['Solomon Islands','English'], ZA:['South Africa','English'], SS:['South Sudan','English'],
-  SD:['Sudan','English'], TZ:['Tanzania','English'], TO:['Tonga','English'],
-  TT:['Trinidad and Tobago','English'], TV:['Tuvalu','English'], UG:['Uganda','English'],
-  GB:['United Kingdom','English'], US:['United States','English'], VU:['Vanuatu','English'],
-  ZM:['Zambia','English'], ZW:['Zimbabwe','English']
-};
+const { COUNTRIES } = require('./lib/countries');
+const { detectSports, privateClub, extractEmails, extractContactName,
+        plausibleSite, siteFromEmail, RE_PUBLIC, RE_CLUBWORD } = require('./lib/classify');
+const osm = require('./lib/osm');
+
 
 const UA = 'RacketClubResearch/1.0 (club directory research; contact: set-your-email@example.com)';
 
 /* ------------------------------------------------------------------ *
- * Matching rules
+ * Polite fetching — per-host spacing, robots.txt, character sets      *
  * ------------------------------------------------------------------ */
-const RE_TENNIS = /\bt[eé]nn?is\b|\btennis\b|\bt[eé]nis\b|lawn tennis/i;
-const RE_PADEL  = /p[aá]del/i;
-const RE_SQUASH = /\bsquash\b/i;
-const RE_CLUBWORD = /club|clube|tennis|tenis|t[eé]nis|p[aá]del|padel|squash|racquet|racket|lawn/i;
+const { sleep, links, hostOf, robotsAllow } = require('./lib/http');
+const getPage = url => require('./lib/http').getPage(url, CFG.hostDelayMs);
 
-const RE_PUBLIC = new RegExp([
-  'municipal','ayuntamiento','concello','concejo','c[aâ]mara municipal','prefeitura',
-  'polideportivo municipal','complejo deportivo municipal','centro deportivo municipal',
-  '\\bcouncil\\b','\\bborough\\b','\\bcity of\\b','\\bcounty\\b','parks (and|&) rec',
-  'leisure centre','leisure center','community cent','recreation cent','public park',
-  'universidad','universidade','university','\\bcollege\\b','\\bschool\\b','colegio','col[eé]gio',
-  'instituto','escuela','escola','federaci[oó]n','federa[cç][aã]o','federation','association',
-  'ministerio','gobierno','govern','\\bYMCA\\b','\\barmy\\b','\\bnavy\\b','defence','defense'
-].join('|'),'i');
-
-function detectSports(t){
-  const s=[];
-  if(RE_TENNIS.test(t)) s.push('Tennis');
-  if(RE_PADEL.test(t))  s.push('Padel');
-  if(RE_SQUASH.test(t)) s.push('Squash');
-  return s;
-}
-
-/* ------------------------------------------------------------------ *
- * Email extraction
- * ------------------------------------------------------------------ */
-const EMAIL_RE = /[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,24}/gi;
-const JUNK = /(\.(png|jpe?g|gif|webp|svg|css|js|woff2?)$)|(@(2x|3x)\.)|sentry|wixpress|example\.(com|org)|yourdomain|domain\.com|godaddy|squarespace|wordpress\.(com|org)|cloudflare|placeholder|email@|test@|user@/i;
-const ROLE_PREFERENCE = ['info','contact','contacto','contato','club','clube','admin','administracion','secretaria','secretariat','reservas','reservations','hello','enquiries','office','mail','general'];
-
-function cfDecode(hex){
-  try{
-    const key = parseInt(hex.substr(0,2),16);
-    let out='';
-    for(let i=2;i<hex.length;i+=2) out += String.fromCharCode(parseInt(hex.substr(i,2),16)^key);
-    return out;
-  }catch(e){ return ''; }
-}
-
-function extractEmails(html, host){
-  const found = new Set();
-  (html.match(/data-cfemail="([0-9a-f]+)"/gi)||[]).forEach(m=>{
-    const h=m.match(/"([0-9a-f]+)"/i);
-    if(h){ const d=cfDecode(h[1]); if(d.includes('@')) found.add(d.toLowerCase()); }
-  });
-  (html.match(/mailto:([^"'?\s>]+)/gi)||[]).forEach(m=>found.add(m.replace(/mailto:/i,'').toLowerCase()));
-  const deob = html
-    .replace(/\s*\[\s*at\s*\]\s*|\s*\(\s*at\s*\)\s*|\s+at\s+/gi,'@')
-    .replace(/\s*\[\s*dot\s*\]\s*|\s*\(\s*dot\s*\)\s*|\s+dot\s+/gi,'.');
-  (html.match(EMAIL_RE)||[]).forEach(e=>found.add(e.toLowerCase()));
-  (deob.match(EMAIL_RE)||[]).forEach(e=>found.add(e.toLowerCase()));
-
-  const clean = Array.from(found)
-    .map(e=>e.replace(/^[^a-z0-9]+|[^a-z0-9]+$/gi,''))
-    .filter(e=>/^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,24}$/i.test(e))
-    .filter(e=>!JUNK.test(e))
-    .filter(e=>!/^(no-?reply|donotreply|postmaster|hostmaster|abuse|privacy|dmarc|webmaster)@/i.test(e));
-
-  const bare = host ? host.replace(/^www\./,'') : '';
-  clean.sort((a,b)=>{
-    const ad = bare && a.endsWith('@'+bare)?0:1, bd = bare && b.endsWith('@'+bare)?0:1;
-    if(ad!==bd) return ad-bd;
-    const ar=ROLE_PREFERENCE.indexOf(a.split('@')[0]), br=ROLE_PREFERENCE.indexOf(b.split('@')[0]);
-    return (ar<0?99:ar)-(br<0?99:br);
-  });
-  return clean;
-}
-
-/* ------------------------------------------------------------------ *
- * Polite fetching — per-host spacing, robots.txt, hard timeouts
- * ------------------------------------------------------------------ */
-const lastHit = new Map();
-const robotsCache = new Map();
-function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
-
-async function politeWait(host){
-  const now = Date.now();
-  const prev = lastHit.get(host) || 0;
-  const wait = CFG.hostDelayMs - (now - prev);
-  if(wait > 0) await sleep(wait);
-  lastHit.set(host, Date.now());
-}
-
-async function rawFetch(url, ms){
-  const ctl = new AbortController();
-  const t = setTimeout(()=>ctl.abort(), ms||15000);
-  try{
-    const r = await fetch(url,{ headers:{'User-Agent':UA,'Accept':'text/html,*/*'}, redirect:'follow', signal:ctl.signal });
-    if(!r.ok) return null;
-    const ct = r.headers.get('content-type')||'';
-    if(!/text\/html|application\/xhtml/i.test(ct)) return null;
-    const buf = await r.arrayBuffer();
-    if(buf.byteLength > 4_000_000) return null;         // skip absurd pages
-    return Buffer.from(buf).toString('utf8');
-  }catch(e){ return null; }
-  finally{ clearTimeout(t); }
-}
-
-async function robotsAllow(origin, pathname){
-  if(!robotsCache.has(origin)){
-    const txt = await rawFetch(origin+'/robots.txt', 6000);
-    const rules=[];
-    if(txt){
-      let applies=false;
-      for(const line of txt.split(/\r?\n/)){
-        const l=line.trim();
-        if(/^user-agent:/i.test(l)) applies=/\*\s*$/.test(l);
-        else if(applies && /^disallow:/i.test(l)){
-          const p=l.split(':')[1].trim();
-          if(p) rules.push(p);
-        }
-      }
-    }
-    robotsCache.set(origin, rules);
-  }
-  return !robotsCache.get(origin).some(r=>pathname.startsWith(r));
-}
-
-async function getPage(url){
-  let u; try{ u=new URL(url); }catch(e){ return null; }
-  if(!/^https?:$/.test(u.protocol)) return null;
-  if(!(await robotsAllow(u.origin, u.pathname))) return null;
-  await politeWait(u.hostname);
-  return rawFetch(url);
-}
-
-/* ------------------------------------------------------------------ *
- * Link parsing
- * ------------------------------------------------------------------ */
-function links(html, base){
-  const out=[];
-  for(const m of html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)){
-    if(/^(#|javascript:|mailto:|tel:)/i.test(m[1])) continue;
-    let abs; try{ abs=new URL(m[1], base).toString(); }catch(e){ continue; }
-    const text = m[2].replace(/<[^>]+>/g,' ').replace(/&[a-z]+;/gi,' ').replace(/\s+/g,' ').trim();
-    out.push({url:abs, text});
-  }
-  return out;
-}
 
 function nextPage(html, base, seen){
   const rel = html.match(/<link[^>]+rel=["']next["'][^>]+href=["']([^"']+)["']/i);
@@ -248,7 +87,6 @@ function clubCandidates(html, base){
   return Array.from(out.values());
 }
 
-function hostOf(u){ try{ return new URL(u).hostname.replace(/^www\./,'').toLowerCase(); }catch(e){ return ''; } }
 
 /* Every external domain already present on the listing page is site chrome:
  * sponsors, the federation's own shop, the designer's credit, social links.
@@ -266,13 +104,21 @@ function chromeDomains(html, base){
   return set;
 }
 
-function outboundSite(html, base, chrome){
+/* Pick the club's own site off its directory page.
+ *
+ * `clubName` is required, and the returned link has to look like it belongs
+ * to that club. Taking the first outbound link instead handed clubs their
+ * federation's sponsors — and a shared sponsor domain merged separate clubs
+ * into one record, losing the rest. An empty string is the right answer far
+ * more often than a guess is. */
+function outboundSite(html, base, chrome, clubName){
   const origin = new URL(base).origin;
   const skip = /facebook|instagram|twitter|x\.com|youtube|linkedin|tiktok|whatsapp|google\.|maps\.|goo\.gl|wa\.me|t\.me|apple\.com|play\.google|wikipedia/i;
   for(const l of links(html, base)){
     if(l.url.startsWith(origin)) continue;
     if(skip.test(l.url)) continue;
     if(chrome && chrome.has(hostOf(l.url))) continue;
+    if(clubName && !plausibleSite(clubName, l.url)) continue;
     if(/^https?:\/\//i.test(l.url)) return l.url.split('#')[0];
   }
   return '';
@@ -364,10 +210,10 @@ async function harvestSite(website){
   catch(e){ return {emails:[], note:'bad url'}; }
 
   const home = await getPage(origin);
-  if(!home) return {emails:[], note:'unreachable'};
+  if(!home) return {emails:[], contact:'', note:'unreachable'};
 
   let emails = extractEmails(home, host);
-  if(emails.length) return {emails, note:'homepage'};
+  if(emails.length) return {emails, contact:extractContactName(home), note:'homepage'};
 
   const found = links(home, origin)
     .filter(l=>RE_CONTACT_LINK.test(l.url) || RE_CONTACT_LINK.test(l.text))
@@ -378,9 +224,13 @@ async function harvestSite(website){
     const html = await getPage(url);
     if(!html) continue;
     emails = extractEmails(html, host);
-    if(emails.length){ try{ return {emails, note:new URL(url).pathname}; }catch(e){ return {emails, note:'contact page'}; } }
+    if(emails.length){
+      const contact = extractContactName(html);
+      try{ return {emails, contact, note:new URL(url).pathname}; }
+      catch(e){ return {emails, contact, note:'contact page'}; }
+    }
   }
-  return {emails:[], note:'no email published'};
+  return {emails:[], contact:'', note:'no email published'};
 }
 
 async function pool(items, limit, fn){
@@ -406,7 +256,7 @@ async function phaseCrawl(db, deadline){
   let tried=0, found=0, stopped=false;
   await pool(todo, CFG.concurrency, async rec=>{
     if(stopped || Date.now() > deadline){ stopped = true; return; }
-    const {emails, note} = await harvestSite(rec.website);
+    const {emails, contact, note} = await harvestSite(rec.website);
     tried++;
     rec.attempts = (rec.attempts||0)+1;
     rec.crawlNote = note;
@@ -414,6 +264,7 @@ async function phaseCrawl(db, deadline){
     if(emails.length){
       rec.email = emails[0];
       rec.alt = emails.slice(1,4);
+      if(contact && !rec.contact) rec.contact = contact;
       rec.crawled = true;
       found++;
     } else if(note === 'no email published'){
@@ -435,11 +286,30 @@ async function phaseHarvest(db, queue, deadline){
 
   // least recently worked first, so directories advance evenly
   pending.sort((a,b)=>(a.lastRun||'').localeCompare(b.lastRun||''));
-  const seed = pending[0];
+
+  // Keep taking seeds until the page budget or the clock runs out. Doing one
+  // seed per tick sounded tidy and was hopeless in practice: a federation
+  // that lists one province per URL is fifty-two separate seeds, none of
+  // them paginated, so Spain alone would have taken fifty-two hours.
+  let pages = 0, added = 0, worked = [];
+  for(const seed of pending){
+    if(pages >= CFG.pagesPerTick || Date.now() >= deadline) break;
+    const r = await workSeed(seed, db, deadline, CFG.pagesPerTick - pages);
+    pages += r.pages;
+    added += r.added;
+    if(r.pages) worked.push(new URL(seed.url).hostname);
+  }
+
+  return {pages, added, source: Array.from(new Set(worked)).join(', ') || null};
+}
+
+/* Walk one directory for up to `budget` pages. */
+async function workSeed(seed, db, deadline, budget){
   const meta = COUNTRIES[seed.cc];
+  if(!meta){ seed.done = true; seed.note = 'unknown country '+seed.cc; return {pages:0, added:0}; }
   let pages=0, added=0;
 
-  while(seed.nextPage && pages < CFG.pagesPerTick && Date.now() < deadline){
+  while(seed.nextPage && pages < budget && Date.now() < deadline){
     const url = seed.nextPage;
     if(seed.seenPages.includes(url)){ seed.done = true; break; }
 
@@ -453,6 +323,14 @@ async function phaseHarvest(db, queue, deadline){
     const pageEmails = extractEmails(html, new URL(url).hostname);
     const chrome = chromeDomains(html, url);
 
+    // Addresses that belong to the directory rather than to any club: the
+    // federation office, the regional officer, the webmaster. They sit in
+    // the template, so they appear on every club's page too. Taking one
+    // would give all 180 clubs in a region the same address — and the
+    // export deduplicates on email, so 180 clubs would become one row.
+    const dirHost = new URL(url).hostname.replace(/^www\./,'');
+    const notClubEmail = e => e.endsWith('@'+dirHost) || pageEmails.includes(e);
+
     for(const c of clubCandidates(html, url)){
       if(Date.now() > deadline) break;
       const sports = detectSports(c.name);
@@ -462,8 +340,9 @@ async function phaseHarvest(db, queue, deadline){
       if(c.internal){
         const detail = await getPage(c.url);
         if(detail){
-          website = outboundSite(detail, c.url, chrome);
-          const f = extractEmails(detail, website ? new URL(website).hostname : '');
+          website = outboundSite(detail, c.url, chrome, c.name);
+          const f = extractEmails(detail, website ? new URL(website).hostname : '')
+                      .filter(e => !notClubEmail(e));
           if(f.length) email = f[0];
         }
       } else {
@@ -476,6 +355,15 @@ async function phaseHarvest(db, queue, deadline){
           if(m) email = m;
         }catch(e){}
       }
+      // The email's own domain is a better website than any link on the page,
+      // because it cannot be a sponsor's.
+      if(!website && email) website = siteFromEmail(email);
+
+      // Second pass at the private-club rule, now that the website and any
+      // email are known. The name check in clubCandidates cannot see either,
+      // so a council venue with a neutral name only shows itself here.
+      const verdict = privateClub({name:c.name, website, email});
+      if(!verdict.ok) continue;
 
       const rec = {name:c.name, cc:seed.cc, country:meta[0], lang:meta[1], sports,
                    website, email, contact:'', src:'harvest', srcPage:url,
@@ -494,7 +382,40 @@ async function phaseHarvest(db, queue, deadline){
   }
 
   seed.lastRun = new Date().toISOString();
-  return {pages, added, source:new URL(seed.url).hostname};
+  return {pages, added};
+}
+
+/* ------------------------------------------------------------------ *
+ * Work: pull one country from OpenStreetMap
+ * ------------------------------------------------------------------ *
+ * The seeds file can only cover countries that have a federation publishing
+ * a crawlable club list. Most of the ninety do not. This walks the country
+ * list instead, one per tick, and never repeats one until every other has
+ * had a turn.
+ */
+async function phaseOSM(db, deadline){
+  if(process.env.OSM === 'off') return {cc:null, added:0};
+  // Needs a few minutes of headroom; a country cut off halfway would be
+  // marked done and silently under-collected.
+  if(Date.now() > deadline - 4*60*1000) return {cc:null, added:0, skipped:'no time left'};
+
+  const cc = osm.nextCountry();
+  if(!cc) return {cc:null, added:0};
+
+  try{
+    const s = await osm.importCountry(cc, db, m=>log(m));
+    if(s.error){
+      log(`osm ${cc} failed: ${s.error}`);
+      osm.markDone(cc, {error:s.error});
+      return {cc, added:0, error:s.error};
+    }
+    osm.markDone(cc, {seen:s.seen, added:s.added, merged:s.merged, rejected:s.rejected,
+                      leads:s.leads, via:(s.endpoint||'').replace(/^https?:\/\//,'').split('/')[0]});
+    return {cc, added:s.added};
+  }catch(e){
+    log(`osm ${cc} threw: ${e.message}`);
+    return {cc, added:0, error:e.message};
+  }
 }
 
 /* ------------------------------------------------------------------ *
@@ -502,10 +423,67 @@ async function phaseHarvest(db, queue, deadline){
  * ------------------------------------------------------------------ */
 function csvCell(v){ const s=String(v==null?'':v); return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s; }
 function writeExport(db){
-  const rows = Object.values(db).filter(r=>r.email && r.sports && r.sports.length);
+  const rows = publishable(db);
   const lines = rows.map(r=>[r.name, r.sports.join('+'), r.contact||'', r.email, r.country].map(csvCell).join(','));
   fs.writeFileSync(CSV_FILE, lines.join('\n'));
   return rows.length;
+}
+
+/* The public view of a record. A club only counts once it has the four things
+ * that were asked for — name, sport, email, language — so anything short of
+ * that stays in the working store and out of the published file. */
+function publishable(db){
+  const rows = Object.values(db)
+    .filter(r => r.name && r.email && r.lang && r.sports && r.sports.length)
+    .map(r => ({name:r.name, sports:r.sports.slice(), contact:r.contact||'', email:String(r.email).toLowerCase(),
+                lang:r.lang, country:r.country, src:r.src, stale:!!r.stale}));
+
+  // One row per address. Records are keyed by website in the store, so the
+  // same club found through a federation list and through OSM sits under two
+  // keys until it has an email — after which both carry the same address and
+  // the export would show it twice.
+  const byEmail = new Map();
+  const shared  = new Map();
+  for(const r of rows){
+    const seen = byEmail.get(r.email);
+    if(!seen){ byEmail.set(r.email, r); shared.set(r.email, 1); continue; }
+    shared.set(r.email, shared.get(r.email)+1);
+    seen.sports  = Array.from(new Set(seen.sports.concat(r.sports)));
+    if(!seen.contact && r.contact) seen.contact = r.contact;
+    if(seen.name.length < r.name.length) seen.name = r.name;   // prefer the fuller name
+  }
+
+  // One address on a handful of clubs is a small chain. One address on
+  // dozens is a directory's own office address that leaked through, and
+  // publishing it would put a federation's inbox under some arbitrary club's
+  // name. Drop those and say so rather than shipping a wrong row.
+  for(const [email, n] of shared){
+    if(n > 5){
+      byEmail.delete(email);
+      log(`dropped ${email} — claimed by ${n} different clubs, so it belongs to a directory, not a club`);
+    }
+  }
+
+  return Array.from(byEmail.values())
+    .sort((a,b)=>a.country.localeCompare(b.country) || a.name.localeCompare(b.name));
+}
+
+/* clubs.json — the file the page reads, both on GitHub Pages and locally.
+ * Written every tick; publish.js is what pushes it. */
+function writeSiteJSON(db){
+  const clubs = publishable(db);
+  const byCountry = {}, bySport = {Tennis:0, Padel:0, Squash:0};
+  for(const c of clubs){
+    byCountry[c.country] = (byCountry[c.country]||0)+1;
+    for(const s of c.sports) if(s in bySport) bySport[s]++;
+  }
+  fs.writeFileSync(SITE_JSON, JSON.stringify({
+    generated: new Date().toISOString(),
+    count: clubs.length,
+    byCountry, bySport,
+    clubs
+  }, null, 1));
+  return clubs.length;
 }
 
 /* Write a self-contained copy of the database app with the current records
@@ -515,10 +493,7 @@ function writeExport(db){
  * one collection run. */
 function writeStandalone(db){
   if(!fs.existsSync(APP_FILE)) return 0;
-  const clubs = Object.values(db)
-    .filter(r => r.email && r.sports && r.sports.length)
-    .map(r => ({name:r.name, sports:r.sports, contact:r.contact||'', email:r.email,
-                lang:r.lang, country:r.country, src:r.src, stale:false}));
+  const clubs = publishable(db);
 
   let html = fs.readFileSync(APP_FILE, 'utf8');
   // strip any payload from a previous run so they never stack up
@@ -564,9 +539,15 @@ async function tick(){
     let h = {pages:0, added:0, source:null};
     if(Date.now() < deadline) h = await phaseHarvest(db, queue, deadline);
 
+    // One country from OpenStreetMap per tick. Slow on purpose — it is a free
+    // shared service — but it is what reaches the countries with no federation
+    // directory to walk, and over a day it works through the whole list.
+    const o = await phaseOSM(db, deadline);
+
     writeJSON(DB_FILE, db);
     writeJSON(QUEUE_FILE, queue);
     const total = writeExport(db);
+    writeSiteJSON(db);
     writeStandalone(db);
     publishIfConfigured();
 
@@ -574,6 +555,7 @@ async function tick(){
     const queued = Object.values(db).filter(r=>!r.email && r.website && (r.attempts||0)<CFG.maxAttempts).length;
     log(`tick done in ${mins}m — crawled ${c.tried} sites, +${c.found} emails` +
         (h.pages ? `; read ${h.pages} pages from ${h.source}, +${h.added} clubs` : '') +
+        (o.cc ? `; osm ${o.cc} +${o.added}` : '') +
         ` | ${total} emails total, ${queued} still queued`);
   }catch(e){
     log('tick failed: '+e.message);
@@ -608,14 +590,10 @@ function cmdServe(){
   http.createServer((req, res) => {
     const u = (req.url || '/').split('?')[0];
 
-    if(u === '/api/clubs.json'){
-      const db = readJSON(DB_FILE, {});
-      const clubs = Object.values(db)
-        .filter(r => r.email && r.sports && r.sports.length)
-        .map(r => ({name:r.name, sports:r.sports, contact:r.contact||'', email:r.email,
-                    lang:r.lang, country:r.country, src:r.src, stale:false}));
+    if(u === '/api/clubs.json' || u === '/clubs.json'){
+      const clubs = publishable(readJSON(DB_FILE, {}));
       res.writeHead(200, {'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});
-      return res.end(JSON.stringify({clubs, generated:new Date().toISOString()}));
+      return res.end(JSON.stringify({clubs, count:clubs.length, generated:new Date().toISOString()}));
     }
 
     if(u === '/' || u === '/index.html'){
