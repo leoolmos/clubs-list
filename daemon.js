@@ -47,7 +47,7 @@ const CFG = {
   maxAttempts:   3
 };
 
-const { COUNTRIES } = require('./lib/countries');
+const { COUNTRIES, ccFromHost, isWanted } = require('./lib/countries');
 const { detectSports, privateClub, extractEmails, extractContactName,
         plausibleSite, siteFromEmail, RE_PUBLIC, RE_CLUBWORD } = require('./lib/classify');
 const osm = require('./lib/osm');
@@ -183,10 +183,14 @@ function loadSeeds(){
     .map(l=>l.trim())
     .filter(l=>l && !l.startsWith('#'))
     .map(l=>{
-      const m = l.match(/^([A-Za-z]{2})\s+(https?:\/\/\S+)$/);
+      // AUTO for a directory that spans countries — an international squash
+      // index has clubs in thirty of them, and stamping one country on the
+      // lot would give most of the records the wrong country and the wrong
+      // language. With AUTO each club's country comes from its own domain.
+      const m = l.match(/^(AUTO|[A-Za-z]{2})\s+(https?:\/\/\S+)$/i);
       return m ? {cc:m[1].toUpperCase(), url:m[2]} : null;
     })
-    .filter(s=>s && COUNTRIES[s.cc]);
+    .filter(s=>s && (s.cc === 'AUTO' || COUNTRIES[s.cc]));
 }
 
 /* Merge seeds.txt into the persistent queue without losing bookmarks */
@@ -305,8 +309,9 @@ async function phaseHarvest(db, queue, deadline){
 
 /* Walk one directory for up to `budget` pages. */
 async function workSeed(seed, db, deadline, budget){
-  const meta = COUNTRIES[seed.cc];
-  if(!meta){ seed.done = true; seed.note = 'unknown country '+seed.cc; return {pages:0, added:0}; }
+  const auto = seed.cc === 'AUTO';
+  const meta = auto ? null : COUNTRIES[seed.cc];
+  if(!auto && !meta){ seed.done = true; seed.note = 'unknown country '+seed.cc; return {pages:0, added:0}; }
   let pages=0, added=0;
 
   while(seed.nextPage && pages < budget && Date.now() < deadline){
@@ -365,7 +370,17 @@ async function workSeed(seed, db, deadline, budget){
       const verdict = privateClub({name:c.name, website, email});
       if(!verdict.ok) continue;
 
-      const rec = {name:c.name, cc:seed.cc, country:meta[0], lang:meta[1], sports,
+      // An AUTO seed spans countries, so each club's own domain decides.
+      // A .com tells us nothing, and Language is a required field, so a
+      // club we cannot place is dropped rather than guessed at.
+      let cc = seed.cc, m = meta;
+      if(auto){
+        cc = ccFromHost(website) || ccFromHost(email.split('@')[1]||'');
+        if(!cc || !isWanted(cc)) continue;
+        m = COUNTRIES[cc];
+      }
+
+      const rec = {name:c.name, cc, country:m[0], lang:m[1], sports,
                    website, email, contact:'', src:'harvest', srcPage:url,
                    crawled: !!email, attempts:0};
       const k = keyFor(rec);

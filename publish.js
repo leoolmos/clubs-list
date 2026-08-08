@@ -92,6 +92,57 @@ function setup(){
   console.log(`  After that the daemon pushes on its own, once an hour.\n`);
 }
 
+/**
+ * Someone else moved the branch on. Almost always that is a code change
+ * pushed from elsewhere while the collector was mid-round.
+ *
+ * The only commits this script ever makes are "clubs: N" over the generated
+ * files, and the copy on disk is by definition the newest, so the fix is to
+ * take the remote's history and put the fresh data back on top. A merge or
+ * a rebase would stop on a clubs.json conflict every single time.
+ *
+ * It refuses when the local branch has commits touching anything else — that
+ * is someone's real work, and discarding it to publish a club list would be
+ * an appalling trade.
+ */
+function rebaseOntoRemote(cfg, say){
+  git(['fetch','origin', cfg.branch]);
+
+  let changed = [];
+  try{
+    changed = git(['diff','--name-only', `origin/${cfg.branch}...HEAD`])
+                .split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+  }catch(e){ return false; }
+
+  const mine = changed.filter(f => !TRACKED.includes(f));
+  if(mine.length){
+    say(`  Not publishing: the branch has local commits touching ${mine.slice(0,3).join(', ')}` +
+        `${mine.length>3?' and more':''}. Push or drop those first.`);
+    return false;
+  }
+
+  // Keep the freshly generated files, take the remote's history
+  const keep = new Map();
+  for(const f of TRACKED){
+    const p = path.join(ROOT, f);
+    if(fs.existsSync(p)) keep.set(f, fs.readFileSync(p));
+  }
+
+  git(['reset','--hard', `origin/${cfg.branch}`]);
+  for(const [f, buf] of keep) fs.writeFileSync(path.join(ROOT, f), buf);
+
+  git(['add','--'].concat(Array.from(keep.keys())));
+  let diff = '';
+  try{ diff = git(['diff','--cached','--name-only']); }catch(e){}
+  if(!diff) return false;                       // remote already had this data
+
+  let n = 0;
+  try{ n = JSON.parse(fs.readFileSync(SITE_JSON,'utf8')).count || 0; }catch(e){}
+  git(['commit','-m',`clubs: ${n}`]);
+  say(`  (took the remote's newer code and republished on top of it)`);
+  return true;
+}
+
 /* ------------------------------------------------------------------ *
  * publish
  * ------------------------------------------------------------------ */
@@ -143,7 +194,14 @@ function publish(quiet){
     // running from a worktree on some other branch; pushing "main" there
     // would push the local main ref, which has none of these commits, and
     // report success while the published page never changed.
-    git(['push','origin', 'HEAD:'+cfg.branch]);
+    try{
+      git(['push','origin', 'HEAD:'+cfg.branch]);
+    }catch(e){
+      const out = String(e.stdout||'') + String(e.stderr||'');
+      if(!/rejected|non-fast-forward|behind|fetch first/i.test(out)) throw e;
+      if(!rebaseOntoRemote(cfg, say)) throw e;
+      git(['push','origin', 'HEAD:'+cfg.branch]);
+    }
   }catch(e){
     const out = (String(e.stdout||'') + String(e.stderr||'')).trim();
     if(!quiet){
