@@ -550,10 +550,18 @@ async function tick(){
     // Emails first: it is the point of the whole thing, and the queue of
     // uncrawled sites is what actually converts into records.
     const c = await phaseCrawl(db, deadline);
+    writeJSON(DB_FILE, db);
 
     // Then extend the frontier if there is time left
     let h = {pages:0, added:0, source:null};
     if(Date.now() < deadline) h = await phaseHarvest(db, queue, deadline);
+
+    // Save between phases, not only at the end. A round that hangs in a
+    // later phase used to throw away everything the earlier ones collected:
+    // one round spent half an hour crawling, stalled waiting on Overpass,
+    // and was killed with all of it still only in memory.
+    writeJSON(DB_FILE, db);
+    writeJSON(QUEUE_FILE, queue);
 
     // One country from OpenStreetMap per tick. Slow on purpose — it is a free
     // shared service — but it is what reaches the countries with no federation
