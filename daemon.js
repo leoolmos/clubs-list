@@ -425,7 +425,8 @@ async function phaseOSM(db, deadline){
       return {cc, added:0, error:s.error};
     }
     osm.markDone(cc, {seen:s.seen, added:s.added, merged:s.merged, rejected:s.rejected,
-                      leads:s.leads, via:(s.endpoint||'').replace(/^https?:\/\//,'').split('/')[0]});
+                      leads:s.leads, partial:s.partial||null,
+                      via:(s.endpoint||'').replace(/^https?:\/\//,'').split('/')[0]});
     return {cc, added:s.added};
   }catch(e){
     log(`osm ${cc} threw: ${e.message}`);

@@ -31,6 +31,10 @@ const { getPage, links, sleep } = require('./lib/http');
 const { detectSports, privateClub, extractEmails } = require('./lib/classify');
 const { COUNTRIES, isWanted } = require('./lib/countries');
 
+/* 1.2s of spacing got better than half the pages refused. Curlie is run by
+ * volunteers on donated hosting; 3s is the polite rate that actually works. */
+const HOST_DELAY = parseInt(process.env.HOST_DELAY_MS || '3000', 10);
+
 const ROOT     = __dirname;
 const DATA_DIR = path.join(ROOT, 'data');
 const SEEN_LOG = path.join(DATA_DIR, 'discovered.log');
@@ -146,7 +150,7 @@ async function main(){
   const queue = ROOTS.slice();
   const found = [];
   const already = seedsText();
-  let opened = 0, skipped = 0;
+  let opened = 0, skipped = 0, misses = 0;
 
   console.log(`\n  walking Curlie for club directories (up to ${max} pages)\n`);
 
@@ -154,25 +158,41 @@ async function main(){
     const url = queue.shift().replace(/\/$/,'');
     if(seen.has(url)){ skipped++; continue; }
 
-    const html = await getPage(url, 1500);
+    const html = await getPage(url, HOST_DELAY);
     opened++;
-    if(!html){ note('DEAD', url); seen.set(url,'DEAD'); continue; }
+    if(!html){
+      // Almost always throttling rather than a dead page: a burst of these
+      // appeared exactly when the walk sped up. Recorded as RETRY, and a
+      // later run tries it again — logging DEAD wrote off 122 pages, more
+      // than half the walk, and none of them would ever be looked at again.
+      note('RETRY', url);
+      misses++;
+      if(misses >= 5){
+        console.log(`  (being throttled - backing off for a minute)`);
+        await sleep(60000);
+        misses = 0;
+      }
+      continue;
+    }
+    misses = 0;
 
-    const {clubs, subcats, emails} = judge(html, url);
-    const cc = ccFromPath(url);
+    const {clubs, subcats} = judge(html, url);
+    const cc = ccFromPath(url) || 'AUTO';
 
-    // Worth seeding: enough outbound club links to be a real list, and a
-    // country we were asked for. Without a country code the record would
-    // have no Language, which is a required field, so it is no use.
-    if(clubs >= 5 && cc){
+    // A country in the path is better, but its absence is not a reason to
+    // throw the page away: an international index is exactly what AUTO is
+    // for, and each club's country then comes from its own domain. Judging
+    // these as unusable discarded the richest page in the whole walk, the
+    // 78-club squash index.
+    if(clubs >= 5){
       note('SEED', url);
       seen.set(url,'SEED');
       if(!already.includes(url)){
         found.push({cc, url, clubs});
-        console.log(`  + ${String(clubs).padStart(3)} clubs  ${cc}  ${url}`);
+        console.log(`  + ${String(clubs).padStart(3)} clubs  ${cc.padEnd(4)}  ${url}`);
       }
     } else {
-      note(clubs >= 5 ? 'NOCC' : 'THIN', url);
+      note('THIN', url);
       seen.set(url, 'THIN');
     }
 
@@ -183,7 +203,7 @@ async function main(){
     }
 
     if(opened % 20 === 0) process.stdout.write(`  ...${opened} pages opened, ${found.length} seeds found\n`);
-    await sleep(1200);          // Curlie is a volunteer-run service
+    await sleep(HOST_DELAY);     // Curlie is a volunteer-run service
   }
 
   console.log(`\n  opened ${opened} pages, skipped ${skipped} already known`);

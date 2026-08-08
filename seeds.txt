@@ -1,22 +1,39 @@
 # Seed directories — one per line:   COUNTRYCODE  URL
 #
-# Drop this file next to daemon.js and run:  node daemon.js
+# Run:  node daemon.js        (or let the hourly Scheduled Task do it)
 # Lines starting with # are ignored.
 #
-# Everything in the ACTIVE section below was opened and checked. Each one is
-# a real listing page that the daemon can walk. Nothing here is guessed.
+# COUNTRYCODE is an ISO code, or AUTO for a directory that spans countries.
+# With AUTO each club's country is taken from its own domain, and a club on
+# a .com — which says nothing about where it is — is skipped rather than
+# filed under a guess. Language is a required field, so a guess is worse
+# than an omission.
+#
+# Before adding anything here, check it:
+#
+#     node check.js <url> [COUNTRY] --detail
+#
+# That fetches the page the way the daemon does — same character sets, same
+# robots.txt rules — and prints how many club links and emails are actually
+# in the HTML. A directory that looks rich in a browser is often empty to a
+# crawler because the list is drawn by JavaScript. Every check is recorded
+# in data/checked.log, so nothing is investigated twice.
 #
 # ===========================================================================
 # ACTIVE
 # ===========================================================================
 #
 # --- SPAIN: Royal Spanish Tennis Federation (RFET) -------------------------
-# Verified. club.html?Pro=N is one province per number, 1 to 52. Each entry
-# links to a club page that prints the club's email directly, so these
-# convert almost one-for-one without ever leaving the federation's site.
-# Checked Pro=4 (Almería): 19 clubs listed, emails present on the detail pages.
-# The exact province-to-number mapping doesn't matter — enumerating 1..52
-# covers all of them regardless of order.
+# Verified and productive. club.html?Pro=N is one province per number, 1 to
+# 52. Each entry links to a club page that prints the club's email directly,
+# so these convert almost one-for-one without leaving the federation's site.
+#
+# Measured: 45 of the 52 pages read in one 14-minute round produced 366
+# clubs, 330 of them with an email — a 90% conversion, the best rate of any
+# source tried.
+#
+# Note the pages are windows-1252, not utf8. The fetcher reads the declared
+# character set now; before that every accented club name was stored broken.
 
 ES  https://www.rfet.es/es/club.html?Pro=1
 ES  https://www.rfet.es/es/club.html?Pro=2
@@ -71,15 +88,35 @@ ES  https://www.rfet.es/es/club.html?Pro=50
 ES  https://www.rfet.es/es/club.html?Pro=51
 ES  https://www.rfet.es/es/club.html?Pro=52
 
-# --- UK & IRELAND: Racketeer club-link directory ---------------------------
-# Verified. A hand-built index of tennis club websites across the UK and
-# Republic of Ireland, split by nation. It links straight out to each club's
-# own site, which is exactly what the crawler wants.
+# --- IRELAND: Tennis Munster, by county ------------------------------------
+# Verified: 21 to 23 clubs per county page, each linking to a club page on
+# the same site that carries the club's own address —
+# ballinlough.tennis@gmail.com and so on.
 #
-# CAVEAT, and it matters: the site's own footer says it was last edited in
-# February 2019. Expect a meaningful share of dead links. Clubs outlive their
-# webmasters though, so many domains still resolve. Treat the yield here as
-# a bonus rather than a plan, and check what comes back.
+# The catch, and it is the reason the email rules exist: these pages also
+# print admin@munstertennis.ie and the regional officer's address in the
+# template, on every single club page. Taking the first email found would
+# have given all 180-odd Irish clubs the same address, and since the export
+# is deduplicated by email they would have collapsed into one row. Addresses
+# on the directory's own domain, and any address that appears on the listing
+# page itself, are now excluded from a club's record.
+
+IE  https://www.munstertennis.ie/county-clare-clubs.html
+IE  https://www.munstertennis.ie/county-cork-clubs.html
+IE  https://www.munstertennis.ie/county-kerry-clubs.html
+IE  https://www.munstertennis.ie/county-limerick-clubs.html
+IE  https://www.munstertennis.ie/county-tipperary-clubs.html
+IE  https://www.munstertennis.ie/county-waterford-clubs.html
+
+# --- UK & IRELAND: Racketeer club-link directory ---------------------------
+# Verified. A hand-built index of tennis club websites across the UK and the
+# Republic of Ireland, split by nation, linking straight out to each club's
+# own site — which is exactly what the crawler wants.
+#
+# CAVEAT: the site's own footer says it was last edited in February 2019, so
+# expect a meaningful share of dead links. Clubs outlive their webmasters,
+# though, and many of the domains still resolve. Treat the yield as a bonus
+# rather than a plan.
 
 GB  http://www.racketeer.free-online.co.uk/England.html
 GB  http://www.racketeer.free-online.co.uk/Scotland.html
@@ -87,72 +124,109 @@ GB  http://www.racketeer.free-online.co.uk/Wales.html
 GB  http://www.racketeer.free-online.co.uk/Islands.html
 IE  http://www.racketeer.free-online.co.uk/Ireland.html
 
-# --- UK: Curlie open directory, tennis clubs -------------------------------
-# Found in search as a maintained category of UK tennis club sites. Smaller
-# than Racketeer but independently curated, so the overlap is partial.
+# --- UK: London squash and tennis clubs, 020.co.uk -------------------------
+# Verified: 10 clubs on the London squash page, each entry carrying the
+# club's own URL. Small, but it is current and it is readable.
 
-GB  https://curlie.org/en/Regional/Europe/United_Kingdom/Recreation_and_Sports/Sports/Tennis/Organisations/Clubs
+GB  https://www.020.co.uk/s/squash/london.shtml
 
 
 # ===========================================================================
 # CHECKED AND REJECTED — do not add these back
 # ===========================================================================
 #
+# Curlie open directory (curlie.org)
+#   Looked like the best find of the lot: a curated regional tree of tennis
+#   and squash club listings, and its squash index alone holds 78 links
+#   straight to club websites. It cannot be used.
+#   - robots.txt asks for "Crawl-delay: 1000". Read literally that is one
+#     page every seventeen minutes, so a 600-page walk would take a week.
+#   - After a couple of hundred requests the site starts answering 200 OK
+#     with a zero-byte body. Not an error, not a 429 — just nothing. A
+#     crawler reads that as "this page has no clubs on it" and moves on,
+#     which is how a first walk recorded 122 of 220 pages as dead.
+#   The site also sends no Content-Type header at all, which is worth
+#   knowing: the fetcher used to require one and threw away every page.
+#   discover.js still exists and works, but there is no polite way to run it
+#   against Curlie at any useful rate.
+#
 # Playtomic directory (directory.playtomic.io)
-#   The obvious first choice, and it covers padel across Spain, Portugal and
-#   Latin America. But its robots.txt disallows automated access. The daemon
+#   The obvious first choice for padel — Spain, Portugal and Latin America
+#   in one place. robots.txt disallows automated access, and the daemon
 #   honours robots.txt, so it would fetch nothing. Left out deliberately.
-#   If you want that data, their clubs are reachable by hand or by asking
-#   Playtomic for a partnership feed.
+#
+# Tennis Australia club finder (tennis.com.au/.../clubs)
+#   Returns nothing to a plain request. The club list is drawn by
+#   JavaScript, so it is not in the HTML at all.
+#
+# England Squash finder (englandsquash.com/finder)
+#   Same: nothing in the HTML. Over 700 clubs behind a JavaScript search.
+#   Worth revisiting by finding the JSON endpoint the page calls, which the
+#   daemon could then read directly.
 #
 # Portuguese Tennis Federation (tenis.pt / fptenis.pt)
-#   Portugal has around 300 affiliated clubs across 13 regional associations,
-#   but I could not find a single crawlable listing page. The club data sits
-#   behind the TieSports platform. The 13 regional associations each publish
-#   their own club lists — those are the pages worth finding.
+#   Around 300 affiliated clubs across 13 regional associations, but no
+#   crawlable listing page — the club data sits behind the TieSports
+#   platform. The 13 regional associations publish their own lists; those
+#   are the pages worth finding.
+#
+# Federação Portuguesa de Padel (fppadel.pt)
+#   Club data is on tiepadel.com behind a federated-member area.
+#
+# Cheshire Squash find-a-court
+#   Only 7 outbound club links, and several point at web.archive.org
+#   snapshots rather than the clubs.
+#
+# US Court Tennis Association international list
+#   40 emails on one page, which is tempting, but the names are not linked,
+#   so there is nothing for the crawler to pair an address with. It is also
+#   real tennis rather than the three sports asked for.
 #
 # Scraper resale sites (rentechdigital and similar)
-#   These do list clubs with emails, but the addresses are masked on the
-#   public page and only unlocked on payment. Nothing for a crawler to read.
+#   They do list clubs with emails, but the addresses are masked on the
+#   public page and only unlocked on payment. Nothing to read.
 
 
 # ===========================================================================
-# TO EXTEND — searches that find the next batch
+# WHERE THE REST COMES FROM
 # ===========================================================================
 #
-# Add a line whenever you find a page that lists many clubs. The pattern that
-# works: a federation or association index, one page per region, each entry
-# linking to a club. That is the shape the daemon walks best.
+# Federation directories only exist where there is a federation with a
+# crawlable website. That covers Spain, the UK, Ireland and a handful of
+# others, and leaves most of the eighty-three countries in the brief with
+# nothing at all — there is no Tuvalu tennis directory to walk.
 #
-# Spain, beyond the national body — the 17 regional federations list more
-# clubs than RFET does, and they cover padel, which RFET does not:
-#   "federación de padel" + <region> + clubes
-#   federació catalana de tennis clubs
-#   federación andaluza de padel clubes
+# OpenStreetMap fills that gap, and it is where the breadth comes from:
 #
-# Portugal — the 13 regional tennis associations:
-#   "associação de ténis de" <district> clubes filiados
-#   federação portuguesa padel clubes
+#     node lib/osm.js --all        every country, in priority order
+#     node lib/osm.js --status     what has been imported
 #
-# Argentina, Mexico, Chile, Colombia, Peru, Uruguay:
-#   "asociación de padel" <country> clubes afiliados
-#   federación de tenis <country> clubes
+# It keeps the places that publish a website or an email; the rest are
+# recorded in data/osm-leads.json as named clubs with no contact yet, so
+# they are not rediscovered on every run.
 #
-# Brazil:
-#   "federação de tênis" <state> clubes filiados
-#   confederação brasileira de tênis clubes
+# The daemon also does one country per round on its own, so coverage
+# advances without anyone asking.
 #
-# Squash, which is thin in all the above — go at it by federation:
-#   england squash club finder
-#   squash <country> federation club list
+# Searches that find more of the crawlable kind, if you want to add seeds:
 #
-# UK and Ireland, current rather than 2019:
-#   lta venue finder / tennis ireland affiliated clubs
-#   <county> tennis league clubs contacts
+#   Spain, beyond the national body — the 17 regional federations list more
+#   clubs than RFET does, and they cover padel, which RFET does not:
+#     "federación de padel" <region> clubes
+#     federació catalana de tennis clubs
 #
-# Australia, New Zealand, South Africa, India:
-#   tennis <state> affiliated clubs list
-#   squash <state> clubs directory
+#   Portugal — the 13 regional tennis associations:
+#     "associação de ténis de" <district> clubes filiados
+#
+#   Latin America:
+#     "asociación de padel" <country> clubes afiliados
+#     federación de tenis <country> clubes
+#
+#   Brazil:
+#     "federação de tênis" <state> clubes filiados
+#
+#   Squash, thin everywhere — go at it federation by federation:
+#     squash <country> federation club list
 #
 # League and competition sites are underrated. A divisional fixture list is
 # a list of clubs with a secretary's email printed beside each one.
