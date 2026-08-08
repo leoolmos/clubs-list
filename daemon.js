@@ -44,7 +44,15 @@ const CFG = {
   concurrency:   parseInt(process.env.CONCURRENCY    || '8',  10),
   hostDelayMs:   parseInt(process.env.HOST_DELAY_MS  || '2000',10), // per host
   pagesPerTick:  parseInt(process.env.PAGES_PER_TICK || '25', 10),
-  osmMinutes:    parseInt(process.env.OSM_MINUTES     || '8',  10),  // slice of the round
+  osmMinutes:    parseInt(process.env.OSM_MINUTES    || '8',  10),  // slice of the round
+  osmCountries:  parseInt(process.env.OSM_COUNTRIES  || '12', 10),  // countries per round
+  // Two of the three Overpass mirrors publish no concurrency limit and the
+  // third allows two per IP (see lib/osm.js). Six in flight spreads across
+  // all three without queueing on the limited one. The ceiling is their
+  // donated hardware, not this machine, so raising it a lot buys refusals
+  // rather than speed.
+  osmParallel:   parseInt(process.env.OSM_PARALLEL   || '6',  10),
+  restSeconds:   parseInt(process.env.REST_SECONDS   || '20', 10),  // gap between rounds
   maxAttempts:   3
 };
 
@@ -422,23 +430,17 @@ async function phaseOSM(db, deadline){
   // crawled eight sites, leaving 207 clubs sitting in the queue.
   const osmDeadline = Math.min(deadline, Date.now() + CFG.osmMinutes*60*1000);
 
-  const cc = osm.nextCountry();
-  if(!cc) return {cc:null, added:0};
+  const codes = osm.nextCountries(CFG.osmCountries);
+  if(!codes.length) return {cc:null, added:0};
 
   try{
-    const s = await osm.importCountry(cc, db, m=>log(m), osmDeadline);
-    if(s.error){
-      log(`osm ${cc} failed: ${s.error}`);
-      osm.markDone(cc, {error:s.error});
-      return {cc, added:0, error:s.error};
-    }
-    osm.markDone(cc, {seen:s.seen, added:s.added, merged:s.merged, rejected:s.rejected,
-                      leads:s.leads, partial:s.partial||null,
-                      via:(s.endpoint||'').replace(/^https?:\/\//,'').split('/')[0]});
-    return {cc, added:s.added};
+    const results = await osm.importMany(codes, db, m=>log(m), osmDeadline, CFG.osmParallel);
+    const ok = results.filter(r=>!r.error);
+    const added = ok.reduce((n,r)=>n+(r.added||0), 0);
+    return {cc: codes.join(','), added, countries: ok.length, failed: results.length-ok.length};
   }catch(e){
-    log(`osm ${cc} threw: ${e.message}`);
-    return {cc, added:0, error:e.message};
+    log(`osm threw: ${e.message}`);
+    return {cc: codes.join(','), added:0, error:e.message};
   }
 }
 
@@ -587,7 +589,8 @@ async function tick(){
     const queued = Object.values(db).filter(r=>!r.email && r.website && (r.attempts||0)<CFG.maxAttempts).length;
     log(`tick done in ${mins}m — crawled ${c.tried} sites, +${c.found} emails` +
         (h.pages ? `; read ${h.pages} pages from ${h.source}, +${h.added} clubs` : '') +
-        (o.cc ? `; osm ${o.cc} +${o.added}` : '') +
+        (o.cc ? `; osm ${o.countries||0} countries (${o.cc}) +${o.added}` +
+                (o.failed ? `, ${o.failed} failed` : '') : '') +
         ` | ${total} emails total, ${queued} still queued`);
   }catch(e){
     log('tick failed: '+e.message);
@@ -756,42 +759,60 @@ crontab -e   then add:
     console.log(`
 Racket club email collector — background daemon
 
-  node daemon.js            run continuously, one batch every ${CFG.tickMinutes} minutes
+  node daemon.js            run continuously, rounds back to back
   node daemon.js serve      same, plus a live dashboard at http://localhost:8787
-  node daemon.js once       single batch then exit (use with cron or launchd)
+  node daemon.js once       single round then exit
   node daemon.js status     what has been collected
   node daemon.js seeds      directory progress
-  node daemon.js install    scheduler config for this machine
 
 First run creates seeds.txt. Put your directory URLs in there.
 
-Keep racket-club-database.html in this folder and every run rewrites
-data/clubs-database.html with the latest records baked in. Open that file
-whenever you like — it always shows the full current list, offline.
+Each round crawls the clubs that have a website but no email yet, advances
+the seed directories, then imports ${CFG.osmCountries} countries from
+OpenStreetMap, and publishes. Then it starts again.
 
 Tuning, all optional:
-  TICK_MINUTES=60  BUDGET_MINUTES=20  CONCURRENCY=8  HOST_DELAY_MS=2000
+  BUDGET_MINUTES=20     how long a round may work
+  REST_SECONDS=20       gap between rounds
+  CONCURRENCY=8         sites crawled at once
+  HOST_DELAY_MS=2000    spacing per host
+  PAGES_PER_TICK=25     directory pages per round
+  OSM_MINUTES=8         slice of the round given to OpenStreetMap
+  OSM_COUNTRIES=6       countries per round
+  OSM_PARALLEL=4        countries in flight at once. Overpass limits by IP
+                        and there are three mirrors; past about six the extra
+                        ones only collect refusals. Higher is not faster.
+  OSM=off               skip the OpenStreetMap step entirely
 `);
     return;
   }
 
   ensureDirs();
   syncQueue();
-  log(`daemon started — batch every ${CFG.tickMinutes}m, up to ${CFG.budgetMinutes}m of work each, concurrency ${CFG.concurrency}`);
+  log(`daemon started — continuous, ${CFG.budgetMinutes}m per round, ${CFG.restSeconds}s between rounds`);
+  log(`crawl concurrency ${CFG.concurrency}, osm ${CFG.osmCountries} countries per round ${CFG.osmParallel} at a time`);
   log(`seeds: ${SEEDS_FILE}`);
-  log(`open this any time: ${STANDALONE_FILE}`);
-  if(!fs.existsSync(APP_FILE)) log(`note: racket-club-database.html is not in this folder, so no page will be generated`);
+  if(!fs.existsSync(APP_FILE)) log(`note: index.html is not in this folder, so no page will be generated`);
 
   let stopping = false;
   const stop = () => {
     if(stopping) process.exit(0);
     stopping = true;
-    log('stopping after the current batch — press Ctrl-C again to force');
-    setTimeout(()=>process.exit(0), 500);
+    log('stopping after the current round — press Ctrl-C again to force');
   };
   process.on('SIGINT', stop);
   process.on('SIGTERM', stop);
 
-  await tick();
-  setInterval(tick, CFG.tickMinutes*60*1000);
+  // Rounds back to back, not on a clock. A fixed hourly interval left the
+  // machine idle for most of the hour while there were still hundreds of
+  // sites queued for an email.
+  let round = 0;
+  while(!stopping){
+    round++;
+    await tick();
+    if(stopping) break;
+    await sleep(CFG.restSeconds * 1000);
+  }
+  log(`stopped after ${round} round${round===1?'':'s'}`);
+  process.exit(0);
 })();

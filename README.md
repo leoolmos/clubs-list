@@ -29,19 +29,25 @@ Every round resumes where the last one stopped. Directory pagination is
 bookmarked, crawled sites are marked, failures back off for a day and then
 retry, and nothing is fetched twice.
 
-### Once an hour, by itself
+### Continuously, in the background
 
 ```bash
-powershell -ExecutionPolicy Bypass -File install-windows.ps1
+powershell -ExecutionPolicy Bypass -File start-collector.ps1
+powershell -ExecutionPolicy Bypass -File start-collector.ps1 -Status
+powershell -ExecutionPolicy Bypass -File start-collector.ps1 -Stop
 ```
 
-Registers a Windows Scheduled Task that runs one round an hour and pushes
-the result. `-Remove` takes it away again. It refuses to install into a git
-worktree, because those get pruned and the task would then fail silently
-once an hour forever.
+One detached process working rounds back to back, pushing after each. It
+survives closing the window; it stops at logout or reboot, so start it
+again then. Only one may run at a time — two would fight over the same
+files and the same git branch.
 
-Watch it: `Get-ScheduledTaskInfo -TaskName RacketClubCollector`
-Log: `data/daemon.log`
+Log: `data/daemon.log`. Follow it with
+`Get-Content data\daemon.log -Wait -Tail 5`.
+
+`install-windows.ps1` still exists for an hourly Scheduled Task instead,
+but back-to-back rounds collect far more: an hourly job sat idle for most
+of the hour while hundreds of sites were still queued for an email.
 
 ```bash
 node publish.js status       # where it publishes, and when it last did
@@ -75,10 +81,25 @@ OSM covers all of them, through the public Overpass endpoint — read-only,
 no key, no account.
 
 ```bash
-node lib/osm.js --all        # every country, priority order
-node lib/osm.js --status     # what has been imported
-node lib/osm.js ES PT BR     # named countries
+node lib/osm.js --all --parallel=6   # every country, several at a time
+node lib/osm.js --status             # what has been imported
+node lib/osm.js ES PT BR             # named countries
 ```
+
+**Overpass is the bottleneck, and more parallelism does not fix it.** The
+mirrors publish their limits at `/api/status` — measured 2026-08-08,
+`overpass-api.de` allows two queries at a time per IP, while
+`kumi.systems` and `private.coffee` declare no limit. So six in flight
+spreads across all three without queueing. Beyond that the extra workers
+collect refusals.
+
+They also have bad afternoons. A country-wide query that returned in
+seconds in the morning came back `504`, or `200` with a "Query timed out"
+remark, a few hours later — for Malta, which has six racket venues in the
+whole database. When that happens the importer gives up after a run of
+consecutive failures and hands the rest of the round to the crawler, which
+does not depend on Overpass and is where the emails actually come from.
+The countries stay unimported and are retried next round.
 
 It keeps places that publish a website or an email. Named clubs with
 neither go to `data/osm-leads.json` rather than being discarded, so they
