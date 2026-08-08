@@ -53,6 +53,20 @@ body{
 .st-line{margin:3px 0}
 .st-note{opacity:.72}
 .st-warn{color:#a33}
+/* ---- tabs and activity ---- */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--rule);margin:22px 0 0}
+.tab{
+  background:none;border:0;border-bottom:2px solid transparent;
+  padding:9px 16px;cursor:pointer;font:inherit;font-size:13px;
+  letter-spacing:.02em;opacity:.6;color:inherit;
+}
+.tab.on{opacity:1;font-weight:700;border-bottom-color:var(--line)}
+.act{width:100%;border-collapse:collapse;font-size:12.5px}
+.act td{padding:6px 10px 6px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.act .act-t{white-space:nowrap;opacity:.55;font-family:"IBM Plex Mono",monospace;font-size:11px;width:74px}
+.act .act-k{white-space:nowrap;opacity:.75;font-family:"IBM Plex Mono",monospace;font-size:11px;width:58px}
+.act-no td{opacity:.62}
+.act-ok .act-k{color:#1a8f3c;font-weight:600}
 .st-log{margin-top:8px}
 .st-log summary{cursor:pointer;opacity:.75;font-family:"IBM Plex Mono",monospace;font-size:11.5px}
 .st-log pre{
@@ -259,8 +273,29 @@ footer a{color:var(--grass)}
 
 <div class="courtline"></div>
 
+<div class="tabs">
+  <button class="tab on" id="tabClubs">Clubs</button>
+  <button class="tab" id="tabLog">What it is doing</button>
+</div>
+
+<!-- ============ ACTIVITY ============ -->
+<section id="panelLog" style="display:none">
+  <div class="sec-head">
+    <h2>What it is doing</h2>
+    <p class="sec-note">Every club searched for, every site opened, and whether an address came out of it. Newest first.</p>
+  </div>
+  <div class="controls">
+    <button class="chip act-f on" data-act="all">All</button>
+    <button class="chip act-f" data-act="found">Found an address</button>
+    <button class="chip act-f" data-act="search">Web searches</button>
+    <button class="chip act-f" data-act="crawl">Site reads</button>
+    <span class="meta" id="actCount"></span>
+  </div>
+  <div id="actBody"></div>
+</section>
+
 <!-- ============ DATABASE ============ -->
-<section>
+<section id="panelClubs">
   <div class="sec-head">
     <h2>Clubs</h2>
     <p class="sec-note">Search by club name, contact or email. Sport filters stack — pick two to see clubs offering both.</p>
@@ -584,19 +619,66 @@ function renderStatus(){
               ". Those countries stay unimported and are retried each round.</div>");
   }
 
-  if(s.leads) bits.push("<div class='st-line'>" + s.leads + " clubs known by name with no contact published anywhere yet</div>");
+  if(s.leads && s.leads.total){
+    bits.push("<div class='st-line'><b>Clubs known only by name: " + s.leads.total + "</b> &mdash; " +
+      s.leads.searched + " searched for on the web, " + s.leads.left + " still to search</div>");
+  }
 
   if(s.crawlReasons && s.crawlReasons.length){
     bits.push("<div class='st-line meta'>Where addresses came from, or did not: " +
       s.crawlReasons.map(function(r){ return esc(r.note) + " " + r.n; }).join(" &middot; ") + "</div>");
   }
 
-  if(s.recent && s.recent.length){
-    bits.push("<details class='st-log'><summary>Collector log, last " + s.recent.length + " lines</summary><pre>" +
-              esc(s.recent.join("\n")) + "</pre></details>");
+  el.innerHTML = bits.join("");
+}
+
+/* ------------------------------------------------------------------
+   ACTIVITY TAB
+   Round totals say "crawled 168 sites, +92 emails", which is a score, not
+   an account of what was done. This is the trail: each club searched for,
+   each site opened, each address found or not found.
+------------------------------------------------------------------ */
+var actFilter = "all";
+
+function renderActivity(){
+  var wrap = document.getElementById("actBody");
+  if(!wrap) return;
+
+  var rows = (STATUS && STATUS.activity) || [];
+  if(actFilter === "found")  rows = rows.filter(function(r){ return r.ok; });
+  if(actFilter === "search") rows = rows.filter(function(r){ return r.kind === "search"; });
+  if(actFilter === "crawl")  rows = rows.filter(function(r){ return r.kind === "crawl"; });
+
+  document.getElementById("actCount").textContent =
+    rows.length ? rows.length + " entries" : "nothing recorded yet";
+
+  if(!rows.length){
+    wrap.innerHTML = "<p class='meta' style='padding:14px 0'>" +
+      (STATUS ? "The collector has not logged anything since it last started. Give it a round."
+              : "No status file published yet.") + "</p>";
+    return;
   }
 
-  el.innerHTML = bits.join("");
+  var out = "";
+  rows.forEach(function(r){
+    var when = "";
+    try{ when = new Date(r.t).toLocaleTimeString(); }catch(e){ when = String(r.t).slice(11,19); }
+    out += "<tr class='" + (r.ok ? "act-ok" : "act-no") + "'>"
+        +  "<td class='act-t'>" + esc(when) + "</td>"
+        +  "<td class='act-k'>" + esc(r.kind) + "</td>"
+        +  "<td>" + esc(r.text) + "</td>"
+        +  "</tr>";
+  });
+  wrap.innerHTML = "<table class='act'><tbody>" + out + "</tbody></table>";
+}
+
+function showTab(which){
+  var isLog = which === "log";
+  document.getElementById("panelClubs").style.display = isLog ? "none" : "";
+  document.getElementById("panelLog").style.display   = isLog ? "" : "none";
+  document.getElementById("tabClubs").className = "tab" + (isLog ? "" : " on");
+  document.getElementById("tabLog").className   = "tab" + (isLog ? " on" : "");
+  if(isLog) renderActivity();
 }
 
 async function load(){
@@ -652,6 +734,7 @@ async function refreshLive(){
   // club count does not, which is most of the time.
   await loadStatus();
   renderStatus();
+  renderActivity();
 }
 function flashLive(delta){
   var n = document.getElementById("liveNote");
@@ -962,6 +1045,18 @@ function wire(){
   wire();
   renderAll();
   renderStatus();
+
+  document.getElementById("tabClubs").addEventListener("click", function(){ showTab("clubs"); });
+  document.getElementById("tabLog").addEventListener("click",   function(){ showTab("log"); });
+  Array.prototype.forEach.call(document.querySelectorAll(".act-f"), function(b){
+    b.addEventListener("click", function(){
+      actFilter = b.getAttribute("data-act");
+      Array.prototype.forEach.call(document.querySelectorAll(".act-f"), function(o){
+        o.className = "chip act-f" + (o === b ? " on" : "");
+      });
+      renderActivity();
+    });
+  });
   // Two minutes on Pages, not ten. The club count only moves when a round
   // finds something, but the status line moves constantly, and that is the
   // part worth watching when the count is standing still.

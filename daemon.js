@@ -54,13 +54,20 @@ const CFG = {
   // rather than speed.
   osmParallel:   parseInt(process.env.OSM_PARALLEL   || '6',  10),
   restSeconds:   parseInt(process.env.REST_SECONDS   || '20', 10),  // gap between rounds
-  maxAttempts:   3
+  // Five seconds per page. A club site that has not answered in five is not
+  // worth a worker's time when there are thousands of others waiting; it
+  // comes round again in minutes.
+  pageTimeoutMs: parseInt(process.env.PAGE_TIMEOUT_MS|| '5000', 10),
+  retryMinutes:  parseInt(process.env.RETRY_MINUTES  || '10', 10),
+  leadMinutes:   parseInt(process.env.LEAD_MINUTES   || '6',  10),  // slice for searching
+  maxAttempts:   4
 };
 
 const { COUNTRIES, ccFromHost, isWanted } = require('./lib/countries');
 const { detectSports, privateClub, extractEmails, extractContactName,
-        plausibleSite, siteFromEmail, RE_PUBLIC, RE_CLUBWORD } = require('./lib/classify');
+        plausibleSite, siteFromEmail, RE_PUBLIC, RE_PUBLIC_DOMAIN, RE_CLUBWORD } = require('./lib/classify');
 const osm = require('./lib/osm');
+const search = require('./lib/search');
 
 
 const UA = 'RacketClubResearch/1.0 (club directory research; contact: set-your-email@example.com)';
@@ -69,7 +76,7 @@ const UA = 'RacketClubResearch/1.0 (club directory research; contact: set-your-e
  * Polite fetching — per-host spacing, robots.txt, character sets      *
  * ------------------------------------------------------------------ */
 const { sleep, links, hostOf, robotsAllow } = require('./lib/http');
-const getPage = url => require('./lib/http').getPage(url, CFG.hostDelayMs);
+const getPage = url => require('./lib/http').getPage(url, CFG.hostDelayMs, CFG.pageTimeoutMs);
 
 
 function nextPage(html, base, seen){
@@ -146,6 +153,47 @@ function readJSON(f, fallback){
   try{ return JSON.parse(fs.readFileSync(f,'utf8')); }catch(e){ return fallback; }
 }
 function writeJSON(f, o){ fs.writeFileSync(f, JSON.stringify(o,null,1)); }
+
+/* ------------------------------------------------------------------ *
+ * Activity log — the searched-for-what record
+ * ------------------------------------------------------------------ *
+ * The round log says "crawled 168 sites, +92 emails", which is a score, not
+ * an account of what was done. This records each thing tried and how it
+ * turned out, so the page can show the actual trail: this club was searched
+ * for, that site was opened, this address came off that page.
+ *
+ * Kept to the most recent ACTIVITY_KEEP lines. It is a window on what is
+ * happening, not an archive.
+ */
+const ACTIVITY_FILE = path.join(DATA_DIR, 'activity.jsonl');
+const ACTIVITY_KEEP = 400;
+
+function activity(kind, text, extra){
+  ensureDirs();
+  const rec = Object.assign({t: new Date().toISOString(), kind, text}, extra||{});
+  try{
+    fs.appendFileSync(ACTIVITY_FILE, JSON.stringify(rec)+'\n');
+    // Trim occasionally rather than on every line
+    if(Math.floor(Date.now()/1000) % 37 === 0) trimActivity();
+  }catch(e){}
+  return rec;
+}
+
+function trimActivity(){
+  try{
+    const lines = fs.readFileSync(ACTIVITY_FILE,'utf8').split(/\r?\n/).filter(Boolean);
+    if(lines.length > ACTIVITY_KEEP*2){
+      fs.writeFileSync(ACTIVITY_FILE, lines.slice(-ACTIVITY_KEEP).join('\n')+'\n');
+    }
+  }catch(e){}
+}
+
+function readActivity(n){
+  try{
+    const lines = fs.readFileSync(ACTIVITY_FILE,'utf8').split(/\r?\n/).filter(Boolean);
+    return lines.slice(-(n||ACTIVITY_KEEP)).map(l=>{ try{ return JSON.parse(l); }catch(e){ return null; } }).filter(Boolean).reverse();
+  }catch(e){ return []; }
+}
 
 function log(msg){
   ensureDirs();
@@ -281,11 +329,19 @@ async function phaseCrawl(db, deadline){
       if(contact && !rec.contact) rec.contact = contact;
       rec.crawled = true;
       found++;
+      activity('crawl', `${rec.name} — ${rec.website}${note==='homepage'?'':' '+note} -> ${rec.email}`,
+               {ok:true, url:rec.website, email:rec.email});
     } else if(note === 'no email published'){
+      activity('crawl', `${rec.name} — ${rec.website}: site read, publishes no address`, {ok:false, url:rec.website});
       rec.attempts = CFG.maxAttempts;         // settled, do not retry
       rec.crawled = true;
     } else {
-      rec.retryAfter = today + rec.attempts * 24*60*60*1000;   // 1d, 2d, 3d
+      // Minutes, not days. This used to back off a full day per attempt, so
+      // one timeout on a slow site froze it for twenty-four hours. With a
+      // five-second budget per site a timeout means almost nothing — the
+      // site was slow that second — and 152 sites ended up sitting out the
+      // rest of the day while rounds reported "crawled 0 sites".
+      rec.retryAfter = today + rec.attempts * CFG.retryMinutes*60*1000;
     }
   });
   return {tried, found};
@@ -408,6 +464,96 @@ async function workSeed(seed, db, deadline, budget){
 
   seed.lastRun = new Date().toISOString();
   return {pages, added};
+}
+
+/* ------------------------------------------------------------------ *
+ * Work: find websites for clubs we only know the name of
+ * ------------------------------------------------------------------ *
+ * OpenStreetMap knows about thousands more clubs than it holds contacts
+ * for. Those were being kept as leads and otherwise ignored — 3,876 of them
+ * sat in the file while the collector had nothing to do and every round
+ * reported "crawled 0 sites".
+ *
+ * A club with no website is not a dead end, it is a search away from one.
+ * On a sample of eight, seven were found in about two and a half seconds
+ * each. Each one that resolves goes into the database with its website, and
+ * the crawl picks the email off it.
+ */
+async function phaseLeads(db, deadline){
+  if(process.env.LEADS === 'off') return {tried:0, found:0, emails:0};
+
+  const leadsFile = path.join(DATA_DIR, 'osm-leads.json');
+  const leads = readJSON(leadsFile, {});
+  const keys = Object.keys(leads);
+  if(!keys.length) return {tried:0, found:0, emails:0};
+
+  const budget = Math.min(deadline, Date.now() + CFG.leadMinutes*60*1000);
+  let tried=0, found=0, emails=0;
+
+  for(const k of keys){
+    if(Date.now() > budget) break;
+    const lead = leads[k];
+    if(!lead || lead.searched) continue;
+
+    tried++;
+    let r;
+    try{ r = await search.findClubSite(lead, CFG.pageTimeoutMs + 3000); }
+    catch(e){ r = {url:'', queries:[], note:'search failed: '+e.message}; }
+
+    lead.searched = new Date().toISOString();
+    lead.searchNote = r.note;
+
+    if(!r.url){
+      activity('search', `no site found for ${lead.name} (${lead.country})`, {ok:false});
+      continue;
+    }
+
+    found++;
+    lead.website = r.url;
+
+    // Straight on to the email while we are here, rather than leaving it for
+    // a later round — the whole point is to convert a name into a contact.
+    const {emails:found_, contact, note} = await harvestSite(r.url);
+    const email = found_.length ? found_[0] : '';
+
+    const rec = {
+      name: lead.name, cc: lead.cc, country: lead.country, lang: lead.lang,
+      sports: lead.sports, website: r.url, email,
+      contact: contact || lead.contact || '',
+      src: 'search', srcPage: lead.srcPage || '',
+      crawled: !!email, attempts: email ? 0 : 1,
+      crawlNote: note
+    };
+
+    // Only the domain is re-checked here, not the name. The lead already
+    // passed the private-club rules when OpenStreetMap produced it, and
+    // re-running the name test threw away good finds: "Tenis Pontevedra"
+    // was rejected for having no club word in it, seconds after its own
+    // site — clubdetenispontevedra.es — had been found and matched.
+    if(RE_PUBLIC_DOMAIN.test(r.url) || (email && RE_PUBLIC_DOMAIN.test(email.split('@')[1]||''))){
+      activity('search', `${lead.name} -> ${r.url}, dropped: public or institutional domain`, {ok:false});
+      continue;
+    }
+
+    const key = keyFor(rec);
+    if(db[key]){
+      if(!db[key].email && email){ db[key].email = email; db[key].crawled = true; emails++; }
+      if(!db[key].website) db[key].website = r.url;
+    } else {
+      db[key] = rec;
+      if(email) emails++;
+    }
+
+    activity('search', email
+      ? `${lead.name} (${lead.country}) -> ${r.url} -> ${email}`
+      : `${lead.name} (${lead.country}) -> ${r.url}, no address on the site (${note})`,
+      {ok: !!email, url: r.url, email});
+  }
+
+  writeJSON(leadsFile, leads);
+  const left = Object.values(leads).filter(l=>!l.searched).length;
+  if(tried) log(`leads: searched ${tried}, found ${found} sites, ${emails} new emails, ${left} leads left`);
+  return {tried, found, emails, left};
 }
 
 /* ------------------------------------------------------------------ *
@@ -560,7 +706,9 @@ function writeStatusJSON(extra){
       exhausted: seeds.filter(s=>s.done).length,
       pagesRead: seeds.reduce((n,s)=>n+(s.pagesRead||0), 0)
     },
-    leads: Object.keys(readJSON(path.join(DATA_DIR,'osm-leads.json'), {})).length,
+    leads: (()=>{ const L=readJSON(path.join(DATA_DIR,'osm-leads.json'), {}); const v=Object.values(L);
+      return {total:v.length, searched:v.filter(l=>l.searched).length, left:v.filter(l=>!l.searched).length}; })(),
+    activity: readActivity(160),
     recent
   }, extra||{});
 
@@ -640,6 +788,12 @@ async function tick(){
     const c = await phaseCrawl(db, deadline);
     writeJSON(DB_FILE, db);
 
+    // Then turn names into websites. This is where most of the remaining
+    // clubs are: OpenStreetMap holds thousands it has no contact for.
+    busy('searching the web for clubs we only know the name of');
+    const L = await phaseLeads(db, deadline);
+    writeJSON(DB_FILE, db);
+
     // Then extend the frontier if there is time left
     let h = {pages:0, added:0, source:null};
     busy('reading directory pages');
@@ -666,6 +820,7 @@ async function tick(){
     const mins = ((Date.now()-started)/60000).toFixed(1);
     const queued = Object.values(db).filter(r=>!r.email && r.website && (r.attempts||0)<CFG.maxAttempts).length;
     const summary = `crawled ${c.tried} sites, +${c.found} emails` +
+        (L.tried ? `; searched ${L.tried} club names, found ${L.found} sites, +${L.emails} emails` : '') +
         (h.pages ? `; read ${h.pages} pages from ${h.source}, +${h.added} clubs` : '') +
         (o.cc ? `; osm ${o.countries||0} countries (${o.cc}) +${o.added}` +
                 (o.failed ? `, ${o.failed} failed` : '') : '');
