@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-08T14:51:06.399Z",
- "clubs": 589,
- "records": 775,
+ "generated": "2026-08-08T15:12:47.151Z",
+ "clubs": 590,
+ "records": 777,
  "crawl": {
-  "ready": 0,
+  "ready": 1,
   "waiting": 93,
   "exhausted": 42
  },
  "osm": {
-  "imported": 3,
-  "failed": 18,
-  "pending": 62,
+  "imported": 8,
+  "failed": 21,
+  "pending": 54,
   "total": 83,
   "lastError": {
-   "cc": "PA",
-   "error": "server cut the query short: runtime error: Query timed out in \"query\" at line 5 after 100 seconds.",
-   "at": "2026-08-08T14:51:06.382Z"
+   "cc": "CU",
+   "error": "timed out",
+   "at": "2026-08-08T15:12:47.134Z"
   }
  },
  "crawlReasons": [
@@ -50,36 +50,36 @@
   "exhausted": 65,
   "pagesRead": 64
  },
- "leads": 323,
+ "leads": 348,
  "recent": [
-  "2026-08-08T14:35:18.221Z  osm CL: failed — busy (504)",
-  "2026-08-08T14:35:18.225Z  osm: 6 countries failed in a row, so Overpass is not answering today. Leaving the rest of the round to the crawler; these countries stay unimported and are picked up next time.",
-  "2026-08-08T14:35:19.903Z  published to the public link",
-  "2026-08-08T14:35:19.907Z  tick done in 8.6m — crawled 0 sites, +0 emails; osm 0 countries (ZA,CA,IE,NZ,CL,CO,PE,UY,EC,PY,CR,PA) +0, 6 failed | 589 emails total, 93 still queued",
-  "2026-08-08T14:41:15.004Z  daemon started — continuous, 20m per round, 20s between rounds",
-  "2026-08-08T14:41:15.011Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
-  "2026-08-08T14:41:15.012Z  seeds: C:\\Users\\Leo\\apps\\clubs-collector\\seeds.txt",
-  "2026-08-08T14:49:17.643Z  osm UY: failed — timed out",
-  "2026-08-08T14:49:23.392Z  osm PE: failed — busy (504)",
-  "2026-08-08T14:49:52.161Z  osm EC: failed — busy (504)",
-  "2026-08-08T14:50:35.261Z  osm PY: failed — timed out",
-  "2026-08-08T14:50:56.195Z  osm CR: failed — server cut the query short: runtime error: Query timed out in \"query\" at line 5 after 103 seconds.",
-  "2026-08-08T14:51:06.383Z  osm PA: failed — server cut the query short: runtime error: Query timed out in \"query\" at line 5 after 100 seconds.",
-  "2026-08-08T14:51:06.386Z  osm: 6 countries failed in a row, so Overpass is not answering today. Leaving the rest of the round to the crawler; these countries stay unimported and are picked up next time."
+  "2026-08-08T14:59:47.879Z  daemon started — continuous, 20m per round, 20s between rounds",
+  "2026-08-08T14:59:47.886Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
+  "2026-08-08T14:59:47.887Z  seeds: C:\\Users\\Leo\\apps\\clubs-collector\\seeds.txt",
+  "2026-08-08T15:02:50.584Z  daemon started — continuous, 20m per round, 20s between rounds",
+  "2026-08-08T15:02:50.591Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
+  "2026-08-08T15:02:50.592Z  seeds: C:\\Users\\Leo\\apps\\clubs-collector\\seeds.txt",
+  "2026-08-08T15:09:20.067Z  osm GT: failed — fetch failed",
+  "2026-08-08T15:10:08.761Z  osm HN Honduras: 4 places -> +0 new, 0 merged, 0 with an email already, 2 leads with no contact tag, 2 dropped as public",
+  "2026-08-08T15:10:55.316Z  osm DO Dominican Republic: 15 places -> +0 new, 0 merged, 0 with an email already, 5 leads with no contact tag, 10 dropped as public",
+  "2026-08-08T15:11:19.086Z  osm BO Bolivia: 37 places -> +2 new, 0 merged, 1 with an email already, 8 leads with no contact tag, 27 dropped as public",
+  "2026-08-08T15:11:36.455Z  osm NI Nicaragua: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
+  "2026-08-08T15:12:04.928Z  osm SV: failed — timed out",
+  "2026-08-08T15:12:07.011Z  osm VE Venezuela: 18 places -> +0 new, 0 merged, 0 with an email already, 10 leads with no contact tag, 8 dropped as public",
+  "2026-08-08T15:12:47.135Z  osm CU: failed — timed out"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-08T14:41:15.016Z",
+ "roundStarted": "2026-08-08T15:02:50.597Z",
  "lastRound": {
-  "at": "2026-08-08T14:51:06.396Z",
+  "at": "2026-08-08T15:12:47.149Z",
   "minutes": 9.9,
-  "summary": "crawled 0 sites, +0 emails; osm 0 countries (PE,UY,EC,PY,CR,PA,GT,DO,VE,BO,SV,HN) +0, 6 failed",
+  "summary": "crawled 0 sites, +0 emails; osm 5 countries (GT,DO,VE,BO,SV,HN,NI,CU,SG,PH,PK,KE) +2, 3 failed",
   "crawled": 0,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 0,
-  "osmAdded": 0,
-  "osmFailed": 6
+  "osmCountries": 5,
+  "osmAdded": 2,
+  "osmFailed": 3
  }
 }
