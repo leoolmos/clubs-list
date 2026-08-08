@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-08T15:12:47.151Z",
- "clubs": 590,
- "records": 777,
+ "generated": "2026-08-08T15:30:20.961Z",
+ "clubs": 594,
+ "records": 799,
  "crawl": {
-  "ready": 1,
-  "waiting": 93,
+  "ready": 18,
+  "waiting": 94,
   "exhausted": 42
  },
  "osm": {
-  "imported": 8,
-  "failed": 21,
+  "imported": 11,
+  "failed": 18,
   "pending": 54,
   "total": 83,
   "lastError": {
-   "cc": "CU",
+   "cc": "IE",
    "error": "timed out",
-   "at": "2026-08-08T15:12:47.134Z"
+   "at": "2026-08-08T15:30:20.944Z"
   }
  },
  "crawlReasons": [
@@ -25,7 +25,7 @@
   },
   {
    "note": "unreachable",
-   "n": 93
+   "n": 94
   },
   {
    "note": "no email published",
@@ -50,36 +50,36 @@
   "exhausted": 65,
   "pagesRead": 64
  },
- "leads": 348,
+ "leads": 580,
  "recent": [
-  "2026-08-08T14:59:47.879Z  daemon started — continuous, 20m per round, 20s between rounds",
-  "2026-08-08T14:59:47.886Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
-  "2026-08-08T14:59:47.887Z  seeds: C:\\Users\\Leo\\apps\\clubs-collector\\seeds.txt",
-  "2026-08-08T15:02:50.584Z  daemon started — continuous, 20m per round, 20s between rounds",
-  "2026-08-08T15:02:50.591Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
-  "2026-08-08T15:02:50.592Z  seeds: C:\\Users\\Leo\\apps\\clubs-collector\\seeds.txt",
-  "2026-08-08T15:09:20.067Z  osm GT: failed — fetch failed",
-  "2026-08-08T15:10:08.761Z  osm HN Honduras: 4 places -> +0 new, 0 merged, 0 with an email already, 2 leads with no contact tag, 2 dropped as public",
-  "2026-08-08T15:10:55.316Z  osm DO Dominican Republic: 15 places -> +0 new, 0 merged, 0 with an email already, 5 leads with no contact tag, 10 dropped as public",
-  "2026-08-08T15:11:19.086Z  osm BO Bolivia: 37 places -> +2 new, 0 merged, 1 with an email already, 8 leads with no contact tag, 27 dropped as public",
-  "2026-08-08T15:11:36.455Z  osm NI Nicaragua: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
-  "2026-08-08T15:12:04.928Z  osm SV: failed — timed out",
-  "2026-08-08T15:12:07.011Z  osm VE Venezuela: 18 places -> +0 new, 0 merged, 0 with an email already, 10 leads with no contact tag, 8 dropped as public",
-  "2026-08-08T15:12:47.135Z  osm CU: failed — timed out"
+  "2026-08-08T15:15:28.369Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
+  "2026-08-08T15:15:28.370Z  seeds: C:\\Users\\Leo\\apps\\clubs-collector\\seeds.txt",
+  "2026-08-08T15:20:27.082Z  daemon started — continuous, 20m per round, 20s between rounds",
+  "2026-08-08T15:20:27.088Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
+  "2026-08-08T15:20:27.089Z  seeds: C:\\Users\\Leo\\apps\\clubs-collector\\seeds.txt",
+  "2026-08-08T15:26:09.330Z  osm US: failed — busy (504)",
+  "2026-08-08T15:28:06.854Z  osm IN: failed — timed out",
+  "2026-08-08T15:28:20.923Z  osm MX: failed — timed out",
+  "2026-08-08T15:28:45.014Z  osm CA: failed — fetch failed",
+  "2026-08-08T15:29:09.003Z  osm PT Portugal: 150 places -> +9 new, 0 merged, 3 with an email already, 46 leads with no contact tag, 86 dropped as public",
+  "2026-08-08T15:29:19.185Z  osm AU: failed — timed out",
+  "2026-08-08T15:29:25.888Z  osm AR Argentina: 361 places -> +8 new, 0 merged, 1 with an email already, 113 leads with no contact tag, 221 dropped as public",
+  "2026-08-08T15:29:38.356Z  osm ZA South Africa: 187 places -> +5 new, 0 merged, 0 with an email already, 73 leads with no contact tag, 56 dropped as public",
+  "2026-08-08T15:30:20.945Z  osm IE: failed — timed out"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-08T15:02:50.597Z",
+ "roundStarted": "2026-08-08T15:20:27.092Z",
  "lastRound": {
-  "at": "2026-08-08T15:12:47.149Z",
+  "at": "2026-08-08T15:30:20.958Z",
   "minutes": 9.9,
-  "summary": "crawled 0 sites, +0 emails; osm 5 countries (GT,DO,VE,BO,SV,HN,NI,CU,SG,PH,PK,KE) +2, 3 failed",
+  "summary": "crawled 0 sites, +0 emails; osm 3 countries (AR,US,AU,PT,MX,IN,ZA,CA,IE,NZ,CL,CO) +22, 6 failed",
   "crawled": 0,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
-  "osmAdded": 2,
-  "osmFailed": 3
+  "osmCountries": 3,
+  "osmAdded": 22,
+  "osmFailed": 6
  }
 }
