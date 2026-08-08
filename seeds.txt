@@ -160,9 +160,14 @@ GB  https://www.020.co.uk/s/squash/london.shtml
 #   JavaScript, so it is not in the HTML at all.
 #
 # England Squash finder (englandsquash.com/finder)
-#   Same: nothing in the HTML. Over 700 clubs behind a JavaScript search.
-#   Worth revisiting by finding the JSON endpoint the page calls, which the
-#   daemon could then read directly.
+#   Over 700 clubs, and the club pages have tidy enumerable URLs —
+#   /finder/club/<slug>/<id> — which looked very promising.
+#   Opened it in a real browser to find the search endpoint behind the
+#   JavaScript. The site runs Cloudflare's bot challenge: the finder issues
+#   a cdn-cgi/challenge-platform request on load, and a plain fetch of a
+#   club page returns nothing at all. There is no automated way in that
+#   respects how the site is set up. Not a JSON-endpoint problem — a
+#   deliberate closed door.
 #
 # Portuguese Tennis Federation (tenis.pt / fptenis.pt)
 #   Around 300 affiliated clubs across 13 regional associations, but no
