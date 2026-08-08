@@ -185,6 +185,29 @@ GB  https://www.020.co.uk/s/squash/london.shtml
 # Scraper resale sites (rentechdigital and similar)
 #   They do list clubs with emails, but the addresses are masked on the
 #   public page and only unlocked on payment. Nothing to read.
+#
+# Modern federation club finders — all the same story
+#   Checked and empty to a crawler, because the list is drawn by JavaScript
+#   after the page loads. The HTML that arrives has no club in it:
+#     fctennis.cat/clubs/            Catalan tennis
+#     fap.es/clubes                  Andalusian padel
+#     padelfederacion.es/Clubes      Spanish padel
+#     ulstertennis.co.uk/category/clubs
+#     leinstertennis.ie
+#   This is now the normal shape for a federation site, and it is why RFET
+#   is so valuable: it is old enough to be plain HTML.
+#
+#   These are not lost causes, they just need a different move. Open one in
+#   a browser, watch the network tab while the list loads, and find the JSON
+#   request behind it. That URL is plain HTTP and the daemon can read it —
+#   but it needs a JSON reader, which does not exist yet. Worth building
+#   when there is time: it is the difference between Spain and everywhere.
+#
+# Racketeer, the deeper pages
+#   England.html and its siblings are navigation, not lists — one link each,
+#   to clubs.html, which is navigation again. The actual club links are
+#   somewhere below that and were not found. Left seeded because the pages
+#   are tiny and cost nothing to re-read, but do not expect much.
 
 
 # ===========================================================================
