@@ -1,0 +1,85 @@
+{
+ "generated": "2026-08-08T14:51:06.399Z",
+ "clubs": 589,
+ "records": 775,
+ "crawl": {
+  "ready": 0,
+  "waiting": 93,
+  "exhausted": 42
+ },
+ "osm": {
+  "imported": 3,
+  "failed": 18,
+  "pending": 62,
+  "total": 83,
+  "lastError": {
+   "cc": "PA",
+   "error": "server cut the query short: runtime error: Query timed out in \"query\" at line 5 after 100 seconds.",
+   "at": "2026-08-08T14:51:06.382Z"
+  }
+ },
+ "crawlReasons": [
+  {
+   "note": "homepage",
+   "n": 98
+  },
+  {
+   "note": "unreachable",
+   "n": 93
+  },
+  {
+   "note": "no email published",
+   "n": 43
+  },
+  {
+   "note": "/contact",
+   "n": 6
+  },
+  {
+   "note": "/contact/",
+   "n": 5
+  },
+  {
+   "note": "/contact-us",
+   "n": 2
+  }
+ ],
+ "seeds": {
+  "total": 65,
+  "working": 0,
+  "exhausted": 65,
+  "pagesRead": 64
+ },
+ "leads": 323,
+ "recent": [
+  "2026-08-08T14:35:18.221Z  osm CL: failed — busy (504)",
+  "2026-08-08T14:35:18.225Z  osm: 6 countries failed in a row, so Overpass is not answering today. Leaving the rest of the round to the crawler; these countries stay unimported and are picked up next time.",
+  "2026-08-08T14:35:19.903Z  published to the public link",
+  "2026-08-08T14:35:19.907Z  tick done in 8.6m — crawled 0 sites, +0 emails; osm 0 countries (ZA,CA,IE,NZ,CL,CO,PE,UY,EC,PY,CR,PA) +0, 6 failed | 589 emails total, 93 still queued",
+  "2026-08-08T14:41:15.004Z  daemon started — continuous, 20m per round, 20s between rounds",
+  "2026-08-08T14:41:15.011Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
+  "2026-08-08T14:41:15.012Z  seeds: C:\\Users\\Leo\\apps\\clubs-collector\\seeds.txt",
+  "2026-08-08T14:49:17.643Z  osm UY: failed — timed out",
+  "2026-08-08T14:49:23.392Z  osm PE: failed — busy (504)",
+  "2026-08-08T14:49:52.161Z  osm EC: failed — busy (504)",
+  "2026-08-08T14:50:35.261Z  osm PY: failed — timed out",
+  "2026-08-08T14:50:56.195Z  osm CR: failed — server cut the query short: runtime error: Query timed out in \"query\" at line 5 after 103 seconds.",
+  "2026-08-08T14:51:06.383Z  osm PA: failed — server cut the query short: runtime error: Query timed out in \"query\" at line 5 after 100 seconds.",
+  "2026-08-08T14:51:06.386Z  osm: 6 countries failed in a row, so Overpass is not answering today. Leaving the rest of the round to the crawler; these countries stay unimported and are picked up next time."
+ ],
+ "running": false,
+ "phase": "resting between rounds",
+ "roundStarted": "2026-08-08T14:41:15.016Z",
+ "lastRound": {
+  "at": "2026-08-08T14:51:06.396Z",
+  "minutes": 9.9,
+  "summary": "crawled 0 sites, +0 emails; osm 0 countries (PE,UY,EC,PY,CR,PA,GT,DO,VE,BO,SV,HN) +0, 6 failed",
+  "crawled": 0,
+  "emailsFound": 0,
+  "pagesRead": 0,
+  "clubsAdded": 0,
+  "osmCountries": 0,
+  "osmAdded": 0,
+  "osmFailed": 6
+ }
+}
