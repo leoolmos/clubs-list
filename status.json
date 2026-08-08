@@ -1,35 +1,31 @@
 {
- "generated": "2026-08-08T20:43:43.272Z",
- "clubs": 792,
- "records": 1090,
+ "generated": "2026-08-08T20:53:40.481Z",
+ "clubs": 826,
+ "records": 1143,
  "crawl": {
-  "ready": 0,
-  "waiting": 152,
-  "exhausted": 93
+  "ready": 13,
+  "waiting": 153,
+  "exhausted": 96
  },
  "osm": {
-  "imported": 77,
-  "failed": 6,
-  "pending": 0,
+  "imported": 0,
+  "failed": 0,
+  "pending": 83,
   "total": 83,
-  "lastError": {
-   "cc": "ES",
-   "error": "partial: 3 of 23 subdivisions read",
-   "at": "2026-08-08T20:43:01.590Z"
-  }
+  "lastError": null
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 217
+   "n": 248
   },
   {
    "note": "unreachable",
-   "n": 152
+   "n": 160
   },
   {
    "note": "no email published",
-   "n": 94
+   "n": 103
   },
   {
    "note": "/contact",
@@ -50,36 +46,657 @@
   "exhausted": 65,
   "pagesRead": 64
  },
- "leads": 3876,
- "recent": [
-  "2026-08-08T20:34:12.884Z  osm IE: too big for one query — 1 of 9 subdivisions read, carries on next round",
-  "2026-08-08T20:34:12.888Z  osm IE Ireland: 18 places -> +0 new, 4 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
-  "2026-08-08T20:34:14.709Z  published to the public link",
-  "2026-08-08T20:34:14.713Z  tick done in 9.2m — crawled 0 sites, +0 emails; osm 6 countries (ES,AU,IE,TT,SG,PK,CU,MT,NZ,UG,GH,PA) +0 | 792 emails total, 152 still queued",
-  "2026-08-08T20:39:45.985Z  osm CO Colombia: 79 places -> +0 new, 4 merged, 0 with an email already, 0 leads with no contact tag, 68 dropped as public",
-  "2026-08-08T20:42:40.895Z  osm EC Ecuador: 54 places -> +0 new, 1 merged, 0 with an email already, 0 leads with no contact tag, 35 dropped as public",
-  "2026-08-08T20:42:46.330Z  osm TT: too big for one query — 12 of 15 subdivisions read, carries on next round",
-  "2026-08-08T20:42:46.335Z  osm TT Trinidad and Tobago: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-08T20:42:59.892Z  osm IE: too big for one query — 1 of 9 subdivisions read, carries on next round",
-  "2026-08-08T20:42:59.895Z  osm IE Ireland: 11 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-08T20:43:01.586Z  osm ES: too big for one query — 3 of 23 subdivisions read, carries on next round",
-  "2026-08-08T20:43:01.590Z  osm ES Spain: 12 places -> +0 new, 1 merged, 0 with an email already, 0 leads with no contact tag, 7 dropped as public",
-  "2026-08-08T20:43:04.544Z  osm MT Malta: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-08T20:43:43.246Z  osm CU Cuba: 18 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 13 dropped as public"
+ "leads": {
+  "total": 3876,
+  "searched": 137,
+  "left": 3739
+ },
+ "activity": [
+  {
+   "t": "2026-08-08T20:53:40.442Z",
+   "kind": "search",
+   "text": "no site found for Club de Tenis Tafira (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:37.932Z",
+   "kind": "search",
+   "text": "no site found for Real Zaragoza Club de Tenis (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:35.410Z",
+   "kind": "search",
+   "text": "no site found for Pádel indoor Figueres (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:32.907Z",
+   "kind": "search",
+   "text": "no site found for Linense Tenis Club (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:30.397Z",
+   "kind": "search",
+   "text": "no site found for Club de Tenis Berà (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:27.889Z",
+   "kind": "search",
+   "text": "no site found for Indoor Padel Ca n'Amat (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:25.394Z",
+   "kind": "search",
+   "text": "no site found for Masquepadel (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:22.884Z",
+   "kind": "search",
+   "text": "no site found for Pista de padel del Pabellón Central de Deportes (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:20.375Z",
+   "kind": "search",
+   "text": "no site found for Pista 1 de padel en Ilusión Sport Center (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:17.869Z",
+   "kind": "search",
+   "text": "no site found for Ecomm Padel Club (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:15.361Z",
+   "kind": "search",
+   "text": "no site found for Pádel Quer (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:12.850Z",
+   "kind": "search",
+   "text": "no site found for Padel Sport 365 (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:12.850Z",
+   "kind": "search",
+   "text": "no site found for Pádel 360 (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:12.849Z",
+   "kind": "search",
+   "text": "no site found for P6 Padel Narón Sport Center (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:07.832Z",
+   "kind": "search",
+   "text": "no site found for Club de Tenis Cullera (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:05.335Z",
+   "kind": "search",
+   "text": "no site found for Club de Tenis Criptana (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:53:02.833Z",
+   "kind": "search",
+   "text": "no site found for Club de Tennis Sant Adrià (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:57.809Z",
+   "kind": "search",
+   "text": "no site found for Club Juventud - Seccio de Tenis (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:55.922Z",
+   "kind": "search",
+   "text": "no site found for Tennis Court (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:53.594Z",
+   "kind": "search",
+   "text": "Club Tennis Romaní (Spain) -> https://clubtenisromani.site -> notificaciones@clubtenisromani.site",
+   "ok": true,
+   "url": "https://clubtenisromani.site",
+   "email": "notificaciones@clubtenisromani.site"
+  },
+  {
+   "t": "2026-08-08T20:52:50.854Z",
+   "kind": "search",
+   "text": "no site found for Club de Tenis Llavaneres (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:48.316Z",
+   "kind": "search",
+   "text": "no site found for Pádel ZGZ (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:48.316Z",
+   "kind": "search",
+   "text": "no site found for Antic Club Tennis (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:46.523Z",
+   "kind": "search",
+   "text": "Club de Tennis H2O (Salou) (Spain) -> https://www.visitsalou.eu -> visitsalou@salou.cat",
+   "ok": true,
+   "url": "https://www.visitsalou.eu",
+   "email": "visitsalou@salou.cat"
+  },
+  {
+   "t": "2026-08-08T20:52:45.200Z",
+   "kind": "search",
+   "text": "Pista Pádel 3 (Spain) -> https://www.pista3.com -> notificaciones@pista3.com",
+   "ok": true,
+   "url": "https://www.pista3.com",
+   "email": "notificaciones@pista3.com"
+  },
+  {
+   "t": "2026-08-08T20:52:38.491Z",
+   "kind": "search",
+   "text": "no site found for Pista Pádel 4 (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:37.743Z",
+   "kind": "search",
+   "text": "Club de Tenis de Almoradí José Antonio Illescas (Spain) -> https://www.ctalmoradi.com -> info@website.com",
+   "ok": true,
+   "url": "https://www.ctalmoradi.com",
+   "email": "info@website.com"
+  },
+  {
+   "t": "2026-08-08T20:52:31.421Z",
+   "kind": "search",
+   "text": "no site found for Club De Tenis Txingudi (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:28.958Z",
+   "kind": "search",
+   "text": "no site found for Court 3 (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:27.106Z",
+   "kind": "search",
+   "text": "Court 7 (Spain) -> https://court7.eu -> service@court7.eu",
+   "ok": true,
+   "url": "https://court7.eu",
+   "email": "service@court7.eu"
+  },
+  {
+   "t": "2026-08-08T20:52:24.157Z",
+   "kind": "search",
+   "text": "Court 4 (Spain) -> https://thecourtscout.com -> hi@thecourtscout.com",
+   "ok": true,
+   "url": "https://thecourtscout.com",
+   "email": "hi@thecourtscout.com"
+  },
+  {
+   "t": "2026-08-08T20:52:21.407Z",
+   "kind": "search",
+   "text": "no site found for Center Court (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:18.913Z",
+   "kind": "search",
+   "text": "no site found for Court 2 (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:16.423Z",
+   "kind": "search",
+   "text": "no site found for Court 6 (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:14.156Z",
+   "kind": "search",
+   "text": "no site found for Court 5 (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:13.248Z",
+   "kind": "search",
+   "text": "no site found for pádel (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:52:13.247Z",
+   "kind": "search",
+   "text": "WellSport Pádel Club (Spain) -> https://wellsportpadelclub.com -> info@wellsportpadelclub.com",
+   "ok": true,
+   "url": "https://wellsportpadelclub.com",
+   "email": "info@wellsportpadelclub.com"
+  },
+  {
+   "t": "2026-08-08T20:52:08.801Z",
+   "kind": "search",
+   "text": "Club de tenis Ayora (Spain) -> https://ayora.directorio-empresa.es, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://ayora.directorio-empresa.es",
+   "email": ""
+  },
+  {
+   "t": "2026-08-08T20:51:55.842Z",
+   "kind": "search",
+   "text": "Club de Tennis Llafranc (Spain) -> https://tenisllafranc.cat -> info@tenisllafranc.cat",
+   "ok": true,
+   "url": "https://tenisllafranc.cat",
+   "email": "info@tenisllafranc.cat"
+  },
+  {
+   "t": "2026-08-08T20:51:50.544Z",
+   "kind": "search",
+   "text": "no site found for Cancha Pádel (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:51:49.897Z",
+   "kind": "search",
+   "text": "Club Amigos del Tenis (Spain) -> https://www.tennislosamigos.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://www.tennislosamigos.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-08T20:51:35.019Z",
+   "kind": "search",
+   "text": "no site found for Club de Tennis Sant Pol (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:51:34.365Z",
+   "kind": "search",
+   "text": "Club de Padel La Galera (Spain) -> https://padellagalera.com -> contacto@lagalera.com",
+   "ok": true,
+   "url": "https://padellagalera.com",
+   "email": "contacto@lagalera.com"
+  },
+  {
+   "t": "2026-08-08T20:51:29.555Z",
+   "kind": "search",
+   "text": "Clube de Tenis de Redes (Spain) -> http://www.tenisredes.net, no address on the site (unreachable)",
+   "ok": false,
+   "url": "http://www.tenisredes.net",
+   "email": ""
+  },
+  {
+   "t": "2026-08-08T20:51:27.143Z",
+   "kind": "search",
+   "text": "Magnolias Tennis Centre (Spain) -> https://www.magnoliasnatura.com -> info@canariasnatura.com",
+   "ok": true,
+   "url": "https://www.magnoliasnatura.com",
+   "email": "info@canariasnatura.com"
+  },
+  {
+   "t": "2026-08-08T20:51:17.537Z",
+   "kind": "search",
+   "text": "no site found for Club Tenis Alaior (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:51:15.257Z",
+   "kind": "search",
+   "text": "Ipadel (Spain) -> https://www.ipadel.com, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://www.ipadel.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-08T20:51:10.626Z",
+   "kind": "search",
+   "text": "club esportiu la llobera (Spain) -> https://www.tenislallobera.com -> info@tenislallobera.com",
+   "ok": true,
+   "url": "https://www.tenislallobera.com",
+   "email": "info@tenislallobera.com"
+  },
+  {
+   "t": "2026-08-08T20:51:09.416Z",
+   "kind": "search",
+   "text": "no site found for Club Tenis Mar (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:51:09.415Z",
+   "kind": "search",
+   "text": "Mons kiroldegia (Spain) -> https://monskiroldegia.com, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://monskiroldegia.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-08T20:50:55.432Z",
+   "kind": "search",
+   "text": "no site found for Club de Tenis de Pego (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:50:54.086Z",
+   "kind": "search",
+   "text": "Club Tenis Ebone (Spain) -> https://ebone.es -> info@ebone.es",
+   "ok": true,
+   "url": "https://ebone.es",
+   "email": "info@ebone.es"
+  },
+  {
+   "t": "2026-08-08T20:50:48.627Z",
+   "kind": "search",
+   "text": "Club de Tenis Pítamo (Spain) -> https://clubpitamo.com -> info@clubpitamo.com",
+   "ok": true,
+   "url": "https://clubpitamo.com",
+   "email": "info@clubpitamo.com"
+  },
+  {
+   "t": "2026-08-08T20:50:45.486Z",
+   "kind": "search",
+   "text": "Pista Pádel (Spain) -> https://pistasdepadel.one -> info@pistasdepadel.one",
+   "ok": true,
+   "url": "https://pistasdepadel.one",
+   "email": "info@pistasdepadel.one"
+  },
+  {
+   "t": "2026-08-08T20:50:43.900Z",
+   "kind": "search",
+   "text": "Club Deportivo Elemental XV Hortaleza Rugby Club (Spain) -> https://xvhortaleza.com -> info@xvhortaleza.com",
+   "ok": true,
+   "url": "https://xvhortaleza.com",
+   "email": "info@xvhortaleza.com"
+  },
+  {
+   "t": "2026-08-08T20:50:40.402Z",
+   "kind": "search",
+   "text": "no site found for Edificio Tenis Indoor (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:50:39.774Z",
+   "kind": "search",
+   "text": "Club de Tenis Buenavista (Spain) -> https://tenisbuenavista.com -> info@tenisbuenavista.com",
+   "ok": true,
+   "url": "https://tenisbuenavista.com",
+   "email": "info@tenisbuenavista.com"
+  },
+  {
+   "t": "2026-08-08T20:50:34.346Z",
+   "kind": "search",
+   "text": "no site found for Club de Pádel El Viñal (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:50:31.814Z",
+   "kind": "search",
+   "text": "no site found for Club Deportivo Compostilla (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:50:31.202Z",
+   "kind": "search",
+   "text": "Club Tennis Urgell (Spain) -> https://tennisurgell.com -> club@tennisurgell.com",
+   "ok": true,
+   "url": "https://tennisurgell.com",
+   "email": "club@tennisurgell.com"
+  },
+  {
+   "t": "2026-08-08T20:50:27.776Z",
+   "kind": "search",
+   "text": "Tarragona Paddel Indoor (Spain) -> https://www.tarragonapadelindoor.es -> info@tarragonapadelindoor.es",
+   "ok": true,
+   "url": "https://www.tarragonapadelindoor.es",
+   "email": "info@tarragonapadelindoor.es"
+  },
+  {
+   "t": "2026-08-08T20:50:23.836Z",
+   "kind": "search",
+   "text": "no site found for Fibra Sports Club (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:50:18.735Z",
+   "kind": "search",
+   "text": "no site found for Club de Tenis \"Aire\" (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:50:16.847Z",
+   "kind": "search",
+   "text": "Club Tennis Girona (Spain) -> http://www.tennisgirona.cat -> info@tennisgirona.com",
+   "ok": true,
+   "url": "http://www.tennisgirona.cat",
+   "email": "info@tennisgirona.com"
+  },
+  {
+   "t": "2026-08-08T20:50:13.727Z",
+   "kind": "search",
+   "text": "no site found for Club Pàdel Girona (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:50:11.183Z",
+   "kind": "search",
+   "text": "no site found for Club de tenis (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:50:11.183Z",
+   "kind": "search",
+   "text": "no site found for Padeleku (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:50:08.112Z",
+   "kind": "search",
+   "text": "Club de Tenis Capicua (Spain) -> https://capicuatenisclub.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://capicuatenisclub.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-08T20:49:53.461Z",
+   "kind": "search",
+   "text": "Real Club de Tenis de San Sebastián (Spain) -> https://www.sansebastianturismoa.eus, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://www.sansebastianturismoa.eus",
+   "email": ""
+  },
+  {
+   "t": "2026-08-08T20:49:51.708Z",
+   "kind": "search",
+   "text": "Club de Tennis Montbui (Spain) -> https://tennismontbui.net -> info@tennismontbui.net",
+   "ok": true,
+   "url": "https://tennismontbui.net",
+   "email": "info@tennismontbui.net"
+  },
+  {
+   "t": "2026-08-08T20:49:49.919Z",
+   "kind": "search",
+   "text": "Club de Tenis Las Vegas (Spain) -> https://clubdetenislasvegas.com -> contacto@clubdetenislasvegas.com",
+   "ok": true,
+   "url": "https://clubdetenislasvegas.com",
+   "email": "contacto@clubdetenislasvegas.com"
+  },
+  {
+   "t": "2026-08-08T20:49:43.755Z",
+   "kind": "search",
+   "text": "Club de Padel Los Ángeles (Spain) -> https://complejodeportivolosangeles.com, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://complejodeportivolosangeles.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-08T20:49:37.283Z",
+   "kind": "search",
+   "text": "Club Los Cerezos (Spain) -> http://clubloscerezos.es, no address on the site (no email published)",
+   "ok": false,
+   "url": "http://clubloscerezos.es",
+   "email": ""
+  },
+  {
+   "t": "2026-08-08T20:49:20.999Z",
+   "kind": "search",
+   "text": "Club de Tenis Alacant (Spain) -> https://clubdetenisalacant.com -> info@clubdetenisalacant.com",
+   "ok": true,
+   "url": "https://clubdetenisalacant.com",
+   "email": "info@clubdetenisalacant.com"
+  },
+  {
+   "t": "2026-08-08T20:49:19.686Z",
+   "kind": "search",
+   "text": "La Masó Sports Club (Spain) -> http://www.lamasosportclub.es -> info@lamasosportclub.es",
+   "ok": true,
+   "url": "http://www.lamasosportclub.es",
+   "email": "info@lamasosportclub.es"
+  },
+  {
+   "t": "2026-08-08T20:49:15.761Z",
+   "kind": "search",
+   "text": "Club de tennis Andrés Gimeno (Spain) -> https://www.tenisgimeno.com -> info@tenisgimeno.com",
+   "ok": true,
+   "url": "https://www.tenisgimeno.com",
+   "email": "info@tenisgimeno.com"
+  },
+  {
+   "t": "2026-08-08T20:49:14.788Z",
+   "kind": "search",
+   "text": "no site found for Club de pádel (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:49:14.787Z",
+   "kind": "search",
+   "text": "Padel Indoor Aqua Sport Club (Spain) -> https://www.aquasportclubs.com, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://www.aquasportclubs.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-08T20:49:08.912Z",
+   "kind": "search",
+   "text": "Twelve Pádel Zenter (Spain) -> https://www.twelvepadelzenter.com -> 12padelzenter@gmail.com",
+   "ok": true,
+   "url": "https://www.twelvepadelzenter.com",
+   "email": "12padelzenter@gmail.com"
+  },
+  {
+   "t": "2026-08-08T20:49:04.629Z",
+   "kind": "search",
+   "text": "no site found for Padel Indor Guissona (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:48:59.545Z",
+   "kind": "search",
+   "text": "no site found for Box Padel (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:48:59.545Z",
+   "kind": "search",
+   "text": "Pista de padel (Spain) -> https://pistasdepadel.one -> info@pistasdepadel.one",
+   "ok": true,
+   "url": "https://pistasdepadel.one",
+   "email": "info@pistasdepadel.one"
+  },
+  {
+   "t": "2026-08-08T20:48:58.779Z",
+   "kind": "search",
+   "text": "Padel Cañaveral (Spain) -> https://padelcanaveral.com -> padel@padelcanaveral.com",
+   "ok": true,
+   "url": "https://padelcanaveral.com",
+   "email": "padel@padelcanaveral.com"
+  },
+  {
+   "t": "2026-08-08T20:48:50.320Z",
+   "kind": "search",
+   "text": "A Guarda Pádel Club (Spain) -> https://aguardapadelclub.com -> aguardapadelclub@gmail.com",
+   "ok": true,
+   "url": "https://aguardapadelclub.com",
+   "email": "aguardapadelclub@gmail.com"
+  },
+  {
+   "t": "2026-08-08T20:48:42.076Z",
+   "kind": "search",
+   "text": "Padel Agramunt (Spain) -> http://padelagramunt.com, no address on the site (unreachable)",
+   "ok": false,
+   "url": "http://padelagramunt.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-08T20:48:39.308Z",
+   "kind": "search",
+   "text": "no site found for 0.0 Padel (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:48:39.307Z",
+   "kind": "search",
+   "text": "no site found for Padello Iberia (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:48:38.596Z",
+   "kind": "search",
+   "text": "Centre Esportiu Malbúger (Spain) -> https://malbugercentrodeportivo.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://malbugercentrodeportivo.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-08T20:48:23.598Z",
+   "kind": "search",
+   "text": "no site found for Santo Padel Madrid (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:48:21.177Z",
+   "kind": "search",
+   "text": "no site found for I&CO Padel Center (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:48:21.176Z",
+   "kind": "search",
+   "text": "no site found for Pádel Box (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-08T20:48:21.176Z",
+   "kind": "search",
+   "text": "Padel-pista (Spain) -> https://pistasdepadel.one -> info@pistasdepadel.one",
+   "ok": true,
+   "url": "https://pistasdepadel.one",
+   "email": "info@pistasdepadel.one"
+  },
+  {
+   "t": "2026-08-08T20:48:18.605Z",
+   "kind": "search",
+   "text": "no site found for Odyssey Pádel Indoor (Spain)",
+   "ok": false
+  }
  ],
- "running": false,
- "phase": "resting between rounds",
- "roundStarted": "2026-08-08T20:34:34.730Z",
- "lastRound": {
-  "at": "2026-08-08T20:43:43.268Z",
-  "minutes": 9.1,
-  "summary": "crawled 0 sites, +0 emails; osm 7 countries (ES,IE,CO,EC,TT,CU,MT,NZ,UG,GH,PA,MU) +0",
-  "crawled": 0,
-  "emailsFound": 0,
-  "pagesRead": 0,
-  "clubsAdded": 0,
-  "osmCountries": 7,
-  "osmAdded": 0,
-  "osmFailed": 0
- }
+ "recent": [
+  "2026-08-08T20:53:40.451Z  leads: searched 101, found 45 sites, 24 new emails, 3739 leads left"
+ ],
+ "running": true,
+ "phase": "importing countries from OpenStreetMap",
+ "roundStarted": "2026-08-08T20:47:27.607Z"
 }

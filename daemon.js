@@ -45,7 +45,9 @@ const CFG = {
   concurrency:   parseInt(process.env.CONCURRENCY    || '8',  10),
   hostDelayMs:   parseInt(process.env.HOST_DELAY_MS  || '2000',10), // per host
   pagesPerTick:  parseInt(process.env.PAGES_PER_TICK || '25', 10),
-  osmMinutes:    parseInt(process.env.OSM_MINUTES    || '8',  10),  // slice of the round
+  // OpenStreetMap is essentially finished - 75 of 83 countries - so it no
+  // longer deserves the largest slice of the round. The searching does.
+  osmMinutes:    parseInt(process.env.OSM_MINUTES    || '3',  10),
   osmCountries:  parseInt(process.env.OSM_COUNTRIES  || '12', 10),  // countries per round
   // Two of the three Overpass mirrors publish no concurrency limit and the
   // third allows two per IP (see lib/osm.js). Six in flight spreads across
@@ -59,7 +61,7 @@ const CFG = {
   // comes round again in minutes.
   pageTimeoutMs: parseInt(process.env.PAGE_TIMEOUT_MS|| '5000', 10),
   retryMinutes:  parseInt(process.env.RETRY_MINUTES  || '10', 10),
-  leadMinutes:   parseInt(process.env.LEAD_MINUTES   || '6',  10),  // slice for searching
+  leadMinutes:   parseInt(process.env.LEAD_MINUTES   || '12', 10),  // slice for searching
   maxAttempts:   4
 };
 
