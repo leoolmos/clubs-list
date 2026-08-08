@@ -418,7 +418,7 @@ async function phaseOSM(db, deadline){
   if(!cc) return {cc:null, added:0};
 
   try{
-    const s = await osm.importCountry(cc, db, m=>log(m));
+    const s = await osm.importCountry(cc, db, m=>log(m), deadline);
     if(s.error){
       log(`osm ${cc} failed: ${s.error}`);
       osm.markDone(cc, {error:s.error});
