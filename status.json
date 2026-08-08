@@ -1,46 +1,46 @@
 {
- "generated": "2026-08-08T16:36:36.966Z",
- "clubs": 690,
- "records": 1038,
+ "generated": "2026-08-08T16:47:07.491Z",
+ "clubs": 759,
+ "records": 1039,
  "crawl": {
-  "ready": 110,
-  "waiting": 120,
-  "exhausted": 66
+  "ready": 1,
+  "waiting": 141,
+  "exhausted": 86
  },
  "osm": {
-  "imported": 30,
-  "failed": 8,
-  "pending": 45,
+  "imported": 36,
+  "failed": 6,
+  "pending": 41,
   "total": 83,
   "lastError": {
-   "cc": "CA",
-   "error": "timed out",
-   "at": "2026-08-08T16:36:36.942Z"
+   "cc": "BW",
+   "error": "subdivisions: out of time",
+   "at": "2026-08-08T16:46:45.986Z"
   }
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 141
+   "n": 190
   },
   {
    "note": "unreachable",
-   "n": 120
+   "n": 141
   },
   {
    "note": "no email published",
-   "n": 67
+   "n": 87
   },
   {
    "note": "/contact",
-   "n": 9
+   "n": 13
   },
   {
    "note": "/contact/",
-   "n": 5
+   "n": 6
   },
   {
-   "note": "/membership/",
+   "note": "/contact-us",
    "n": 4
   }
  ],
@@ -50,36 +50,36 @@
   "exhausted": 65,
   "pagesRead": 64
  },
- "leads": 2602,
+ "leads": 2645,
  "recent": [
-  "2026-08-08T16:24:37.355Z  osm GT Guatemala: 12 places -> +0 new, 0 merged, 0 with an email already, 2 leads with no contact tag, 9 dropped as public",
-  "2026-08-08T16:24:49.940Z  osm NG: failed — fetch failed",
-  "2026-08-08T16:24:57.744Z  osm PH: failed — timed out",
-  "2026-08-08T16:25:48.069Z  osm KE: failed — subdivisions: out of time",
-  "2026-08-08T16:25:56.870Z  osm CU Cuba: 18 places -> +0 new, 0 merged, 0 with an email already, 3 leads with no contact tag, 13 dropped as public",
-  "2026-08-08T16:25:58.619Z  published to the public link",
-  "2026-08-08T16:25:58.622Z  tick done in 9.8m — crawled 9 sites, +2 emails; osm 5 countries (GT,SV,CU,SG,PH,PK,KE,NG,MT,MU,ZW,ZM) +3, 3 failed | 670 emails total, 121 still queued",
-  "2026-08-08T16:31:33.192Z  osm MT Malta: 3 places -> +0 new, 0 merged, 0 with an email already, 1 leads with no contact tag, 1 dropped as public",
-  "2026-08-08T16:34:25.591Z  osm NZ New Zealand: 210 places -> +34 new, 4 merged, 6 with an email already, 107 leads with no contact tag, 33 dropped as public",
   "2026-08-08T16:34:31.434Z  osm US United States: 2469 places -> +95 new, 3 merged, 13 with an email already, 914 leads with no contact tag, 904 dropped as public",
   "2026-08-08T16:34:54.311Z  osm MU Mauritius: 13 places -> +0 new, 0 merged, 0 with an email already, 3 leads with no contact tag, 10 dropped as public",
   "2026-08-08T16:35:07.279Z  osm ZW Zimbabwe: 6 places -> +0 new, 0 merged, 0 with an email already, 5 leads with no contact tag, 1 dropped as public",
   "2026-08-08T16:35:51.219Z  osm ZM: failed — subdivisions: out of time",
-  "2026-08-08T16:36:36.943Z  osm CA: failed — timed out"
+  "2026-08-08T16:36:36.943Z  osm CA: failed — timed out",
+  "2026-08-08T16:36:38.694Z  published to the public link",
+  "2026-08-08T16:36:38.698Z  tick done in 10.3m — crawled 3 sites, +1 emails; osm 5 countries (US,CA,NZ,MT,MU,ZW,ZM,TZ,UG,GH,BW,NA) +129, 2 failed | 690 emails total, 230 still queued",
+  "2026-08-08T16:44:45.975Z  osm UG Uganda: 12 places -> +0 new, 0 merged, 0 with an email already, 10 leads with no contact tag, 1 dropped as public",
+  "2026-08-08T16:46:07.679Z  osm GH Ghana: 19 places -> +0 new, 0 merged, 0 with an email already, 12 leads with no contact tag, 6 dropped as public",
+  "2026-08-08T16:46:38.818Z  osm TZ Tanzania: 5 places -> +0 new, 0 merged, 0 with an email already, 1 leads with no contact tag, 4 dropped as public",
+  "2026-08-08T16:46:40.252Z  osm PA Panama: 12 places -> +0 new, 0 merged, 0 with an email already, 6 leads with no contact tag, 6 dropped as public",
+  "2026-08-08T16:46:45.987Z  osm BW: failed — subdivisions: out of time",
+  "2026-08-08T16:47:04.672Z  osm CR Costa Rica: 15 places -> +0 new, 0 merged, 0 with an email already, 4 leads with no contact tag, 11 dropped as public",
+  "2026-08-08T16:47:07.466Z  osm PE Peru: 16 places -> +1 new, 0 merged, 0 with an email already, 10 leads with no contact tag, 5 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-08T16:26:18.628Z",
+ "roundStarted": "2026-08-08T16:36:58.718Z",
  "lastRound": {
-  "at": "2026-08-08T16:36:36.962Z",
-  "minutes": 10.3,
-  "summary": "crawled 3 sites, +1 emails; osm 5 countries (US,CA,NZ,MT,MU,ZW,ZM,TZ,UG,GH,BW,NA) +129, 2 failed",
-  "crawled": 3,
-  "emailsFound": 1,
+  "at": "2026-08-08T16:47:07.486Z",
+  "minutes": 10.1,
+  "summary": "crawled 110 sites, +69 emails; osm 6 countries (PE,CR,PA,TZ,UG,GH,BW,NA,TT,JM,BS,BB) +1, 1 failed",
+  "crawled": 110,
+  "emailsFound": 69,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
-  "osmAdded": 129,
-  "osmFailed": 2
+  "osmCountries": 6,
+  "osmAdded": 1,
+  "osmFailed": 1
  }
 }
