@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-08T19:35:11.892Z",
+ "generated": "2026-08-08T19:44:50.214Z",
  "clubs": 792,
  "records": 1090,
  "crawl": {
@@ -8,14 +8,14 @@
   "exhausted": 93
  },
  "osm": {
-  "imported": 76,
-  "failed": 7,
+  "imported": 78,
+  "failed": 5,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "FM",
-   "error": "fetch failed",
-   "at": "2026-08-08T19:34:30.096Z"
+   "cc": "LS",
+   "error": "subdivisions: busy (504)",
+   "at": "2026-08-08T19:44:50.185Z"
   }
  },
  "crawlReasons": [
@@ -52,33 +52,33 @@
  },
  "leads": 3832,
  "recent": [
-  "2026-08-08T19:25:29.790Z  osm ST: failed — subdivisions: out of time",
-  "2026-08-08T19:25:41.791Z  osm SD Sudan: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-08T19:25:43.563Z  published to the public link",
-  "2026-08-08T19:25:43.566Z  tick done in 9.8m — crawled 0 sites, +0 emails; osm 8 countries (NG,TT,DM,SS,SD,GW,CV,SL,ST,TL,NR,KI) +0, 2 failed | 792 emails total, 152 still queued",
-  "2026-08-08T19:29:55.433Z  osm TO Tonga: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-08T19:30:08.419Z  osm TV Tuvalu: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-08T19:33:51.740Z  osm KI Kiribati: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-08T19:34:06.911Z  osm NR Nauru: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-08T19:34:12.495Z  osm TT: too big for one query — 7 of 15 subdivisions read, carries on next round",
-  "2026-08-08T19:34:12.499Z  osm TT Trinidad and Tobago: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
   "2026-08-08T19:34:16.160Z  osm MH Marshall Islands: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
   "2026-08-08T19:34:30.097Z  osm FM: failed — fetch failed",
   "2026-08-08T19:34:49.354Z  osm SB Solomon Islands: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-08T19:35:11.869Z  osm VU Vanuatu: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
+  "2026-08-08T19:35:11.869Z  osm VU Vanuatu: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-08T19:35:13.621Z  published to the public link",
+  "2026-08-08T19:35:13.623Z  tick done in 9.1m — crawled 0 sites, +0 emails; osm 8 countries (TT,NR,KI,VU,TV,TO,MH,SB,FM,HN,KN,DO) +0, 1 failed | 792 emails total, 152 still queued",
+  "2026-08-08T19:41:57.555Z  osm LR Liberia: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-08T19:43:39.754Z  osm GM Gambia: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-08T19:43:45.505Z  osm TT: too big for one query — 8 of 15 subdivisions read, carries on next round",
+  "2026-08-08T19:43:45.509Z  osm TT Trinidad and Tobago: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
+  "2026-08-08T19:43:52.607Z  osm DO Dominican Republic: 15 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 10 dropped as public",
+  "2026-08-08T19:43:59.125Z  osm HN Honduras: 4 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
+  "2026-08-08T19:44:14.713Z  osm KN Saint Kitts and Nevis: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-08T19:44:50.186Z  osm LS: failed — subdivisions: busy (504)"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-08T19:26:03.583Z",
+ "roundStarted": "2026-08-08T19:35:33.642Z",
  "lastRound": {
-  "at": "2026-08-08T19:35:11.888Z",
-  "minutes": 9.1,
-  "summary": "crawled 0 sites, +0 emails; osm 8 countries (TT,NR,KI,VU,TV,TO,MH,SB,FM,HN,KN,DO) +0, 1 failed",
+  "at": "2026-08-08T19:44:50.210Z",
+  "minutes": 9.3,
+  "summary": "crawled 0 sites, +0 emails; osm 6 countries (TT,GM,LS,LR,HN,KN,DO,VC,BR,NI,BO,VE) +0, 1 failed",
   "crawled": 0,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 8,
+  "osmCountries": 6,
   "osmAdded": 0,
   "osmFailed": 1
  }
