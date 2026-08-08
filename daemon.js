@@ -44,6 +44,7 @@ const CFG = {
   concurrency:   parseInt(process.env.CONCURRENCY    || '8',  10),
   hostDelayMs:   parseInt(process.env.HOST_DELAY_MS  || '2000',10), // per host
   pagesPerTick:  parseInt(process.env.PAGES_PER_TICK || '25', 10),
+  osmMinutes:    parseInt(process.env.OSM_MINUTES     || '8',  10),  // slice of the round
   maxAttempts:   3
 };
 
@@ -414,11 +415,18 @@ async function phaseOSM(db, deadline){
   // marked done and silently under-collected.
   if(Date.now() > deadline - 4*60*1000) return {cc:null, added:0, skipped:'no time left'};
 
+  // OSM gets a slice of the round, not the remainder of it. Discovery is
+  // useless on its own — a club with a website and no email is not a
+  // result — and the crawl is what turns one into the other. The round
+  // that imported the UK spent 36 of its 37 minutes in Overpass and
+  // crawled eight sites, leaving 207 clubs sitting in the queue.
+  const osmDeadline = Math.min(deadline, Date.now() + CFG.osmMinutes*60*1000);
+
   const cc = osm.nextCountry();
   if(!cc) return {cc:null, added:0};
 
   try{
-    const s = await osm.importCountry(cc, db, m=>log(m), deadline);
+    const s = await osm.importCountry(cc, db, m=>log(m), osmDeadline);
     if(s.error){
       log(`osm ${cc} failed: ${s.error}`);
       osm.markDone(cc, {error:s.error});
