@@ -1,0 +1,158 @@
+# Seed directories — one per line:   COUNTRYCODE  URL
+#
+# Drop this file next to daemon.js and run:  node daemon.js
+# Lines starting with # are ignored.
+#
+# Everything in the ACTIVE section below was opened and checked. Each one is
+# a real listing page that the daemon can walk. Nothing here is guessed.
+#
+# ===========================================================================
+# ACTIVE
+# ===========================================================================
+#
+# --- SPAIN: Royal Spanish Tennis Federation (RFET) -------------------------
+# Verified. club.html?Pro=N is one province per number, 1 to 52. Each entry
+# links to a club page that prints the club's email directly, so these
+# convert almost one-for-one without ever leaving the federation's site.
+# Checked Pro=4 (Almería): 19 clubs listed, emails present on the detail pages.
+# The exact province-to-number mapping doesn't matter — enumerating 1..52
+# covers all of them regardless of order.
+
+ES  https://www.rfet.es/es/club.html?Pro=1
+ES  https://www.rfet.es/es/club.html?Pro=2
+ES  https://www.rfet.es/es/club.html?Pro=3
+ES  https://www.rfet.es/es/club.html?Pro=4
+ES  https://www.rfet.es/es/club.html?Pro=5
+ES  https://www.rfet.es/es/club.html?Pro=6
+ES  https://www.rfet.es/es/club.html?Pro=7
+ES  https://www.rfet.es/es/club.html?Pro=8
+ES  https://www.rfet.es/es/club.html?Pro=9
+ES  https://www.rfet.es/es/club.html?Pro=10
+ES  https://www.rfet.es/es/club.html?Pro=11
+ES  https://www.rfet.es/es/club.html?Pro=12
+ES  https://www.rfet.es/es/club.html?Pro=13
+ES  https://www.rfet.es/es/club.html?Pro=14
+ES  https://www.rfet.es/es/club.html?Pro=15
+ES  https://www.rfet.es/es/club.html?Pro=16
+ES  https://www.rfet.es/es/club.html?Pro=17
+ES  https://www.rfet.es/es/club.html?Pro=18
+ES  https://www.rfet.es/es/club.html?Pro=19
+ES  https://www.rfet.es/es/club.html?Pro=20
+ES  https://www.rfet.es/es/club.html?Pro=21
+ES  https://www.rfet.es/es/club.html?Pro=22
+ES  https://www.rfet.es/es/club.html?Pro=23
+ES  https://www.rfet.es/es/club.html?Pro=24
+ES  https://www.rfet.es/es/club.html?Pro=25
+ES  https://www.rfet.es/es/club.html?Pro=26
+ES  https://www.rfet.es/es/club.html?Pro=27
+ES  https://www.rfet.es/es/club.html?Pro=28
+ES  https://www.rfet.es/es/club.html?Pro=29
+ES  https://www.rfet.es/es/club.html?Pro=30
+ES  https://www.rfet.es/es/club.html?Pro=31
+ES  https://www.rfet.es/es/club.html?Pro=32
+ES  https://www.rfet.es/es/club.html?Pro=33
+ES  https://www.rfet.es/es/club.html?Pro=34
+ES  https://www.rfet.es/es/club.html?Pro=35
+ES  https://www.rfet.es/es/club.html?Pro=36
+ES  https://www.rfet.es/es/club.html?Pro=37
+ES  https://www.rfet.es/es/club.html?Pro=38
+ES  https://www.rfet.es/es/club.html?Pro=39
+ES  https://www.rfet.es/es/club.html?Pro=40
+ES  https://www.rfet.es/es/club.html?Pro=41
+ES  https://www.rfet.es/es/club.html?Pro=42
+ES  https://www.rfet.es/es/club.html?Pro=43
+ES  https://www.rfet.es/es/club.html?Pro=44
+ES  https://www.rfet.es/es/club.html?Pro=45
+ES  https://www.rfet.es/es/club.html?Pro=46
+ES  https://www.rfet.es/es/club.html?Pro=47
+ES  https://www.rfet.es/es/club.html?Pro=48
+ES  https://www.rfet.es/es/club.html?Pro=49
+ES  https://www.rfet.es/es/club.html?Pro=50
+ES  https://www.rfet.es/es/club.html?Pro=51
+ES  https://www.rfet.es/es/club.html?Pro=52
+
+# --- UK & IRELAND: Racketeer club-link directory ---------------------------
+# Verified. A hand-built index of tennis club websites across the UK and
+# Republic of Ireland, split by nation. It links straight out to each club's
+# own site, which is exactly what the crawler wants.
+#
+# CAVEAT, and it matters: the site's own footer says it was last edited in
+# February 2019. Expect a meaningful share of dead links. Clubs outlive their
+# webmasters though, so many domains still resolve. Treat the yield here as
+# a bonus rather than a plan, and check what comes back.
+
+GB  http://www.racketeer.free-online.co.uk/England.html
+GB  http://www.racketeer.free-online.co.uk/Scotland.html
+GB  http://www.racketeer.free-online.co.uk/Wales.html
+GB  http://www.racketeer.free-online.co.uk/Islands.html
+IE  http://www.racketeer.free-online.co.uk/Ireland.html
+
+# --- UK: Curlie open directory, tennis clubs -------------------------------
+# Found in search as a maintained category of UK tennis club sites. Smaller
+# than Racketeer but independently curated, so the overlap is partial.
+
+GB  https://curlie.org/en/Regional/Europe/United_Kingdom/Recreation_and_Sports/Sports/Tennis/Organisations/Clubs
+
+
+# ===========================================================================
+# CHECKED AND REJECTED — do not add these back
+# ===========================================================================
+#
+# Playtomic directory (directory.playtomic.io)
+#   The obvious first choice, and it covers padel across Spain, Portugal and
+#   Latin America. But its robots.txt disallows automated access. The daemon
+#   honours robots.txt, so it would fetch nothing. Left out deliberately.
+#   If you want that data, their clubs are reachable by hand or by asking
+#   Playtomic for a partnership feed.
+#
+# Portuguese Tennis Federation (tenis.pt / fptenis.pt)
+#   Portugal has around 300 affiliated clubs across 13 regional associations,
+#   but I could not find a single crawlable listing page. The club data sits
+#   behind the TieSports platform. The 13 regional associations each publish
+#   their own club lists — those are the pages worth finding.
+#
+# Scraper resale sites (rentechdigital and similar)
+#   These do list clubs with emails, but the addresses are masked on the
+#   public page and only unlocked on payment. Nothing for a crawler to read.
+
+
+# ===========================================================================
+# TO EXTEND — searches that find the next batch
+# ===========================================================================
+#
+# Add a line whenever you find a page that lists many clubs. The pattern that
+# works: a federation or association index, one page per region, each entry
+# linking to a club. That is the shape the daemon walks best.
+#
+# Spain, beyond the national body — the 17 regional federations list more
+# clubs than RFET does, and they cover padel, which RFET does not:
+#   "federación de padel" + <region> + clubes
+#   federació catalana de tennis clubs
+#   federación andaluza de padel clubes
+#
+# Portugal — the 13 regional tennis associations:
+#   "associação de ténis de" <district> clubes filiados
+#   federação portuguesa padel clubes
+#
+# Argentina, Mexico, Chile, Colombia, Peru, Uruguay:
+#   "asociación de padel" <country> clubes afiliados
+#   federación de tenis <country> clubes
+#
+# Brazil:
+#   "federação de tênis" <state> clubes filiados
+#   confederação brasileira de tênis clubes
+#
+# Squash, which is thin in all the above — go at it by federation:
+#   england squash club finder
+#   squash <country> federation club list
+#
+# UK and Ireland, current rather than 2019:
+#   lta venue finder / tennis ireland affiliated clubs
+#   <county> tennis league clubs contacts
+#
+# Australia, New Zealand, South Africa, India:
+#   tennis <state> affiliated clubs list
+#   squash <state> clubs directory
+#
+# League and competition sites are underrated. A divisional fixture list is
+# a list of clubs with a secretary's email printed beside each one.

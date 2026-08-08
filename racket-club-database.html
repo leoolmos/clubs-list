@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Racket Club Database</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Palette drawn from court surfaces */
+  --out:#E4E9EA;        /* hard-court surround */
+  --panel:#EEF2F2;
+  --ink:#14201E;        /* court green-black */
+  --ink-soft:#4A5A57;
+  --line:#FFFFFF;       /* court line */
+  --rule:#B7C3C5;
+  --clay:#A8452A;       /* tennis */
+  --glass:#2B5EA7;      /* padel */
+  --tin:#7D2E4C;        /* squash */
+  --grass:#1D6B4B;      /* primary action */
+  --warn:#8A6A12;
+  --r:3px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--out);
+  color:var(--ink);
+  font-family:"Public Sans",system-ui,sans-serif;
+  font-size:14px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px 80px}
+
+/* ---- court-line structural rules ---- */
+.courtline{height:2px;background:var(--line);margin:0}
+.hair{height:1px;background:var(--rule)}
+
+/* ---- header ---- */
+header{padding:32px 0 20px}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);margin:0 0 10px
+}
+h1{
+  font-family:"Archivo",sans-serif;font-weight:800;
+  font-size:clamp(30px,5.2vw,52px);line-height:.96;
+  letter-spacing:-.025em;margin:0 0 18px;max-width:16ch;
+  font-stretch:expanded;
+}
+.meter{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:10px}
+.meter .big{font-family:"Archivo",sans-serif;font-weight:800;font-size:26px;letter-spacing:-.02em}
+.meter .lbl{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);letter-spacing:.04em}
+.bar{height:10px;background:var(--line);position:relative;overflow:hidden;border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--grass);width:0;transition:width .5s ease}
+.bar-ticks{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--ink-soft);margin-top:5px}
+
+/* ---- sections ---- */
+section{padding:26px 0}
+.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+h2{
+  font-family:"Archivo",sans-serif;font-weight:700;font-size:15px;
+  letter-spacing:.08em;text-transform:uppercase;margin:0
+}
+.sec-note{font-size:12.5px;color:var(--ink-soft);margin:0}
+
+/* ---- controls ---- */
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:6px}
+.search{flex:1 1 260px;min-width:200px;position:relative}
+.search input{
+  width:100%;padding:11px 12px 11px 34px;border:1px solid var(--rule);
+  background:var(--line);color:var(--ink);border-radius:var(--r);
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px
+}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);opacity:.45}
+input:focus-visible,select:focus-visible,button:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--grass);outline-offset:1px
+}
+.chipset{display:flex;gap:6px;flex-wrap:wrap}
+.chip{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.05em;
+  text-transform:uppercase;padding:9px 13px;border:1px solid var(--rule);
+  background:var(--line);color:var(--ink-soft);cursor:pointer;border-radius:var(--r);
+  display:inline-flex;align-items:center;gap:7px;transition:all .12s
+}
+.chip:hover{border-color:var(--ink-soft)}
+.chip .dot{width:8px;height:8px;border-radius:50%;flex:none}
+.chip[data-sport="Tennis"] .dot{background:var(--clay)}
+.chip[data-sport="Padel"] .dot{background:var(--glass)}
+.chip[data-sport="Squash"] .dot{background:var(--tin)}
+.chip.on{color:var(--line);border-color:transparent}
+.chip.on[data-sport="Tennis"]{background:var(--clay)}
+.chip.on[data-sport="Padel"]{background:var(--glass)}
+.chip.on[data-sport="Squash"]{background:var(--tin)}
+.chip.on .dot{background:var(--line)}
+select{
+  padding:9px 11px;border:1px solid var(--rule);background:var(--line);
+  color:var(--ink);border-radius:var(--r);font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;cursor:pointer
+}
+.btn{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.05em;
+  text-transform:uppercase;padding:9px 15px;border:1px solid var(--ink);
+  background:var(--ink);color:var(--out);cursor:pointer;border-radius:var(--r);
+  transition:opacity .12s
+}
+.btn:hover{opacity:.84}
+.btn.go{background:var(--grass);border-color:var(--grass);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink-soft);border-color:var(--rule)}
+.btn.ghost:hover{color:var(--ink);border-color:var(--ink-soft)}
+
+.resultline{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-soft);
+  margin:14px 0 8px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
+}
+
+/* ---- table ---- */
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);background:var(--line);border-radius:var(--r)}
+table{width:100%;border-collapse:collapse;min-width:880px}
+thead th{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-soft);text-align:left;font-weight:500;
+  padding:11px 14px;border-bottom:2px solid var(--ink);white-space:nowrap;
+  background:var(--panel);position:sticky;top:0
+}
+tbody td{padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--panel)}
+.cname{font-weight:600;font-size:13.5px;line-height:1.3}
+.cmail{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--grass);text-decoration:none;word-break:break-all}
+.cmail:hover{text-decoration:underline}
+.meta{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);white-space:nowrap}
+.sports{display:flex;gap:4px;flex-wrap:wrap}
+.tag{
+  font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.08em;
+  text-transform:uppercase;padding:3px 7px;border-radius:2px;color:#fff;white-space:nowrap
+}
+.tag.Tennis{background:var(--clay)}
+.tag.Padel{background:var(--glass)}
+.tag.Squash{background:var(--tin)}
+.flagmark{
+  font-family:"IBM Plex Mono",monospace;font-size:9.5px;color:var(--warn);
+  border:1px solid var(--warn);padding:2px 5px;border-radius:2px;white-space:nowrap;display:inline-block
+}
+.rowdel{background:none;border:none;color:var(--rule);cursor:pointer;font-size:16px;line-height:1;padding:2px 4px}
+.rowdel:hover{color:var(--clay)}
+.empty{padding:44px 20px;text-align:center;color:var(--ink-soft);font-size:13px}
+.empty b{display:block;font-family:"Archivo",sans-serif;font-size:15px;color:var(--ink);margin-bottom:6px}
+
+/* ---- add panel ---- */
+.addgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:800px){.addgrid{grid-template-columns:1fr}}
+.card{background:var(--line);border:1px solid var(--rule);border-radius:var(--r);padding:18px}
+.card h3{font-family:"Archivo",sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 4px}
+.card p.hint{font-size:12px;color:var(--ink-soft);margin:0 0 12px}
+textarea{
+  width:100%;min-height:130px;padding:10px;border:1px solid var(--rule);
+  background:var(--panel);color:var(--ink);border-radius:var(--r);
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;resize:vertical
+}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.fields input,.fields select{
+  padding:9px 10px;border:1px solid var(--rule);background:var(--panel);
+  color:var(--ink);border-radius:var(--r);font-size:12.5px;font-family:"Public Sans",sans-serif;width:100%
+}
+.fields .full{grid-column:1/-1}
+.sportpick{display:flex;gap:6px;grid-column:1/-1;flex-wrap:wrap}
+.status{font-family:"IBM Plex Mono",monospace;font-size:11px;margin-top:10px;min-height:16px}
+.status.ok{color:var(--grass)}
+.status.err{color:var(--clay)}
+
+/* ---- coverage ledger (signature) ---- */
+.ledger-legend{display:flex;gap:16px;flex-wrap:wrap;font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-soft);margin-bottom:14px}
+.ledger-legend span{display:inline-flex;align-items:center;gap:6px}
+.swatch{width:11px;height:11px;border:1px solid var(--rule);flex:none}
+.lang-block{margin-bottom:22px}
+.lang-title{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-soft);padding-bottom:6px;
+  border-bottom:2px solid var(--line);margin-bottom:10px;display:flex;justify-content:space-between
+}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(122px,1fr));gap:4px}
+.cell{
+  border:1px solid var(--rule);background:var(--line);padding:8px 9px;
+  border-radius:2px;cursor:pointer;text-align:left;font:inherit;color:inherit;
+  transition:border-color .12s;display:block;width:100%
+}
+.cell:hover{border-color:var(--ink)}
+.cell .cn{font-size:11px;font-weight:600;line-height:1.25;display:block;margin-bottom:3px}
+.cell .cc{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--ink-soft)}
+.cell.seed{background:#DDE9E2;border-color:var(--grass)}
+.cell.part{background:#F0F4F1;border-color:#8FB5A2}
+.cell.done{background:var(--grass);border-color:var(--grass)}
+.cell.done .cn,.cell.done .cc{color:#fff}
+.cell.skip{opacity:.42}
+
+dialog{
+  border:2px solid var(--ink);border-radius:var(--r);padding:0;max-width:440px;width:92%;
+  background:var(--line);color:var(--ink)
+}
+dialog::backdrop{background:rgba(20,32,30,.45)}
+.dlg-in{padding:20px}
+.dlg-in h3{font-family:"Archivo",sans-serif;font-size:16px;margin:0 0 2px}
+.dlg-in .sub{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);margin:0 0 14px}
+.dlg-in label{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:12px 0 5px}
+.dlg-in input,.dlg-in select,.dlg-in textarea{width:100%;padding:8px 10px;border:1px solid var(--rule);background:var(--panel);border-radius:var(--r);font-family:"Public Sans",sans-serif;font-size:12.5px;color:var(--ink)}
+.dlg-in textarea{min-height:64px;font-family:"IBM Plex Mono",monospace;font-size:11.5px}
+.dlg-act{display:flex;gap:8px;justify-content:flex-end;margin-top:18px}
+
+footer{padding:26px 0;font-size:12px;color:var(--ink-soft)}
+footer a{color:var(--grass)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Racket sports club database &nbsp;·&nbsp; tennis / padel / squash</p>
+  <h1>Private club contacts, country by country</h1>
+  <div class="meter">
+    <span class="big" id="mCount">0</span>
+    <span class="lbl" id="liveNote"></span>
+    <span class="lbl">of 10,000 target &nbsp;·&nbsp; <span id="mCountries">0</span> countries touched of <span id="mTotalC">0</span></span>
+  </div>
+  <div class="bar"><i id="mBar"></i></div>
+  <div class="bar-ticks"><span>0</span><span>2,500</span><span>5,000</span><span>7,500</span><span>10,000</span></div>
+</header>
+
+<div class="courtline"></div>
+
+<!-- ============ DATABASE ============ -->
+<section>
+  <div class="sec-head">
+    <h2>Clubs</h2>
+    <p class="sec-note">Search by club name, contact or email. Sport filters stack — pick two to see clubs offering both.</p>
+  </div>
+
+  <div class="controls">
+    <div class="search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search name, contact or email…" autocomplete="off">
+    </div>
+    <div class="chipset" id="sportChips">
+      <button class="chip" data-sport="Tennis"><span class="dot"></span>Tennis</button>
+      <button class="chip" data-sport="Padel"><span class="dot"></span>Padel</button>
+      <button class="chip" data-sport="Squash"><span class="dot"></span>Squash</button>
+    </div>
+    <select id="fLang"><option value="">All languages</option><option>English</option><option>Spanish</option><option>Portuguese</option></select>
+    <select id="fCountry"><option value="">All countries</option></select>
+    <button class="btn ghost" id="reset">Clear</button>
+    <label class="btn ghost" for="loadCsv" style="cursor:pointer">Load CSV</label>
+    <input id="loadCsv" type="file" accept=".csv,text/csv" hidden>
+    <button class="btn go" id="export">Export CSV</button>
+  </div>
+
+  <div class="resultline">
+    <span id="rl">—</span>
+    <span id="rlNote"></span>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr>
+        <th>Club</th><th>Sports</th><th>Contact</th><th>Email</th><th>Lang</th><th>Country</th><th>Source</th><th></th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div class="empty" id="empty" hidden><b>Nothing matches those filters</b>Clear the filters, or add clubs below.</div>
+  </div>
+</section>
+
+<div class="courtline"></div>
+
+<!-- ============ ADD ============ -->
+<section>
+  <div class="sec-head">
+    <h2>Add clubs</h2>
+    <p class="sec-note">Duplicates are rejected on email, so you can paste the same batch twice without harm.</p>
+  </div>
+  <div class="addgrid">
+    <div class="card">
+      <h3>Paste a batch</h3>
+      <p class="hint">One club per line, comma or tab separated, in this order:<br>
+        <code style="font-family:'IBM Plex Mono',monospace;font-size:11px">name, sports, contact, email, country</code><br>
+        Sports can be <code style="font-family:'IBM Plex Mono',monospace;font-size:11px">Tennis</code>, <code style="font-family:'IBM Plex Mono',monospace;font-size:11px">Tennis+Padel</code>, etc. Language is set from the country.</p>
+      <textarea id="bulk" placeholder="Club Deportivo Los Naranjos, Tennis+Padel, María López, info@losnaranjos.es, Spain
+Sandton Squash Club, Squash, , admin@sandtonsquash.co.za, South Africa"></textarea>
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+        <button class="btn go" id="bulkAdd">Add batch</button>
+        <button class="btn ghost" id="bulkClear">Clear box</button>
+      </div>
+      <div class="status" id="bulkStatus"></div>
+    </div>
+
+    <div class="card">
+      <h3>Add one</h3>
+      <p class="hint">For clubs you have verified individually.</p>
+      <div class="fields">
+        <input id="aName" class="full" placeholder="Club name (required)">
+        <input id="aContact" placeholder="Contact name (optional)">
+        <input id="aEmail" placeholder="Email (required)">
+        <select id="aCountry"></select>
+        <input id="aSource" placeholder="Source (e.g. club website)">
+        <div class="sportpick">
+          <button class="chip" data-pick="Tennis"><span class="dot"></span>Tennis</button>
+          <button class="chip" data-pick="Padel"><span class="dot"></span>Padel</button>
+          <button class="chip" data-pick="Squash"><span class="dot"></span>Squash</button>
+        </div>
+      </div>
+      <button class="btn go" id="addOne">Add club</button>
+      <div class="status" id="oneStatus"></div>
+    </div>
+  </div>
+</section>
+
+<div class="courtline"></div>
+
+<!-- ============ COVERAGE LEDGER ============ -->
+<section>
+  <div class="sec-head">
+    <h2>Coverage ledger</h2>
+    <p class="sec-note">The running log of where you have already looked. Click any country to record the sources you worked, so no path gets walked twice.</p>
+  </div>
+  <div class="ledger-legend">
+    <span><i class="swatch"></i>Not started</span>
+    <span><i class="swatch" style="background:#DDE9E2;border-color:var(--grass)"></i>Seeded</span>
+    <span><i class="swatch" style="background:#F0F4F1;border-color:#8FB5A2"></i>In progress</span>
+    <span><i class="swatch" style="background:var(--grass);border-color:var(--grass)"></i>Exhausted</span>
+  </div>
+  <div id="ledger"></div>
+  <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+    <button class="btn ghost" id="exportLog">Export ledger CSV</button>
+  </div>
+</section>
+
+<div class="courtline"></div>
+
+<footer>
+  <p><strong>On the seed data:</strong> every row loaded by default was pulled from a real published source and is listed with that source. Nothing here is invented. Rows marked <span class="flagmark">verify</span> come from directories that look years out of date, so check those before sending anything.</p>
+  <p id="storeNote"></p>
+</footer>
+
+</div>
+
+<dialog id="dlg"><div class="dlg-in">
+  <h3 id="dlgName">Country</h3>
+  <p class="sub" id="dlgCount">0 clubs collected</p>
+  <label for="dlgStatus">Status</label>
+  <select id="dlgStatus">
+    <option value="none">Not started</option>
+    <option value="part">In progress</option>
+    <option value="done">Exhausted — do not revisit</option>
+    <option value="skip">Skip this country</option>
+  </select>
+  <label for="dlgSources">Sources already worked</label>
+  <textarea id="dlgSources" placeholder="federation club list — done to page 12&#10;padel directory — no emails exposed&#10;maps scrape — 400 sites queued for crawl"></textarea>
+  <div class="dlg-act">
+    <button class="btn ghost" id="dlgCancel">Cancel</button>
+    <button class="btn go" id="dlgSave">Save</button>
+  </div>
+</div></dialog>
+
+<script>
+(function(){
+"use strict";
+
+/* ------------------------------------------------------------------
+   COUNTRIES — exactly the list requested, grouped by primary language
+------------------------------------------------------------------ */
+var COUNTRIES = {
+  Spanish:["Argentina","Bolivia","Chile","Colombia","Costa Rica","Cuba","Dominican Republic","Ecuador","El Salvador","Equatorial Guinea","Guatemala","Honduras","Mexico","Nicaragua","Panama","Paraguay","Peru","Spain","Uruguay","Venezuela"],
+  Portuguese:["Angola","Brazil","Cape Verde","East Timor","Guinea-Bissau","Mozambique","Portugal","São Tomé and Príncipe"],
+  English:["Antigua and Barbuda","Australia","Bahamas","Barbados","Belize","Botswana","Canada","Dominica","Fiji","Gambia","Ghana","Grenada","Guyana","India","Ireland","Jamaica","Kenya","Kiribati","Lesotho","Liberia","Malawi","Malta","Marshall Islands","Mauritius","Micronesia","Namibia","Nauru","New Zealand","Nigeria","Pakistan","Palau","Papua New Guinea","Philippines","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","Seychelles","Sierra Leone","Singapore","Solomon Islands","South Africa","South Sudan","Sudan","Tanzania","Tonga","Trinidad and Tobago","Tuvalu","Uganda","United Kingdom","United States","Vanuatu","Zambia","Zimbabwe"]
+};
+var LANG_OF = {};
+Object.keys(COUNTRIES).forEach(function(l){ COUNTRIES[l].forEach(function(c){ LANG_OF[c]=l; }); });
+var ALL_COUNTRIES = Object.keys(LANG_OF).sort();
+
+/* ------------------------------------------------------------------
+   SEED — real records, each traceable to a published source.
+   src key:  CTC = centenarytennisclubs.com/members.htm
+             USCTA = uscourttennis.org/international-courts
+             web = individual web search result
+   stale:true means the listing looks years old; verify before use.
+------------------------------------------------------------------ */
+var SEED = [
+ ["Ballarat Tennis Club","Tennis","Brett MacFarlane","pro@ballarattennisclub.com.au","Australia","USCTA",0],
+ ["Glen Erin Court","Tennis","Brian Scales","sales@glenerin.com.au","Australia","USCTA",0],
+ ["Hobart Tennis Club","Tennis","Barry Toates","getreal@hobarttennis.com.au","Australia","USCTA",0],
+ ["The Royal Melbourne Tennis Club","Tennis","Frank Filippelli","pros@rmtc.com.au","Australia","USCTA",0],
+ ["Kooyong Lawn Tennis Club","Tennis","Chris Brown","cedric@kooyongltc.asn.au","Australia","CTC",1],
+ ["Bristol & Bath Club","Tennis","Kevin King","email@bbtc.org.uk","United Kingdom","USCTA",0],
+ ["Falkland Palace Royal Tennis Club","Tennis","R. Hammond","randbhammond@btinternet.com","United Kingdom","USCTA",0],
+ ["Hardwick House","Tennis","Michael Parsons","hardwickfix@gmail.com","United Kingdom","USCTA",0],
+ ["Hatfield House Tennis Club","Tennis","Jon Dawes","hhtc@gotadsl.co.uk","United Kingdom","USCTA",1],
+ ["Holyport Real Tennis Club","Tennis","Andy Chinneck","holyport.rtc@btinternet.com","United Kingdom","USCTA",0],
+ ["The Hyde Tennis Club","Tennis","Ben Ronaldson","clubpro@hyderealtennis.co.uk","United Kingdom","USCTA",0],
+ ["Jesmond Dene Tennis Club","Tennis","Paul Hetherington","club@jdrtc.co.uk","United Kingdom","USCTA",0],
+ ["Leamington Tennis Court Club","Tennis","Ben Matthews","tenniscourtclub@hotmail.com","United Kingdom","USCTA",0],
+ ["Marylebone Cricket Club (Lord's)","Tennis+Squash","Adam Phillips","tennisandsquash@mcc.org.uk","United Kingdom","USCTA",0],
+ ["The Manchester Tennis & Racquet Club","Tennis","Steve Brockenshaw","professional@mtrc.co.uk","United Kingdom","USCTA",0],
+ ["Moreton Morrell Tennis Court Club","Tennis","Darren Long","pro@mmtcc.org","United Kingdom","USCTA",0],
+ ["The Newmarket & Suffolk Real Tennis Club","Tennis","Andrew Knibbs","pros@nsrtc.co.uk","United Kingdom","USCTA",0],
+ ["Petworth House Tennis Court","Tennis","Chris Bray","phtc@btconect.com","United Kingdom","USCTA",1],
+ ["Prested Hall Racket Club","Tennis","Claire Vigrass","prestedtennis@gmail.com","United Kingdom","USCTA",0],
+ ["The Royal Tennis Court","Tennis","Nick Wood","royaltenniscourt@btconnect.com","United Kingdom","USCTA",0],
+ ["Seacourt Tennis Club","Tennis","Danny Jones","mail@seacourt.com","United Kingdom","USCTA",0],
+ ["The Cumberland Lawn Tennis Club","Tennis","Michelle Wheeler","enquiries@cltc-hcc.com","United Kingdom","CTC",0],
+ ["The Queen's Club","Tennis+Squash","Andrew Stewart","andrew.stewart@queensclub.co.uk","United Kingdom","CTC",1],
+ ["Roehampton Club","Tennis+Squash","Paul Lindsay","paul.lindsay@roehamptonclub.co.uk","United Kingdom","CTC",0],
+ ["The Edgbaston Priory Club","Tennis","Michael J. Fallows","membership@edgbastonpriory.com","United Kingdom","CTC",0],
+ ["Winchester Tennis and Squash Club","Tennis+Squash","Billy Kerr","enquiries@thewinchesterclub.net","United Kingdom","CTC",0],
+ ["Fitzwilliam Lawn Tennis Club","Tennis","Terry Jermyn","admin@fltc.ie","Ireland","CTC",0],
+ ["Carrickmines Croquet & Lawn Tennis Club","Tennis","Pat Crowe","crowep@eircom.net","Ireland","CTC",1],
+ ["Mount Royal Tennis Club","Tennis","Patrick Martin","mountroyaltennis@qc.aira.com","Canada","CTC",1],
+ ["The Toronto Lawn Tennis Club","Tennis","Jason Clarke","info@torontolawn.com","Canada","CTC",0],
+ ["Royal Oak Tennis Club","Tennis","Robert Cassius de Linval","info@royaloaktennis.com","Canada","CTC",0],
+ ["Philadelphia Cricket Club","Tennis","Thomas C. Culp Jr.","nsmith@philacricket.com","United States","CTC",1],
+ ["Longwood Cricket Club","Tennis","John K. Ratcliffe","jratlcc@aol.com","United States","CTC",1],
+ ["Berkeley Tennis Club","Tennis","Geoff Hayes","btctennis@sbcglobal.net","United States","CTC",1],
+ ["California Tennis Club","Tennis","Tim Odenweller","todenweller@gmail.com","United States","CTC",1],
+ ["Columbia Country Club","Tennis","David Wendt","tennis@columbiacc.org","United States","CTC",0],
+ ["Cincinnati Tennis Club","Tennis","Robert F. Uhrig","cincytennis@fuse.net","United States","CTC",1],
+ ["The Wanderers Club","Tennis","Darren Dignam","darren@wanderersclub.co.za","South Africa","CTC",0],
+ ["Real Club de Tenis Barcelona-1899","Tennis","Josep Mª Casas Francàs","info@rctb1899.es","Spain","CTC",0],
+ ["Real Club de Polo de Barcelona","Tennis","Mª Victoria de Argila","info@rcpolo.com","Spain","CTC",0],
+ ["Club Tennis de la Salut","Tennis","Àngel Toyos","ctlasalut@ctlasalut.com","Spain","CTC",0],
+ ["Club de Tenis Valencia","Tennis","Luis Gómez","gerente@clubdetenisvalencia.es","Spain","CTC",0],
+ ["Real Club de Tenis San Sebastián","Tennis","Jokin Larrañaga","rctss@rctss.com","Spain","CTC",0],
+ ["Real Sociedad de Tenis de la Magdalena","Tennis","José Manuel Caldera","jmcaldera@rstenis.es","Spain","CTC",0],
+ ["Club de Pádel La Cañada","Padel","P. Alarcón Acevedo","palarconacevedo@gmail.com","Spain","web",1],
+ ["Buenos Aires Lawn Tennis Club","Tennis","Guillermo Frávera","baltc@arnetbiz.com.ar","Argentina","CTC",1],
+ ["Tenis Club Argentino","Tennis","","info@tenisclubargentino.com","Argentina","web",0],
+ ["The Reforma Athletic Club","Tennis","Ricardo de Paola","info@clubreforma.com","Mexico","CTC",0],
+ ["Lawn Tennis Clube da Foz","Tennis","Miguel Pereira Leite","tenisdafoz@mail.telepac.pt","Portugal","CTC",1]
+];
+
+var SRC_LABEL = {CTC:"Centenary TC",USCTA:"USCTA intl",web:"Web search",manual:"Added by you",batch:"Pasted batch"};
+
+/* ------------------------------------------------------------------
+   STATE
+------------------------------------------------------------------ */
+var clubs = [], ledger = {}, memoryOnly = false, liveMode = false, bakedAt = "";
+var filters = {q:"", sports:[], lang:"", country:""};
+var pickedSports = [];
+
+function mkClub(a){
+  return {name:a[0], sports:String(a[1]).split("+").map(function(s){return s.trim();}).filter(Boolean),
+          contact:a[2]||"", email:String(a[3]).toLowerCase().trim(),
+          country:a[4], lang:LANG_OF[a[4]]||"", src:a[5]||"manual", stale:!!a[6]};
+}
+function seedClubs(){ return SEED.map(mkClub); }
+
+/* ---------- storage (artifact storage when present, memory otherwise) ---------- */
+function hasStore(){ return typeof window.storage !== "undefined" && window.storage && typeof window.storage.get === "function"; }
+
+async function load(){
+  // 1. Data baked in by the daemon. A file generated by `node daemon.js`
+  //    carries its own payload, so opening it always shows the current list
+  //    with no server and no import step.
+  if(window.__CLUBS__ && Array.isArray(window.__CLUBS__)){
+    clubs = window.__CLUBS__.map(function(c){
+      return {name:c.name, sports:c.sports||[], contact:c.contact||"", email:c.email,
+              lang:c.lang, country:c.country, src:c.src||"daemon", stale:!!c.stale};
+    });
+    ledger = window.__LEDGER__ || {};
+    bakedAt = window.__BAKED__ || "";
+    return;
+  }
+
+  // 2. Being served live by the daemon.
+  try{
+    var lr = await fetch("/api/clubs.json", {cache:"no-store"});
+    if(lr.ok){
+      var ld = await lr.json();
+      if(ld && Array.isArray(ld.clubs)){
+        clubs = ld.clubs.map(function(c){
+          return {name:c.name, sports:c.sports||[], contact:c.contact||"", email:c.email,
+                  lang:c.lang, country:c.country, src:c.src||"daemon", stale:!!c.stale};
+        });
+        ledger = ld.ledger || {};
+        liveMode = true;
+        return;
+      }
+    }
+  }catch(e){ /* opened as a plain file, not served by the daemon — expected */ }
+
+  // 3. Anything imported by hand in a previous session.
+  if(!hasStore()){ memoryOnly = true; clubs = seedClubs(); return; }
+  try{
+    var r = await window.storage.get("rcdb:v1");
+    var d = r && r.value ? JSON.parse(r.value) : null;
+    if(d && Array.isArray(d.clubs) && d.clubs.length){ clubs = d.clubs; ledger = d.ledger || {}; }
+    else { clubs = seedClubs(); }
+  }catch(e){ clubs = seedClubs(); }
+}
+
+/* When served by the daemon, re-read every 30s so the page fills up on its own */
+async function refreshLive(){
+  if(!liveMode) return;
+  try{
+    var r = await fetch("/api/clubs.json", {cache:"no-store"});
+    if(!r.ok) return;
+    var d = await r.json();
+    if(!d || !Array.isArray(d.clubs)) return;
+    var before = clubs.length;
+    clubs = d.clubs.map(function(c){
+      return {name:c.name, sports:c.sports||[], contact:c.contact||"", email:c.email,
+              lang:c.lang, country:c.country, src:c.src||"daemon", stale:!!c.stale};
+    });
+    renderAll();
+    if(clubs.length !== before) flashLive(clubs.length - before);
+  }catch(e){}
+}
+function flashLive(delta){
+  var n = document.getElementById("liveNote");
+  if(!n) return;
+  n.textContent = delta > 0 ? "live · +"+delta+" just now" : "live";
+}
+async function save(){
+  if(!hasStore()) return;
+  try{ await window.storage.set("rcdb:v1", JSON.stringify({clubs:clubs, ledger:ledger})); }
+  catch(e){ console.error("Could not save:", e); }
+}
+
+/* ------------------------------------------------------------------
+   HELPERS
+------------------------------------------------------------------ */
+function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+function validEmail(e){ return /^[^\s@,;]+@[^\s@,;]+\.[a-z]{2,}$/i.test(e); }
+
+function filtered(){
+  var q = filters.q.toLowerCase().trim();
+  return clubs.filter(function(c){
+    if(filters.lang && c.lang !== filters.lang) return false;
+    if(filters.country && c.country !== filters.country) return false;
+    for(var i=0;i<filters.sports.length;i++){ if(c.sports.indexOf(filters.sports[i])<0) return false; }
+    if(q){
+      var hay = (c.name+" "+c.contact+" "+c.email+" "+c.country).toLowerCase();
+      if(hay.indexOf(q)<0) return false;
+    }
+    return true;
+  });
+}
+
+/* ------------------------------------------------------------------
+   RENDER
+------------------------------------------------------------------ */
+function renderTable(){
+  var rows = filtered(), tb = document.getElementById("tbody"), out = "";
+  rows.forEach(function(c,i){
+    var idx = clubs.indexOf(c);
+    out += "<tr>"
+      + "<td><span class='cname'>"+esc(c.name)+"</span>"+(c.stale?" <span class='flagmark'>verify</span>":"")+"</td>"
+      + "<td><span class='sports'>"+c.sports.map(function(s){return "<span class='tag "+esc(s)+"'>"+esc(s)+"</span>";}).join("")+"</span></td>"
+      + "<td>"+(c.contact?esc(c.contact):"<span class='meta'>—</span>")+"</td>"
+      + "<td><a class='cmail' href='mailto:"+esc(c.email)+"'>"+esc(c.email)+"</a></td>"
+      + "<td><span class='meta'>"+esc(c.lang)+"</span></td>"
+      + "<td><span class='meta'>"+esc(c.country)+"</span></td>"
+      + "<td><span class='meta'>"+esc(SRC_LABEL[c.src]||c.src)+"</span></td>"
+      + "<td><button class='rowdel' data-del='"+idx+"' title='Remove "+esc(c.name)+"' aria-label='Remove "+esc(c.name)+"'>&times;</button></td>"
+      + "</tr>";
+  });
+  tb.innerHTML = out;
+  document.getElementById("empty").hidden = rows.length > 0;
+  document.getElementById("rl").textContent = rows.length + (rows.length===1?" club shown":" clubs shown") + " of " + clubs.length;
+  var stale = rows.filter(function(c){return c.stale;}).length;
+  document.getElementById("rlNote").textContent = stale ? stale+" flagged for verification" : "";
+}
+
+function renderMeter(){
+  document.getElementById("mCount").textContent = clubs.length.toLocaleString();
+  var touched = {};
+  clubs.forEach(function(c){ touched[c.country]=1; });
+  document.getElementById("mCountries").textContent = Object.keys(touched).length;
+  document.getElementById("mTotalC").textContent = ALL_COUNTRIES.length;
+  document.getElementById("mBar").style.width = Math.min(100, clubs.length/100) + "%";
+}
+
+function countryCounts(){
+  var m = {};
+  clubs.forEach(function(c){ m[c.country] = (m[c.country]||0)+1; });
+  return m;
+}
+
+function renderLedger(){
+  var counts = countryCounts(), host = document.getElementById("ledger"), out = "";
+  ["Spanish","Portuguese","English"].forEach(function(lang){
+    var list = COUNTRIES[lang];
+    var got = list.reduce(function(a,c){ return a + (counts[c]||0); }, 0);
+    out += "<div class='lang-block'><div class='lang-title'><span>"+lang+" &nbsp;·&nbsp; "+list.length+" countries</span><span>"+got+" clubs</span></div><div class='grid'>";
+    list.forEach(function(c){
+      var n = counts[c]||0, st = ledger[c] && ledger[c].status ? ledger[c].status : (n?"part":"none");
+      var cls = st==="done"?"done":st==="skip"?"skip":n?(st==="part"?"seed":"seed"):"";
+      if(st==="part" && !n) cls="part";
+      out += "<button class='cell "+cls+"' data-country=\""+esc(c)+"\">"
+           + "<span class='cn'>"+esc(c)+"</span><span class='cc'>"+n+" club"+(n===1?"":"s")+"</span></button>";
+    });
+    out += "</div></div>";
+  });
+  host.innerHTML = out;
+}
+
+function renderAll(){ renderTable(); renderMeter(); renderLedger(); }
+
+/* ------------------------------------------------------------------
+   CSV
+------------------------------------------------------------------ */
+function csvCell(v){ var s = String(v==null?"":v); return /[",\n]/.test(s) ? '"'+s.replace(/"/g,'""')+'"' : s; }
+function download(name, text){
+  var b = new Blob([ "\ufeff"+text ], {type:"text/csv;charset=utf-8"});
+  var u = URL.createObjectURL(b), a = document.createElement("a");
+  a.href = u; a.download = name; document.body.appendChild(a); a.click();
+  document.body.removeChild(a); setTimeout(function(){ URL.revokeObjectURL(u); }, 400);
+}
+function exportCSV(){
+  var rows = filtered();
+  var head = ["Club Name","Sports","Contact","Email","Language","Country","Source","Needs verification"];
+  var lines = [head.map(csvCell).join(",")];
+  rows.forEach(function(c){
+    lines.push([c.name, c.sports.join(" + "), c.contact, c.email, c.lang, c.country, SRC_LABEL[c.src]||c.src, c.stale?"yes":""].map(csvCell).join(","));
+  });
+  var d = new Date().toISOString().slice(0,10);
+  download("racket-clubs-"+d+".csv", lines.join("\n"));
+}
+function exportLedger(){
+  var counts = countryCounts();
+  var lines = [["Country","Language","Clubs collected","Status","Sources worked"].map(csvCell).join(",")];
+  ALL_COUNTRIES.forEach(function(c){
+    var l = ledger[c]||{};
+    lines.push([c, LANG_OF[c], counts[c]||0, l.status||"none", (l.notes||"").replace(/\n/g," | ")].map(csvCell).join(","));
+  });
+  download("coverage-ledger-"+new Date().toISOString().slice(0,10)+".csv", lines.join("\n"));
+}
+
+/* ------------------------------------------------------------------
+   ADDING
+------------------------------------------------------------------ */
+function splitLine(line){
+  if(line.indexOf("\t")>-1) return line.split("\t");
+  var out=[], cur="", inQ=false;
+  for(var i=0;i<line.length;i++){
+    var ch=line[i];
+    if(ch==='"'){ if(inQ && line[i+1]==='"'){ cur+='"'; i++; } else inQ=!inQ; }
+    else if(ch==="," && !inQ){ out.push(cur); cur=""; }
+    else cur+=ch;
+  }
+  out.push(cur);
+  return out;
+}
+function normSports(s){
+  var found = [];
+  ["Tennis","Padel","Squash"].forEach(function(k){
+    if(new RegExp(k.replace("Padel","P[aá]del"),"i").test(s)) found.push(k);
+  });
+  return found;
+}
+function addClubs(list){
+  var added=0, dupe=0, bad=0;
+  var seen = {}; clubs.forEach(function(c){ seen[c.email]=1; });
+  list.forEach(function(c){
+    if(!c.name || !validEmail(c.email) || !c.sports.length || !c.lang){ bad++; return; }
+    if(seen[c.email]){ dupe++; return; }
+    seen[c.email]=1; clubs.push(c); added++;
+  });
+  return {added:added, dupe:dupe, bad:bad};
+}
+function setStatus(el, msg, ok){
+  var n = document.getElementById(el);
+  n.textContent = msg; n.className = "status " + (ok?"ok":"err");
+}
+
+/* ------------------------------------------------------------------
+   WIRING
+------------------------------------------------------------------ */
+function wire(){
+  // country dropdowns
+  var fc = document.getElementById("fCountry"), ac = document.getElementById("aCountry");
+  ["Spanish","Portuguese","English"].forEach(function(lang){
+    var g1=document.createElement("optgroup"), g2=document.createElement("optgroup");
+    g1.label=g2.label=lang;
+    COUNTRIES[lang].forEach(function(c){
+      var o=document.createElement("option"); o.value=o.textContent=c; g1.appendChild(o);
+      var o2=document.createElement("option"); o2.value=o2.textContent=c; g2.appendChild(o2);
+    });
+    fc.appendChild(g1); ac.appendChild(g2);
+  });
+  ac.value = "Spain";
+
+  document.getElementById("q").addEventListener("input", function(e){ filters.q=e.target.value; renderTable(); });
+  document.getElementById("fLang").addEventListener("change", function(e){ filters.lang=e.target.value; renderTable(); });
+  fc.addEventListener("change", function(e){ filters.country=e.target.value; renderTable(); });
+
+  document.getElementById("sportChips").addEventListener("click", function(e){
+    var b = e.target.closest(".chip"); if(!b) return;
+    var s = b.dataset.sport, i = filters.sports.indexOf(s);
+    if(i<0){ filters.sports.push(s); b.classList.add("on"); }
+    else { filters.sports.splice(i,1); b.classList.remove("on"); }
+    renderTable();
+  });
+
+  document.getElementById("reset").addEventListener("click", function(){
+    filters = {q:"",sports:[],lang:"",country:""};
+    document.getElementById("q").value=""; document.getElementById("fLang").value="";
+    fc.value=""; Array.prototype.forEach.call(document.querySelectorAll("#sportChips .chip"), function(c){ c.classList.remove("on"); });
+    renderTable();
+  });
+
+  document.getElementById("export").addEventListener("click", exportCSV);
+
+  // Read data/clubs-export.csv straight off disk — no copy-pasting
+  document.getElementById("loadCsv").addEventListener("change", function(e){
+    var f = e.target.files && e.target.files[0];
+    if(!f) return;
+    var rd = new FileReader();
+    rd.onload = function(){
+      var lines = String(rd.result).split(/\r?\n/).filter(function(l){ return l.trim(); });
+      var parsed = [], unknown = 0;
+      lines.forEach(function(line){
+        var p = splitLine(line).map(function(x){ return x.trim().replace(/^"|"$/g,""); });
+        if(p.length < 4) return;
+        if(/^club name$/i.test(p[0])) return;                 // header row
+        var match = ALL_COUNTRIES.filter(function(c){ return c.toLowerCase() === (p[4]||"").toLowerCase(); })[0];
+        if(!match){ unknown++; return; }
+        parsed.push({name:p[0], sports:normSports(p[1]), contact:p[2]||"", email:(p[3]||"").toLowerCase(),
+                     country:match, lang:LANG_OF[match], src:"batch", stale:false});
+      });
+      var r = addClubs(parsed);
+      var msg = r.added + " added from " + f.name;
+      if(r.dupe) msg += " · " + r.dupe + " already there";
+      if(r.bad) msg += " · " + r.bad + " incomplete";
+      if(unknown) msg += " · " + unknown + " outside your country list";
+      setStatus("bulkStatus", msg, r.added > 0);
+      if(r.added){ save(); renderAll(); }
+      e.target.value = "";
+    };
+    rd.readAsText(f);
+  });
+  document.getElementById("exportLog").addEventListener("click", exportLedger);
+
+  document.getElementById("tbody").addEventListener("click", function(e){
+    var b = e.target.closest("[data-del]"); if(!b) return;
+    clubs.splice(parseInt(b.dataset.del,10),1); save(); renderAll();
+  });
+
+  // single add
+  document.querySelector(".sportpick").addEventListener("click", function(e){
+    var b = e.target.closest(".chip"); if(!b) return;
+    var s = b.dataset.pick, i = pickedSports.indexOf(s);
+    if(i<0){ pickedSports.push(s); b.classList.add("on"); } else { pickedSports.splice(i,1); b.classList.remove("on"); }
+  });
+  document.getElementById("addOne").addEventListener("click", function(){
+    var name=document.getElementById("aName").value.trim(),
+        email=document.getElementById("aEmail").value.trim().toLowerCase(),
+        contact=document.getElementById("aContact").value.trim(),
+        country=document.getElementById("aCountry").value,
+        srcTxt=document.getElementById("aSource").value.trim();
+    if(!name) return setStatus("oneStatus","Club name is required.",false);
+    if(!validEmail(email)) return setStatus("oneStatus","That email does not look valid.",false);
+    if(!pickedSports.length) return setStatus("oneStatus","Pick at least one sport.",false);
+    var r = addClubs([{name:name,sports:pickedSports.slice(),contact:contact,email:email,country:country,lang:LANG_OF[country],src:srcTxt||"manual",stale:false}]);
+    if(r.dupe) return setStatus("oneStatus","That email is already in the database.",false);
+    if(r.added){
+      setStatus("oneStatus","Added "+name+".",true);
+      ["aName","aEmail","aContact","aSource"].forEach(function(id){ document.getElementById(id).value=""; });
+      pickedSports=[]; Array.prototype.forEach.call(document.querySelectorAll(".sportpick .chip"), function(c){ c.classList.remove("on"); });
+      save(); renderAll();
+    }
+  });
+
+  // bulk add
+  document.getElementById("bulkClear").addEventListener("click", function(){
+    document.getElementById("bulk").value=""; setStatus("bulkStatus","",true);
+  });
+  document.getElementById("bulkAdd").addEventListener("click", function(){
+    var raw = document.getElementById("bulk").value.split(/\r?\n/).filter(function(l){ return l.trim(); });
+    if(!raw.length) return setStatus("bulkStatus","Paste some rows first.",false);
+    var parsed = [], unknownCountry = 0;
+    raw.forEach(function(line){
+      var p = splitLine(line).map(function(s){ return s.trim().replace(/^"|"$/g,""); });
+      if(p.length<4) return;
+      var country = p[4]||"";
+      var match = ALL_COUNTRIES.filter(function(c){ return c.toLowerCase()===country.toLowerCase(); })[0];
+      if(!match){ unknownCountry++; return; }
+      parsed.push({name:p[0], sports:normSports(p[1]), contact:p[2]||"", email:(p[3]||"").toLowerCase(), country:match, lang:LANG_OF[match], src:"batch", stale:false});
+    });
+    var r = addClubs(parsed);
+    var msg = r.added+" added";
+    if(r.dupe) msg += " · "+r.dupe+" already there";
+    if(r.bad) msg += " · "+r.bad+" missing a required field";
+    if(unknownCountry) msg += " · "+unknownCountry+" with a country outside your list";
+    setStatus("bulkStatus", msg, r.added>0);
+    if(r.added){ document.getElementById("bulk").value=""; save(); renderAll(); }
+  });
+
+  // ledger dialog
+  var dlg = document.getElementById("dlg"), current = null;
+  document.getElementById("ledger").addEventListener("click", function(e){
+    var b = e.target.closest("[data-country]"); if(!b) return;
+    current = b.dataset.country;
+    var l = ledger[current]||{}, n = countryCounts()[current]||0;
+    document.getElementById("dlgName").textContent = current;
+    document.getElementById("dlgCount").textContent = n + (n===1?" club collected · ":" clubs collected · ") + LANG_OF[current];
+    document.getElementById("dlgStatus").value = l.status || (n?"part":"none");
+    document.getElementById("dlgSources").value = l.notes || "";
+    dlg.showModal();
+  });
+  document.getElementById("dlgCancel").addEventListener("click", function(){ dlg.close(); });
+  document.getElementById("dlgSave").addEventListener("click", function(){
+    ledger[current] = {status:document.getElementById("dlgStatus").value, notes:document.getElementById("dlgSources").value, updated:new Date().toISOString().slice(0,10)};
+    dlg.close(); save(); renderLedger();
+  });
+}
+
+/* ------------------------------------------------------------------
+   GO
+------------------------------------------------------------------ */
+(async function(){
+  await load();
+  wire();
+  renderAll();
+  if(liveMode){
+    document.getElementById("liveNote").textContent = "live";
+    setInterval(refreshLive, 30000);
+  }
+  if(bakedAt){
+    var when = "";
+    try{ when = new Date(bakedAt).toLocaleString(); }catch(e){ when = bakedAt; }
+    document.getElementById("liveNote").textContent = "updated " + when;
+  }
+  document.getElementById("storeNote").textContent = bakedAt
+    ? "This file was written by the daemon and carries its own data. Reopen it any time; the daemon rewrites it after every collection run."
+    : liveMode
+    ? "Live from the daemon on this machine, refreshing every 30 seconds."
+    : memoryOnly
+    ? "Storage is unavailable here, so anything you add lives only until you close the tab. Export to CSV before you leave."
+    : "Your additions and ledger notes are saved automatically and will be here next time.";
+})();
+
+})();
+</script>
+</body>
+</html>
