@@ -1,31 +1,31 @@
 {
- "generated": "2026-08-08T15:30:20.961Z",
- "clubs": 594,
- "records": 799,
+ "generated": "2026-08-08T16:05:20.627Z",
+ "clubs": 627,
+ "records": 896,
  "crawl": {
-  "ready": 18,
-  "waiting": 94,
+  "ready": 79,
+  "waiting": 97,
   "exhausted": 42
  },
  "osm": {
-  "imported": 11,
-  "failed": 18,
+  "imported": 15,
+  "failed": 14,
   "pending": 54,
   "total": 83,
   "lastError": {
-   "cc": "IE",
-   "error": "timed out",
-   "at": "2026-08-08T15:30:20.944Z"
+   "cc": "CA",
+   "error": "busy (504)",
+   "at": "2026-08-08T16:04:05.799Z"
   }
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 98
+   "n": 110
   },
   {
    "note": "unreachable",
-   "n": 94
+   "n": 97
   },
   {
    "note": "no email published",
@@ -33,7 +33,7 @@
   },
   {
    "note": "/contact",
-   "n": 6
+   "n": 7
   },
   {
    "note": "/contact/",
@@ -50,36 +50,36 @@
   "exhausted": 65,
   "pagesRead": 64
  },
- "leads": 580,
+ "leads": 1420,
  "recent": [
-  "2026-08-08T15:15:28.369Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
-  "2026-08-08T15:15:28.370Z  seeds: C:\\Users\\Leo\\apps\\clubs-collector\\seeds.txt",
-  "2026-08-08T15:20:27.082Z  daemon started — continuous, 20m per round, 20s between rounds",
-  "2026-08-08T15:20:27.088Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
-  "2026-08-08T15:20:27.089Z  seeds: C:\\Users\\Leo\\apps\\clubs-collector\\seeds.txt",
-  "2026-08-08T15:26:09.330Z  osm US: failed — busy (504)",
-  "2026-08-08T15:28:06.854Z  osm IN: failed — timed out",
-  "2026-08-08T15:28:20.923Z  osm MX: failed — timed out",
-  "2026-08-08T15:28:45.014Z  osm CA: failed — fetch failed",
-  "2026-08-08T15:29:09.003Z  osm PT Portugal: 150 places -> +9 new, 0 merged, 3 with an email already, 46 leads with no contact tag, 86 dropped as public",
-  "2026-08-08T15:29:19.185Z  osm AU: failed — timed out",
-  "2026-08-08T15:29:25.888Z  osm AR Argentina: 361 places -> +8 new, 0 merged, 1 with an email already, 113 leads with no contact tag, 221 dropped as public",
   "2026-08-08T15:29:38.356Z  osm ZA South Africa: 187 places -> +5 new, 0 merged, 0 with an email already, 73 leads with no contact tag, 56 dropped as public",
-  "2026-08-08T15:30:20.945Z  osm IE: failed — timed out"
+  "2026-08-08T15:30:20.945Z  osm IE: failed — timed out",
+  "2026-08-08T15:30:22.675Z  published to the public link",
+  "2026-08-08T15:30:22.678Z  tick done in 9.9m — crawled 0 sites, +0 emails; osm 3 countries (AR,US,AU,PT,MX,IN,ZA,CA,IE,NZ,CL,CO) +22, 6 failed | 594 emails total, 112 still queued",
+  "2026-08-08T15:55:33.497Z  daemon started — continuous, 20m per round, 20s between rounds",
+  "2026-08-08T15:55:33.503Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
+  "2026-08-08T15:55:33.504Z  seeds: C:\\Users\\Leo\\apps\\clubs-collector\\seeds.txt",
+  "2026-08-08T16:01:54.546Z  osm US: failed — fetch failed",
+  "2026-08-08T16:03:54.554Z  osm NZ: failed — subdivisions: out of time",
+  "2026-08-08T16:04:05.800Z  osm CA: failed — busy (504)",
+  "2026-08-08T16:04:15.072Z  osm MX Mexico: 152 places -> +2 new, 0 merged, 0 with an email already, 45 leads with no contact tag, 95 dropped as public",
+  "2026-08-08T16:05:11.285Z  osm AU Australia: 1059 places -> +77 new, 31 merged, 14 with an email already, 553 leads with no contact tag, 252 dropped as public",
+  "2026-08-08T16:05:17.437Z  osm IE Ireland: 120 places -> +16 new, 4 merged, 4 with an email already, 85 leads with no contact tag, 12 dropped as public",
+  "2026-08-08T16:05:20.606Z  osm IN India: 370 places -> +2 new, 0 merged, 0 with an email already, 157 leads with no contact tag, 87 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-08T15:20:27.092Z",
+ "roundStarted": "2026-08-08T15:55:33.510Z",
  "lastRound": {
-  "at": "2026-08-08T15:30:20.958Z",
-  "minutes": 9.9,
-  "summary": "crawled 0 sites, +0 emails; osm 3 countries (AR,US,AU,PT,MX,IN,ZA,CA,IE,NZ,CL,CO) +22, 6 failed",
+  "at": "2026-08-08T16:05:20.623Z",
+  "minutes": 9.8,
+  "summary": "crawled 0 sites, +0 emails; osm 4 countries (US,AU,MX,IN,CA,IE,NZ,CL,CO,PE,UY,EC) +97, 3 failed",
   "crawled": 0,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 3,
-  "osmAdded": 22,
-  "osmFailed": 6
+  "osmCountries": 4,
+  "osmAdded": 97,
+  "osmFailed": 3
  }
 }
