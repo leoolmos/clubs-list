@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-09T18:25:51.170Z",
+ "generated": "2026-08-09T18:31:10.942Z",
  "clubs": 848,
  "records": 1170,
  "crawl": {
-  "ready": 4,
-  "waiting": 7,
+  "ready": 0,
+  "waiting": 11,
   "exhausted": 262
  },
  "osm": {
-  "imported": 73,
-  "failed": 10,
+  "imported": 74,
+  "failed": 9,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "SS",
+   "cc": "TZ",
    "error": "subdivisions: out of time",
-   "at": "2026-08-09T18:25:51.145Z"
+   "at": "2026-08-09T18:31:10.915Z"
   }
  },
  "crawlReasons": [
@@ -1042,29 +1042,29 @@
   }
  ],
  "recent": [
-  "2026-08-09T18:20:14.589Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
-  "2026-08-09T18:20:14.593Z  osm ES Spain: 18 places -> +0 new, 4 merged, 0 with an email already, 0 leads with no contact tag, 7 dropped as public",
-  "2026-08-09T18:20:30.336Z  osm PK Pakistan: 14 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 3 dropped as public",
-  "2026-08-09T18:20:32.114Z  osm ZW Zimbabwe: 6 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-09T18:20:34.066Z  published to the public link",
-  "2026-08-09T18:20:34.070Z  tick done in 3.9m — crawled 0 sites, +0 emails; osm 6 countries (ES,IE,PK,BB,ZW,LC,SS,AU,PA,RW,GW,GQ) +0 | 848 emails total, 6 still queued",
-  "2026-08-09T18:23:57.657Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
-  "2026-08-09T18:23:57.662Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-09T18:24:13.839Z  osm RW Rwanda: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-09T18:24:39.630Z  osm PA Panama: 8 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 4 dropped as public",
   "2026-08-09T18:25:12.210Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
   "2026-08-09T18:25:12.213Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
   "2026-08-09T18:25:47.329Z  osm AU: failed — subdivisions: out of time",
-  "2026-08-09T18:25:51.145Z  osm SS: failed — subdivisions: out of time"
+  "2026-08-09T18:25:51.145Z  osm SS: failed — subdivisions: out of time",
+  "2026-08-09T18:25:52.899Z  published to the public link",
+  "2026-08-09T18:25:52.903Z  tick done in 5.0m — crawled 0 sites, +0 emails; osm 4 countries (ES,IE,SS,AU,PA,RW,GW,GQ,CU,ST,MU,ZM) +0, 2 failed | 848 emails total, 6 still queued",
+  "2026-08-09T18:29:13.958Z  osm JM: failed — subdivisions: out of time",
+  "2026-08-09T18:29:23.178Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
+  "2026-08-09T18:29:23.183Z  osm ES Spain: 10 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 7 dropped as public",
+  "2026-08-09T18:29:46.354Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
+  "2026-08-09T18:29:46.355Z  osm IE Ireland: 12 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
+  "2026-08-09T18:30:11.540Z  osm GW Guinea-Bissau: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-09T18:30:40.739Z  osm ZA South Africa: 187 places -> +0 new, 5 merged, 0 with an email already, 0 leads with no contact tag, 56 dropped as public",
+  "2026-08-09T18:31:10.916Z  osm TZ: failed — subdivisions: out of time"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-09T18:20:54.088Z",
+ "roundStarted": "2026-08-09T18:26:12.908Z",
  "lastRound": {
-  "at": "2026-08-09T18:25:51.166Z",
+  "at": "2026-08-09T18:31:10.939Z",
   "minutes": 5,
-  "summary": "crawled 0 sites, +0 emails; osm 4 countries (ES,IE,SS,AU,PA,RW,GW,GQ,CU,ST,MU,ZM) +0, 2 failed",
-  "crawled": 0,
+  "summary": "crawled 4 sites, +0 emails; osm 4 countries (ES,ZA,IE,TZ,JM,GW,GQ,CU,ST,MU,ZM,BR) +0, 2 failed",
+  "crawled": 4,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
