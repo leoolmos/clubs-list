@@ -1,27 +1,27 @@
 {
- "generated": "2026-08-09T02:00:23.434Z",
- "clubs": 841,
+ "generated": "2026-08-09T02:04:46.249Z",
+ "clubs": 842,
  "records": 1166,
  "crawl": {
-  "ready": 1,
+  "ready": 0,
   "waiting": 152,
   "exhausted": 118
  },
  "osm": {
-  "imported": 77,
-  "failed": 6,
+  "imported": 76,
+  "failed": 7,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "ES",
-   "error": "partial: 6 of 23 subdivisions read",
-   "at": "2026-08-09T02:00:23.410Z"
+   "cc": "SL",
+   "error": "subdivisions: out of time",
+   "at": "2026-08-09T02:04:46.224Z"
   }
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 258
+   "n": 259
   },
   {
    "note": "unreachable",
@@ -56,6 +56,14 @@
   "left": 0
  },
  "activity": [
+  {
+   "t": "2026-08-09T02:00:46.704Z",
+   "kind": "crawl",
+   "text": "Club Peñalba Casino de León — https://casinodeleonpenalba.com -> casino@casinodeleonpenalba.com",
+   "ok": true,
+   "url": "https://casinodeleonpenalba.com",
+   "email": "casino@casinodeleonpenalba.com"
+  },
   {
    "t": "2026-08-09T00:56:02.123Z",
    "kind": "search",
@@ -1009,43 +1017,37 @@
    "kind": "search",
    "text": "no site found for Rixton Tennis Club (United Kingdom)",
    "ok": false
-  },
-  {
-   "t": "2026-08-08T22:48:13.461Z",
-   "kind": "search",
-   "text": "no site found for Corbridge Tennis Club (United Kingdom)",
-   "ok": false
   }
  ],
  "recent": [
-  "2026-08-09T01:55:42.342Z  osm IE: too big for one query — 4 of 9 subdivisions read, carries on next round",
-  "2026-08-09T01:55:42.347Z  osm IE Ireland: 49 places -> +0 new, 10 merged, 0 with an email already, 0 leads with no contact tag, 5 dropped as public",
-  "2026-08-09T01:55:50.566Z  osm FJ Fiji: 7 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 3 dropped as public",
-  "2026-08-09T01:55:56.658Z  osm MU Mauritius: 13 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 10 dropped as public",
-  "2026-08-09T01:55:58.421Z  published to the public link",
-  "2026-08-09T01:55:58.425Z  tick done in 3.7m — crawled 0 sites, +0 emails; osm 6 countries (ES,IE,MU,TZ,FJ,MW,CA,GW,DM,CV,SL,NG) +0 | 841 emails total, 152 still queued",
-  "2026-08-09T01:59:32.243Z  osm IE: too big for one query — 4 of 9 subdivisions read, carries on next round",
-  "2026-08-09T01:59:32.247Z  osm IE Ireland: 47 places -> +0 new, 9 merged, 0 with an email already, 0 leads with no contact tag, 5 dropped as public",
-  "2026-08-09T01:59:34.641Z  osm GW Guinea-Bissau: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-09T01:59:39.741Z  osm DM Dominica: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
   "2026-08-09T02:00:18.460Z  osm CV: failed — subdivisions: out of time",
   "2026-08-09T02:00:22.252Z  osm CA Canada: 403 places -> +0 new, 33 merged, 0 with an email already, 0 leads with no contact tag, 223 dropped as public",
   "2026-08-09T02:00:23.405Z  osm ES: too big for one query — 6 of 23 subdivisions read, carries on next round",
-  "2026-08-09T02:00:23.409Z  osm ES Spain: 89 places -> +1 new, 12 merged, 0 with an email already, 0 leads with no contact tag, 51 dropped as public"
+  "2026-08-09T02:00:23.409Z  osm ES Spain: 89 places -> +1 new, 12 merged, 0 with an email already, 0 leads with no contact tag, 51 dropped as public",
+  "2026-08-09T02:00:25.193Z  published to the public link",
+  "2026-08-09T02:00:25.195Z  tick done in 4.1m — crawled 0 sites, +0 emails; osm 5 countries (ES,IE,CA,GW,DM,CV,SL,NG,TL,SD,TV,KI) +1, 1 failed | 841 emails total, 153 still queued",
+  "2026-08-09T02:03:51.553Z  osm NG Nigeria: 17 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 6 dropped as public",
+  "2026-08-09T02:04:02.717Z  osm ES: too big for one query — 6 of 23 subdivisions read, carries on next round",
+  "2026-08-09T02:04:02.721Z  osm ES Spain: 72 places -> +0 new, 6 merged, 0 with an email already, 0 leads with no contact tag, 36 dropped as public",
+  "2026-08-09T02:04:11.302Z  osm IE: too big for one query — 4 of 9 subdivisions read, carries on next round",
+  "2026-08-09T02:04:11.307Z  osm IE Ireland: 47 places -> +0 new, 9 merged, 0 with an email already, 0 leads with no contact tag, 5 dropped as public",
+  "2026-08-09T02:04:33.190Z  osm SD Sudan: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
+  "2026-08-09T02:04:33.982Z  osm TL East Timor: 6 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 6 dropped as public",
+  "2026-08-09T02:04:46.225Z  osm SL: failed — subdivisions: out of time"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-09T01:56:18.439Z",
+ "roundStarted": "2026-08-09T02:00:45.205Z",
  "lastRound": {
-  "at": "2026-08-09T02:00:23.431Z",
-  "minutes": 4.1,
-  "summary": "crawled 0 sites, +0 emails; osm 5 countries (ES,IE,CA,GW,DM,CV,SL,NG,TL,SD,TV,KI) +1, 1 failed",
-  "crawled": 0,
-  "emailsFound": 0,
+  "at": "2026-08-09T02:04:46.246Z",
+  "minutes": 4,
+  "summary": "crawled 1 sites, +1 emails; osm 5 countries (ES,IE,SL,NG,TL,SD,TV,KI,MH,LR,VU,SB) +0, 1 failed",
+  "crawled": 1,
+  "emailsFound": 1,
   "pagesRead": 0,
   "clubsAdded": 0,
   "osmCountries": 5,
-  "osmAdded": 1,
+  "osmAdded": 0,
   "osmFailed": 1
  }
 }
