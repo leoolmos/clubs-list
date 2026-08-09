@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-09T11:41:06.422Z",
+ "generated": "2026-08-09T11:45:24.445Z",
  "clubs": 846,
  "records": 1170,
  "crawl": {
-  "ready": 32,
-  "waiting": 120,
-  "exhausted": 118
+  "ready": 1,
+  "waiting": 149,
+  "exhausted": 120
  },
  "osm": {
-  "imported": 75,
-  "failed": 8,
+  "imported": 73,
+  "failed": 10,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "US",
-   "error": "subdivisions: out of time",
-   "at": "2026-08-09T11:41:06.396Z"
+   "cc": "ES",
+   "error": "partial: 7 of 23 subdivisions read",
+   "at": "2026-08-09T11:45:24.420Z"
   }
  },
  "crawlReasons": [
@@ -25,11 +25,11 @@
   },
   {
    "note": "unreachable",
-   "n": 162
+   "n": 160
   },
   {
    "note": "no email published",
-   "n": 109
+   "n": 111
   },
   {
    "note": "/contact",
@@ -56,6 +56,20 @@
   "left": 0
  },
  "activity": [
+  {
+   "t": "2026-08-09T11:41:41.547Z",
+   "kind": "crawl",
+   "text": "Family Pádel — https://familypadel.es: site read, publishes no address",
+   "ok": false,
+   "url": "https://familypadel.es"
+  },
+  {
+   "t": "2026-08-09T11:41:40.796Z",
+   "kind": "crawl",
+   "text": "Can Via Racket Club — https://www.canviaclub.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.canviaclub.com"
+  },
   {
    "t": "2026-08-09T06:06:58.297Z",
    "kind": "search",
@@ -1015,49 +1029,37 @@
    "kind": "search",
    "text": "no site found for Tennis Court 4 (United Kingdom)",
    "ok": false
-  },
-  {
-   "t": "2026-08-08T22:48:29.790Z",
-   "kind": "search",
-   "text": "no site found for Tennis Court 3 (United Kingdom)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-08T22:48:28.590Z",
-   "kind": "search",
-   "text": "no site found for Elliswick Lawn Tennis Club (United Kingdom)",
-   "ok": false
   }
  ],
  "recent": [
-  "2026-08-09T11:35:01.467Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
-  "2026-08-09T11:35:01.471Z  osm IE Ireland: 12 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
-  "2026-08-09T11:35:14.993Z  osm FJ: failed — subdivisions: out of time",
-  "2026-08-09T11:36:33.500Z  osm KE: failed — subdivisions: out of time",
-  "2026-08-09T11:36:35.279Z  published to the public link",
-  "2026-08-09T11:36:35.282Z  tick done in 5.0m — crawled 0 sites, +0 emails; osm 4 countries (ES,IE,KE,FJ,GM,SB,MT,VC,BR,NR,AU,KI) +0, 2 failed | 846 emails total, 152 still queued",
-  "2026-08-09T11:40:13.955Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
-  "2026-08-09T11:40:13.960Z  osm ES Spain: 18 places -> +0 new, 4 merged, 0 with an email already, 0 leads with no contact tag, 7 dropped as public",
-  "2026-08-09T11:40:16.941Z  osm MT Malta: 3 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-09T11:40:23.137Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
   "2026-08-09T11:40:23.141Z  osm IE Ireland: 13 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
   "2026-08-09T11:40:30.193Z  osm VC Saint Vincent and the Grenadines: 1 places -> +0 new, 1 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
   "2026-08-09T11:40:36.607Z  osm NI Nicaragua: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
-  "2026-08-09T11:41:06.397Z  osm US: failed — subdivisions: out of time"
+  "2026-08-09T11:41:06.397Z  osm US: failed — subdivisions: out of time",
+  "2026-08-09T11:41:08.157Z  published to the public link",
+  "2026-08-09T11:41:08.161Z  tick done in 4.2m — crawled 0 sites, +0 emails; osm 5 countries (ES,US,IE,NI,MT,VC,BR,NR,AU,KI,BS,MX) +0, 1 failed | 846 emails total, 152 still queued",
+  "2026-08-09T11:44:46.193Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
+  "2026-08-09T11:44:46.197Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-09T11:44:54.320Z  osm NR Nauru: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
+  "2026-08-09T11:45:07.922Z  osm BR: failed — subdivisions: out of time",
+  "2026-08-09T11:45:14.521Z  osm PA: failed — subdivisions: out of time",
+  "2026-08-09T11:45:23.794Z  osm AU: failed — subdivisions: out of time",
+  "2026-08-09T11:45:24.416Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
+  "2026-08-09T11:45:24.420Z  osm ES Spain: 18 places -> +0 new, 4 merged, 0 with an email already, 0 leads with no contact tag, 7 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-09T11:36:55.296Z",
+ "roundStarted": "2026-08-09T11:41:28.174Z",
  "lastRound": {
-  "at": "2026-08-09T11:41:06.419Z",
-  "minutes": 4.2,
-  "summary": "crawled 0 sites, +0 emails; osm 5 countries (ES,US,IE,NI,MT,VC,BR,NR,AU,KI,BS,MX) +0, 1 failed",
-  "crawled": 0,
+  "at": "2026-08-09T11:45:24.440Z",
+  "minutes": 3.9,
+  "summary": "crawled 32 sites, +0 emails; osm 3 countries (ES,IE,PA,BR,NR,AU,KI,BS,MX,LR,UY,SG) +0, 3 failed",
+  "crawled": 32,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
+  "osmCountries": 3,
   "osmAdded": 0,
-  "osmFailed": 1
+  "osmFailed": 3
  }
 }
