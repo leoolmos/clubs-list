@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-09T17:31:42.324Z",
+ "generated": "2026-08-09T17:36:52.166Z",
  "clubs": 848,
  "records": 1170,
  "crawl": {
-  "ready": 25,
-  "waiting": 30,
-  "exhausted": 236
+  "ready": 0,
+  "waiting": 55,
+  "exhausted": 257
  },
  "osm": {
-  "imported": 75,
-  "failed": 8,
+  "imported": 73,
+  "failed": 10,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "IE",
-   "error": "partial: 5 of 9 subdivisions read",
-   "at": "2026-08-09T17:31:42.302Z"
+   "cc": "TZ",
+   "error": "subdivisions: out of time",
+   "at": "2026-08-09T17:36:00.380Z"
   }
  },
  "crawlReasons": [
@@ -1042,34 +1042,34 @@
   }
  ],
  "recent": [
-  "2026-08-09T17:27:20.618Z  osm SD Sudan: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-09T17:27:27.522Z  osm CR Costa Rica: 14 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 10 dropped as public",
-  "2026-08-09T17:27:30.388Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
-  "2026-08-09T17:27:30.392Z  osm ES Spain: 10 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 7 dropped as public",
-  "2026-08-09T17:27:32.270Z  published to the public link",
-  "2026-08-09T17:27:32.274Z  tick done in 4.0m — crawled 3 sites, +0 emails; osm 6 countries (ES,IE,CR,KE,NA,SD,DO,HN,PW,TT,SB,PH) +0 | 848 emails total, 32 still queued",
-  "2026-08-09T17:31:09.922Z  osm PW Palau: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-09T17:31:20.066Z  osm HN Honduras: 4 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
-  "2026-08-09T17:31:33.166Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
-  "2026-08-09T17:31:33.169Z  osm ES Spain: 10 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 7 dropped as public",
-  "2026-08-09T17:31:34.277Z  osm US United States: 2460 places -> +0 new, 92 merged, 0 with an email already, 0 leads with no contact tag, 902 dropped as public",
-  "2026-08-09T17:31:35.237Z  osm DO Dominican Republic: 14 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 10 dropped as public",
   "2026-08-09T17:31:42.298Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
-  "2026-08-09T17:31:42.302Z  osm IE Ireland: 12 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public"
+  "2026-08-09T17:31:42.302Z  osm IE Ireland: 12 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
+  "2026-08-09T17:31:44.121Z  published to the public link",
+  "2026-08-09T17:31:44.124Z  tick done in 3.8m — crawled 0 sites, +0 emails; osm 6 countries (ES,US,IE,DO,HN,PW,TT,SB,PH,TZ,NI,CV) +0 | 848 emails total, 32 still queued",
+  "2026-08-09T17:32:09.749Z  osm TT: too big for one query — 15 of 15 subdivisions read, complete",
+  "2026-08-09T17:32:09.753Z  osm TT Trinidad and Tobago: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-09T17:35:15.165Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
+  "2026-08-09T17:35:15.169Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-09T17:35:22.386Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
+  "2026-08-09T17:35:22.390Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-09T17:35:40.768Z  osm PH: failed — subdivisions: out of time",
+  "2026-08-09T17:35:53.758Z  osm NI Nicaragua: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
+  "2026-08-09T17:36:00.381Z  osm TZ: failed — subdivisions: out of time",
+  "2026-08-09T17:36:52.142Z  osm SB Solomon Islands: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-09T17:27:52.285Z",
+ "roundStarted": "2026-08-09T17:32:04.143Z",
  "lastRound": {
-  "at": "2026-08-09T17:31:42.320Z",
-  "minutes": 3.8,
-  "summary": "crawled 0 sites, +0 emails; osm 6 countries (ES,US,IE,DO,HN,PW,TT,SB,PH,TZ,NI,CV) +0",
-  "crawled": 0,
+  "at": "2026-08-09T17:36:52.162Z",
+  "minutes": 4.8,
+  "summary": "crawled 25 sites, +0 emails; osm 5 countries (ES,IE,TT,SB,PH,TZ,NI,CV,CO,AO,LR,BW) +0, 2 failed",
+  "crawled": 25,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 6,
+  "osmCountries": 5,
   "osmAdded": 0,
-  "osmFailed": 0
+  "osmFailed": 2
  }
 }
