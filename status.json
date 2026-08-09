@@ -1,10 +1,10 @@
 {
- "generated": "2026-08-09T16:19:26.047Z",
+ "generated": "2026-08-09T16:24:46.593Z",
  "clubs": 848,
  "records": 1170,
  "crawl": {
-  "ready": 5,
-  "waiting": 54,
+  "ready": 0,
+  "waiting": 59,
   "exhausted": 210
  },
  "osm": {
@@ -13,9 +13,9 @@
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "PT",
-   "error": "subdivisions: out of time",
-   "at": "2026-08-09T16:19:26.022Z"
+   "cc": "ES",
+   "error": "partial: 7 of 23 subdivisions read",
+   "at": "2026-08-09T16:24:46.572Z"
   }
  },
  "crawlReasons": [
@@ -1042,29 +1042,29 @@
   }
  ],
  "recent": [
-  "2026-08-09T16:14:39.184Z  osm US: failed — subdivisions: out of time",
-  "2026-08-09T16:14:39.185Z  osm SV: failed — subdivisions: out of time",
-  "2026-08-09T16:15:17.641Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
-  "2026-08-09T16:15:17.646Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-09T16:15:19.425Z  published to the public link",
-  "2026-08-09T16:15:19.428Z  tick done in 5.1m — crawled 17 sites, +0 emails; osm 2 countries (ES,US,IE,BZ,SV,TL,AG,PT,CA,PY,UG,GY) +0, 4 failed | 848 emails total, 58 still queued",
-  "2026-08-09T16:18:41.210Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
-  "2026-08-09T16:18:41.214Z  osm IE Ireland: 12 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
-  "2026-08-09T16:18:48.146Z  osm AG Antigua and Barbuda: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-09T16:18:49.827Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
   "2026-08-09T16:18:49.831Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
   "2026-08-09T16:18:50.562Z  osm CL Chile: 231 places -> +0 new, 2 merged, 0 with an email already, 0 leads with no contact tag, 146 dropped as public",
   "2026-08-09T16:18:52.321Z  osm GH: failed — subdivisions: out of time",
-  "2026-08-09T16:19:26.023Z  osm PT: failed — subdivisions: out of time"
+  "2026-08-09T16:19:26.023Z  osm PT: failed — subdivisions: out of time",
+  "2026-08-09T16:19:27.834Z  published to the public link",
+  "2026-08-09T16:19:27.837Z  tick done in 3.8m — crawled 0 sites, +0 emails; osm 4 countries (ES,IE,CL,GH,AG,PT,CA,PY,UG,GY,NA,MZ) +0, 2 failed | 848 emails total, 58 still queued",
+  "2026-08-09T16:22:52.466Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
+  "2026-08-09T16:22:52.470Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-09T16:22:58.740Z  osm CA Canada: 396 places -> +0 new, 33 merged, 0 with an email already, 0 leads with no contact tag, 222 dropped as public",
+  "2026-08-09T16:23:42.943Z  osm UY Uruguay: 15 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 11 dropped as public",
+  "2026-08-09T16:23:44.253Z  osm GB: failed — subdivisions: out of time",
+  "2026-08-09T16:24:26.210Z  osm PY: failed — subdivisions: out of time",
+  "2026-08-09T16:24:46.567Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
+  "2026-08-09T16:24:46.571Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-09T16:15:39.442Z",
+ "roundStarted": "2026-08-09T16:19:47.847Z",
  "lastRound": {
-  "at": "2026-08-09T16:19:26.044Z",
-  "minutes": 3.8,
-  "summary": "crawled 0 sites, +0 emails; osm 4 countries (ES,IE,CL,GH,AG,PT,CA,PY,UG,GY,NA,MZ) +0, 2 failed",
-  "crawled": 0,
+  "at": "2026-08-09T16:24:46.589Z",
+  "minutes": 5,
+  "summary": "crawled 5 sites, +0 emails; osm 4 countries (ES,GB,IE,UY,CA,PY,UG,GY,NA,MZ,BO,NG) +0, 2 failed",
+  "crawled": 5,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
