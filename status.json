@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-09T04:39:46.639Z",
+ "generated": "2026-08-09T04:44:19.388Z",
  "clubs": 844,
  "records": 1168,
  "crawl": {
@@ -8,14 +8,14 @@
   "exhausted": 118
  },
  "osm": {
-  "imported": 79,
-  "failed": 4,
+  "imported": 78,
+  "failed": 5,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "IE",
-   "error": "partial: 5 of 9 subdivisions read",
-   "at": "2026-08-09T04:39:02.386Z"
+   "cc": "ES",
+   "error": "partial: 7 of 23 subdivisions read",
+   "at": "2026-08-09T04:44:19.369Z"
   }
  },
  "crawlReasons": [
@@ -1026,34 +1026,34 @@
   }
  ],
  "recent": [
-  "2026-08-09T04:34:25.027Z  osm AR Argentina: 260 places -> +0 new, 5 merged, 0 with an email already, 0 leads with no contact tag, 185 dropped as public",
-  "2026-08-09T04:34:29.190Z  osm LR Liberia: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-09T04:34:59.040Z  osm GQ Equatorial Guinea: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
-  "2026-08-09T04:35:12.495Z  osm ZA South Africa: 184 places -> +0 new, 5 merged, 0 with an email already, 0 leads with no contact tag, 56 dropped as public",
-  "2026-08-09T04:35:14.265Z  published to the public link",
-  "2026-08-09T04:35:14.268Z  tick done in 4.4m — crawled 0 sites, +0 emails; osm 6 countries (ES,IE,LR,ZA,GQ,AR,RW,PW,PK,CO,EC,MX) +0 | 844 emails total, 152 still queued",
-  "2026-08-09T04:38:34.477Z  osm DO Dominican Republic: 14 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 10 dropped as public",
-  "2026-08-09T04:38:37.811Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
-  "2026-08-09T04:38:37.814Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-09T04:39:02.381Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
   "2026-08-09T04:39:02.385Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
   "2026-08-09T04:39:13.585Z  osm PW Palau: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
   "2026-08-09T04:39:32.761Z  osm HN Honduras: 4 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
-  "2026-08-09T04:39:46.616Z  osm RW Rwanda: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
+  "2026-08-09T04:39:46.616Z  osm RW Rwanda: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-09T04:39:48.377Z  published to the public link",
+  "2026-08-09T04:39:48.381Z  tick done in 4.2m — crawled 0 sites, +0 emails; osm 6 countries (ES,IE,DO,HN,RW,PW,PK,CO,EC,MX,MT,VE) +0 | 844 emails total, 152 still queued",
+  "2026-08-09T04:43:36.285Z  osm CO: failed — fetch failed",
+  "2026-08-09T04:43:37.140Z  osm AO: failed — subdivisions: out of time",
+  "2026-08-09T04:43:39.756Z  osm PK Pakistan: 15 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 3 dropped as public",
+  "2026-08-09T04:43:40.915Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
+  "2026-08-09T04:43:40.918Z  osm IE Ireland: 12 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
+  "2026-08-09T04:43:57.490Z  osm EC Ecuador: 53 places -> +0 new, 1 merged, 0 with an email already, 0 leads with no contact tag, 34 dropped as public",
+  "2026-08-09T04:44:19.364Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
+  "2026-08-09T04:44:19.369Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-09T04:35:34.287Z",
+ "roundStarted": "2026-08-09T04:40:08.391Z",
  "lastRound": {
-  "at": "2026-08-09T04:39:46.636Z",
+  "at": "2026-08-09T04:44:19.385Z",
   "minutes": 4.2,
-  "summary": "crawled 0 sites, +0 emails; osm 6 countries (ES,IE,DO,HN,RW,PW,PK,CO,EC,MX,MT,VE) +0",
+  "summary": "crawled 0 sites, +0 emails; osm 4 countries (ES,IE,AO,PK,CO,EC,MX,MT,VE,IN,LS,NZ) +0, 2 failed",
   "crawled": 0,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 6,
+  "osmCountries": 4,
   "osmAdded": 0,
-  "osmFailed": 0
+  "osmFailed": 2
  }
 }
