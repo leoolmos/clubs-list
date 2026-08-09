@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-09T14:15:43.049Z",
+ "generated": "2026-08-09T14:21:03.781Z",
  "clubs": 848,
  "records": 1170,
  "crawl": {
-  "ready": 0,
-  "waiting": 107,
+  "ready": 1,
+  "waiting": 106,
   "exhausted": 208
  },
  "osm": {
-  "imported": 70,
-  "failed": 13,
+  "imported": 69,
+  "failed": 14,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "SB",
+   "cc": "VU",
    "error": "subdivisions: out of time",
-   "at": "2026-08-09T14:15:43.022Z"
+   "at": "2026-08-09T14:21:03.747Z"
   }
  },
  "crawlReasons": [
@@ -52,10 +52,22 @@
  },
  "leads": {
   "total": 3891,
-  "searched": 3889,
-  "left": 2
+  "searched": 3891,
+  "left": 0
  },
  "activity": [
+  {
+   "t": "2026-08-09T14:16:06.743Z",
+   "kind": "search",
+   "text": "no site found for The Stevenson Tennis Centre (New Zealand)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-09T14:16:05.722Z",
+   "kind": "search",
+   "text": "no site found for Frankton Domain Tennis Courts (New Zealand)",
+   "ok": false
+  },
   {
    "t": "2026-08-09T12:51:05.707Z",
    "kind": "crawl",
@@ -1027,49 +1039,37 @@
    "kind": "search",
    "text": "no site found for Boston Tennis Club (United Kingdom)",
    "ok": false
-  },
-  {
-   "t": "2026-08-08T22:48:41.867Z",
-   "kind": "search",
-   "text": "no site found for Waterloo Lawn Tennis Club (United Kingdom)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-08T22:48:40.672Z",
-   "kind": "search",
-   "text": "no site found for Former Court (United Kingdom)",
-   "ok": false
   }
  ],
  "recent": [
-  "2026-08-09T14:10:58.034Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
-  "2026-08-09T14:10:58.037Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-09T14:11:03.078Z  osm DO: failed — subdivisions: out of time",
-  "2026-08-09T14:11:03.082Z  osm PW: failed — subdivisions: out of time",
-  "2026-08-09T14:11:04.882Z  published to the public link",
-  "2026-08-09T14:11:04.885Z  tick done in 4.3m — crawled 0 sites, +0 emails; osm 2 countries (ES,IE,SS,DO,PW,HN,GM,SB,MT,VC,NI,NR) +0, 4 failed | 848 emails total, 60 still queued",
-  "2026-08-09T14:14:27.802Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
-  "2026-08-09T14:14:27.807Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-09T14:14:30.819Z  osm GM Gambia: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-09T14:14:40.434Z  osm NZ New Zealand: 212 places -> +0 new, 38 merged, 0 with an email already, 2 leads with no contact tag, 33 dropped as public",
-  "2026-08-09T14:14:59.191Z  osm MT Malta: 3 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
   "2026-08-09T14:15:28.884Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
   "2026-08-09T14:15:28.889Z  osm ES Spain: 10 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 7 dropped as public",
-  "2026-08-09T14:15:43.024Z  osm SB: failed — subdivisions: out of time"
+  "2026-08-09T14:15:43.024Z  osm SB: failed — subdivisions: out of time",
+  "2026-08-09T14:15:44.820Z  published to the public link",
+  "2026-08-09T14:15:44.824Z  tick done in 4.3m — crawled 0 sites, +0 emails; osm 5 countries (ES,IE,NZ,GM,SB,MT,VC,NI,NR,AR,BS,SG) +0, 1 failed | 848 emails total, 60 still queued",
+  "2026-08-09T14:16:06.753Z  leads: searched 2, found 0 sites, 0 new emails, 0 leads left",
+  "2026-08-09T14:19:16.262Z  osm VC Saint Vincent and the Grenadines: 1 places -> +0 new, 1 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-09T14:19:24.052Z  osm IE: too big for one query — 5 of 9 subdivisions read, carries on next round",
+  "2026-08-09T14:19:24.057Z  osm IE Ireland: 12 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
+  "2026-08-09T14:19:35.411Z  osm NR Nauru: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
+  "2026-08-09T14:20:13.375Z  osm NI: failed — subdivisions: out of time",
+  "2026-08-09T14:20:24.835Z  osm ES: too big for one query — 7 of 23 subdivisions read, carries on next round",
+  "2026-08-09T14:20:24.839Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-09T14:21:03.747Z  osm VU: failed — subdivisions: out of time"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-09T14:11:24.900Z",
+ "roundStarted": "2026-08-09T14:16:04.831Z",
  "lastRound": {
-  "at": "2026-08-09T14:15:43.045Z",
-  "minutes": 4.3,
-  "summary": "crawled 0 sites, +0 emails; osm 5 countries (ES,IE,NZ,GM,SB,MT,VC,NI,NR,AR,BS,SG) +0, 1 failed",
+  "at": "2026-08-09T14:21:03.776Z",
+  "minutes": 5,
+  "summary": "crawled 0 sites, +0 emails; searched 2 club names, found 0 sites, +0 emails; osm 4 countries (ES,IE,VU,VC,NI,NR,AR,BS,SG,LR,TZ,TT) +0, 2 failed",
   "crawled": 0,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
+  "osmCountries": 4,
   "osmAdded": 0,
-  "osmFailed": 1
+  "osmFailed": 2
  }
 }
