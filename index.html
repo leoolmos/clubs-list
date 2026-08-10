@@ -566,6 +566,17 @@ async function loadStatus(){
   }catch(e){ /* opened as a file, or not published yet */ }
 }
 
+/* DD-MM-YYYY HH:MM, in the reader's own timezone. "2 min ago" alone is no
+   good for checking whether something ran overnight. */
+function stamp(iso){
+  if(!iso) return "";
+  var d = new Date(iso);
+  if(isNaN(d)) return String(iso);
+  function p(n){ return (n<10?"0":"") + n; }
+  return p(d.getDate()) + "-" + p(d.getMonth()+1) + "-" + d.getFullYear() +
+         " " + p(d.getHours()) + ":" + p(d.getMinutes());
+}
+
 function ago(iso){
   if(!iso) return "";
   var s = Math.max(0, (Date.now() - new Date(iso).getTime())/1000);
@@ -574,6 +585,9 @@ function ago(iso){
   if(s < 172800) return Math.round(s/3600) + "h ago";
   return Math.round(s/86400) + " days ago";
 }
+
+/* Both: the clock time for the record, the relative one for the glance. */
+function when(iso){ return stamp(iso) + " (" + ago(iso) + ")"; }
 
 function renderStatus(){
   var el = document.getElementById("collector");
@@ -591,11 +605,11 @@ function renderStatus(){
   var bits = [];
 
   bits.push("<div class='st-row'><span class='st-dot " + (stale ? "st-off" : (s.running ? "st-on" : "st-idle")) +
-            "'></span><b>" + esc(doing) + "</b><span class='meta'> &middot; updated " + esc(ago(s.generated)) + "</span></div>");
+            "'></span><b>" + esc(doing) + "</b><span class='meta'> &middot; updated " + esc(when(s.generated)) + "</span></div>");
 
   if(s.lastRound){
     var lr = s.lastRound;
-    bits.push("<div class='st-line'>Last round " + esc(ago(lr.at)) + ", took " + esc(String(lr.minutes)) +
+    bits.push("<div class='st-line'>Last round " + esc(when(lr.at)) + ", took " + esc(String(lr.minutes)) +
               " min: " + esc(lr.summary || "") + "</div>");
   }
 
@@ -661,10 +675,9 @@ function renderActivity(){
 
   var out = "";
   rows.forEach(function(r){
-    var when = "";
-    try{ when = new Date(r.t).toLocaleTimeString(); }catch(e){ when = String(r.t).slice(11,19); }
+    var ts = stamp(r.t);
     out += "<tr class='" + (r.ok ? "act-ok" : "act-no") + "'>"
-        +  "<td class='act-t'>" + esc(when) + "</td>"
+        +  "<td class='act-t'>" + esc(ts) + "</td>"
         +  "<td class='act-k'>" + esc(r.kind) + "</td>"
         +  "<td>" + esc(r.text) + "</td>"
         +  "</tr>";

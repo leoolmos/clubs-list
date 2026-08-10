@@ -77,7 +77,7 @@ const UA = 'RacketClubResearch/1.0 (club directory research; contact: set-your-e
 /* ------------------------------------------------------------------ *
  * Polite fetching — per-host spacing, robots.txt, character sets      *
  * ------------------------------------------------------------------ */
-const { sleep, links, hostOf, robotsAllow } = require('./lib/http');
+const { sleep, links, hostOf, robotsAllow, isChallenge } = require('./lib/http');
 const getPage = url => require('./lib/http').getPage(url, CFG.hostDelayMs, CFG.pageTimeoutMs);
 
 
@@ -276,6 +276,11 @@ async function harvestSite(website){
   const home = await getPage(origin);
   if(!home) return {emails:[], contact:'', note:'unreachable'};
 
+  // A challenge page is not the club's site. Read as an ordinary page it
+  // looks like a club with nothing on it — and "publishes no address" is
+  // treated as settled, so each one was struck off after a single look.
+  if(isChallenge(home)) return {emails:[], contact:'', note:'blocked by a challenge page'};
+
   let emails = extractEmails(home, host);
   if(emails.length) return {emails, contact:extractContactName(home), note:'homepage'};
 
@@ -333,6 +338,12 @@ async function phaseCrawl(db, deadline){
       found++;
       activity('crawl', `${rec.name} — ${rec.website}${note==='homepage'?'':' '+note} -> ${rec.email}`,
                {ok:true, url:rec.website, email:rec.email});
+    } else if(note === 'blocked by a challenge page'){
+      // Not settled: the site exists and may well publish an address, we were
+      // simply turned away. Try again later, and less often.
+      activity('crawl', `${rec.name} — ${rec.website}: turned away by a captcha, will retry`, {ok:false, url:rec.website});
+      rec.retryAfter = today + 6*60*60*1000;
+      rec.attempts = Math.max(0, (rec.attempts||1) - 1);   // do not burn an attempt on a door we never got through
     } else if(note === 'no email published'){
       activity('crawl', `${rec.name} — ${rec.website}: site read, publishes no address`, {ok:false, url:rec.website});
       rec.attempts = CFG.maxAttempts;         // settled, do not retry
@@ -490,7 +501,7 @@ async function phaseLeads(db, deadline){
   if(!keys.length) return {tried:0, found:0, emails:0};
 
   const budget = Math.min(deadline, Date.now() + CFG.leadMinutes*60*1000);
-  let tried=0, found=0, emails=0;
+  let tried=0, found=0, emails=0, throttled=0;
 
   for(const k of keys){
     if(Date.now() > budget) break;
@@ -500,7 +511,25 @@ async function phaseLeads(db, deadline){
     tried++;
     let r;
     try{ r = await search.findClubSite(lead, CFG.pageTimeoutMs + 3000); }
-    catch(e){ r = {url:'', queries:[], note:'search failed: '+e.message}; }
+    catch(e){ r = {url:'', queries:[], note:'search failed: '+e.message, throttled:true}; }
+
+    // A club is only "searched" when the engine actually answered. Marking
+    // one searched after a refusal is how 3,685 clubs were written off in a
+    // single pass while their websites sat there waiting to be found.
+    if(r.throttled){
+      throttled++;
+      lead.searchNote = r.note;
+      activity('search', `${lead.name}: search engine did not answer, will try again`, {ok:false});
+      // Several in a row means it is us being turned away, not these clubs.
+      // Stop and give the time back; the leads keep their place in the queue.
+      if(throttled >= 4){
+        log(`leads: the search engine stopped answering after ${tried} queries — pausing this phase`);
+        break;
+      }
+      await sleep(4000);
+      continue;
+    }
+    throttled = 0;
 
     lead.searched = new Date().toISOString();
     lead.searchNote = r.note;
