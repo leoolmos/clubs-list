@@ -794,6 +794,8 @@ function writeStandalone(db){
  * One tick
  * ------------------------------------------------------------------ */
 let running = false;
+let failures = 0;
+let failingSince = null;
 async function tick(){
   if(running){ log('previous tick still running, skipping this one'); return; }
   running = true;
@@ -869,9 +871,31 @@ async function tick(){
     });
     publishIfConfigured();
 
+    failures = 0; failingSince = null;
     log(`tick done in ${mins}m — ${summary} | ${total} emails total, ${queued} still queued`);
   }catch(e){
-    log('tick failed: '+e.message);
+    /* A round that throws must say so where it can be seen.
+     *
+     * A missing export made every round fail on its first line for twelve
+     * hours — 4,280 of them — while the page went on reporting "resting
+     * between rounds", because status.json was only ever written by a round
+     * that got far enough to write it. Silence read as calm. */
+    failures++;
+    log('tick failed: ' + e.message);
+    try{
+      activity('error', `round failed: ${e.message}`, {ok:false});
+      writeStatusJSON({
+        running: false,
+        phase: `FAILING — ${e.message}`,
+        error: e.message,
+        failedRounds: failures,
+        failingSince: failingSince || (failingSince = new Date().toISOString())
+      });
+    }catch(_){}
+
+    // Rounds that fail instantly would otherwise spin thousands of times an
+    // hour, filling the log and telling nobody.
+    await sleep(Math.min(60000, 5000 * failures));
   }finally{
     running = false;
   }

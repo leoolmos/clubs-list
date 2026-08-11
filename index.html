@@ -67,6 +67,19 @@ body{
 .act .act-k{white-space:nowrap;opacity:.75;font-family:"IBM Plex Mono",monospace;font-size:11px;width:58px}
 .act-no td{opacity:.62}
 .act-ok .act-k{color:#1a8f3c;font-weight:600}
+/* ---- paging ---- */
+.pager{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.pg{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;padding:7px 11px;
+  border:1px solid var(--rule);background:var(--line);color:var(--ink-soft);
+  cursor:pointer;border-radius:var(--r);min-width:34px
+}
+.pg:hover:not(:disabled){border-color:var(--ink-soft);color:var(--ink)}
+.pg.on{background:var(--ink);border-color:var(--ink);color:var(--out);font-weight:600}
+.pg:disabled{opacity:.38;cursor:default}
+.pg-gap{color:var(--ink-soft);padding:0 2px}
+.pg-of{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);margin-left:6px}
+
 .st-log{margin-top:8px}
 .st-log summary{cursor:pointer;opacity:.75;font-family:"IBM Plex Mono",monospace;font-size:11.5px}
 .st-log pre{
@@ -333,6 +346,7 @@ footer a{color:var(--grass)}
     </table>
     <div class="empty" id="empty" hidden><b>Nothing matches those filters</b>Clear the filters, or add clubs below.</div>
   </div>
+  <div class="pager" id="pager"></div>
 </section>
 
 <div class="courtline"></div>
@@ -598,13 +612,26 @@ function renderStatus(){
   var s = STATUS, c = s.crawl || {}, o = s.osm || {};
   var stale = (Date.now() - new Date(s.generated).getTime()) > 45*60*1000;
 
-  var doing = stale
+  var broken = !!s.error;
+  var doing = broken
+    ? "Rounds are failing"
+    : stale
     ? "Not running — last heard from " + ago(s.generated)
     : (s.running ? s.phase : (s.phase || "resting between rounds"));
 
   var bits = [];
 
-  bits.push("<div class='st-row'><span class='st-dot " + (stale ? "st-off" : (s.running ? "st-on" : "st-idle")) +
+  // A crash has to be the first thing on the panel. A missing export made
+  // every round fail on its first line for twelve hours while this said
+  // "resting between rounds", and nothing on the page contradicted it.
+  if(broken){
+    bits.push("<div class='st-line st-warn'><b>" + esc(String(s.error)) + "</b>" +
+      (s.failedRounds ? " &mdash; " + s.failedRounds + " rounds have failed in a row" : "") +
+      (s.failingSince ? ", since " + esc(when(s.failingSince)) : "") +
+      ". Nothing is being collected until this is fixed.</div>");
+  }
+
+  bits.push("<div class='st-row'><span class='st-dot " + (broken ? "st-off" : stale ? "st-off" : (s.running ? "st-on" : "st-idle")) +
             "'></span><b>" + esc(doing) + "</b><span class='meta'> &middot; updated " + esc(when(s.generated)) + "</span></div>");
 
   if(s.lastRound){
@@ -783,8 +810,62 @@ function filtered(){
 /* ------------------------------------------------------------------
    RENDER
 ------------------------------------------------------------------ */
+/* ------------------------------------------------------------------
+   PAGING
+   At 850 rows the table was a single scroll several screens deep, and it
+   only grows from here.
+------------------------------------------------------------------ */
+var PAGE_SIZE = 50;
+var page = 1;
+
+function renderPager(total){
+  var el = document.getElementById("pager");
+  if(!el) return;
+  var pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  if(page > pages) page = pages;
+
+  if(pages < 2){ el.innerHTML = ""; return; }
+
+  // First, last, and a window around the current page — so 40 pages do not
+  // become 40 buttons.
+  var want = [1, pages, page, page-1, page+1, page-2, page+2];
+  var show = want.filter(function(p){ return p >= 1 && p <= pages; })
+                 .sort(function(a,b){ return a-b; })
+                 .filter(function(p,i,a){ return a.indexOf(p) === i; });
+
+  var out = "<button class='pg' data-pg='" + (page-1) + "'" + (page===1?" disabled":"") + ">Prev</button>";
+  var last = 0;
+  show.forEach(function(p){
+    if(last && p > last+1) out += "<span class='pg-gap'>…</span>";
+    out += "<button class='pg" + (p===page?" on":"") + "' data-pg='" + p + "'>" + p + "</button>";
+    last = p;
+  });
+  out += "<button class='pg' data-pg='" + (page+1) + "'" + (page===pages?" disabled":"") + ">Next</button>";
+  out += "<span class='pg-of'>page " + page + " of " + pages + "</span>";
+  el.innerHTML = out;
+
+  Array.prototype.forEach.call(el.querySelectorAll(".pg"), function(b){
+    b.addEventListener("click", function(){
+      var p = parseInt(b.getAttribute("data-pg"), 10);
+      if(isNaN(p) || p < 1 || p > pages || p === page) return;
+      page = p;
+      renderTable();
+      // Back to the top of the table, not the top of the document: the
+      // filters stay where the eye left them.
+      var t = document.getElementById("panelClubs");
+      if(t) window.scrollTo({top: t.offsetTop - 10, behavior: "smooth"});
+    });
+  });
+}
+
 function renderTable(){
-  var rows = filtered(), tb = document.getElementById("tbody"), out = "";
+  var all = filtered(), tb = document.getElementById("tbody"), out = "";
+  var pages = Math.max(1, Math.ceil(all.length / PAGE_SIZE));
+  if(page > pages) page = pages;
+  if(page < 1) page = 1;
+  var start = (page - 1) * PAGE_SIZE;
+  var rows = all.slice(start, start + PAGE_SIZE);
+
   rows.forEach(function(c,i){
     var idx = clubs.indexOf(c);
     out += "<tr>"
@@ -799,10 +880,14 @@ function renderTable(){
       + "</tr>";
   });
   tb.innerHTML = out;
-  document.getElementById("empty").hidden = rows.length > 0;
-  document.getElementById("rl").textContent = rows.length + (rows.length===1?" club shown":" clubs shown") + " of " + clubs.length;
-  var stale = rows.filter(function(c){return c.stale;}).length;
+  document.getElementById("empty").hidden = all.length > 0;
+  document.getElementById("rl").textContent = all.length
+    ? "showing " + (start+1) + "–" + (start+rows.length) + " of " + all.length +
+      (all.length !== clubs.length ? " matching (" + clubs.length + " in total)" : "")
+    : "no clubs match";
+  var stale = all.filter(function(c){return c.stale;}).length;
   document.getElementById("rlNote").textContent = stale ? stale+" flagged for verification" : "";
+  renderPager(all.length);
 }
 
 function renderMeter(){
@@ -924,23 +1009,23 @@ function wire(){
   });
   ac.value = "Spain";
 
-  document.getElementById("q").addEventListener("input", function(e){ filters.q=e.target.value; renderTable(); });
-  document.getElementById("fLang").addEventListener("change", function(e){ filters.lang=e.target.value; renderTable(); });
-  fc.addEventListener("change", function(e){ filters.country=e.target.value; renderTable(); });
+  document.getElementById("q").addEventListener("input", function(e){ filters.q=e.target.value; page=1; renderTable(); });
+  document.getElementById("fLang").addEventListener("change", function(e){ filters.lang=e.target.value; page=1; renderTable(); });
+  fc.addEventListener("change", function(e){ filters.country=e.target.value; page=1; renderTable(); });
 
   document.getElementById("sportChips").addEventListener("click", function(e){
     var b = e.target.closest(".chip"); if(!b) return;
     var s = b.dataset.sport, i = filters.sports.indexOf(s);
     if(i<0){ filters.sports.push(s); b.classList.add("on"); }
     else { filters.sports.splice(i,1); b.classList.remove("on"); }
-    renderTable();
+    page=1; renderTable();
   });
 
   document.getElementById("reset").addEventListener("click", function(){
     filters = {q:"",sports:[],lang:"",country:""};
     document.getElementById("q").value=""; document.getElementById("fLang").value="";
     fc.value=""; Array.prototype.forEach.call(document.querySelectorAll("#sportChips .chip"), function(c){ c.classList.remove("on"); });
-    renderTable();
+    page=1; renderTable();
   });
 
   document.getElementById("export").addEventListener("click", exportCSV);
