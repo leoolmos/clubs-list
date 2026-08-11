@@ -1,47 +1,47 @@
 {
- "generated": "2026-08-11T23:22:08.470Z",
- "clubs": 1025,
- "records": 1473,
+ "generated": "2026-08-11T23:29:08.055Z",
+ "clubs": 1034,
+ "records": 1491,
  "crawl": {
-  "ready": 5,
+  "ready": 10,
   "waiting": 24,
-  "exhausted": 368
+  "exhausted": 373
  },
  "osm": {
-  "imported": 77,
-  "failed": 6,
+  "imported": 79,
+  "failed": 4,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "LS",
-   "error": "subdivisions: out of time",
-   "at": "2026-08-11T23:22:08.431Z"
+   "cc": "IE",
+   "error": "partial: 7 of 9 subdivisions read",
+   "at": "2026-08-11T23:28:13.062Z"
   }
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 412
+   "n": 420
   },
   {
    "note": "unreachable",
-   "n": 301
+   "n": 304
   },
   {
    "note": "no email published",
-   "n": 82
+   "n": 85
   },
   {
    "note": "/contact",
-   "n": 17
+   "n": 18
+  },
+  {
+   "note": "blocked by a challenge page",
+   "n": 11
   },
   {
    "note": "/contacto/",
    "n": 10
-  },
-  {
-   "note": "/contact/",
-   "n": 8
   }
  ],
  "seeds": {
@@ -52,10 +52,330 @@
  },
  "leads": {
   "total": 3894,
-  "searched": 790,
-  "left": 3104
+  "searched": 832,
+  "left": 3062
  },
  "activity": [
+  {
+   "t": "2026-08-11T23:24:54.284Z",
+   "kind": "search",
+   "text": "Modbury Tennis Club: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:24:47.196Z",
+   "kind": "search",
+   "text": "Boort Tennis Club: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:24:40.112Z",
+   "kind": "search",
+   "text": "Corowa Lawn Tennis Club: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:24:33.031Z",
+   "kind": "search",
+   "text": "Louth Tennis Club: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:24:29.361Z",
+   "kind": "search",
+   "text": "no site found for Harvey Nicholson Tennis Courts (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:24:28.668Z",
+   "kind": "search",
+   "text": "Coolum Netball Club (Australia) -> https://www.coolumnetball.com.au -> secretary@cdna.org.au",
+   "ok": true,
+   "url": "https://www.coolumnetball.com.au",
+   "email": "secretary@cdna.org.au"
+  },
+  {
+   "t": "2026-08-11T23:24:26.919Z",
+   "kind": "search",
+   "text": "no site found for Coolum Tennis Club (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:24:25.711Z",
+   "kind": "search",
+   "text": "no site found for Yengarie Tennis Court (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:24:24.704Z",
+   "kind": "search",
+   "text": "Zone Tennis Academy (Australia) -> https://www.zonetennisacademy.com.au -> info@zonetennisacademy.com.au",
+   "ok": true,
+   "url": "https://www.zonetennisacademy.com.au",
+   "email": "info@zonetennisacademy.com.au"
+  },
+  {
+   "t": "2026-08-11T23:24:23.361Z",
+   "kind": "search",
+   "text": "no site found for Nunawading Tennis Club house (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:24:22.127Z",
+   "kind": "search",
+   "text": "no site found for Nunawading Tennis Club (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:24:21.470Z",
+   "kind": "search",
+   "text": "Burwood Tennis Club (Australia) -> http://burwoodparktennisclub.kiwi, no address on the site (unreachable)",
+   "ok": false,
+   "url": "http://burwoodparktennisclub.kiwi",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T23:24:16.778Z",
+   "kind": "search",
+   "text": "no site found for Howrah Tennis Club Main Courts (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:24:15.752Z",
+   "kind": "search",
+   "text": "Waverley Tennis Courts (Australia) -> https://waverley.bookable.net.au, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://waverley.bookable.net.au",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T23:24:14.704Z",
+   "kind": "search",
+   "text": "Greenacres Tennis Club (Australia) -> https://www.greenacrestennisclub.com -> greenacrestc@gmail.com",
+   "ok": true,
+   "url": "https://www.greenacrestennisclub.com",
+   "email": "greenacrestc@gmail.com"
+  },
+  {
+   "t": "2026-08-11T23:24:13.407Z",
+   "kind": "search",
+   "text": "Lakeside Tennis Court (Australia) -> https://lakesideohio.com, no address on the site (blocked by a challenge page)",
+   "ok": false,
+   "url": "https://lakesideohio.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T23:24:11.923Z",
+   "kind": "search",
+   "text": "Matthews Park Tennis Club (Australia) -> https://clubspark.lta.org.uk, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://clubspark.lta.org.uk",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T23:24:11.289Z",
+   "kind": "search",
+   "text": "Maccabi Tennis Club (Australia) -> https://maccabitenniswhitecity.com.au -> join@maccabitenniswhitecity.com.au",
+   "ok": true,
+   "url": "https://maccabitenniswhitecity.com.au",
+   "email": "join@maccabitenniswhitecity.com.au"
+  },
+  {
+   "t": "2026-08-11T23:24:07.577Z",
+   "kind": "search",
+   "text": "Seymour Tennis Club (Australia) -> https://www.seymourtelegraph.com.au, no address on the site (blocked by a challenge page)",
+   "ok": false,
+   "url": "https://www.seymourtelegraph.com.au",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T23:24:01.840Z",
+   "kind": "search",
+   "text": "no site found for Newcastle Hill Tennis Club (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:24:00.642Z",
+   "kind": "search",
+   "text": "Kenwith Park Tennis Courts (Australia) -> https://clubspark.lta.org.uk, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://clubspark.lta.org.uk",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T23:24:00.029Z",
+   "kind": "search",
+   "text": "Holbrook Tennis Club -> https://holbrookparishcouncil.gov.uk, dropped: public or institutional domain",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:23:58.522Z",
+   "kind": "search",
+   "text": "Hurstbridge Tennis Club (Australia) -> https://www.hurstbridgetennisclub.com -> hurstbridgetennis@gmail.com",
+   "ok": true,
+   "url": "https://www.hurstbridgetennisclub.com",
+   "email": "hurstbridgetennis@gmail.com"
+  },
+  {
+   "t": "2026-08-11T23:23:57.488Z",
+   "kind": "search",
+   "text": "Emu Point Tennis Club (Australia) -> https://www.emupointsportingclub.net -> admin@emupointsportingclub.net",
+   "ok": true,
+   "url": "https://www.emupointsportingclub.net",
+   "email": "admin@emupointsportingclub.net"
+  },
+  {
+   "t": "2026-08-11T23:23:53.919Z",
+   "kind": "search",
+   "text": "Baxter Tennis Club (Australia) -> https://clubspark.lta.org.uk/BaxterParkandBrooksideTennisClub, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://clubspark.lta.org.uk/BaxterParkandBrooksideTennisClub",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T23:23:53.243Z",
+   "kind": "search",
+   "text": "Tennis Court (Australia) -> https://www.courtfinder.app, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://www.courtfinder.app",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T23:23:50.395Z",
+   "kind": "search",
+   "text": "Barton Tennis Club (Australia) -> https://bartonvillage.org, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://bartonvillage.org",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T23:23:34.367Z",
+   "kind": "search",
+   "text": "no site found for Lawn Tennis (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:23:34.367Z",
+   "kind": "search",
+   "text": "Coorparoo Tennis Courts -> https://coorparooss.eq.edu.au, dropped: public or institutional domain",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:23:28.420Z",
+   "kind": "search",
+   "text": "Rex Jones Courts (Australia) -> https://courtsentences.co.uk -> cs@searchventures.uk",
+   "ok": true,
+   "url": "https://courtsentences.co.uk",
+   "email": "cs@searchventures.uk"
+  },
+  {
+   "t": "2026-08-11T23:23:23.073Z",
+   "kind": "search",
+   "text": "Linton Tennis Courts -> https://linton-pc.gov.uk, dropped: public or institutional domain",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:23:21.990Z",
+   "kind": "search",
+   "text": "Port Pirie Tennis Club (Australia) -> https://playsport.com -> support@playsport.com",
+   "ok": true,
+   "url": "https://playsport.com",
+   "email": "support@playsport.com"
+  },
+  {
+   "t": "2026-08-11T23:23:20.566Z",
+   "kind": "search",
+   "text": "no site found for Anzac Park Tennis Centre (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:23:19.956Z",
+   "kind": "search",
+   "text": "Eucla Sports Courts (Australia) -> https://www.sportscourts.co.uk, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://www.sportscourts.co.uk",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T23:23:13.643Z",
+   "kind": "search",
+   "text": "no site found for Southlands Tennis Club (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:23:12.496Z",
+   "kind": "search",
+   "text": "no site found for Bauhinia Tennis Courts (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:23:11.762Z",
+   "kind": "search",
+   "text": "Buckland Hill Residents Tennis Court (Australia) -> https://bucklandhilltenniscourts.blogspot.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://bucklandhilltenniscourts.blogspot.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T23:22:58.232Z",
+   "kind": "search",
+   "text": "Bright Tennis Club (Australia) -> https://brightideasfortennis.org, no address on the site (blocked by a challenge page)",
+   "ok": false,
+   "url": "https://brightideasfortennis.org",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T23:22:57.481Z",
+   "kind": "search",
+   "text": "Kyogle Tennis Club -> https://www.visitkyogle.com.au, dropped: public or institutional domain",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:22:53.746Z",
+   "kind": "search",
+   "text": "no site found for Sports Club (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:22:53.746Z",
+   "kind": "search",
+   "text": "no site found for Nimmitabel Tennis Club (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:22:52.733Z",
+   "kind": "search",
+   "text": "Grey Courts -> https://www.greycourt.richmond.sch.uk, dropped: public or institutional domain",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:22:51.362Z",
+   "kind": "search",
+   "text": "no site found for Magenta Courts (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:22:50.201Z",
+   "kind": "search",
+   "text": "no site found for Copper City Tennis Club Inc (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T23:22:49.156Z",
+   "kind": "search",
+   "text": "Barton Courts (Australia) -> https://www.bartoncourt.org -> office@bartoncourt.org",
+   "ok": true,
+   "url": "https://www.bartoncourt.org",
+   "email": "office@bartoncourt.org"
+  },
+  {
+   "t": "2026-08-11T23:22:48.334Z",
+   "kind": "search",
+   "text": "Lethbridge Tennis Courts (Australia) -> https://tourismlethbridge.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://tourismlethbridge.com",
+   "email": ""
+  },
   {
    "t": "2026-08-11T23:17:33.484Z",
    "kind": "search",
@@ -833,310 +1153,6 @@
    "kind": "search",
    "text": "no site found for Berridale Tennis Club (Australia)",
    "ok": false
-  },
-  {
-   "t": "2026-08-11T22:55:49.276Z",
-   "kind": "search",
-   "text": "no site found for Newstead Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:55:48.315Z",
-   "kind": "search",
-   "text": "Armadale Tennis Club (Australia) -> https://armadaletennisclub.ca -> contact@sansoxygen.com",
-   "ok": true,
-   "url": "https://armadaletennisclub.ca",
-   "email": "contact@sansoxygen.com"
-  },
-  {
-   "t": "2026-08-11T22:55:46.918Z",
-   "kind": "search",
-   "text": "no site found for Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:55:46.917Z",
-   "kind": "search",
-   "text": "no site found for Bollon Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:55:45.644Z",
-   "kind": "search",
-   "text": "no site found for Cunnamulla Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:55:45.043Z",
-   "kind": "search",
-   "text": "Yan Yean Tennis Club (Australia) -> https://yan-yean.gunabizau.com, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://yan-yean.gunabizau.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:55:31.565Z",
-   "kind": "search",
-   "text": "no site found for Lockington Bamawn United Lawn Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:55:30.403Z",
-   "kind": "search",
-   "text": "no site found for Alstonville Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:55:29.762Z",
-   "kind": "search",
-   "text": "Kingswood Tennis Club (Australia) -> https://www.kingswoodvillage.org, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://www.kingswoodvillage.org",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:55:13.748Z",
-   "kind": "search",
-   "text": "Wallabadah Tennis Club (Australia) -> https://wallabadah-pc-association.square.site, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://wallabadah-pc-association.square.site",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:54:59.663Z",
-   "kind": "search",
-   "text": "no site found for Foster Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:54:57.314Z",
-   "kind": "search",
-   "text": "no site found for Mendooran Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:54:56.647Z",
-   "kind": "search",
-   "text": "Tennis Courts (Australia) -> https://www.lta.org.uk/play/find-a-tennis-court/ -> media@lta.org.uk",
-   "ok": true,
-   "url": "https://www.lta.org.uk/play/find-a-tennis-court/",
-   "email": "media@lta.org.uk"
-  },
-  {
-   "t": "2026-08-11T22:54:47.247Z",
-   "kind": "search",
-   "text": "no site found for Kendenup Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:54:46.064Z",
-   "kind": "search",
-   "text": "no site found for Wamenusking Sports Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:54:44.815Z",
-   "kind": "search",
-   "text": "no site found for Pumphreys Bridge Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:54:43.635Z",
-   "kind": "search",
-   "text": "no site found for Koongawa Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:54:42.441Z",
-   "kind": "search",
-   "text": "no site found for Grace Valley Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:54:41.218Z",
-   "kind": "search",
-   "text": "no site found for Glenreagh Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:54:40.622Z",
-   "kind": "search",
-   "text": "Kempsey Tennis Club (Australia) -> http://www.kempseytennis.co.uk, no address on the site (no email published)",
-   "ok": false,
-   "url": "http://www.kempseytennis.co.uk",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:54:27.244Z",
-   "kind": "search",
-   "text": "Kendall Tennis Club (Australia) -> https://clubspark.lta.org.uk/KendalLTC, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://clubspark.lta.org.uk/KendalLTC",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:54:25.972Z",
-   "kind": "search",
-   "text": "no site found for Eleebana Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:54:24.795Z",
-   "kind": "search",
-   "text": "no site found for Tumut Lawn Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:54:24.167Z",
-   "kind": "search",
-   "text": "Koonarra Tennis Club (Australia) -> https://ktc.tidyhq.com, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://ktc.tidyhq.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:49:09.135Z",
-   "kind": "search",
-   "text": "Kendall Tennis Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:49:02.066Z",
-   "kind": "search",
-   "text": "Eleebana Tennis Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:48:54.983Z",
-   "kind": "search",
-   "text": "Tumut Lawn Tennis Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:48:47.914Z",
-   "kind": "search",
-   "text": "Koonarra Tennis Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:48:44.232Z",
-   "kind": "search",
-   "text": "no site found for Tatura Lawn Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:48:43.038Z",
-   "kind": "search",
-   "text": "no site found for Glenara Tennis Club - Abandoned? (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:48:41.855Z",
-   "kind": "search",
-   "text": "no site found for Nairne Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:48:39.800Z",
-   "kind": "search",
-   "text": "Warren Tennis Club (Australia) -> https://mpthewarren.com -> enquiries@mpthewarren.com",
-   "ok": true,
-   "url": "https://mpthewarren.com",
-   "email": "enquiries@mpthewarren.com"
-  },
-  {
-   "t": "2026-08-11T22:48:38.223Z",
-   "kind": "search",
-   "text": "no site found for Upper Sturt Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:48:37.069Z",
-   "kind": "search",
-   "text": "no site found for Raworth Tennis Centre (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:48:36.356Z",
-   "kind": "crawl",
-   "text": "Cancha Tenis - JuFranco Club — https://www.haycancha.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.haycancha.com"
-  },
-  {
-   "t": "2026-08-11T22:48:36.351Z",
-   "kind": "crawl",
-   "text": "Pickleball Courts — https://www.thepickleballdirectory.co.uk: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.thepickleballdirectory.co.uk"
-  },
-  {
-   "t": "2026-08-11T22:48:34.690Z",
-   "kind": "crawl",
-   "text": "CSIR Tennis Club — https://www.csir.co.za: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.csir.co.za"
-  },
-  {
-   "t": "2026-08-11T22:48:33.528Z",
-   "kind": "crawl",
-   "text": "Club Raqueta Bosques — https://clubraquetadelosbosques.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://clubraquetadelosbosques.com"
-  },
-  {
-   "t": "2026-08-11T22:48:32.731Z",
-   "kind": "crawl",
-   "text": "San Miguel Tennis Club — https://sanmiguel.club: site read, publishes no address",
-   "ok": false,
-   "url": "https://sanmiguel.club"
-  },
-  {
-   "t": "2026-08-11T22:48:32.039Z",
-   "kind": "crawl",
-   "text": "Palestra Club Deportivo — https://clubpalestra.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://clubpalestra.com"
-  },
-  {
-   "t": "2026-08-11T22:48:31.840Z",
-   "kind": "crawl",
-   "text": "Vibora Club Padel Guadalajara — https://plazasguadalajara.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://plazasguadalajara.com"
-  },
-  {
-   "t": "2026-08-11T22:48:31.584Z",
-   "kind": "crawl",
-   "text": "Club Britania — https://britaniachihuahua.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://britaniachihuahua.com"
-  },
-  {
-   "t": "2026-08-11T22:48:31.440Z",
-   "kind": "crawl",
-   "text": "Lynnwood Tennis Club — https://lynnwoodtennis.co.za: site read, publishes no address",
-   "ok": false,
-   "url": "https://lynnwoodtennis.co.za"
-  },
-  {
-   "t": "2026-08-11T22:48:31.351Z",
-   "kind": "crawl",
-   "text": "Tennis Ball Court — https://findacourt.online: site read, publishes no address",
-   "ok": false,
-   "url": "https://findacourt.online"
-  },
-  {
-   "t": "2026-08-11T22:42:40.321Z",
-   "kind": "search",
-   "text": "Nairne Tennis Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:42:29.022Z",
-   "kind": "search",
-   "text": "Warren Tennis Club: search engine did not answer, will try again",
-   "ok": false
   }
  ],
  "perCountry": {
@@ -1162,10 +1178,10 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-11T23:21:05.843Z",
-    "seen": 77,
+    "at": "2026-08-11T23:28:08.204Z",
+    "seen": 125,
     "added": 0,
-    "rejected": 38,
+    "rejected": 50,
     "error": "partial: 8 of 23 subdivisions read",
     "via": "overpass.kumi.systems"
    }
@@ -1221,7 +1237,7 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-11T23:21:00.997Z",
+    "at": "2026-08-11T23:28:13.062Z",
     "seen": 5,
     "added": 0,
     "rejected": 0,
@@ -1403,23 +1419,23 @@
    }
   },
   "Australia": {
-   "clubs": 146,
-   "emails": 87,
-   "sites": 145,
-   "read": 132,
-   "unreachable": 45,
-   "noAddress": 14,
+   "clubs": 164,
+   "emails": 96,
+   "sites": 163,
+   "read": 150,
+   "unreachable": 48,
+   "noAddress": 17,
    "leads": 557,
-   "leadsSearched": 160,
-   "leadsFound": 88,
+   "leadsSearched": 202,
+   "leadsFound": 115,
    "sports": {
-    "Tennis": 136,
+    "Tennis": 154,
     "Padel": 1,
     "Squash": 9
    },
    "sources": {
     "osm": 45,
-    "search": 42
+    "search": 51
    },
    "seeds": 0,
    "osm": {
@@ -2328,7 +2344,7 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T05:25:53.914Z",
+    "at": "2026-08-11T23:28:37.138Z",
     "seen": 7,
     "added": 0,
     "rejected": 3,
@@ -2380,12 +2396,12 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T22:59:42.480Z",
+    "at": "2026-08-11T23:29:04.793Z",
     "seen": 18,
     "added": 0,
     "rejected": 13,
-    "error": "subdivisions: out of time",
-    "via": "overpass.kumi.systems"
+    "error": null,
+    "via": "overpass.private.coffee"
    }
   },
   "Barbados": {
@@ -2432,12 +2448,12 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T05:38:20.964Z",
+    "at": "2026-08-11T23:28:13.021Z",
     "seen": 7,
     "added": 0,
     "rejected": 6,
     "error": null,
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    }
   },
   "Zambia": {
@@ -2562,12 +2578,12 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T23:01:11.676Z",
+    "at": "2026-08-11T23:29:08.019Z",
     "seen": 4,
     "added": 0,
     "rejected": 0,
-    "error": "subdivisions: out of time",
-    "via": "overpass-api.de"
+    "error": null,
+    "via": "overpass.private.coffee"
    }
   },
   "Saint Lucia": {
@@ -3352,34 +3368,34 @@
   }
  },
  "recent": [
-  "2026-08-11T23:16:20.266Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-11T23:16:22.098Z  osm SV El Salvador: 6 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 4 dropped as public",
-  "2026-08-11T23:16:24.002Z  published to the public link",
-  "2026-08-11T23:16:24.006Z  tick done in 8.4m — crawled 7 sites, +0 emails; searched 62 club names, found 27 sites, +13 emails; osm 6 countries (ES,GB,IE,SV,PT,VC,WS,VE,GQ,LS,FJ,AO) +0 | 1024 emails total, 28 still queued",
-  "2026-08-11T23:17:33.485Z  leads: the search engine stopped answering after 10 queries — pausing this phase",
-  "2026-08-11T23:17:33.494Z  leads: searched 10, found 2 sites, 1 new emails, 3104 leads left",
-  "2026-08-11T23:20:47.831Z  osm GQ Equatorial Guinea: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
-  "2026-08-11T23:21:00.991Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-11T23:21:00.996Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-11T23:21:05.839Z  osm ES: too big for one query — 8 of 23 subdivisions read, carries on next round",
-  "2026-08-11T23:21:05.843Z  osm ES Spain: 77 places -> +0 new, 3 merged, 0 with an email already, 0 leads with no contact tag, 38 dropped as public",
-  "2026-08-11T23:21:32.946Z  osm WS Samoa: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
   "2026-08-11T23:22:03.313Z  osm VE Venezuela: 10 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 5 dropped as public",
-  "2026-08-11T23:22:08.432Z  osm LS: failed — subdivisions: out of time"
+  "2026-08-11T23:22:08.432Z  osm LS: failed — subdivisions: out of time",
+  "2026-08-11T23:22:10.223Z  published to the public link",
+  "2026-08-11T23:22:10.227Z  tick done in 5.4m — crawled 9 sites, +0 emails; searched 10 club names, found 2 sites, +1 emails; osm 5 countries (ES,IE,WS,VE,GQ,LS,FJ,AO,FM,MU,CU,CR) +0, 1 failed | 1025 emails total, 22 still queued",
+  "2026-08-11T23:24:54.284Z  leads: the search engine stopped answering after 46 queries — pausing this phase",
+  "2026-08-11T23:24:54.297Z  leads: searched 46, found 27 sites, 9 new emails, 3062 leads left",
+  "2026-08-11T23:28:08.199Z  osm ES: too big for one query — 8 of 23 subdivisions read, carries on next round",
+  "2026-08-11T23:28:08.204Z  osm ES Spain: 125 places -> +0 new, 10 merged, 0 with an email already, 0 leads with no contact tag, 50 dropped as public",
+  "2026-08-11T23:28:13.017Z  osm AO Angola: 7 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 6 dropped as public",
+  "2026-08-11T23:28:13.057Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-11T23:28:13.061Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-11T23:28:37.133Z  osm FJ Fiji: 7 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 3 dropped as public",
+  "2026-08-11T23:29:04.790Z  osm KE Kenya: 18 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 13 dropped as public",
+  "2026-08-11T23:29:08.015Z  osm MW Malawi: 4 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-11T23:16:44.025Z",
+ "roundStarted": "2026-08-11T23:22:30.234Z",
  "lastRound": {
-  "at": "2026-08-11T23:22:08.454Z",
-  "minutes": 5.4,
-  "summary": "crawled 9 sites, +0 emails; searched 10 club names, found 2 sites, +1 emails; osm 5 countries (ES,IE,WS,VE,GQ,LS,FJ,AO,FM,MU,CU,CR) +0, 1 failed",
-  "crawled": 9,
+  "at": "2026-08-11T23:29:08.039Z",
+  "minutes": 6.6,
+  "summary": "crawled 5 sites, +0 emails; searched 46 club names, found 27 sites, +9 emails; osm 6 countries (ES,IE,KE,MW,FJ,AO,FM,MU,CU,CR,PA,LR) +0",
+  "crawled": 5,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
+  "osmCountries": 6,
   "osmAdded": 0,
-  "osmFailed": 1
+  "osmFailed": 0
  }
 }
