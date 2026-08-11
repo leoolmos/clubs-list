@@ -1,27 +1,27 @@
 {
- "generated": "2026-08-11T20:59:26.773Z",
+ "generated": "2026-08-11T21:05:37.272Z",
  "clubs": 851,
- "records": 1182,
+ "records": 1185,
  "crawl": {
-  "ready": 0,
+  "ready": 3,
   "waiting": 1,
   "exhausted": 275
  },
  "osm": {
-  "imported": 71,
-  "failed": 12,
+  "imported": 70,
+  "failed": 13,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "GB",
+   "cc": "SC",
    "error": "subdivisions: out of time",
-   "at": "2026-08-11T20:59:26.723Z"
+   "at": "2026-08-11T21:05:37.234Z"
   }
  },
  "crawlReasons": [
   {
    "note": "unreachable",
-   "n": 272
+   "n": 273
   },
   {
    "note": "homepage",
@@ -32,16 +32,16 @@
    "n": 15
   },
   {
+   "note": "no email published",
+   "n": 6
+  },
+  {
    "note": "/contact/",
    "n": 6
   },
   {
    "note": "/membership",
    "n": 6
-  },
-  {
-   "note": "no email published",
-   "n": 4
   }
  ],
  "seeds": {
@@ -52,10 +52,58 @@
  },
  "leads": {
   "total": 3891,
-  "searched": 138,
-  "left": 3753
+  "searched": 141,
+  "left": 3750
  },
  "activity": [
+  {
+   "t": "2026-08-11T21:00:40.996Z",
+   "kind": "search",
+   "text": "Center Court: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:00:33.924Z",
+   "kind": "search",
+   "text": "Court 2: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:00:26.842Z",
+   "kind": "search",
+   "text": "Court 6: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:00:19.777Z",
+   "kind": "search",
+   "text": "Court 5: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:00:16.699Z",
+   "kind": "search",
+   "text": "Club de tenis Ayora (Spain) -> https://ayora.directorio-empresa.es, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://ayora.directorio-empresa.es",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:00:03.401Z",
+   "kind": "search",
+   "text": "Cancha Pádel (Spain) -> https://canchasdepadel.mx, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://canchasdepadel.mx",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:00:02.497Z",
+   "kind": "search",
+   "text": "Club de Tennis Sant Pol (Spain) -> https://clubdetenissantapola.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://clubdetenissantapola.com",
+   "email": ""
+  },
   {
    "t": "2026-08-11T20:55:08.611Z",
    "kind": "search",
@@ -1033,68 +1081,22 @@
    "kind": "search",
    "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
    "ok": false
-  },
-  {
-   "t": "2026-08-11T05:21:39.030Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:20:46.990Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:20:18.953Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:17:04.696Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:16:19.741Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T05:15:53.142Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T05:10:47.427Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
   }
  ],
  "perCountry": {
   "Spain": {
-   "clubs": 590,
+   "clubs": 593,
    "emails": 475,
-   "sites": 374,
-   "read": 147,
-   "unreachable": 69,
-   "noAddress": 4,
+   "sites": 377,
+   "read": 150,
+   "unreachable": 70,
+   "noAddress": 6,
    "leads": 320,
-   "leadsSearched": 104,
-   "leadsFound": 77,
+   "leadsSearched": 107,
+   "leadsFound": 80,
    "sports": {
-    "Tennis": 465,
-    "Padel": 152,
+    "Tennis": 467,
+    "Padel": 153,
     "Squash": 3
    },
    "sources": {
@@ -1104,12 +1106,12 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-11T20:58:28.642Z",
-    "seen": 122,
+    "at": "2026-08-11T21:04:23.195Z",
+    "seen": 77,
     "added": 0,
-    "rejected": 48,
+    "rejected": 38,
     "error": "partial: 8 of 23 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    }
   },
   "United Kingdom": {
@@ -1163,12 +1165,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-11T20:58:29.487Z",
-    "seen": 0,
+    "at": "2026-08-11T21:04:07.538Z",
+    "seen": 5,
     "added": 0,
     "rejected": 0,
     "error": "partial: 7 of 9 subdivisions read",
-    "via": ""
+    "via": "overpass.private.coffee"
    }
   },
   "Brazil": {
@@ -1276,12 +1278,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T03:27:07.277Z",
+    "at": "2026-08-11T21:04:26.912Z",
     "seen": 260,
     "added": 0,
     "rejected": 185,
     "error": null,
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    }
   },
   "South Africa": {
@@ -2420,11 +2422,11 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T03:27:01.369Z",
+    "at": "2026-08-11T21:05:37.234Z",
     "seen": 3,
     "added": 0,
     "rejected": 1,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.kumi.systems"
    }
   },
@@ -2888,7 +2890,7 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T03:27:13.389Z",
+    "at": "2026-08-11T21:04:05.123Z",
     "seen": 1,
     "added": 0,
     "rejected": 1,
@@ -2992,7 +2994,7 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T03:28:12.767Z",
+    "at": "2026-08-11T21:03:44.899Z",
     "seen": 1,
     "added": 0,
     "rejected": 1,
@@ -3288,34 +3290,34 @@
   }
  },
  "recent": [
-  "2026-08-11T20:51:36.456Z  leads: searched 16, found 2 sites, 1 new emails, 3753 leads left",
-  "2026-08-11T20:54:29.676Z  daemon started — continuous, 20m per round, 20s between rounds",
-  "2026-08-11T20:54:29.682Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
-  "2026-08-11T20:54:29.683Z  seeds: C:\\Users\\Leo\\apps\\clubs-collector\\seeds.txt",
-  "2026-08-11T20:55:08.611Z  leads: the search engine stopped answering after 4 queries — pausing this phase",
-  "2026-08-11T20:55:08.625Z  leads: searched 4, found 0 sites, 0 new emails, 3753 leads left",
-  "2026-08-11T20:58:28.633Z  osm ES: too big for one query — 8 of 23 subdivisions read, carries on next round",
-  "2026-08-11T20:58:28.641Z  osm ES Spain: 122 places -> +0 new, 10 merged, 0 with an email already, 0 leads with no contact tag, 48 dropped as public",
-  "2026-08-11T20:58:29.483Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-11T20:58:29.486Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-11T20:58:41.254Z  osm CO: failed — subdivisions: out of time",
-  "2026-08-11T20:58:41.914Z  osm AU: failed — subdivisions: out of time",
   "2026-08-11T20:59:09.040Z  osm GT: failed — subdivisions: out of time",
-  "2026-08-11T20:59:26.724Z  osm GB: failed — subdivisions: out of time"
+  "2026-08-11T20:59:26.724Z  osm GB: failed — subdivisions: out of time",
+  "2026-08-11T20:59:28.627Z  published to the public link",
+  "2026-08-11T20:59:28.630Z  tick done in 5.0m — crawled 1 sites, +0 emails; searched 4 club names, found 0 sites, +0 emails; osm 2 countries (ES,GB,AU,IE,CO,GT,SC,AR,AG,SD,LC,DO) +0, 4 failed | 851 emails total, 1 still queued",
+  "2026-08-11T21:00:40.996Z  leads: the search engine stopped answering after 7 queries — pausing this phase",
+  "2026-08-11T21:00:41.009Z  leads: searched 7, found 3 sites, 0 new emails, 3750 leads left",
+  "2026-08-11T21:03:44.895Z  osm SD Sudan: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
+  "2026-08-11T21:04:05.120Z  osm AG Antigua and Barbuda: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
+  "2026-08-11T21:04:07.534Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-11T21:04:07.537Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-11T21:04:23.189Z  osm ES: too big for one query — 8 of 23 subdivisions read, carries on next round",
+  "2026-08-11T21:04:23.194Z  osm ES Spain: 77 places -> +0 new, 3 merged, 0 with an email already, 0 leads with no contact tag, 38 dropped as public",
+  "2026-08-11T21:04:26.908Z  osm AR Argentina: 260 places -> +0 new, 5 merged, 0 with an email already, 0 leads with no contact tag, 185 dropped as public",
+  "2026-08-11T21:05:37.235Z  osm SC: failed — subdivisions: out of time"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-11T20:54:29.690Z",
+ "roundStarted": "2026-08-11T20:59:48.647Z",
  "lastRound": {
-  "at": "2026-08-11T20:59:26.752Z",
-  "minutes": 5,
-  "summary": "crawled 1 sites, +0 emails; searched 4 club names, found 0 sites, +0 emails; osm 2 countries (ES,GB,AU,IE,CO,GT,SC,AR,AG,SD,LC,DO) +0, 4 failed",
-  "crawled": 1,
+  "at": "2026-08-11T21:05:37.257Z",
+  "minutes": 5.8,
+  "summary": "crawled 0 sites, +0 emails; searched 7 club names, found 3 sites, +0 emails; osm 5 countries (ES,IE,SC,AR,AG,SD,LC,DO,BZ,US,ZW,TL) +0, 1 failed",
+  "crawled": 0,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 2,
+  "osmCountries": 5,
   "osmAdded": 0,
-  "osmFailed": 4
+  "osmFailed": 1
  }
 }
