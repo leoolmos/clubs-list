@@ -720,6 +720,55 @@ function writeStatusJSON(extra){
     })()
   };
 
+  /* Per country, what has actually been done to it.
+   *
+   * Clicking a country used to open a form for typing notes by hand, which
+   * nobody ever filled in, so every country showed the same blank example.
+   * All of this is already known — it just was not being written down. */
+  const leadsAll = Object.values(readJSON(path.join(DATA_DIR,'osm-leads.json'), {}));
+  const seedsAll = Object.values(queue);
+  const perCountry = {};
+
+  function slot(country){
+    if(!country) return null;
+    return perCountry[country] || (perCountry[country] = {
+      clubs:0, emails:0, sites:0, read:0, unreachable:0, noAddress:0,
+      leads:0, leadsSearched:0, leadsFound:0,
+      sports:{Tennis:0, Padel:0, Squash:0},
+      sources:{}, seeds:0, osm:null
+    });
+  }
+
+  for(const r of all){
+    const s = slot(r.country); if(!s) continue;
+    s.clubs++;
+    if(r.email){ s.emails++; s.sources[r.src||'?'] = (s.sources[r.src||'?']||0)+1; }
+    if(r.website) s.sites++;
+    if(r.crawlNote){
+      s.read++;
+      if(r.crawlNote === 'unreachable') s.unreachable++;
+      else if(r.crawlNote === 'no email published') s.noAddress++;
+    }
+    for(const sp of r.sports||[]) if(sp in s.sports) s.sports[sp]++;
+  }
+  for(const l of leadsAll){
+    const s = slot(l.country); if(!s) continue;
+    s.leads++;
+    if(l.searched) s.leadsSearched++;
+    if(l.website)  s.leadsFound++;
+  }
+  for(const sd of seedsAll){
+    const s = slot(require('./lib/countries').nameOf(sd.cc)); if(!s) continue;
+    s.seeds++;
+  }
+  for(const cc of countries){
+    const st = osmState[cc];
+    if(!st) continue;
+    const s = slot(require('./lib/countries').nameOf(cc)); if(!s) continue;
+    s.osm = {at: st.at, seen: st.seen, added: st.added, rejected: st.rejected,
+             error: st.error || null, via: st.via || ''};
+  }
+
   let recent = [];
   try{
     recent = fs.readFileSync(LOG_FILE,'utf8').split(/\r?\n/).filter(Boolean).slice(-14);
@@ -740,6 +789,7 @@ function writeStatusJSON(extra){
     leads: (()=>{ const L=readJSON(path.join(DATA_DIR,'osm-leads.json'), {}); const v=Object.values(L);
       return {total:v.length, searched:v.filter(l=>l.searched).length, left:v.filter(l=>!l.searched).length}; })(),
     activity: readActivity(160),
+    perCountry,
     recent
   }, extra||{});
 

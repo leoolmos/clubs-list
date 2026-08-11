@@ -67,6 +67,11 @@ body{
 .act .act-k{white-space:nowrap;opacity:.75;font-family:"IBM Plex Mono",monospace;font-size:11px;width:58px}
 .act-no td{opacity:.62}
 .act-ok .act-k{color:#1a8f3c;font-weight:600}
+.cy{width:100%;border-collapse:collapse;font-size:13px;margin:4px 0 2px}
+.cy td{padding:7px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.cy td:first-child{width:40%;color:var(--ink-soft);padding-right:12px}
+.cy-h{font-family:"Archivo",sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:16px 0 4px}
+
 /* ---- paging ---- */
 .pager{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:14px}
 .pg{
@@ -422,21 +427,15 @@ Sandton Squash Club, Squash, , admin@sandtonsquash.co.za, South Africa"></textar
 
 </div>
 
+<!-- What the collector has actually done to this country. This used to be a
+     form for typing notes by hand; nobody ever filled it in, so every
+     country showed the same blank example. All of it was already known. -->
 <dialog id="dlg"><div class="dlg-in">
   <h3 id="dlgName">Country</h3>
   <p class="sub" id="dlgCount">0 clubs collected</p>
-  <label for="dlgStatus">Status</label>
-  <select id="dlgStatus">
-    <option value="none">Not started</option>
-    <option value="part">In progress</option>
-    <option value="done">Exhausted — do not revisit</option>
-    <option value="skip">Skip this country</option>
-  </select>
-  <label for="dlgSources">Sources already worked</label>
-  <textarea id="dlgSources" placeholder="federation club list — done to page 12&#10;padel directory — no emails exposed&#10;maps scrape — 400 sites queued for crawl"></textarea>
+  <div id="dlgBody"></div>
   <div class="dlg-act">
-    <button class="btn ghost" id="dlgCancel">Cancel</button>
-    <button class="btn go" id="dlgSave">Save</button>
+    <button class="btn go" id="dlgCancel">Close</button>
   </div>
 </div></dialog>
 
@@ -680,6 +679,7 @@ function renderStatus(){
    each site opened, each address found or not found.
 ------------------------------------------------------------------ */
 var actFilter = "all";
+var dlg = null;
 
 function renderActivity(){
   var wrap = document.getElementById("actBody");
@@ -1115,23 +1115,94 @@ function wire(){
     if(r.added){ document.getElementById("bulk").value=""; save(); renderAll(); }
   });
 
-  // ledger dialog
-  var dlg = document.getElementById("dlg"), current = null;
+  var dlg = document.getElementById("dlg");
   document.getElementById("ledger").addEventListener("click", function(e){
     var b = e.target.closest("[data-country]"); if(!b) return;
-    current = b.dataset.country;
-    var l = ledger[current]||{}, n = countryCounts()[current]||0;
-    document.getElementById("dlgName").textContent = current;
-    document.getElementById("dlgCount").textContent = n + (n===1?" club collected · ":" clubs collected · ") + LANG_OF[current];
-    document.getElementById("dlgStatus").value = l.status || (n?"part":"none");
-    document.getElementById("dlgSources").value = l.notes || "";
-    dlg.showModal();
+    showCountry(b.dataset.country);
   });
   document.getElementById("dlgCancel").addEventListener("click", function(){ dlg.close(); });
-  document.getElementById("dlgSave").addEventListener("click", function(){
-    ledger[current] = {status:document.getElementById("dlgStatus").value, notes:document.getElementById("dlgSources").value, updated:new Date().toISOString().slice(0,10)};
-    dlg.close(); save(); renderLedger();
-  });
+}
+
+/* ------------------------------------------------------------------
+   WHAT WAS DONE TO ONE COUNTRY
+------------------------------------------------------------------ */
+function showCountry(country){
+  var n = countryCounts()[country] || 0;
+  document.getElementById("dlgName").textContent = country;
+  document.getElementById("dlgCount").textContent =
+    n + (n===1 ? " club collected · " : " clubs collected · ") + (LANG_OF[country]||"");
+
+  var c = (STATUS && STATUS.perCountry && STATUS.perCountry[country]) || null;
+  var body = document.getElementById("dlgBody");
+
+  if(!c){
+    body.innerHTML = "<p class='meta'>Nothing has been done here yet. " +
+      (STATUS ? "The collector has not reached this country."
+              : "No collector status has been published.") + "</p>";
+    dlg.showModal();
+    return;
+  }
+
+  function row(label, value){ return "<tr><td>" + esc(label) + "</td><td>" + value + "</td></tr>"; }
+  var out = "<table class='cy'>";
+
+  out += row("Clubs with an email", "<b>" + c.emails + "</b>" +
+    (c.clubs > c.emails ? " <span class='meta'>(" + (c.clubs - c.emails) + " more found, still without one)</span>" : ""));
+
+  var sp = [];
+  if(c.sports.Tennis) sp.push(c.sports.Tennis + " tennis");
+  if(c.sports.Padel)  sp.push(c.sports.Padel + " padel");
+  if(c.sports.Squash) sp.push(c.sports.Squash + " squash");
+  if(sp.length) out += row("Sports", sp.join(" · "));
+
+  if(c.osm){
+    out += row("OpenStreetMap", c.osm.error
+      ? "<span class='st-warn'>" + esc(String(c.osm.error).slice(0,90)) + "</span>"
+      : c.osm.seen + " places found, " + c.osm.added + " kept" +
+        (c.osm.rejected ? ", " + c.osm.rejected + " dropped as public" : "") +
+        (c.osm.at ? "<div class='meta'>read " + esc(stamp(c.osm.at)) + (c.osm.via ? " via " + esc(c.osm.via) : "") + "</div>" : ""));
+  } else {
+    out += row("OpenStreetMap", "<span class='meta'>not read yet</span>");
+  }
+
+  if(c.leads){
+    out += row("Clubs known only by name",
+      c.leads + " — " + c.leadsSearched + " searched for on the web, " +
+      c.leadsFound + " had a site found" +
+      (c.leads > c.leadsSearched ? "<div class='meta'>" + (c.leads - c.leadsSearched) + " still queued to search</div>" : ""));
+  }
+
+  if(c.read){
+    out += row("Club sites read", c.read +
+      " — " + (c.read - c.unreachable - c.noAddress) + " gave an address, " +
+      c.unreachable + " did not respond, " + c.noAddress + " publish none");
+  }
+
+  if(c.seeds) out += row("Directories being walked", c.seeds);
+
+  var src = Object.keys(c.sources || {});
+  if(src.length){
+    out += row("Where the addresses came from", src.sort(function(a,b){ return c.sources[b]-c.sources[a]; })
+      .map(function(k){ return esc(SRC_LABEL[k]||k) + " " + c.sources[k]; }).join(" · "));
+  }
+
+  out += "</table>";
+
+  // The lines from the activity log that mention this country
+  var mine = ((STATUS && STATUS.activity) || []).filter(function(r){
+    return r.text && r.text.indexOf("(" + country + ")") >= 0;
+  }).slice(0, 12);
+  if(mine.length){
+    out += "<h4 class='cy-h'>Most recent work here</h4><table class='act'><tbody>";
+    mine.forEach(function(r){
+      out += "<tr class='" + (r.ok ? "act-ok" : "act-no") + "'><td class='act-t'>" + esc(stamp(r.t)) +
+             "</td><td>" + esc(r.text) + "</td></tr>";
+    });
+    out += "</tbody></table>";
+  }
+
+  body.innerHTML = out;
+  dlg.showModal();
 }
 
 /* ------------------------------------------------------------------
