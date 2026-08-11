@@ -1,47 +1,47 @@
 {
- "generated": "2026-08-11T22:22:12.363Z",
- "clubs": 956,
- "records": 1354,
+ "generated": "2026-08-11T22:36:05.098Z",
+ "clubs": 985,
+ "records": 1405,
  "crawl": {
-  "ready": 25,
-  "waiting": 15,
-  "exhausted": 302
+  "ready": 28,
+  "waiting": 19,
+  "exhausted": 320
  },
  "osm": {
-  "imported": 75,
-  "failed": 8,
+  "imported": 78,
+  "failed": 5,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "IE",
-   "error": "partial: 7 of 9 subdivisions read",
-   "at": "2026-08-11T22:22:12.327Z"
+   "cc": "KE",
+   "error": "subdivisions: out of time",
+   "at": "2026-08-11T22:36:05.043Z"
   }
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 357
+   "n": 379
   },
   {
    "note": "unreachable",
-   "n": 293
+   "n": 296
   },
   {
    "note": "no email published",
-   "n": 44
+   "n": 60
   },
   {
    "note": "/contact",
    "n": 17
   },
   {
-   "note": "/contacto/",
+   "note": "/contact/",
    "n": 8
   },
   {
-   "note": "/contact/",
-   "n": 7
+   "note": "/contacto/",
+   "n": 8
   }
  ],
  "seeds": {
@@ -52,10 +52,961 @@
  },
  "leads": {
   "total": 3892,
-  "searched": 481,
-  "left": 3411
+  "searched": 596,
+  "left": 3296
  },
  "activity": [
+  {
+   "t": "2026-08-11T22:31:46.906Z",
+   "kind": "search",
+   "text": "CSIR Tennis Club: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:31:39.838Z",
+   "kind": "search",
+   "text": "TENIS COURT: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:31:32.753Z",
+   "kind": "search",
+   "text": "Wilderness Beach hotel Tennis Court: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:31:25.680Z",
+   "kind": "search",
+   "text": "Sunningdale tennsi court: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:31:21.934Z",
+   "kind": "search",
+   "text": "no site found for Harmelia Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:31:20.755Z",
+   "kind": "search",
+   "text": "no site found for Discovery Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:31:20.185Z",
+   "kind": "search",
+   "text": "Meadowridge Tennis Club (South Africa) -> https://meadowridgetennisclub.co.za -> info@meadowridgetennisclub.co.za",
+   "ok": true,
+   "url": "https://meadowridgetennisclub.co.za",
+   "email": "info@meadowridgetennisclub.co.za"
+  },
+  {
+   "t": "2026-08-11T22:31:17.802Z",
+   "kind": "search",
+   "text": "no site found for Clarens Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:31:16.617Z",
+   "kind": "search",
+   "text": "no site found for Cowies Hill Sports Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:31:14.206Z",
+   "kind": "search",
+   "text": "no site found for Polokwane Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:31:13.612Z",
+   "kind": "search",
+   "text": "Girls courts (South Africa) -> https://courts.uk, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://courts.uk",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:31:00.856Z",
+   "kind": "search",
+   "text": "Kingswood Tennis courts (South Africa) -> https://kingswoodcollege.com -> c.hobson@kingswoodcollege.com",
+   "ok": true,
+   "url": "https://kingswoodcollege.com",
+   "email": "c.hobson@kingswoodcollege.com"
+  },
+  {
+   "t": "2026-08-11T22:30:46.029Z",
+   "kind": "search",
+   "text": "no site found for Brooklyn Union Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:30:44.703Z",
+   "kind": "search",
+   "text": "no site found for Sunnyridge Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:30:44.086Z",
+   "kind": "search",
+   "text": "Waverley Tennis Club (South Africa) -> https://www.waverleysports.co.uk -> admin@waverleysports.co.uk",
+   "ok": true,
+   "url": "https://www.waverleysports.co.uk",
+   "email": "admin@waverleysports.co.uk"
+  },
+  {
+   "t": "2026-08-11T22:30:35.289Z",
+   "kind": "search",
+   "text": "no site found for Zeekoevlei Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:30:34.280Z",
+   "kind": "search",
+   "text": "Eco Park Estate tennis court (South Africa) -> https://www.eco-parkestate.co.za, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://www.eco-parkestate.co.za",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:30:33.493Z",
+   "kind": "search",
+   "text": "UHS Tennis Courts (South Africa) -> https://www.lta.org.uk/play/find-a-tennis-court/ -> media@lta.org.uk",
+   "ok": true,
+   "url": "https://www.lta.org.uk/play/find-a-tennis-court/",
+   "email": "media@lta.org.uk"
+  },
+  {
+   "t": "2026-08-11T22:30:24.143Z",
+   "kind": "search",
+   "text": "no site found for Amanzimtoti Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:30:22.973Z",
+   "kind": "search",
+   "text": "no site found for Belgrave Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:30:21.779Z",
+   "kind": "search",
+   "text": "no site found for Montanna Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:30:21.183Z",
+   "kind": "search",
+   "text": "Mont Blanc Tennis Court (South Africa) -> https://www.courmayeurmontblanc.it -> info@courmayeurmontblanc.it",
+   "ok": true,
+   "url": "https://www.courmayeurmontblanc.it",
+   "email": "info@courmayeurmontblanc.it"
+  },
+  {
+   "t": "2026-08-11T22:30:19.232Z",
+   "kind": "search",
+   "text": "Elarduspark Tennis Club (South Africa) -> http://www.elarduspark.co.za -> eptennis@gmail.com",
+   "ok": true,
+   "url": "http://www.elarduspark.co.za",
+   "email": "eptennis@gmail.com"
+  },
+  {
+   "t": "2026-08-11T22:30:16.737Z",
+   "kind": "search",
+   "text": "no site found for DP Padel (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:30:16.736Z",
+   "kind": "search",
+   "text": "no site found for Hartbeespoort Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:30:15.614Z",
+   "kind": "search",
+   "text": "no site found for Stirling High Tennis Courts (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:30:14.975Z",
+   "kind": "search",
+   "text": "Tennis/ Netball Courts (South Africa) -> https://www.lta.org.uk/book/courts/tennis-and-netball-courts_6b29fc40-ca47-1067-b31d-151215119140/ -> media@lta.org.uk",
+   "ok": true,
+   "url": "https://www.lta.org.uk/book/courts/tennis-and-netball-courts_6b29fc40-ca47-1067-b31d-151215119140/",
+   "email": "media@lta.org.uk"
+  },
+  {
+   "t": "2026-08-11T22:30:06.149Z",
+   "kind": "search",
+   "text": "Dunkirk Estate Tennis Court (South Africa) -> https://www.estate-living.co.za -> louise@estatelivingsa.co.za",
+   "ok": true,
+   "url": "https://www.estate-living.co.za",
+   "email": "louise@estatelivingsa.co.za"
+  },
+  {
+   "t": "2026-08-11T22:30:03.643Z",
+   "kind": "search",
+   "text": "no site found for Wesbank Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:30:03.088Z",
+   "kind": "search",
+   "text": "Malelane Golf Club - Tennis (South Africa) -> https://www.allsquaregolf.com -> info@allsquaregolf.com",
+   "ok": true,
+   "url": "https://www.allsquaregolf.com",
+   "email": "info@allsquaregolf.com"
+  },
+  {
+   "t": "2026-08-11T22:30:00.199Z",
+   "kind": "search",
+   "text": "Lansdowne Tennis Club (South Africa) -> https://lansdowneltc.com -> info@lansdowneltc.com",
+   "ok": true,
+   "url": "https://lansdowneltc.com",
+   "email": "info@lansdowneltc.com"
+  },
+  {
+   "t": "2026-08-11T22:29:55.542Z",
+   "kind": "search",
+   "text": "no site found for Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:29:55.542Z",
+   "kind": "search",
+   "text": "no site found for Monte Vista Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:29:55.003Z",
+   "kind": "search",
+   "text": "Edgemead Tennis Club (South Africa) -> https://edgemeadtennis.net.za -> tennis@edgemeadtennis.net.za",
+   "ok": true,
+   "url": "https://edgemeadtennis.net.za",
+   "email": "tennis@edgemeadtennis.net.za"
+  },
+  {
+   "t": "2026-08-11T22:29:50.237Z",
+   "kind": "search",
+   "text": "no site found for Winterskloof Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:29:49.687Z",
+   "kind": "search",
+   "text": "Hilton Tennis Club (South Africa) -> https://www.hiltontennisclub.com -> simsdn@cox.net",
+   "ok": true,
+   "url": "https://www.hiltontennisclub.com",
+   "email": "simsdn@cox.net"
+  },
+  {
+   "t": "2026-08-11T22:29:45.791Z",
+   "kind": "search",
+   "text": "no site found for Saldanha Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:29:45.132Z",
+   "kind": "search",
+   "text": "Tennis Court (South Africa) -> https://www.opencourt.uk, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://www.opencourt.uk",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:29:32.365Z",
+   "kind": "search",
+   "text": "Milnerton Tennis Club (South Africa) -> https://www.milnertontennisclub.co.za -> info@mysite.com",
+   "ok": true,
+   "url": "https://www.milnertontennisclub.co.za",
+   "email": "info@mysite.com"
+  },
+  {
+   "t": "2026-08-11T22:29:28.692Z",
+   "kind": "search",
+   "text": "no site found for Tamboerskloof Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:29:28.159Z",
+   "kind": "search",
+   "text": "Gardens Lawn Tennis Club (South Africa) -> https://www.gardenstennis-sw19.co.uk -> membership@gardenstennis.co.uk",
+   "ok": true,
+   "url": "https://www.gardenstennis-sw19.co.uk",
+   "email": "membership@gardenstennis.co.uk"
+  },
+  {
+   "t": "2026-08-11T22:29:24.416Z",
+   "kind": "search",
+   "text": "no site found for Ngodwana Tennis court (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:29:23.840Z",
+   "kind": "search",
+   "text": "Pinelands Tennis Club (South Africa) -> https://www.pinelandstennisclub.co.za -> membership@pinelandstennisclub.co.za",
+   "ok": true,
+   "url": "https://www.pinelandstennisclub.co.za",
+   "email": "membership@pinelandstennisclub.co.za"
+  },
+  {
+   "t": "2026-08-11T22:29:21.735Z",
+   "kind": "search",
+   "text": "Durbanville Tennis Club (South Africa) -> https://durbanvilletennisclub.co.za -> janvandyk.tennis@gmail.com",
+   "ok": true,
+   "url": "https://durbanvilletennisclub.co.za",
+   "email": "janvandyk.tennis@gmail.com"
+  },
+  {
+   "t": "2026-08-11T22:29:14.332Z",
+   "kind": "search",
+   "text": "Zini Tennis Academy (South Africa) -> https://tennisacademy.app, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://tennisacademy.app",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:29:00.759Z",
+   "kind": "search",
+   "text": "no site found for Parow Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:28:59.639Z",
+   "kind": "search",
+   "text": "no site found for Pierre van Ryneveld Squash en tennis club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:28:58.988Z",
+   "kind": "search",
+   "text": "Rovers Club (South Africa) -> https://www.doncasterroversfc.co.uk, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://www.doncasterroversfc.co.uk",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:28:45.204Z",
+   "kind": "search",
+   "text": "no site found for Welkom Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:28:44.037Z",
+   "kind": "search",
+   "text": "no site found for Valencia Park tennis and Squashcourts (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:28:42.913Z",
+   "kind": "search",
+   "text": "Murrayfield Tennis Club (South Africa) -> https://clubspark.lta.org.uk/MurrayfieldLTC, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://clubspark.lta.org.uk/MurrayfieldLTC",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:28:42.229Z",
+   "kind": "search",
+   "text": "Tennis Courts (South Africa) -> https://www.lta.org.uk/play/find-a-tennis-court/ -> media@lta.org.uk",
+   "ok": true,
+   "url": "https://www.lta.org.uk/play/find-a-tennis-court/",
+   "email": "media@lta.org.uk"
+  },
+  {
+   "t": "2026-08-11T22:28:32.327Z",
+   "kind": "search",
+   "text": "Newlands Tennis Court (South Africa) -> https://newlandsltc.mycourts.co.uk, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://newlandsltc.mycourts.co.uk",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:28:19.565Z",
+   "kind": "search",
+   "text": "George Tennis Club (South Africa) -> https://georgetennisclub.co.za -> finances@georgetennisclub.co.za",
+   "ok": true,
+   "url": "https://georgetennisclub.co.za",
+   "email": "finances@georgetennisclub.co.za"
+  },
+  {
+   "t": "2026-08-11T22:28:16.075Z",
+   "kind": "search",
+   "text": "no site found for UJ Tennis Courts (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:28:14.861Z",
+   "kind": "search",
+   "text": "no site found for Olivedale Tennis Club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:28:14.302Z",
+   "kind": "search",
+   "text": "Boskruin Tennis Club (South Africa) -> https://boskruintennis.co.za -> info@boskruintennis.co.za",
+   "ok": true,
+   "url": "https://boskruintennis.co.za",
+   "email": "info@boskruintennis.co.za"
+  },
+  {
+   "t": "2026-08-11T22:28:11.833Z",
+   "kind": "search",
+   "text": "Parkview Lawn Tennis Club (South Africa) -> https://www.parkviewtennis.com -> info.parkviewtennis@gmail.com",
+   "ok": true,
+   "url": "https://www.parkviewtennis.com",
+   "email": "info.parkviewtennis@gmail.com"
+  },
+  {
+   "t": "2026-08-11T22:28:05.250Z",
+   "kind": "search",
+   "text": "no site found for Pierneef Tennis club (South Africa)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:28:04.710Z",
+   "kind": "search",
+   "text": "Power Padel (Argentina) -> https://powerpadel.com -> comercial@powerpadel.com",
+   "ok": true,
+   "url": "https://powerpadel.com",
+   "email": "comercial@powerpadel.com"
+  },
+  {
+   "t": "2026-08-11T22:28:01.312Z",
+   "kind": "search",
+   "text": "Mercedes Padel Club (Argentina) -> https://www.mercedes-benz.es, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://www.mercedes-benz.es",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:27:51.683Z",
+   "kind": "search",
+   "text": "no site found for The Padel Lab (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:27:51.683Z",
+   "kind": "search",
+   "text": "Médanos Verdes Pádel Club (Argentina) -> https://medanosverdes.com.ar -> medanosverdes@cpenet.com.ar",
+   "ok": true,
+   "url": "https://medanosverdes.com.ar",
+   "email": "medanosverdes@cpenet.com.ar"
+  },
+  {
+   "t": "2026-08-11T22:27:49.687Z",
+   "kind": "search",
+   "text": "Smash Padel Club (Argentina) -> https://smashpadel.co -> info@smashpadel.co",
+   "ok": true,
+   "url": "https://smashpadel.co",
+   "email": "info@smashpadel.co"
+  },
+  {
+   "t": "2026-08-11T22:27:46.883Z",
+   "kind": "search",
+   "text": "Cancha de pádel 1 (Argentina) -> https://canchasdepadel.mx, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://canchasdepadel.mx",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:27:45.269Z",
+   "kind": "search",
+   "text": "Club el Viejo Lobo (Argentina) -> https://www.elviejolobodemar.com -> info@elviejolobodemar.com",
+   "ok": true,
+   "url": "https://www.elviejolobodemar.com",
+   "email": "info@elviejolobodemar.com"
+  },
+  {
+   "t": "2026-08-11T22:27:41.555Z",
+   "kind": "search",
+   "text": "no site found for Belmur Padel CLub (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:27:40.410Z",
+   "kind": "search",
+   "text": "no site found for Yamil Padel (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:27:39.754Z",
+   "kind": "search",
+   "text": "Sport Club Arenal (Argentina) -> https://clubarenal1989.online, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://clubarenal1989.online",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:27:23.991Z",
+   "kind": "search",
+   "text": "no site found for Villa María Padel (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:27:23.459Z",
+   "kind": "search",
+   "text": "Grand Slam Padel (Argentina) -> https://www.gs-padelclub.com -> reserva@gs-padelclub.com",
+   "ok": true,
+   "url": "https://www.gs-padelclub.com",
+   "email": "reserva@gs-padelclub.com"
+  },
+  {
+   "t": "2026-08-11T22:27:20.879Z",
+   "kind": "search",
+   "text": "NorPádel (Argentina) -> https://norpadel.com, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://norpadel.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:27:18.971Z",
+   "kind": "search",
+   "text": "no site found for Center padel (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:27:18.970Z",
+   "kind": "search",
+   "text": "Palmares Pádel Club (Argentina) -> https://devurpalmares.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://devurpalmares.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:27:01.442Z",
+   "kind": "search",
+   "text": "Glass Padel (Argentina) -> https://glasspadelclub.co.uk, no address on the site (blocked by a challenge page)",
+   "ok": false,
+   "url": "https://glasspadelclub.co.uk",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:27:00.090Z",
+   "kind": "search",
+   "text": "no site found for Pádel STIHMPRA (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:26:59.486Z",
+   "kind": "search",
+   "text": "Padel Park (Argentina) -> https://sportsandleisure.royalparks.org.uk, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://sportsandleisure.royalparks.org.uk",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:26:45.131Z",
+   "kind": "search",
+   "text": "no site found for Club El Manzanar (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:26:43.360Z",
+   "kind": "search",
+   "text": "La Jungla Pádel (Argentina) -> https://lajungla.com.ar, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://lajungla.com.ar",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:26:30.019Z",
+   "kind": "search",
+   "text": "La Curva Padel Indoor (Argentina) -> https://www.lacurvapadelindoor.com, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://www.lacurvapadelindoor.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:26:27.045Z",
+   "kind": "search",
+   "text": "La terraza Padel (Argentina) -> https://www.laterrazadelpadel.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://www.laterrazadelpadel.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:26:12.338Z",
+   "kind": "search",
+   "text": "Cancha de pádel 2 (Argentina) -> https://canchasdepadel.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://canchasdepadel.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:25:51.816Z",
+   "kind": "search",
+   "text": "no site found for Las Barricas Padel (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:25:49.628Z",
+   "kind": "search",
+   "text": "Fusion Padel (Argentina) -> https://www.fusionpadelclub.co.uk -> info@fusionpadelclub.co.uk",
+   "ok": true,
+   "url": "https://www.fusionpadelclub.co.uk",
+   "email": "info@fusionpadelclub.co.uk"
+  },
+  {
+   "t": "2026-08-11T22:25:47.450Z",
+   "kind": "search",
+   "text": "Costa Padel Club (Argentina) -> https://costapadelclub.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://costapadelclub.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:25:29.853Z",
+   "kind": "search",
+   "text": "no site found for Winter Padel Club (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:25:28.060Z",
+   "kind": "search",
+   "text": "Canchas de Pádel (Argentina) -> https://canchasdepadel.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://canchasdepadel.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:25:07.395Z",
+   "kind": "search",
+   "text": "no site found for Cancha de padel Almirante Brown (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:25:06.101Z",
+   "kind": "search",
+   "text": "no site found for Richi Padel Club (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:25:04.884Z",
+   "kind": "search",
+   "text": "no site found for Waly Padel (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:25:03.717Z",
+   "kind": "search",
+   "text": "no site found for Padel (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:25:03.717Z",
+   "kind": "search",
+   "text": "no site found for Sportman Club (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:25:03.120Z",
+   "kind": "search",
+   "text": "La Rural Paddle Center (Argentina) -> https://www.larural.com.ar -> info@larural.com.ar",
+   "ok": true,
+   "url": "https://www.larural.com.ar",
+   "email": "info@larural.com.ar"
+  },
+  {
+   "t": "2026-08-11T22:24:58.954Z",
+   "kind": "search",
+   "text": "Cancha de Pádel (Argentina) -> https://canchasdepadel.mx, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://canchasdepadel.mx",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:24:58.138Z",
+   "kind": "search",
+   "text": "City Padel Club (Argentina) -> https://citypadel.club -> exeter@citypadel.club",
+   "ok": true,
+   "url": "https://citypadel.club",
+   "email": "exeter@citypadel.club"
+  },
+  {
+   "t": "2026-08-11T22:24:57.090Z",
+   "kind": "search",
+   "text": "El Galpón Paddle Club (Argentina) -> https://clubelgalpon.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://clubelgalpon.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:24:42.141Z",
+   "kind": "search",
+   "text": "no site found for Centenario Padel Club (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:24:41.507Z",
+   "kind": "search",
+   "text": "Padel Center La Costa (Argentina) -> https://costadelpadel.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://costadelpadel.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:24:27.367Z",
+   "kind": "search",
+   "text": "no site found for Ruka Tigre (Paddle Club) (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:24:26.163Z",
+   "kind": "search",
+   "text": "no site found for Canchas de Padel Contin (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:24:24.982Z",
+   "kind": "search",
+   "text": "no site found for Fpadel (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:24:24.365Z",
+   "kind": "search",
+   "text": "Drive Pádel Club (Argentina) -> https://drivepadel.com -> info@drivepadel.com",
+   "ok": true,
+   "url": "https://drivepadel.com",
+   "email": "info@drivepadel.com"
+  },
+  {
+   "t": "2026-08-11T22:24:17.133Z",
+   "kind": "search",
+   "text": "First Padel Center (Argentina) -> https://firstpadel.ru, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://firstpadel.ru",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:24:03.730Z",
+   "kind": "search",
+   "text": "Cancha de padel (Argentina) -> https://canchasdepadel.mx, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://canchasdepadel.mx",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:24:02.894Z",
+   "kind": "search",
+   "text": "no site found for New Padel (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:24:02.893Z",
+   "kind": "search",
+   "text": "Efecto Padel (Argentina) -> https://efectopadelclub.versorisports.com -> carobouchet19@gmail.com",
+   "ok": true,
+   "url": "https://efectopadelclub.versorisports.com",
+   "email": "carobouchet19@gmail.com"
+  },
+  {
+   "t": "2026-08-11T22:24:00.821Z",
+   "kind": "search",
+   "text": "Cancha de Padel C.A.L.Ñ (Argentina) -> https://www.lacanchapadelclub.fr -> contact@lacanchacholet.com",
+   "ok": true,
+   "url": "https://www.lacanchapadelclub.fr",
+   "email": "contact@lacanchacholet.com"
+  },
+  {
+   "t": "2026-08-11T22:23:59.877Z",
+   "kind": "search",
+   "text": "Balcon Padel Reconquista (Argentina) -> https://balconpadel.com.ar, no address on the site (blocked by a challenge page)",
+   "ok": false,
+   "url": "https://balconpadel.com.ar",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:23:55.808Z",
+   "kind": "search",
+   "text": "no site found for X3 Padel (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:23:55.808Z",
+   "kind": "search",
+   "text": "no site found for Padel Le Bretón (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:23:54.718Z",
+   "kind": "search",
+   "text": "no site found for Club Juncal (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:23:53.426Z",
+   "kind": "search",
+   "text": "no site found for Zavalla Tenis Club (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:23:52.850Z",
+   "kind": "search",
+   "text": "Club Intertenis (Argentina) -> https://intertenisliga.com.ar, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://intertenisliga.com.ar",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:23:39.313Z",
+   "kind": "search",
+   "text": "no site found for Pimenova Tenis Club (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:23:38.210Z",
+   "kind": "search",
+   "text": "no site found for Pimenova Tennis Club (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T22:23:37.560Z",
+   "kind": "search",
+   "text": "Club Nautico (Argentina) -> https://clubnauticosevilla.com -> somos@nauticosevilla.com",
+   "ok": true,
+   "url": "https://clubnauticosevilla.com",
+   "email": "somos@nauticosevilla.com"
+  },
+  {
+   "t": "2026-08-11T22:23:36.047Z",
+   "kind": "search",
+   "text": "Club Regatas (Argentina) -> https://regatascaseros.blogspot.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://regatascaseros.blogspot.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:23:21.922Z",
+   "kind": "search",
+   "text": "Cancha Padel (Argentina) -> https://canchasdepadel.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://canchasdepadel.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T22:23:02.471Z",
+   "kind": "search",
+   "text": "Locos por El Padel (Argentina) -> https://www.locosporelpadel.com -> info@locosporelpadel.com",
+   "ok": true,
+   "url": "https://www.locosporelpadel.com",
+   "email": "info@locosporelpadel.com"
+  },
+  {
+   "t": "2026-08-11T22:23:00.229Z",
+   "kind": "crawl",
+   "text": "Club Social y Deportivo Sol de Mayo - Tenis — https://clubsoldemayo.com.ar: site read, publishes no address",
+   "ok": false,
+   "url": "https://clubsoldemayo.com.ar"
+  },
+  {
+   "t": "2026-08-11T22:22:59.701Z",
+   "kind": "crawl",
+   "text": "Andino Tenis Club — https://andinotenisclub.com.ar: site read, publishes no address",
+   "ok": false,
+   "url": "https://andinotenisclub.com.ar"
+  },
+  {
+   "t": "2026-08-11T22:22:59.550Z",
+   "kind": "crawl",
+   "text": "Estadio de Tenis del Club Argentino — https://www.estadiosdeargentina.com.ar: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.estadiosdeargentina.com.ar"
+  },
+  {
+   "t": "2026-08-11T22:22:59.341Z",
+   "kind": "crawl",
+   "text": "Luján Tenis Club — https://lujantenisclub.com.ar: site read, publishes no address",
+   "ok": false,
+   "url": "https://lujantenisclub.com.ar"
+  },
+  {
+   "t": "2026-08-11T22:22:58.948Z",
+   "kind": "crawl",
+   "text": "Court Central Guillermo Vilas — https://www.tenniscourtsmap.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.tenniscourtsmap.com"
+  },
+  {
+   "t": "2026-08-11T22:22:58.864Z",
+   "kind": "crawl",
+   "text": "Club Huracán — http://clubahuracan.com.ar: site read, publishes no address",
+   "ok": false,
+   "url": "http://clubahuracan.com.ar"
+  },
+  {
+   "t": "2026-08-11T22:22:55.230Z",
+   "kind": "crawl",
+   "text": "Abbott Lawn Tennis Club — https://radioabbott.com.ar: site read, publishes no address",
+   "ok": false,
+   "url": "https://radioabbott.com.ar"
+  },
+  {
+   "t": "2026-08-11T22:22:49.130Z",
+   "kind": "crawl",
+   "text": "Queens Tennis Club — https://www.queensclub.co.uk: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.queensclub.co.uk"
+  },
+  {
+   "t": "2026-08-11T22:22:48.887Z",
+   "kind": "crawl",
+   "text": "Clube de Ténis de Coimbra — https://www.hoteloslo-coimbra.pt: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.hoteloslo-coimbra.pt"
+  },
+  {
+   "t": "2026-08-11T22:22:48.078Z",
+   "kind": "crawl",
+   "text": "Ténis Clube de Lamego — http://www.tenisclubelamego.com: site read, publishes no address",
+   "ok": false,
+   "url": "http://www.tenisclubelamego.com"
+  },
+  {
+   "t": "2026-08-11T22:22:47.183Z",
+   "kind": "crawl",
+   "text": "Clube Knock Out — https://www.clubeknockout.pt: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.clubeknockout.pt"
+  },
+  {
+   "t": "2026-08-11T22:22:46.579Z",
+   "kind": "crawl",
+   "text": "court 2 — https://www.courtserve.net: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.courtserve.net"
+  },
+  {
+   "t": "2026-08-11T22:22:46.539Z",
+   "kind": "crawl",
+   "text": "Campos de Padel — https://campospadel.pt: site read, publishes no address",
+   "ok": false,
+   "url": "https://campospadel.pt"
+  },
+  {
+   "t": "2026-08-11T22:22:46.428Z",
+   "kind": "crawl",
+   "text": "Albisport Clube — http://www.albisportclube.com: site read, publishes no address",
+   "ok": false,
+   "url": "http://www.albisportclube.com"
+  },
+  {
+   "t": "2026-08-11T22:22:46.361Z",
+   "kind": "crawl",
+   "text": "Tennis Club da Figueira da Foz — http://www.tennisclubdafigueiradafoz.com: site read, publishes no address",
+   "ok": false,
+   "url": "http://www.tennisclubdafigueiradafoz.com"
+  },
+  {
+   "t": "2026-08-11T22:22:35.105Z",
+   "kind": "crawl",
+   "text": "Clube de Ténis de Alcobaça — https://www.ctalcobaca.pt -> tenis@ctalcobaca.pt",
+   "ok": true,
+   "url": "https://www.ctalcobaca.pt",
+   "email": "tenis@ctalcobaca.pt"
+  },
   {
    "t": "2026-08-11T22:18:08.967Z",
    "kind": "search",
@@ -223,985 +1174,6 @@
    "kind": "search",
    "text": "no site found for Lawn Tennis Club (Argentina)",
    "ok": false
-  },
-  {
-   "t": "2026-08-11T22:16:51.537Z",
-   "kind": "search",
-   "text": "Club Social y Deportivo Sol de Mayo - Tenis (Argentina) -> https://clubsoldemayo.com.ar, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://clubsoldemayo.com.ar",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:16:38.531Z",
-   "kind": "search",
-   "text": "Club de Tenis Puerto Belgrano (Argentina) -> https://belgranotenis.com.ar -> belgranotenis@gmail.com",
-   "ok": true,
-   "url": "https://belgranotenis.com.ar",
-   "email": "belgranotenis@gmail.com"
-  },
-  {
-   "t": "2026-08-11T22:16:35.677Z",
-   "kind": "search",
-   "text": "no site found for Club de tenis Alcorta (Argentina)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:16:33.924Z",
-   "kind": "search",
-   "text": "Club Banco (Argentina) -> https://www.clubbancociudad.com.ar -> club@mutualbancociudad.com.ar",
-   "ok": true,
-   "url": "https://www.clubbancociudad.com.ar",
-   "email": "club@mutualbancociudad.com.ar"
-  },
-  {
-   "t": "2026-08-11T22:16:31.532Z",
-   "kind": "search",
-   "text": "no site found for Tenis Club - Mar del Plata (Argentina)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:16:29.741Z",
-   "kind": "search",
-   "text": "CLUB SAN REMO TENIS (Argentina) -> https://sanremoweekend.it -> booking@nyalatravel.com",
-   "ok": true,
-   "url": "https://sanremoweekend.it",
-   "email": "booking@nyalatravel.com"
-  },
-  {
-   "t": "2026-08-11T22:16:26.575Z",
-   "kind": "search",
-   "text": "Tennis Club San Rafael (Argentina) -> https://www.rafaelracquetclub.com -> info@rafaelracquetclub.com",
-   "ok": true,
-   "url": "https://www.rafaelracquetclub.com",
-   "email": "info@rafaelracquetclub.com"
-  },
-  {
-   "t": "2026-08-11T22:16:23.625Z",
-   "kind": "search",
-   "text": "no site found for Catalinas Tenis Club (Argentina)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:16:23.048Z",
-   "kind": "search",
-   "text": "Pontarolo Tenis Club (Argentina) -> http://pontarolotenisclub.com -> info@pontarolotenisclub.com",
-   "ok": true,
-   "url": "http://pontarolotenisclub.com",
-   "email": "info@pontarolotenisclub.com"
-  },
-  {
-   "t": "2026-08-11T22:16:21.261Z",
-   "kind": "search",
-   "text": "Club Social (Argentina) -> https://www.beckenhamsocialclub.com -> bwmcsecretary@gmail.com",
-   "ok": true,
-   "url": "https://www.beckenhamsocialclub.com",
-   "email": "bwmcsecretary@gmail.com"
-  },
-  {
-   "t": "2026-08-11T22:16:17.437Z",
-   "kind": "search",
-   "text": "no site found for Rivadavia Tenis Club (Argentina)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:16:16.805Z",
-   "kind": "search",
-   "text": "Jockey Club (Argentina) -> https://www.thejockeyclub.co.uk -> info.carlisle@thejockeyclub.co.uk",
-   "ok": true,
-   "url": "https://www.thejockeyclub.co.uk",
-   "email": "info.carlisle@thejockeyclub.co.uk"
-  },
-  {
-   "t": "2026-08-11T22:16:11.362Z",
-   "kind": "search",
-   "text": "no site found for Club Sportivo Laguna Larga - Canchas de Tenis (Argentina)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:16:10.751Z",
-   "kind": "search",
-   "text": "Tenis Club Roca (Argentina) -> https://larocatenis.com -> reservas@larocatenis.com",
-   "ok": true,
-   "url": "https://larocatenis.com",
-   "email": "reservas@larocatenis.com"
-  },
-  {
-   "t": "2026-08-11T22:16:08.139Z",
-   "kind": "search",
-   "text": "no site found for Club Atlético Ciudad de Nieva (Argentina)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:16:07.535Z",
-   "kind": "search",
-   "text": "no site found for Tenis Club (Argentina)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:16:07.535Z",
-   "kind": "search",
-   "text": "Tenis C. A. J. Newbery (Argentina) -> https://clubnewbery.com.ar -> clubjorgenewberyvm@gmail.com",
-   "ok": true,
-   "url": "https://clubnewbery.com.ar",
-   "email": "clubjorgenewberyvm@gmail.com"
-  },
-  {
-   "t": "2026-08-11T22:16:04.007Z",
-   "kind": "search",
-   "text": "Luján Tenis Club (Argentina) -> https://lujantenisclub.com.ar, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://lujantenisclub.com.ar",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:15:50.816Z",
-   "kind": "search",
-   "text": "no site found for Club ECA (Argentina)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:15:50.816Z",
-   "kind": "search",
-   "text": "Club Huracán (Argentina) -> http://clubahuracan.com.ar, no address on the site (no email published)",
-   "ok": false,
-   "url": "http://clubahuracan.com.ar",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:15:37.304Z",
-   "kind": "search",
-   "text": "no site found for Lawn Tennis (Argentina)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:15:37.304Z",
-   "kind": "search",
-   "text": "Club Independiente de Tandil (Argentina) -> https://www.clubindependiente.org -> info@clubindependiente.org",
-   "ok": true,
-   "url": "https://www.clubindependiente.org",
-   "email": "info@clubindependiente.org"
-  },
-  {
-   "t": "2026-08-11T22:15:35.505Z",
-   "kind": "search",
-   "text": "Andino Tenis Club (Argentina) -> https://andinotenisclub.com.ar, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://andinotenisclub.com.ar",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:15:19.872Z",
-   "kind": "search",
-   "text": "no site found for Urquiza Tenis Club (Argentina)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:15:19.300Z",
-   "kind": "search",
-   "text": "Club Atlético Ever Ready (Argentina) -> https://www.chacoforever.club -> dptodesocioschacoforever@gmail.com",
-   "ok": true,
-   "url": "https://www.chacoforever.club",
-   "email": "dptodesocioschacoforever@gmail.com"
-  },
-  {
-   "t": "2026-08-11T22:15:16.969Z",
-   "kind": "search",
-   "text": "Court Central Guillermo Vilas (Argentina) -> https://www.tenniscourtsmap.com, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://www.tenniscourtsmap.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:15:03.578Z",
-   "kind": "search",
-   "text": "Reconquista Tenis Club (Argentina) -> https://clubreconquista.org.ar -> www.reconquista.adm@gmail.com",
-   "ok": true,
-   "url": "https://clubreconquista.org.ar",
-   "email": "www.reconquista.adm@gmail.com"
-  },
-  {
-   "t": "2026-08-11T22:14:58.645Z",
-   "kind": "search",
-   "text": "Club Hípico La Plata -> https://www.hipodromolaplata.gba.gov.ar, dropped: public or institutional domain",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:14:43.495Z",
-   "kind": "search",
-   "text": "Estadio de Tenis del Club Argentino (Argentina) -> https://www.estadiosdeargentina.com.ar, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://www.estadiosdeargentina.com.ar",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:14:26.472Z",
-   "kind": "search",
-   "text": "Abbott Lawn Tennis Club (Argentina) -> https://radioabbott.com.ar, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://radioabbott.com.ar",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:14:02.358Z",
-   "kind": "search",
-   "text": "no site found for Club de Tenis Iguazú (Argentina)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:14:01.147Z",
-   "kind": "search",
-   "text": "no site found for Club Fitti Ferro (Argentina)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:14:00.540Z",
-   "kind": "search",
-   "text": "Clube de Ténis de Vila Real (Portugal) -> https://www.vila-real.es -> atencio@vila-real.es",
-   "ok": true,
-   "url": "https://www.vila-real.es",
-   "email": "atencio@vila-real.es"
-  },
-  {
-   "t": "2026-08-11T22:13:58.816Z",
-   "kind": "search",
-   "text": "Clube de Ténis do Faial (Portugal) -> https://ctfaial.com -> ctfaial@gmail.com",
-   "ok": true,
-   "url": "https://ctfaial.com",
-   "email": "ctfaial@gmail.com"
-  },
-  {
-   "t": "2026-08-11T22:13:57.582Z",
-   "kind": "search",
-   "text": "no site found for Campo de Ténis do Clube de Ténis de Lourosa (Portugal)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:13:56.896Z",
-   "kind": "search",
-   "text": "Ténis Clube de Lamego (Portugal) -> http://www.tenisclubelamego.com, no address on the site (no email published)",
-   "ok": false,
-   "url": "http://www.tenisclubelamego.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:13:43.905Z",
-   "kind": "search",
-   "text": "Clube Knock Out (Portugal) -> https://www.clubeknockout.pt, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://www.clubeknockout.pt",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:13:30.434Z",
-   "kind": "search",
-   "text": "no site found for Clube Académico da Feira (Portugal)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:13:29.782Z",
-   "kind": "search",
-   "text": "Clube de Ténis de Alcobaça (Portugal) -> https://www.ctalcobaca.pt, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://www.ctalcobaca.pt",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:13:23.583Z",
-   "kind": "search",
-   "text": "Clube de Ténis Alto da Faia (Portugal) -> https://ctfaial.com -> ctfaial@gmail.com",
-   "ok": true,
-   "url": "https://ctfaial.com",
-   "email": "ctfaial@gmail.com"
-  },
-  {
-   "t": "2026-08-11T22:13:22.481Z",
-   "kind": "search",
-   "text": "Clube de Ténis de Quarteira (Portugal) -> https://jf-quarteira.pt -> geral@jf-quarteira.pt",
-   "ok": true,
-   "url": "https://jf-quarteira.pt",
-   "email": "geral@jf-quarteira.pt"
-  },
-  {
-   "t": "2026-08-11T22:13:21.462Z",
-   "kind": "search",
-   "text": "Campo de Padel (Portugal) -> https://campospadel.pt, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://campospadel.pt",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:13:08.808Z",
-   "kind": "search",
-   "text": "Clube de Ténis de Aveiro (Portugal) -> https://riadeaveiro.pt -> john@gmail.com",
-   "ok": true,
-   "url": "https://riadeaveiro.pt",
-   "email": "john@gmail.com"
-  },
-  {
-   "t": "2026-08-11T22:13:06.890Z",
-   "kind": "search",
-   "text": "Campos de Padel (Portugal) -> https://campospadel.pt, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://campospadel.pt",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:12:54.033Z",
-   "kind": "search",
-   "text": "court 1 (Portugal) -> https://pacecourt.com -> info@pacecourt.com",
-   "ok": true,
-   "url": "https://pacecourt.com",
-   "email": "info@pacecourt.com"
-  },
-  {
-   "t": "2026-08-11T22:12:52.051Z",
-   "kind": "search",
-   "text": "central court -> https://www.find-court-tribunal.service.gov.uk, dropped: public or institutional domain",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:12:39.156Z",
-   "kind": "search",
-   "text": "court 2 (Portugal) -> https://www.courtserve.net, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://www.courtserve.net",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:12:26.300Z",
-   "kind": "search",
-   "text": "court 3 -> https://www.find-court-tribunal.service.gov.uk, dropped: public or institutional domain",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:12:12.258Z",
-   "kind": "search",
-   "text": "court 5 -> https://www.find-court-tribunal.service.gov.uk, dropped: public or institutional domain",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:11:58.178Z",
-   "kind": "search",
-   "text": "court 4 -> https://www.find-court-tribunal.service.gov.uk, dropped: public or institutional domain",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:11:44.978Z",
-   "kind": "search",
-   "text": "no site found for Clube de Ténis de Viana do Castelo (Portugal)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:11:43.985Z",
-   "kind": "search",
-   "text": "no site found for Clube Lawn Tenis da Ilha Terceira (Portugal)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:11:42.523Z",
-   "kind": "search",
-   "text": "no site found for Clube de Ténis da Marinha Grande (Portugal)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:11:41.924Z",
-   "kind": "search",
-   "text": "Ténis Clube de Chaves (Portugal) -> https://www.tcchaves.pt -> socios@tcchaves.pt",
-   "ok": true,
-   "url": "https://www.tcchaves.pt",
-   "email": "socios@tcchaves.pt"
-  },
-  {
-   "t": "2026-08-11T22:11:37.390Z",
-   "kind": "search",
-   "text": "Court Tenis e Campos de Basquetebol (Portugal) -> https://www.courtsoftheworld.com, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://www.courtsoftheworld.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:11:36.414Z",
-   "kind": "search",
-   "text": "Court Ténis Clube de Albergaria (Portugal) -> https://www.clubedealbergaria.pt -> clubedealbergaria@gmail.com",
-   "ok": true,
-   "url": "https://www.clubedealbergaria.pt",
-   "email": "clubedealbergaria@gmail.com"
-  },
-  {
-   "t": "2026-08-11T22:11:33.289Z",
-   "kind": "search",
-   "text": "Albisport Clube (Portugal) -> http://www.albisportclube.com, no address on the site (no email published)",
-   "ok": false,
-   "url": "http://www.albisportclube.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:11:19.970Z",
-   "kind": "search",
-   "text": "Clube de Ténis de Braga (Portugal) -> https://clubetenisbraga.pt -> secretaria@clubetenisbraga.pt",
-   "ok": true,
-   "url": "https://clubetenisbraga.pt",
-   "email": "secretaria@clubetenisbraga.pt"
-  },
-  {
-   "t": "2026-08-11T22:11:18.534Z",
-   "kind": "search",
-   "text": "no site found for Clube de Ténis da Quinta das Flores (Portugal)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:11:17.894Z",
-   "kind": "search",
-   "text": "Academia de Ténis da Charneca (Portugal) -> https://www.jf-charnecacaparica-sobreda.pt -> geral@jf-charnecacaparica-sobreda.pt",
-   "ok": true,
-   "url": "https://www.jf-charnecacaparica-sobreda.pt",
-   "email": "geral@jf-charnecacaparica-sobreda.pt"
-  },
-  {
-   "t": "2026-08-11T22:11:16.643Z",
-   "kind": "search",
-   "text": "Clube de Ténis de Azeméis (Portugal) -> http://ctazemeis.com -> geral@ctazemeis.pt",
-   "ok": true,
-   "url": "http://ctazemeis.com",
-   "email": "geral@ctazemeis.pt"
-  },
-  {
-   "t": "2026-08-11T22:11:13.340Z",
-   "kind": "search",
-   "text": "Bellavista Tenis Club (Portugal) -> http://www.tennis-bellavista.de -> cpieper@compuserve.com",
-   "ok": true,
-   "url": "http://www.tennis-bellavista.de",
-   "email": "cpieper@compuserve.com"
-  },
-  {
-   "t": "2026-08-11T22:11:12.517Z",
-   "kind": "search",
-   "text": "Clube de Ténis do Choupal (Portugal) -> https://playtomic.com/clubs/tenis-clube-do-choupal, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://playtomic.com/clubs/tenis-clube-do-choupal",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:10:59.743Z",
-   "kind": "search",
-   "text": "Tennis Club da Figueira da Foz (Portugal) -> http://www.tennisclubdafigueiradafoz.com, no address on the site (no email published)",
-   "ok": false,
-   "url": "http://www.tennisclubdafigueiradafoz.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:10:46.495Z",
-   "kind": "search",
-   "text": "Court de Ténis de Escudeiros (Portugal) -> https://www.aircourts.com, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://www.aircourts.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:10:45.625Z",
-   "kind": "search",
-   "text": "Court n1 (Portugal) -> https://courts.uk, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://courts.uk",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:10:32.911Z",
-   "kind": "search",
-   "text": "Pavilhão CT Águeda (Portugal) -> https://www.cm-agueda.pt -> geral@cm-agueda.pt",
-   "ok": true,
-   "url": "https://www.cm-agueda.pt",
-   "email": "geral@cm-agueda.pt"
-  },
-  {
-   "t": "2026-08-11T22:10:30.120Z",
-   "kind": "search",
-   "text": "Clube de Ténis do Estoril (Portugal) -> https://ctestoril.pt, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://ctestoril.pt",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:10:20.515Z",
-   "kind": "search",
-   "text": "Clube de Ténis de Águeda (Portugal) -> https://www.cm-agueda.pt -> geral@cm-agueda.pt",
-   "ok": true,
-   "url": "https://www.cm-agueda.pt",
-   "email": "geral@cm-agueda.pt"
-  },
-  {
-   "t": "2026-08-11T22:10:17.626Z",
-   "kind": "search",
-   "text": "Clube de Ténis de Ovar (Portugal) -> https://ctenisovar.webnode.pt -> contato@exemplo.pt",
-   "ok": true,
-   "url": "https://ctenisovar.webnode.pt",
-   "email": "contato@exemplo.pt"
-  },
-  {
-   "t": "2026-08-11T22:10:16.494Z",
-   "kind": "search",
-   "text": "Clube de Ténis de Coimbra (Portugal) -> https://www.hoteloslo-coimbra.pt, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://www.hoteloslo-coimbra.pt",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:09:58.121Z",
-   "kind": "search",
-   "text": "no site found for Centro de Ténis do EUL (Portugal)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:09:58.121Z",
-   "kind": "search",
-   "text": "Clube de Tenis Paços de Brandão (Portugal) -> https://ctpbrandao.pt -> ctpbrandao@gmail.com",
-   "ok": true,
-   "url": "https://ctpbrandao.pt",
-   "email": "ctpbrandao@gmail.com"
-  },
-  {
-   "t": "2026-08-11T22:09:54.505Z",
-   "kind": "search",
-   "text": "no site found for Valténis Country Club (Portugal)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:09:53.920Z",
-   "kind": "search",
-   "text": "no site found for Centro de Ténis (Portugal)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:09:53.920Z",
-   "kind": "search",
-   "text": "Clube de Ténis de Évora (Portugal) -> https://www.cm-evora.pt -> cmevora@cm-evora.pt",
-   "ok": true,
-   "url": "https://www.cm-evora.pt",
-   "email": "cmevora@cm-evora.pt"
-  },
-  {
-   "t": "2026-08-11T22:09:51.955Z",
-   "kind": "search",
-   "text": "Clube Portais da Arrábida (Portugal) -> https://www.portaisdaarrabida.com -> portaisdaarrabida@gmail.com",
-   "ok": true,
-   "url": "https://www.portaisdaarrabida.com",
-   "email": "portaisdaarrabida@gmail.com"
-  },
-  {
-   "t": "2026-08-11T22:09:51.163Z",
-   "kind": "search",
-   "text": "Clube Ténis Alfragide (Portugal) -> https://www.jf-alfragide.pt -> geral@jf-alfragide.pt",
-   "ok": true,
-   "url": "https://www.jf-alfragide.pt",
-   "email": "geral@jf-alfragide.pt"
-  },
-  {
-   "t": "2026-08-11T22:09:48.865Z",
-   "kind": "search",
-   "text": "Canchas Padel Santa Fe (Venezuela) -> https://padelsantafe.com, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://padelsantafe.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:04:26.497Z",
-   "kind": "search",
-   "text": "Clube de Ténis de Évora: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:04:19.430Z",
-   "kind": "search",
-   "text": "Clube Portais da Arrábida: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:04:12.361Z",
-   "kind": "search",
-   "text": "Clube Ténis Alfragide: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:04:05.295Z",
-   "kind": "search",
-   "text": "Canchas Padel Santa Fe: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:03:57.394Z",
-   "kind": "search",
-   "text": "no site found for Padel Millenium Mall (Venezuela)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:03:54.950Z",
-   "kind": "search",
-   "text": "no site found for Padel Center (Venezuela)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:03:54.950Z",
-   "kind": "search",
-   "text": "no site found for La Trinidad Padel Center (Venezuela)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T22:03:54.408Z",
-   "kind": "search",
-   "text": "Las Mercedes Padel Club (Venezuela) -> https://lasmercedespc.playbypoint.com, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://lasmercedespc.playbypoint.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T22:03:52.359Z",
-   "kind": "search",
-   "text": "Club Bahía (Venezuela) -> https://www.esporteclubebahia.com.br -> dpo@esporteclubebahia.com.br",
-   "ok": true,
-   "url": "https://www.esporteclubebahia.com.br",
-   "email": "dpo@esporteclubebahia.com.br"
-  },
-  {
-   "t": "2026-08-11T22:03:49.857Z",
-   "kind": "search",
-   "text": "Caracas Racquet Club (Venezuela) -> https://www.caracasracquetclub.com.ve -> atencionalsocio1.crc@gmail.com",
-   "ok": true,
-   "url": "https://www.caracasracquetclub.com.ve",
-   "email": "atencionalsocio1.crc@gmail.com"
-  },
-  {
-   "t": "2026-08-11T22:03:48.501Z",
-   "kind": "crawl",
-   "text": "Sucre Tenis Club — https://sucretenis.blogspot.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://sucretenis.blogspot.com"
-  },
-  {
-   "t": "2026-08-11T22:03:37.899Z",
-   "kind": "crawl",
-   "text": "Impact Padel Sport — https://impactpadelsport.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://impactpadelsport.com"
-  },
-  {
-   "t": "2026-08-11T22:03:37.095Z",
-   "kind": "crawl",
-   "text": "León Padel Club — https://leonpadelclub.es: site read, publishes no address",
-   "ok": false,
-   "url": "https://leonpadelclub.es"
-  },
-  {
-   "t": "2026-08-11T22:03:36.956Z",
-   "kind": "crawl",
-   "text": "Club de Tenis Trinidad — https://tennistt.clubspark.net/: site read, publishes no address",
-   "ok": false,
-   "url": "https://tennistt.clubspark.net/"
-  },
-  {
-   "t": "2026-08-11T22:03:36.753Z",
-   "kind": "crawl",
-   "text": "3 Club Claro — https://claroclub.loyalquo.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://claroclub.loyalquo.com"
-  },
-  {
-   "t": "2026-08-11T22:03:36.669Z",
-   "kind": "crawl",
-   "text": "Club de tenis Torrevieja — https://clubtenistorrevieja.es: site read, publishes no address",
-   "ok": false,
-   "url": "https://clubtenistorrevieja.es"
-  },
-  {
-   "t": "2026-08-11T22:03:36.650Z",
-   "kind": "crawl",
-   "text": "Club Tenis Catavi — https://catavifreddy.blogspot.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://catavifreddy.blogspot.com"
-  },
-  {
-   "t": "2026-08-11T22:03:36.649Z",
-   "kind": "crawl",
-   "text": "4 Club Claro — https://claroclub.com.co: site read, publishes no address",
-   "ok": false,
-   "url": "https://claroclub.com.co"
-  },
-  {
-   "t": "2026-08-11T22:03:36.288Z",
-   "kind": "crawl",
-   "text": "2nd Courts — https://courts.uk: site read, publishes no address",
-   "ok": false,
-   "url": "https://courts.uk"
-  },
-  {
-   "t": "2026-08-11T21:58:05.397Z",
-   "kind": "search",
-   "text": "La Trinidad Padel Center: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T21:57:58.312Z",
-   "kind": "search",
-   "text": "Las Mercedes Padel Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T21:57:51.227Z",
-   "kind": "search",
-   "text": "Club Bahía: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T21:57:39.931Z",
-   "kind": "search",
-   "text": "Caracas Racquet Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T21:57:32.247Z",
-   "kind": "search",
-   "text": "Centro de Tenis del Country Club (Venezuela) -> https://mallorcacountryclub.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://mallorcacountryclub.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:57:31.430Z",
-   "kind": "search",
-   "text": "Club los Cedros (Venezuela) -> https://www.clubloscedros.com.ar -> gerencia@clubloscedros.com.ar",
-   "ok": true,
-   "url": "https://www.clubloscedros.com.ar",
-   "email": "gerencia@clubloscedros.com.ar"
-  },
-  {
-   "t": "2026-08-11T21:57:28.793Z",
-   "kind": "search",
-   "text": "no site found for Juanico Tennis Club - Clases de Tennis (Venezuela)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T21:57:26.492Z",
-   "kind": "search",
-   "text": "no site found for Club de Tenis Tarija (Bolivia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T21:57:25.791Z",
-   "kind": "search",
-   "text": "Club Tenis Ferroviario (Bolivia) -> https://clubdetenisferroviario.matchpoint.com.es -> comunicados.ferroviario@gmail.com",
-   "ok": true,
-   "url": "https://clubdetenisferroviario.matchpoint.com.es",
-   "email": "comunicados.ferroviario@gmail.com"
-  },
-  {
-   "t": "2026-08-11T21:57:23.308Z",
-   "kind": "search",
-   "text": "Sucre Tenis Club (Bolivia) -> https://sucretenis.blogspot.com, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://sucretenis.blogspot.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:57:08.568Z",
-   "kind": "search",
-   "text": "Club de Tenis Trinidad (Bolivia) -> https://tennistt.clubspark.net/, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://tennistt.clubspark.net/",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:56:54.253Z",
-   "kind": "search",
-   "text": "Club Tennis Ferroviario (Bolivia) -> https://clubdetenisferroviario.matchpoint.com.es -> comunicados.ferroviario@gmail.com",
-   "ok": true,
-   "url": "https://clubdetenisferroviario.matchpoint.com.es",
-   "email": "comunicados.ferroviario@gmail.com"
-  },
-  {
-   "t": "2026-08-11T21:56:51.296Z",
-   "kind": "search",
-   "text": "Club Tenis Catavi (Bolivia) -> https://catavifreddy.blogspot.com, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://catavifreddy.blogspot.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:56:37.069Z",
-   "kind": "search",
-   "text": "no site found for Sucre Tennis Club (Bolivia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T21:56:35.746Z",
-   "kind": "search",
-   "text": "no site found for Urubo Lawn Tennis Club (Bolivia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T21:56:35.202Z",
-   "kind": "search",
-   "text": "Padel Galaxy (Dominican Republic) -> https://padelgalaxy.playbypoint.com, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://padelgalaxy.playbypoint.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:56:33.142Z",
-   "kind": "search",
-   "text": "2 Club Claro (Dominican Republic) -> https://claroclub.com.co, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://claroclub.com.co",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:56:18.446Z",
-   "kind": "search",
-   "text": "1 Club Claro (Dominican Republic) -> https://claroclub.com.co, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://claroclub.com.co",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:56:04.424Z",
-   "kind": "search",
-   "text": "4 Club Claro (Dominican Republic) -> https://claroclub.com.co, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://claroclub.com.co",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:55:50.957Z",
-   "kind": "search",
-   "text": "3 Club Claro (Dominican Republic) -> https://claroclub.loyalquo.com, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://claroclub.loyalquo.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:55:37.248Z",
-   "kind": "search",
-   "text": "2nd Courts (Honduras) -> https://courts.uk, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://courts.uk",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:55:24.392Z",
-   "kind": "search",
-   "text": "Main Court -> https://www.find-court-tribunal.service.gov.uk, dropped: public or institutional domain",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T21:55:11.073Z",
-   "kind": "search",
-   "text": "no site found for Academia Tênis Point (Brazil)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T21:55:09.919Z",
-   "kind": "search",
-   "text": "Crescent Lawn Tennis Club (United Kingdom) -> https://clubspark.lta.org.uk/CrescentTennisClub, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://clubspark.lta.org.uk/CrescentTennisClub",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:55:09.241Z",
-   "kind": "search",
-   "text": "Sedbergh Tennis Club (United Kingdom) -> https://www.sedbergh.org.uk -> office@sedbergh.org.uk",
-   "ok": true,
-   "url": "https://www.sedbergh.org.uk",
-   "email": "office@sedbergh.org.uk"
-  },
-  {
-   "t": "2026-08-11T21:55:05.789Z",
-   "kind": "search",
-   "text": "Club Tennis Manresa (Spain) -> https://www.manresa.cat -> ajt@ajmanresa.cat",
-   "ok": true,
-   "url": "https://www.manresa.cat",
-   "email": "ajt@ajmanresa.cat"
-  },
-  {
-   "t": "2026-08-11T21:55:03.900Z",
-   "kind": "search",
-   "text": "no site found for Club Tennis Vic (Spain)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T21:55:03.900Z",
-   "kind": "search",
-   "text": "Elche Squash Club (Spain) -> https://www.visitelche.com, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://www.visitelche.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:55:03.095Z",
-   "kind": "search",
-   "text": "no site found for Club de Padel x3 (Spain)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T21:55:03.094Z",
-   "kind": "search",
-   "text": "Club de tenis Torrevieja (Spain) -> https://clubtenistorrevieja.es, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://clubtenistorrevieja.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:54:49.407Z",
-   "kind": "search",
-   "text": "Club Tennis Banyoles (Spain) -> https://www.tennisbanyoles.cat -> info@tennisbanyoles.cat",
-   "ok": true,
-   "url": "https://www.tennisbanyoles.cat",
-   "email": "info@tennisbanyoles.cat"
-  },
-  {
-   "t": "2026-08-11T21:54:45.426Z",
-   "kind": "search",
-   "text": "tennis club benicarlo (Spain) -> https://clubtenisbenicarlo.com -> clubdetenisbenicarlo@gmail.com",
-   "ok": true,
-   "url": "https://clubtenisbenicarlo.com",
-   "email": "clubdetenisbenicarlo@gmail.com"
-  },
-  {
-   "t": "2026-08-11T21:54:44.066Z",
-   "kind": "search",
-   "text": "PadelPoint by Jubo (Spain) -> https://padelpointdenia.matchpoint.com.es -> denia@clubpadelpoint.es",
-   "ok": true,
-   "url": "https://padelpointdenia.matchpoint.com.es",
-   "email": "denia@clubpadelpoint.es"
-  },
-  {
-   "t": "2026-08-11T21:54:42.553Z",
-   "kind": "search",
-   "text": "no site found for Vola Pádel Estadio (Spain)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T21:54:41.977Z",
-   "kind": "search",
-   "text": "Club esportiu Mescha (Spain) -> https://meschacalafell.com -> meschacalafell@hotmail.com",
-   "ok": true,
-   "url": "https://meschacalafell.com",
-   "email": "meschacalafell@hotmail.com"
-  },
-  {
-   "t": "2026-08-11T21:54:40.272Z",
-   "kind": "search",
-   "text": "León Padel Club (Spain) -> https://leonpadelclub.es, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://leonpadelclub.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T21:54:25.299Z",
-   "kind": "search",
-   "text": "Central Padel León (Spain) -> https://centralpadel.matchpoint.com.es -> info@centralpadel.es",
-   "ok": true,
-   "url": "https://centralpadel.matchpoint.com.es",
-   "email": "info@centralpadel.es"
   }
  ],
  "perCountry": {
@@ -1227,12 +1199,12 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-11T22:21:36.171Z",
-    "seen": 124,
+    "at": "2026-08-11T22:35:37.356Z",
+    "seen": 77,
     "added": 0,
-    "rejected": 50,
+    "rejected": 38,
     "error": "partial: 8 of 23 subdivisions read",
-    "via": "overpass.kumi.systems"
+    "via": "overpass.private.coffee"
    }
   },
   "United Kingdom": {
@@ -1286,12 +1258,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-11T22:22:12.327Z",
-    "seen": 0,
+    "at": "2026-08-11T22:34:55.304Z",
+    "seen": 6,
     "added": 0,
     "rejected": 0,
     "error": "partial: 7 of 9 subdivisions read",
-    "via": ""
+    "via": "overpass.kumi.systems"
    }
   },
   "Brazil": {
@@ -1353,10 +1325,10 @@
   },
   "Portugal": {
    "clubs": 42,
-   "emails": 29,
+   "emails": 30,
    "sites": 41,
    "read": 37,
-   "unreachable": 6,
+   "unreachable": 5,
    "noAddress": 7,
    "leads": 70,
    "leadsSearched": 46,
@@ -1368,7 +1340,7 @@
    },
    "sources": {
     "osm": 13,
-    "search": 16
+    "search": 17
    },
    "seeds": 0,
    "osm": {
@@ -1381,23 +1353,23 @@
    }
   },
   "Argentina": {
-   "clubs": 36,
-   "emails": 26,
-   "sites": 36,
-   "read": 35,
-   "unreachable": 2,
-   "noAddress": 7,
+   "clubs": 66,
+   "emails": 39,
+   "sites": 66,
+   "read": 65,
+   "unreachable": 5,
+   "noAddress": 19,
    "leads": 116,
-   "leadsSearched": 54,
-   "leadsFound": 30,
+   "leadsSearched": 114,
+   "leadsFound": 65,
    "sports": {
-    "Tennis": 32,
-    "Padel": 3,
+    "Tennis": 37,
+    "Padel": 28,
     "Squash": 1
    },
    "sources": {
     "osm": 7,
-    "search": 19
+    "search": 32
    },
    "seeds": 0,
    "osm": {
@@ -1410,22 +1382,23 @@
    }
   },
   "South Africa": {
-   "clubs": 8,
-   "emails": 7,
-   "sites": 8,
-   "read": 8,
-   "unreachable": 1,
-   "noAddress": 0,
+   "clubs": 29,
+   "emails": 23,
+   "sites": 29,
+   "read": 29,
+   "unreachable": 2,
+   "noAddress": 4,
    "leads": 100,
-   "leadsSearched": 0,
-   "leadsFound": 0,
+   "leadsSearched": 55,
+   "leadsFound": 27,
    "sports": {
-    "Tennis": 5,
+    "Tennis": 26,
     "Padel": 1,
     "Squash": 2
    },
    "sources": {
-    "osm": 7
+    "osm": 7,
+    "search": 16
    },
    "seeds": 0,
    "osm": {
@@ -1568,12 +1541,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T22:07:46.602Z",
-    "seen": 260,
+    "at": "2026-08-11T22:35:43.195Z",
+    "seen": 231,
     "added": 0,
-    "rejected": 149,
-    "error": "subdivisions: out of time",
-    "via": "overpass.private.coffee"
+    "rejected": 146,
+    "error": null,
+    "via": "overpass.kumi.systems"
    }
   },
   "Ecuador": {
@@ -2131,12 +2104,12 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T22:03:02.281Z",
+    "at": "2026-08-11T22:35:13.211Z",
     "seen": 6,
     "added": 0,
     "rejected": 1,
-    "error": "subdivisions: out of time",
-    "via": "overpass.private.coffee"
+    "error": null,
+    "via": "overpass.kumi.systems"
    }
   },
   "Uganda": {
@@ -2443,7 +2416,7 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T22:08:53.011Z",
+    "at": "2026-08-11T22:36:05.043Z",
     "seen": 18,
     "added": 0,
     "rejected": 13,
@@ -3041,11 +3014,11 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T22:01:34.362Z",
+    "at": "2026-08-11T22:35:34.554Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
-    "error": "subdivisions: out of time",
+    "error": null,
     "via": "overpass.kumi.systems"
    }
   },
@@ -3415,30 +3388,30 @@
   }
  },
  "recent": [
-  "2026-08-11T22:09:20.156Z  osm ES: too big for one query — 8 of 23 subdivisions read, carries on next round",
-  "2026-08-11T22:09:20.160Z  osm ES Spain: 77 places -> +0 new, 3 merged, 0 with an email already, 0 leads with no contact tag, 38 dropped as public",
-  "2026-08-11T22:09:21.970Z  published to the public link",
-  "2026-08-11T22:09:21.974Z  tick done in 5.9m — crawled 15 sites, +0 emails; searched 10 club names, found 3 sites, +2 emails; osm 4 countries (ES,IE,UY,CL,GH,KE,TZ,NR,JM,SV,TT,SL) +0, 2 failed | 922 emails total, 18 still queued",
-  "2026-08-11T22:18:08.968Z  leads: the search engine stopped answering after 104 queries — pausing this phase",
-  "2026-08-11T22:18:08.983Z  leads: searched 104, found 67 sites, 34 new emails, 3411 leads left",
-  "2026-08-11T22:21:11.114Z  osm GB: failed — fetch failed",
-  "2026-08-11T22:21:20.512Z  osm TZ Tanzania: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 4 dropped as public",
-  "2026-08-11T22:21:36.167Z  osm ES: too big for one query — 8 of 23 subdivisions read, carries on next round",
-  "2026-08-11T22:21:36.171Z  osm ES Spain: 124 places -> +0 new, 10 merged, 0 with an email already, 0 leads with no contact tag, 50 dropped as public",
-  "2026-08-11T22:21:37.286Z  osm NR Nauru: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-11T22:21:56.480Z  osm CO Colombia: 79 places -> +0 new, 4 merged, 0 with an email already, 0 leads with no contact tag, 70 dropped as public",
   "2026-08-11T22:22:12.322Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-11T22:22:12.326Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
+  "2026-08-11T22:22:12.326Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-11T22:22:14.130Z  published to the public link",
+  "2026-08-11T22:22:14.134Z  tick done in 12.5m — crawled 5 sites, +0 emails; searched 104 club names, found 67 sites, +34 emails; osm 5 countries (ES,GB,IE,CO,TZ,NR,JM,SV,TT,SL,RW,TO) +0, 1 failed | 956 emails total, 39 still queued",
+  "2026-08-11T22:31:46.906Z  leads: the search engine stopped answering after 119 queries — pausing this phase",
+  "2026-08-11T22:31:46.923Z  leads: searched 119, found 62 sites, 29 new emails, 3296 leads left",
+  "2026-08-11T22:34:55.299Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-11T22:34:55.304Z  osm IE Ireland: 6 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-11T22:35:13.210Z  osm ZW Zimbabwe: 6 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
+  "2026-08-11T22:35:34.550Z  osm KN Saint Kitts and Nevis: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-11T22:35:37.352Z  osm ES: too big for one query — 8 of 23 subdivisions read, carries on next round",
+  "2026-08-11T22:35:37.356Z  osm ES Spain: 77 places -> +0 new, 3 merged, 0 with an email already, 0 leads with no contact tag, 38 dropped as public",
+  "2026-08-11T22:35:43.192Z  osm CL Chile: 231 places -> +0 new, 2 merged, 0 with an email already, 0 leads with no contact tag, 146 dropped as public",
+  "2026-08-11T22:36:05.044Z  osm KE: failed — subdivisions: out of time"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-11T22:09:41.983Z",
+ "roundStarted": "2026-08-11T22:22:34.146Z",
  "lastRound": {
-  "at": "2026-08-11T22:22:12.347Z",
-  "minutes": 12.5,
-  "summary": "crawled 5 sites, +0 emails; searched 104 club names, found 67 sites, +34 emails; osm 5 countries (ES,GB,IE,CO,TZ,NR,JM,SV,TT,SL,RW,TO) +0, 1 failed",
-  "crawled": 5,
-  "emailsFound": 0,
+  "at": "2026-08-11T22:36:05.071Z",
+  "minutes": 13.5,
+  "summary": "crawled 25 sites, +1 emails; searched 119 club names, found 62 sites, +29 emails; osm 5 countries (ES,IE,CL,KE,ZW,KN,ST,JM,SV,TT,SL,RW) +0, 1 failed",
+  "crawled": 25,
+  "emailsFound": 1,
   "pagesRead": 0,
   "clubsAdded": 0,
   "osmCountries": 5,
