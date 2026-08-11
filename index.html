@@ -67,10 +67,6 @@ body{
 .act .act-k{white-space:nowrap;opacity:.75;font-family:"IBM Plex Mono",monospace;font-size:11px;width:58px}
 .act-no td{opacity:.62}
 .act-ok .act-k{color:#1a8f3c;font-weight:600}
-.cy{width:100%;border-collapse:collapse;font-size:13px;margin:4px 0 2px}
-.cy td{padding:7px 0;border-bottom:1px solid var(--rule);vertical-align:top}
-.cy td:first-child{width:40%;color:var(--ink-soft);padding-right:12px}
-.cy-h{font-family:"Archivo",sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:16px 0 4px}
 
 /* ---- paging ---- */
 .pager{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:14px}
@@ -254,18 +250,61 @@ textarea{
 .cell.done .cn,.cell.done .cc{color:#fff}
 .cell.skip{opacity:.42}
 
+/* The country report needs room. At 440px the tables spilled sideways and
+   the dialog scrolled horizontally, which is the one direction a reader
+   never expects to scroll. Wide on a desktop, full width on a phone, and
+   the scrolling is vertical and inside the body. */
 dialog{
-  border:2px solid var(--ink);border-radius:var(--r);padding:0;max-width:440px;width:92%;
+  border:2px solid var(--ink);border-radius:var(--r);padding:0;
+  width:min(780px,94vw);max-width:none;
+  max-height:88vh;overflow:hidden;
   background:var(--line);color:var(--ink)
 }
 dialog::backdrop{background:rgba(20,32,30,.45)}
-.dlg-in{padding:20px}
+.dlg-in{
+  padding:22px 24px;
+  max-height:88vh;overflow-y:auto;overflow-x:hidden;
+  /* club names and URLs are long and unbreakable; let them wrap rather
+     than push the layout wider than the screen */
+  overflow-wrap:anywhere;
+}
 .dlg-in h3{font-family:"Archivo",sans-serif;font-size:16px;margin:0 0 2px}
 .dlg-in .sub{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);margin:0 0 14px}
 .dlg-in label{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:12px 0 5px}
 .dlg-in input,.dlg-in select,.dlg-in textarea{width:100%;padding:8px 10px;border:1px solid var(--rule);background:var(--panel);border-radius:var(--r);font-family:"Public Sans",sans-serif;font-size:12.5px;color:var(--ink)}
 .dlg-in textarea{min-height:64px;font-family:"IBM Plex Mono",monospace;font-size:11.5px}
-.dlg-act{display:flex;gap:8px;justify-content:flex-end;margin-top:18px}
+.dlg-act{
+  display:flex;gap:8px;justify-content:flex-end;margin-top:18px;
+  position:sticky;bottom:-22px;padding:14px 0 0;
+  background:linear-gradient(to top, var(--line) 68%, transparent);
+}
+
+/* ---- the country report inside the dialog ---- */
+.cy{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 2px;table-layout:fixed}
+.cy td{padding:9px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.cy td:first-child{width:38%;color:var(--ink-soft);padding-right:16px}
+.cy-h{
+  font-family:"Archivo",sans-serif;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin:22px 0 6px
+}
+/* the activity rows reuse .act, whose time column is nowrap by default */
+.dlg-in .act{table-layout:fixed}
+.dlg-in .act td{padding:7px 10px 7px 0}
+.dlg-in .act .act-t{white-space:nowrap;width:132px}
+
+@media (max-width:640px){
+  .dlg-in{padding:18px 16px}
+  /* label above value: two columns at 38/62 is unreadable on a phone */
+  .cy td{display:block;width:auto!important;border-bottom:none;padding:2px 0}
+  .cy tr{display:block;border-bottom:1px solid var(--rule);padding:9px 0}
+  .cy td:first-child{
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+    letter-spacing:.08em;text-transform:uppercase;padding-right:0
+  }
+  .dlg-in .act td{display:block;padding:1px 0}
+  .dlg-in .act tr{display:block;padding:8px 0;border-bottom:1px solid var(--rule)}
+  .dlg-in .act .act-t{width:auto;white-space:normal;opacity:.6}
+}
 
 footer{padding:26px 0;font-size:12px;color:var(--ink-soft)}
 footer a{color:var(--grass)}
