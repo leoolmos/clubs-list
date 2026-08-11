@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-11T05:55:45.743Z",
+ "generated": "2026-08-11T06:07:02.893Z",
  "clubs": 848,
  "records": 1174,
  "crawl": {
-  "ready": 1,
+  "ready": 0,
   "waiting": 5,
-  "exhausted": 271
+  "exhausted": 272
  },
  "osm": {
-  "imported": 77,
-  "failed": 6,
+  "imported": 75,
+  "failed": 8,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "GM",
-   "error": "subdivisions: out of time",
-   "at": "2026-08-11T05:55:45.714Z"
+   "cc": "IE",
+   "error": "partial: 7 of 9 subdivisions read",
+   "at": "2026-08-11T06:07:02.871Z"
   }
  },
  "crawlReasons": [
@@ -56,6 +56,30 @@
   "left": 3781
  },
  "activity": [
+  {
+   "t": "2026-08-11T06:03:00.502Z",
+   "kind": "search",
+   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T06:02:08.455Z",
+   "kind": "search",
+   "text": "Padel's Barcelona: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T06:01:16.409Z",
+   "kind": "search",
+   "text": "Padel Soul Indoor: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T06:00:48.376Z",
+   "kind": "search",
+   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
+   "ok": false
+  },
   {
    "t": "2026-08-11T05:50:48.475Z",
    "kind": "search",
@@ -1065,55 +1089,31 @@
    "kind": "search",
    "text": "no site found for La Cúpula Padel Indoor Navalmoral (Spain)",
    "ok": false
-  },
-  {
-   "t": "2026-08-11T03:28:50.892Z",
-   "kind": "search",
-   "text": "no site found for Padel Indoor Tona (Spain)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T03:28:49.707Z",
-   "kind": "search",
-   "text": "no site found for Padel Odessa (Spain)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T03:28:48.578Z",
-   "kind": "search",
-   "text": "no site found for Padel Room (Spain)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T03:23:54.313Z",
-   "kind": "search",
-   "text": "La Cúpula Padel Indoor Navalmoral: search engine did not answer, will try again",
-   "ok": false
   }
  ],
  "recent": [
-  "2026-08-11T05:46:32.034Z  tick done in 6.9m — crawled 4 sites, +0 emails; searched 4 club names, found 0 sites, +0 emails; osm 6 countries (ES,IE,LR,CU,PA,CR,PG,BB,MZ,MT,GD,ZA) +0 | 848 emails total, 1 still queued",
-  "2026-08-11T05:46:59.049Z  tick failed: isChallenge is not a function",
-  "2026-08-11T05:47:25.394Z  tick failed: isChallenge is not a function",
-  "2026-08-11T05:47:51.733Z  tick failed: isChallenge is not a function",
-  "2026-08-11T05:50:48.475Z  leads: the search engine stopped answering after 4 queries — pausing this phase",
-  "2026-08-11T05:50:48.486Z  leads: searched 4, found 0 sites, 0 new emails, 3781 leads left",
-  "2026-08-11T05:53:49.226Z  osm NA Namibia: 6 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-11T05:54:06.531Z  osm GB: failed — subdivisions: out of time",
-  "2026-08-11T05:54:25.556Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-11T05:54:25.559Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-11T05:54:39.613Z  osm NG: failed — subdivisions: out of time",
-  "2026-08-11T05:54:42.572Z  osm ES: too big for one query — 8 of 23 subdivisions read, carries on next round",
-  "2026-08-11T05:54:42.576Z  osm ES Spain: 120 places -> +0 new, 10 merged, 0 with an email already, 0 leads with no contact tag, 48 dropped as public",
-  "2026-08-11T05:55:45.715Z  osm GM: failed — subdivisions: out of time"
+  "2026-08-11T05:58:47.113Z  tick failed: isChallenge is not a function",
+  "2026-08-11T05:59:12.847Z  tick failed: isChallenge is not a function",
+  "2026-08-11T05:59:38.585Z  tick failed: isChallenge is not a function",
+  "2026-08-11T06:00:04.314Z  tick failed: isChallenge is not a function",
+  "2026-08-11T06:03:00.503Z  leads: the search engine stopped answering after 4 queries — pausing this phase",
+  "2026-08-11T06:03:00.516Z  leads: searched 4, found 0 sites, 0 new emails, 3781 leads left",
+  "2026-08-11T06:06:04.797Z  osm ES: too big for one query — 8 of 23 subdivisions read, carries on next round",
+  "2026-08-11T06:06:04.801Z  osm ES Spain: 77 places -> +0 new, 3 merged, 0 with an email already, 0 leads with no contact tag, 38 dropped as public",
+  "2026-08-11T06:06:10.996Z  osm BB: failed — subdivisions: fetch failed",
+  "2026-08-11T06:06:15.684Z  osm PG Papua New Guinea: 3 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-11T06:06:18.543Z  osm AU: failed — subdivisions: out of time",
+  "2026-08-11T06:06:26.238Z  osm MZ: failed — fetch failed",
+  "2026-08-11T06:07:02.867Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-11T06:07:02.870Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-11T05:48:11.747Z",
+ "roundStarted": "2026-08-11T06:00:24.328Z",
  "lastRound": {
-  "at": "2026-08-11T05:55:45.738Z",
-  "minutes": 7.6,
-  "summary": "crawled 0 sites, +0 emails; searched 4 club names, found 0 sites, +0 emails; osm 3 countries (ES,GB,IE,NG,NA,GM,PG,BB,MZ,MT,GD,ZA) +0, 3 failed",
+  "at": "2026-08-11T06:07:02.888Z",
+  "minutes": 6.6,
+  "summary": "crawled 0 sites, +0 emails; searched 4 club names, found 0 sites, +0 emails; osm 3 countries (ES,AU,IE,PG,BB,MZ,MT,GD,ZA,CA,PH,KI) +0, 3 failed",
   "crawled": 0,
   "emailsFound": 0,
   "pagesRead": 0,
