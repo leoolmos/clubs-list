@@ -679,7 +679,6 @@ function renderStatus(){
    each site opened, each address found or not found.
 ------------------------------------------------------------------ */
 var actFilter = "all";
-var dlg = null;
 
 function renderActivity(){
   var wrap = document.getElementById("actBody");
@@ -1127,6 +1126,12 @@ function wire(){
    WHAT WAS DONE TO ONE COUNTRY
 ------------------------------------------------------------------ */
 function showCountry(country){
+  // Looked up here rather than shared with wire(). A module-level `dlg` was
+  // being shadowed by a `var dlg` inside wire(), so the one this function
+  // could see stayed null and every country click threw on showModal().
+  var dlg = document.getElementById("dlg");
+  if(!dlg) return;
+
   var n = countryCounts()[country] || 0;
   document.getElementById("dlgName").textContent = country;
   document.getElementById("dlgCount").textContent =
