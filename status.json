@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-11T21:05:37.272Z",
- "clubs": 851,
- "records": 1185,
+ "generated": "2026-08-11T21:18:20.023Z",
+ "clubs": 871,
+ "records": 1220,
  "crawl": {
-  "ready": 3,
-  "waiting": 1,
-  "exhausted": 275
+  "ready": 14,
+  "waiting": 2,
+  "exhausted": 277
  },
  "osm": {
   "imported": 70,
@@ -13,31 +13,31 @@
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "SC",
-   "error": "subdivisions: out of time",
-   "at": "2026-08-11T21:05:37.234Z"
+   "cc": "IE",
+   "error": "partial: 7 of 9 subdivisions read",
+   "at": "2026-08-11T21:18:19.987Z"
   }
  },
  "crawlReasons": [
   {
-   "note": "unreachable",
-   "n": 273
+   "note": "homepage",
+   "n": 287
   },
   {
-   "note": "homepage",
-   "n": 269
+   "note": "unreachable",
+   "n": 277
+  },
+  {
+   "note": "no email published",
+   "n": 15
   },
   {
    "note": "/contact",
    "n": 15
   },
   {
-   "note": "no email published",
-   "n": 6
-  },
-  {
    "note": "/contact/",
-   "n": 6
+   "n": 7
   },
   {
    "note": "/membership",
@@ -52,10 +52,672 @@
  },
  "leads": {
   "total": 3891,
-  "searched": 141,
-  "left": 3750
+  "searched": 222,
+  "left": 3669
  },
  "activity": [
+  {
+   "t": "2026-08-11T21:14:37.555Z",
+   "kind": "search",
+   "text": "Pista cubierta de padel: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:14:30.473Z",
+   "kind": "search",
+   "text": "Club de Pádel Soto del Real: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:14:23.392Z",
+   "kind": "search",
+   "text": "Pista de Pádel 2: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:14:16.309Z",
+   "kind": "search",
+   "text": "Pista de Pádel 1: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:14:12.075Z",
+   "kind": "search",
+   "text": "no site found for Greenvilas -Meco Club Deportivo (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:14:07.262Z",
+   "kind": "search",
+   "text": "no site found for Pistas de pádel de Liencres (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:14:06.605Z",
+   "kind": "search",
+   "text": "Padel i Ocio (Spain) -> https://www.ociopadel.es, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://www.ociopadel.es",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:13:53.884Z",
+   "kind": "search",
+   "text": "Sport Center Montepiedra (Spain) -> https://scmontepiedra.blogspot.com -> montepiedra@clubsportcenter.com",
+   "ok": true,
+   "url": "https://scmontepiedra.blogspot.com",
+   "email": "montepiedra@clubsportcenter.com"
+  },
+  {
+   "t": "2026-08-11T21:13:52.652Z",
+   "kind": "search",
+   "text": "Club de Tenis Karmo (Spain) -> https://teniskarmo.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://teniskarmo.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:13:34.117Z",
+   "kind": "search",
+   "text": "Crosspádel Sigüeiro (Spain) -> https://www.crosspadelsigueiro.com -> contacto@crosspadelsigueiro.com",
+   "ok": true,
+   "url": "https://www.crosspadelsigueiro.com",
+   "email": "contacto@crosspadelsigueiro.com"
+  },
+  {
+   "t": "2026-08-11T21:13:29.328Z",
+   "kind": "search",
+   "text": "Club de Tenis La Barrosa (Spain) -> http://www.clubdetenislabarrosa.com.es, no address on the site (no email published)",
+   "ok": false,
+   "url": "http://www.clubdetenislabarrosa.com.es",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:13:15.907Z",
+   "kind": "search",
+   "text": "no site found for Court 8 (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:13:15.272Z",
+   "kind": "search",
+   "text": "Miranda Padel Club (Spain) -> https://playtomic.com/clubs/miranda-padel-club, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://playtomic.com/clubs/miranda-padel-club",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:13:01.252Z",
+   "kind": "search",
+   "text": "Pádel Narón (Spain) -> https://playtomic.com/es/clubs/padel-naron-manager, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://playtomic.com/es/clubs/padel-naron-manager",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:12:48.584Z",
+   "kind": "search",
+   "text": "Pádel Fit Ribera del Duero (Spain) -> https://www.arandadeduero.es -> atencionpublico@arandadeduero.es",
+   "ok": true,
+   "url": "https://www.arandadeduero.es",
+   "email": "atencionpublico@arandadeduero.es"
+  },
+  {
+   "t": "2026-08-11T21:12:47.361Z",
+   "kind": "search",
+   "text": "Pádel Cerdanyola (Spain) -> https://www.cerdanyolapadel.com -> info@cerdanyolapadel.com",
+   "ok": true,
+   "url": "https://www.cerdanyolapadel.com",
+   "email": "info@cerdanyolapadel.com"
+  },
+  {
+   "t": "2026-08-11T21:12:45.805Z",
+   "kind": "search",
+   "text": "Club de Tenis Gandia (Spain) -> https://clubtenisgandia.es -> administracion@clubtenisgandia.com",
+   "ok": true,
+   "url": "https://clubtenisgandia.es",
+   "email": "administracion@clubtenisgandia.com"
+  },
+  {
+   "t": "2026-08-11T21:12:42.071Z",
+   "kind": "search",
+   "text": "no site found for Padel indoor (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:12:41.313Z",
+   "kind": "search",
+   "text": "Club de tenis Valldigna (Spain) -> https://clubdetenisvalldigna.matchpoint.com.es -> info@ctvalldigna.com",
+   "ok": true,
+   "url": "https://clubdetenisvalldigna.matchpoint.com.es",
+   "email": "info@ctvalldigna.com"
+  },
+  {
+   "t": "2026-08-11T21:12:39.713Z",
+   "kind": "search",
+   "text": "no site found for Club Deportivo 40-15 (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:12:39.712Z",
+   "kind": "search",
+   "text": "no site found for Club de Tenis Huércal-Overa (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:12:39.037Z",
+   "kind": "search",
+   "text": "Club Tamarasit (Spain) -> https://playtomic.com/clubs/club-tamarasit, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://playtomic.com/clubs/club-tamarasit",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:12:25.569Z",
+   "kind": "search",
+   "text": "no site found for Lupi Padel (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:12:24.998Z",
+   "kind": "search",
+   "text": "Padel Carboneros (Spain) -> https://playtomic.com/clubs/heit-carboneros, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://playtomic.com/clubs/heit-carboneros",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:12:12.354Z",
+   "kind": "search",
+   "text": "CD Shark Padel Baeza (Spain) -> https://compraenbaeza.com -> info@compraenbaeza.com",
+   "ok": true,
+   "url": "https://compraenbaeza.com",
+   "email": "info@compraenbaeza.com"
+  },
+  {
+   "t": "2026-08-11T21:12:07.250Z",
+   "kind": "search",
+   "text": "no site found for Energy Pádel Elda (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:12:06.631Z",
+   "kind": "search",
+   "text": "Indie Padel Club (Spain) -> https://www.indiepadelclub.es -> info@indiepadelclub.es",
+   "ok": true,
+   "url": "https://www.indiepadelclub.es",
+   "email": "info@indiepadelclub.es"
+  },
+  {
+   "t": "2026-08-11T21:12:04.191Z",
+   "kind": "search",
+   "text": "Padel Extreme (Spain) -> https://www.extreme-padel.fr, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://www.extreme-padel.fr",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:11:51.310Z",
+   "kind": "search",
+   "text": "Club de Tennis L'Escala (Spain) -> https://clubtennispadelescala.com -> clubdetennislescala@hotmail.com",
+   "ok": true,
+   "url": "https://clubtennispadelescala.com",
+   "email": "clubdetennislescala@hotmail.com"
+  },
+  {
+   "t": "2026-08-11T21:11:47.046Z",
+   "kind": "search",
+   "text": "no site found for Club de Tenis de la Coma (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:11:46.422Z",
+   "kind": "search",
+   "text": "Club Raqueta (Spain) -> https://clubraqueta.es -> info@clubraqueta.es",
+   "ok": true,
+   "url": "https://clubraqueta.es",
+   "email": "info@clubraqueta.es"
+  },
+  {
+   "t": "2026-08-11T21:11:37.605Z",
+   "kind": "search",
+   "text": "Dinamic Pàdel Indoor (Spain) -> https://www.matchi.se/facilities/dinamicpadelindoor, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://www.matchi.se/facilities/dinamicpadelindoor",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:11:24.316Z",
+   "kind": "search",
+   "text": "no site found for Club Deportivo Campolivar Siglo XXI (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:11:21.872Z",
+   "kind": "search",
+   "text": "no site found for Padel Txoko Elordigane (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:11:20.996Z",
+   "kind": "search",
+   "text": "Club de Tennis Torelló (Spain) -> http://tennistorello.cat, no address on the site (unreachable)",
+   "ok": false,
+   "url": "http://tennistorello.cat",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:11:19.485Z",
+   "kind": "search",
+   "text": "no site found for Club Padel Ripollet (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:11:18.862Z",
+   "kind": "search",
+   "text": "Club de tennis Canet 1971 (Spain) -> https://tenniscanet.com -> ctcanet1971@gmail.com",
+   "ok": true,
+   "url": "https://tenniscanet.com",
+   "email": "ctcanet1971@gmail.com"
+  },
+  {
+   "t": "2026-08-11T21:11:13.838Z",
+   "kind": "search",
+   "text": "Club de Tenis Torremar (Spain) -> https://torremar.pistacentral.es, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://torremar.pistacentral.es",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:11:12.320Z",
+   "kind": "search",
+   "text": "no site found for Club de Tennis Turomar (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:11:11.640Z",
+   "kind": "search",
+   "text": "X3 Padel Indoor (Spain) -> https://playtomic.com/clubs/padel-indoor-x3-murcia, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://playtomic.com/clubs/padel-indoor-x3-murcia",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:10:57.602Z",
+   "kind": "search",
+   "text": "Padel Ebro (Spain) -> https://playtomic.com/clubs/padel-deportivo-ebro, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://playtomic.com/clubs/padel-deportivo-ebro",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:10:44.449Z",
+   "kind": "search",
+   "text": "no site found for Squash (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:10:44.448Z",
+   "kind": "search",
+   "text": "no site found for Inout Door Padel (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:10:43.786Z",
+   "kind": "search",
+   "text": "Club Tenis Betis (Spain) -> https://www.tenisbetis.com, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://www.tenisbetis.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:10:37.398Z",
+   "kind": "search",
+   "text": "no site found for Castellón Padel Castalia (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:10:36.198Z",
+   "kind": "search",
+   "text": "no site found for Club Tenis Montcabrer (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:10:35.334Z",
+   "kind": "search",
+   "text": "Pistas de pádel Marqués de Monistrol (Spain) -> https://pistasdepadel.one -> info@pistasdepadel.one",
+   "ok": true,
+   "url": "https://pistasdepadel.one",
+   "email": "info@pistasdepadel.one"
+  },
+  {
+   "t": "2026-08-11T21:10:34.387Z",
+   "kind": "search",
+   "text": "Pista Pádel 1 (Spain) -> https://www.pista-padel.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://www.pista-padel.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:10:21.714Z",
+   "kind": "search",
+   "text": "Círculo Mercantil e Industrial Club de Campo Ferrol (Spain) -> https://clubcampoferrol.es -> info@clubcampoferrol.com",
+   "ok": true,
+   "url": "https://clubcampoferrol.es",
+   "email": "info@clubcampoferrol.com"
+  },
+  {
+   "t": "2026-08-11T21:10:20.225Z",
+   "kind": "search",
+   "text": "Pistas de squash (Spain) -> https://www.pistasdejuego.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://www.pistasdejuego.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:10:06.500Z",
+   "kind": "search",
+   "text": "Uno Padel - Meiland (Spain) -> https://playtomic.com/clubs/uno-padel-meiland, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://playtomic.com/clubs/uno-padel-meiland",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:09:53.544Z",
+   "kind": "search",
+   "text": "Club de tennis Argentona (Spain) -> https://www.casinoargentona.com -> info@casinoargentona.com",
+   "ok": true,
+   "url": "https://www.casinoargentona.com",
+   "email": "info@casinoargentona.com"
+  },
+  {
+   "t": "2026-08-11T21:09:52.230Z",
+   "kind": "search",
+   "text": "Oxygen Sports Club (Spain) -> https://oxygenactiveplay.co.uk -> derbypark@oxygenfreejumping.co.uk",
+   "ok": true,
+   "url": "https://oxygenactiveplay.co.uk",
+   "email": "derbypark@oxygenfreejumping.co.uk"
+  },
+  {
+   "t": "2026-08-11T21:09:51.456Z",
+   "kind": "search",
+   "text": "Pistas de pádel cubiertas (Spain) -> https://cubiertasdepadel.es -> info@todoamedida.es",
+   "ok": true,
+   "url": "https://cubiertasdepadel.es",
+   "email": "info@todoamedida.es"
+  },
+  {
+   "t": "2026-08-11T21:09:48.522Z",
+   "kind": "search",
+   "text": "no site found for Pistas de pádel descubiertas (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:09:47.318Z",
+   "kind": "search",
+   "text": "Cancha de pádel (Spain) -> https://canchasdepadel.mx, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://canchasdepadel.mx",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:09:46.561Z",
+   "kind": "search",
+   "text": "Pista de pádel (Spain) -> https://www.pistaenjuego.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://www.pistaenjuego.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:09:33.660Z",
+   "kind": "search",
+   "text": "Club de Tenis Tafira (Spain) -> https://clubdetenistafira.es -> info@clubdetenistafira.com",
+   "ok": true,
+   "url": "https://clubdetenistafira.es",
+   "email": "info@clubdetenistafira.com"
+  },
+  {
+   "t": "2026-08-11T21:09:32.451Z",
+   "kind": "search",
+   "text": "Real Zaragoza Club de Tenis (Spain) -> https://www.realzaragoza.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://www.realzaragoza.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:09:19.176Z",
+   "kind": "search",
+   "text": "Pádel indoor Figueres (Spain) -> https://padelindoorfigueres.com, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://padelindoorfigueres.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:09:18.194Z",
+   "kind": "search",
+   "text": "Linense Tenis Club (Spain) -> https://linensetenisclub.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://linensetenisclub.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:09:03.884Z",
+   "kind": "search",
+   "text": "Club de Tenis Berà (Spain) -> http://web.rodadebera.cat -> oac@rodadebera.cat",
+   "ok": true,
+   "url": "http://web.rodadebera.cat",
+   "email": "oac@rodadebera.cat"
+  },
+  {
+   "t": "2026-08-11T21:09:02.417Z",
+   "kind": "search",
+   "text": "Indoor Padel Ca n'Amat (Spain) -> https://playtomic.com/clubs/padel-indoor-ca-namat, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://playtomic.com/clubs/padel-indoor-ca-namat",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:08:49.469Z",
+   "kind": "search",
+   "text": "Masquepadel (Spain) -> https://clubdeportivomasquepadel.matchpoint.com.es -> masqpadelcs@gmail.com",
+   "ok": true,
+   "url": "https://clubdeportivomasquepadel.matchpoint.com.es",
+   "email": "masqpadelcs@gmail.com"
+  },
+  {
+   "t": "2026-08-11T21:08:48.458Z",
+   "kind": "search",
+   "text": "Pista de padel del Pabellón Central de Deportes (Spain) -> https://deportes.cartagena.es -> cdeportes@ayto-cartagena.es",
+   "ok": true,
+   "url": "https://deportes.cartagena.es",
+   "email": "cdeportes@ayto-cartagena.es"
+  },
+  {
+   "t": "2026-08-11T21:08:46.678Z",
+   "kind": "search",
+   "text": "Pista 1 de padel en Ilusión Sport Center (Spain) -> https://ilusionsportcenter.com -> gestion@ilusionsportcenter.com",
+   "ok": true,
+   "url": "https://ilusionsportcenter.com",
+   "email": "gestion@ilusionsportcenter.com"
+  },
+  {
+   "t": "2026-08-11T21:08:43.526Z",
+   "kind": "search",
+   "text": "Ecomm Padel Club (Spain) -> http://ecommpadelclub.matchpoint.com.es -> reservas@ecommpadelclub.es",
+   "ok": true,
+   "url": "http://ecommpadelclub.matchpoint.com.es",
+   "email": "reservas@ecommpadelclub.es"
+  },
+  {
+   "t": "2026-08-11T21:08:41.919Z",
+   "kind": "search",
+   "text": "no site found for Pádel Quer (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:08:40.797Z",
+   "kind": "search",
+   "text": "no site found for Padel Sport 365 (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:08:40.796Z",
+   "kind": "search",
+   "text": "no site found for Pádel 360 (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:08:40.796Z",
+   "kind": "search",
+   "text": "no site found for P6 Padel Narón Sport Center (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:08:38.958Z",
+   "kind": "search",
+   "text": "Club de Tenis Cullera (Spain) -> https://teniscullera.com -> teniscullera@gmail.com",
+   "ok": true,
+   "url": "https://teniscullera.com",
+   "email": "teniscullera@gmail.com"
+  },
+  {
+   "t": "2026-08-11T21:08:37.501Z",
+   "kind": "search",
+   "text": "Club de Tenis Criptana (Spain) -> https://campo-de-criptana.directorio-empresa.es, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://campo-de-criptana.directorio-empresa.es",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:08:24.401Z",
+   "kind": "search",
+   "text": "Club de Tennis Sant Adrià (Spain) -> http://www.clubtennisstadria.es -> ctsantadria@yahoo.es",
+   "ok": true,
+   "url": "http://www.clubtennisstadria.es",
+   "email": "ctsantadria@yahoo.es"
+  },
+  {
+   "t": "2026-08-11T21:08:22.851Z",
+   "kind": "search",
+   "text": "no site found for Club Juventud - Seccio de Tenis (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:08:18.231Z",
+   "kind": "search",
+   "text": "Tennis Court: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:08:11.162Z",
+   "kind": "search",
+   "text": "Club Tennis Romaní: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:08:04.101Z",
+   "kind": "search",
+   "text": "Club de Tenis Llavaneres: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:08:01.042Z",
+   "kind": "search",
+   "text": "no site found for Pádel ZGZ (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:07:57.036Z",
+   "kind": "search",
+   "text": "Antic Club Tennis: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:07:49.959Z",
+   "kind": "search",
+   "text": "Club de Tennis H2O (Salou): search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:07:38.672Z",
+   "kind": "search",
+   "text": "Pista Pádel 3: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:07:35.613Z",
+   "kind": "search",
+   "text": "Pista Pádel 4 (Spain) -> https://www.pista-padel.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://www.pista-padel.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:07:22.712Z",
+   "kind": "search",
+   "text": "Club de Tenis de Almoradí José Antonio Illescas (Spain) -> https://ctalmoradi.pistacentral.es, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://ctalmoradi.pistacentral.es",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:07:21.096Z",
+   "kind": "search",
+   "text": "no site found for Club De Tenis Txingudi (Spain)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:07:20.490Z",
+   "kind": "search",
+   "text": "Court 3 -> https://www.find-court-tribunal.service.gov.uk, dropped: public or institutional domain",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:07:06.498Z",
+   "kind": "search",
+   "text": "Court 4 -> https://www.find-court-tribunal.service.gov.uk, dropped: public or institutional domain",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:06:53.634Z",
+   "kind": "search",
+   "text": "Center Court (Spain) -> https://centrecourtnottingham.com, no address on the site (blocked by a challenge page)",
+   "ok": false,
+   "url": "https://centrecourtnottingham.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-11T21:06:52.487Z",
+   "kind": "search",
+   "text": "Court 2 -> https://www.find-court-tribunal.service.gov.uk, dropped: public or institutional domain",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:06:38.437Z",
+   "kind": "search",
+   "text": "Court 6 -> https://www.find-court-tribunal.service.gov.uk, dropped: public or institutional domain",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:06:24.420Z",
+   "kind": "search",
+   "text": "Court 5 -> https://www.find-court-tribunal.service.gov.uk, dropped: public or institutional domain",
+   "ok": false
+  },
+  {
+   "t": "2026-08-11T21:06:11.566Z",
+   "kind": "crawl",
+   "text": "Club de Tennis Sant Pol — https://clubdetenissantapola.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://clubdetenissantapola.com"
+  },
+  {
+   "t": "2026-08-11T21:06:11.147Z",
+   "kind": "crawl",
+   "text": "Club de tenis Ayora — https://ayora.directorio-empresa.es: site read, publishes no address",
+   "ok": false,
+   "url": "https://ayora.directorio-empresa.es"
+  },
   {
    "t": "2026-08-11T21:00:40.996Z",
    "kind": "search",
@@ -487,631 +1149,37 @@
    "kind": "search",
    "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
    "ok": false
-  },
-  {
-   "t": "2026-08-11T08:03:42.036Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T08:02:49.986Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T08:02:21.953Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:54:28.306Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T07:54:01.748Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T07:53:34.999Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T07:47:56.709Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:47:04.636Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:46:12.599Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:45:44.553Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:38:19.459Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:37:27.413Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:36:35.364Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:36:07.340Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:29:53.604Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:29:01.557Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:28:09.497Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:27:41.464Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:19:49.717Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:18:57.670Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:18:05.615Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:17:37.575Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:11:00.252Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:10:08.201Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:09:16.130Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:08:48.110Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:04:44.078Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:03:52.034Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:02:59.979Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T07:02:31.951Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:58:46.376Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor (Spain) -> https://www.padelsoul.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://www.padelsoul.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T06:58:40.754Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T06:54:24.734Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:53:32.682Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:52:40.622Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:52:12.581Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:47:46.208Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:46:54.155Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:46:02.108Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:45:34.089Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:42:40.250Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T06:42:13.867Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T06:41:47.272Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T06:40:53.291Z",
-   "kind": "search",
-   "text": "no site found for Club de tenis Prado Real (Spain)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:40:52.624Z",
-   "kind": "search",
-   "text": "Pádel Akademia (Spain) -> https://akademiapadla.com.pl, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://akademiapadla.com.pl",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T06:40:46.385Z",
-   "kind": "search",
-   "text": "no site found for Padel Top Fitness Club (Spain)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:40:45.747Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air) (Spain) -> https://barbacoagc.com, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://barbacoagc.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T06:40:03.983Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:39:11.921Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:38:43.887Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:32:12.990Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:31:20.943Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:30:28.883Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:30:00.844Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:26:15.497Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T06:25:40.944Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T06:20:25.720Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:19:33.655Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:18:41.606Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:18:13.581Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:11:13.022Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:10:20.985Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:09:28.944Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:09:00.919Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:07:49.999Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T06:03:00.502Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:02:08.455Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:01:16.409Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T06:00:48.376Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:50:48.475Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:49:56.406Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:49:04.341Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:48:36.316Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:46:58.237Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T05:42:18.036Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:41:25.991Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:40:33.942Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:40:05.891Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:35:00.243Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:34:08.186Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:33:16.134Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:32:48.112Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:32:02.523Z",
-   "kind": "search",
-   "text": "no site found for Padel Top Fitness Club (Spain)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:32:01.841Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air) (Spain) -> https://barbacoagc.com, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://barbacoagc.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T05:31:50.910Z",
-   "kind": "search",
-   "text": "Padel's Barcelona (Spain) -> https://padelsbarcelona.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://padelsbarcelona.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T05:31:41.304Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor (Spain) -> http://www.padelsoul.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.padelsoul.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T05:31:35.684Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres (Spain) -> http://www.clubtenismieres.es, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.clubtenismieres.es",
-   "email": ""
-  },
-  {
-   "t": "2026-08-11T05:29:21.239Z",
-   "kind": "search",
-   "text": "no site found for Padel Top Fitness Club (Spain)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:29:20.044Z",
-   "kind": "search",
-   "text": "no site found for Barbacoa Sports & Event grounds (Open Air) (Spain)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:28:43.333Z",
-   "kind": "search",
-   "text": "Padel's Barcelona: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:27:51.287Z",
-   "kind": "search",
-   "text": "Padel Soul Indoor: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:27:23.251Z",
-   "kind": "search",
-   "text": "Club de Tenis Mieres: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-11T05:22:31.074Z",
-   "kind": "search",
-   "text": "Barbacoa Sports & Event grounds (Open Air): search engine did not answer, will try again",
-   "ok": false
   }
  ],
  "perCountry": {
   "Spain": {
-   "clubs": 593,
-   "emails": 475,
-   "sites": 377,
-   "read": 150,
-   "unreachable": 70,
-   "noAddress": 6,
+   "clubs": 628,
+   "emails": 496,
+   "sites": 412,
+   "read": 185,
+   "unreachable": 74,
+   "noAddress": 15,
    "leads": 320,
-   "leadsSearched": 107,
-   "leadsFound": 80,
+   "leadsSearched": 188,
+   "leadsFound": 136,
    "sports": {
-    "Tennis": 467,
-    "Padel": 153,
-    "Squash": 3
+    "Tennis": 485,
+    "Padel": 169,
+    "Squash": 4
    },
    "sources": {
     "harvest": 366,
     "osm": 72,
-    "search": 37
+    "search": 58
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-11T21:04:23.195Z",
-    "seen": 77,
+    "at": "2026-08-11T21:18:16.685Z",
+    "seen": 121,
     "added": 0,
-    "rejected": 38,
+    "rejected": 48,
     "error": "partial: 8 of 23 subdivisions read",
-    "via": "overpass.kumi.systems"
+    "via": "overpass.private.coffee"
    }
   },
   "United Kingdom": {
@@ -1165,12 +1233,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-11T21:04:07.538Z",
+    "at": "2026-08-11T21:18:19.987Z",
     "seen": 5,
     "added": 0,
     "rejected": 0,
     "error": "partial: 7 of 9 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    }
   },
   "Brazil": {
@@ -1193,11 +1261,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T20:42:27.583Z",
+    "at": "2026-08-11T21:17:42.125Z",
     "seen": 284,
     "added": 0,
     "rejected": 222,
-    "error": "subdivisions: out of time",
+    "error": "fetch failed",
     "via": "overpass.private.coffee"
    }
   },
@@ -1334,7 +1402,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T20:43:55.550Z",
+    "at": "2026-08-11T21:18:08.793Z",
     "seen": 161,
     "added": 0,
     "rejected": 98,
@@ -2474,11 +2542,11 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T20:49:12.071Z",
+    "at": "2026-08-11T21:18:05.694Z",
     "seen": 2,
     "added": 0,
     "rejected": 0,
-    "error": "subdivisions: out of time",
+    "error": "fetch failed",
     "via": "overpass.private.coffee"
    }
   },
@@ -2942,7 +3010,7 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T20:49:14.485Z",
+    "at": "2026-08-11T21:18:05.893Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -3290,34 +3358,34 @@
   }
  },
  "recent": [
-  "2026-08-11T20:59:09.040Z  osm GT: failed — subdivisions: out of time",
-  "2026-08-11T20:59:26.724Z  osm GB: failed — subdivisions: out of time",
-  "2026-08-11T20:59:28.627Z  published to the public link",
-  "2026-08-11T20:59:28.630Z  tick done in 5.0m — crawled 1 sites, +0 emails; searched 4 club names, found 0 sites, +0 emails; osm 2 countries (ES,GB,AU,IE,CO,GT,SC,AR,AG,SD,LC,DO) +0, 4 failed | 851 emails total, 1 still queued",
-  "2026-08-11T21:00:40.996Z  leads: the search engine stopped answering after 7 queries — pausing this phase",
-  "2026-08-11T21:00:41.009Z  leads: searched 7, found 3 sites, 0 new emails, 3750 leads left",
-  "2026-08-11T21:03:44.895Z  osm SD Sudan: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-11T21:04:05.120Z  osm AG Antigua and Barbuda: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-11T21:04:07.534Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-11T21:04:07.537Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-11T21:04:23.189Z  osm ES: too big for one query — 8 of 23 subdivisions read, carries on next round",
-  "2026-08-11T21:04:23.194Z  osm ES Spain: 77 places -> +0 new, 3 merged, 0 with an email already, 0 leads with no contact tag, 38 dropped as public",
   "2026-08-11T21:04:26.908Z  osm AR Argentina: 260 places -> +0 new, 5 merged, 0 with an email already, 0 leads with no contact tag, 185 dropped as public",
-  "2026-08-11T21:05:37.235Z  osm SC: failed — subdivisions: out of time"
+  "2026-08-11T21:05:37.235Z  osm SC: failed — subdivisions: out of time",
+  "2026-08-11T21:05:39.054Z  published to the public link",
+  "2026-08-11T21:05:39.058Z  tick done in 5.8m — crawled 0 sites, +0 emails; searched 7 club names, found 3 sites, +0 emails; osm 5 countries (ES,IE,SC,AR,AG,SD,LC,DO,BZ,US,ZW,TL) +0, 1 failed | 851 emails total, 4 still queued",
+  "2026-08-11T21:14:37.556Z  leads: the search engine stopped answering after 91 queries — pausing this phase",
+  "2026-08-11T21:14:37.569Z  leads: searched 91, found 56 sites, 21 new emails, 3669 leads left",
+  "2026-08-11T21:17:42.126Z  osm BR: failed — fetch failed",
+  "2026-08-11T21:18:05.694Z  osm GY: failed — fetch failed",
+  "2026-08-11T21:18:05.894Z  osm DM: failed — subdivisions: out of time",
+  "2026-08-11T21:18:08.794Z  osm MX: failed — subdivisions: out of time",
+  "2026-08-11T21:18:16.680Z  osm ES: too big for one query — 8 of 23 subdivisions read, carries on next round",
+  "2026-08-11T21:18:16.685Z  osm ES Spain: 121 places -> +0 new, 10 merged, 0 with an email already, 0 leads with no contact tag, 48 dropped as public",
+  "2026-08-11T21:18:19.982Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-11T21:18:19.986Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-11T20:59:48.647Z",
+ "roundStarted": "2026-08-11T21:05:59.073Z",
  "lastRound": {
-  "at": "2026-08-11T21:05:37.257Z",
-  "minutes": 5.8,
-  "summary": "crawled 0 sites, +0 emails; searched 7 club names, found 3 sites, +0 emails; osm 5 countries (ES,IE,SC,AR,AG,SD,LC,DO,BZ,US,ZW,TL) +0, 1 failed",
-  "crawled": 0,
+  "at": "2026-08-11T21:18:20.007Z",
+  "minutes": 12.3,
+  "summary": "crawled 3 sites, +0 emails; searched 91 club names, found 56 sites, +21 emails; osm 2 countries (ES,BR,MX,IE,GY,DM,GW,ST,LC,DO,BZ,US) +0, 4 failed",
+  "crawled": 3,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
+  "osmCountries": 2,
   "osmAdded": 0,
-  "osmFailed": 1
+  "osmFailed": 4
  }
 }
