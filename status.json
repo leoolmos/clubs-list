@@ -1,10 +1,10 @@
 {
- "generated": "2026-08-12T16:44:25.989Z",
+ "generated": "2026-08-12T16:56:31.229Z",
  "clubs": 1044,
- "records": 1162,
+ "records": 1315,
  "crawl": {
   "ready": 0,
-  "waiting": 1,
+  "waiting": 7,
   "exhausted": 1
  },
  "osm": {
@@ -17,18 +17,22 @@
  "crawlReasons": [
   {
    "note": "unreachable",
-   "n": 1
+   "n": 7
   },
   {
    "note": "no email published",
+   "n": 1
+  },
+  {
+   "note": "homepage",
    "n": 1
   }
  ],
  "seeds": {
   "total": 64,
-  "working": 39,
-  "exhausted": 25,
-  "pagesRead": 25
+  "working": 0,
+  "exhausted": 64,
+  "pagesRead": 63
  },
  "leads": {
   "total": 0,
@@ -36,6 +40,14 @@
   "left": 0
  },
  "activity": [
+  {
+   "t": "2026-08-12T16:55:06.656Z",
+   "kind": "crawl",
+   "text": "Diamond Tennis Academy — http://diamondtennisacademy.co.uk/ -> info@diamondtennis.co.uk",
+   "ok": true,
+   "url": "http://diamondtennisacademy.co.uk/",
+   "email": "info@diamondtennis.co.uk"
+  },
   {
    "t": "2026-08-12T16:44:25.967Z",
    "kind": "crawl",
@@ -197,23 +209,23 @@
    "osm": null
   },
   "Ireland": {
-   "clubs": 46,
-   "emails": 46,
-   "sites": 0,
-   "read": 0,
-   "unreachable": 0,
+   "clubs": 70,
+   "emails": 66,
+   "sites": 21,
+   "read": 1,
+   "unreachable": 1,
    "noAddress": 0,
    "leads": 0,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
-    "Tennis": 44,
+    "Tennis": 68,
     "Padel": 2,
     "Squash": 0
    },
    "sources": {
     "osm": 13,
-    "harvest": 33
+    "harvest": 53
    },
    "seeds": 7,
    "osm": null
@@ -390,46 +402,46 @@
    "osm": null
   },
   "Spain": {
-   "clubs": 658,
-   "emails": 639,
-   "sites": 101,
-   "read": 2,
-   "unreachable": 1,
+   "clubs": 782,
+   "emails": 736,
+   "sites": 200,
+   "read": 4,
+   "unreachable": 3,
    "noAddress": 1,
    "leads": 0,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
-    "Tennis": 547,
-    "Padel": 137,
+    "Tennis": 670,
+    "Padel": 149,
     "Squash": 3
    },
    "sources": {
     "osm": 70,
     "search": 101,
-    "harvest": 468
+    "harvest": 565
    },
    "seeds": 52,
    "osm": null
   },
   "United Kingdom": {
-   "clubs": 121,
-   "emails": 121,
-   "sites": 0,
-   "read": 0,
-   "unreachable": 0,
+   "clubs": 126,
+   "emails": 122,
+   "sites": 4,
+   "read": 4,
+   "unreachable": 3,
    "noAddress": 0,
    "leads": 0,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
-    "Tennis": 97,
+    "Tennis": 102,
     "Padel": 16,
     "Squash": 12
    },
    "sources": {
     "osm": 110,
-    "harvest": 8,
+    "harvest": 9,
     "search": 3
    },
    "seeds": 5,
@@ -482,9 +494,27 @@
   "2026-08-12T16:43:32.469Z  tick done in 7.6m — crawled 0 sites, +0 emails; read 25 pages from www.rfet.es, +121 clubs | 1044 emails total, 2 still queued",
   "2026-08-12T16:44:10.750Z  daemon started — continuous, 15m per round, 20s between rounds",
   "2026-08-12T16:44:10.759Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
-  "2026-08-12T16:44:10.759Z  seeds: /home/user/clubs-list/seeds.txt"
+  "2026-08-12T16:44:10.759Z  seeds: /home/user/clubs-list/seeds.txt",
+  "2026-08-12T16:52:20.203Z  tick done in 8.2m — crawled 2 sites, +0 emails; read 25 pages from www.rfet.es, +122 clubs | 1044 emails total, 3 still queued",
+  "2026-08-12T16:54:45.185Z  tick done in 2.1m — crawled 2 sites, +0 emails; read 13 pages from www.rfet.es, www.munstertennis.ie, www.racketeer.free-online.co.uk, +31 clubs | 1044 emails total, 8 still queued",
+  "2026-08-12T16:55:10.907Z  tick done in 0.1m — crawled 6 sites, +1 emails | 1044 emails total, 7 still queued",
+  "2026-08-12T16:55:31.004Z  tick done in 0.0m — crawled 0 sites, +0 emails | 1044 emails total, 7 still queued",
+  "2026-08-12T16:55:51.071Z  tick done in 0.0m — crawled 0 sites, +0 emails | 1044 emails total, 7 still queued",
+  "2026-08-12T16:56:11.148Z  tick done in 0.0m — crawled 0 sites, +0 emails | 1044 emails total, 7 still queued"
  ],
- "running": true,
- "phase": "reading directory pages",
- "roundStarted": "2026-08-12T16:44:10.767Z"
+ "running": false,
+ "phase": "resting between rounds",
+ "roundStarted": "2026-08-12T16:56:31.175Z",
+ "lastRound": {
+  "at": "2026-08-12T16:56:31.224Z",
+  "minutes": 0,
+  "summary": "crawled 0 sites, +0 emails",
+  "crawled": 0,
+  "emailsFound": 0,
+  "pagesRead": 0,
+  "clubsAdded": 0,
+  "osmCountries": 0,
+  "osmAdded": 0,
+  "osmFailed": 0
+ }
 }
