@@ -1059,7 +1059,11 @@ function writeStandalone(db){
 let running = false;
 let failures = 0;
 let failingSince = null;
+/* Which round this process is on, so the two searching phases can take
+ * turns at the engine rather than one of them always going second. */
+let roundNo = 0;
 async function tick(){
+  roundNo++;
   if(running){ log('previous tick still running, skipping this one'); return; }
   running = true;
   const started = Date.now();
@@ -1084,11 +1088,31 @@ async function tick(){
     const c = await phaseCrawl(db, deadline);
     writeJSON(DB_FILE, db);
 
-    // Then turn names into websites. This is where most of the remaining
-    // clubs are: OpenStreetMap holds thousands it has no contact for.
-    busy('searching the web for clubs we only know the name of');
-    const L = await phaseLeads(db, deadline);
-    writeJSON(DB_FILE, db);
+    // The two phases that search share one rate-limited engine, and whichever
+    // goes first spends the quota. Leads went first by default and took 126
+    // queries; prospecting then stalled after seven countries against an
+    // engine that had stopped answering. That is not a judgement about which
+    // matters more, it is just the order they happened to be written in, so
+    // they take turns instead: leads convert a name into an address, and
+    // prospecting is the only thing that reaches a country holding nothing.
+    let L = {tried:0, found:0, emails:0};
+    let p = {countries:0, added:0};
+    const leadsFirst = (roundNo % 2) === 1;
+
+    const runLeads = async () => {
+      busy('searching the web for clubs we only know the name of');
+      L = await phaseLeads(db, deadline);
+      writeJSON(DB_FILE, db);
+    };
+    const runProspect = async () => {
+      if(Date.now() >= deadline) return;
+      busy('searching out clubs in the countries that have none');
+      p = await phaseProspect(db, deadline);
+      writeJSON(DB_FILE, db);
+    };
+
+    if(leadsFirst){ await runLeads(); await runProspect(); }
+    else          { await runProspect(); await runLeads(); }
 
     // Then extend the frontier if there is time left
     let h = {pages:0, added:0, source:null};
@@ -1101,15 +1125,6 @@ async function tick(){
     if(Date.now() < deadline){
       busy('looking for new club directories');
       d = await phaseDiscover(queue, deadline);
-    }
-
-    // The countries nobody has a directory or an OSM entry for. Last of the
-    // finding phases because it is the slowest per club, and first in line
-    // for whatever the round has left.
-    let p = {countries:0, added:0};
-    if(Date.now() < deadline){
-      busy('searching out clubs in the countries that have none');
-      p = await phaseProspect(db, deadline);
     }
 
     // Save between phases, not only at the end. A round that hangs in a
