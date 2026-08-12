@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-12T16:43:32.466Z",
+ "generated": "2026-08-12T16:44:25.989Z",
  "clubs": 1044,
  "records": 1162,
  "crawl": {
-  "ready": 2,
-  "waiting": 0,
-  "exhausted": 0
+  "ready": 0,
+  "waiting": 1,
+  "exhausted": 1
  },
  "osm": {
   "imported": 0,
@@ -14,7 +14,16 @@
   "total": 83,
   "lastError": null
  },
- "crawlReasons": [],
+ "crawlReasons": [
+  {
+   "note": "unreachable",
+   "n": 1
+  },
+  {
+   "note": "no email published",
+   "n": 1
+  }
+ ],
  "seeds": {
   "total": 64,
   "working": 39,
@@ -26,7 +35,15 @@
   "searched": 0,
   "left": 0
  },
- "activity": [],
+ "activity": [
+  {
+   "t": "2026-08-12T16:44:25.967Z",
+   "kind": "crawl",
+   "text": "CLUB DE TENIS LOS MARTIRES ARROYO DE SAN SERVAN — http://clubdetenislosmartires.com/: site read, publishes no address",
+   "ok": false,
+   "url": "http://clubdetenislosmartires.com/"
+  }
+ ],
  "perCountry": {
   "Argentina": {
    "clubs": 38,
@@ -376,9 +393,9 @@
    "clubs": 658,
    "emails": 639,
    "sites": 101,
-   "read": 0,
-   "unreachable": 0,
-   "noAddress": 0,
+   "read": 2,
+   "unreachable": 1,
+   "noAddress": 1,
    "leads": 0,
    "leadsSearched": 0,
    "leadsFound": 0,
@@ -461,20 +478,13 @@
    "osm": null
   }
  },
- "recent": [],
- "running": false,
- "phase": "resting between rounds",
- "roundStarted": "2026-08-12T16:35:58.201Z",
- "lastRound": {
-  "at": "2026-08-12T16:43:32.460Z",
-  "minutes": 7.6,
-  "summary": "crawled 0 sites, +0 emails; read 25 pages from www.rfet.es, +121 clubs",
-  "crawled": 0,
-  "emailsFound": 0,
-  "pagesRead": 25,
-  "clubsAdded": 121,
-  "osmCountries": 0,
-  "osmAdded": 0,
-  "osmFailed": 0
- }
+ "recent": [
+  "2026-08-12T16:43:32.469Z  tick done in 7.6m — crawled 0 sites, +0 emails; read 25 pages from www.rfet.es, +121 clubs | 1044 emails total, 2 still queued",
+  "2026-08-12T16:44:10.750Z  daemon started — continuous, 15m per round, 20s between rounds",
+  "2026-08-12T16:44:10.759Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
+  "2026-08-12T16:44:10.759Z  seeds: /home/user/clubs-list/seeds.txt"
+ ],
+ "running": true,
+ "phase": "reading directory pages",
+ "roundStarted": "2026-08-12T16:44:10.767Z"
 }
