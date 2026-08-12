@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-12T19:10:15.755Z",
+ "generated": "2026-08-12T19:10:22.253Z",
  "clubs": 1118,
  "records": 1735,
  "crawl": {
@@ -45,10 +45,10 @@
   }
  ],
  "seeds": {
-  "total": 73,
+  "total": 67,
   "working": 0,
-  "exhausted": 73,
-  "pagesRead": 72
+  "exhausted": 67,
+  "pagesRead": 66
  },
  "leads": {
   "total": 1360,
@@ -1880,12 +1880,6 @@
   }
  },
  "recent": [
-  "2026-08-12T18:44:54.598Z  leads: searched 125, found 111 sites, 35 new emails, 589 leads left",
-  "2026-08-12T18:44:54.653Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-12T18:44:54.653Z  discover: opened 0 pages, skipped 6 already known",
-  "2026-08-12T18:44:54.653Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-12T18:45:04.766Z  prospect AO: Academia de Ténis do Kikuxi Villas Club -> https://academiadeteniskikuxi.com",
-  "2026-08-12T18:45:09.610Z  prospect AO: Padel em Luanda -> https://cpa-ao.com",
   "2026-08-12T18:47:49.673Z  stopping after the current round — press Ctrl-C again to force",
   "2026-08-12T18:49:59.716Z  prospect: the search engine stopped answering — pausing this phase",
   "2026-08-12T18:49:59.716Z  prospect: 7 countries searched, 106 sites read, 2 clubs added",
@@ -1893,21 +1887,15 @@
   "2026-08-12T18:58:43.068Z  osm MX: failed — busy (503)",
   "2026-08-12T19:05:34.092Z  osm ZA: failed — busy (503)",
   "2026-08-12T19:05:34.093Z  osm: 3 countries failed in a row, so Overpass is not answering today. Leaving the rest of the round to the crawler; these countries stay unimported and are picked up next time.",
-  "2026-08-12T19:10:15.656Z  osm AU Australia: 1013 places -> +72 new, 31 merged, 14 with an email already, 516 leads with no contact tag, 249 dropped as public"
+  "2026-08-12T19:10:15.656Z  osm AU Australia: 1013 places -> +72 new, 31 merged, 14 with an email already, 516 leads with no contact tag, 249 dropped as public",
+  "2026-08-12T19:10:17.936Z  published to the public link",
+  "2026-08-12T19:10:17.936Z  tick done in 37.4m — crawled 0 sites, +0 emails; searched 125 club names, found 111 sites, +35 emails; prospected 7 empty countries, +2 clubs; osm 1 countries (AR,AU,MX,ZA,CA,IE,NZ,CL,CO,PE,UY,EC) +72, 3 failed | 1118 emails total, 172 still queued",
+  "2026-08-12T19:10:17.936Z  stopped after 1 round",
+  "2026-08-12T19:10:22.172Z  daemon started — continuous, 50m per round, 20s between rounds",
+  "2026-08-12T19:10:22.186Z  crawl concurrency 8, osm 12 countries per round 2 at a time",
+  "2026-08-12T19:10:22.186Z  seeds: /home/user/clubs-list/seeds.txt"
  ],
- "running": false,
- "phase": "resting between rounds",
- "roundStarted": "2026-08-12T18:32:53.407Z",
- "lastRound": {
-  "at": "2026-08-12T19:10:15.732Z",
-  "minutes": 37.4,
-  "summary": "crawled 0 sites, +0 emails; searched 125 club names, found 111 sites, +35 emails; prospected 7 empty countries, +2 clubs; osm 1 countries (AR,AU,MX,ZA,CA,IE,NZ,CL,CO,PE,UY,EC) +72, 3 failed",
-  "crawled": 0,
-  "emailsFound": 0,
-  "pagesRead": 0,
-  "clubsAdded": 0,
-  "osmCountries": 1,
-  "osmAdded": 72,
-  "osmFailed": 3
- }
+ "running": true,
+ "phase": "crawling club websites for email addresses",
+ "roundStarted": "2026-08-12T19:10:22.208Z"
 }
