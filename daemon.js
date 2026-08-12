@@ -328,11 +328,26 @@ function loadSeeds(){
 /* Merge seeds.txt into the persistent queue without losing bookmarks */
 function syncQueue(){
   const q = readJSON(QUEUE_FILE, {});
-  for(const s of loadSeeds()){
+  const seeds = loadSeeds();
+  for(const s of seeds){
     if(!q[s.url]){
       q[s.url] = {cc:s.cc, url:s.url, nextPage:s.url, seenPages:[], pagesRead:0, done:false, added:new Date().toISOString().slice(0,10)};
     }
   }
+
+  // A line taken out of seeds.txt has to leave the queue with it. This only
+  // added, so deleting a bad seed did nothing: the queue kept its own copy
+  // and went on walking it for ever. Six Curlie categories the brief
+  // excludes — university and school squash, magazines, governing bodies —
+  // were removed from the file and would have been walked anyway.
+  //
+  // Guarded on the file having parsed at all, because an unreadable or
+  // half-written seeds.txt must not be read as "every seed was deleted".
+  if(seeds.length){
+    const wanted = new Set(seeds.map(s=>s.url));
+    for(const url of Object.keys(q)) if(!wanted.has(url)) delete q[url];
+  }
+
   writeJSON(QUEUE_FILE, q);
   return q;
 }

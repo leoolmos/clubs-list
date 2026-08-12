@@ -66,6 +66,25 @@ Object.assign(NAME_TO_CC, {
   Dominican_Republic: 'DO', El_Salvador: 'SV', Puerto_Rico: null   // not in the brief
 });
 
+/* Categories the brief rules out, judged by the category rather than by the
+ * records that come out of it.
+ *
+ * The walk counts club-shaped links on a page and never asked what the page
+ * was a list of, so its first unattended run seeded Squash/College_and_
+ * University and Squash/Schools_and_Instruction — university and school
+ * venues, which are excluded on purpose — along with News_and_Media, which
+ * is magazines, and Organizations, which is governing bodies. The record
+ * rules catch most of what those pages produce, but only where the club
+ * says so in its name, and every page of them costs crawl budget that a
+ * real club list should have had. */
+const RE_EXCLUDED_CATEGORY = new RegExp([
+  'College_and_University','Universit','Schools?_and','/Schools?/','K-12',
+  'News_and_Media','Magazines?','Publications?',
+  'Organizations?','Associations?','Federations?','Governing',
+  'Instruction','Camps','Coaching','Products?','Shopping','Equipment',
+  'Chats_and_Forums','Personal_Pages'
+].join('|'), 'i');
+
 function ccFromPath(url){
   for(const part of url.split('/')){
     const hit = NAME_TO_CC[part];
@@ -195,6 +214,16 @@ async function walk(opts){
 
     const {clubs, subcats} = judge(html, url);
     const cc = ccFromPath(url) || 'AUTO';
+
+    // Excluded categories are still walked through — a region's tree hangs
+    // below pages like these — but never seeded from.
+    if(RE_EXCLUDED_CATEGORY.test(url)){
+      note('EXCLUDED', url);
+      seen.set(url, 'EXCLUDED');
+      for(const s of subcats) if(!seen.has(s) && !queue.includes(s)) queue.push(s);
+      await sleep(HOST_DELAY);
+      continue;
+    }
 
     // A country in the path is better, but its absence is not a reason to
     // throw the page away: an international index is exactly what AUTO is
