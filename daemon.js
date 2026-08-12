@@ -163,7 +163,18 @@ function readJSON(f, fallback){
   if(!fs.existsSync(f)) return fallback;
   try{ return JSON.parse(fs.readFileSync(f,'utf8')); }catch(e){ return fallback; }
 }
-function writeJSON(f, o){ fs.writeFileSync(f, JSON.stringify(o,null,1)); }
+/* Written beside the target and renamed over it, because a plain write is
+ * not atomic and the working store is the only copy of everything collected.
+ * A round writes it several times; a machine that sleeps, a container that
+ * is reclaimed or a kill landing inside one of those writes would leave half
+ * a file, and half a file does not parse — the whole database would read as
+ * empty on the next start and the collector would begin again from nothing.
+ * A rename cannot be caught halfway. */
+function writeJSON(f, o){
+  const tmp = f + '.tmp';
+  fs.writeFileSync(tmp, JSON.stringify(o,null,1));
+  fs.renameSync(tmp, f);
+}
 
 /* ------------------------------------------------------------------ *
  * Activity log — the searched-for-what record
@@ -211,6 +222,58 @@ function log(msg){
   const line = `${new Date().toISOString()}  ${msg}`;
   console.log(line);
   try{ fs.appendFileSync(LOG_FILE, line+'\n'); }catch(e){}
+}
+
+/* ------------------------------------------------------------------ *
+ * One collector at a time
+ * ------------------------------------------------------------------ *
+ * "Only one may run at a time" has been in the README from the start, and
+ * nothing enforced it. A second one was started here without stopping the
+ * first, and the two of them cost eight clubs inside forty minutes: each
+ * round reads the whole store into memory at the start and writes it back
+ * at the end, so the slower one silently published its own stale copy over
+ * everything the other had collected meanwhile. The count going backwards
+ * was the only sign.
+ *
+ * start-collector.ps1 keeps a pid file, but only for the process it starts
+ * itself; a plain `node daemon.js` walked straight past it. This is the
+ * daemon refusing on its own behalf, whoever started it.
+ */
+const LOCK_FILE = path.join(DATA_DIR, 'collector.lock');
+
+function lockHolder(){
+  if(!fs.existsSync(LOCK_FILE)) return null;
+  let held;
+  try{ held = JSON.parse(fs.readFileSync(LOCK_FILE,'utf8')); }catch(e){ return null; }
+  if(!held || !held.pid) return null;
+  // Signal 0 asks whether the process exists without touching it, and works
+  // the same on Windows. A lock left behind by a crash is not a lock.
+  try{ process.kill(held.pid, 0); }catch(e){ return null; }
+  return held;
+}
+
+function takeLock(cmd){
+  ensureDirs();
+  const held = lockHolder();
+  if(held){
+    console.error(`\n  Another collector is already running here (pid ${held.pid}, ${held.cmd},`);
+    console.error(`  started ${held.at}).`);
+    console.error(`\n  Two would fight over the same files: each round loads the store, works`);
+    console.error(`  for its budget and writes the whole thing back, so the slower one undoes`);
+    console.error(`  whatever the other collected in the meantime.`);
+    console.error(`\n  Stop that one first, or delete ${LOCK_FILE} if it is not really there.\n`);
+    return false;
+  }
+  fs.writeFileSync(LOCK_FILE, JSON.stringify({pid: process.pid, cmd, at: new Date().toISOString()}, null, 1));
+
+  // Give the lock back on the way out, however that happens. Without this a
+  // Ctrl-C would leave a file that the pid check has to clean up after.
+  const release = () => { try{
+    const held = JSON.parse(fs.readFileSync(LOCK_FILE,'utf8'));
+    if(held && held.pid === process.pid) fs.unlinkSync(LOCK_FILE);
+  }catch(e){} };
+  process.on('exit', release);
+  return true;
 }
 
 function keyFor(rec){
@@ -1245,9 +1308,16 @@ crontab -e   then add:
   const cmd = process.argv[2] || 'run';
 
   if(cmd === 'status')  return cmdStatus();
-  if(cmd === 'serve'){ ensureDirs(); syncQueue(); cmdServe(); }
   if(cmd === 'seeds')   return cmdSeeds();
   if(cmd === 'install') return cmdInstall();
+
+  // Everything below here collects, and two collectors must never run at
+  // once. Taking the lock is the first thing any of them does.
+  if(cmd === 'serve' || cmd === 'run' || cmd === 'once'){
+    if(!takeLock(cmd)) process.exit(1);
+  }
+
+  if(cmd === 'serve'){ ensureDirs(); syncQueue(); cmdServe(); }
   if(cmd === 'once'){ await tick(); return; }
 
   if(cmd !== 'run' && cmd !== 'serve'){
