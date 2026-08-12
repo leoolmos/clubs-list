@@ -1,18 +1,22 @@
 {
- "generated": "2026-08-12T17:21:59.438Z",
+ "generated": "2026-08-12T17:48:37.122Z",
  "clubs": 1045,
- "records": 1316,
+ "records": 1519,
  "crawl": {
-  "ready": 0,
-  "waiting": 7,
+  "ready": 183,
+  "waiting": 1,
   "exhausted": 1
  },
  "osm": {
-  "imported": 0,
-  "failed": 0,
-  "pending": 83,
+  "imported": 3,
+  "failed": 1,
+  "pending": 79,
   "total": 83,
-  "lastError": null
+  "lastError": {
+   "cc": "AR",
+   "error": "subdivisions: out of time",
+   "at": "2026-08-12T17:48:05.823Z"
+  }
  },
  "crawlReasons": [
   {
@@ -35,9 +39,9 @@
   "pagesRead": 63
  },
  "leads": {
-  "total": 1,
+  "total": 844,
   "searched": 1,
-  "left": 0
+  "left": 843
  },
  "activity": [
   {
@@ -85,7 +89,11 @@
     "osm": 7
    },
    "seeds": 0,
-   "osm": null
+   "osm": {
+    "at": "2026-08-12T17:48:05.823Z",
+    "error": "subdivisions: out of time",
+    "via": ""
+   }
   },
   "Australia": {
    "clubs": 102,
@@ -132,25 +140,32 @@
    "osm": null
   },
   "Brazil": {
-   "clubs": 5,
-   "emails": 5,
-   "sites": 0,
+   "clubs": 12,
+   "emails": 8,
+   "sites": 6,
    "read": 0,
    "unreachable": 0,
    "noAddress": 0,
-   "leads": 0,
+   "leads": 59,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
-    "Tennis": 5,
+    "Tennis": 12,
     "Padel": 0,
     "Squash": 0
    },
    "sources": {
-    "osm": 5
+    "osm": 8
    },
    "seeds": 0,
-   "osm": null
+   "osm": {
+    "at": "2026-08-12T17:48:37.064Z",
+    "seen": 307,
+    "added": 7,
+    "rejected": 228,
+    "error": null,
+    "via": "overpass.kumi.systems"
+   }
   },
   "Canada": {
    "clubs": 22,
@@ -410,50 +425,64 @@
    "osm": null
   },
   "Spain": {
-   "clubs": 782,
-   "emails": 736,
-   "sites": 200,
+   "clubs": 799,
+   "emails": 741,
+   "sites": 217,
    "read": 4,
    "unreachable": 3,
    "noAddress": 1,
-   "leads": 0,
+   "leads": 121,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
-    "Tennis": 670,
+    "Tennis": 687,
     "Padel": 149,
     "Squash": 3
    },
    "sources": {
-    "osm": 70,
+    "osm": 75,
     "search": 101,
     "harvest": 565
    },
    "seeds": 52,
-   "osm": null
+   "osm": {
+    "at": "2026-08-12T17:43:47.814Z",
+    "seen": 717,
+    "added": 17,
+    "rejected": 393,
+    "error": null,
+    "via": "overpass.kumi.systems"
+   }
   },
   "United Kingdom": {
-   "clubs": 126,
-   "emails": 122,
-   "sites": 4,
+   "clubs": 305,
+   "emails": 140,
+   "sites": 182,
    "read": 4,
    "unreachable": 3,
    "noAddress": 0,
-   "leads": 0,
+   "leads": 663,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
-    "Tennis": 102,
-    "Padel": 16,
+    "Tennis": 265,
+    "Padel": 32,
     "Squash": 12
    },
    "sources": {
-    "osm": 110,
+    "osm": 128,
     "harvest": 9,
     "search": 3
    },
    "seeds": 5,
-   "osm": null
+   "osm": {
+    "at": "2026-08-12T17:40:53.964Z",
+    "seen": 1400,
+    "added": 179,
+    "rejected": 221,
+    "error": null,
+    "via": "overpass.kumi.systems"
+   }
   },
   "United States": {
    "clubs": 66,
@@ -520,10 +549,6 @@
   }
  },
  "recent": [
-  "2026-08-12T16:44:10.759Z  seeds: /home/user/clubs-list/seeds.txt",
-  "2026-08-12T16:52:20.203Z  tick done in 8.2m — crawled 2 sites, +0 emails; read 25 pages from www.rfet.es, +122 clubs | 1044 emails total, 3 still queued",
-  "2026-08-12T16:54:45.185Z  tick done in 2.1m — crawled 2 sites, +0 emails; read 13 pages from www.rfet.es, www.munstertennis.ie, www.racketeer.free-online.co.uk, +31 clubs | 1044 emails total, 8 still queued",
-  "2026-08-12T16:55:10.907Z  tick done in 0.1m — crawled 6 sites, +1 emails | 1044 emails total, 7 still queued",
   "2026-08-12T16:55:31.004Z  tick done in 0.0m — crawled 0 sites, +0 emails | 1044 emails total, 7 still queued",
   "2026-08-12T16:55:51.071Z  tick done in 0.0m — crawled 0 sites, +0 emails | 1044 emails total, 7 still queued",
   "2026-08-12T16:56:11.148Z  tick done in 0.0m — crawled 0 sites, +0 emails | 1044 emails total, 7 still queued",
@@ -533,9 +558,25 @@
   "2026-08-12T17:21:50.882Z  daemon started — continuous, 45m per round, 20s between rounds",
   "2026-08-12T17:21:50.890Z  crawl concurrency 8, osm 12 countries per round 2 at a time",
   "2026-08-12T17:21:50.890Z  seeds: /home/user/clubs-list/seeds.txt",
-  "2026-08-12T17:21:59.416Z  leads: searched 1, found 1 sites, 1 new emails, 0 leads left"
+  "2026-08-12T17:21:59.416Z  leads: searched 1, found 1 sites, 1 new emails, 0 leads left",
+  "2026-08-12T17:40:53.962Z  osm GB United Kingdom: 1400 places -> +179 new, 111 merged, 18 with an email already, 663 leads with no contact tag, 221 dropped as public",
+  "2026-08-12T17:43:47.812Z  osm ES Spain: 717 places -> +17 new, 5 merged, 5 with an email already, 121 leads with no contact tag, 393 dropped as public",
+  "2026-08-12T17:48:05.823Z  osm AR: failed — subdivisions: out of time",
+  "2026-08-12T17:48:37.064Z  osm BR Brazil: 307 places -> +7 new, 0 merged, 3 with an email already, 59 leads with no contact tag, 228 dropped as public"
  ],
- "running": true,
- "phase": "importing countries from OpenStreetMap",
- "roundStarted": "2026-08-12T17:21:50.904Z"
+ "running": false,
+ "phase": "resting between rounds",
+ "roundStarted": "2026-08-12T17:21:50.904Z",
+ "lastRound": {
+  "at": "2026-08-12T17:48:37.107Z",
+  "minutes": 26.8,
+  "summary": "crawled 7 sites, +0 emails; searched 1 club names, found 1 sites, +1 emails; osm 3 countries (ES,GB,BR,AR,US,AU,PT,MX,IN,ZA,CA,IE) +203, 1 failed",
+  "crawled": 7,
+  "emailsFound": 0,
+  "pagesRead": 0,
+  "clubsAdded": 0,
+  "osmCountries": 3,
+  "osmAdded": 203,
+  "osmFailed": 1
+ }
 }
