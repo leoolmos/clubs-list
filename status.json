@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-12T19:24:12.779Z",
+ "generated": "2026-08-12T19:44:51.718Z",
  "clubs": 1157,
- "records": 1792,
+ "records": 1802,
  "crawl": {
-  "ready": 49,
-  "waiting": 96,
+  "ready": 134,
+  "waiting": 20,
   "exhausted": 75
  },
  "osm": {
-  "imported": 7,
-  "failed": 3,
-  "pending": 73,
+  "imported": 9,
+  "failed": 4,
+  "pending": 70,
   "total": 83,
   "lastError": {
-   "cc": "ZA",
-   "error": "busy (503)",
-   "at": "2026-08-12T19:05:34.092Z"
+   "cc": "IE",
+   "error": "subdivisions: out of time",
+   "at": "2026-08-12T19:44:51.589Z"
   }
  },
  "crawlReasons": [
@@ -51,9 +51,9 @@
   "pagesRead": 66
  },
  "leads": {
-  "total": 1360,
+  "total": 1526,
   "searched": 391,
-  "left": 969
+  "left": 1135
  },
  "activity": [
   {
@@ -1233,29 +1233,32 @@
  ],
  "perCountry": {
   "Argentina": {
-   "clubs": 38,
-   "emails": 38,
-   "sites": 0,
+   "clubs": 46,
+   "emails": 39,
+   "sites": 8,
    "read": 0,
    "unreachable": 0,
    "noAddress": 0,
-   "leads": 0,
+   "leads": 117,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
-    "Tennis": 25,
-    "Padel": 12,
+    "Tennis": 30,
+    "Padel": 15,
     "Squash": 1
    },
    "sources": {
     "search": 31,
-    "osm": 7
+    "osm": 8
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-12T18:55:03.516Z",
-    "error": "busy (503)",
-    "via": ""
+    "at": "2026-08-12T19:38:39.337Z",
+    "seen": 364,
+    "added": 8,
+    "rejected": 220,
+    "error": null,
+    "via": "overpass.private.coffee"
    }
   },
   "Australia": {
@@ -1357,7 +1360,11 @@
     "search": 1
    },
    "seeds": 0,
-   "osm": null
+   "osm": {
+    "at": "2026-08-12T19:43:57.315Z",
+    "error": "busy (503)",
+    "via": ""
+   }
   },
   "Chile": {
    "clubs": 1,
@@ -1421,21 +1428,25 @@
     "harvest": 54
    },
    "seeds": 7,
-   "osm": null
+   "osm": {
+    "at": "2026-08-12T19:44:51.589Z",
+    "error": "subdivisions: out of time",
+    "via": ""
+   }
   },
   "Mexico": {
-   "clubs": 9,
+   "clubs": 11,
    "emails": 9,
-   "sites": 0,
+   "sites": 2,
    "read": 0,
    "unreachable": 0,
    "noAddress": 0,
-   "leads": 0,
+   "leads": 49,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
-    "Tennis": 6,
-    "Padel": 3,
+    "Tennis": 7,
+    "Padel": 4,
     "Squash": 0
    },
    "sources": {
@@ -1444,9 +1455,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-12T18:58:43.066Z",
-    "error": "busy (503)",
-    "via": ""
+    "at": "2026-08-12T19:42:00.950Z",
+    "seen": 161,
+    "added": 2,
+    "rejected": 98,
+    "error": null,
+    "via": "overpass.kumi.systems"
    }
   },
   "New Zealand": {
@@ -1468,7 +1482,11 @@
     "osm": 24
    },
    "seeds": 0,
-   "osm": null
+   "osm": {
+    "at": "2026-08-12T19:44:31.893Z",
+    "error": "subdivisions: out of time",
+    "via": ""
+   }
   },
   "Paraguay": {
    "clubs": 1,
@@ -1868,22 +1886,34 @@
   }
  },
  "recent": [
-  "2026-08-12T19:10:15.656Z  osm AU Australia: 1013 places -> +72 new, 31 merged, 14 with an email already, 516 leads with no contact tag, 249 dropped as public",
-  "2026-08-12T19:10:17.936Z  published to the public link",
-  "2026-08-12T19:10:17.936Z  tick done in 37.4m — crawled 0 sites, +0 emails; searched 125 club names, found 111 sites, +35 emails; prospected 7 empty countries, +2 clubs; osm 1 countries (AR,AU,MX,ZA,CA,IE,NZ,CL,CO,PE,UY,EC) +72, 3 failed | 1118 emails total, 172 still queued",
-  "2026-08-12T19:10:17.936Z  stopped after 1 round",
-  "2026-08-12T19:10:22.172Z  daemon started — continuous, 50m per round, 20s between rounds",
-  "2026-08-12T19:10:22.186Z  crawl concurrency 8, osm 12 countries per round 2 at a time",
-  "2026-08-12T19:10:22.186Z  seeds: /home/user/clubs-list/seeds.txt",
   "2026-08-12T19:24:08.481Z  leads: the search engine stopped answering after 143 queries — pausing this phase",
   "2026-08-12T19:24:08.491Z  leads: searched 143, found 117 sites, 35 new emails, 969 leads left",
   "2026-08-12T19:24:12.672Z  prospect: the search engine stopped answering — pausing this phase",
   "2026-08-12T19:24:12.673Z  prospect: 1 countries searched, 0 sites read, 0 clubs added",
   "2026-08-12T19:24:12.740Z  discover: walking Curlie for club directories (up to 60 pages)",
   "2026-08-12T19:24:12.740Z  discover: opened 0 pages, skipped 6 already known",
-  "2026-08-12T19:24:12.740Z  discover: 0 new seeds, tree exhausted"
+  "2026-08-12T19:24:12.740Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-12T19:27:20.502Z  stopping after the current round — press Ctrl-C again to force",
+  "2026-08-12T19:38:39.336Z  osm AR Argentina: 364 places -> +8 new, 0 merged, 1 with an email already, 117 leads with no contact tag, 220 dropped as public",
+  "2026-08-12T19:42:00.948Z  osm MX Mexico: 161 places -> +2 new, 0 merged, 0 with an email already, 49 leads with no contact tag, 98 dropped as public",
+  "2026-08-12T19:43:57.315Z  osm CA: failed — busy (503)",
+  "2026-08-12T19:44:31.893Z  osm NZ: failed — subdivisions: out of time",
+  "2026-08-12T19:44:51.589Z  osm IE: failed — subdivisions: out of time",
+  "2026-08-12T19:44:51.590Z  osm: 3 countries failed in a row, so Overpass is not answering today. Leaving the rest of the round to the crawler; these countries stay unimported and are picked up next time."
  ],
- "running": true,
- "phase": "importing countries from OpenStreetMap",
- "roundStarted": "2026-08-12T19:10:22.208Z"
+ "running": false,
+ "phase": "resting between rounds",
+ "roundStarted": "2026-08-12T19:10:22.208Z",
+ "lastRound": {
+  "at": "2026-08-12T19:44:51.689Z",
+  "minutes": 34.5,
+  "summary": "crawled 161 sites, +26 emails; searched 143 club names, found 117 sites, +35 emails; prospected 1 empty countries, +0 clubs; osm 2 countries (AR,MX,CA,IE,NZ,CL,CO,PE,UY,EC,PY,CR) +10, 3 failed",
+  "crawled": 161,
+  "emailsFound": 26,
+  "pagesRead": 0,
+  "clubsAdded": 0,
+  "osmCountries": 2,
+  "osmAdded": 10,
+  "osmFailed": 3
+ }
 }
