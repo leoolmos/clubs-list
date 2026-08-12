@@ -140,11 +140,22 @@ function judge(html, url){
 /* ------------------------------------------------------------------ *
  * The walk
  * ------------------------------------------------------------------ */
-async function main(){
-  const args = process.argv.slice(2);
-  const dry  = args.includes('--dry');
+/**
+ * Walk the tree and add what is good.
+ *
+ * Split out from the command line so the daemon can run it too. Seeds being
+ * the bottleneck was written at the top of this file from the first day, and
+ * the walk that fixes it only ever ran when somebody typed it: every one of
+ * the 64 seeds is Spain, Ireland or Britain, and eighty countries waited for
+ * a hand that was never going to arrive.
+ */
+async function walk(opts){
+  opts = opts || {};
+  const dry = !!opts.dry;
   DRY = dry;
-  const max  = parseInt((args.find(a=>a.startsWith('--max='))||'').split('=')[1] || '150', 10);
+  const max = opts.max || 150;
+  const deadline = opts.deadline || 0;
+  const say = opts.log || (m => console.log(m));
 
   const seen = readSeen();
   const queue = ROOTS.slice();
@@ -152,9 +163,15 @@ async function main(){
   const already = seedsText();
   let opened = 0, skipped = 0, misses = 0;
 
-  console.log(`\n  walking Curlie for club directories (up to ${max} pages)\n`);
+  say(`\n  walking Curlie for club directories (up to ${max} pages)\n`);
 
   while(queue.length && opened < max){
+    // The daemon gives this a slice of the round rather than the whole of
+    // it, and the tree is far too big to finish in one: the queue is written
+    // back to the log every page, so stopping here simply means the next run
+    // starts from where this one ran out of time.
+    if(deadline && Date.now() > deadline) break;
+
     const url = queue.shift().replace(/\/$/,'');
     if(seen.has(url)){ skipped++; continue; }
 
@@ -168,7 +185,7 @@ async function main(){
       note('RETRY', url);
       misses++;
       if(misses >= 5){
-        console.log(`  (being throttled - backing off for a minute)`);
+        say(`  (being throttled - backing off for a minute)`);
         await sleep(60000);
         misses = 0;
       }
@@ -189,7 +206,7 @@ async function main(){
       seen.set(url,'SEED');
       if(!already.includes(url)){
         found.push({cc, url, clubs});
-        console.log(`  + ${String(clubs).padStart(3)} clubs  ${cc.padEnd(4)}  ${url}`);
+        say(`  + ${String(clubs).padStart(3)} clubs  ${cc.padEnd(4)}  ${url}`);
       }
     } else {
       note('THIN', url);
@@ -202,28 +219,42 @@ async function main(){
       if(!seen.has(s) && !queue.includes(s)) queue.push(s);
     }
 
-    if(opened % 20 === 0) process.stdout.write(`  ...${opened} pages opened, ${found.length} seeds found\n`);
+    if(opened % 20 === 0) say(`  ...${opened} pages opened, ${found.length} seeds found`);
     await sleep(HOST_DELAY);     // Curlie is a volunteer-run service
   }
 
-  console.log(`\n  opened ${opened} pages, skipped ${skipped} already known`);
-  console.log(`  ${found.length} new seed${found.length===1?'':'s'}` +
+  say(`\n  opened ${opened} pages, skipped ${skipped} already known`);
+  say(`  ${found.length} new seed${found.length===1?'':'s'}` +
               (queue.length ? `, ${queue.length} pages still in the queue for next time` : ', tree exhausted'));
 
-  if(!found.length) return;
+  const summary = {opened, skipped, found: found.length, queueLeft: queue.length, seeds: found};
+  if(!found.length) return summary;
 
   if(dry){
-    console.log(`\n  --dry, so seeds.txt was not touched. Lines that would be added:\n`);
-    for(const f of found) console.log(`${f.cc}  ${f.url}`);
-    return;
+    say(`\n  --dry, so seeds.txt was not touched. Lines that would be added:\n`);
+    for(const f of found) say(`${f.cc}  ${f.url}`);
+    return summary;
   }
 
   addSeeds(found);
   const byCc = {};
   for(const f of found) byCc[f.cc] = (byCc[f.cc]||0) + 1;
-  console.log(`\n  added to seeds.txt: ` +
+  say(`\n  added to seeds.txt: ` +
               Object.entries(byCc).sort((a,b)=>b[1]-a[1]).map(([c,n])=>`${c}×${n}`).join(' '));
-  console.log(`  the daemon picks them up on its next round.\n`);
+  say(`  the daemon picks them up on its next round.\n`);
+  return summary;
 }
 
-main();
+async function main(){
+  const args = process.argv.slice(2);
+  await walk({
+    dry: args.includes('--dry'),
+    max: parseInt((args.find(a=>a.startsWith('--max='))||'').split('=')[1] || '150', 10)
+  });
+}
+
+module.exports = { walk, judge, ccFromPath };
+
+/* Run only when this file is the thing that was started. Required by the
+ * daemon, it must define the walk and do nothing else. */
+if(require.main === module) main();

@@ -62,6 +62,13 @@ const CFG = {
   pageTimeoutMs: parseInt(process.env.PAGE_TIMEOUT_MS|| '5000', 10),
   retryMinutes:  parseInt(process.env.RETRY_MINUTES  || '10', 10),
   leadMinutes:   parseInt(process.env.LEAD_MINUTES   || '12', 10),  // slice for searching
+  // Searching a country out from nothing is what reaches the sixty-two that
+  // hold nothing, so it gets a real slice rather than the leftovers.
+  prospectMinutes: parseInt(process.env.PROSPECT_MINUTES || '10', 10),
+  // Curlie is volunteer-run and answers at 3s a page, so this is minutes of
+  // walking rather than a page count worth tuning.
+  discoverMinutes: parseInt(process.env.DISCOVER_MINUTES || '5',  10),
+  discoverPages:   parseInt(process.env.DISCOVER_PAGES   || '60', 10),
   maxAttempts:   4
 };
 
@@ -70,6 +77,8 @@ const { detectSports, privateClub, extractEmails, extractContactName,
         plausibleSite, siteFromEmail, RE_PUBLIC, RE_PUBLIC_DOMAIN, RE_CLUBWORD } = require('./lib/classify');
 const osm = require('./lib/osm');
 const search = require('./lib/search');
+const prospect = require('./lib/prospect');
+const discover = require('./discover');
 
 
 const UA = 'RacketClubResearch/1.0 (club directory research; contact: set-your-email@example.com)';
@@ -384,6 +393,116 @@ async function phaseHarvest(db, queue, deadline){
   }
 
   return {pages, added, source: Array.from(new Set(worked)).join(', ') || null};
+}
+
+/* ------------------------------------------------------------------ *
+ * Work: find new directories to walk
+ * ------------------------------------------------------------------ *
+ * The harvest above is the strongest engine there is, and it can only ever
+ * be as good as seeds.txt. All 64 seeds are Spain, Ireland and Britain —
+ * 52 Spanish ones produced 540 clubs, more than half the database — and
+ * every one of them was found and pasted in by hand.
+ *
+ * discover.js has walked Curlie for new ones since the beginning, and it was
+ * never wired to anything: it ran when somebody remembered to type it. So it
+ * runs here, when the directories are exhausted and the harvest has nothing
+ * left to do, which is exactly the state that used to end the round early.
+ */
+async function phaseDiscover(queue, deadline){
+  if(process.env.DISCOVER === 'off') return {opened:0, found:0};
+
+  // Only when there is nothing left to walk. A working seed is worth more
+  // than the search for another one.
+  const pending = Object.values(queue).filter(s=>!s.done);
+  if(pending.length) return {opened:0, found:0, skipped:'seeds still working'};
+
+  const budget = Math.min(deadline, Date.now() + CFG.discoverMinutes*60*1000);
+  let r;
+  try{ r = await discover.walk({max: CFG.discoverPages, deadline: budget, log: m => { const t = m.trim(); if(t) log('discover: '+t); }}); }
+  catch(e){ log('discover failed: ' + e.message); return {opened:0, found:0}; }
+
+  // New seed lines are only lines until the queue knows about them.
+  if(r && r.found) syncQueue();
+  return r || {opened:0, found:0};
+}
+
+/* ------------------------------------------------------------------ *
+ * Work: search out the clubs of a country from nothing
+ * ------------------------------------------------------------------ *
+ * Sixty-two of the eighty-three countries hold no clubs at all. Neither of
+ * the two engines that find them was ever aimed there: the directories are
+ * three countries' worth, and the search only looks up names OSM has already
+ * supplied — and OSM has almost none to give in those countries.
+ *
+ * This asks for a country's clubs directly, in its own language. The
+ * candidates are vetted hard in lib/prospect.js, because a query with no
+ * club name in it cannot be checked against one afterwards.
+ */
+async function phaseProspect(db, deadline){
+  if(process.env.PROSPECT === 'off') return {countries:0, added:0};
+
+  const stateFile = path.join(DATA_DIR, 'prospect.json');
+  const state = readJSON(stateFile, {});
+
+  // Every host already known, so a country is not re-vetted into a duplicate
+  // of a club another engine found first.
+  const knownHosts = new Set();
+  for(const r of Object.values(db)){
+    if(!r.website) continue;
+    try{ knownHosts.add(new URL(r.website).hostname.replace(/^www\./,'').toLowerCase()); }catch(e){}
+  }
+
+  // Emptiest first, and among equals the one waiting longest. The whole
+  // point is the countries at zero.
+  const counts = {};
+  for(const r of Object.values(db)) if(r.email && r.cc) counts[r.cc] = (counts[r.cc]||0) + 1;
+  const order = Object.keys(COUNTRIES)
+    .map(cc => ({cc, clubs: counts[cc]||0, last: (state[cc]||{}).last || ''}))
+    .sort((a,b) => a.clubs - b.clubs || a.last.localeCompare(b.last));
+
+  const budget = Math.min(deadline, Date.now() + CFG.prospectMinutes*60*1000);
+  let countries = 0, added = 0, vetted = 0;
+
+  for(const {cc} of order){
+    if(Date.now() > budget) break;
+
+    const st = state[cc] || (state[cc] = {queriesDone:[], found:0});
+    const r = await prospect.prospectCountry(cc, {
+      knownHosts, deadline: budget, timeoutMs: CFG.pageTimeoutMs + 4000,
+      queriesDone: st.queriesDone, log: m => log(m)
+    });
+
+    st.queriesDone = r.queriesDone;
+    st.last = new Date().toISOString();
+    if(!r.queries) continue;          // every query already asked; move on
+    countries++;
+    vetted += r.candidates;
+
+    for(const rec of r.added){
+      const key = keyFor(rec);
+      if(db[key]){
+        if(!db[key].website) db[key].website = rec.website;
+        continue;
+      }
+      db[key] = rec;
+      added++;
+      knownHosts.add(new URL(rec.website).hostname.replace(/^www\./,'').toLowerCase());
+      activity('prospect', `${rec.country}: found ${rec.name} -> ${rec.website}`, {ok:true, url:rec.website});
+    }
+    st.found = (st.found||0) + r.added.length;
+
+    // The engine turning us away is not this country having no clubs, and
+    // marking the queries done would write it off for good.
+    if(r.throttled){
+      st.queriesDone = st.queriesDone.filter(q => q !== r.lastQuery);
+      log(`prospect: the search engine stopped answering — pausing this phase`);
+      break;
+    }
+  }
+
+  writeJSON(stateFile, state);
+  if(countries) log(`prospect: ${countries} countries searched, ${vetted} sites read, ${added} clubs added`);
+  return {countries, added, vetted};
 }
 
 /* Walk one directory for up to `budget` pages. */
@@ -882,6 +1001,23 @@ async function tick(){
     busy('reading directory pages');
     if(Date.now() < deadline) h = await phaseHarvest(db, queue, deadline);
 
+    // Nothing left to walk means it is time to go and find more to walk,
+    // not time to end the round early.
+    let d = {opened:0, found:0};
+    if(Date.now() < deadline){
+      busy('looking for new club directories');
+      d = await phaseDiscover(queue, deadline);
+    }
+
+    // The countries nobody has a directory or an OSM entry for. Last of the
+    // finding phases because it is the slowest per club, and first in line
+    // for whatever the round has left.
+    let p = {countries:0, added:0};
+    if(Date.now() < deadline){
+      busy('searching out clubs in the countries that have none');
+      p = await phaseProspect(db, deadline);
+    }
+
     // Save between phases, not only at the end. A round that hangs in a
     // later phase used to throw away everything the earlier ones collected:
     // one round spent half an hour crawling, stalled waiting on Overpass,
@@ -905,6 +1041,8 @@ async function tick(){
     const summary = `crawled ${c.tried} sites, +${c.found} emails` +
         (L.tried ? `; searched ${L.tried} club names, found ${L.found} sites, +${L.emails} emails` : '') +
         (h.pages ? `; read ${h.pages} pages from ${h.source}, +${h.added} clubs` : '') +
+        (d.found ? `; found ${d.found} new directories` : '') +
+        (p.countries ? `; prospected ${p.countries} empty countries, +${p.added} clubs` : '') +
         (o.cc ? `; osm ${o.countries||0} countries (${o.cc}) +${o.added}` +
                 (o.failed ? `, ${o.failed} failed` : '') : '');
 
@@ -1140,6 +1278,11 @@ Tuning, all optional:
                         and there are three mirrors; past about six the extra
                         ones only collect refusals. Higher is not faster.
   OSM=off               skip the OpenStreetMap step entirely
+  PROSPECT_MINUTES=10   slice for searching out the countries that have none
+  PROSPECT=off          skip that step
+  DISCOVER_MINUTES=5    slice for walking Curlie for new directories, which
+  DISCOVER_PAGES=60     only happens once every seed is exhausted
+  DISCOVER=off          skip that step
 `);
     return;
   }

@@ -105,6 +105,34 @@ It keeps places that publish a website or an email. Named clubs with
 neither go to `data/osm-leads.json` rather than being discarded, so they
 are not rediscovered every run.
 
+**Prospecting** — `lib/prospect.js`. The two engines above between them
+left sixty-two of the eighty-three countries at zero, and not because they
+failed there. Every one of the 64 directory seeds is Spain, Ireland or
+Britain, and the club search only ever looks up a name OpenStreetMap has
+already supplied — which in those countries it has not. Kenya returned 18
+places and 13 were dropped as public; Malawi returned 4. No name, no query,
+no clubs, for as long as it runs.
+
+So this asks for a country's clubs directly, in the country's own language:
+`club de tenis Panamá contacto`, `clube de ténis Angola contacto`. Nothing
+is trusted from the results themselves — a query with no club name in it
+cannot be checked against one afterwards — so each candidate is read first
+and has to name itself like a club, show a racket sport on its own page,
+pass the same private-club rules as every other record, and tie itself to
+the country asked for. It stops at the website; the crawl below is what
+turns that into an address.
+
+The countries with the fewest clubs go first. What it turned down on the
+first run is as much the point as what it kept: a global padel directory
+that ranked for El Salvador, a squash magazine that would have been
+published as the only club in Equatorial Guinea, and a booking platform
+titled "Court Booking System for South Africa" that ranked for Kenya.
+
+**Finding new directories** — `discover.js`. Seeds are the bottleneck and
+always were, and until now the walk that fixes it only ran when somebody
+typed it by hand. The daemon runs it when every seed is exhausted, which is
+the state that used to simply end the round early.
+
 **The site crawl.** Anything with a website but no email yet gets its
 homepage and up to six likely contact pages read, in Spanish, Portuguese
 and English. Cloudflare-obfuscated and "info [at] club [dot] com" style
@@ -132,6 +160,7 @@ harvest.js          add one directory and work it immediately
 publish.js          commit clubs.json and push
 install-windows.ps1 hourly Scheduled Task
 seeds.txt           directories, with notes on what was rejected and why
+lib/prospect.js     search a country's clubs out from nothing
 lib/countries.js    the eighty-three countries, languages, domain to country
 lib/classify.js     sports, private-club rules, email extraction
 lib/http.js         character sets, robots.txt, per-host spacing
