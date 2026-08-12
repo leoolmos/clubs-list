@@ -1,31 +1,31 @@
 {
- "generated": "2026-08-12T21:54:39.665Z",
- "clubs": 1262,
- "records": 1795,
+ "generated": "2026-08-12T22:10:31.967Z",
+ "clubs": 1264,
+ "records": 1818,
  "crawl": {
-  "ready": 14,
-  "waiting": 32,
-  "exhausted": 428
+  "ready": 27,
+  "waiting": 37,
+  "exhausted": 431
  },
  "osm": {
-  "imported": 77,
-  "failed": 6,
+  "imported": 74,
+  "failed": 9,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "ES",
-   "error": "partial: 8 of 23 subdivisions read",
-   "at": "2026-08-12T21:53:58.000Z"
+   "cc": "CA",
+   "error": "subdivisions: out of time",
+   "at": "2026-08-12T22:10:31.905Z"
   }
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 502
+   "n": 504
   },
   {
    "note": "unreachable",
-   "n": 319
+   "n": 318
   },
   {
    "note": "no email published",
@@ -33,7 +33,7 @@
   },
   {
    "note": "blocked by a challenge page",
-   "n": 24
+   "n": 25
   },
   {
    "note": "/contact",
@@ -52,10 +52,286 @@
  },
  "leads": {
   "total": 3894,
-  "searched": 1144,
-  "left": 2750
+  "searched": 1156,
+  "left": 2738
  },
  "activity": [
+  {
+   "t": "2026-08-12T22:05:55.518Z",
+   "kind": "search",
+   "text": "Stanthorpe Squash Centre: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:48.428Z",
+   "kind": "search",
+   "text": "Dairymple Squash Centre: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:41.343Z",
+   "kind": "search",
+   "text": "Rockhampton Squash World: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:34.262Z",
+   "kind": "search",
+   "text": "Moura Squash Club: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:30.653Z",
+   "kind": "search",
+   "text": "no site found for Maryborough Squash & Fitness Centre (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:29.527Z",
+   "kind": "search",
+   "text": "Scarborough Squash & Fitness Centre (Australia) -> https://www.localgymsandfitness.com, no address on the site (blocked by a challenge page)",
+   "ok": false,
+   "url": "https://www.localgymsandfitness.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-12T22:05:28.202Z",
+   "kind": "search",
+   "text": "no site found for Deception Bay Squash (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:26.978Z",
+   "kind": "search",
+   "text": "no site found for Caboolture Squash & Sauna Centre (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:25.722Z",
+   "kind": "search",
+   "text": "no site found for Mirnee Tennis Courts (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:24.494Z",
+   "kind": "search",
+   "text": "no site found for Carindale Tennis Centre (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:22.113Z",
+   "kind": "search",
+   "text": "no site found for Dunnstown Tennis Club (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:20.904Z",
+   "kind": "search",
+   "text": "no site found for Sorell Tennis Club (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:19.832Z",
+   "kind": "search",
+   "text": "no site found for Hays Paddock Tennis Court (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:18.522Z",
+   "kind": "search",
+   "text": "no site found for Altona Tennis Club (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:17.885Z",
+   "kind": "search",
+   "text": "Cootamundra Tennis Courts (Australia) -> https://visitcootamundra.com.au -> info@visitcootamundra.com.au",
+   "ok": true,
+   "url": "https://visitcootamundra.com.au",
+   "email": "info@visitcootamundra.com.au"
+  },
+  {
+   "t": "2026-08-12T22:05:15.240Z",
+   "kind": "search",
+   "text": "no site found for Mallanganee Tennis Courts (Australia)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-12T22:05:11.902Z",
+   "kind": "prospect",
+   "text": "Rwanda: found Cercle Sportif De Kigali .::. Your Outdoor -> https://csk.rw",
+   "ok": true,
+   "url": "https://csk.rw"
+  },
+  {
+   "t": "2026-08-12T22:05:11.901Z",
+   "kind": "prospect",
+   "text": "Rwanda: found Kigali Tennis Centre -> https://kigalitenniscentre.com",
+   "ok": true,
+   "url": "https://kigalitenniscentre.com"
+  },
+  {
+   "t": "2026-08-12T22:05:11.901Z",
+   "kind": "prospect",
+   "text": "Rwanda: found Nyarutarama Sport Trust club -> https://nsportsclub.rw",
+   "ok": true,
+   "url": "https://nsportsclub.rw"
+  },
+  {
+   "t": "2026-08-12T22:04:47.028Z",
+   "kind": "prospect",
+   "text": "Philippines: found Valle Verde Country Club -> https://www.valleverdecountryclub.com",
+   "ok": true,
+   "url": "https://www.valleverdecountryclub.com"
+  },
+  {
+   "t": "2026-08-12T22:04:47.028Z",
+   "kind": "prospect",
+   "text": "Philippines: found Asia Pacific's Padel Tour -> https://asiapacificpadeltour.com",
+   "ok": true,
+   "url": "https://asiapacificpadeltour.com"
+  },
+  {
+   "t": "2026-08-12T22:04:47.027Z",
+   "kind": "prospect",
+   "text": "Philippines: found PadelAsia -> https://indopadel.net",
+   "ok": true,
+   "url": "https://indopadel.net"
+  },
+  {
+   "t": "2026-08-12T22:04:47.026Z",
+   "kind": "prospect",
+   "text": "Philippines: found Manila Polo Club -> https://manilapolo.com.ph",
+   "ok": true,
+   "url": "https://manilapolo.com.ph"
+  },
+  {
+   "t": "2026-08-12T22:04:11.861Z",
+   "kind": "prospect",
+   "text": "Papua New Guinea: found Port Moresby Racquets Club -> https://www.pomracquetsclub.com",
+   "ok": true,
+   "url": "https://www.pomracquetsclub.com"
+  },
+  {
+   "t": "2026-08-12T22:03:44.917Z",
+   "kind": "prospect",
+   "text": "Palau: found Padelink -> https://www.padelink.cat",
+   "ok": true,
+   "url": "https://www.padelink.cat"
+  },
+  {
+   "t": "2026-08-12T22:03:29.804Z",
+   "kind": "prospect",
+   "text": "Pakistan: found Club Padel -> https://clubpadel.pk",
+   "ok": true,
+   "url": "https://clubpadel.pk"
+  },
+  {
+   "t": "2026-08-12T22:03:29.804Z",
+   "kind": "prospect",
+   "text": "Pakistan: found The Padel Club -> https://thepadelclub.pk",
+   "ok": true,
+   "url": "https://thepadelclub.pk"
+  },
+  {
+   "t": "2026-08-12T22:03:29.804Z",
+   "kind": "prospect",
+   "text": "Pakistan: found PREMIER CLUB -> https://premierclub.pk",
+   "ok": true,
+   "url": "https://premierclub.pk"
+  },
+  {
+   "t": "2026-08-12T22:02:48.984Z",
+   "kind": "prospect",
+   "text": "Nigeria: found Ikoyi Club 1938 -> https://web.ikoyiclub1938.org",
+   "ok": true,
+   "url": "https://web.ikoyiclub1938.org"
+  },
+  {
+   "t": "2026-08-12T22:02:48.983Z",
+   "kind": "prospect",
+   "text": "Nigeria: found PADEL X NIGERIA -> https://padelx-ng.com",
+   "ok": true,
+   "url": "https://padelx-ng.com"
+  },
+  {
+   "t": "2026-08-12T22:02:48.983Z",
+   "kind": "prospect",
+   "text": "Nigeria: found Ikoyi Club Tennis -> https://ikoyiclubtennis.com.ng",
+   "ok": true,
+   "url": "https://ikoyiclubtennis.com.ng"
+  },
+  {
+   "t": "2026-08-12T22:02:48.983Z",
+   "kind": "prospect",
+   "text": "Nigeria: found 1925 Ibadan Tennis Club -> https://www.ibadantennisclub.com",
+   "ok": true,
+   "url": "https://www.ibadantennisclub.com"
+  },
+  {
+   "t": "2026-08-12T22:02:48.982Z",
+   "kind": "prospect",
+   "text": "Nigeria: found Abuja Tennis Club -> https://atc.hasob.ng",
+   "ok": true,
+   "url": "https://atc.hasob.ng"
+  },
+  {
+   "t": "2026-08-12T22:01:57.514Z",
+   "kind": "prospect",
+   "text": "Namibia: found NAMIBIA PADEL Windhoek -> https://namibiapadel.com",
+   "ok": true,
+   "url": "https://namibiapadel.com"
+  },
+  {
+   "t": "2026-08-12T22:01:57.513Z",
+   "kind": "prospect",
+   "text": "Namibia: found Pro Tennis Academy -> https://www.protennisacademy.com.na",
+   "ok": true,
+   "url": "https://www.protennisacademy.com.na"
+  },
+  {
+   "t": "2026-08-12T22:00:29.219Z",
+   "kind": "prospect",
+   "text": "Mauritius: found MAURITIUS GYMKHANA CLUB -> https://mgc.mu",
+   "ok": true,
+   "url": "https://mgc.mu"
+  },
+  {
+   "t": "2026-08-12T21:58:58.409Z",
+   "kind": "prospect",
+   "text": "Malawi: found Lilongwe Golf Club -> https://llgolfclub.com",
+   "ok": true,
+   "url": "https://llgolfclub.com"
+  },
+  {
+   "t": "2026-08-12T21:55:13.873Z",
+   "kind": "crawl",
+   "text": "Morrisons Tennis Courts — https://my.morrisons.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://my.morrisons.com"
+  },
+  {
+   "t": "2026-08-12T21:55:13.812Z",
+   "kind": "crawl",
+   "text": "Chocolyn Tennis Courts (Private) — https://theprivatecourtclub.mysharetribe.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://theprivatecourtclub.mysharetribe.com"
+  },
+  {
+   "t": "2026-08-12T21:55:13.752Z",
+   "kind": "crawl",
+   "text": "Delungra Tennis Courts — https://wltsc.mycourts.co.uk: site read, publishes no address",
+   "ok": false,
+   "url": "https://wltsc.mycourts.co.uk"
+  },
+  {
+   "t": "2026-08-12T21:55:01.757Z",
+   "kind": "crawl",
+   "text": "Wilsden Squash Club — http://www.wilsdensquashclub.co.uk/ -> wilsdensquash@gmail.com",
+   "ok": true,
+   "url": "http://www.wilsdensquashclub.co.uk/",
+   "email": "wilsdensquash@gmail.com"
+  },
   {
    "t": "2026-08-12T21:50:29.680Z",
    "kind": "search",
@@ -874,285 +1150,6 @@
    "ok": true,
    "url": "https://clarindatennis.com.au",
    "email": "clarindatc@gmail.com"
-  },
-  {
-   "t": "2026-08-12T21:30:21.469Z",
-   "kind": "crawl",
-   "text": "Brookfield Tennis Centre — https://www.brookfieldtennis.com.au: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.brookfieldtennis.com.au"
-  },
-  {
-   "t": "2026-08-12T21:30:21.331Z",
-   "kind": "crawl",
-   "text": "Forrest Tennis Club — https://www.forresttennisclub.com.au: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.forresttennisclub.com.au"
-  },
-  {
-   "t": "2026-08-12T21:30:20.634Z",
-   "kind": "crawl",
-   "text": "Malvern Tennis Centre — https://www.manorparkmalvern.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.manorparkmalvern.com"
-  },
-  {
-   "t": "2026-08-12T21:26:22.079Z",
-   "kind": "search",
-   "text": "Court 31: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:26:15.002Z",
-   "kind": "search",
-   "text": "Court 30: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:26:07.913Z",
-   "kind": "search",
-   "text": "Eildon Park Tennis Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:26:00.829Z",
-   "kind": "search",
-   "text": "Thornlie Tennis Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:25:57.383Z",
-   "kind": "search",
-   "text": "Matchpoint Tennis Academy (Australia) -> https://matchpointacademy.co.uk -> matchpoint_academy@outlook.com",
-   "ok": true,
-   "url": "https://matchpointacademy.co.uk",
-   "email": "matchpoint_academy@outlook.com"
-  },
-  {
-   "t": "2026-08-12T21:25:55.908Z",
-   "kind": "search",
-   "text": "no site found for Warrandyte Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:25:53.490Z",
-   "kind": "search",
-   "text": "no site found for Ullina Tennis Court (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:25:52.271Z",
-   "kind": "search",
-   "text": "no site found for Hermidale Tennis & Fitness Centre (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:25:51.023Z",
-   "kind": "search",
-   "text": "no site found for Boolba Tennis Courts (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:25:50.261Z",
-   "kind": "search",
-   "text": "Court 18 (Australia) -> https://www.court18tennis.co.uk -> info@court18tennis.co.uk",
-   "ok": true,
-   "url": "https://www.court18tennis.co.uk",
-   "email": "info@court18tennis.co.uk"
-  },
-  {
-   "t": "2026-08-12T21:25:49.274Z",
-   "kind": "search",
-   "text": "Court 19 -> https://www.find-court-tribunal.service.gov.uk, dropped: public or institutional domain",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:25:35.968Z",
-   "kind": "search",
-   "text": "no site found for Court 58 (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:25:34.791Z",
-   "kind": "search",
-   "text": "no site found for Condamine Tennis Courts (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:25:34.172Z",
-   "kind": "search",
-   "text": "Richmond Tennis Courts -> https://www.richmond.gov.uk, dropped: public or institutional domain",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:25:21.242Z",
-   "kind": "search",
-   "text": "Beaconsfield tennis courts -> https://www.beaconsfieldtowncouncil.gov.uk, dropped: public or institutional domain",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:25:14.851Z",
-   "kind": "search",
-   "text": "Inverloch Tennis Club (Australia) -> https://inverloch.town, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://inverloch.town",
-   "email": ""
-  },
-  {
-   "t": "2026-08-12T21:25:00.562Z",
-   "kind": "search",
-   "text": "no site found for Yarralumla Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:24:59.827Z",
-   "kind": "search",
-   "text": "Court 57 -> https://www.find-court-tribunal.service.gov.uk, dropped: public or institutional domain",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:24:47.063Z",
-   "kind": "search",
-   "text": "Shepparton Lawn Tennis club (Australia) -> https://shepparton-vic.australian-local.com, no address on the site (blocked by a challenge page)",
-   "ok": false,
-   "url": "https://shepparton-vic.australian-local.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-12T21:24:44.644Z",
-   "kind": "search",
-   "text": "Prospect Tennis Club (Australia) -> https://prospect.org.uk -> info@prospect.org.uk",
-   "ok": true,
-   "url": "https://prospect.org.uk",
-   "email": "info@prospect.org.uk"
-  },
-  {
-   "t": "2026-08-12T21:24:43.140Z",
-   "kind": "search",
-   "text": "no site found for Yandina Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:24:41.910Z",
-   "kind": "search",
-   "text": "no site found for West Brisbane Tennis Centre (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:24:40.122Z",
-   "kind": "search",
-   "text": "Peregian Tennis Club (Australia) -> https://peregiantennisclub.com.au -> courtmanager@peregiantennisclub.com.au",
-   "ok": true,
-   "url": "https://peregiantennisclub.com.au",
-   "email": "courtmanager@peregiantennisclub.com.au"
-  },
-  {
-   "t": "2026-08-12T21:24:36.492Z",
-   "kind": "search",
-   "text": "Multi Purpose Court (Australia) -> https://www.gamecourts.co.uk -> probounce.info@gmail.com",
-   "ok": true,
-   "url": "https://www.gamecourts.co.uk",
-   "email": "probounce.info@gmail.com"
-  },
-  {
-   "t": "2026-08-12T21:24:35.052Z",
-   "kind": "search",
-   "text": "no site found for Colac Lawn Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:24:33.930Z",
-   "kind": "search",
-   "text": "Blair Athol Residents Tennis Court (Australia) -> https://www.blairathol.net, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://www.blairathol.net",
-   "email": ""
-  },
-  {
-   "t": "2026-08-12T21:24:33.074Z",
-   "kind": "search",
-   "text": "Glen Eagles Residents Tennis Court (Australia) -> https://www.no19gleneagles.co.uk -> no19atgleneagles@gmail.com",
-   "ok": true,
-   "url": "https://www.no19gleneagles.co.uk",
-   "email": "no19atgleneagles@gmail.com"
-  },
-  {
-   "t": "2026-08-12T21:24:31.808Z",
-   "kind": "search",
-   "text": "no site found for Bli Bli Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:24:31.808Z",
-   "kind": "search",
-   "text": "Meadowbank Park Tennis Centre (Australia) -> https://meadowbank-park-tennis-courts.wheree.com, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://meadowbank-park-tennis-courts.wheree.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-12T21:24:30.821Z",
-   "kind": "search",
-   "text": "Brelsford Park Tennis Club (Australia) -> https://telfordparktennisclub.co.uk -> admin@telfordparktennisclub.co.uk",
-   "ok": true,
-   "url": "https://telfordparktennisclub.co.uk",
-   "email": "admin@telfordparktennisclub.co.uk"
-  },
-  {
-   "t": "2026-08-12T21:24:23.193Z",
-   "kind": "search",
-   "text": "Hawker Tennis Centre (Australia) -> https://clubspark.lta.org.uk/YMCAHawkerTennisKingston, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://clubspark.lta.org.uk/YMCAHawkerTennisKingston",
-   "email": ""
-  },
-  {
-   "t": "2026-08-12T21:24:22.288Z",
-   "kind": "search",
-   "text": "Camberwell Tennis Club (Australia) -> https://camberwelljunctiontc.wixsite.com, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://camberwelljunctiontc.wixsite.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-12T21:24:21.385Z",
-   "kind": "search",
-   "text": "Jandowae Tennis Courts (Australia) -> https://www.jandowae.com -> greg.lipshus@crg.com.au",
-   "ok": true,
-   "url": "https://www.jandowae.com",
-   "email": "greg.lipshus@crg.com.au"
-  },
-  {
-   "t": "2026-08-12T21:24:18.577Z",
-   "kind": "search",
-   "text": "no site found for David Turbayne Tennis Centre (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:24:17.342Z",
-   "kind": "search",
-   "text": "no site found for Sheldon Tennis Centre (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:24:15.533Z",
-   "kind": "search",
-   "text": "Kiama Tennis Club (Australia) -> http://kiamatennis.org.au, no address on the site (no email published)",
-   "ok": false,
-   "url": "http://kiamatennis.org.au",
-   "email": ""
-  },
-  {
-   "t": "2026-08-12T21:24:00.657Z",
-   "kind": "search",
-   "text": "no site found for North Armidale Tennis Club (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-12T21:23:59.454Z",
-   "kind": "search",
-   "text": "no site found for Cabramurra Tennis Court (Australia)",
-   "ok": false
   }
  ],
  "perCountry": {
@@ -1178,20 +1175,20 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-12T21:53:58.000Z",
-    "seen": 78,
+    "at": "2026-08-12T22:09:10.862Z",
+    "seen": 123,
     "added": 0,
-    "rejected": 38,
+    "rejected": 50,
     "error": "partial: 8 of 23 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    }
   },
   "United Kingdom": {
    "clubs": 353,
-   "emails": 254,
+   "emails": 255,
    "sites": 245,
    "read": 221,
-   "unreachable": 88,
+   "unreachable": 87,
    "noAddress": 8,
    "leads": 695,
    "leadsSearched": 4,
@@ -1202,7 +1199,7 @@
     "Squash": 63
    },
    "sources": {
-    "harvest": 36,
+    "harvest": 37,
     "osm": 111,
     "search": 107
    },
@@ -1237,7 +1234,7 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-12T21:53:47.610Z",
+    "at": "2026-08-12T22:09:20.607Z",
     "seen": 5,
     "added": 0,
     "rejected": 0,
@@ -1420,23 +1417,23 @@
    }
   },
   "Australia": {
-   "clubs": 280,
-   "emails": 158,
-   "sites": 278,
-   "read": 265,
+   "clubs": 282,
+   "emails": 159,
+   "sites": 280,
+   "read": 267,
    "unreachable": 59,
    "noAddress": 48,
    "leads": 557,
-   "leadsSearched": 514,
-   "leadsFound": 291,
+   "leadsSearched": 526,
+   "leadsFound": 293,
    "sports": {
-    "Tennis": 268,
+    "Tennis": 269,
     "Padel": 1,
-    "Squash": 11
+    "Squash": 12
    },
    "sources": {
     "osm": 46,
-    "search": 112
+    "search": 113
    },
    "seeds": 0,
    "osm": {
@@ -1702,9 +1699,9 @@
    }
   },
   "Philippines": {
-   "clubs": 1,
+   "clubs": 5,
    "emails": 0,
-   "sites": 1,
+   "sites": 5,
    "read": 1,
    "unreachable": 1,
    "noAddress": 0,
@@ -1712,18 +1709,18 @@
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
-    "Tennis": 0,
-    "Padel": 1,
-    "Squash": 0
+    "Tennis": 2,
+    "Padel": 4,
+    "Squash": 2
    },
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T06:23:57.878Z",
+    "at": "2026-08-12T22:10:02.648Z",
     "seen": 272,
     "added": 0,
     "rejected": 46,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.kumi.systems"
    }
   },
@@ -1748,11 +1745,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T06:15:10.164Z",
+    "at": "2026-08-12T22:10:31.905Z",
     "seen": 397,
     "added": 0,
     "rejected": 223,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.kumi.systems"
    }
   },
@@ -2224,10 +2221,88 @@
     "via": "overpass.private.coffee"
    }
   },
-  "Pakistan": {
-   "clubs": 0,
+  "Malawi": {
+   "clubs": 1,
    "emails": 0,
-   "sites": 0,
+   "sites": 1,
+   "read": 0,
+   "unreachable": 0,
+   "noAddress": 0,
+   "leads": 3,
+   "leadsSearched": 0,
+   "leadsFound": 0,
+   "sports": {
+    "Tennis": 1,
+    "Padel": 0,
+    "Squash": 1
+   },
+   "sources": {},
+   "seeds": 0,
+   "osm": {
+    "at": "2026-08-11T23:29:08.019Z",
+    "seen": 4,
+    "added": 0,
+    "rejected": 0,
+    "error": null,
+    "via": "overpass.private.coffee"
+   }
+  },
+  "Mauritius": {
+   "clubs": 1,
+   "emails": 0,
+   "sites": 1,
+   "read": 0,
+   "unreachable": 0,
+   "noAddress": 0,
+   "leads": 3,
+   "leadsSearched": 0,
+   "leadsFound": 0,
+   "sports": {
+    "Tennis": 1,
+    "Padel": 0,
+    "Squash": 1
+   },
+   "sources": {},
+   "seeds": 0,
+   "osm": {
+    "at": "2026-08-11T23:36:05.186Z",
+    "seen": 13,
+    "added": 0,
+    "rejected": 10,
+    "error": null,
+    "via": "overpass.kumi.systems"
+   }
+  },
+  "Namibia": {
+   "clubs": 2,
+   "emails": 0,
+   "sites": 2,
+   "read": 0,
+   "unreachable": 0,
+   "noAddress": 0,
+   "leads": 6,
+   "leadsSearched": 0,
+   "leadsFound": 0,
+   "sports": {
+    "Tennis": 2,
+    "Padel": 1,
+    "Squash": 0
+   },
+   "sources": {},
+   "seeds": 0,
+   "osm": {
+    "at": "2026-08-12T21:47:02.847Z",
+    "seen": 6,
+    "added": 0,
+    "rejected": 1,
+    "error": "subdivisions: out of time",
+    "via": "overpass.kumi.systems"
+   }
+  },
+  "Nigeria": {
+   "clubs": 5,
+   "emails": 0,
+   "sites": 5,
    "read": 0,
    "unreachable": 0,
    "noAddress": 0,
@@ -2235,9 +2310,35 @@
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
-    "Tennis": 0,
-    "Padel": 0,
-    "Squash": 0
+    "Tennis": 4,
+    "Padel": 1,
+    "Squash": 1
+   },
+   "sources": {},
+   "seeds": 0,
+   "osm": {
+    "at": "2026-08-12T22:09:03.250Z",
+    "seen": 17,
+    "added": 0,
+    "rejected": 6,
+    "error": "busy (406)",
+    "via": "overpass.kumi.systems"
+   }
+  },
+  "Pakistan": {
+   "clubs": 3,
+   "emails": 0,
+   "sites": 3,
+   "read": 0,
+   "unreachable": 0,
+   "noAddress": 0,
+   "leads": 9,
+   "leadsSearched": 0,
+   "leadsFound": 0,
+   "sports": {
+    "Tennis": 1,
+    "Padel": 3,
+    "Squash": 1
    },
    "sources": {},
    "seeds": 0,
@@ -2246,6 +2347,84 @@
     "seen": 15,
     "added": 0,
     "rejected": 3,
+    "error": null,
+    "via": "overpass.kumi.systems"
+   }
+  },
+  "Palau": {
+   "clubs": 1,
+   "emails": 0,
+   "sites": 1,
+   "read": 0,
+   "unreachable": 0,
+   "noAddress": 0,
+   "leads": 0,
+   "leadsSearched": 0,
+   "leadsFound": 0,
+   "sports": {
+    "Tennis": 1,
+    "Padel": 1,
+    "Squash": 0
+   },
+   "sources": {},
+   "seeds": 0,
+   "osm": {
+    "at": "2026-08-11T07:15:13.447Z",
+    "seen": 0,
+    "added": 0,
+    "rejected": 0,
+    "error": null,
+    "via": "overpass.private.coffee"
+   }
+  },
+  "Papua New Guinea": {
+   "clubs": 1,
+   "emails": 0,
+   "sites": 1,
+   "read": 0,
+   "unreachable": 0,
+   "noAddress": 0,
+   "leads": 4,
+   "leadsSearched": 0,
+   "leadsFound": 0,
+   "sports": {
+    "Tennis": 1,
+    "Padel": 0,
+    "Squash": 1
+   },
+   "sources": {},
+   "seeds": 0,
+   "osm": {
+    "at": "2026-08-12T21:46:50.605Z",
+    "seen": 3,
+    "added": 0,
+    "rejected": 0,
+    "error": "subdivisions: out of time",
+    "via": "overpass.kumi.systems"
+   }
+  },
+  "Rwanda": {
+   "clubs": 3,
+   "emails": 0,
+   "sites": 3,
+   "read": 0,
+   "unreachable": 0,
+   "noAddress": 0,
+   "leads": 2,
+   "leadsSearched": 0,
+   "leadsFound": 0,
+   "sports": {
+    "Tennis": 3,
+    "Padel": 0,
+    "Squash": 1
+   },
+   "sources": {},
+   "seeds": 0,
+   "osm": {
+    "at": "2026-08-11T22:52:39.115Z",
+    "seen": 2,
+    "added": 0,
+    "rejected": 0,
     "error": null,
     "via": "overpass.kumi.systems"
    }
@@ -2324,32 +2503,6 @@
     "seen": 18,
     "added": 0,
     "rejected": 13,
-    "error": null,
-    "via": "overpass.kumi.systems"
-   }
-  },
-  "Mauritius": {
-   "clubs": 0,
-   "emails": 0,
-   "sites": 0,
-   "read": 0,
-   "unreachable": 0,
-   "noAddress": 0,
-   "leads": 3,
-   "leadsSearched": 0,
-   "leadsFound": 0,
-   "sports": {
-    "Tennis": 0,
-    "Padel": 0,
-    "Squash": 0
-   },
-   "sources": {},
-   "seeds": 0,
-   "osm": {
-    "at": "2026-08-11T23:36:05.186Z",
-    "seen": 13,
-    "added": 0,
-    "rejected": 10,
     "error": null,
     "via": "overpass.kumi.systems"
    }
@@ -2484,32 +2637,6 @@
     "via": ""
    }
   },
-  "Nigeria": {
-   "clubs": 0,
-   "emails": 0,
-   "sites": 0,
-   "read": 0,
-   "unreachable": 0,
-   "noAddress": 0,
-   "leads": 9,
-   "leadsSearched": 0,
-   "leadsFound": 0,
-   "sports": {
-    "Tennis": 0,
-    "Padel": 0,
-    "Squash": 0
-   },
-   "sources": {},
-   "seeds": 0,
-   "osm": {
-    "at": "2026-08-11T06:23:55.574Z",
-    "seen": 17,
-    "added": 0,
-    "rejected": 6,
-    "error": null,
-    "via": "overpass.kumi.systems"
-   }
-  },
   "Fiji": {
    "clubs": 0,
    "emails": 0,
@@ -2534,32 +2661,6 @@
     "rejected": 3,
     "error": null,
     "via": "overpass.private.coffee"
-   }
-  },
-  "Namibia": {
-   "clubs": 0,
-   "emails": 0,
-   "sites": 0,
-   "read": 0,
-   "unreachable": 0,
-   "noAddress": 0,
-   "leads": 6,
-   "leadsSearched": 0,
-   "leadsFound": 0,
-   "sports": {
-    "Tennis": 0,
-    "Padel": 0,
-    "Squash": 0
-   },
-   "sources": {},
-   "seeds": 0,
-   "osm": {
-    "at": "2026-08-12T21:47:02.847Z",
-    "seen": 6,
-    "added": 0,
-    "rejected": 1,
-    "error": "subdivisions: out of time",
-    "via": "overpass.kumi.systems"
    }
   },
   "Kenya": {
@@ -2640,58 +2741,6 @@
     "via": "overpass.kumi.systems"
    }
   },
-  "Papua New Guinea": {
-   "clubs": 0,
-   "emails": 0,
-   "sites": 0,
-   "read": 0,
-   "unreachable": 0,
-   "noAddress": 0,
-   "leads": 4,
-   "leadsSearched": 0,
-   "leadsFound": 0,
-   "sports": {
-    "Tennis": 0,
-    "Padel": 0,
-    "Squash": 0
-   },
-   "sources": {},
-   "seeds": 0,
-   "osm": {
-    "at": "2026-08-12T21:46:50.605Z",
-    "seen": 3,
-    "added": 0,
-    "rejected": 0,
-    "error": "subdivisions: out of time",
-    "via": "overpass.kumi.systems"
-   }
-  },
-  "Malawi": {
-   "clubs": 0,
-   "emails": 0,
-   "sites": 0,
-   "read": 0,
-   "unreachable": 0,
-   "noAddress": 0,
-   "leads": 3,
-   "leadsSearched": 0,
-   "leadsFound": 0,
-   "sports": {
-    "Tennis": 0,
-    "Padel": 0,
-    "Squash": 0
-   },
-   "sources": {},
-   "seeds": 0,
-   "osm": {
-    "at": "2026-08-11T23:29:08.019Z",
-    "seen": 4,
-    "added": 0,
-    "rejected": 0,
-    "error": null,
-    "via": "overpass.private.coffee"
-   }
-  },
   "Saint Lucia": {
    "clubs": 0,
    "emails": 0,
@@ -2744,32 +2793,6 @@
     "via": "overpass.kumi.systems"
    }
   },
-  "Rwanda": {
-   "clubs": 0,
-   "emails": 0,
-   "sites": 0,
-   "read": 0,
-   "unreachable": 0,
-   "noAddress": 0,
-   "leads": 2,
-   "leadsSearched": 0,
-   "leadsFound": 0,
-   "sports": {
-    "Tennis": 0,
-    "Padel": 0,
-    "Squash": 0
-   },
-   "sources": {},
-   "seeds": 0,
-   "osm": {
-    "at": "2026-08-11T22:52:39.115Z",
-    "seen": 2,
-    "added": 0,
-    "rejected": 0,
-    "error": null,
-    "via": "overpass.kumi.systems"
-   }
-  },
   "Lesotho": {
    "clubs": 0,
    "emails": 0,
@@ -2814,8 +2837,8 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-11T06:23:39.584Z",
-    "seen": 0,
+    "at": "2026-08-12T22:09:13.687Z",
+    "seen": 1,
     "added": 0,
     "rejected": 0,
     "error": null,
@@ -3367,63 +3390,37 @@
     "error": null,
     "via": "overpass.kumi.systems"
    }
-  },
-  "Palau": {
-   "clubs": 0,
-   "emails": 0,
-   "sites": 0,
-   "read": 0,
-   "unreachable": 0,
-   "noAddress": 0,
-   "leads": 0,
-   "leadsSearched": 0,
-   "leadsFound": 0,
-   "sports": {
-    "Tennis": 0,
-    "Padel": 0,
-    "Squash": 0
-   },
-   "sources": {},
-   "seeds": 0,
-   "osm": {
-    "at": "2026-08-11T07:15:13.447Z",
-    "seen": 0,
-    "added": 0,
-    "rejected": 0,
-    "error": null,
-    "via": "overpass.private.coffee"
-   }
   }
  },
  "recent": [
-  "2026-08-12T21:50:29.695Z  leads: searched 37, found 13 sites, 7 new emails, 2750 leads left",
-  "2026-08-12T21:50:33.908Z  prospect: the search engine stopped answering — pausing this phase",
-  "2026-08-12T21:50:33.913Z  prospect: 1 countries searched, 0 sites read, 0 clubs added",
-  "2026-08-12T21:50:33.988Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-12T21:50:33.991Z  discover: opened 0 pages, skipped 6 already known",
-  "2026-08-12T21:50:33.991Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-12T21:53:43.684Z  osm MT: failed — subdivisions: out of time",
-  "2026-08-12T21:53:47.606Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-12T21:53:47.610Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-12T21:53:57.995Z  osm ES: too big for one query — 8 of 23 subdivisions read, carries on next round",
-  "2026-08-12T21:53:58.000Z  osm ES Spain: 78 places -> +0 new, 3 merged, 0 with an email already, 0 leads with no contact tag, 38 dropped as public",
-  "2026-08-12T21:54:01.572Z  osm LR Liberia: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-12T21:54:22.242Z  osm FM Micronesia: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-12T21:54:39.613Z  osm LS Lesotho: 3 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
+  "2026-08-12T22:05:14.576Z  prospect: turned down — no club signal in ×76, nothing on its pages ties it ×57, no racket sport on the page ×48, unreachable ×43, domain belongs ×31",
+  "2026-08-12T22:05:55.519Z  leads: the search engine stopped answering after 16 queries — pausing this phase",
+  "2026-08-12T22:05:55.535Z  leads: searched 16, found 2 sites, 1 new emails, 2738 leads left",
+  "2026-08-12T22:05:55.617Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-08-12T22:05:55.620Z  discover: opened 0 pages, skipped 6 already known",
+  "2026-08-12T22:05:55.620Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-12T22:09:03.251Z  osm NG: failed — busy (406)",
+  "2026-08-12T22:09:10.857Z  osm ES: too big for one query — 8 of 23 subdivisions read, carries on next round",
+  "2026-08-12T22:09:10.862Z  osm ES Spain: 123 places -> +0 new, 10 merged, 0 with an email already, 0 leads with no contact tag, 50 dropped as public",
+  "2026-08-12T22:09:13.684Z  osm GM Gambia: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-12T22:09:20.603Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-12T22:09:20.606Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-12T22:10:02.649Z  osm PH: failed — subdivisions: out of time",
+  "2026-08-12T22:10:31.906Z  osm CA: failed — subdivisions: out of time"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-12T21:47:53.100Z",
+ "roundStarted": "2026-08-12T21:55:01.515Z",
  "lastRound": {
-  "at": "2026-08-12T21:54:39.647Z",
-  "minutes": 6.8,
-  "summary": "crawled 24 sites, +11 emails; searched 37 club names, found 13 sites, +7 emails; prospected 1 empty countries, +0 clubs; osm 5 countries (ES,IE,LS,LR,FM,MT,CA,GM,NG,PH,BB,EC) +0, 1 failed",
-  "crawled": 24,
-  "emailsFound": 11,
+  "at": "2026-08-12T22:10:31.943Z",
+  "minutes": 15.5,
+  "summary": "crawled 14 sites, +1 emails; searched 16 club names, found 2 sites, +1 emails; prospected 16 empty countries, +21 clubs; osm 3 countries (ES,IE,CA,GM,NG,PH,BB,EC,ZM,NZ,BW,PW) +0, 3 failed",
+  "crawled": 14,
+  "emailsFound": 1,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
+  "osmCountries": 3,
   "osmAdded": 0,
-  "osmFailed": 1
+  "osmFailed": 3
  }
 }
