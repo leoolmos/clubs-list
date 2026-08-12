@@ -141,13 +141,15 @@ input:focus-visible,select:focus-visible,button:focus-visible,textarea:focus-vis
 }
 .chip:hover{border-color:var(--ink-soft)}
 .chip .dot{width:8px;height:8px;border-radius:50%;flex:none}
-.chip[data-sport="Tennis"] .dot{background:var(--clay)}
-.chip[data-sport="Padel"] .dot{background:var(--glass)}
-.chip[data-sport="Squash"] .dot{background:var(--tin)}
-.chip.on{color:var(--line);border-color:transparent}
-.chip.on[data-sport="Tennis"]{background:var(--clay)}
-.chip.on[data-sport="Padel"]{background:var(--glass)}
-.chip.on[data-sport="Squash"]{background:var(--tin)}
+.chip[data-sport="Tennis"] .dot,.chip[data-pick="Tennis"] .dot{background:var(--clay)}
+.chip[data-sport="Padel"] .dot,.chip[data-pick="Padel"] .dot{background:var(--glass)}
+.chip[data-sport="Squash"] .dot,.chip[data-pick="Squash"] .dot{background:var(--tin)}
+/* Selected chips with no sport of their own still need a fill to read against */
+.chip.on{background:var(--ink);color:var(--line);border-color:transparent}
+.chip.on[data-sport="Tennis"],.chip.on[data-pick="Tennis"]{background:var(--clay)}
+.chip.on[data-sport="Padel"],.chip.on[data-pick="Padel"]{background:var(--glass)}
+.chip.on[data-sport="Squash"],.chip.on[data-pick="Squash"]{background:var(--tin)}
+.chip.on:hover{border-color:transparent;opacity:.88}
 .chip.on .dot{background:var(--line)}
 select{
   padding:9px 11px;border:1px solid var(--rule);background:var(--line);
