@@ -20,8 +20,18 @@
  * page one and re-imports the countries. It rediscovers rather than
  * resumes; the published clubs are simply never at risk while it does.
  *
+ * --merge is for the other direction: a machine that has its own good store
+ * and has fallen behind the published list, because another machine went on
+ * collecting while it was switched off. It adds the published clubs the
+ * store has never heard of and touches nothing that is already there, so
+ * the richer store keeps its websites, bookmarks and leads and stops being
+ * able to publish a smaller list over a larger one. Without it, the first
+ * round after switching back writes whatever that machine happens to know
+ * over everything collected in the meantime.
+ *
  *   node restore.js            show what would be written
  *   node restore.js --apply    do it
+ *   node restore.js --merge --apply   add the published clubs this store lacks
  *   node restore.js --apply --force   overwrite a store that already exists
  * =========================================================================
  */
@@ -39,6 +49,7 @@ const { COUNTRIES } = require('./lib/countries');
 
 const apply = process.argv.includes('--apply');
 const force = process.argv.includes('--force');
+const merge = process.argv.includes('--merge');
 
 function read(f){ try{ return JSON.parse(fs.readFileSync(f,'utf8')); }catch(e){ return null; } }
 
@@ -53,6 +64,69 @@ if(!site || !Array.isArray(site.clubs) || !site.clubs.length){
 
 const existing = read(DB_FILE);
 const already  = existing ? Object.keys(existing).length : 0;
+
+/* --------------------------------------------------------------------- *
+ * Merge: keep this store, add only what it has never heard of
+ * --------------------------------------------------------------------- */
+if(merge){
+  if(!existing || !already){
+    console.log('\n  Nothing to merge into — there is no store here. Run without --merge.\n');
+    process.exit(1);
+  }
+
+  // By address, because that is what the published list is keyed on and what
+  // the export deduplicates by. A club already in the store under a
+  // different name is still that club.
+  const have = new Set();
+  for(const r of Object.values(existing)) if(r.email) have.add(String(r.email).toLowerCase());
+
+  const add = [];
+  let unknownCountry = 0;
+  for(const c of site.clubs){
+    const email = String(c.email||'').toLowerCase();
+    if(!email || have.has(email)) continue;
+    const cc = CC_BY_NAME.get(String(c.country||'').toLowerCase());
+    if(!cc){ unknownCountry++; continue; }
+    add.push({c, cc, email});
+  }
+
+  console.log('');
+  console.log('  records in this store        : ' + already);
+  console.log('  published clubs              : ' + site.clubs.length);
+  console.log('  already here                 : ' + (site.clubs.length - add.length - unknownCountry));
+  console.log('  to add                       : ' + add.length);
+  if(unknownCountry) console.log('  skipped, country not in the brief : ' + unknownCountry);
+  console.log('');
+
+  if(!add.length){
+    console.log('  This store is not behind the published list. Nothing to do.\n');
+    process.exit(0);
+  }
+  if(!apply){
+    console.log('  Nothing written. Run with --apply to do it.');
+    console.log('');
+    process.exit(0);
+  }
+
+  for(const {c, cc, email} of add){
+    const base = 'n:'+cc+':'+String(c.name).toLowerCase().replace(/[^a-z0-9]+/g,'');
+    let key = base;
+    for(let i = 2; existing[key]; i++) key = base + '#' + i;
+    existing[key] = {
+      name: c.name,
+      sports: Array.isArray(c.sports) ? c.sports.slice() : [],
+      contact: c.contact || '', email,
+      lang: c.lang, country: c.country, cc,
+      src: c.src || 'restored', stale: !!c.stale,
+      crawled: true, attempts: 0, restored: true
+    };
+  }
+  fs.writeFileSync(DB_FILE + '.tmp', JSON.stringify(existing, null, 1));
+  fs.renameSync(DB_FILE + '.tmp', DB_FILE);
+  console.log('  Done. This store can no longer publish a shorter list than the live one.\n');
+  process.exit(0);
+}
+
 if(already && !force){
   console.log(`\n  data/clubs.json already holds ${already} records — that is the real store,`);
   console.log('  and it knows more than the export does. Refusing to overwrite it.');
