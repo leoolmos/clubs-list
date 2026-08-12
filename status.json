@@ -1,9 +1,9 @@
 {
- "generated": "2026-08-12T18:44:54.665Z",
+ "generated": "2026-08-12T18:49:59.741Z",
  "clubs": 1118,
- "records": 1661,
+ "records": 1663,
  "crawl": {
-  "ready": 100,
+  "ready": 102,
   "waiting": 18,
   "exhausted": 52
  },
@@ -56,6 +56,20 @@
   "left": 589
  },
  "activity": [
+  {
+   "t": "2026-08-12T18:45:26.893Z",
+   "kind": "prospect",
+   "text": "Angola: found Padel em Luanda -> https://cpa-ao.com",
+   "ok": true,
+   "url": "https://cpa-ao.com"
+  },
+  {
+   "t": "2026-08-12T18:45:26.892Z",
+   "kind": "prospect",
+   "text": "Angola: found Academia de Ténis do Kikuxi Villas Club -> https://academiadeteniskikuxi.com",
+   "ok": true,
+   "url": "https://academiadeteniskikuxi.com"
+  },
   {
    "t": "2026-08-12T18:44:54.591Z",
    "kind": "search",
@@ -1227,20 +1241,6 @@
    "ok": true,
    "url": "https://clublaguaria.net",
    "email": "recepcion@clublaguaria.net"
-  },
-  {
-   "t": "2026-08-12T18:23:57.045Z",
-   "kind": "prospect",
-   "text": "Honduras: found Padel Honduras -> https://honduraspadel.com",
-   "ok": true,
-   "url": "https://honduraspadel.com"
-  },
-  {
-   "t": "2026-08-12T18:22:18.247Z",
-   "kind": "prospect",
-   "text": "Equatorial Guinea: found squash.today -> https://squash.today",
-   "ok": true,
-   "url": "https://squash.today"
   }
  ],
  "perCountry": {
@@ -1826,6 +1826,25 @@
    "seeds": 0,
    "osm": null
   },
+  "Angola": {
+   "clubs": 2,
+   "emails": 0,
+   "sites": 2,
+   "read": 0,
+   "unreachable": 0,
+   "noAddress": 0,
+   "leads": 0,
+   "leadsSearched": 0,
+   "leadsFound": 0,
+   "sports": {
+    "Tennis": 1,
+    "Padel": 1,
+    "Squash": 0
+   },
+   "sources": {},
+   "seeds": 0,
+   "osm": null
+  },
   "India": {
    "clubs": 0,
    "emails": 0,
@@ -1854,11 +1873,6 @@
   }
  },
  "recent": [
-  "2026-08-12T18:31:50.154Z  daemon started — continuous, 3m per round, 20s between rounds",
-  "2026-08-12T18:31:50.161Z  crawl concurrency 8, osm 12 countries per round 6 at a time",
-  "2026-08-12T18:31:50.161Z  seeds: /home/user/clubs-list/seeds.txt",
-  "2026-08-12T18:31:56.181Z  published to the public link",
-  "2026-08-12T18:31:56.181Z  tick done in 0.1m — crawled 1 sites, +0 emails | 1084 emails total, 85 still queued",
   "2026-08-12T18:32:10.249Z  stopping after the current round — press Ctrl-C again to force",
   "2026-08-12T18:32:16.192Z  stopped after 1 round",
   "2026-08-12T18:32:53.389Z  daemon started — continuous, 50m per round, 20s between rounds",
@@ -1867,9 +1881,14 @@
   "2026-08-12T18:44:54.598Z  leads: searched 125, found 111 sites, 35 new emails, 589 leads left",
   "2026-08-12T18:44:54.653Z  discover: walking Curlie for club directories (up to 60 pages)",
   "2026-08-12T18:44:54.653Z  discover: opened 0 pages, skipped 6 already known",
-  "2026-08-12T18:44:54.653Z  discover: 0 new seeds, tree exhausted"
+  "2026-08-12T18:44:54.653Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-12T18:45:04.766Z  prospect AO: Academia de Ténis do Kikuxi Villas Club -> https://academiadeteniskikuxi.com",
+  "2026-08-12T18:45:09.610Z  prospect AO: Padel em Luanda -> https://cpa-ao.com",
+  "2026-08-12T18:47:49.673Z  stopping after the current round — press Ctrl-C again to force",
+  "2026-08-12T18:49:59.716Z  prospect: the search engine stopped answering — pausing this phase",
+  "2026-08-12T18:49:59.716Z  prospect: 7 countries searched, 106 sites read, 2 clubs added"
  ],
  "running": true,
- "phase": "searching out clubs in the countries that have none",
+ "phase": "importing countries from OpenStreetMap",
  "roundStarted": "2026-08-12T18:32:53.407Z"
 }

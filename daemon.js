@@ -541,6 +541,10 @@ async function phaseProspect(db, deadline){
   const budget = Math.min(deadline, Date.now() + CFG.prospectMinutes*60*1000);
   let countries = 0, added = 0, vetted = 0;
 
+  // Counted by kind, not by candidate: the reasons carry the site's own name
+  // in them, and a hundred of those in the log is not a summary.
+  const turnedDown = {};
+
   for(const {cc} of order){
     if(Date.now() > budget) break;
 
@@ -568,6 +572,10 @@ async function phaseProspect(db, deadline){
       activity('prospect', `${rec.country}: found ${rec.name} -> ${rec.website}`, {ok:true, url:rec.website});
     }
     st.found = (st.found||0) + r.added.length;
+    for(const x of r.rejected){
+      const kind = String(x.reason).replace(/ *"[^"]*"/, '').replace(/ to .*$/, '').trim();
+      turnedDown[kind] = (turnedDown[kind]||0) + 1;
+    }
 
     // The engine turning us away is not this country having no clubs, and
     // marking the queries done would write it off for good.
@@ -579,7 +587,15 @@ async function phaseProspect(db, deadline){
   }
 
   writeJSON(stateFile, state);
-  if(countries) log(`prospect: ${countries} countries searched, ${vetted} sites read, ${added} clubs added`);
+  if(countries){
+    log(`prospect: ${countries} countries searched, ${vetted} sites read, ${added} clubs added`);
+    // A hundred sites read for two clubs is either the countries being
+    // genuinely empty or a rule that is too tight, and the number on its own
+    // cannot tell them apart. The same argument as status.json: a score is
+    // not visibility. This is what to tune against.
+    const top = Object.entries(turnedDown).sort((a,b)=>b[1]-a[1]).slice(0, 5);
+    if(top.length) log(`prospect: turned down — ` + top.map(([r,n])=>`${r} ×${n}`).join(', '));
+  }
   return {countries, added, vetted};
 }
 
