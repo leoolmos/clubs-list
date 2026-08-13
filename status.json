@@ -1,46 +1,46 @@
 {
- "generated": "2026-08-13T07:36:01.183Z",
- "clubs": 1761,
- "records": 2816,
+ "generated": "2026-08-13T07:41:42.316Z",
+ "clubs": 1763,
+ "records": 2821,
  "crawl": {
-  "ready": 24,
-  "waiting": 59,
-  "exhausted": 826
+  "ready": 3,
+  "waiting": 76,
+  "exhausted": 828
  },
  "osm": {
-  "imported": 77,
-  "failed": 6,
+  "imported": 75,
+  "failed": 8,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "GB",
-   "error": "subdivisions: out of time",
-   "at": "2026-08-13T07:35:40.164Z"
+   "cc": "ES",
+   "error": "partial: 9 of 23 subdivisions read",
+   "at": "2026-08-13T07:41:01.897Z"
   }
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 916
+   "n": 923
   },
   {
    "note": "unreachable",
-   "n": 498
+   "n": 481
   },
   {
    "note": "no email published",
-   "n": 356
+   "n": 359
   },
   {
    "note": "blocked by a challenge page",
-   "n": 56
+   "n": 67
   },
   {
    "note": "/contact",
    "n": 49
   },
   {
-   "note": "/contact-us/",
+   "note": "/contact/",
    "n": 26
   }
  ],
@@ -52,10 +52,262 @@
  },
  "leads": {
   "total": 3900,
-  "searched": 3546,
-  "left": 354
+  "searched": 3555,
+  "left": 345
  },
  "activity": [
+  {
+   "t": "2026-08-13T07:37:41.138Z",
+   "kind": "search",
+   "text": "Barcombe Tennis Club: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-13T07:37:34.068Z",
+   "kind": "search",
+   "text": "Nutley Tennis & Squash Club: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-13T07:37:27.010Z",
+   "kind": "search",
+   "text": "Sutton Churches Tennis Club: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-13T07:37:19.934Z",
+   "kind": "search",
+   "text": "Duston Tennis Club: search engine did not answer, will try again",
+   "ok": false
+  },
+  {
+   "t": "2026-08-13T07:37:12.572Z",
+   "kind": "search",
+   "text": "Horam Tennis Club (United Kingdom) -> https://www.horamtennis.co.uk -> treasurerhoramtennisclub@gmail.com",
+   "ok": true,
+   "url": "https://www.horamtennis.co.uk",
+   "email": "treasurerhoramtennisclub@gmail.com"
+  },
+  {
+   "t": "2026-08-13T07:37:11.097Z",
+   "kind": "search",
+   "text": "Bridport Tennis Club (United Kingdom) -> https://bridportandwestbay.co.uk, no address on the site (blocked by a challenge page)",
+   "ok": false,
+   "url": "https://bridportandwestbay.co.uk",
+   "email": ""
+  },
+  {
+   "t": "2026-08-13T07:37:09.704Z",
+   "kind": "search",
+   "text": "no site found for Carlton le Willows Tennis Courts (United Kingdom)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-13T07:37:08.439Z",
+   "kind": "search",
+   "text": "Totteridge Tennis Club (United Kingdom) -> https://clubspark.lta.org.uk/TotteridgeTennisClub, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://clubspark.lta.org.uk/TotteridgeTennisClub",
+   "email": ""
+  },
+  {
+   "t": "2026-08-13T07:37:07.229Z",
+   "kind": "search",
+   "text": "no site found for Hemel Indoor Tennis Centre (United Kingdom)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-13T07:37:05.171Z",
+   "kind": "search",
+   "text": "Bromley Lawn Tennis (United Kingdom) -> https://www.bromleyltsc.co.uk -> office@bromley-lawn-tennis-and-squash-club.co.uk",
+   "ok": true,
+   "url": "https://www.bromleyltsc.co.uk",
+   "email": "office@bromley-lawn-tennis-and-squash-club.co.uk"
+  },
+  {
+   "t": "2026-08-13T07:37:04.210Z",
+   "kind": "search",
+   "text": "Filey Tennis clubhouse (United Kingdom) -> https://www.filey.co.uk, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://www.filey.co.uk",
+   "email": ""
+  },
+  {
+   "t": "2026-08-13T07:36:50.718Z",
+   "kind": "search",
+   "text": "Longniddry Tennis Club (United Kingdom) -> https://longniddrytennis.weebly.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://longniddrytennis.weebly.com",
+   "email": ""
+  },
+  {
+   "t": "2026-08-13T07:36:37.124Z",
+   "kind": "search",
+   "text": "Rock Park Tennis Court (United Kingdom) -> https://clubspark.lta.org.uk, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://clubspark.lta.org.uk",
+   "email": ""
+  },
+  {
+   "t": "2026-08-13T07:36:36.279Z",
+   "kind": "crawl",
+   "text": "All Weather Tennis & Netball Courts — https://englandnetball.atlassian.net: site read, publishes no address",
+   "ok": false,
+   "url": "https://englandnetball.atlassian.net"
+  },
+  {
+   "t": "2026-08-13T07:36:28.281Z",
+   "kind": "crawl",
+   "text": "Chilwell Memorial Hall Lawn Tennis Club — https://chilwellmemorialinstitute.org /contact/ -> enquires@chilwellmemorialinstitute.org",
+   "ok": true,
+   "url": "https://chilwellmemorialinstitute.org",
+   "email": "enquires@chilwellmemorialinstitute.org"
+  },
+  {
+   "t": "2026-08-13T07:36:25.595Z",
+   "kind": "crawl",
+   "text": "Salina South HS Courts — https://www.305southhigh.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.305southhigh.com"
+  },
+  {
+   "t": "2026-08-13T07:36:25.182Z",
+   "kind": "crawl",
+   "text": "Stone Ridge Tennis Court — https://stoneridgehoa.org: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://stoneridgehoa.org"
+  },
+  {
+   "t": "2026-08-13T07:36:24.645Z",
+   "kind": "crawl",
+   "text": "Ross Tennis Centre Courts — https://rosscdt.org.uk -> admin@at-the-hub.co.uk",
+   "ok": true,
+   "url": "https://rosscdt.org.uk",
+   "email": "admin@at-the-hub.co.uk"
+  },
+  {
+   "t": "2026-08-13T07:36:24.605Z",
+   "kind": "crawl",
+   "text": "Wellow Tennis Club — https://wellowvalleytennis.co.uk -> wvtennisclub@gmail.com",
+   "ok": true,
+   "url": "https://wellowvalleytennis.co.uk",
+   "email": "wvtennisclub@gmail.com"
+  },
+  {
+   "t": "2026-08-13T07:36:24.599Z",
+   "kind": "crawl",
+   "text": "Sullivan Harbor Field and Jewell-Russell Family Memorial Tennis Court — https://sullivanmaine.org: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://sullivanmaine.org"
+  },
+  {
+   "t": "2026-08-13T07:36:24.595Z",
+   "kind": "crawl",
+   "text": "Ropley Tennis Club — https://www.myropley.org.uk -> editors@myropley.org.uk",
+   "ok": true,
+   "url": "https://www.myropley.org.uk",
+   "email": "editors@myropley.org.uk"
+  },
+  {
+   "t": "2026-08-13T07:36:24.327Z",
+   "kind": "crawl",
+   "text": "Fort Smith Athletic Club — https://uafortsmithlions.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://uafortsmithlions.com"
+  },
+  {
+   "t": "2026-08-13T07:36:24.241Z",
+   "kind": "crawl",
+   "text": "Southlake Tennis Center — https://southlaketennis.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://southlaketennis.com"
+  },
+  {
+   "t": "2026-08-13T07:36:24.212Z",
+   "kind": "crawl",
+   "text": "Codford Tennis Club — https://codfordvillage.org.uk -> info@indiantypefoundry.com",
+   "ok": true,
+   "url": "https://codfordvillage.org.uk",
+   "email": "info@indiantypefoundry.com"
+  },
+  {
+   "t": "2026-08-13T07:36:24.189Z",
+   "kind": "crawl",
+   "text": "Chesterfield Lawn Tennis Club — http://chesterfieldtennis.org.uk -> info@chesterfieldtennis.org.uk",
+   "ok": true,
+   "url": "http://chesterfieldtennis.org.uk",
+   "email": "info@chesterfieldtennis.org.uk"
+  },
+  {
+   "t": "2026-08-13T07:36:24.152Z",
+   "kind": "crawl",
+   "text": "Bodega Harbor Tennis Court 1 — https://bodegaharbour.connectresident.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://bodegaharbour.connectresident.com"
+  },
+  {
+   "t": "2026-08-13T07:36:24.065Z",
+   "kind": "crawl",
+   "text": "Lake Forest Country Club Tennis Court — https://www.lakeforestclub.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.lakeforestclub.com"
+  },
+  {
+   "t": "2026-08-13T07:36:24.058Z",
+   "kind": "crawl",
+   "text": "Hualalai Sports Club — https://www.hualalairesort.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.hualalairesort.com"
+  },
+  {
+   "t": "2026-08-13T07:36:23.942Z",
+   "kind": "crawl",
+   "text": "Warren Filipone Memorial Park Tennis Courts — https://thecourtscout.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://thecourtscout.com"
+  },
+  {
+   "t": "2026-08-13T07:36:23.756Z",
+   "kind": "crawl",
+   "text": "Plaza Tennis Center — https://s28.tennisplaza.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://s28.tennisplaza.com"
+  },
+  {
+   "t": "2026-08-13T07:36:23.648Z",
+   "kind": "crawl",
+   "text": "Seattle Tennis Club — https://www.seattletennisclub.org: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.seattletennisclub.org"
+  },
+  {
+   "t": "2026-08-13T07:36:23.623Z",
+   "kind": "crawl",
+   "text": "Knoxville Racquet Club — https://knoxvilleracquetclub.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://knoxvilleracquetclub.com"
+  },
+  {
+   "t": "2026-08-13T07:36:23.609Z",
+   "kind": "crawl",
+   "text": "Tucson Racquet and Fitness Club — https://tucsonracquetclub.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://tucsonracquetclub.com"
+  },
+  {
+   "t": "2026-08-13T07:36:23.554Z",
+   "kind": "crawl",
+   "text": "Sharon E. Lester Tennis Center — https://sharonlester.agapetennisacademy.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://sharonlester.agapetennisacademy.com"
+  },
+  {
+   "t": "2026-08-13T07:36:23.450Z",
+   "kind": "crawl",
+   "text": "West Tennis Courts — https://www.westwaysportscentre.org.uk: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.westwaysportscentre.org.uk"
+  },
   {
    "t": "2026-08-13T07:30:54.931Z",
    "kind": "search",
@@ -960,259 +1212,6 @@
    "text": "Aughton Lawn Tennis Club — http://www.aughtonlawntennisclub.co.uk: site read, publishes no address",
    "ok": false,
    "url": "http://www.aughtonlawntennisclub.co.uk"
-  },
-  {
-   "t": "2026-08-13T07:04:43.072Z",
-   "kind": "crawl",
-   "text": "Eversholt Tennis Club — https://www.eversholtvillage.co.uk /contact -> clerk@eversholtparishcouncil.gov.uk",
-   "ok": true,
-   "url": "https://www.eversholtvillage.co.uk",
-   "email": "clerk@eversholtparishcouncil.gov.uk"
-  },
-  {
-   "t": "2026-08-13T07:04:28.591Z",
-   "kind": "crawl",
-   "text": "Cherry Hill Health & Racquet Club — https://chhrc.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://chhrc.com"
-  },
-  {
-   "t": "2026-08-13T06:59:20.858Z",
-   "kind": "search",
-   "text": "Jordans Village Tennis Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-13T06:58:52.814Z",
-   "kind": "search",
-   "text": "Telford Park Tennis Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-13T06:58:00.764Z",
-   "kind": "search",
-   "text": "Grafton Tennis Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-13T06:57:08.699Z",
-   "kind": "search",
-   "text": "Archbishop Beck Tennis Centre: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-08-13T06:56:44.678Z",
-   "kind": "search",
-   "text": "Wolverhampton Lawn Tennis and Squash Club -> https://win.wolverhampton.gov.uk, dropped: public or institutional domain",
-   "ok": false
-  },
-  {
-   "t": "2026-08-13T06:56:34.995Z",
-   "kind": "search",
-   "text": "Bothwell Tennis Club (United Kingdom) -> https://clubspark.lta.org.uk/BothwellLTC, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://clubspark.lta.org.uk/BothwellLTC",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:56:29.391Z",
-   "kind": "search",
-   "text": "Victoria Tennis Club (United Kingdom) -> https://victoriaclubstreet.co.uk, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://victoriaclubstreet.co.uk",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:56:19.214Z",
-   "kind": "search",
-   "text": "no site found for Outdoor Tennis Courts (United Kingdom)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-13T06:56:18.040Z",
-   "kind": "search",
-   "text": "no site found for Fishermens Green Tennis Court (United Kingdom)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-13T06:56:15.946Z",
-   "kind": "search",
-   "text": "no site found for Bunabhainneadar Tennis Court (United Kingdom)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-13T06:56:14.949Z",
-   "kind": "search",
-   "text": "Tennis Court (United Kingdom) -> https://findacourt.online, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://findacourt.online",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:56:05.294Z",
-   "kind": "search",
-   "text": "Southend Lawn Tennis Club (United Kingdom) -> https://www.southendlawntennisclub.com, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://www.southendlawntennisclub.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:55:55.624Z",
-   "kind": "search",
-   "text": "Drummond Lawn Tennis Club (United Kingdom) -> https://www.drummondltc.co.uk, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://www.drummondltc.co.uk",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:55:46.018Z",
-   "kind": "search",
-   "text": "Tarvin Tennis Club (United Kingdom) -> https://www.tarvinonline.org, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://www.tarvinonline.org",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:55:36.397Z",
-   "kind": "search",
-   "text": "Kingston Bagpuize with Southmoor Tennis Club (United Kingdom) -> https://clubspark.lta.org.uk/KingstonBagpuizewithSouthmoor, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://clubspark.lta.org.uk/KingstonBagpuizewithSouthmoor",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:55:30.335Z",
-   "kind": "search",
-   "text": "no site found for Lea Village Tennis Court (United Kingdom)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-13T06:55:29.536Z",
-   "kind": "search",
-   "text": "Norcross Tennis Club (United Kingdom) -> http://norcross.weebly.com, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://norcross.weebly.com",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:55:18.690Z",
-   "kind": "search",
-   "text": "Cromarty Tennis Club (United Kingdom) -> https://www.cromartytennisclub.co.uk, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://www.cromartytennisclub.co.uk",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:55:08.615Z",
-   "kind": "search",
-   "text": "no site found for Tennis Courts (closed) (United Kingdom)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-13T06:55:07.902Z",
-   "kind": "search",
-   "text": "Eversholt Tennis Club (United Kingdom) -> https://www.eversholtvillage.co.uk, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://www.eversholtvillage.co.uk",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:54:58.275Z",
-   "kind": "search",
-   "text": "East Kilbride Tennis Club (United Kingdom) -> http://www.eastkilbride.org.uk, no address on the site (unreachable)",
-   "ok": false,
-   "url": "http://www.eastkilbride.org.uk",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:54:48.583Z",
-   "kind": "search",
-   "text": "Maghull High Tennis Courts (United Kingdom) -> https://maghull.schoolhire.co.uk, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://maghull.schoolhire.co.uk",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:54:38.946Z",
-   "kind": "search",
-   "text": "Bromley Tennis Centre (United Kingdom) -> https://www.bromleytenniscentre.co.uk, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://www.bromleytenniscentre.co.uk",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:54:28.722Z",
-   "kind": "search",
-   "text": "no site found for Alastair McNab Tennis Courts (United Kingdom)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-13T06:54:27.553Z",
-   "kind": "search",
-   "text": "no site found for Liskeard Tennis Club (United Kingdom)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-13T06:54:26.910Z",
-   "kind": "search",
-   "text": "Longthorpe Tennis Club (United Kingdom) -> https://clubspark.lta.org.uk/LongthorpeLTC, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://clubspark.lta.org.uk/LongthorpeLTC",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:54:21.230Z",
-   "kind": "search",
-   "text": "Littletons Tennis Club (United Kingdom) -> https://clubspark.lta.org.uk/LittletonsTennisClub, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://clubspark.lta.org.uk/LittletonsTennisClub",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:54:15.622Z",
-   "kind": "search",
-   "text": "Orangefield Park Tennis Courts (United Kingdom) -> https://clubspark.lta.org.uk, no address on the site (unreachable)",
-   "ok": false,
-   "url": "https://clubspark.lta.org.uk",
-   "email": ""
-  },
-  {
-   "t": "2026-08-13T06:54:09.947Z",
-   "kind": "search",
-   "text": "Campbeltown Lawn Tennis Club (United Kingdom) -> http://www.campbeltowntennisclub.com -> amyshaw10@yahoo.co.uk",
-   "ok": true,
-   "url": "http://www.campbeltowntennisclub.com",
-   "email": "amyshaw10@yahoo.co.uk"
-  },
-  {
-   "t": "2026-08-13T06:54:01.067Z",
-   "kind": "search",
-   "text": "Saint George's Hill Tennis Club (United Kingdom) -> https://stgeorgesra.tbcserver11.com -> mail@sghra.com",
-   "ok": true,
-   "url": "https://stgeorgesra.tbcserver11.com",
-   "email": "mail@sghra.com"
-  },
-  {
-   "t": "2026-08-13T06:53:47.952Z",
-   "kind": "crawl",
-   "text": "Waterbeach Tennis Courts — https://waterbeachwb.co.uk: site read, publishes no address",
-   "ok": false,
-   "url": "https://waterbeachwb.co.uk"
-  },
-  {
-   "t": "2026-08-13T06:53:35.305Z",
-   "kind": "crawl",
-   "text": "Oakwood Tennis Club — https://www.oakwoodtennisclub.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.oakwoodtennisclub.com"
-  },
-  {
-   "t": "2026-08-13T06:53:35.061Z",
-   "kind": "crawl",
-   "text": "Thongsbridge Tennis & Fitness Club — https://www.thongsbridgetennisclub.org.uk /contact-us/ -> reception@thongsbridge.org",
-   "ok": true,
-   "url": "https://www.thongsbridgetennisclub.org.uk",
-   "email": "reception@thongsbridge.org"
   }
  ],
  "perCountry": {
@@ -1239,33 +1238,33 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-13T07:34:37.574Z",
-    "seen": 83,
+    "at": "2026-08-13T07:41:01.897Z",
+    "seen": 0,
     "added": 0,
-    "rejected": 33,
+    "rejected": 0,
     "error": "partial: 9 of 23 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": ""
    }
   },
   "United Kingdom": {
-   "clubs": 534,
-   "emails": 344,
-   "sites": 426,
-   "read": 402,
-   "unreachable": 136,
-   "noAddress": 41,
+   "clubs": 539,
+   "emails": 352,
+   "sites": 431,
+   "read": 407,
+   "unreachable": 129,
+   "noAddress": 44,
    "leads": 695,
-   "leadsSearched": 442,
-   "leadsFound": 378,
+   "leadsSearched": 451,
+   "leadsFound": 385,
    "sports": {
-    "Tennis": 470,
+    "Tennis": 475,
     "Padel": 18,
     "Squash": 64
    },
    "sources": {
     "harvest": 37,
     "osm": 111,
-    "search": 194,
+    "search": 202,
     "prospect": 2
    },
    "seeds": 7,
@@ -1301,12 +1300,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-13T07:34:18.371Z",
+    "at": "2026-08-13T07:40:48.380Z",
     "seen": 5,
     "added": 0,
     "rejected": 0,
     "error": "partial: 7 of 9 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    }
   },
   "Brazil": {
@@ -1734,7 +1733,7 @@
    "emails": 242,
    "sites": 430,
    "read": 418,
-   "unreachable": 88,
+   "unreachable": 78,
    "noAddress": 79,
    "leads": 927,
    "leadsSearched": 914,
@@ -2253,8 +2252,8 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T02:57:56.165Z",
-    "seen": 7,
+    "at": "2026-08-13T07:41:42.240Z",
+    "seen": 8,
     "added": 0,
     "rejected": 6,
     "error": null,
@@ -2338,7 +2337,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T03:04:00.143Z",
+    "at": "2026-08-13T07:41:20.149Z",
     "seen": 4,
     "added": 0,
     "rejected": 0,
@@ -2840,11 +2839,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T02:58:14.499Z",
+    "at": "2026-08-13T07:40:49.280Z",
     "seen": 7,
     "added": 0,
     "rejected": 3,
-    "error": null,
+    "error": "busy (406)",
     "via": "overpass.kumi.systems"
    }
   },
@@ -3128,11 +3127,11 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T02:57:54.081Z",
+    "at": "2026-08-13T07:40:50.978Z",
     "seen": 1,
     "added": 0,
     "rejected": 0,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.kumi.systems"
    }
   },
@@ -3528,34 +3527,34 @@
   }
  },
  "recent": [
-  "2026-08-13T07:29:26.672Z  tick done in 5.8m — crawled 31 sites, +10 emails; searched 15 club names, found 9 sites, +0 emails; osm 6 countries (ES,IE,GT,UY,PT,GQ,SV,VC,GB,VE,WS,AO) +0 | 1757 emails total, 91 still queued",
-  "2026-08-13T07:30:54.932Z  leads: the search engine stopped answering after 12 queries — pausing this phase",
-  "2026-08-13T07:30:54.946Z  leads: searched 12, found 4 sites, 2 new emails, 354 leads left",
-  "2026-08-13T07:30:55.104Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-13T07:30:55.108Z  discover: opened 0 pages, skipped 6 already known",
-  "2026-08-13T07:30:55.108Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-13T07:34:17.965Z  osm VC Saint Vincent and the Grenadines: 1 places -> +0 new, 1 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T07:34:18.366Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-13T07:34:18.370Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T07:34:37.568Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
-  "2026-08-13T07:34:37.573Z  osm ES Spain: 83 places -> +0 new, 11 merged, 0 with an email already, 0 leads with no contact tag, 33 dropped as public",
-  "2026-08-13T07:35:40.166Z  osm GB: failed — subdivisions: out of time",
-  "2026-08-13T07:35:40.814Z  osm VE Venezuela: 16 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 7 dropped as public",
-  "2026-08-13T07:36:01.120Z  osm SV El Salvador: 7 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 5 dropped as public"
+  "2026-08-13T07:36:03.075Z  tick done in 6.2m — crawled 12 sites, +6 emails; searched 12 club names, found 4 sites, +2 emails; osm 5 countries (ES,IE,SV,VC,GB,VE,WS,AO,FJ,MW,MU,KE) +0, 1 failed | 1761 emails total, 82 still queued",
+  "2026-08-13T07:37:41.138Z  leads: the search engine stopped answering after 13 queries — pausing this phase",
+  "2026-08-13T07:37:41.152Z  leads: searched 13, found 7 sites, 2 new emails, 345 leads left",
+  "2026-08-13T07:37:41.242Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-08-13T07:37:41.246Z  discover: opened 0 pages, skipped 6 already known",
+  "2026-08-13T07:37:41.246Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-13T07:40:48.375Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-13T07:40:48.379Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T07:40:49.281Z  osm FJ: failed — busy (406)",
+  "2026-08-13T07:40:50.979Z  osm WS: failed — subdivisions: out of time",
+  "2026-08-13T07:41:01.895Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
+  "2026-08-13T07:41:01.896Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T07:41:20.148Z  osm MW Malawi: 4 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T07:41:42.239Z  osm AO Angola: 8 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 6 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-13T07:29:46.696Z",
+ "roundStarted": "2026-08-13T07:36:23.095Z",
  "lastRound": {
-  "at": "2026-08-13T07:36:01.161Z",
-  "minutes": 6.2,
-  "summary": "crawled 12 sites, +6 emails; searched 12 club names, found 4 sites, +2 emails; osm 5 countries (ES,IE,SV,VC,GB,VE,WS,AO,FJ,MW,MU,KE) +0, 1 failed",
-  "crawled": 12,
+  "at": "2026-08-13T07:41:42.283Z",
+  "minutes": 5.3,
+  "summary": "crawled 24 sites, +6 emails; searched 13 club names, found 7 sites, +2 emails; osm 4 countries (ES,IE,WS,AO,FJ,MW,MU,KE,CU,BR,VU,SL) +0, 2 failed",
+  "crawled": 24,
   "emailsFound": 6,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
+  "osmCountries": 4,
   "osmAdded": 0,
-  "osmFailed": 1
+  "osmFailed": 2
  }
 }
