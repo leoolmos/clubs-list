@@ -152,8 +152,8 @@ function outboundSite(html, base, chrome, clubName){
   return '';
 }
 
-const CONTACT_PATHS = ['/contact','/contact-us','/contacto','/contactos','/contacta','/contato','/kontakt','/about','/quienes-somos','/sobre-nos','/socios','/membership','/reservas','/impressum','/contatti','/chi-siamo','/kontakty','/yhteystiedot','/kapcsolat','/over-ons'];
-const RE_CONTACT_LINK = /contact|contacto|contacta|contato|kontakt|about|quienes|sobre|nosotros|socios|membership|impressum|reservas|contatti|chi-siamo|yhteystiedot|kapcsolat|over-ons/i;
+const CONTACT_PATHS = ['/contact','/contact-us','/contacto','/contactos','/contacta','/contato','/kontakt','/about','/quienes-somos','/sobre-nos','/socios','/membership','/reservas','/impressum'];
+const RE_CONTACT_LINK = /contact|contacto|contacta|contato|kontakt|about|quienes|sobre|nosotros|socios|membership|impressum|reservas/i;
 
 /* ------------------------------------------------------------------ *
  * State
