@@ -1,10 +1,10 @@
 {
- "generated": "2026-08-13T09:53:10.455Z",
+ "generated": "2026-08-13T09:58:30.254Z",
  "clubs": 1862,
  "records": 2977,
  "crawl": {
-  "ready": 3,
-  "waiting": 77,
+  "ready": 0,
+  "waiting": 80,
   "exhausted": 887
  },
  "osm": {
@@ -13,9 +13,9 @@
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "IE",
-   "error": "partial: 7 of 9 subdivisions read",
-   "at": "2026-08-13T09:53:10.412Z"
+   "cc": "BZ",
+   "error": "subdivisions: out of time",
+   "at": "2026-08-13T09:58:30.182Z"
   }
  },
  "crawlReasons": [
@@ -25,7 +25,7 @@
   },
   {
    "note": "unreachable",
-   "n": 488
+   "n": 489
   },
   {
    "note": "no email published",
@@ -33,7 +33,7 @@
   },
   {
    "note": "blocked by a challenge page",
-   "n": 74
+   "n": 73
   },
   {
    "note": "/contact",
@@ -56,6 +56,20 @@
   "left": 0
  },
  "activity": [
+  {
+   "t": "2026-08-13T09:53:33.076Z",
+   "kind": "crawl",
+   "text": "Mount Royal Tennis Club Inc — https://mountroyaltennis.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://mountroyaltennis.com"
+  },
+  {
+   "t": "2026-08-13T09:53:32.343Z",
+   "kind": "crawl",
+   "text": "Court 11 — https://opencourtdata.uk: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://opencourtdata.uk"
+  },
   {
    "t": "2026-08-13T09:48:30.639Z",
    "kind": "crawl",
@@ -1205,22 +1219,6 @@
    "kind": "search",
    "text": "no site found for Padel Courts (South Africa)",
    "ok": false
-  },
-  {
-   "t": "2026-08-13T08:15:38.411Z",
-   "kind": "search",
-   "text": "Zoo Lake Padel Court (South Africa) -> https://www.courtbrain.com -> club@courtbrain.com",
-   "ok": true,
-   "url": "https://www.courtbrain.com",
-   "email": "club@courtbrain.com"
-  },
-  {
-   "t": "2026-08-13T08:15:37.057Z",
-   "kind": "search",
-   "text": "Padel Montagu (South Africa) -> https://padelmontagu.co.za -> info@padelmontagu.co.za",
-   "ok": true,
-   "url": "https://padelmontagu.co.za",
-   "email": "info@padelmontagu.co.za"
   }
  ],
  "perCountry": {
@@ -1229,7 +1227,7 @@
    "emails": 554,
    "sites": 486,
    "read": 259,
-   "unreachable": 82,
+   "unreachable": 83,
    "noAddress": 24,
    "leads": 322,
    "leadsSearched": 322,
@@ -1247,10 +1245,10 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-13T09:51:31.175Z",
-    "seen": 83,
+    "at": "2026-08-13T09:57:39.625Z",
+    "seen": 46,
     "added": 0,
-    "rejected": 33,
+    "rejected": 26,
     "error": "partial: 9 of 23 subdivisions read",
     "via": "overpass.private.coffee"
    }
@@ -1309,12 +1307,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-13T09:53:10.412Z",
-    "seen": 5,
+    "at": "2026-08-13T09:56:39.399Z",
+    "seen": 0,
     "added": 0,
     "rejected": 0,
     "error": "partial: 7 of 9 subdivisions read",
-    "via": "overpass.kumi.systems"
+    "via": ""
    }
   },
   "Brazil": {
@@ -2290,7 +2288,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T09:32:53.747Z",
+    "at": "2026-08-13T09:56:56.615Z",
     "seen": 19,
     "added": 0,
     "rejected": 6,
@@ -2543,7 +2541,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T07:11:08.407Z",
+    "at": "2026-08-13T09:58:17.428Z",
     "seen": 2,
     "added": 0,
     "rejected": 0,
@@ -2980,7 +2978,7 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T09:28:53.950Z",
+    "at": "2026-08-13T09:58:30.182Z",
     "seen": 1,
     "added": 0,
     "rejected": 0,
@@ -3006,7 +3004,7 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T09:28:51.719Z",
+    "at": "2026-08-13T09:56:39.711Z",
     "seen": 3,
     "added": 0,
     "rejected": 0,
@@ -3536,34 +3534,34 @@
   }
  },
  "recent": [
-  "2026-08-13T09:48:08.557Z  osm HN Honduras: 4 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
-  "2026-08-13T09:48:10.517Z  published to the public link",
-  "2026-08-13T09:48:10.520Z  tick done in 4.7m — crawled 2 sites, +0 emails; osm 5 countries (ES,IE,AU,LC,NI,HN,TV,MX,SG,RW,AR,MH) +0, 1 failed | 1862 emails total, 74 still queued",
-  "2026-08-13T09:48:30.795Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-13T09:48:30.799Z  discover: opened 0 pages, skipped 6 already known",
-  "2026-08-13T09:48:30.800Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-13T09:51:31.171Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
-  "2026-08-13T09:51:31.175Z  osm ES Spain: 83 places -> +0 new, 11 merged, 0 with an email already, 0 leads with no contact tag, 33 dropped as public",
-  "2026-08-13T09:51:48.122Z  osm MX Mexico: 124 places -> +0 new, 1 merged, 0 with an email already, 0 leads with no contact tag, 92 dropped as public",
-  "2026-08-13T09:52:09.739Z  osm TV Tuvalu: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T09:52:21.544Z  osm PH Philippines: 272 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 46 dropped as public",
-  "2026-08-13T09:52:35.554Z  osm SG Singapore: 31 places -> +0 new, 1 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
-  "2026-08-13T09:53:10.407Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-13T09:53:10.412Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
+  "2026-08-13T09:53:10.412Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T09:53:12.148Z  published to the public link",
+  "2026-08-13T09:53:12.151Z  tick done in 4.7m — crawled 2 sites, +0 emails; osm 6 countries (ES,IE,PH,TV,MX,SG,RW,AR,MH,PE,GQ,UY) +0 | 1862 emails total, 74 still queued",
+  "2026-08-13T09:53:37.376Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-08-13T09:53:37.380Z  discover: opened 0 pages, skipped 6 already known",
+  "2026-08-13T09:53:37.380Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-13T09:56:39.395Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-13T09:56:39.398Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T09:56:39.711Z  osm LS: failed — subdivisions: out of time",
+  "2026-08-13T09:56:56.617Z  osm GH: failed — subdivisions: out of time",
+  "2026-08-13T09:57:39.621Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
+  "2026-08-13T09:57:39.625Z  osm ES Spain: 46 places -> +0 new, 2 merged, 0 with an email already, 0 leads with no contact tag, 26 dropped as public",
+  "2026-08-13T09:58:17.424Z  osm RW Rwanda: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T09:58:30.183Z  osm BZ: failed — subdivisions: out of time"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-13T09:48:30.534Z",
+ "roundStarted": "2026-08-13T09:53:32.167Z",
  "lastRound": {
-  "at": "2026-08-13T09:53:10.438Z",
-  "minutes": 4.7,
-  "summary": "crawled 2 sites, +0 emails; osm 6 countries (ES,IE,PH,TV,MX,SG,RW,AR,MH,PE,GQ,UY) +0",
-  "crawled": 2,
+  "at": "2026-08-13T09:58:30.225Z",
+  "minutes": 5,
+  "summary": "crawled 3 sites, +0 emails; osm 3 countries (ES,IE,GH,BZ,LS,RW,AR,MH,PE,GQ,UY,GT) +0, 3 failed",
+  "crawled": 3,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 6,
+  "osmCountries": 3,
   "osmAdded": 0,
-  "osmFailed": 0
+  "osmFailed": 3
  }
 }
