@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-13T13:06:19.357Z",
+ "generated": "2026-08-13T13:11:00.036Z",
  "clubs": 1862,
  "records": 2977,
  "crawl": {
-  "ready": 1,
-  "waiting": 73,
+  "ready": 0,
+  "waiting": 74,
   "exhausted": 887
  },
  "osm": {
-  "imported": 73,
-  "failed": 10,
+  "imported": 72,
+  "failed": 11,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "CO",
+   "cc": "AR",
    "error": "subdivisions: out of time",
-   "at": "2026-08-13T13:06:19.287Z"
+   "at": "2026-08-13T13:10:59.979Z"
   }
  },
  "crawlReasons": [
@@ -56,6 +56,13 @@
   "left": 0
  },
  "activity": [
+  {
+   "t": "2026-08-13T13:06:41.685Z",
+   "kind": "crawl",
+   "text": "Cherry Hill Health & Racquet Club — https://chhrc.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://chhrc.com"
+  },
   {
    "t": "2026-08-13T12:56:46.215Z",
    "kind": "crawl",
@@ -1195,14 +1202,6 @@
    "kind": "search",
    "text": "no site found for Trivandrum Squash Centre (India)",
    "ok": false
-  },
-  {
-   "t": "2026-08-13T08:18:26.067Z",
-   "kind": "search",
-   "text": "Squash Courts (India) -> https://squash.courtsnear.me, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://squash.courtsnear.me",
-   "email": ""
   }
  ],
  "perCountry": {
@@ -1229,12 +1228,12 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-13T13:05:19.971Z",
-    "seen": 0,
+    "at": "2026-08-13T13:10:34.539Z",
+    "seen": 46,
     "added": 0,
-    "rejected": 0,
+    "rejected": 26,
     "error": "partial: 9 of 23 subdivisions read",
-    "via": ""
+    "via": "overpass.kumi.systems"
    }
   },
   "United Kingdom": {
@@ -1291,12 +1290,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-13T13:05:07.318Z",
-    "seen": 0,
+    "at": "2026-08-13T13:09:42.850Z",
+    "seen": 5,
     "added": 0,
     "rejected": 0,
     "error": "partial: 7 of 9 subdivisions read",
-    "via": ""
+    "via": "overpass.kumi.systems"
    }
   },
   "Brazil": {
@@ -1411,7 +1410,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T12:45:28.639Z",
+    "at": "2026-08-13T13:10:59.979Z",
     "seen": 367,
     "added": 0,
     "rejected": 223,
@@ -2243,11 +2242,11 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T10:22:57.008Z",
+    "at": "2026-08-13T13:09:54.107Z",
     "seen": 8,
     "added": 0,
     "rejected": 6,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.kumi.systems"
    }
   },
@@ -3378,11 +3377,11 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T12:45:44.236Z",
+    "at": "2026-08-13T13:10:45.114Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
-    "error": "subdivisions: out of time",
+    "error": null,
     "via": "overpass.kumi.systems"
    }
   },
@@ -3430,11 +3429,11 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T10:26:31.350Z",
+    "at": "2026-08-13T13:10:16.108Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.kumi.systems"
    }
   },
@@ -3518,34 +3517,34 @@
   }
  },
  "recent": [
-  "2026-08-13T13:01:19.963Z  osm SS South Sudan: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T13:01:21.901Z  published to the public link",
-  "2026-08-13T13:01:21.903Z  tick done in 4.6m — crawled 2 sites, +0 emails; osm 4 countries (ES,GB,US,IE,SS,LS,GH,AO,TO,BZ,ST,BR) +0, 2 failed | 1862 emails total, 74 still queued",
-  "2026-08-13T13:01:42.140Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-13T13:01:42.143Z  discover: opened 0 pages, skipped 6 already known",
-  "2026-08-13T13:01:42.144Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-13T13:05:07.315Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-13T13:05:07.318Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T13:05:19.968Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
-  "2026-08-13T13:05:19.971Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T13:05:55.625Z  osm GH Ghana: 19 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 6 dropped as public",
-  "2026-08-13T13:06:08.372Z  osm AG Antigua and Barbuda: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-13T13:06:14.852Z  osm TZ Tanzania: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 4 dropped as public",
-  "2026-08-13T13:06:19.289Z  osm CO: failed — subdivisions: out of time"
+  "2026-08-13T13:06:19.289Z  osm CO: failed — subdivisions: out of time",
+  "2026-08-13T13:06:21.232Z  published to the public link",
+  "2026-08-13T13:06:21.236Z  tick done in 4.6m — crawled 0 sites, +0 emails; osm 5 countries (ES,IE,CO,TZ,AG,GH,AO,TO,BZ,ST,BR,PT) +0, 1 failed | 1862 emails total, 74 still queued",
+  "2026-08-13T13:06:41.884Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-08-13T13:06:41.887Z  discover: opened 0 pages, skipped 6 already known",
+  "2026-08-13T13:06:41.888Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-13T13:09:42.846Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-13T13:09:42.849Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T13:09:54.108Z  osm AO: failed — subdivisions: out of time",
+  "2026-08-13T13:10:16.109Z  osm TO: failed — subdivisions: out of time",
+  "2026-08-13T13:10:34.535Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
+  "2026-08-13T13:10:34.539Z  osm ES Spain: 46 places -> +0 new, 2 merged, 0 with an email already, 0 leads with no contact tag, 26 dropped as public",
+  "2026-08-13T13:10:45.110Z  osm GW Guinea-Bissau: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T13:10:59.980Z  osm AR: failed — subdivisions: out of time"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-13T13:01:41.924Z",
+ "roundStarted": "2026-08-13T13:06:41.253Z",
  "lastRound": {
-  "at": "2026-08-13T13:06:19.331Z",
-  "minutes": 4.6,
-  "summary": "crawled 0 sites, +0 emails; osm 5 countries (ES,IE,CO,TZ,AG,GH,AO,TO,BZ,ST,BR,PT) +0, 1 failed",
-  "crawled": 0,
+  "at": "2026-08-13T13:11:00.015Z",
+  "minutes": 4.3,
+  "summary": "crawled 1 sites, +0 emails; osm 3 countries (ES,AR,IE,GW,AO,TO,BZ,ST,BR,PT,AU,VU) +0, 3 failed",
+  "crawled": 1,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
+  "osmCountries": 3,
   "osmAdded": 0,
-  "osmFailed": 1
+  "osmFailed": 3
  }
 }
