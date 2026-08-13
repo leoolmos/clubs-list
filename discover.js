@@ -48,7 +48,15 @@ const ROOTS = [
   'https://curlie.org/en/Sports/Squash/Directories',
   'https://curlie.org/en/Sports/Tennis/Directories',
   'https://curlie.org/en/Sports/Paddleball',
-  'https://curlie.org/en/Sports/Racquetball/Clubs'
+  'https://curlie.org/en/Sports/Racquetball/Clubs',
+  // The Spanish and Portuguese trees are separate editions with their own
+  // editors and their own categories — the English walk never sees them.
+  // A root that turns out not to exist is logged RETRY and costs one fetch.
+  'https://curlie.org/es/Deportes/Tenis',
+  'https://curlie.org/es/Deportes/Squash',
+  'https://curlie.org/es/Deportes/P%C3%A1del',
+  'https://curlie.org/pt/Esportes/T%C3%AAnis',
+  'https://curlie.org/pt/Esportes/Squash'
 ];
 
 /* Curlie writes country names into the path: .../Regional/Europe/Spain/...
@@ -57,13 +65,18 @@ const NAME_TO_CC = {};
 for(const [cc, [name]] of Object.entries(COUNTRIES)){
   NAME_TO_CC[name.replace(/\s+/g,'_')] = cc;
 }
-// spellings Curlie uses that differ from the country table
+// spellings Curlie uses that differ from the country table, including the
+// Spanish and Portuguese editions' own names for the same countries
 Object.assign(NAME_TO_CC, {
   United_States: 'US', United_Kingdom: 'GB', New_Zealand: 'NZ',
   South_Africa: 'ZA', Trinidad_and_Tobago: 'TT', Papua_New_Guinea: 'PG',
   Cape_Verde: 'CV', East_Timor: 'TL', Timor_Leste: 'TL',
   Antigua_and_Barbuda: 'AG', 'Saint_Lucia': 'LC', Costa_Rica: 'CR',
-  Dominican_Republic: 'DO', El_Salvador: 'SV', Puerto_Rico: null   // not in the brief
+  Dominican_Republic: 'DO', El_Salvador: 'SV',
+  'España': 'ES', 'México': 'MX', 'Perú': 'PE', 'Panamá': 'PA',
+  'República_Dominicana': 'DO', 'Brasil': 'BR', 'Estados_Unidos': 'US',
+  'Reino_Unido': 'GB', 'Irlanda': 'IE', 'Sudáfrica': 'ZA',
+  'Nueva_Zelanda': 'NZ', 'Filipinas': 'PH', 'Kenia': 'KE'
 });
 
 /* Categories the brief rules out, judged by the category rather than by the
@@ -82,12 +95,17 @@ const RE_EXCLUDED_CATEGORY = new RegExp([
   'News_and_Media','Magazines?','Publications?',
   'Organizations?','Associations?','Federations?','Governing',
   'Instruction','Camps','Coaching','Products?','Shopping','Equipment',
-  'Chats_and_Forums','Personal_Pages'
+  'Chats_and_Forums','Personal_Pages',
+  // the same exclusions in the Spanish and Portuguese editions
+  'Universidades','Escuelas','Organizaciones','Federaci',
+  'Noticias','Revistas','Tiendas','Educa','Not%C3%ADcias','Lojas'
 ].join('|'), 'i');
 
 function ccFromPath(url){
   for(const part of url.split('/')){
-    const hit = NAME_TO_CC[part];
+    let p = part;
+    try{ p = decodeURIComponent(part); }catch(e){}
+    const hit = NAME_TO_CC[p];
     if(hit && isWanted(hit)) return hit;
   }
   return '';
@@ -145,10 +163,10 @@ function judge(html, url){
   // walk leaves the tennis tree at the first regional hub and starts working
   // through the whole of Curlie — 25 pages in, the queue held 271 pages and
   // not one of them was a club list.
-  const RELEVANT = /(Tennis|Squash|Racquet|Racket|Padel|Paddle)/i;
+  const RELEVANT = /(Tennis|Squash|Racquet|Racket|Padel|Paddle|Tenis|T%C3%AAnis|P%C3%A1del)/i;
   const subcats = Array.from(new Set(
     all.filter(l => l.url.startsWith(origin))
-       .filter(l => /\/en\/(Sports|Regional)\//.test(l.url))
+       .filter(l => /\/(en|es|pt)\/(Sports|Regional|Deportes|Esportes)\//.test(l.url))
        .filter(l => RELEVANT.test(l.url))
        .map(l => l.url.split('#')[0].replace(/\/$/,''))
   ));

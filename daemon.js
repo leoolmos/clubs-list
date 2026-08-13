@@ -69,6 +69,9 @@ const CFG = {
   // walking rather than a page count worth tuning.
   discoverMinutes: parseInt(process.env.DISCOVER_MINUTES || '5',  10),
   discoverPages:   parseInt(process.env.DISCOVER_PAGES   || '60', 10),
+  // Certificate-log mining: domains carrying a club word under the brief's
+  // country TLDs, plus Wikidata's catalogued clubs. See lib/mine.js.
+  mineMinutes:   parseInt(process.env.MINE_MINUTES || '6', 10),
   maxAttempts:   4
 };
 
@@ -78,6 +81,7 @@ const { detectSports, privateClub, extractEmails, extractContactName,
 const osm = require('./lib/osm');
 const search = require('./lib/search');
 const prospect = require('./lib/prospect');
+const mine = require('./lib/mine');
 const discover = require('./discover');
 
 
@@ -399,8 +403,20 @@ async function pool(items, limit, fn){
   }));
 }
 
+/* Sites change. A club that published no address in June hires a new
+ * secretary in July and puts one up. "Settled" therefore lasts a month, not
+ * for ever: anything out of attempts gets one fresh look every thirty days. */
+const SETTLED_REVIEW_MS = 30*24*60*60*1000;
+
 async function phaseCrawl(db, deadline){
   const today = Date.now();
+  for(const r of Object.values(db)){
+    if(r.email || !r.website) continue;
+    if((r.attempts||0) < CFG.maxAttempts) continue;
+    if(!r.lastTried || today - Date.parse(r.lastTried) > SETTLED_REVIEW_MS){
+      r.attempts = CFG.maxAttempts - 1;      // one look, then settled for another month
+    }
+  }
   const todo = Object.values(db).filter(r=>{
     if(r.email || !r.website) return false;
     if(r.attempts >= CFG.maxAttempts) return false;
@@ -599,6 +615,26 @@ async function phaseProspect(db, deadline){
   return {countries, added, vetted};
 }
 
+/* ------------------------------------------------------------------ *
+ * Work: mine certificate logs and Wikidata for club domains
+ * ------------------------------------------------------------------ *
+ * The engines above can only find what somebody wrote down — in a
+ * directory, on the map, in a search index's first page. A club's TLS
+ * certificate is written down the moment its site goes up, whether or not
+ * anyone ever lists it. lib/mine.js reads those logs.
+ */
+async function phaseMine(db, deadline){
+  if(process.env.MINE === 'off') return {queried:0, vetted:0, added:0};
+  const budget = Math.min(deadline, Date.now() + CFG.mineMinutes*60*1000);
+  if(Date.now() >= budget) return {queried:0, vetted:0, added:0};
+  try{
+    return await mine.run(db, budget, m=>log(m));
+  }catch(e){
+    log('mine failed: ' + e.message);
+    return {queried:0, vetted:0, added:0};
+  }
+}
+
 /* Walk one directory for up to `budget` pages. */
 async function workSeed(seed, db, deadline, budget){
   const auto = seed.cc === 'AUTO';
@@ -716,10 +752,18 @@ async function phaseLeads(db, deadline){
   const budget = Math.min(deadline, Date.now() + CFG.leadMinutes*60*1000);
   let tried=0, found=0, emails=0, throttled=0;
 
+  // A lead searched once is not settled for ever either: rankings move and
+  // new club sites appear. One fresh search a month, websites excepted.
+  const LEAD_RETRY_MS = 30*24*60*60*1000;
+
   for(const k of keys){
     if(Date.now() > budget) break;
     const lead = leads[k];
-    if(!lead || lead.searched) continue;
+    if(!lead) continue;
+    if(lead.searched){
+      if(lead.website) continue;
+      if(Date.now() - Date.parse(lead.searched) < LEAD_RETRY_MS) continue;
+    }
 
     tried++;
     let r;
@@ -1001,6 +1045,10 @@ function writeStatusJSON(extra){
     },
     leads: (()=>{ const L=readJSON(path.join(DATA_DIR,'osm-leads.json'), {}); const v=Object.values(L);
       return {total:v.length, searched:v.filter(l=>l.searched).length, left:v.filter(l=>!l.searched).length}; })(),
+    mine: (()=>{ const s=readJSON(path.join(DATA_DIR,'mine-state.json'), {});
+      const ps=Object.entries(s).filter(([k])=>k!=='wikidata').map(([,v])=>v);
+      return {patterns: ps.length, queued: ps.reduce((n,v)=>n+((v.pending||[]).length),0),
+              added: ps.reduce((n,v)=>n+(v.added||0),0), wikidata: s.wikidata||null}; })(),
     activity: readActivity(160),
     perCountry,
     recent
@@ -1114,6 +1162,14 @@ async function tick(){
     if(leadsFirst){ await runLeads(); await runProspect(); }
     else          { await runProspect(); await runLeads(); }
 
+    // Domains from the certificate logs and Wikidata, vetted page by page.
+    let m = {queried:0, vetted:0, added:0};
+    if(Date.now() < deadline){
+      busy('mining certificate logs for club domains');
+      m = await phaseMine(db, deadline);
+      writeJSON(DB_FILE, db);
+    }
+
     // Then extend the frontier if there is time left
     let h = {pages:0, added:0, source:null};
     busy('reading directory pages');
@@ -1149,6 +1205,7 @@ async function tick(){
     const queued = Object.values(db).filter(r=>!r.email && r.website && (r.attempts||0)<CFG.maxAttempts).length;
     const summary = `crawled ${c.tried} sites, +${c.found} emails` +
         (L.tried ? `; searched ${L.tried} club names, found ${L.found} sites, +${L.emails} emails` : '') +
+        (m.vetted || m.added ? `; mined ${m.vetted} domains, +${m.added} clubs` : '') +
         (h.pages ? `; read ${h.pages} pages from ${h.source}, +${h.added} clubs` : '') +
         (d.found ? `; found ${d.found} new directories` : '') +
         (p.countries ? `; prospected ${p.countries} empty countries, +${p.added} clubs` : '') +
