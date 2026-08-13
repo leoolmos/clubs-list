@@ -1026,6 +1026,21 @@ function writeStatusJSON(extra){
              error: st.error || null, via: st.via || ''};
   }
 
+  /* Which searches the prospector runs for each country, and how far it
+   * has got — so the page can show the actual city list rather than a
+   * number. Every country gets a slot, even one nothing has reached. */
+  const prospectState = readJSON(path.join(DATA_DIR, 'prospect.json'), {});
+  const prospectLib = require('./lib/prospect');
+  for(const [cc, [cname, clang]] of Object.entries(COUNTRIES)){
+    const s = slot(cname); if(!s) continue;
+    const cities = prospectLib.CITIES[cc] || [];
+    const terms = prospectLib.TERMS[clang] || prospectLib.TERMS.English;
+    const total = terms.length * (1 + cities.length);
+    const done = ((prospectState[cc]||{}).queriesDone || []).length;
+    s.prospect = {cities, terms, searchesDone: Math.min(done, total), searchesTotal: total,
+                  last: (prospectState[cc]||{}).last || null};
+  }
+
   let recent = [];
   try{
     recent = fs.readFileSync(LOG_FILE,'utf8').split(/\r?\n/).filter(Boolean).slice(-14);

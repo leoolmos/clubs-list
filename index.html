@@ -1232,6 +1232,21 @@ function showCountry(country){
 
   if(c.seeds) out += row("Directories being walked", c.seeds);
 
+  // The web searches the prospector runs here: each term country-wide, then
+  // each term against every listed city.
+  if(c.prospect){
+    var pr = c.prospect, cities = pr.cities || [];
+    var head = pr.searchesDone + " of " + pr.searchesTotal + " searches done" +
+      (pr.last ? " <span class='meta'>· last " + esc(stamp(pr.last)) + "</span>" : "");
+    if(cities.length){
+      out += row("Searched city by city",
+        head + "<div class='meta' style='margin-top:4px'>" +
+        cities.map(esc).join(" · ") + "</div>");
+    } else {
+      out += row("Web searches", head + "<div class='meta'>country-wide only — no city list for " + esc(country) + "</div>");
+    }
+  }
+
   var src = Object.keys(c.sources || {});
   if(src.length){
     out += row("Where the addresses came from", src.sort(function(a,b){ return c.sources[b]-c.sources[a]; })
