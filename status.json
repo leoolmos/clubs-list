@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-13T08:50:25.409Z",
+ "generated": "2026-08-13T08:55:26.139Z",
  "clubs": 1862,
  "records": 2977,
  "crawl": {
-  "ready": 6,
-  "waiting": 82,
+  "ready": 0,
+  "waiting": 87,
   "exhausted": 878
  },
  "osm": {
-  "imported": 77,
-  "failed": 6,
+  "imported": 76,
+  "failed": 7,
   "pending": 0,
   "total": 83,
   "lastError": {
    "cc": "IE",
    "error": "partial: 7 of 9 subdivisions read",
-   "at": "2026-08-13T08:50:25.361Z"
+   "at": "2026-08-13T08:54:39.733Z"
   }
  },
  "crawlReasons": [
@@ -1250,7 +1250,7 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-13T08:48:56.837Z",
+    "at": "2026-08-13T08:54:08.595Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -1281,11 +1281,11 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-13T08:26:18.382Z",
+    "at": "2026-08-13T08:54:00.726Z",
     "seen": 1397,
     "added": 0,
     "rejected": 221,
-    "error": "busy (406)",
+    "error": "subdivisions: busy (504)",
     "via": "overpass.kumi.systems"
    }
   },
@@ -1312,7 +1312,7 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-13T08:50:25.361Z",
+    "at": "2026-08-13T08:54:39.733Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -1372,11 +1372,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T04:39:21.778Z",
+    "at": "2026-08-13T08:54:35.795Z",
     "seen": 37,
     "added": 0,
     "rejected": 27,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.private.coffee"
    }
   },
@@ -1612,7 +1612,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T04:30:21.919Z",
+    "at": "2026-08-13T08:55:26.092Z",
     "seen": 231,
     "added": 0,
     "rejected": 146,
@@ -2743,11 +2743,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T08:27:42.345Z",
+    "at": "2026-08-13T08:52:08.433Z",
     "seen": 18,
     "added": 0,
     "rejected": 13,
-    "error": "subdivisions: out of time",
+    "error": "busy (406)",
     "via": "overpass.kumi.systems"
    }
   },
@@ -2905,8 +2905,8 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T04:30:25.656Z",
-    "seen": 1,
+    "at": "2026-08-13T08:54:16.888Z",
+    "seen": 0,
     "added": 0,
     "rejected": 0,
     "error": null,
@@ -3539,34 +3539,34 @@
   }
  },
  "recent": [
-  "2026-08-13T08:45:30.778Z  osm EC Ecuador: 54 places -> +0 new, 1 merged, 0 with an email already, 0 leads with no contact tag, 35 dropped as public",
-  "2026-08-13T08:45:32.838Z  published to the public link",
-  "2026-08-13T08:45:32.841Z  tick done in 5.1m — crawled 2 sites, +0 emails; osm 6 countries (ES,IE,BB,EC,NA,ZM,NZ,BS,NG,CA,CL,GM) +0 | 1862 emails total, 83 still queued",
-  "2026-08-13T08:45:53.232Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-13T08:45:53.235Z  discover: opened 0 pages, skipped 6 already known",
-  "2026-08-13T08:45:53.236Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-13T08:48:56.833Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
-  "2026-08-13T08:48:56.837Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T08:49:10.016Z  osm NZ: failed — subdivisions: out of time",
-  "2026-08-13T08:49:11.125Z  osm CA: failed — subdivisions: out of time",
-  "2026-08-13T08:49:28.996Z  osm NG Nigeria: 17 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 6 dropped as public",
-  "2026-08-13T08:49:46.518Z  osm BS Bahamas: 4 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-13T08:50:25.358Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-13T08:50:25.361Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
+  "2026-08-13T08:50:27.425Z  published to the public link",
+  "2026-08-13T08:50:27.428Z  tick done in 4.5m — crawled 1 sites, +0 emails; osm 4 countries (ES,IE,NZ,BS,NG,CA,CL,GM,BO,SB,SS,PK) +0, 2 failed | 1862 emails total, 83 still queued",
+  "2026-08-13T08:50:52.639Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-08-13T08:50:52.642Z  discover: opened 0 pages, skipped 6 already known",
+  "2026-08-13T08:50:52.643Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-13T08:52:08.435Z  osm KE: failed — busy (406)",
+  "2026-08-13T08:54:00.726Z  osm GB: failed — subdivisions: busy (504)",
+  "2026-08-13T08:54:08.591Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
+  "2026-08-13T08:54:08.594Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T08:54:16.884Z  osm GM Gambia: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T08:54:35.796Z  osm BO: failed — subdivisions: out of time",
+  "2026-08-13T08:54:39.729Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-13T08:54:39.732Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T08:55:26.088Z  osm CL Chile: 231 places -> +0 new, 2 merged, 0 with an email already, 0 leads with no contact tag, 146 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-13T08:45:52.852Z",
+ "roundStarted": "2026-08-13T08:50:47.438Z",
  "lastRound": {
-  "at": "2026-08-13T08:50:25.390Z",
-  "minutes": 4.5,
-  "summary": "crawled 1 sites, +0 emails; osm 4 countries (ES,IE,NZ,BS,NG,CA,CL,GM,BO,SB,SS,PK) +0, 2 failed",
-  "crawled": 1,
+  "at": "2026-08-13T08:55:26.120Z",
+  "minutes": 4.6,
+  "summary": "crawled 6 sites, +0 emails; osm 4 countries (ES,GB,IE,KE,CL,GM,BO,SB,SS,PK,PH,CV) +0, 3 failed",
+  "crawled": 6,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
   "osmCountries": 4,
   "osmAdded": 0,
-  "osmFailed": 2
+  "osmFailed": 3
  }
 }
