@@ -289,6 +289,14 @@ dialog::backdrop{background:rgba(20,32,30,.45)}
   font-family:"Archivo",sans-serif;font-size:11px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-soft);margin:22px 0 6px
 }
+/* the prospected-city list: chips that wrap, never a line that scrolls */
+.citylist{display:flex;flex-wrap:wrap;gap:4px 6px;margin-top:6px}
+.citylist .city{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-soft);
+  border:1px solid var(--rule);background:var(--panel);
+  padding:2px 7px;border-radius:2px;white-space:nowrap
+}
+
 /* the activity rows reuse .act, whose time column is nowrap by default */
 .dlg-in .act{table-layout:fixed}
 .dlg-in .act td{padding:7px 10px 7px 0}
@@ -1240,10 +1248,11 @@ function showCountry(country){
       (pr.last ? " <span class='meta'>· last " + esc(stamp(pr.last)) + "</span>" : "");
     if(cities.length){
       out += row("Searched city by city",
-        head + "<div class='meta' style='margin-top:4px'>" +
-        cities.map(esc).join(" · ") + "</div>");
+        head + "<div class='citylist'>" +
+        cities.map(function(x){ return "<span class='city'>" + esc(x) + "</span>"; }).join("") +
+        "</div>");
     } else {
-      out += row("Web searches", head + "<div class='meta'>country-wide only — no city list for " + esc(country) + "</div>");
+      out += row("Web searches", head + "<div style='margin-top:4px'>country-wide searches only — no city list for " + esc(country) + "</div>");
     }
   }
 
