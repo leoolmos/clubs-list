@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-13T11:17:53.737Z",
+ "generated": "2026-08-13T11:22:04.089Z",
  "clubs": 1862,
  "records": 2977,
  "crawl": {
@@ -8,14 +8,14 @@
   "exhausted": 887
  },
  "osm": {
-  "imported": 71,
-  "failed": 12,
+  "imported": 72,
+  "failed": 11,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "IE",
-   "error": "partial: 7 of 9 subdivisions read",
-   "at": "2026-08-13T11:17:53.681Z"
+   "cc": "SC",
+   "error": "subdivisions: out of time",
+   "at": "2026-08-13T11:21:45.271Z"
   }
  },
  "crawlReasons": [
@@ -51,11 +51,18 @@
   "pagesRead": 66
  },
  "leads": {
-  "total": 3901,
+  "total": 3902,
   "searched": 3901,
-  "left": 0
+  "left": 1
  },
  "activity": [
+  {
+   "t": "2026-08-13T11:18:15.795Z",
+   "kind": "crawl",
+   "text": "West Hants Club — https://www.westhants.co.uk: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.westhants.co.uk"
+  },
   {
    "t": "2026-08-13T11:02:21.919Z",
    "kind": "crawl",
@@ -1203,14 +1210,6 @@
    "kind": "search",
    "text": "no site found for Adelaars Squash Club (South Africa)",
    "ok": false
-  },
-  {
-   "t": "2026-08-13T08:16:15.493Z",
-   "kind": "search",
-   "text": "CSIR Squash Club (South Africa) -> https://www.csir.co.za, no address on the site (no email published)",
-   "ok": false,
-   "url": "https://www.csir.co.za",
-   "email": ""
   }
  ],
  "perCountry": {
@@ -1237,12 +1236,12 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-13T11:15:54.564Z",
-    "seen": 83,
+    "at": "2026-08-13T11:21:16.733Z",
+    "seen": 0,
     "added": 0,
-    "rejected": 33,
+    "rejected": 0,
     "error": "partial: 9 of 23 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": ""
    }
   },
   "United Kingdom": {
@@ -1299,7 +1298,7 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-13T11:17:53.681Z",
+    "at": "2026-08-13T11:21:22.910Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -2073,7 +2072,7 @@
    "read": 4,
    "unreachable": 0,
    "noAddress": 2,
-   "leads": 1,
+   "leads": 2,
    "leadsSearched": 1,
    "leadsFound": 1,
    "sports": {
@@ -2086,11 +2085,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T10:55:41.111Z",
-    "seen": 2,
+    "at": "2026-08-13T11:22:04.027Z",
+    "seen": 3,
     "added": 0,
     "rejected": 1,
-    "error": "fetch failed",
+    "error": null,
     "via": "overpass.kumi.systems"
    }
   },
@@ -2393,12 +2392,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T10:55:29.921Z",
+    "at": "2026-08-13T11:21:16.530Z",
     "seen": 7,
     "added": 0,
     "rejected": 2,
-    "error": "subdivisions: out of time",
-    "via": "overpass.private.coffee"
+    "error": null,
+    "via": "overpass.kumi.systems"
    }
   },
   "Nigeria": {
@@ -2838,7 +2837,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T10:57:00.535Z",
+    "at": "2026-08-13T11:21:20.439Z",
     "seen": 8,
     "added": 0,
     "rejected": 3,
@@ -2944,11 +2943,11 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T09:05:21.711Z",
+    "at": "2026-08-13T11:21:45.271Z",
     "seen": 3,
     "added": 0,
     "rejected": 1,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.private.coffee"
    }
   },
@@ -3526,34 +3525,34 @@
   }
  },
  "recent": [
-  "2026-08-13T11:12:22.901Z  osm SB Solomon Islands: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T11:12:24.888Z  published to the public link",
-  "2026-08-13T11:12:24.892Z  tick done in 4.7m — crawled 0 sites, +0 emails; osm 5 countries (ES,IN,IE,GM,CL,SB,SS,PK,UG,SC,SD,KI) +0, 1 failed | 1862 emails total, 74 still queued",
-  "2026-08-13T11:12:45.195Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-13T11:12:45.199Z  discover: opened 0 pages, skipped 6 already known",
-  "2026-08-13T11:12:45.200Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-13T11:15:49.495Z  osm US: failed — subdivisions: out of time",
-  "2026-08-13T11:15:50.012Z  osm SS: failed — subdivisions: out of time",
-  "2026-08-13T11:15:54.559Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
-  "2026-08-13T11:15:54.564Z  osm ES Spain: 83 places -> +0 new, 11 merged, 0 with an email already, 0 leads with no contact tag, 33 dropped as public",
-  "2026-08-13T11:16:17.678Z  osm PK Pakistan: 15 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 3 dropped as public",
-  "2026-08-13T11:17:22.356Z  osm UG: failed — subdivisions: out of time",
-  "2026-08-13T11:17:53.677Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-13T11:17:53.681Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
+  "2026-08-13T11:17:53.681Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T11:17:55.563Z  published to the public link",
+  "2026-08-13T11:17:55.567Z  tick done in 5.1m — crawled 0 sites, +0 emails; osm 3 countries (ES,US,IE,SS,PK,UG,SC,SD,KI,PY,CA,NZ) +0, 3 failed | 1862 emails total, 74 still queued",
+  "2026-08-13T11:18:15.983Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-08-13T11:18:15.987Z  discover: opened 0 pages, skipped 6 already known",
+  "2026-08-13T11:18:15.987Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-13T11:21:16.526Z  osm NA Namibia: 7 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 2 dropped as public",
+  "2026-08-13T11:21:16.729Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
+  "2026-08-13T11:21:16.732Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T11:21:20.440Z  osm FJ: failed — subdivisions: out of time",
+  "2026-08-13T11:21:22.906Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-13T11:21:22.909Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T11:21:45.272Z  osm SC: failed — subdivisions: out of time",
+  "2026-08-13T11:22:04.024Z  osm BB Barbados: 3 places -> +0 new, 0 merged, 0 with an email already, 1 leads with no contact tag, 1 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-13T11:12:44.915Z",
+ "roundStarted": "2026-08-13T11:18:15.588Z",
  "lastRound": {
-  "at": "2026-08-13T11:17:53.716Z",
-  "minutes": 5.1,
-  "summary": "crawled 0 sites, +0 emails; osm 3 countries (ES,US,IE,SS,PK,UG,SC,SD,KI,PY,CA,NZ) +0, 3 failed",
-  "crawled": 0,
+  "at": "2026-08-13T11:22:04.065Z",
+  "minutes": 3.8,
+  "summary": "crawled 1 sites, +0 emails; osm 4 countries (ES,IE,NA,BB,FJ,SC,SD,KI,PY,CA,NZ,MZ) +0, 2 failed",
+  "crawled": 1,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 3,
+  "osmCountries": 4,
   "osmAdded": 0,
-  "osmFailed": 3
+  "osmFailed": 2
  }
 }
