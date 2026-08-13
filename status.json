@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-13T17:06:30.471Z",
+ "generated": "2026-08-13T17:11:39.617Z",
  "clubs": 1863,
  "records": 2978,
  "crawl": {
-  "ready": 1,
-  "waiting": 72,
+  "ready": 0,
+  "waiting": 73,
   "exhausted": 888
  },
  "osm": {
-  "imported": 69,
-  "failed": 14,
+  "imported": 70,
+  "failed": 13,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "GH",
-   "error": "subdivisions: out of time",
-   "at": "2026-08-13T17:05:57.150Z"
+   "cc": "ES",
+   "error": "partial: 9 of 23 subdivisions read",
+   "at": "2026-08-13T17:11:23.406Z"
   }
  },
  "crawlReasons": [
@@ -56,6 +56,13 @@
   "left": 0
  },
  "activity": [
+  {
+   "t": "2026-08-13T17:06:52.629Z",
+   "kind": "crawl",
+   "text": "Mullingar Tennis Club — https://mullingartennisandbadminton.ie: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://mullingartennisandbadminton.ie"
+  },
   {
    "t": "2026-08-13T16:46:21.772Z",
    "kind": "crawl",
@@ -1167,13 +1174,6 @@
    "text": "Saltburn Tennis Club — https://saltburn.org.uk: turned away by a captcha, will retry",
    "ok": false,
    "url": "https://saltburn.org.uk"
-  },
-  {
-   "t": "2026-08-13T08:28:13.623Z",
-   "kind": "crawl",
-   "text": "Royal Palm Tennis Club — https://rptc.org: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://rptc.org"
   }
  ],
  "perCountry": {
@@ -1200,7 +1200,7 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-13T17:05:43.837Z",
+    "at": "2026-08-13T17:11:23.406Z",
     "seen": 84,
     "added": 0,
     "rejected": 33,
@@ -1262,7 +1262,7 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-13T17:05:13.149Z",
+    "at": "2026-08-13T17:10:36.168Z",
     "seen": 5,
     "added": 0,
     "rejected": 0,
@@ -1711,7 +1711,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T16:45:59.515Z",
+    "at": "2026-08-13T17:10:52.279Z",
     "seen": 2460,
     "added": 0,
     "rejected": 902,
@@ -2049,8 +2049,8 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T14:14:21.328Z",
-    "seen": 2,
+    "at": "2026-08-13T17:10:39.258Z",
+    "seen": 3,
     "added": 0,
     "rejected": 1,
     "error": null,
@@ -2327,7 +2327,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T14:14:53.146Z",
+    "at": "2026-08-13T17:10:45.340Z",
     "seen": 13,
     "added": 0,
     "rejected": 10,
@@ -2637,11 +2637,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T16:44:38.421Z",
+    "at": "2026-08-13T17:11:39.564Z",
     "seen": 6,
     "added": 0,
     "rejected": 1,
-    "error": "subdivisions: out of time",
+    "error": null,
     "via": "overpass.kumi.systems"
    }
   },
@@ -3489,34 +3489,34 @@
   }
  },
  "recent": [
-  "2026-08-13T17:01:16.836Z  osm CL: failed — subdivisions: out of time",
-  "2026-08-13T17:01:18.880Z  published to the public link",
-  "2026-08-13T17:01:18.884Z  tick done in 5.0m — crawled 0 sites, +0 emails; osm 3 countries (ES,IE,ZM,NR,CL,AR,CO,SB,BB,MU,PG,CA) +0, 3 failed | 1863 emails total, 73 still queued",
-  "2026-08-13T17:01:39.101Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-13T17:01:39.105Z  discover: opened 0 pages, skipped 6 already known",
-  "2026-08-13T17:01:39.105Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-13T17:04:42.168Z  osm CO: failed — subdivisions: out of time",
-  "2026-08-13T17:05:07.772Z  osm SB: failed — subdivisions: out of time",
-  "2026-08-13T17:05:13.144Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-13T17:05:13.148Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T17:05:43.833Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
-  "2026-08-13T17:05:43.837Z  osm ES Spain: 84 places -> +0 new, 12 merged, 0 with an email already, 0 leads with no contact tag, 33 dropped as public",
-  "2026-08-13T17:05:57.151Z  osm GH: failed — subdivisions: out of time",
-  "2026-08-13T17:06:30.397Z  osm AU Australia: 1013 places -> +0 new, 103 merged, 0 with an email already, 0 leads with no contact tag, 249 dropped as public"
+  "2026-08-13T17:06:30.397Z  osm AU Australia: 1013 places -> +0 new, 103 merged, 0 with an email already, 0 leads with no contact tag, 249 dropped as public",
+  "2026-08-13T17:06:32.429Z  published to the public link",
+  "2026-08-13T17:06:32.432Z  tick done in 4.9m — crawled 0 sites, +0 emails; osm 3 countries (ES,AU,IE,GH,CO,SB,BB,MU,PG,CA,LR,NZ) +0, 3 failed | 1863 emails total, 73 still queued",
+  "2026-08-13T17:06:52.821Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-08-13T17:06:52.824Z  discover: opened 0 pages, skipped 6 already known",
+  "2026-08-13T17:06:52.825Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-13T17:10:36.163Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-13T17:10:36.167Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T17:10:39.254Z  osm BB Barbados: 3 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
+  "2026-08-13T17:10:45.336Z  osm MU Mauritius: 13 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 10 dropped as public",
+  "2026-08-13T17:10:52.280Z  osm US: failed — subdivisions: out of time",
+  "2026-08-13T17:11:23.402Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
+  "2026-08-13T17:11:23.406Z  osm ES Spain: 84 places -> +0 new, 12 merged, 0 with an email already, 0 leads with no contact tag, 33 dropped as public",
+  "2026-08-13T17:11:39.561Z  osm ZW Zimbabwe: 6 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-13T17:01:38.899Z",
+ "roundStarted": "2026-08-13T17:06:52.447Z",
  "lastRound": {
-  "at": "2026-08-13T17:06:30.440Z",
-  "minutes": 4.9,
-  "summary": "crawled 0 sites, +0 emails; osm 3 countries (ES,AU,IE,GH,CO,SB,BB,MU,PG,CA,LR,NZ) +0, 3 failed",
-  "crawled": 0,
+  "at": "2026-08-13T17:11:39.594Z",
+  "minutes": 4.8,
+  "summary": "crawled 1 sites, +0 emails; osm 5 countries (ES,US,IE,ZW,BB,MU,PG,CA,LR,NZ,NG,BR) +0, 1 failed",
+  "crawled": 1,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 3,
+  "osmCountries": 5,
   "osmAdded": 0,
-  "osmFailed": 3
+  "osmFailed": 1
  }
 }
