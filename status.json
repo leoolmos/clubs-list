@@ -1,10 +1,10 @@
 {
- "generated": "2026-08-13T13:50:42.978Z",
+ "generated": "2026-08-13T13:54:44.841Z",
  "clubs": 1862,
  "records": 2977,
  "crawl": {
-  "ready": 0,
-  "waiting": 74,
+  "ready": 5,
+  "waiting": 69,
   "exhausted": 887
  },
  "osm": {
@@ -13,9 +13,9 @@
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "ES",
-   "error": "partial: 9 of 23 subdivisions read",
-   "at": "2026-08-13T13:49:23.778Z"
+   "cc": "EC",
+   "error": "subdivisions: out of time",
+   "at": "2026-08-13T13:54:44.780Z"
   }
  },
  "crawlReasons": [
@@ -1223,7 +1223,7 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-13T13:49:23.778Z",
+    "at": "2026-08-13T13:54:12.120Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -1285,7 +1285,7 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-13T13:48:56.077Z",
+    "at": "2026-08-13T13:54:16.012Z",
     "seen": 5,
     "added": 0,
     "rejected": 0,
@@ -1614,11 +1614,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T11:00:28.091Z",
+    "at": "2026-08-13T13:54:44.780Z",
     "seen": 52,
     "added": 0,
     "rejected": 34,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.kumi.systems"
    }
   },
@@ -2185,7 +2185,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T13:30:43.423Z",
+    "at": "2026-08-13T13:54:44.776Z",
     "seen": 15,
     "added": 0,
     "rejected": 10,
@@ -2491,7 +2491,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T13:30:20.591Z",
+    "at": "2026-08-13T13:54:17.190Z",
     "seen": 3,
     "added": 0,
     "rejected": 0,
@@ -3086,11 +3086,11 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T13:30:38.840Z",
+    "at": "2026-08-13T13:54:29.152Z",
     "seen": 1,
     "added": 0,
     "rejected": 0,
-    "error": "subdivisions: out of time",
+    "error": null,
     "via": "overpass.private.coffee"
    }
   },
@@ -3512,34 +3512,34 @@
   }
  },
  "recent": [
-  "2026-08-13T13:45:22.599Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T13:45:24.445Z  published to the public link",
-  "2026-08-13T13:45:24.449Z  tick done in 4.3m — crawled 15 sites, +0 emails; osm 5 countries (ES,BR,AU,PT,IE,ZM,EC,WS,SL,BS,PA,IN) +0, 1 failed | 1862 emails total, 74 still queued",
-  "2026-08-13T13:45:44.719Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-13T13:45:44.723Z  discover: opened 0 pages, skipped 6 already known",
-  "2026-08-13T13:45:44.724Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-13T13:48:56.072Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-13T13:48:56.077Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T13:49:04.028Z  osm VU Vanuatu: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T13:49:09.425Z  osm GB: failed — subdivisions: out of time",
-  "2026-08-13T13:49:23.774Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
-  "2026-08-13T13:49:23.777Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T13:50:05.643Z  osm US United States: 2460 places -> +0 new, 92 merged, 0 with an email already, 0 leads with no contact tag, 902 dropped as public",
-  "2026-08-13T13:50:42.917Z  osm MW Malawi: 4 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
+  "2026-08-13T13:50:42.917Z  osm MW Malawi: 4 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T13:50:44.883Z  published to the public link",
+  "2026-08-13T13:50:44.886Z  tick done in 5.0m — crawled 0 sites, +0 emails; osm 5 countries (ES,GB,US,IE,MW,VU,EC,WS,SL,BS,PA,IN) +0, 1 failed | 1862 emails total, 74 still queued",
+  "2026-08-13T13:51:05.168Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-08-13T13:51:05.175Z  discover: opened 0 pages, skipped 6 already known",
+  "2026-08-13T13:51:05.176Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-13T13:54:12.116Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
+  "2026-08-13T13:54:12.119Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T13:54:16.008Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-13T13:54:16.011Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T13:54:17.191Z  osm PG: failed — subdivisions: out of time",
+  "2026-08-13T13:54:29.148Z  osm FM Micronesia: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T13:54:44.777Z  osm UY: failed — subdivisions: out of time",
+  "2026-08-13T13:54:44.781Z  osm EC: failed — subdivisions: out of time"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-13T13:45:44.465Z",
+ "roundStarted": "2026-08-13T13:51:04.900Z",
  "lastRound": {
-  "at": "2026-08-13T13:50:42.956Z",
-  "minutes": 5,
-  "summary": "crawled 0 sites, +0 emails; osm 5 countries (ES,GB,US,IE,MW,VU,EC,WS,SL,BS,PA,IN) +0, 1 failed",
+  "at": "2026-08-13T13:54:44.817Z",
+  "minutes": 3.7,
+  "summary": "crawled 0 sites, +0 emails; osm 3 countries (ES,IE,UY,PG,FM,EC,WS,SL,BS,PA,IN,CL) +0, 3 failed",
   "crawled": 0,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
+  "osmCountries": 3,
   "osmAdded": 0,
-  "osmFailed": 1
+  "osmFailed": 3
  }
 }
