@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-13T14:25:21.979Z",
+ "generated": "2026-08-13T14:30:10.306Z",
  "clubs": 1862,
  "records": 2977,
  "crawl": {
-  "ready": 0,
-  "waiting": 74,
+  "ready": 5,
+  "waiting": 69,
   "exhausted": 888
  },
  "osm": {
-  "imported": 70,
-  "failed": 13,
+  "imported": 69,
+  "failed": 14,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "PY",
+   "cc": "MZ",
    "error": "subdivisions: out of time",
-   "at": "2026-08-13T14:25:21.917Z"
+   "at": "2026-08-13T14:30:10.251Z"
   }
  },
  "crawlReasons": [
@@ -52,10 +52,16 @@
  },
  "leads": {
   "total": 3903,
-  "searched": 3902,
-  "left": 1
+  "searched": 3903,
+  "left": 0
  },
  "activity": [
+  {
+   "t": "2026-08-13T14:25:43.956Z",
+   "kind": "search",
+   "text": "no site found for Tennis Centre (Canada)",
+   "ok": false
+  },
   {
    "t": "2026-08-13T14:10:59.243Z",
    "kind": "crawl",
@@ -1182,14 +1188,6 @@
    "kind": "search",
    "text": "no site found for Cheshire Padel (United Kingdom)",
    "ok": false
-  },
-  {
-   "t": "2026-08-13T08:20:29.947Z",
-   "kind": "search",
-   "text": "Wembley Padel (United Kingdom) -> https://wembleypark.com -> marketing@wembleypark.com",
-   "ok": true,
-   "url": "https://wembleypark.com",
-   "email": "marketing@wembleypark.com"
   }
  ],
  "perCountry": {
@@ -1216,12 +1214,12 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-13T14:24:10.061Z",
-    "seen": 83,
+    "at": "2026-08-13T14:29:21.317Z",
+    "seen": 46,
     "added": 0,
-    "rejected": 33,
+    "rejected": 26,
     "error": "partial: 9 of 23 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    }
   },
   "United Kingdom": {
@@ -1278,12 +1276,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-13T14:24:55.788Z",
-    "seen": 5,
+    "at": "2026-08-13T14:29:05.755Z",
+    "seen": 0,
     "added": 0,
     "rejected": 0,
     "error": "partial: 7 of 9 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": ""
    }
   },
   "Brazil": {
@@ -1518,7 +1516,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T14:04:57.020Z",
+    "at": "2026-08-13T14:28:46.512Z",
     "seen": 369,
     "added": 0,
     "rejected": 86,
@@ -1698,12 +1696,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T11:31:25.990Z",
-    "seen": 179,
+    "at": "2026-08-13T14:29:16.361Z",
+    "seen": 178,
     "added": 0,
     "rejected": 30,
     "error": null,
-    "via": "overpass.kumi.systems"
+    "via": "overpass.private.coffee"
    }
   },
   "United States": {
@@ -1801,7 +1799,7 @@
    "unreachable": 28,
    "noAddress": 3,
    "leads": 132,
-   "leadsSearched": 131,
+   "leadsSearched": 132,
    "leadsFound": 92,
    "sports": {
     "Tennis": 89,
@@ -1869,11 +1867,11 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T11:35:54.171Z",
+    "at": "2026-08-13T14:30:10.251Z",
     "seen": 1,
     "added": 0,
     "rejected": 0,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.kumi.systems"
    }
   },
@@ -2400,8 +2398,8 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T11:31:08.692Z",
-    "seen": 18,
+    "at": "2026-08-13T14:29:25.192Z",
+    "seen": 17,
     "added": 0,
     "rejected": 6,
     "error": null,
@@ -3505,28 +3503,28 @@
   }
  },
  "recent": [
-  "2026-08-13T14:20:41.147Z  osm UY: failed — subdivisions: out of time",
-  "2026-08-13T14:20:43.593Z  published to the public link",
-  "2026-08-13T14:20:43.596Z  tick done in 4.6m — crawled 1 sites, +0 emails; osm 3 countries (ES,IE,UY,EC,PG,SD,PY,CA,LR,NG,NZ,MZ) +0, 3 failed | 1862 emails total, 73 still queued",
-  "2026-08-13T14:21:03.845Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-13T14:21:03.849Z  discover: opened 0 pages, skipped 6 already known",
-  "2026-08-13T14:21:03.849Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-13T14:24:10.056Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
-  "2026-08-13T14:24:10.061Z  osm ES Spain: 83 places -> +0 new, 11 merged, 0 with an email already, 0 leads with no contact tag, 33 dropped as public",
-  "2026-08-13T14:24:17.648Z  osm CA Canada: 403 places -> +0 new, 33 merged, 0 with an email already, 1 leads with no contact tag, 228 dropped as public",
-  "2026-08-13T14:24:38.004Z  osm BS: failed — subdivisions: out of time",
-  "2026-08-13T14:24:55.783Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-13T14:24:55.787Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T14:25:04.637Z  osm LR Liberia: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T14:25:21.918Z  osm PY: failed — subdivisions: out of time"
+  "2026-08-13T14:25:23.840Z  published to the public link",
+  "2026-08-13T14:25:23.843Z  tick done in 4.3m — crawled 0 sites, +0 emails; osm 4 countries (ES,IE,BS,PY,CA,LR,NG,NZ,MZ,DM,PW,TL) +0, 2 failed | 1862 emails total, 73 still queued",
+  "2026-08-13T14:25:43.966Z  leads: searched 1, found 0 sites, 0 new emails, 0 leads left",
+  "2026-08-13T14:25:44.101Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-08-13T14:25:44.105Z  discover: opened 0 pages, skipped 6 already known",
+  "2026-08-13T14:25:44.105Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-13T14:28:46.512Z  osm IN: failed — subdivisions: out of time",
+  "2026-08-13T14:29:05.750Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-13T14:29:05.755Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T14:29:16.357Z  osm NZ New Zealand: 178 places -> +0 new, 20 merged, 0 with an email already, 0 leads with no contact tag, 30 dropped as public",
+  "2026-08-13T14:29:21.313Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
+  "2026-08-13T14:29:21.316Z  osm ES Spain: 46 places -> +0 new, 2 merged, 0 with an email already, 0 leads with no contact tag, 26 dropped as public",
+  "2026-08-13T14:29:25.187Z  osm NG Nigeria: 17 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 6 dropped as public",
+  "2026-08-13T14:30:10.252Z  osm MZ: failed — subdivisions: out of time"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-13T14:21:03.615Z",
+ "roundStarted": "2026-08-13T14:25:43.863Z",
  "lastRound": {
-  "at": "2026-08-13T14:25:21.957Z",
-  "minutes": 4.3,
-  "summary": "crawled 0 sites, +0 emails; osm 4 countries (ES,IE,BS,PY,CA,LR,NG,NZ,MZ,DM,PW,TL) +0, 2 failed",
+  "at": "2026-08-13T14:30:10.286Z",
+  "minutes": 4.4,
+  "summary": "crawled 0 sites, +0 emails; searched 1 club names, found 0 sites, +0 emails; osm 4 countries (ES,IN,IE,NG,NZ,MZ,DM,PW,TL,TT,ZA,BO) +0, 2 failed",
   "crawled": 0,
   "emailsFound": 0,
   "pagesRead": 0,
