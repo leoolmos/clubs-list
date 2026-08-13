@@ -48,6 +48,39 @@ function hasGit(){
   catch(e){ return false; }
 }
 
+/* github.com drops a connection now and then. That is a home line having a
+ * bad minute, not a broken setup, and the round's work is already committed
+ * by the time it happens — so retry rather than skip the publish and leave
+ * the page a round behind. */
+const NETWORK_ERROR =
+  /Could not connect|Failed to connect|Could not resolve host|Connection (timed out|reset)|unable to access|Operation timed out|SSL|TLS|early EOF|RPC failed/i;
+
+function sleepSync(ms){
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+/* git over the network: same as git(), but a connection failure is worth
+ * another go. Anything else — a rejected push, a bad ref — is a real answer
+ * and is thrown straight through. */
+function gitNet(args, tries){
+  tries = tries || 3;
+  for(let i = 1; ; i++){
+    try{ return git(args); }
+    catch(e){
+      const out = String(e.stdout||'') + String(e.stderr||'');
+      if(i >= tries || !NETWORK_ERROR.test(out)) throw e;
+      sleepSync(i * 5000);
+    }
+  }
+}
+
+/* Commits sitting here that the remote has never seen. The page is served
+ * from the remote, so such a commit has published precisely nothing. */
+function unpushed(cfg){
+  try{ return Number(git(['rev-list','--count', `origin/${cfg.branch}..HEAD`])) || 0; }
+  catch(e){ return 0; }
+}
+
 function pagesUrl(remote, branch){
   const m = String(remote).match(/github\.com[:/]([^/]+)\/([^/.]+)(\.git)?$/i);
   if(!m) return '';
@@ -106,7 +139,7 @@ function setup(){
  * an appalling trade.
  */
 function rebaseOntoRemote(cfg, say){
-  git(['fetch','origin', cfg.branch]);
+  gitNet(['fetch','origin', cfg.branch]);
 
   let changed = [];
   try{
@@ -181,7 +214,19 @@ function publish(quiet){
     // staged diff first for the timestamp-only case.
     let diff = '';
     try{ diff = git(['diff','--cached','--name-only']); }catch(e){}
-    if(!diff){ say('  Nothing changed since the last publish.'); return true; }
+    if(!diff){
+      // Nothing new to stage, but an earlier round may have committed and
+      // then lost the connection on the push. Nothing else will ever send
+      // that commit: the next round only pushes if it has its own commit to
+      // make, so a quiet spell in the club count would strand it for good.
+      if(unpushed(cfg)){
+        say('  Nothing new, but sending a commit an earlier round left behind.');
+        gitNet(['push','origin', 'HEAD:'+cfg.branch]);
+        return true;
+      }
+      say('  Nothing changed since the last publish.');
+      return true;
+    }
 
     try{
       git(['commit','-m',`clubs: ${n}`]);
@@ -195,18 +240,23 @@ function publish(quiet){
     // would push the local main ref, which has none of these commits, and
     // report success while the published page never changed.
     try{
-      git(['push','origin', 'HEAD:'+cfg.branch]);
+      gitNet(['push','origin', 'HEAD:'+cfg.branch]);
     }catch(e){
       const out = String(e.stdout||'') + String(e.stderr||'');
       if(!/rejected|non-fast-forward|behind|fetch first/i.test(out)) throw e;
       if(!rebaseOntoRemote(cfg, say)) throw e;
-      git(['push','origin', 'HEAD:'+cfg.branch]);
+      gitNet(['push','origin', 'HEAD:'+cfg.branch]);
     }
   }catch(e){
     const out = (String(e.stdout||'') + String(e.stderr||'')).trim();
+    const first = out.split('\n')[0] || e.message;
+    // One line survives quiet mode. The daemon logs only "publish skipped",
+    // and a failure with no reason anywhere is what made the last one take
+    // a hand-run of this script to explain.
+    if(quiet) console.error('  publish: ' + first);
     if(!quiet){
       console.error('\n  Push to GitHub failed:');
-      console.error('  ' + (out.split('\n')[0] || e.message));
+      console.error('  ' + first);
       if(/Authentication|could not read Username|Permission denied|publickey/i.test(out)){
         console.error('\n  That is authentication. Quickest fix: gh auth login');
         console.error('  Or add an SSH key to your GitHub account.');
