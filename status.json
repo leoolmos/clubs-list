@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-13T18:49:46.452Z",
+ "generated": "2026-08-13T18:55:01.603Z",
  "clubs": 1863,
  "records": 2978,
  "crawl": {
-  "ready": 3,
-  "waiting": 70,
+  "ready": 0,
+  "waiting": 73,
   "exhausted": 888
  },
  "osm": {
-  "imported": 74,
-  "failed": 9,
+  "imported": 70,
+  "failed": 13,
   "pending": 0,
   "total": 83,
   "lastError": {
-   "cc": "US",
-   "error": "subdivisions: out of time",
-   "at": "2026-08-13T18:49:35.659Z"
+   "cc": "ES",
+   "error": "partial: 9 of 23 subdivisions read",
+   "at": "2026-08-13T18:55:01.547Z"
   }
  },
  "crawlReasons": [
@@ -56,6 +56,27 @@
   "left": 0
  },
  "activity": [
+  {
+   "t": "2026-08-13T18:50:09.052Z",
+   "kind": "crawl",
+   "text": "Mission Point Resort Tennis Courts — https://www.missionpoint.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.missionpoint.com"
+  },
+  {
+   "t": "2026-08-13T18:50:08.832Z",
+   "kind": "crawl",
+   "text": "DeKalb Tennis Center — https://dekalb.agapetennisacademy.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://dekalb.agapetennisacademy.com"
+  },
+  {
+   "t": "2026-08-13T18:50:08.823Z",
+   "kind": "crawl",
+   "text": "Springettsbury Park Tennis Courts — https://springettsbury.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://springettsbury.com"
+  },
   {
    "t": "2026-08-13T18:25:31.973Z",
    "kind": "crawl",
@@ -1153,27 +1174,6 @@
    "text": "PadelHub Reading — https://www.padelhub.uk: site read, publishes no address",
    "ok": false,
    "url": "https://www.padelhub.uk"
-  },
-  {
-   "t": "2026-08-13T08:28:37.827Z",
-   "kind": "crawl",
-   "text": "Training court — https://www.trainingcourt.app: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.trainingcourt.app"
-  },
-  {
-   "t": "2026-08-13T08:28:37.759Z",
-   "kind": "crawl",
-   "text": "Fox Hills Tennis Courts — https://www.foxhillsatrockaway.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.foxhillsatrockaway.com"
-  },
-  {
-   "t": "2026-08-13T08:28:37.405Z",
-   "kind": "crawl",
-   "text": "Horizons/Pennington Woods Tennis Courts — https://tennis-horizon-courts.vercel.app: site read, publishes no address",
-   "ok": false,
-   "url": "https://tennis-horizon-courts.vercel.app"
   }
  ],
  "perCountry": {
@@ -1200,12 +1200,12 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-13T18:49:00.196Z",
-    "seen": 46,
+    "at": "2026-08-13T18:55:01.547Z",
+    "seen": 0,
     "added": 0,
-    "rejected": 26,
+    "rejected": 0,
     "error": "partial: 9 of 23 subdivisions read",
-    "via": "overpass.kumi.systems"
+    "via": ""
    }
   },
   "United Kingdom": {
@@ -1262,12 +1262,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-13T18:48:40.193Z",
-    "seen": 0,
+    "at": "2026-08-13T18:53:18.874Z",
+    "seen": 5,
     "added": 0,
     "rejected": 0,
     "error": "partial: 7 of 9 subdivisions read",
-    "via": ""
+    "via": "overpass.kumi.systems"
    }
   },
   "Brazil": {
@@ -2105,11 +2105,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T16:08:16.190Z",
+    "at": "2026-08-13T18:53:14.589Z",
     "seen": 2,
     "added": 0,
     "rejected": 2,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.kumi.systems"
    }
   },
@@ -2693,11 +2693,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T16:12:35.889Z",
+    "at": "2026-08-13T18:53:52.347Z",
     "seen": 19,
     "added": 0,
     "rejected": 13,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.kumi.systems"
    }
   },
@@ -2855,11 +2855,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T16:03:00.793Z",
+    "at": "2026-08-13T18:54:46.051Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.kumi.systems"
    }
   },
@@ -3115,11 +3115,11 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-13T16:08:23.195Z",
+    "at": "2026-08-13T18:53:12.150Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.kumi.systems"
    }
   },
@@ -3489,34 +3489,34 @@
   }
  },
  "recent": [
-  "2026-08-13T18:45:14.629Z  osm TL East Timor: 6 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 6 dropped as public",
-  "2026-08-13T18:45:16.582Z  published to the public link",
-  "2026-08-13T18:45:16.586Z  tick done in 4.8m — crawled 0 sites, +0 emails; osm 4 countries (ES,IE,VC,GB,TL,BW,SS,GM,GQ,CV,KE,TZ) +0, 2 failed | 1863 emails total, 73 still queued",
-  "2026-08-13T18:45:36.846Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-13T18:45:36.850Z  discover: opened 0 pages, skipped 6 already known",
-  "2026-08-13T18:45:36.850Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-13T18:48:40.187Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
-  "2026-08-13T18:48:40.192Z  osm IE Ireland: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T18:48:44.067Z  osm SS South Sudan: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-13T18:49:00.191Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
-  "2026-08-13T18:49:00.196Z  osm ES Spain: 46 places -> +0 new, 2 merged, 0 with an email already, 0 leads with no contact tag, 26 dropped as public",
-  "2026-08-13T18:49:27.037Z  osm TV: failed — subdivisions: out of time",
-  "2026-08-13T18:49:35.660Z  osm US: failed — subdivisions: out of time",
-  "2026-08-13T18:49:46.391Z  osm SB Solomon Islands: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
+  "2026-08-13T18:49:46.391Z  osm SB Solomon Islands: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T18:49:48.330Z  published to the public link",
+  "2026-08-13T18:49:48.334Z  tick done in 4.2m — crawled 0 sites, +0 emails; osm 4 countries (ES,US,IE,SB,TV,SS,GM,GQ,CV,KE,TZ,NI) +0, 2 failed | 1863 emails total, 73 still queued",
+  "2026-08-13T18:50:09.248Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-08-13T18:50:09.252Z  discover: opened 0 pages, skipped 6 already known",
+  "2026-08-13T18:50:09.253Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-13T18:53:12.151Z  osm CV: failed — subdivisions: out of time",
+  "2026-08-13T18:53:14.590Z  osm GQ: failed — subdivisions: out of time",
+  "2026-08-13T18:53:18.870Z  osm IE: too big for one query — 7 of 9 subdivisions read, carries on next round",
+  "2026-08-13T18:53:18.873Z  osm IE Ireland: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-13T18:53:52.348Z  osm KE: failed — subdivisions: out of time",
+  "2026-08-13T18:54:46.052Z  osm GM: failed — subdivisions: out of time",
+  "2026-08-13T18:55:01.542Z  osm ES: too big for one query — 9 of 23 subdivisions read, carries on next round",
+  "2026-08-13T18:55:01.547Z  osm ES Spain: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-13T18:45:36.600Z",
+ "roundStarted": "2026-08-13T18:50:08.347Z",
  "lastRound": {
-  "at": "2026-08-13T18:49:46.427Z",
-  "minutes": 4.2,
-  "summary": "crawled 0 sites, +0 emails; osm 4 countries (ES,US,IE,SB,TV,SS,GM,GQ,CV,KE,TZ,NI) +0, 2 failed",
-  "crawled": 0,
+  "at": "2026-08-13T18:55:01.579Z",
+  "minutes": 4.9,
+  "summary": "crawled 3 sites, +0 emails; osm 2 countries (ES,IE,GM,GQ,CV,KE,TZ,NI,CR,ST,JM,TO) +0, 4 failed",
+  "crawled": 3,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 4,
+  "osmCountries": 2,
   "osmAdded": 0,
-  "osmFailed": 2
+  "osmFailed": 4
  }
 }
