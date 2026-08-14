@@ -748,7 +748,7 @@ function renderCoverage(){
       .filter(function(e){ return e[1].prospect; })
       .sort(function(a,b){
         var pa=a[1].prospect, pb=b[1].prospect;
-        return (pb.found||0)-(pa.found||0) || (pb.searchesDone||0)-(pa.searchesDone||0) || a[0].localeCompare(b[0]);
+        return (pb.emails||0)-(pa.emails||0) || (pb.found||0)-(pa.found||0) || (pb.searchesDone||0)-(pa.searchesDone||0) || a[0].localeCompare(b[0]);
       });
     var out = "";
     covProspect = {};
@@ -758,7 +758,7 @@ function renderCoverage(){
       out += "<details class='cov' data-cc='"+esc(cc)+"'><summary><b>"+esc(name)+"</b> <span class='meta'>"
           + (pr.citiesSearched||0)+" of "+(pr.citiesTotal||0)+" cities searched · "
           + (pr.searchesDone||0)+" of "+(pr.searchesTotal||0)+" searches · "
-          + (pr.found||0)+" found</span></summary>"
+          + (pr.found||0)+" clubs · "+(pr.emails||0)+" emails</span></summary>"
           + "<div class='covcities'><p class='meta'>…</p></div></details>";
     });
     host.innerHTML = out || "<p class='meta'>Nothing searched yet.</p>";

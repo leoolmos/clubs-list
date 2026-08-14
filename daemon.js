@@ -1065,21 +1065,32 @@ function writeStatusJSON(extra){
     const pst = prospectState[cc] || {};
     const done = (pst.queriesDone || []).length;
     const cs = pst.cityStats || {};
-    const cityRows = Object.entries(cs).filter(([k]) => k !== '');
+    // Union of the cities searched and the cities holding emails: the
+    // backfilled records sit in cities the prospector has not reached yet,
+    // and their emails must show all the same.
+    const merged = new Map(
+      Object.entries(cs).filter(([k]) => k !== '')
+        .map(([n, v]) => [n, {s: v.s, f: v.f, e: (cityEmails[cname] || {})[n] || 0}])
+    );
+    for(const [n, e] of Object.entries(cityEmails[cname] || {})){
+      if(!merged.has(n)) merged.set(n, {s: 0, f: 0, e});
+    }
+    const cityRows = Array.from(merged);
     s.prospect = {
       // the coverage tab joins this back to lib/cities.json by country code
       cc,
       // the first thirty planned cities are enough for the modal; the full
       // list would put 2,000 chips in it for Brazil alone
       cities: cities.slice(0, 30), citiesTotal: cities.length,
-      citiesSearched: cityRows.length,
+      citiesSearched: Object.keys(cs).filter(k => k !== '').length,
       searchesDone: Math.min(done, total), searchesTotal: total,
       found: Object.values(cs).reduce((n, v) => n + (v.f || 0), 0),
+      emails: Object.values(cityEmails[cname] || {}).reduce((n, e) => n + e, 0),
       countrywide: cs[''] || null,
       cityStats: cityRows
-        .sort((a, b) => (b[1].f - a[1].f) || (b[1].s - a[1].s) || a[0].localeCompare(b[0]))
+        .sort((a, b) => (b[1].e - a[1].e) || (b[1].f - a[1].f) || (b[1].s - a[1].s) || a[0].localeCompare(b[0]))
         .slice(0, 400)
-        .map(([n, v]) => ({n, s: v.s, f: v.f, e: (cityEmails[cname] || {})[n] || 0})),
+        .map(([n, v]) => ({n, s: v.s, f: v.f, e: v.e})),
       last: pst.last || null
     };
   }
