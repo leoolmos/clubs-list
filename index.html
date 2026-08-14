@@ -558,7 +558,9 @@ var STATUS = null;
 
 async function loadStatus(){
   try{
-    var r = await fetch("status.json", {cache:"no-store"});
+    // The query string defeats the Pages CDN, which otherwise serves a
+    // ten-minute-old copy however hard the browser asks for a fresh one.
+    var r = await fetch("status.json?t=" + Date.now(), {cache:"no-store"});
     if(!r.ok) return;
     STATUS = await r.json();
   }catch(e){ /* opened as a file, or not published yet */ }
@@ -744,6 +746,9 @@ function renderCoverage(){
     return;
   }
   var go = function(){
+    // A refresh must not fold the countries the reader has open
+    var openCc = {};
+    host.querySelectorAll("details.cov[open]").forEach(function(d){ openCc[d.dataset.cc] = 1; });
     var rows = Object.entries(STATUS.perCountry)
       .filter(function(e){ return e[1].prospect; })
       .sort(function(a,b){
@@ -764,6 +769,7 @@ function renderCoverage(){
     host.innerHTML = out || "<p class='meta'>Nothing searched yet.</p>";
     host.querySelectorAll("details.cov").forEach(function(det){
       det.addEventListener("toggle", function(){ if(det.open) fillCoverage(det); });
+      if(openCc[det.dataset.cc]){ det.open = true; fillCoverage(det); }
     });
   };
   if(CITY_DATA) return go();
@@ -846,7 +852,7 @@ async function load(){
 async function refreshLive(){
   if(!liveMode || !liveSource) return;
   try{
-    var r = await fetch(liveSource, {cache:"no-store"});
+    var r = await fetch(liveSource + (liveSource.indexOf("?") < 0 ? "?t=" : "&t=") + Date.now(), {cache:"no-store"});
     if(!r.ok) return;
     var d = await r.json();
     if(!d || !Array.isArray(d.clubs)) return;
@@ -861,6 +867,9 @@ async function refreshLive(){
   await loadStatus();
   renderStatus();
   renderActivity();
+  // The coverage tab follows along when it is the one on screen.
+  var cov = document.getElementById("panelCov");
+  if(cov && cov.style.display !== "none") renderCoverage();
 }
 function flashLive(delta){
   var n = document.getElementById("liveNote");
