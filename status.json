@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-14T10:13:58.098Z",
- "clubs": 2671,
- "records": 4113,
+ "generated": "2026-08-14T10:34:10.405Z",
+ "clubs": 2673,
+ "records": 4117,
  "crawl": {
-  "ready": 4,
-  "waiting": 136,
-  "exhausted": 1101
+  "ready": 10,
+  "waiting": 131,
+  "exhausted": 1102
  },
  "osm": {
-  "imported": 85,
-  "failed": 8,
+  "imported": 84,
+  "failed": 9,
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "IN",
-   "error": "subdivisions: timed out",
-   "at": "2026-08-14T10:13:57.987Z"
+   "cc": "ES",
+   "error": "partial: 11 of 23 subdivisions read",
+   "at": "2026-08-14T10:33:02.613Z"
   }
  },
  "crawlReasons": [
@@ -25,7 +25,7 @@
   },
   {
    "note": "no email published",
-   "n": 758
+   "n": 759
   },
   {
    "note": "unreachable",
@@ -51,9 +51,9 @@
   "pagesRead": 70
  },
  "leads": {
-  "total": 4469,
+  "total": 4472,
   "searched": 4469,
-  "left": 0
+  "left": 3
  },
  "mine": {
   "patterns": 9,
@@ -68,6 +68,49 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-14T10:18:40.934Z",
+   "kind": "prospect",
+   "text": "Seychelles: found Padelclub Rotterdam -> https://padelclubrotterdam.nl",
+   "ok": true,
+   "url": "https://padelclubrotterdam.nl"
+  },
+  {
+   "t": "2026-08-14T10:18:01.956Z",
+   "kind": "prospect",
+   "text": "Liberia: found The Club at Harper's Point -> https://www.clubatharperspoint.com",
+   "ok": true,
+   "url": "https://www.clubatharperspoint.com"
+  },
+  {
+   "t": "2026-08-14T10:14:32.416Z",
+   "kind": "crawl",
+   "text": "Padel Park Luanda — https://padelpark-luanda.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://padelpark-luanda.com"
+  },
+  {
+   "t": "2026-08-14T10:14:22.277Z",
+   "kind": "crawl",
+   "text": "Padel Place — https://padelplace.org /footer/contact.php -> hello@padelplace.org",
+   "ok": true,
+   "url": "https://padelplace.org",
+   "email": "hello@padelplace.org"
+  },
+  {
+   "t": "2026-08-14T10:14:21.077Z",
+   "kind": "crawl",
+   "text": "Mount Royal Tennis Club Inc — https://mountroyaltennis.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://mountroyaltennis.com"
+  },
+  {
+   "t": "2026-08-14T10:14:20.365Z",
+   "kind": "crawl",
+   "text": "Court 11 — https://opencourtdata.uk: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://opencourtdata.uk"
+  },
   {
    "t": "2026-08-14T10:04:22.449Z",
    "kind": "prospect",
@@ -1152,82 +1195,38 @@
    "ok": true,
    "url": "https://padellineae.com",
    "email": "info@padellineae.com"
-  },
-  {
-   "t": "2026-08-14T04:30:08.027Z",
-   "kind": "crawl",
-   "text": "Club 216 — https://www.club216cyprus.com -> info@club216cyprus.com",
-   "ok": true,
-   "url": "https://www.club216cyprus.com",
-   "email": "info@club216cyprus.com"
-  },
-  {
-   "t": "2026-08-14T04:30:07.111Z",
-   "kind": "crawl",
-   "text": "Johnson Reserve Public Tennis Courts (2) — https://courtreserve.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://courtreserve.com"
-  },
-  {
-   "t": "2026-08-14T04:30:06.618Z",
-   "kind": "crawl",
-   "text": "Energize Health Club — https://www.energizehealthclub.com.au: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.energizehealthclub.com.au"
-  },
-  {
-   "t": "2026-08-14T04:30:05.880Z",
-   "kind": "crawl",
-   "text": "Health and Fitness Kangaroo Gym — https://uniteinfitness.co.uk -> info@uniteinfitness.co.uk",
-   "ok": true,
-   "url": "https://uniteinfitness.co.uk",
-   "email": "info@uniteinfitness.co.uk"
-  },
-  {
-   "t": "2026-08-14T04:30:03.662Z",
-   "kind": "crawl",
-   "text": "Thornlie Tennis Club — https://thornlie.clevercourts.com.au: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://thornlie.clevercourts.com.au"
-  },
-  {
-   "t": "2026-08-14T04:30:02.038Z",
-   "kind": "crawl",
-   "text": "Penguin Sports Centre — https://www.thepenguinsportsfoundation.co.uk: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.thepenguinsportsfoundation.co.uk"
   }
  ],
  "perCountry": {
   "Spain": {
-   "clubs": 804,
-   "emails": 631,
-   "sites": 584,
+   "clubs": 806,
+   "emails": 632,
+   "sites": 585,
    "read": 357,
    "unreachable": 57,
    "noAddress": 64,
-   "leads": 329,
+   "leads": 330,
    "leadsSearched": 329,
    "leadsFound": 228,
    "sports": {
-    "Tennis": 558,
-    "Padel": 284,
+    "Tennis": 559,
+    "Padel": 285,
     "Squash": 26
    },
    "sources": {
     "harvest": 374,
-    "osm": 73,
+    "osm": 74,
     "search": 109,
     "prospect": 75
    },
    "seeds": 56,
    "osm": {
-    "at": "2026-08-14T10:13:13.301Z",
-    "seen": 63,
-    "added": 0,
-    "rejected": 27,
+    "at": "2026-08-14T10:33:02.613Z",
+    "seen": 55,
+    "added": 2,
+    "rejected": 10,
     "error": "partial: 11 of 23 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "ES",
@@ -1809,11 +1808,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T05:15:06.356Z",
+    "at": "2026-08-14T10:32:53.091Z",
     "seen": 236,
     "added": 0,
     "rejected": 116,
-    "error": null,
+    "error": "subdivisions: busy (504)",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
@@ -2027,12 +2026,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T05:14:41.453Z",
-    "seen": 115,
+    "at": "2026-08-14T10:32:24.890Z",
+    "seen": 116,
     "added": 0,
-    "rejected": 82,
+    "rejected": 83,
     "error": null,
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "CO",
@@ -2245,11 +2244,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T05:23:35.204Z",
+    "at": "2026-08-14T10:32:57.895Z",
     "seen": 37,
     "added": 0,
     "rejected": 11,
-    "error": null,
+    "error": "subdivisions: out of time",
     "via": "overpass.private.coffee"
    },
    "prospect": {
@@ -2299,7 +2298,7 @@
    "read": 17,
    "unreachable": 3,
    "noAddress": 6,
-   "leads": 27,
+   "leads": 29,
    "leadsSearched": 27,
    "leadsFound": 20,
    "sports": {
@@ -2314,12 +2313,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T05:15:54.878Z",
-    "seen": 43,
+    "at": "2026-08-14T10:30:29.091Z",
+    "seen": 45,
     "added": 0,
     "rejected": 4,
     "error": null,
-    "via": "overpass.kumi.systems"
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "SG",
@@ -2906,13 +2905,53 @@
      "El Rosario"
     ],
     "citiesTotal": 49,
-    "citiesSearched": 0,
-    "searchesDone": 9,
+    "citiesSearched": 6,
+    "searchesDone": 32,
     "searchesTotal": 250,
     "found": 0,
-    "countrywide": null,
-    "cityStats": [],
-    "last": "2026-08-14T08:54:37.595Z"
+    "countrywide": {
+     "s": 2,
+     "f": 0
+    },
+    "cityStats": [
+     {
+      "n": "Danlí",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "La Ceiba",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Puerto Cortez",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Catacamas",
+      "s": 2,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "San Pedro Sula",
+      "s": 2,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Tegucigalpa",
+      "s": 2,
+      "f": 0,
+      "e": 0
+     }
+    ],
+    "last": "2026-08-14T10:24:32.788Z"
    }
   },
   "Dominican Republic": {
@@ -3195,12 +3234,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T05:16:15.748Z",
+    "at": "2026-08-14T10:34:10.310Z",
     "seen": 5,
     "added": 0,
     "rejected": 1,
     "error": null,
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "BS",
@@ -3358,13 +3397,35 @@
      "Ebebiyin"
     ],
     "citiesTotal": 3,
-    "citiesSearched": 0,
-    "searchesDone": 9,
+    "citiesSearched": 3,
+    "searchesDone": 20,
     "searchesTotal": 20,
     "found": 0,
-    "countrywide": null,
-    "cityStats": [],
-    "last": "2026-08-14T08:54:37.595Z"
+    "countrywide": {
+     "s": 2,
+     "f": 0
+    },
+    "cityStats": [
+     {
+      "n": "Ebebiyin",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Bata",
+      "s": 2,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Malabo",
+      "s": 2,
+      "f": 0,
+      "e": 0
+     }
+    ],
+    "last": "2026-08-14T10:22:50.603Z"
    }
   },
   "Panama": {
@@ -3882,12 +3943,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T05:08:04.739Z",
-    "seen": 11,
+    "at": "2026-08-14T10:32:36.705Z",
+    "seen": 10,
     "added": 0,
-    "rejected": 4,
+    "rejected": 3,
     "error": null,
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "NA",
@@ -4102,7 +4163,7 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-14T09:45:09.392Z"
+    "last": "2026-08-14T10:18:01.956Z"
    }
   },
   "Papua New Guinea": {
@@ -4972,7 +5033,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-14T09:45:54.090Z"
+    "last": "2026-08-14T10:18:01.956Z"
    }
   },
   "Gambia": {
@@ -5904,12 +5965,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T05:07:22.583Z",
+    "at": "2026-08-14T10:28:21.237Z",
     "seen": 1,
     "added": 0,
     "rejected": 1,
     "error": null,
-    "via": "overpass.kumi.systems"
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "SD",
@@ -6009,11 +6070,11 @@
   },
   "Guinea-Bissau": {
    "clubs": 2,
-   "emails": 0,
+   "emails": 1,
    "sites": 2,
-   "read": 0,
+   "read": 2,
    "unreachable": 0,
-   "noAddress": 0,
+   "noAddress": 1,
    "leads": 0,
    "leadsSearched": 0,
    "leadsFound": 0,
@@ -6022,7 +6083,9 @@
     "Padel": 2,
     "Squash": 0
    },
-   "sources": {},
+   "sources": {
+    "prospect": 1
+   },
    "seeds": 0,
    "osm": {
     "at": "2026-08-14T06:51:21.467Z",
@@ -6068,7 +6131,7 @@
       "n": "Plaque",
       "s": 5,
       "f": 1,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Bafatá",
@@ -6134,10 +6197,152 @@
     "last": "2026-08-14T10:04:22.448Z"
    }
   },
-  "Seychelles": {
-   "clubs": 0,
+  "Liberia": {
+   "clubs": 1,
    "emails": 0,
-   "sites": 0,
+   "sites": 1,
+   "read": 0,
+   "unreachable": 0,
+   "noAddress": 0,
+   "leads": 0,
+   "leadsSearched": 0,
+   "leadsFound": 0,
+   "sports": {
+    "Tennis": 1,
+    "Padel": 0,
+    "Squash": 0
+   },
+   "sources": {},
+   "seeds": 0,
+   "osm": {
+    "at": "2026-08-14T08:44:17.286Z",
+    "seen": 0,
+    "added": 0,
+    "rejected": 0,
+    "error": null,
+    "via": "overpass.kumi.systems"
+   },
+   "prospect": {
+    "cc": "LR",
+    "cities": [
+     "Monrovia",
+     "Gbarnga",
+     "Buchanan",
+     "Ganta",
+     "Kakata",
+     "Zwedru",
+     "Harbel",
+     "Harper",
+     "Pleebo City",
+     "Foya Kamara",
+     "New Yekepa",
+     "Voinjama",
+     "Tubmanburg",
+     "Saclepea",
+     "Greenville"
+    ],
+    "citiesTotal": 15,
+    "citiesSearched": 14,
+    "searchesDone": 88,
+    "searchesTotal": 96,
+    "found": 1,
+    "countrywide": {
+     "s": 2,
+     "f": 0
+    },
+    "cityStats": [
+     {
+      "n": "Harper",
+      "s": 6,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Buchanan",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Foya Kamara",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Ganta",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Gbarnga",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Harbel",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Kakata",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "New Yekepa",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Pleebo City",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Tubmanburg",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Voinjama",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Zwedru",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Saclepea",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Monrovia",
+      "s": 2,
+      "f": 0,
+      "e": 0
+     }
+    ],
+    "last": "2026-08-14T10:18:01.956Z"
+   }
+  },
+  "Seychelles": {
+   "clubs": 1,
+   "emails": 0,
+   "sites": 1,
    "read": 0,
    "unreachable": 0,
    "noAddress": 0,
@@ -6146,7 +6351,7 @@
    "leadsFound": 1,
    "sports": {
     "Tennis": 0,
-    "Padel": 0,
+    "Padel": 1,
     "Squash": 0
    },
    "sources": {},
@@ -6165,16 +6370,23 @@
      "Victoria"
     ],
     "citiesTotal": 1,
-    "citiesSearched": 0,
-    "searchesDone": 5,
+    "citiesSearched": 1,
+    "searchesDone": 12,
     "searchesTotal": 12,
-    "found": 0,
+    "found": 1,
     "countrywide": {
-     "s": 1,
+     "s": 2,
      "f": 0
     },
-    "cityStats": [],
-    "last": "2026-08-14T09:46:41.197Z"
+    "cityStats": [
+     {
+      "n": "Victoria",
+      "s": 6,
+      "f": 1,
+      "e": 0
+     }
+    ],
+    "last": "2026-08-14T10:18:40.934Z"
    }
   },
   "Belize": {
@@ -6231,7 +6443,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-14T09:14:34.753Z"
+    "last": "2026-08-14T10:14:32.499Z"
    }
   },
   "Vanuatu": {
@@ -6281,7 +6493,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-14T10:03:24.160Z"
+    "last": "2026-08-14T10:21:28.442Z"
    }
   },
   "Marshall Islands": {
@@ -6338,7 +6550,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-14T09:44:26.410Z"
+    "last": "2026-08-14T10:18:01.956Z"
    }
   },
   "Micronesia": {
@@ -6379,7 +6591,7 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-14T09:44:43.050Z"
+    "last": "2026-08-14T10:18:01.956Z"
    }
   },
   "Samoa": {
@@ -6429,7 +6641,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-14T09:46:29.445Z"
+    "last": "2026-08-14T10:18:01.956Z"
    }
   },
   "Kiribati": {
@@ -6464,7 +6676,7 @@
     ],
     "citiesTotal": 1,
     "citiesSearched": 1,
-    "searchesDone": 10,
+    "searchesDone": 12,
     "searchesTotal": 12,
     "found": 0,
     "countrywide": {
@@ -6474,12 +6686,12 @@
     "cityStats": [
      {
       "n": "Tarawa",
-      "s": 4,
+      "s": 6,
       "f": 0,
       "e": 0
      }
     ],
-    "last": "2026-08-14T09:15:31.839Z"
+    "last": "2026-08-14T10:14:50.199Z"
    }
   },
   "Saint Kitts and Nevis": {
@@ -6500,11 +6712,11 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T08:52:12.570Z",
+    "at": "2026-08-14T10:32:46.078Z",
     "seen": 1,
     "added": 0,
     "rejected": 0,
-    "error": "subdivisions: out of time",
+    "error": null,
     "via": "overpass.kumi.systems"
    },
    "prospect": {
@@ -6520,7 +6732,7 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-14T09:45:27.137Z"
+    "last": "2026-08-14T10:18:01.956Z"
    }
   },
   "Cape Verde": {
@@ -6591,7 +6803,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-14T10:03:24.160Z"
+    "last": "2026-08-14T10:21:28.442Z"
    }
   },
   "Grenada": {
@@ -6632,7 +6844,7 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-14T09:14:46.648Z"
+    "last": "2026-08-14T10:14:32.499Z"
    }
   },
   "Antigua and Barbuda": {
@@ -6682,7 +6894,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-14T09:13:46.565Z"
+    "last": "2026-08-14T10:14:32.499Z"
    }
   },
   "South Sudan": {
@@ -6728,8 +6940,8 @@
      "Torit"
     ],
     "citiesTotal": 13,
-    "citiesSearched": 7,
-    "searchesDone": 48,
+    "citiesSearched": 13,
+    "searchesDone": 84,
     "searchesTotal": 84,
     "found": 0,
     "countrywide": {
@@ -6737,6 +6949,24 @@
      "f": 0
     },
     "cityStats": [
+     {
+      "n": "Aweil",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Bor",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Gogrial",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
      {
       "n": "Kuacjok",
       "s": 6,
@@ -6756,6 +6986,18 @@
       "e": 0
      },
      {
+      "n": "Rumbek",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Torit",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Wau",
       "s": 6,
       "f": 0,
@@ -6763,6 +7005,12 @@
      },
      {
       "n": "Winejok",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Yambio",
       "s": 6,
       "f": 0,
       "e": 0
@@ -6780,107 +7028,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-14T09:56:24.154Z"
-   }
-  },
-  "Liberia": {
-   "clubs": 0,
-   "emails": 0,
-   "sites": 0,
-   "read": 0,
-   "unreachable": 0,
-   "noAddress": 0,
-   "leads": 0,
-   "leadsSearched": 0,
-   "leadsFound": 0,
-   "sports": {
-    "Tennis": 0,
-    "Padel": 0,
-    "Squash": 0
-   },
-   "sources": {},
-   "seeds": 0,
-   "osm": {
-    "at": "2026-08-14T08:44:17.286Z",
-    "seen": 0,
-    "added": 0,
-    "rejected": 0,
-    "error": null,
-    "via": "overpass.kumi.systems"
-   },
-   "prospect": {
-    "cc": "LR",
-    "cities": [
-     "Monrovia",
-     "Gbarnga",
-     "Buchanan",
-     "Ganta",
-     "Kakata",
-     "Zwedru",
-     "Harbel",
-     "Harper",
-     "Pleebo City",
-     "Foya Kamara",
-     "New Yekepa",
-     "Voinjama",
-     "Tubmanburg",
-     "Saclepea",
-     "Greenville"
-    ],
-    "citiesTotal": 15,
-    "citiesSearched": 7,
-    "searchesDone": 48,
-    "searchesTotal": 96,
-    "found": 0,
-    "countrywide": {
-     "s": 2,
-     "f": 0
-    },
-    "cityStats": [
-     {
-      "n": "Buchanan",
-      "s": 6,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Ganta",
-      "s": 6,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Gbarnga",
-      "s": 6,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Harbel",
-      "s": 6,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Kakata",
-      "s": 6,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Zwedru",
-      "s": 6,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Monrovia",
-      "s": 2,
-      "f": 0,
-      "e": 0
-     }
-    ],
-    "last": "2026-08-14T09:43:12.239Z"
+    "last": "2026-08-14T10:21:28.442Z"
    }
   },
   "East Timor": {
@@ -6944,7 +7092,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-14T10:03:24.160Z"
+    "last": "2026-08-14T10:21:28.442Z"
    }
   },
   "São Tomé and Príncipe": {
@@ -6994,7 +7142,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-14T09:13:14.283Z"
+    "last": "2026-08-14T10:14:32.499Z"
    }
   },
   "Tonga": {
@@ -7044,7 +7192,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-14T10:02:36.227Z"
+    "last": "2026-08-14T10:21:28.442Z"
    }
   },
   "Nauru": {
@@ -7085,7 +7233,7 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-14T09:45:00.324Z"
+    "last": "2026-08-14T10:18:01.956Z"
    }
   },
   "Tuvalu": {
@@ -7126,39 +7274,39 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-14T10:02:54.775Z"
+    "last": "2026-08-14T10:21:28.442Z"
    }
   }
  },
  "recent": [
-  "2026-08-14T10:04:22.450Z  prospect: the search engine stopped answering — pausing this phase",
-  "2026-08-14T10:04:22.454Z  prospect: 4 countries searched, 116 sites read, 2 clubs added",
-  "2026-08-14T10:04:22.455Z  prospect: turned down — domain belongs ×28, no club signal in ×21, unreachable ×20, no racket sport on the page ×17, nothing on its pages ties it ×12",
-  "2026-08-14T10:04:22.667Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-14T10:04:22.670Z  discover: opened 0 pages, skipped 11 already known",
-  "2026-08-14T10:04:22.671Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-14T10:10:07.933Z  osm US: failed — fetch failed",
-  "2026-08-14T10:12:38.172Z  osm CA: failed — subdivisions: out of time",
-  "2026-08-14T10:13:00.160Z  osm BR: failed — timed out",
-  "2026-08-14T10:13:08.872Z  osm GB: failed — subdivisions: busy (504)",
-  "2026-08-14T10:13:13.293Z  osm ES: too big for one query — 11 of 23 subdivisions read, carries on next round",
-  "2026-08-14T10:13:13.300Z  osm ES Spain: 63 places -> +0 new, 4 merged, 0 with an email already, 0 leads with no contact tag, 27 dropped as public",
-  "2026-08-14T10:13:36.515Z  osm AU: failed — server cut the query short: runtime error: Query timed out in \"query\" at line 2 after 106 seconds.",
-  "2026-08-14T10:13:57.988Z  osm IN: failed — subdivisions: timed out"
+  "2026-08-14T10:24:32.793Z  prospect: turned down — domain belongs ×123, nothing on its pages ties it ×61, no club signal in ×61, unreachable ×46, no racket sport on the page ×36",
+  "2026-08-14T10:24:33.042Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-08-14T10:24:33.046Z  discover: opened 0 pages, skipped 11 already known",
+  "2026-08-14T10:24:33.046Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-14T10:28:21.234Z  osm SD Sudan: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
+  "2026-08-14T10:30:29.087Z  osm SG Singapore: 45 places -> +0 new, 4 merged, 0 with an email already, 2 leads with no contact tag, 4 dropped as public",
+  "2026-08-14T10:32:24.886Z  osm CO Colombia: 116 places -> +0 new, 6 merged, 0 with an email already, 0 leads with no contact tag, 83 dropped as public",
+  "2026-08-14T10:32:36.700Z  osm NA Namibia: 10 places -> +0 new, 1 merged, 0 with an email already, 0 leads with no contact tag, 3 dropped as public",
+  "2026-08-14T10:32:46.075Z  osm KN Saint Kitts and Nevis: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-14T10:32:53.092Z  osm MX: failed — subdivisions: busy (504)",
+  "2026-08-14T10:32:57.896Z  osm PY: failed — subdivisions: out of time",
+  "2026-08-14T10:33:02.608Z  osm ES: too big for one query — 11 of 23 subdivisions read, carries on next round",
+  "2026-08-14T10:33:02.613Z  osm ES Spain: 55 places -> +2 new, 4 merged, 1 with an email already, 1 leads with no contact tag, 10 dropped as public",
+  "2026-08-14T10:34:10.306Z  osm BS Bahamas: 5 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-14T10:01:33.568Z",
+ "roundStarted": "2026-08-14T10:14:20.136Z",
  "lastRound": {
-  "at": "2026-08-14T10:13:58.053Z",
-  "minutes": 12.4,
-  "summary": "crawled 8 sites, +2 emails; prospected 4 empty countries, +2 clubs; osm 1 countries (ES,GB,BR,US,AU,IN,CA,KN,SD,NA,CO,MX) +0, 6 failed",
-  "crawled": 8,
-  "emailsFound": 2,
+  "at": "2026-08-14T10:34:10.364Z",
+  "minutes": 19.8,
+  "summary": "crawled 4 sites, +1 emails; prospected 6 empty countries, +2 clubs; osm 7 countries (ES,KN,SD,NA,CO,MX,SG,BS,PY,LC,CU,ZA) +2, 2 failed",
+  "crawled": 4,
+  "emailsFound": 1,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 1,
-  "osmAdded": 0,
-  "osmFailed": 6
+  "osmCountries": 7,
+  "osmAdded": 2,
+  "osmFailed": 2
  }
 }
