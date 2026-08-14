@@ -572,11 +572,21 @@ async function phaseProspect(db, deadline){
     const st = state[cc] || (state[cc] = {queriesDone:[], found:0});
     const r = await prospect.prospectCountry(cc, {
       knownHosts, deadline: budget, timeoutMs: CFG.pageTimeoutMs + 4000,
-      queriesDone: st.queriesDone, log: m => log(m)
+      queriesDone: st.queriesDone, maxQueries: 40, log: m => log(m)
     });
 
     st.queriesDone = r.queriesDone;
     st.last = new Date().toISOString();
+
+    // Which cities were searched and what each produced, kept per country
+    // so the coverage tab can show the trail city by city.
+    if(r.perCity){
+      st.cityStats = st.cityStats || {};
+      for(const [city, v] of Object.entries(r.perCity)){
+        const c = st.cityStats[city] || (st.cityStats[city] = {s:0, f:0});
+        c.s += v.s; c.f += v.f;
+      }
+    }
     if(!r.queries) continue;          // every query already asked; move on
     countries++;
     vetted += r.candidates;
@@ -1041,9 +1051,24 @@ function writeStatusJSON(extra){
     const cities = prospectLib.CITIES[cc] || [];
     const terms = prospectLib.TERMS[clang] || prospectLib.TERMS.English;
     const total = terms.length * (1 + cities.length);
-    const done = ((prospectState[cc]||{}).queriesDone || []).length;
-    s.prospect = {cities, terms, searchesDone: Math.min(done, total), searchesTotal: total,
-                  last: (prospectState[cc]||{}).last || null};
+    const pst = prospectState[cc] || {};
+    const done = (pst.queriesDone || []).length;
+    const cs = pst.cityStats || {};
+    const cityRows = Object.entries(cs).filter(([k]) => k !== '');
+    s.prospect = {
+      // the first thirty planned cities are enough for the modal; the full
+      // list would put 2,000 chips in it for Brazil alone
+      cities: cities.slice(0, 30), citiesTotal: cities.length,
+      citiesSearched: cityRows.length,
+      searchesDone: Math.min(done, total), searchesTotal: total,
+      found: Object.values(cs).reduce((n, v) => n + (v.f || 0), 0),
+      countrywide: cs[''] || null,
+      cityStats: cityRows
+        .sort((a, b) => (b[1].f - a[1].f) || (b[1].s - a[1].s) || a[0].localeCompare(b[0]))
+        .slice(0, 400)
+        .map(([n, v]) => ({n, s: v.s, f: v.f})),
+      last: pst.last || null
+    };
   }
 
   let recent = [];

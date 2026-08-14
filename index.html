@@ -209,6 +209,15 @@ dialog::backdrop{ background:rgba(20,32,30,.45); }
 .citylist{ @apply flex flex-wrap gap-x-1.5 gap-y-1 mt-1.5; }
 .citylist .city{ @apply font-mono text-[10.5px] text-inksoft border border-rule bg-panel px-[7px] py-0.5 rounded-sm whitespace-nowrap; }
 
+/* ---- search coverage tab ---- */
+.cov{ @apply border-b border-rule py-1; }
+.cov summary{ @apply cursor-pointer py-2 text-[13px]; }
+.cov summary .meta{ @apply whitespace-normal; }
+.covt{ @apply w-full max-w-[560px] border-collapse text-[12px] my-2; }
+.covt th{ @apply font-mono text-[10px] tracking-[.1em] uppercase text-inksoft text-left font-medium py-1.5 pr-3 border-b border-rule bg-transparent static; }
+.covt td{ @apply py-1 pr-3 border-b border-rule; }
+.covt td:nth-child(2),.covt td:nth-child(3){ @apply font-mono text-[11px]; }
+
 /* the activity rows reuse .act, whose time column is nowrap by default */
 .dlg-in .act{ @apply table-fixed; }
 .dlg-in .act td{ @apply py-[7px] pr-2.5 pl-0; }
@@ -253,7 +262,17 @@ footer a{ @apply text-grass; }
 <div class="tabs">
   <button class="tab on" id="tabClubs">Clubs</button>
   <button class="tab" id="tabLog">What it is doing</button>
+  <button class="tab" id="tabCov">Search coverage</button>
 </div>
+
+<!-- ============ SEARCH COVERAGE ============ -->
+<section id="panelCov" style="display:none">
+  <div class="sec-head">
+    <h2>Search coverage</h2>
+    <p class="sec-note">Every country and city the prospector works, with what each search produced. Cities are every place of 20,000 people or more, biggest first.</p>
+  </div>
+  <div id="covBody"></div>
+</section>
 
 <!-- ============ ACTIVITY ============ -->
 <section id="panelLog" style="display:none">
@@ -381,6 +400,7 @@ Sandton Squash Club, Squash, , admin@sandtonsquash.co.za, South Africa"></textar
 
 <footer>
   <p><strong>On the seed data:</strong> every row loaded by default was pulled from a real published source and is listed with that source. Nothing here is invented. Rows marked <span class="flagmark">verify</span> come from directories that look years out of date, so check those before sending anything.</p>
+  <p>City lists from <a href="https://www.geonames.org/" rel="noopener">GeoNames</a> (CC-BY 4.0) — every place with 20,000 people or more.</p>
   <p id="storeNote"></p>
 </footer>
 
@@ -671,12 +691,50 @@ function renderActivity(){
 }
 
 function showTab(which){
-  var isLog = which === "log";
-  document.getElementById("panelClubs").style.display = isLog ? "none" : "";
-  document.getElementById("panelLog").style.display   = isLog ? "" : "none";
-  document.getElementById("tabClubs").className = "tab" + (isLog ? "" : " on");
-  document.getElementById("tabLog").className   = "tab" + (isLog ? " on" : "");
-  if(isLog) renderActivity();
+  var tabs = {clubs:["panelClubs","tabClubs"], log:["panelLog","tabLog"], cov:["panelCov","tabCov"]};
+  Object.keys(tabs).forEach(function(k){
+    document.getElementById(tabs[k][0]).style.display = (k === which) ? "" : "none";
+    document.getElementById(tabs[k][1]).className = "tab" + (k === which ? " on" : "");
+  });
+  if(which === "log") renderActivity();
+  if(which === "cov") renderCoverage();
+}
+
+/* ------------------------------------------------------------------
+   SEARCH COVERAGE — country by country, city by city
+------------------------------------------------------------------ */
+function renderCoverage(){
+  var host = document.getElementById("covBody");
+  if(!STATUS || !STATUS.perCountry){
+    host.innerHTML = "<p class='meta'>No collector status published yet.</p>";
+    return;
+  }
+  var rows = Object.entries(STATUS.perCountry)
+    .filter(function(e){ return e[1].prospect; })
+    .sort(function(a,b){
+      var pa=a[1].prospect, pb=b[1].prospect;
+      return (pb.found||0)-(pa.found||0) || (pb.searchesDone||0)-(pa.searchesDone||0) || a[0].localeCompare(b[0]);
+    });
+  var out = "";
+  rows.forEach(function(e){
+    var name = e[0], pr = e[1].prospect;
+    var body = "";
+    if(pr.countrywide){
+      body += "<tr><td>(country-wide)</td><td>"+pr.countrywide.s+"</td><td>"+(pr.countrywide.f||0)+"</td></tr>";
+    }
+    (pr.cityStats||[]).forEach(function(c){
+      body += "<tr><td>"+esc(c.n)+"</td><td>"+c.s+"</td><td>"+(c.f||0)+"</td></tr>";
+    });
+    out += "<details class='cov'><summary><b>"+esc(name)+"</b> <span class='meta'>"
+        + (pr.citiesSearched||0)+" of "+(pr.citiesTotal||0)+" cities searched · "
+        + (pr.searchesDone||0)+" of "+(pr.searchesTotal||0)+" searches · "
+        + (pr.found||0)+" found</span></summary>"
+        + (body
+            ? "<table class='covt'><thead><tr><th>City</th><th>Searches</th><th>Found</th></tr></thead><tbody>"+body+"</tbody></table>"
+            : "<p class='meta' style='padding:6px 0'>Not searched yet.</p>")
+        + "</details>";
+  });
+  host.innerHTML = out || "<p class='meta'>Nothing searched yet.</p>";
 }
 
 async function load(){
@@ -1157,10 +1215,13 @@ function showCountry(country){
     var head = pr.searchesDone + " of " + pr.searchesTotal + " searches done" +
       (pr.last ? " <span class='meta'>· last " + esc(stamp(pr.last)) + "</span>" : "");
     if(cities.length){
+      var more = (pr.citiesTotal || cities.length) - cities.length;
       out += row("Searched city by city",
         head + "<div class='citylist'>" +
         cities.map(function(x){ return "<span class='city'>" + esc(x) + "</span>"; }).join("") +
-        "</div>");
+        (more > 0 ? "<span class='city'>+ " + more.toLocaleString() + " more</span>" : "") +
+        "</div>" +
+        "<div class='meta' style='margin-top:5px'>every city of 20,000+ people — the full trail is in the Search coverage tab</div>");
     } else {
       out += row("Web searches", head + "<div style='margin-top:4px'>country-wide searches only — no city list for " + esc(country) + "</div>");
     }
@@ -1203,6 +1264,7 @@ function showCountry(country){
 
   document.getElementById("tabClubs").addEventListener("click", function(){ showTab("clubs"); });
   document.getElementById("tabLog").addEventListener("click",   function(){ showTab("log"); });
+  document.getElementById("tabCov").addEventListener("click",   function(){ showTab("cov"); });
   Array.prototype.forEach.call(document.querySelectorAll(".act-f"), function(b){
     b.addEventListener("click", function(){
       actFilter = b.getAttribute("data-act");
