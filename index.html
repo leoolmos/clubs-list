@@ -710,6 +710,27 @@ function showTab(which){
 ------------------------------------------------------------------ */
 var CITY_DATA = null, covProspect = {};
 
+/* Country name -> ISO code, matching lib/countries.js. status.json carries
+   the code too, but an older status must not stop the city lists joining. */
+var CC_OF = {
+  "Argentina":"AR","Bolivia":"BO","Chile":"CL","Colombia":"CO","Costa Rica":"CR","Cuba":"CU",
+  "Dominican Republic":"DO","Ecuador":"EC","El Salvador":"SV","Equatorial Guinea":"GQ","Guatemala":"GT","Honduras":"HN",
+  "Mexico":"MX","Nicaragua":"NI","Panama":"PA","Paraguay":"PY","Peru":"PE","Spain":"ES",
+  "Uruguay":"UY","Venezuela":"VE","Angola":"AO","Brazil":"BR","Cape Verde":"CV","East Timor":"TL",
+  "Guinea-Bissau":"GW","Mozambique":"MZ","Portugal":"PT","São Tomé and Príncipe":"ST","Antigua and Barbuda":"AG","Australia":"AU",
+  "Bahamas":"BS","Barbados":"BB","Belize":"BZ","Botswana":"BW","Canada":"CA","Dominica":"DM",
+  "Fiji":"FJ","Gambia":"GM","Ghana":"GH","Grenada":"GD","Guyana":"GY","India":"IN",
+  "Ireland":"IE","Jamaica":"JM","Kenya":"KE","Kiribati":"KI","Lesotho":"LS","Liberia":"LR",
+  "Malawi":"MW","Malta":"MT","Marshall Islands":"MH","Mauritius":"MU","Micronesia":"FM","Namibia":"NA",
+  "Nauru":"NR","New Zealand":"NZ","Nigeria":"NG","Pakistan":"PK","Palau":"PW","Papua New Guinea":"PG",
+  "Philippines":"PH","Rwanda":"RW","Saint Kitts and Nevis":"KN","Saint Lucia":"LC","Saint Vincent and the Grenadines":"VC","Samoa":"WS",
+  "Seychelles":"SC","Sierra Leone":"SL","Singapore":"SG","Solomon Islands":"SB","South Africa":"ZA","South Sudan":"SS",
+  "Sudan":"SD","Tanzania":"TZ","Tonga":"TO","Trinidad and Tobago":"TT","Tuvalu":"TV","Uganda":"UG",
+  "United Kingdom":"GB","United States":"US","Vanuatu":"VU","Zambia":"ZM","Zimbabwe":"ZW","United Arab Emirates":"AE",
+  "Cyprus":"CY","Egypt":"EG","Hong Kong":"HK","Bermuda":"BM","Cayman Islands":"KY","Gibraltar":"GI",
+  "Jersey":"JE","Isle of Man":"IM","Puerto Rico":"PR"
+};
+
 function renderCoverage(){
   var host = document.getElementById("covBody");
   if(!STATUS || !STATUS.perCountry){
@@ -726,7 +747,7 @@ function renderCoverage(){
     var out = "";
     covProspect = {};
     rows.forEach(function(e){
-      var name = e[0], pr = e[1].prospect, cc = pr.cc || "";
+      var name = e[0], pr = e[1].prospect, cc = pr.cc || CC_OF[name] || "";
       covProspect[cc] = pr;
       out += "<details class='cov' data-cc='"+esc(cc)+"'><summary><b>"+esc(name)+"</b> <span class='meta'>"
           + (pr.citiesSearched||0)+" of "+(pr.citiesTotal||0)+" cities searched · "
@@ -756,7 +777,10 @@ function fillCoverage(det){
     ? "<p class='meta' style='margin:4px 0'>country-wide: "+pr.countrywide.s+" searches · "+(pr.countrywide.f||0)+" found</p>"
     : "";
   if(!all.length){
-    det.querySelector(".covcities").innerHTML = head || "<p class='meta'>No city of 20,000 people here — country-wide searches only.</p>";
+    det.querySelector(".covcities").innerHTML = head +
+      ((pr.citiesTotal || 0) > 0
+        ? "<p class='meta'>The city list did not load — refresh the page.</p>"
+        : "<p class='meta'>No city of 20,000 people here — country-wide searches only.</p>");
     return;
   }
   var chips = all.map(function(city){
