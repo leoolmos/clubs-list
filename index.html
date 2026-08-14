@@ -214,8 +214,14 @@ dialog::backdrop{ background:rgba(20,32,30,.45); }
 .cov summary{ @apply cursor-pointer py-2 text-[13px]; }
 .cov summary .meta{ @apply whitespace-normal; }
 .covcities{ @apply pb-2.5; }
-/* a searched city carries the green bullet; found clubs ride on the label */
-.citylist .city.searched{ @apply border-grass text-ink bg-line; }
+/* the city listing: numbers per city, scrolling inside its own box */
+.covwrap{ @apply max-h-[420px] overflow-y-auto border border-rule bg-line rounded-crt my-2 max-w-[640px]; }
+.covt{ @apply w-full border-collapse text-[12px]; }
+.covt th{ @apply font-mono text-[10px] tracking-[.1em] uppercase text-inksoft text-left font-medium py-1.5 px-2.5 border-b border-rule bg-panel sticky top-0; }
+.covt td{ @apply py-1 px-2.5 border-b border-rule; }
+.covt td:nth-child(n+2){ @apply font-mono text-[11px]; }
+/* green bullet: where the scraper stands — the next city it will search */
+tr.covcur td{ background:#DDE9E2; }
 .cdot{ @apply inline-block w-1.5 h-1.5 rounded-full bg-grass mr-1 align-middle; }
 
 /* the activity rows reuse .act, whose time column is nowrap by default */
@@ -774,7 +780,7 @@ function fillCoverage(det){
   (pr.cityStats||[]).forEach(function(c){ stats[c.n] = c; });
   var all = (CITY_DATA && CITY_DATA[cc]) || [];
   var head = pr.countrywide
-    ? "<p class='meta' style='margin:4px 0'>country-wide: "+pr.countrywide.s+" searches · "+(pr.countrywide.f||0)+" found</p>"
+    ? "<p class='meta' style='margin:4px 0'>country-wide: "+pr.countrywide.s+" searches · "+(pr.countrywide.f||0)+" clubs</p>"
     : "";
   if(!all.length){
     det.querySelector(".covcities").innerHTML = head +
@@ -783,14 +789,22 @@ function fillCoverage(det){
         : "<p class='meta'>No city of 20,000 people here — country-wide searches only.</p>");
     return;
   }
-  var chips = all.map(function(city){
-    var st = stats[city];
-    return "<span class='city"+(st ? " searched" : "")+"'"
-         + (st ? " title='"+st.s+" searches, "+(st.f||0)+" found'" : "")
-         + ">"+(st ? "<span class='cdot'></span>" : "")+esc(city)
-         + (st && st.f ? " · "+st.f : "")+"</span>";
+
+  // The green bullet marks where the scraper stands in this country: the
+  // first city, biggest first, whose searches have not all run yet.
+  var termCount = Math.max(1, Math.round((pr.searchesTotal||0) / ((pr.citiesTotal||0) + 1)));
+  var marked = false;
+  var rows = all.map(function(city){
+    var st = stats[city] || {s:0, f:0, e:0};
+    var cur = !marked && (st.s||0) < termCount;
+    if(cur) marked = true;
+    return "<tr"+(cur ? " class='covcur'" : "")+"><td>"+(cur ? "<span class='cdot'></span>" : "")+esc(city)+"</td>"
+         + "<td>"+(st.s||0)+"</td><td>"+(st.f||0)+"</td><td>"+(st.e||0)+"</td></tr>";
   }).join("");
-  det.querySelector(".covcities").innerHTML = head + "<div class='citylist'>" + chips + "</div>";
+  det.querySelector(".covcities").innerHTML = head
+    + "<div class='covwrap'><table class='covt'>"
+    + "<thead><tr><th>City</th><th>Searches</th><th>Clubs</th><th>Emails</th></tr></thead>"
+    + "<tbody>" + rows + "</tbody></table></div>";
 }
 
 async function load(){

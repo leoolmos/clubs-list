@@ -1046,6 +1046,17 @@ function writeStatusJSON(extra){
    * number. Every country gets a slot, even one nothing has reached. */
   const prospectState = readJSON(path.join(DATA_DIR, 'prospect.json'), {});
   const prospectLib = require('./lib/prospect');
+
+  // Emails captured per city: a prospect record remembers which city's
+  // search surfaced it, and the crawl fills the email in later. Counted
+  // from the store each time, so the number is always the current truth.
+  const cityEmails = {};
+  for(const r of all){
+    if(!r.city || !r.email || !r.country) continue;
+    const bag = cityEmails[r.country] || (cityEmails[r.country] = {});
+    bag[r.city] = (bag[r.city] || 0) + 1;
+  }
+
   for(const [cc, [cname, clang]] of Object.entries(COUNTRIES)){
     const s = slot(cname); if(!s) continue;
     const cities = prospectLib.CITIES[cc] || [];
@@ -1068,7 +1079,7 @@ function writeStatusJSON(extra){
       cityStats: cityRows
         .sort((a, b) => (b[1].f - a[1].f) || (b[1].s - a[1].s) || a[0].localeCompare(b[0]))
         .slice(0, 400)
-        .map(([n, v]) => ({n, s: v.s, f: v.f})),
+        .map(([n, v]) => ({n, s: v.s, f: v.f, e: (cityEmails[cname] || {})[n] || 0})),
       last: pst.last || null
     };
   }
