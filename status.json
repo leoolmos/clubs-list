@@ -1,10 +1,10 @@
 {
- "generated": "2026-08-14T07:17:43.750Z",
+ "generated": "2026-08-14T07:25:08.989Z",
  "clubs": 2668,
  "records": 4107,
  "crawl": {
-  "ready": 4,
-  "waiting": 135,
+  "ready": 0,
+  "waiting": 139,
   "exhausted": 1099
  },
  "osm": {
@@ -13,9 +13,9 @@
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "US",
+   "cc": "IN",
    "error": "subdivisions: out of time",
-   "at": "2026-08-14T07:16:29.561Z"
+   "at": "2026-08-14T07:24:13.744Z"
   }
  },
  "crawlReasons": [
@@ -29,11 +29,11 @@
   },
   {
    "note": "unreachable",
-   "n": 345
+   "n": 346
   },
   {
    "note": "blocked by a challenge page",
-   "n": 139
+   "n": 138
   },
   {
    "note": "/contact",
@@ -67,6 +67,27 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-14T07:18:07.182Z",
+   "kind": "crawl",
+   "text": "Victoria Paddle — https://vic.paddle.org.au: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://vic.paddle.org.au"
+  },
+  {
+   "t": "2026-08-14T07:18:06.066Z",
+   "kind": "crawl",
+   "text": "Cherry Hill Health & Racquet Club — https://chhrc.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://chhrc.com"
+  },
+  {
+   "t": "2026-08-14T07:18:05.840Z",
+   "kind": "crawl",
+   "text": "La Terraza — https://laterraza.co.uk: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://laterraza.co.uk"
+  },
   {
    "t": "2026-08-14T07:01:27.481Z",
    "kind": "crawl",
@@ -1183,26 +1204,6 @@
    "ok": true,
    "url": "https://coqueirosbeachcottages.com",
    "email": "info@coqueirosbeachcottages.com"
-  },
-  {
-   "t": "2026-08-14T03:06:44.682Z",
-   "kind": "search",
-   "text": "FEU Diliman Sports Complex -> https://www.feudiliman.edu.ph, dropped: public or institutional domain",
-   "ok": false
-  },
-  {
-   "t": "2026-08-14T03:06:40.846Z",
-   "kind": "search",
-   "text": "no site found for Palimbang Gymnasium (Philippines)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-14T03:06:39.103Z",
-   "kind": "search",
-   "text": "Barangay Akol Open Court (Philippines) -> https://www.barangaydirectory.com -> geospecialistpilipinas@gmail.com",
-   "ok": true,
-   "url": "https://www.barangaydirectory.com",
-   "email": "geospecialistpilipinas@gmail.com"
   }
  ],
  "perCountry": {
@@ -1229,8 +1230,8 @@
    },
    "seeds": 56,
    "osm": {
-    "at": "2026-08-14T07:15:55.439Z",
-    "seen": 61,
+    "at": "2026-08-14T07:23:25.090Z",
+    "seen": 62,
     "added": 0,
     "rejected": 27,
     "error": "partial: 10 of 23 subdivisions read",
@@ -1275,7 +1276,7 @@
     ],
     "searchesDone": 90,
     "searchesTotal": 90,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "United Kingdom": {
@@ -1341,7 +1342,7 @@
     ],
     "searchesDone": 92,
     "searchesTotal": 92,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Ireland": {
@@ -1395,7 +1396,7 @@
     ],
     "searchesDone": 44,
     "searchesTotal": 44,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Brazil": {
@@ -1471,7 +1472,7 @@
     ],
     "searchesDone": 105,
     "searchesTotal": 105,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Bolivia": {
@@ -1518,7 +1519,7 @@
     ],
     "searchesDone": 18,
     "searchesTotal": 18,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Portugal": {
@@ -1579,7 +1580,7 @@
     ],
     "searchesDone": 60,
     "searchesTotal": 60,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Argentina": {
@@ -1587,7 +1588,7 @@
    "emails": 117,
    "sites": 198,
    "read": 192,
-   "unreachable": 20,
+   "unreachable": 21,
    "noAddress": 55,
    "leads": 268,
    "leadsSearched": 268,
@@ -1639,7 +1640,7 @@
     ],
     "searchesDone": 57,
     "searchesTotal": 57,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "South Africa": {
@@ -1695,7 +1696,7 @@
     ],
     "searchesDone": 52,
     "searchesTotal": 52,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Mexico": {
@@ -1760,7 +1761,7 @@
     ],
     "searchesDone": 72,
     "searchesTotal": 72,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Australia": {
@@ -1820,7 +1821,7 @@
     ],
     "searchesDone": 72,
     "searchesTotal": 72,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "India": {
@@ -1844,7 +1845,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T06:59:17.812Z",
+    "at": "2026-08-14T07:24:13.744Z",
     "seen": 370,
     "added": 0,
     "rejected": 87,
@@ -1881,7 +1882,7 @@
     ],
     "searchesDone": 80,
     "searchesTotal": 80,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Colombia": {
@@ -1936,7 +1937,7 @@
     ],
     "searchesDone": 42,
     "searchesTotal": 42,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Chile": {
@@ -1990,7 +1991,7 @@
     ],
     "searchesDone": 39,
     "searchesTotal": 39,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Ecuador": {
@@ -2038,7 +2039,7 @@
     ],
     "searchesDone": 24,
     "searchesTotal": 24,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Paraguay": {
@@ -2084,7 +2085,7 @@
     ],
     "searchesDone": 15,
     "searchesTotal": 15,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Singapore": {
@@ -2126,7 +2127,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "New Zealand": {
@@ -2182,7 +2183,7 @@
     ],
     "searchesDone": 52,
     "searchesTotal": 52,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "United States": {
@@ -2254,7 +2255,7 @@
     ],
     "searchesDone": 120,
     "searchesTotal": 120,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Peru": {
@@ -2303,7 +2304,7 @@
     ],
     "searchesDone": 24,
     "searchesTotal": 24,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Philippines": {
@@ -2356,7 +2357,7 @@
     ],
     "searchesDone": 48,
     "searchesTotal": 48,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Canada": {
@@ -2413,7 +2414,7 @@
     ],
     "searchesDone": 60,
     "searchesTotal": 60,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Saint Vincent and the Grenadines": {
@@ -2455,7 +2456,7 @@
     ],
     "searchesDone": 8,
     "searchesTotal": 8,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Mozambique": {
@@ -2498,7 +2499,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Honduras": {
@@ -2540,7 +2541,7 @@
     ],
     "searchesDone": 9,
     "searchesTotal": 9,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Dominican Republic": {
@@ -2585,7 +2586,7 @@
     ],
     "searchesDone": 18,
     "searchesTotal": 18,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Venezuela": {
@@ -2632,7 +2633,7 @@
     ],
     "searchesDone": 21,
     "searchesTotal": 21,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Costa Rica": {
@@ -2677,7 +2678,7 @@
     ],
     "searchesDone": 18,
     "searchesTotal": 18,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Malta": {
@@ -2722,7 +2723,7 @@
     ],
     "searchesDone": 16,
     "searchesTotal": 16,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Bahamas": {
@@ -2765,7 +2766,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Barbados": {
@@ -2788,7 +2789,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T03:36:41.191Z",
+    "at": "2026-08-14T07:23:28.137Z",
     "seen": 4,
     "added": 0,
     "rejected": 1,
@@ -2807,7 +2808,7 @@
     ],
     "searchesDone": 8,
     "searchesTotal": 8,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Botswana": {
@@ -2850,7 +2851,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Equatorial Guinea": {
@@ -2892,7 +2893,7 @@
     ],
     "searchesDone": 9,
     "searchesTotal": 9,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Panama": {
@@ -2936,7 +2937,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Uruguay": {
@@ -2983,7 +2984,7 @@
     ],
     "searchesDone": 21,
     "searchesTotal": 21,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Nicaragua": {
@@ -3024,7 +3025,7 @@
     ],
     "searchesDone": 6,
     "searchesTotal": 6,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Angola": {
@@ -3067,7 +3068,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Ghana": {
@@ -3112,7 +3113,7 @@
     ],
     "searchesDone": 16,
     "searchesTotal": 16,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Guyana": {
@@ -3152,7 +3153,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Malawi": {
@@ -3195,7 +3196,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Mauritius": {
@@ -3219,7 +3220,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T03:35:45.763Z",
+    "at": "2026-08-14T07:25:08.917Z",
     "seen": 17,
     "added": 0,
     "rejected": 10,
@@ -3240,7 +3241,7 @@
     ],
     "searchesDone": 16,
     "searchesTotal": 16,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Namibia": {
@@ -3285,7 +3286,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Nigeria": {
@@ -3333,7 +3334,7 @@
     ],
     "searchesDone": 32,
     "searchesTotal": 32,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Pakistan": {
@@ -3382,7 +3383,7 @@
     ],
     "searchesDone": 32,
     "searchesTotal": 32,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Palau": {
@@ -3420,7 +3421,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Papua New Guinea": {
@@ -3464,7 +3465,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Rwanda": {
@@ -3506,7 +3507,7 @@
     ],
     "searchesDone": 8,
     "searchesTotal": 8,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Solomon Islands": {
@@ -3548,7 +3549,7 @@
     ],
     "searchesDone": 8,
     "searchesTotal": 8,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Tanzania": {
@@ -3592,7 +3593,7 @@
     ],
     "searchesDone": 16,
     "searchesTotal": 16,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Uganda": {
@@ -3615,12 +3616,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T03:35:36.467Z",
+    "at": "2026-08-14T07:24:45.706Z",
     "seen": 12,
     "added": 0,
     "rejected": 1,
     "error": null,
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cities": [
@@ -3635,7 +3636,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Zambia": {
@@ -3680,7 +3681,7 @@
     ],
     "searchesDone": 16,
     "searchesTotal": 16,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Zimbabwe": {
@@ -3724,7 +3725,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Cuba": {
@@ -3768,7 +3769,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Kenya": {
@@ -3815,7 +3816,7 @@
     ],
     "searchesDone": 24,
     "searchesTotal": 24,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "El Salvador": {
@@ -3856,7 +3857,7 @@
     ],
     "searchesDone": 6,
     "searchesTotal": 6,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Jamaica": {
@@ -3901,7 +3902,7 @@
     ],
     "searchesDone": 16,
     "searchesTotal": 16,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Trinidad and Tobago": {
@@ -3944,7 +3945,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Fiji": {
@@ -3988,7 +3989,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Saint Lucia": {
@@ -4028,7 +4029,7 @@
     ],
     "searchesDone": 8,
     "searchesTotal": 8,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Gambia": {
@@ -4071,7 +4072,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "United Arab Emirates": {
@@ -4119,7 +4120,7 @@
     ],
     "searchesDone": 24,
     "searchesTotal": 24,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Cyprus": {
@@ -4166,7 +4167,7 @@
     ],
     "searchesDone": 20,
     "searchesTotal": 20,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Egypt": {
@@ -4215,7 +4216,7 @@
     ],
     "searchesDone": 32,
     "searchesTotal": 32,
-    "last": "2026-08-14T07:09:23.467Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Hong Kong": {
@@ -4255,7 +4256,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Bermuda": {
@@ -4295,7 +4296,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Cayman Islands": {
@@ -4335,7 +4336,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Gibraltar": {
@@ -4375,7 +4376,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Jersey": {
@@ -4415,7 +4416,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Isle of Man": {
@@ -4456,7 +4457,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Puerto Rico": {
@@ -4502,7 +4503,7 @@
     ],
     "searchesDone": 21,
     "searchesTotal": 21,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Guatemala": {
@@ -4546,7 +4547,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.766Z"
    }
   },
   "Dominica": {
@@ -4588,7 +4589,7 @@
     ],
     "searchesDone": 8,
     "searchesTotal": 8,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Seychelles": {
@@ -4626,7 +4627,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Belize": {
@@ -4667,7 +4668,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Lesotho": {
@@ -4705,7 +4706,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Sierra Leone": {
@@ -4745,7 +4746,7 @@
     ],
     "searchesDone": 8,
     "searchesTotal": 8,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Vanuatu": {
@@ -4785,7 +4786,7 @@
     ],
     "searchesDone": 8,
     "searchesTotal": 8,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Marshall Islands": {
@@ -4823,7 +4824,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Micronesia": {
@@ -4844,12 +4845,12 @@
    "sources": {},
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T03:35:47.594Z",
+    "at": "2026-08-14T07:23:35.250Z",
     "seen": 1,
     "added": 0,
     "rejected": 0,
     "error": null,
-    "via": "overpass.kumi.systems"
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cities": [],
@@ -4861,7 +4862,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Samoa": {
@@ -4901,7 +4902,7 @@
     ],
     "searchesDone": 8,
     "searchesTotal": 8,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Kiribati": {
@@ -4939,7 +4940,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Saint Kitts and Nevis": {
@@ -4979,7 +4980,7 @@
     ],
     "searchesDone": 8,
     "searchesTotal": 8,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Cape Verde": {
@@ -5019,7 +5020,7 @@
     ],
     "searchesDone": 9,
     "searchesTotal": 9,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Grenada": {
@@ -5057,7 +5058,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Antigua and Barbuda": {
@@ -5095,7 +5096,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "South Sudan": {
@@ -5135,7 +5136,7 @@
     ],
     "searchesDone": 8,
     "searchesTotal": 8,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Sudan": {
@@ -5176,7 +5177,7 @@
     ],
     "searchesDone": 12,
     "searchesTotal": 12,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Liberia": {
@@ -5216,7 +5217,7 @@
     ],
     "searchesDone": 8,
     "searchesTotal": 8,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "East Timor": {
@@ -5255,7 +5256,7 @@
     ],
     "searchesDone": 6,
     "searchesTotal": 6,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Guinea-Bissau": {
@@ -5294,7 +5295,7 @@
     ],
     "searchesDone": 6,
     "searchesTotal": 6,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "São Tomé and Príncipe": {
@@ -5331,7 +5332,7 @@
     ],
     "searchesDone": 3,
     "searchesTotal": 3,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Tonga": {
@@ -5369,7 +5370,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Nauru": {
@@ -5407,7 +5408,7 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   },
   "Tuvalu": {
@@ -5445,39 +5446,39 @@
     ],
     "searchesDone": 4,
     "searchesTotal": 4,
-    "last": "2026-08-14T07:09:23.466Z"
+    "last": "2026-08-14T07:18:10.765Z"
    }
   }
  },
  "recent": [
-  "2026-08-14T07:09:03.346Z  tick done in 7.6m — crawled 4 sites, +0 emails; osm 2 countries (ES,GB,BR,CA,TL,LS,PA,WS,TZ,UG,MU,FM) +0, 4 failed | 2668 emails total, 139 still queued",
-  "2026-08-14T07:10:28.745Z  mine wikidata: the query service did not answer for Tennis, will retry",
-  "2026-08-14T07:11:33.878Z  mine wikidata: the query service did not answer for Padel, will retry",
-  "2026-08-14T07:12:39.205Z  mine wikidata: the query service did not answer for Squash, will retry",
-  "2026-08-14T07:12:39.323Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-14T07:12:39.326Z  discover: opened 0 pages, skipped 11 already known",
-  "2026-08-14T07:12:39.326Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-14T07:15:47.965Z  osm WS: failed — busy (406)",
-  "2026-08-14T07:15:55.434Z  osm ES: too big for one query — 10 of 23 subdivisions read, carries on next round",
-  "2026-08-14T07:15:55.439Z  osm ES Spain: 61 places -> +0 new, 3 merged, 0 with an email already, 0 leads with no contact tag, 27 dropped as public",
-  "2026-08-14T07:15:56.163Z  osm TZ Tanzania: 8 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 5 dropped as public",
-  "2026-08-14T07:16:29.562Z  osm US: failed — subdivisions: out of time",
-  "2026-08-14T07:17:30.345Z  osm VC Saint Vincent and the Grenadines: 2 places -> +0 new, 1 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-14T07:17:43.672Z  osm PA Panama: 13 places -> +0 new, 1 merged, 0 with an email already, 0 leads with no contact tag, 6 dropped as public"
+  "2026-08-14T07:17:45.569Z  tick done in 8.3m — crawled 0 sites, +0 emails; osm 4 countries (ES,US,VC,PA,WS,TZ,UG,MU,FM,BB,GM,ZM) +0, 2 failed | 2668 emails total, 139 still queued",
+  "2026-08-14T07:19:15.961Z  mine wikidata: the query service did not answer for Tennis, will retry",
+  "2026-08-14T07:20:21.097Z  mine wikidata: the query service did not answer for Padel, will retry",
+  "2026-08-14T07:20:24.568Z  mine wikidata: the query service did not answer for Squash, will retry",
+  "2026-08-14T07:20:24.681Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-08-14T07:20:24.684Z  discover: opened 0 pages, skipped 11 already known",
+  "2026-08-14T07:20:24.685Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-14T07:23:25.086Z  osm ES: too big for one query — 10 of 23 subdivisions read, carries on next round",
+  "2026-08-14T07:23:25.090Z  osm ES Spain: 62 places -> +0 new, 4 merged, 0 with an email already, 0 leads with no contact tag, 27 dropped as public",
+  "2026-08-14T07:23:28.133Z  osm BB Barbados: 4 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
+  "2026-08-14T07:23:35.246Z  osm FM Micronesia: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-14T07:24:13.745Z  osm IN: failed — subdivisions: out of time",
+  "2026-08-14T07:24:45.702Z  osm UG Uganda: 12 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
+  "2026-08-14T07:25:08.914Z  osm MU Mauritius: 17 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 10 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-14T07:09:23.361Z",
+ "roundStarted": "2026-08-14T07:18:05.585Z",
  "lastRound": {
-  "at": "2026-08-14T07:17:43.717Z",
-  "minutes": 8.3,
-  "summary": "crawled 0 sites, +0 emails; osm 4 countries (ES,US,VC,PA,WS,TZ,UG,MU,FM,BB,GM,ZM) +0, 2 failed",
-  "crawled": 0,
+  "at": "2026-08-14T07:25:08.958Z",
+  "minutes": 7.1,
+  "summary": "crawled 4 sites, +0 emails; osm 5 countries (ES,IN,UG,MU,FM,BB,GM,ZM,KE,HK,GI,BM) +0, 1 failed",
+  "crawled": 4,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 4,
+  "osmCountries": 5,
   "osmAdded": 0,
-  "osmFailed": 2
+  "osmFailed": 1
  }
 }
