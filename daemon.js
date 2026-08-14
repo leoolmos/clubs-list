@@ -45,12 +45,10 @@ const CFG = {
   concurrency:   parseInt(process.env.CONCURRENCY    || '8',  10),
   hostDelayMs:   parseInt(process.env.HOST_DELAY_MS  || '2000',10), // per host
   pagesPerTick:  parseInt(process.env.PAGES_PER_TICK || '25', 10),
-  // Three minutes was right when OpenStreetMap was a maintenance rescan.
-  // It is not any more: the widened statements (semicolon sport lists,
-  // sports centres with no sport tag) have never finished a pass over the
-  // biggest countries, because their subdivision walks kept hitting "out
-  // of time" inside a three-minute slice.
-  osmMinutes:    parseInt(process.env.OSM_MINUTES    || '8',  10),
+  // Five minutes. Eight bought nothing while Overpass answers the biggest
+  // countries with 504s — the widened statements land whenever the mirrors
+  // have a good hour, and the subdivision bookmarks carry across rounds.
+  osmMinutes:    parseInt(process.env.OSM_MINUTES    || '5',  10),
   osmCountries:  parseInt(process.env.OSM_COUNTRIES  || '12', 10),  // countries per round
   // Two of the three Overpass mirrors publish no concurrency limit and the
   // third allows two per IP (see lib/osm.js). Six in flight spreads across
@@ -64,19 +62,21 @@ const CFG = {
   // comes round again in minutes.
   pageTimeoutMs: parseInt(process.env.PAGE_TIMEOUT_MS|| '5000', 10),
   retryMinutes:  parseInt(process.env.RETRY_MINUTES  || '10', 10),
-  leadMinutes:   parseInt(process.env.LEAD_MINUTES   || '12', 10),  // slice for searching
-  // Searching a country out from nothing is what reaches the sixty-two that
-  // hold nothing, so it gets a real slice rather than the leftovers.
-  prospectMinutes: parseInt(process.env.PROSPECT_MINUTES || '10', 10),
+  // Six minutes: the leads are all searched until their monthly retry, so
+  // most rounds this is seconds — the slice matters again in September.
+  leadMinutes:   parseInt(process.env.LEAD_MINUTES   || '6', 10),
+  // The prospect-then-crawl chain is where the emails come from, so it
+  // holds the largest slice of the round.
+  prospectMinutes: parseInt(process.env.PROSPECT_MINUTES || '12', 10),
   // Curlie is volunteer-run and answers at 3s a page, so this is minutes of
   // walking rather than a page count worth tuning.
   discoverMinutes: parseInt(process.env.DISCOVER_MINUTES || '5',  10),
   discoverPages:   parseInt(process.env.DISCOVER_PAGES   || '60', 10),
   // Certificate-log mining: domains carrying a club word under the brief's
-  // country TLDs, plus Wikidata's catalogued clubs. See lib/mine.js. Four
+  // country TLDs, plus Wikidata's catalogued clubs. See lib/mine.js. Three
   // minutes, because the crt words refresh weekly and Wikidata backs off
   // for hours after a failed pass — most rounds this phase is seconds.
-  mineMinutes:   parseInt(process.env.MINE_MINUTES || '4', 10),
+  mineMinutes:   parseInt(process.env.MINE_MINUTES || '3', 10),
   maxAttempts:   4
 };
 
@@ -551,13 +551,21 @@ async function phaseProspect(db, deadline){
     try{ knownHosts.add(new URL(r.website).hostname.replace(/^www\./,'').toLowerCase()); }catch(e){}
   }
 
-  // Emptiest first, and among equals the one waiting longest. The whole
-  // point is the countries at zero.
-  const counts = {};
-  for(const r of Object.values(db)) if(r.email && r.cc) counts[r.cc] = (counts[r.cc]||0) + 1;
-  const order = Object.keys(COUNTRIES)
-    .map(cc => ({cc, clubs: counts[cc]||0, last: (state[cc]||{}).last || ''}))
-    .sort((a,b) => a.clubs - b.clubs || a.last.localeCompare(b.last));
+  // Emptiest-first was right when sixty countries held nothing and a few
+  // queries settled each one. With every city of 20,000 in the queue it
+  // inverted: the slice drowned in Liberia and South Sudan — 96 searches
+  // there, thirty-five for the whole United States — and the crawl starved.
+  // So the rounds alternate: odd rounds walk the dense countries first
+  // (PRIORITY is ordered by exactly that), even rounds take whoever has
+  // waited longest, so no country is ever abandoned.
+  let order;
+  if(roundNo % 2 === 1){
+    order = require('./lib/countries').PRIORITY.map(cc => ({cc}));
+  } else {
+    order = Object.keys(COUNTRIES)
+      .map(cc => ({cc, last: (state[cc]||{}).last || ''}))
+      .sort((a,b) => a.last.localeCompare(b.last));
+  }
 
   const budget = Math.min(deadline, Date.now() + CFG.prospectMinutes*60*1000);
   let countries = 0, added = 0, vetted = 0;
