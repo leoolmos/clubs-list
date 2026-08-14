@@ -1056,6 +1056,8 @@ function writeStatusJSON(extra){
     const cs = pst.cityStats || {};
     const cityRows = Object.entries(cs).filter(([k]) => k !== '');
     s.prospect = {
+      // the coverage tab joins this back to lib/cities.json by country code
+      cc,
       // the first thirty planned cities are enough for the modal; the full
       // list would put 2,000 chips in it for Brazil alone
       cities: cities.slice(0, 30), citiesTotal: cities.length,

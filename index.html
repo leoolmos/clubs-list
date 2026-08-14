@@ -213,10 +213,10 @@ dialog::backdrop{ background:rgba(20,32,30,.45); }
 .cov{ @apply border-b border-rule py-1; }
 .cov summary{ @apply cursor-pointer py-2 text-[13px]; }
 .cov summary .meta{ @apply whitespace-normal; }
-.covt{ @apply w-full max-w-[560px] border-collapse text-[12px] my-2; }
-.covt th{ @apply font-mono text-[10px] tracking-[.1em] uppercase text-inksoft text-left font-medium py-1.5 pr-3 border-b border-rule bg-transparent static; }
-.covt td{ @apply py-1 pr-3 border-b border-rule; }
-.covt td:nth-child(2),.covt td:nth-child(3){ @apply font-mono text-[11px]; }
+.covcities{ @apply pb-2.5; }
+/* a searched city carries the green bullet; found clubs ride on the label */
+.citylist .city.searched{ @apply border-grass text-ink bg-line; }
+.cdot{ @apply inline-block w-1.5 h-1.5 rounded-full bg-grass mr-1 align-middle; }
 
 /* the activity rows reuse .act, whose time column is nowrap by default */
 .dlg-in .act{ @apply table-fixed; }
@@ -702,39 +702,71 @@ function showTab(which){
 
 /* ------------------------------------------------------------------
    SEARCH COVERAGE — country by country, city by city
+   The full city lists live in lib/cities.json (13,753 names), fetched
+   once when the tab first opens. status.json only carries the counters,
+   so it stays small enough to push every round. A country's chips are
+   rendered the first time it is expanded — all of Brazil's 1,808 at
+   once on tab-open would freeze the page.
 ------------------------------------------------------------------ */
+var CITY_DATA = null, covProspect = {};
+
 function renderCoverage(){
   var host = document.getElementById("covBody");
   if(!STATUS || !STATUS.perCountry){
     host.innerHTML = "<p class='meta'>No collector status published yet.</p>";
     return;
   }
-  var rows = Object.entries(STATUS.perCountry)
-    .filter(function(e){ return e[1].prospect; })
-    .sort(function(a,b){
-      var pa=a[1].prospect, pb=b[1].prospect;
-      return (pb.found||0)-(pa.found||0) || (pb.searchesDone||0)-(pa.searchesDone||0) || a[0].localeCompare(b[0]);
+  var go = function(){
+    var rows = Object.entries(STATUS.perCountry)
+      .filter(function(e){ return e[1].prospect; })
+      .sort(function(a,b){
+        var pa=a[1].prospect, pb=b[1].prospect;
+        return (pb.found||0)-(pa.found||0) || (pb.searchesDone||0)-(pa.searchesDone||0) || a[0].localeCompare(b[0]);
+      });
+    var out = "";
+    covProspect = {};
+    rows.forEach(function(e){
+      var name = e[0], pr = e[1].prospect, cc = pr.cc || "";
+      covProspect[cc] = pr;
+      out += "<details class='cov' data-cc='"+esc(cc)+"'><summary><b>"+esc(name)+"</b> <span class='meta'>"
+          + (pr.citiesSearched||0)+" of "+(pr.citiesTotal||0)+" cities searched · "
+          + (pr.searchesDone||0)+" of "+(pr.searchesTotal||0)+" searches · "
+          + (pr.found||0)+" found</span></summary>"
+          + "<div class='covcities'><p class='meta'>…</p></div></details>";
     });
-  var out = "";
-  rows.forEach(function(e){
-    var name = e[0], pr = e[1].prospect;
-    var body = "";
-    if(pr.countrywide){
-      body += "<tr><td>(country-wide)</td><td>"+pr.countrywide.s+"</td><td>"+(pr.countrywide.f||0)+"</td></tr>";
-    }
-    (pr.cityStats||[]).forEach(function(c){
-      body += "<tr><td>"+esc(c.n)+"</td><td>"+c.s+"</td><td>"+(c.f||0)+"</td></tr>";
+    host.innerHTML = out || "<p class='meta'>Nothing searched yet.</p>";
+    host.querySelectorAll("details.cov").forEach(function(det){
+      det.addEventListener("toggle", function(){ if(det.open) fillCoverage(det); });
     });
-    out += "<details class='cov'><summary><b>"+esc(name)+"</b> <span class='meta'>"
-        + (pr.citiesSearched||0)+" of "+(pr.citiesTotal||0)+" cities searched · "
-        + (pr.searchesDone||0)+" of "+(pr.searchesTotal||0)+" searches · "
-        + (pr.found||0)+" found</span></summary>"
-        + (body
-            ? "<table class='covt'><thead><tr><th>City</th><th>Searches</th><th>Found</th></tr></thead><tbody>"+body+"</tbody></table>"
-            : "<p class='meta' style='padding:6px 0'>Not searched yet.</p>")
-        + "</details>";
-  });
-  host.innerHTML = out || "<p class='meta'>Nothing searched yet.</p>";
+  };
+  if(CITY_DATA) return go();
+  fetch("lib/cities.json").then(function(r){ return r.json(); })
+    .then(function(j){ CITY_DATA = j; go(); })
+    .catch(function(){ CITY_DATA = {}; go(); });
+}
+
+function fillCoverage(det){
+  if(det.dataset.filled) return;
+  det.dataset.filled = "1";
+  var cc = det.dataset.cc, pr = covProspect[cc] || {};
+  var stats = {};
+  (pr.cityStats||[]).forEach(function(c){ stats[c.n] = c; });
+  var all = (CITY_DATA && CITY_DATA[cc]) || [];
+  var head = pr.countrywide
+    ? "<p class='meta' style='margin:4px 0'>country-wide: "+pr.countrywide.s+" searches · "+(pr.countrywide.f||0)+" found</p>"
+    : "";
+  if(!all.length){
+    det.querySelector(".covcities").innerHTML = head || "<p class='meta'>No city of 20,000 people here — country-wide searches only.</p>";
+    return;
+  }
+  var chips = all.map(function(city){
+    var st = stats[city];
+    return "<span class='city"+(st ? " searched" : "")+"'"
+         + (st ? " title='"+st.s+" searches, "+(st.f||0)+" found'" : "")
+         + ">"+(st ? "<span class='cdot'></span>" : "")+esc(city)
+         + (st && st.f ? " · "+st.f : "")+"</span>";
+  }).join("");
+  det.querySelector(".covcities").innerHTML = head + "<div class='citylist'>" + chips + "</div>";
 }
 
 async function load(){
