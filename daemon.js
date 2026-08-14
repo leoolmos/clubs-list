@@ -45,9 +45,12 @@ const CFG = {
   concurrency:   parseInt(process.env.CONCURRENCY    || '8',  10),
   hostDelayMs:   parseInt(process.env.HOST_DELAY_MS  || '2000',10), // per host
   pagesPerTick:  parseInt(process.env.PAGES_PER_TICK || '25', 10),
-  // OpenStreetMap is essentially finished - 75 of 83 countries - so it no
-  // longer deserves the largest slice of the round. The searching does.
-  osmMinutes:    parseInt(process.env.OSM_MINUTES    || '3',  10),
+  // Three minutes was right when OpenStreetMap was a maintenance rescan.
+  // It is not any more: the widened statements (semicolon sport lists,
+  // sports centres with no sport tag) have never finished a pass over the
+  // biggest countries, because their subdivision walks kept hitting "out
+  // of time" inside a three-minute slice.
+  osmMinutes:    parseInt(process.env.OSM_MINUTES    || '8',  10),
   osmCountries:  parseInt(process.env.OSM_COUNTRIES  || '12', 10),  // countries per round
   // Two of the three Overpass mirrors publish no concurrency limit and the
   // third allows two per IP (see lib/osm.js). Six in flight spreads across
@@ -70,8 +73,10 @@ const CFG = {
   discoverMinutes: parseInt(process.env.DISCOVER_MINUTES || '5',  10),
   discoverPages:   parseInt(process.env.DISCOVER_PAGES   || '60', 10),
   // Certificate-log mining: domains carrying a club word under the brief's
-  // country TLDs, plus Wikidata's catalogued clubs. See lib/mine.js.
-  mineMinutes:   parseInt(process.env.MINE_MINUTES || '6', 10),
+  // country TLDs, plus Wikidata's catalogued clubs. See lib/mine.js. Four
+  // minutes, because the crt words refresh weekly and Wikidata backs off
+  // for hours after a failed pass — most rounds this phase is seconds.
+  mineMinutes:   parseInt(process.env.MINE_MINUTES || '4', 10),
   maxAttempts:   4
 };
 
