@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-14T08:54:13.717Z",
+ "generated": "2026-08-14T09:26:40.321Z",
  "clubs": 2668,
  "records": 4107,
  "crawl": {
-  "ready": 3,
-  "waiting": 136,
-  "exhausted": 1099
+  "ready": 2,
+  "waiting": 137,
+  "exhausted": 1100
  },
  "osm": {
   "imported": 85,
@@ -15,7 +15,7 @@
   "lastError": {
    "cc": "ES",
    "error": "partial: 10 of 23 subdivisions read",
-   "at": "2026-08-14T08:52:42.247Z"
+   "at": "2026-08-14T09:26:40.240Z"
   }
  },
  "crawlReasons": [
@@ -29,11 +29,11 @@
   },
   {
    "note": "unreachable",
-   "n": 347
+   "n": 346
   },
   {
    "note": "blocked by a challenge page",
-   "n": 137
+   "n": 138
   },
   {
    "note": "/contact",
@@ -63,10 +63,39 @@
    "sports": {
     "Q2472827": "2026-08-13T21:12:21.265Z"
    },
-   "added": 0
+   "added": 0,
+   "failedAt": "2026-08-14T09:18:20.026Z"
   }
  },
  "activity": [
+  {
+   "t": "2026-08-14T09:05:27.598Z",
+   "kind": "crawl",
+   "text": "Clube Ténis & Padel — https://www.tietennis.com/TenisPadelSaoBras: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.tietennis.com/TenisPadelSaoBras"
+  },
+  {
+   "t": "2026-08-14T09:05:27.111Z",
+   "kind": "crawl",
+   "text": "Blowing Rock Public Tennis Courts — https://blowingrock.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://blowingrock.com"
+  },
+  {
+   "t": "2026-08-14T08:54:37.462Z",
+   "kind": "crawl",
+   "text": "Sacred Heart Tennis Court — https://sacredheartpioneers.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://sacredheartpioneers.com"
+  },
+  {
+   "t": "2026-08-14T08:54:35.825Z",
+   "kind": "crawl",
+   "text": "Bridport Tennis Club — https://bridportandwestbay.co.uk: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://bridportandwestbay.co.uk"
+  },
   {
    "t": "2026-08-14T08:37:40.344Z",
    "kind": "crawl",
@@ -1164,36 +1193,6 @@
    "ok": false,
    "url": "https://totally-tennis.com",
    "email": ""
-  },
-  {
-   "t": "2026-08-14T04:22:32.089Z",
-   "kind": "search",
-   "text": "no site found for Wongarbon Tennis Complex (Australia)",
-   "ok": false
-  },
-  {
-   "t": "2026-08-14T04:22:31.499Z",
-   "kind": "search",
-   "text": "Energize Health Club (Australia) -> https://www.energizehealthclub.com.au, no address on the site (blocked by a challenge page)",
-   "ok": false,
-   "url": "https://www.energizehealthclub.com.au",
-   "email": ""
-  },
-  {
-   "t": "2026-08-14T04:22:28.964Z",
-   "kind": "search",
-   "text": "Acacia Ridge Squash & Tennis Centre (Australia) -> https://www.acaciaridgesquash.com.au -> acaciaridgesquash@lancare.com.au",
-   "ok": true,
-   "url": "https://www.acaciaridgesquash.com.au",
-   "email": "acaciaridgesquash@lancare.com.au"
-  },
-  {
-   "t": "2026-08-14T04:22:27.774Z",
-   "kind": "search",
-   "text": "Half court tennis, basketball, netball (Australia) -> https://www.gamecourts.co.uk -> probounce.info@gmail.com",
-   "ok": true,
-   "url": "https://www.gamecourts.co.uk",
-   "email": "probounce.info@gmail.com"
   }
  ],
  "perCountry": {
@@ -1220,53 +1219,54 @@
    },
    "seeds": 56,
    "osm": {
-    "at": "2026-08-14T08:52:42.247Z",
+    "at": "2026-08-14T09:26:40.240Z",
     "seen": 62,
     "added": 0,
     "rejected": 27,
     "error": "partial: 10 of 23 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cities": [
      "Madrid",
      "Barcelona",
      "Valencia",
+     "Zaragoza",
      "Sevilla",
      "Málaga",
-     "Zaragoza",
-     "Alicante",
      "Murcia",
+     "Palma",
+     "Las Palmas de Gran Canaria",
+     "Alicante",
      "Bilbao",
+     "Córdoba",
      "Valladolid",
      "Vigo",
-     "A Coruña",
-     "Granada",
-     "Palma de Mallorca",
-     "San Sebastián",
-     "Santander",
-     "Marbella",
-     "Tarragona",
-     "Girona",
-     "Cádiz",
-     "Jerez",
-     "Salamanca",
-     "Pamplona",
-     "Oviedo",
      "Gijón",
-     "Almería",
-     "Ibiza",
-     "Tenerife",
-     "Las Palmas"
+     "Eixample",
+     "Gasteiz / Vitoria",
+     "L'Hospitalet de Llobregat",
+     "Latina",
+     "Carabanchel",
+     "A Coruña",
+     "Puente de Vallecas",
+     "Fuencarral",
+     "Sant Martí",
+     "Elche",
+     "Granada",
+     "Ciudad Lineal",
+     "Fuencarral-El Pardo",
+     "Oviedo",
+     "Terrassa"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 559,
+    "citiesSearched": 0,
     "searchesDone": 90,
-    "searchesTotal": 90,
-    "last": "2026-08-14T08:45:48.474Z"
+    "searchesTotal": 2800,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "United Kingdom": {
@@ -1292,47 +1292,54 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-14T08:52:15.453Z",
+    "at": "2026-08-14T09:25:50.723Z",
     "seen": 1402,
     "added": 0,
     "rejected": 221,
-    "error": "busy (406)",
+    "error": "busy (504)",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cities": [
      "London",
-     "Manchester",
      "Birmingham",
-     "Leeds",
      "Glasgow",
-     "Bristol",
-     "Liverpool",
-     "Edinburgh",
+     "Manchester",
      "Sheffield",
-     "Newcastle upon Tyne",
-     "Nottingham",
-     "Leicester",
-     "Southampton",
-     "Portsmouth",
+     "Leeds",
+     "Edinburgh",
+     "Liverpool",
+     "Bristol",
      "Cardiff",
-     "Swansea",
-     "Aberdeen",
-     "Dundee",
+     "Leicester",
+     "Bradford",
      "Belfast",
+     "Coventry",
+     "Brent",
+     "Birkenhead",
+     "Nottingham",
+     "Islington",
+     "Reading",
+     "Kingston upon Hull",
+     "Preston",
+     "Swansea",
+     "Newcastle upon Tyne",
+     "Southend-on-Sea",
      "Brighton",
-     "Norwich",
-     "Exeter"
+     "Derby",
+     "Southampton",
+     "Wolverhampton",
+     "Plymouth",
+     "Stoke-on-Trent"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 652,
+    "citiesSearched": 0,
     "searchesDone": 92,
-    "searchesTotal": 92,
-    "last": "2026-08-14T08:45:48.474Z"
+    "searchesTotal": 3918,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Ireland": {
@@ -1368,25 +1375,44 @@
    "prospect": {
     "cities": [
      "Dublin",
+     "South Dublin",
      "Cork",
-     "Galway",
      "Limerick",
+     "Galway",
+     "Tallaght",
      "Waterford",
-     "Kilkenny",
-     "Sligo",
      "Drogheda",
      "Dundalk",
-     "Athlone"
+     "Swords",
+     "Navan",
+     "Bray",
+     "Dún Laoghaire",
+     "Ennis",
+     "Carlow",
+     "Douglas",
+     "Tralee",
+     "Portlaoise",
+     "Athlone",
+     "Droichead Nua",
+     "An Muileann gCearr",
+     "Letterkenny",
+     "Sandyford",
+     "Greystones",
+     "Balbriggan",
+     "Kilkenny",
+     "Wexford",
+     "Naas",
+     "Sligo",
+     "Celbridge"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 30,
+    "citiesSearched": 0,
     "searchesDone": 44,
-    "searchesTotal": 44,
-    "last": "2026-08-14T08:45:48.474Z"
+    "searchesTotal": 186,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Brazil": {
@@ -1411,11 +1437,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T08:36:39.908Z",
+    "at": "2026-08-14T09:25:34.226Z",
     "seen": 287,
     "added": 0,
     "rejected": 224,
-    "error": "subdivisions: out of time",
+    "error": "fetch failed",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
@@ -1423,46 +1449,42 @@
      "São Paulo",
      "Rio de Janeiro",
      "Belo Horizonte",
-     "Brasília",
-     "Curitiba",
-     "Porto Alegre",
      "Salvador",
      "Fortaleza",
+     "Manaus",
+     "Brasília",
+     "Curitiba",
      "Recife",
-     "Campinas",
-     "Florianópolis",
      "Goiânia",
      "Belém",
-     "Manaus",
-     "Vitória",
-     "Natal",
-     "João Pessoa",
+     "Porto Alegre",
+     "Guarulhos",
      "Maceió",
-     "Cuiabá",
+     "Campinas",
+     "São Luís",
      "Campo Grande",
-     "Londrina",
-     "Maringá",
-     "Joinville",
-     "Blumenau",
-     "Caxias do Sul",
-     "Santos",
+     "Natal",
+     "Teresina",
+     "Duque de Caxias",
+     "Nova Iguaçu",
+     "São Bernardo do Campo",
+     "João Pessoa",
      "Sorocaba",
-     "Ribeirão Preto",
-     "São José dos Campos",
      "Uberlândia",
-     "Juiz de Fora",
-     "Niterói",
-     "Balneário Camboriú",
-     "Pelotas"
+     "Osasco",
+     "São José dos Campos",
+     "Ribeirão Preto",
+     "Aracaju",
+     "Joinville"
     ],
-    "terms": [
-     "clube de ténis",
-     "clube de padel",
-     "clube de squash"
-    ],
+    "citiesTotal": 1808,
+    "citiesSearched": 0,
     "searchesDone": 105,
-    "searchesTotal": 105,
-    "last": "2026-08-14T08:45:48.474Z"
+    "searchesTotal": 9045,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Bolivia": {
@@ -1497,19 +1519,44 @@
    "prospect": {
     "cities": [
      "La Paz",
-     "Santa Cruz",
+     "Santa Cruz de la Sierra",
      "Cochabamba",
      "Sucre",
-     "Tarija"
+     "Oruro",
+     "Sacaba",
+     "Quillacollo",
+     "Tarija",
+     "Potosí",
+     "Riberalta",
+     "Montero",
+     "Viacha",
+     "Trinidad",
+     "Yacuiba",
+     "Tiquipaya",
+     "Vinto",
+     "Colcapirhua",
+     "Sipe Sipe",
+     "Caranavi",
+     "Villamontes",
+     "Guayaramerín",
+     "Bermejo",
+     "Mizque",
+     "Villazón",
+     "Llallagua",
+     "Camiri",
+     "Cobija",
+     "San Borja",
+     "San Ignacio de Velasco",
+     "Tupiza"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 31,
+    "citiesSearched": 0,
     "searchesDone": 18,
-    "searchesTotal": 18,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 160,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Portugal": {
@@ -1543,34 +1590,45 @@
    },
    "prospect": {
     "cities": [
-     "Lisboa",
+     "Lisbon",
      "Porto",
      "Braga",
-     "Faro",
+     "Amadora",
      "Coimbra",
-     "Aveiro",
      "Leiria",
      "Setúbal",
-     "Évora",
-     "Guimarães",
-     "Cascais",
-     "Sintra",
-     "Oeiras",
      "Funchal",
-     "Ponta Delgada",
-     "Albufeira",
-     "Portimão",
-     "Vilamoura",
-     "Vila Nova de Gaia"
+     "Viseu",
+     "Queluz",
+     "Cacém",
+     "Aveiro",
+     "Vila Nova de Gaia",
+     "Faro",
+     "Algueirão",
+     "Loures",
+     "Felgueiras",
+     "Rio de Mouro",
+     "Odivelas",
+     "Évora",
+     "Amora",
+     "Corroios",
+     "Barreiro",
+     "Monsanto",
+     "Rio Tinto",
+     "São Domingos de Rana",
+     "Figueira da Foz",
+     "Lumiar",
+     "Paranhos",
+     "Ponte de Lima"
     ],
-    "terms": [
-     "clube de ténis",
-     "clube de padel",
-     "clube de squash"
-    ],
+    "citiesTotal": 125,
+    "citiesSearched": 0,
     "searchesDone": 60,
-    "searchesTotal": 60,
-    "last": "2026-08-14T08:45:48.474Z"
+    "searchesTotal": 630,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Argentina": {
@@ -1607,30 +1665,42 @@
      "Buenos Aires",
      "Córdoba",
      "Rosario",
-     "Mendoza",
-     "La Plata",
      "Mar del Plata",
+     "San Miguel de Tucumán",
      "Salta",
-     "Tucumán",
-     "Neuquén",
-     "Bahía Blanca",
+     "Santa Fe",
+     "Avellaneda",
      "Corrientes",
-     "Bariloche",
-     "Tandil",
-     "San Isidro",
-     "Tigre",
-     "Pilar",
+     "Posadas",
+     "Bahía Blanca",
+     "Resistencia",
+     "Merlo",
      "Quilmes",
-     "Río Cuarto"
+     "San Salvador de Jujuy",
+     "Santiago del Estero",
+     "Paraná",
+     "Neuquén",
+     "José C. Paz",
+     "Formosa",
+     "Lanús",
+     "La Plata",
+     "Berazategui",
+     "La Rioja",
+     "San Luis",
+     "San Miguel",
+     "Ituzaingó",
+     "Catamarca",
+     "Río Cuarto",
+     "Balvanera"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 252,
+    "citiesSearched": 0,
     "searchesDone": 57,
-    "searchesTotal": 57,
-    "last": "2026-08-14T08:45:48.474Z"
+    "searchesTotal": 1265,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "South Africa": {
@@ -1669,24 +1739,41 @@
      "Cape Town",
      "Durban",
      "Pretoria",
+     "Soweto",
      "Gqeberha",
-     "Bloemfontein",
+     "Soshanguve",
      "Pietermaritzburg",
-     "Stellenbosch",
-     "Sandton",
-     "Centurion",
-     "Knysna",
-     "Somerset West"
+     "Evaton",
+     "Benoni",
+     "Bloemfontein",
+     "Thembisa",
+     "East London",
+     "Vereeniging",
+     "Boksburg",
+     "Welkom",
+     "Newcastle",
+     "Krugersdorp",
+     "Rustenburg",
+     "Emalahleni",
+     "Diepsloot",
+     "Randburg",
+     "Roodepoort",
+     "Botshabelo",
+     "Brakpan",
+     "Kariega",
+     "Polokwane",
+     "Germiston",
+     "Richards Bay",
+     "Vanderbijlpark"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 245,
+    "citiesSearched": 0,
     "searchesDone": 52,
-    "searchesTotal": 52,
-    "last": "2026-08-14T08:45:48.474Z"
+    "searchesTotal": 1476,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Mexico": {
@@ -1721,37 +1808,44 @@
    "prospect": {
     "cities": [
      "Mexico City",
-     "Guadalajara",
-     "Monterrey",
-     "Puebla",
-     "Cancún",
-     "Mérida",
-     "Querétaro",
      "Tijuana",
-     "León",
-     "Toluca",
-     "Aguascalientes",
-     "San Luis Potosí",
+     "Iztapalapa",
+     "Puebla",
+     "Ecatepec de Morelos",
+     "Santiago de Querétaro",
+     "León de los Aldama",
+     "Ciudad Juárez",
+     "Zapopan",
+     "Guadalajara",
+     "Mérida",
+     "Gustavo Adolfo Madero",
+     "Monterrey",
+     "Ciudad Nezahualcoyotl",
+     "Mexicali",
+     "Chihuahua",
+     "Cancún",
+     "Naucalpan de Juárez",
      "Hermosillo",
      "Culiacán",
-     "Chihuahua",
-     "Veracruz",
      "Morelia",
-     "Playa del Carmen",
-     "Puerto Vallarta",
-     "Mazatlán",
-     "Saltillo",
      "Torreón",
-     "Los Cabos"
+     "Álvaro Obregón",
+     "San Luis Potosí",
+     "Aguascalientes",
+     "Saltillo",
+     "Guadalupe",
+     "Acapulco de Juárez",
+     "Tlalnepantla",
+     "Tlaquepaque"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 490,
+    "citiesSearched": 0,
     "searchesDone": 72,
-    "searchesTotal": 72,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 2455,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Australia": {
@@ -1776,11 +1870,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T08:45:03.385Z",
-    "seen": 1158,
-    "added": 17,
-    "rejected": 268,
-    "error": "subdivisions: out of time",
+    "at": "2026-08-14T09:25:39.726Z",
+    "seen": 0,
+    "added": 0,
+    "rejected": 0,
+    "error": "partial: 0 of 15 subdivisions read",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
@@ -1791,27 +1885,39 @@
      "Perth",
      "Adelaide",
      "Gold Coast",
-     "Canberra",
      "Newcastle",
-     "Hobart",
-     "Wollongong",
-     "Geelong",
      "Sunshine Coast",
+     "Canberra",
+     "Central Coast",
+     "Logan City",
+     "Geelong",
+     "Wollongong",
+     "Hobart",
      "Townsville",
      "Cairns",
+     "Toowoomba",
      "Darwin",
+     "City of Port Phillip",
      "Ballarat",
-     "Bendigo"
+     "Mandurah",
+     "Bendigo",
+     "Caloundra",
+     "Launceston",
+     "Maitland",
+     "Tuggeranong",
+     "Mackay",
+     "Rockhampton",
+     "Coffs Harbour",
+     "Blue Mountains"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 191,
+    "citiesSearched": 0,
     "searchesDone": 72,
-    "searchesTotal": 72,
-    "last": "2026-08-14T08:45:48.474Z"
+    "searchesTotal": 1152,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "India": {
@@ -1835,44 +1941,54 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T08:44:00.240Z",
+    "at": "2026-08-14T09:25:37.268Z",
     "seen": 370,
     "added": 0,
     "rejected": 87,
-    "error": "subdivisions: out of time",
+    "error": "subdivisions: busy (504)",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cities": [
      "Mumbai",
      "Delhi",
-     "Bangalore",
-     "Chennai",
+     "Bengaluru",
      "Hyderabad",
-     "Kolkata",
-     "Pune",
      "Ahmedabad",
+     "Chennai",
+     "Kolkata",
+     "Surat",
+     "Pune",
      "Jaipur",
+     "Kanpur",
+     "Navi Mumbai",
      "Lucknow",
-     "Chandigarh",
-     "Gurgaon",
-     "Noida",
-     "Kochi",
-     "Goa",
-     "Indore",
      "Nagpur",
      "Coimbatore",
-     "Bhopal"
+     "Indore",
+     "Thāne",
+     "Vadodara",
+     "Bhopal",
+     "Rasapūdipalem",
+     "Pimpri-Chinchwad",
+     "Patna",
+     "Kallakurichi",
+     "Ludhiana",
+     "Nashik",
+     "Madurai",
+     "Tirunelveli",
+     "Agra",
+     "Faridabad",
+     "Rājkot"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 2937,
+    "citiesSearched": 0,
     "searchesDone": 80,
-    "searchesTotal": 80,
-    "last": "2026-08-14T08:45:48.474Z"
+    "searchesTotal": 17628,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Colombia": {
@@ -1907,27 +2023,44 @@
    "prospect": {
     "cities": [
      "Bogotá",
-     "Medellín",
      "Cali",
+     "Medellín",
      "Barranquilla",
+     "Kennedy",
      "Cartagena",
+     "Cúcuta",
+     "Soacha",
      "Bucaramanga",
+     "Ibagué",
+     "Santa Marta",
+     "Montería",
+     "Valledupar",
      "Pereira",
      "Manizales",
-     "Ibagué",
-     "Cúcuta",
-     "Santa Marta",
+     "Buenaventura",
+     "Bello",
+     "Pasto",
+     "Neiva",
+     "Soledad",
      "Villavicencio",
-     "Pasto"
+     "Popayán",
+     "Palmira",
+     "Armenia",
+     "Itagüí",
+     "Sincelejo",
+     "Floridablanca",
+     "Tuluá",
+     "Dosquebradas",
+     "Barrancabermeja"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 245,
+    "citiesSearched": 0,
     "searchesDone": 42,
-    "searchesTotal": 42,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 1230,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Chile": {
@@ -1962,26 +2095,44 @@
    "prospect": {
     "cities": [
      "Santiago",
-     "Valparaíso",
-     "Concepción",
-     "Viña del Mar",
+     "Puente Alto",
+     "Maipú",
      "Antofagasta",
-     "La Serena",
-     "Temuco",
-     "Rancagua",
-     "Talca",
+     "Viña del Mar",
+     "Valparaíso",
+     "Ñuñoa",
+     "San Bernardo",
      "Puerto Montt",
+     "Arica",
+     "Peñalolén",
+     "Temuco",
+     "Concepción",
+     "Rancagua",
+     "Quilicura",
+     "La Pintana",
      "Iquique",
-     "Chillán"
+     "Talca",
+     "Calama",
+     "Coquimbo",
+     "La Serena",
+     "Talcahuano",
+     "Chillán",
+     "Renca",
+     "Colina",
+     "Alto Hospicio",
+     "Osorno",
+     "Valdivia",
+     "Villa Mercedes",
+     "Quilpué"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 120,
+    "citiesSearched": 0,
     "searchesDone": 39,
-    "searchesTotal": 39,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 605,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Ecuador": {
@@ -2017,19 +2168,42 @@
      "Quito",
      "Guayaquil",
      "Cuenca",
+     "Santo Domingo de los Colorados",
      "Ambato",
-     "Manta",
+     "Portoviejo",
+     "Eloy Alfaro",
      "Machala",
-     "Loja"
+     "Loja",
+     "Manta",
+     "Riobamba",
+     "Ibarra",
+     "Esmeraldas",
+     "Quevedo",
+     "Latacunga",
+     "Daule",
+     "Milagro",
+     "Tulcán",
+     "Babahoyo",
+     "La Libertad",
+     "El Empalme",
+     "Puerto Francisco de Orellana",
+     "Pasaje",
+     "Chone",
+     "Salinas",
+     "Santa Elena",
+     "Rosa Zarate",
+     "Santa Rosa",
+     "Balzar",
+     "Huaquillas"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 56,
+    "citiesSearched": 0,
     "searchesDone": 24,
-    "searchesTotal": 24,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 285,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Paraguay": {
@@ -2065,17 +2239,39 @@
     "cities": [
      "Asunción",
      "Ciudad del Este",
+     "San Lorenzo",
+     "Capiatá",
+     "Lambaré",
+     "Fernando de la Mora",
+     "Limpio",
+     "Nemby",
+     "Pedro Juan Caballero",
      "Encarnación",
-     "Luque"
+     "Mariano Roque Alonso",
+     "Itauguá",
+     "Villa Elisa",
+     "Villa Hayes",
+     "Caacupé",
+     "San Antonio",
+     "Caaguazú",
+     "Presidente Franco",
+     "Coronel Oviedo",
+     "Concepción",
+     "Villarrica",
+     "Doctor Juan Eulogio Estigarribia",
+     "Villeta",
+     "Pilar",
+     "Yby Yaú",
+     "Caazapá"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 26,
+    "citiesSearched": 0,
     "searchesDone": 15,
-    "searchesTotal": 15,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 135,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Singapore": {
@@ -2108,16 +2304,46 @@
     "via": "overpass.kumi.systems"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "cities": [
+     "Singapore",
+     "Ulu Bedok",
+     "Bedok New Town",
+     "Sengkang New Town",
+     "Tampines Estate",
+     "Jurong Town",
+     "Tampines New Town",
+     "Woodlands",
+     "Jurong West",
+     "Yishun New Town",
+     "Hougang New Town",
+     "Punggol",
+     "Choa Chu Kang New Town",
+     "Ang Mo Kio New Town",
+     "Bukit Batok New Town",
+     "Bukit Merah Estate",
+     "Kampong Pasir Ris",
+     "Bukit Panjang New Town",
+     "Kembangan",
+     "Toa Payoh New Town",
+     "Serangoon",
+     "Serangoon New Town",
+     "Geylang",
+     "Sembawang Estate",
+     "Queenstown Estate",
+     "Kallang",
+     "Clementi Housing Estate",
+     "Bishan New Town",
+     "Bukit Timah",
+     "Jurong East"
     ],
+    "citiesTotal": 58,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 354,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "New Zealand": {
@@ -2153,27 +2379,44 @@
    "prospect": {
     "cities": [
      "Auckland",
-     "Wellington",
      "Christchurch",
+     "Wellington",
+     "Manukau City",
+     "North Shore",
      "Hamilton",
      "Tauranga",
      "Dunedin",
-     "Napier",
+     "Lower Hutt",
      "Palmerston North",
-     "Nelson",
+     "New Plymouth",
+     "Hastings",
+     "Napier",
      "Rotorua",
+     "Porirua",
      "Invercargill",
-     "New Plymouth"
+     "Papatoetoe",
+     "Nelson",
+     "Whangarei",
+     "Whanganui",
+     "Upper Hutt",
+     "Manurewa",
+     "Gisborne",
+     "Papakura",
+     "Rolleston",
+     "Paraparaumu",
+     "Blenheim",
+     "Timaru",
+     "Masterton",
+     "Mangere East"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 43,
+    "citiesSearched": 0,
     "searchesDone": 52,
-    "searchesTotal": 52,
-    "last": "2026-08-14T08:45:48.474Z"
+    "searchesTotal": 264,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "United States": {
@@ -2181,7 +2424,7 @@
    "emails": 326,
    "sites": 529,
    "read": 517,
-   "unreachable": 55,
+   "unreachable": 54,
    "noAddress": 114,
    "leads": 927,
    "leadsSearched": 927,
@@ -2198,54 +2441,54 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T08:44:50.998Z",
+    "at": "2026-08-14T09:25:34.221Z",
     "seen": 2460,
     "added": 0,
     "rejected": 902,
-    "error": "subdivisions: out of time",
+    "error": "fetch failed",
     "via": "overpass.private.coffee"
    },
    "prospect": {
     "cities": [
-     "New York",
+     "New York City",
      "Los Angeles",
+     "Brooklyn",
      "Chicago",
+     "Queens",
      "Houston",
-     "Miami",
-     "Dallas",
-     "Atlanta",
      "Phoenix",
-     "San Diego",
-     "Seattle",
-     "Boston",
-     "Denver",
-     "Austin",
-     "San Francisco",
-     "San Antonio",
      "Philadelphia",
+     "San Antonio",
+     "Manhattan",
+     "San Diego",
+     "The Bronx",
+     "Dallas",
+     "Jacksonville",
+     "Fort Worth",
+     "San Jose",
+     "Austin",
+     "Columbus",
      "Charlotte",
-     "Orlando",
-     "Tampa",
-     "Naples",
-     "Palm Beach",
-     "Scottsdale",
-     "Las Vegas",
-     "Portland",
-     "Minneapolis",
-     "Nashville",
      "Indianapolis",
-     "Kansas City",
-     "Sacramento"
+     "San Francisco",
+     "Seattle",
+     "Denver",
+     "Washington",
+     "Nashville",
+     "Oklahoma City",
+     "El Paso",
+     "Boston",
+     "Portland",
+     "Detroit"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 2305,
+    "citiesSearched": 0,
     "searchesDone": 120,
-    "searchesTotal": 120,
-    "last": "2026-08-14T08:45:48.474Z"
+    "searchesTotal": 13836,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Peru": {
@@ -2280,21 +2523,44 @@
    "prospect": {
     "cities": [
      "Lima",
+     "Callao",
      "Arequipa",
      "Trujillo",
-     "Cusco",
      "Piura",
      "Chiclayo",
-     "Tacna"
+     "Huancayo",
+     "Cusco",
+     "Iquitos",
+     "Pucallpa",
+     "Chimbote",
+     "Tacna",
+     "Ica",
+     "Santiago de Surco",
+     "Juliaca",
+     "Cajamarca",
+     "Huánuco",
+     "Miraflores",
+     "Santa Anita - Los Ficus",
+     "Sullana",
+     "Chincha Alta",
+     "Ayacucho",
+     "San Martin",
+     "Puno",
+     "Huaraz",
+     "San Francisco De Borja",
+     "Talara",
+     "Tumbes",
+     "Chosica",
+     "Puerto Maldonado"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 116,
+    "citiesSearched": 0,
     "searchesDone": 24,
-    "searchesTotal": 24,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 585,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Philippines": {
@@ -2327,27 +2593,45 @@
    },
    "prospect": {
     "cities": [
-     "Manila",
-     "Cebu",
-     "Davao",
      "Quezon City",
-     "Makati",
+     "Davao",
+     "Caloocan",
+     "Manila",
      "Taguig",
-     "Pasig",
-     "Baguio",
+     "Budta",
+     "Malingao",
+     "Zamboanga",
+     "Cebu City",
+     "Antipolo",
+     "Pasig City",
+     "Cagayan de Oro",
+     "Valenzuela",
+     "General Santos",
+     "Paranaque City",
+     "Las Piñas",
+     "Calamba",
+     "Muntinlupa",
+     "Makati City",
+     "Lapu-Lapu City",
+     "Angeles City",
+     "Imus",
      "Iloilo",
-     "Bacolod",
-     "Cagayan de Oro"
+     "Marikina City",
+     "Mandaluyong City",
+     "Bacolod City",
+     "Mansilingan",
+     "Dasmariñas",
+     "Mandaluyong",
+     "Pasay"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 448,
+    "citiesSearched": 0,
     "searchesDone": 48,
-    "searchesTotal": 48,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 2694,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Canada": {
@@ -2382,29 +2666,44 @@
    "prospect": {
     "cities": [
      "Toronto",
-     "Vancouver",
-     "Montreal",
+     "Montréal",
      "Calgary",
      "Ottawa",
      "Edmonton",
      "Winnipeg",
-     "Quebec City",
-     "Halifax",
      "Mississauga",
+     "Vancouver",
+     "Brampton",
+     "Hamilton",
+     "Surrey",
+     "Québec",
+     "Halifax",
+     "Laval",
+     "London",
+     "Etobicoke",
+     "Markham",
+     "Vaughan",
+     "Gatineau",
+     "Victoria",
      "Saskatoon",
-     "Regina",
      "Kitchener",
-     "Kelowna"
+     "Burnaby",
+     "Windsor",
+     "Longueuil",
+     "Regina",
+     "Oakville",
+     "Richmond",
+     "Richmond Hill",
+     "Burlington"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 383,
+    "citiesSearched": 0,
     "searchesDone": 60,
-    "searchesTotal": 60,
-    "last": "2026-08-14T08:45:48.474Z"
+    "searchesTotal": 2304,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Saint Vincent and the Grenadines": {
@@ -2436,17 +2735,17 @@
    },
    "prospect": {
     "cities": [
-     "Kingstown"
+     "Kingstown",
+     "Calliaqua"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 2,
+    "citiesSearched": 0,
     "searchesDone": 8,
-    "searchesTotal": 8,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 18,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Mozambique": {
@@ -2479,17 +2778,44 @@
    "prospect": {
     "cities": [
      "Maputo",
+     "Matola",
+     "Nampula",
      "Beira",
-     "Nampula"
+     "Chimoio",
+     "Tete",
+     "Quelimane",
+     "Lichinga",
+     "Nacala",
+     "Pemba",
+     "Mocuba",
+     "Gurúè",
+     "Xai-Xai",
+     "Maxixe",
+     "Mandimba",
+     "Ressano Garcia",
+     "Angoche",
+     "Inhambane",
+     "Cuamba",
+     "Montepuez",
+     "Dondo",
+     "Chibuto",
+     "Manhiça",
+     "Chokwé",
+     "Mozambique",
+     "Nametil",
+     "Monapo",
+     "Alto Molocue",
+     "Marromeu",
+     "Mocímboa da Praia"
     ],
-    "terms": [
-     "clube de ténis",
-     "clube de padel",
-     "clube de squash"
-    ],
+    "citiesTotal": 58,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 295,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Honduras": {
@@ -2522,16 +2848,44 @@
    "prospect": {
     "cities": [
      "Tegucigalpa",
-     "San Pedro Sula"
+     "San Pedro Sula",
+     "Danlí",
+     "La Ceiba",
+     "Puerto Cortez",
+     "Catacamas",
+     "Choloma",
+     "Siguatepeque",
+     "Olanchito",
+     "Tocoa",
+     "El Progreso",
+     "Santa Cruz de Yojoa",
+     "Ciudad Choluteca",
+     "San Pedro de Copán",
+     "Comayagua",
+     "Omoa",
+     "El Negrito",
+     "Sonaguera",
+     "Quimistán",
+     "La Lima",
+     "Teupasenti",
+     "Lepaera",
+     "Macuelizo",
+     "Victoria",
+     "Sabá",
+     "Juticalpa",
+     "Villa de San Antonio",
+     "Villanueva",
+     "Dulce Nombre de Culmí",
+     "El Rosario"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 49,
+    "citiesSearched": 0,
     "searchesDone": 9,
-    "searchesTotal": 9,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 250,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Dominican Republic": {
@@ -2564,19 +2918,44 @@
    "prospect": {
     "cities": [
      "Santo Domingo",
-     "Punta Cana",
      "Santiago de los Caballeros",
+     "Santo Domingo Oeste",
+     "Santo Domingo Este",
+     "San Pedro de Macorís",
      "La Romana",
-     "Puerto Plata"
+     "Bella Vista",
+     "San Cristóbal",
+     "Puerto Plata",
+     "San Francisco de Macorís",
+     "Salvaleón de Higüey",
+     "La Vega",
+     "Punta Cana",
+     "Santa Cruz de Barahona",
+     "Bonao",
+     "San Juan de la Maguana",
+     "Bajos de Haina",
+     "Baní",
+     "Moca",
+     "Azua",
+     "Cristo Rey",
+     "Villa Francisca",
+     "Mao",
+     "Boca Chica",
+     "Salcedo",
+     "Esperanza",
+     "Cotuí",
+     "Villa Altagracia",
+     "Guayacanes",
+     "Hato Mayor del Rey"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 41,
+    "citiesSearched": 0,
     "searchesDone": 18,
-    "searchesTotal": 18,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 210,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Venezuela": {
@@ -2611,19 +2990,43 @@
     "cities": [
      "Caracas",
      "Maracaibo",
+     "Valencia",
      "Barquisimeto",
+     "Ciudad Guayana",
+     "Barcelona",
+     "Maturín",
      "Maracay",
+     "Ciudad Bolívar",
+     "Cumaná",
+     "Barinas",
+     "Puerto La Cruz",
+     "Petare",
+     "Cabimas",
+     "Turmero",
+     "Mérida",
      "San Cristóbal",
-     "Puerto Ordaz"
+     "Alto Barinas",
+     "Santa Teresa del Tuy",
+     "Los Teques",
+     "Guarenas",
+     "Coro",
+     "Valera",
+     "Baruta",
+     "Ciudad Ojeda",
+     "San Fernando de Apure",
+     "Guatire",
+     "El Tigre",
+     "Porlamar",
+     "San Felipe"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 198,
+    "citiesSearched": 0,
     "searchesDone": 21,
-    "searchesTotal": 21,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 995,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Costa Rica": {
@@ -2656,19 +3059,44 @@
    "prospect": {
     "cities": [
      "San José",
-     "Heredia",
+     "Limón",
+     "San Francisco",
      "Alajuela",
-     "Escazú",
-     "Guanacaste"
+     "Liberia",
+     "Paraíso",
+     "Puntarenas",
+     "San Isidro",
+     "Curridabat",
+     "San Vicente",
+     "San Vicente de Moravia",
+     "Purral",
+     "Turrialba",
+     "San Miguel",
+     "San Pedro",
+     "San Rafael Abajo",
+     "Quesada",
+     "Ipís",
+     "Cartago",
+     "Chacarita",
+     "San Juan",
+     "Mercedes Norte",
+     "Guadalupe",
+     "Aserrí",
+     "San Rafael",
+     "San Felipe",
+     "Patarrá",
+     "Tejar",
+     "Heredia",
+     "San Pablo"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 32,
+    "citiesSearched": 0,
     "searchesDone": 18,
-    "searchesTotal": 18,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 165,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Malta": {
@@ -2701,19 +3129,19 @@
    },
    "prospect": {
     "cities": [
-     "Valletta",
-     "Sliema",
-     "St Julians"
+     "San Pawl il-Baħar",
+     "Birkirkara",
+     "Mosta",
+     "Sliema"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 4,
+    "citiesSearched": 0,
     "searchesDone": 16,
-    "searchesTotal": 16,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 30,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Bahamas": {
@@ -2746,17 +3174,17 @@
    "prospect": {
     "cities": [
      "Nassau",
+     "Lucaya",
      "Freeport"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 3,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 24,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Barbados": {
@@ -2790,15 +3218,14 @@
     "cities": [
      "Bridgetown"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 1,
+    "citiesSearched": 0,
     "searchesDone": 8,
-    "searchesTotal": 8,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 12,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Botswana": {
@@ -2831,17 +3258,35 @@
    "prospect": {
     "cities": [
      "Gaborone",
-     "Francistown"
+     "Francistown",
+     "Mogoditshane",
+     "Maun",
+     "Molepolole",
+     "Serowe",
+     "Tlokweng",
+     "Palapye",
+     "Mochudi",
+     "Mahalapye",
+     "Kanye",
+     "Selebi-Phikwe",
+     "Letlhakane",
+     "Ramotswa",
+     "Lobatse",
+     "Mmopone",
+     "Thamaga",
+     "Mosopa",
+     "Tonota",
+     "Bobonong",
+     "Gabane"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 21,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 132,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Equatorial Guinea": {
@@ -2873,17 +3318,18 @@
    },
    "prospect": {
     "cities": [
+     "Bata",
      "Malabo",
-     "Bata"
+     "Ebebiyin"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 3,
+    "citiesSearched": 0,
     "searchesDone": 9,
-    "searchesTotal": 9,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 20,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Panama": {
@@ -2916,18 +3362,33 @@
    },
    "prospect": {
     "cities": [
-     "Ciudad de Panamá",
+     "Panama City",
+     "San Miguelito",
+     "Juan Díaz",
      "David",
-     "Coronado"
+     "Colón",
+     "Arraiján",
+     "Las Cumbres",
+     "La Chorrera",
+     "Pedregal",
+     "Tocumen",
+     "Santiago de Veraguas",
+     "Parque Lefevre",
+     "Chilibre",
+     "Cativá",
+     "Río Abajo",
+     "Nuevo Belén",
+     "Ancón",
+     "Alcalde Díaz"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 18,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 95,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Uruguay": {
@@ -2961,20 +3422,37 @@
    "prospect": {
     "cities": [
      "Montevideo",
-     "Punta del Este",
-     "Maldonado",
-     "Colonia del Sacramento",
      "Salto",
-     "Paysandú"
+     "Maldonado",
+     "Rivera",
+     "Paysandú",
+     "Las Piedras",
+     "Tacuarembó",
+     "Melo",
+     "Artigas",
+     "Mercedes",
+     "Durazno",
+     "Minas",
+     "Florida",
+     "San José de Mayo",
+     "Colonia del Sacramento",
+     "Barros Blancos",
+     "San Carlos",
+     "Rocha",
+     "Fray Bentos",
+     "Treinta y Tres",
+     "Canelones",
+     "Pando",
+     "Trinidad"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 23,
+    "citiesSearched": 0,
     "searchesDone": 21,
-    "searchesTotal": 21,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 120,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Nicaragua": {
@@ -3006,16 +3484,45 @@
    },
    "prospect": {
     "cities": [
-     "Managua"
+     "Managua",
+     "León",
+     "Masaya",
+     "Chinandega",
+     "Matagalpa",
+     "Estelí",
+     "Granada",
+     "Mateare",
+     "Jinotega",
+     "El Viejo",
+     "Nueva Guinea",
+     "Tipitapa",
+     "Juigalpa",
+     "Ciudad Sandino",
+     "Bluefields",
+     "Diriamba",
+     "Ocotal",
+     "Puerto Cabezas",
+     "Chichigalpa",
+     "Rivas",
+     "San Rafael del Sur",
+     "Jinotepe",
+     "Boaco",
+     "Nagarote",
+     "Jalapa",
+     "La Paz Centro",
+     "San Marcos",
+     "Masatepe",
+     "Nandaime",
+     "Rama"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 31,
+    "citiesSearched": 0,
     "searchesDone": 6,
-    "searchesTotal": 6,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 160,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Angola": {
@@ -3048,17 +3555,44 @@
    "prospect": {
     "cities": [
      "Luanda",
+     "Mulenvos",
+     "Viana",
+     "Kikolo",
+     "Maianga",
+     "Camama",
+     "Golfe",
+     "Calumbo",
+     "Hoji ya Henda",
+     "Lubango",
+     "Huambo",
      "Benguela",
-     "Lubango"
+     "Cabinda",
+     "Talatona",
+     "Nova Vida",
+     "Malanje",
+     "Kima Kieza",
+     "Cazenga",
+     "Lobito",
+     "Saurimo",
+     "Samba",
+     "Cuíto",
+     "Ramiros",
+     "Uíge",
+     "Luena",
+     "Vila Flor",
+     "Mossamedes",
+     "Menongue",
+     "Chitato",
+     "Navegantes"
     ],
-    "terms": [
-     "clube de ténis",
-     "clube de padel",
-     "clube de squash"
-    ],
+    "citiesTotal": 116,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 585,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Ghana": {
@@ -3091,19 +3625,45 @@
    },
    "prospect": {
     "cities": [
-     "Accra",
      "Kumasi",
-     "Takoradi"
+     "Accra",
+     "Tamale",
+     "Takoradi",
+     "Sekondi",
+     "Cape Coast",
+     "Atsiaman",
+     "Ashaiman",
+     "Obuase",
+     "Tema",
+     "Koforidua",
+     "Teshi Old Town",
+     "Sekondi-Takoradi",
+     "Ho",
+     "Amanfrom",
+     "Medina Estates",
+     "Twifu Praso",
+     "Japekrom",
+     "Tema New Town",
+     "Sunyani",
+     "Hohoe",
+     "Jirapa",
+     "Kasoa",
+     "Gbawe",
+     "Techiman",
+     "Bolgatanga",
+     "Wa",
+     "Mandela",
+     "Bawku",
+     "Winneba"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 95,
+    "citiesSearched": 0,
     "searchesDone": 16,
-    "searchesTotal": 16,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 576,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Guyana": {
@@ -3134,16 +3694,19 @@
     "via": "overpass.private.coffee"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "cities": [
+     "Georgetown",
+     "Linden",
+     "New Amsterdam"
     ],
+    "citiesTotal": 3,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 24,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Malawi": {
@@ -3176,17 +3739,34 @@
    "prospect": {
     "cities": [
      "Lilongwe",
-     "Blantyre"
+     "Blantyre",
+     "Mzuzu",
+     "Zomba",
+     "Karonga",
+     "Kasungu",
+     "Mangochi",
+     "Salima",
+     "Liwonde",
+     "Balaka",
+     "Dedza",
+     "Nkhotakota",
+     "Mchinji",
+     "Nsanje",
+     "Mzimba",
+     "Mponela",
+     "Rumphi",
+     "Ntcheu",
+     "Mwanza",
+     "Chitipa"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 20,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 126,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Mauritius": {
@@ -3220,18 +3800,21 @@
    "prospect": {
     "cities": [
      "Port Louis",
-     "Grand Baie",
-     "Curepipe"
+     "Vacoas",
+     "Beau Bassin-Rose Hill",
+     "Curepipe",
+     "Quatre Bornes",
+     "Triolet",
+     "Goodlands"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 7,
+    "citiesSearched": 0,
     "searchesDone": 16,
-    "searchesTotal": 16,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 48,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Namibia": {
@@ -3266,17 +3849,32 @@
    "prospect": {
     "cities": [
      "Windhoek",
-     "Swakopmund"
+     "Rundu",
+     "Walvis Bay",
+     "Swakopmund",
+     "Oshakati",
+     "Rehoboth",
+     "Katima Mulilo",
+     "Otjiwarongo",
+     "Ondangwa",
+     "Okahandja",
+     "Grootfontein",
+     "Ongwediva",
+     "Keetmanshoop",
+     "Helao Nafidi",
+     "Tsumeb",
+     "Gobabis",
+     "Katutura",
+     "Ndiyona"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 18,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 114,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Nigeria": {
@@ -3309,22 +3907,44 @@
    "prospect": {
     "cities": [
      "Lagos",
+     "Kano",
+     "Ibadan",
      "Abuja",
      "Port Harcourt",
-     "Ibadan",
-     "Kano",
+     "Kaduna",
+     "Benin City",
+     "Onitsha",
+     "Aba",
+     "Maiduguri",
+     "Ilorin",
+     "Sokoto",
+     "Jos",
+     "Zaria",
      "Enugu",
-     "Benin City"
+     "Warri",
+     "Oyo",
+     "Abeokuta",
+     "Akure",
+     "Bauchi",
+     "Agege",
+     "Katsina",
+     "Osogbo",
+     "Ile-Ife",
+     "Gombe",
+     "Ajegunle",
+     "Owerri",
+     "Calabar",
+     "Ebute Ikorodu",
+     "Okene"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 223,
+    "citiesSearched": 0,
     "searchesDone": 32,
-    "searchesTotal": 32,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 1344,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Pakistan": {
@@ -3357,23 +3977,45 @@
    },
    "prospect": {
     "cities": [
-     "Karachi",
      "Lahore",
-     "Islamabad",
+     "Karachi",
+     "Peshawar",
      "Faisalabad",
      "Rawalpindi",
+     "Gujranwala",
      "Multan",
-     "Peshawar"
+     "Hyderabad",
+     "Quetta",
+     "Bannu",
+     "Sargodha",
+     "Sialkot",
+     "Bahawalpur",
+     "Arifwala",
+     "Dera Ismail Khan",
+     "Muzaffarābād",
+     "Battagram",
+     "Chunian",
+     "Jhang Sadr",
+     "Islamabad",
+     "Shekhupura",
+     "Gujrat",
+     "Sukkur",
+     "Sahiwal",
+     "Okara",
+     "Rahim Yar Khan",
+     "Kasur",
+     "Jalalpur Pirwala",
+     "Dera Ghazi Khan",
+     "Pindi Bhattian"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 326,
+    "citiesSearched": 0,
     "searchesDone": 32,
-    "searchesTotal": 32,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 1962,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Palau": {
@@ -3403,15 +4045,14 @@
    },
    "prospect": {
     "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 0,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 6,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Papua New Guinea": {
@@ -3445,17 +4086,22 @@
    "prospect": {
     "cities": [
      "Port Moresby",
-     "Lae"
+     "Lae",
+     "Arawa",
+     "Mount Hagen",
+     "Popondetta",
+     "Madang",
+     "Kokopo",
+     "Mendi"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 8,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 54,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Rwanda": {
@@ -3487,17 +4133,45 @@
    },
    "prospect": {
     "cities": [
-     "Kigali"
+     "Kigali",
+     "Gisenyi",
+     "Musanze",
+     "Nyagatare",
+     "Gitarama",
+     "Muhanga",
+     "Butare",
+     "Kibuye",
+     "Rwamagana",
+     "Kibungo",
+     "Cyangugu",
+     "Shyorongi",
+     "Byumba",
+     "Ndera",
+     "Kirambo",
+     "Kagano",
+     "Ngororero",
+     "Nzega",
+     "Macuba",
+     "Karengera",
+     "Nyanza",
+     "Bugarama",
+     "Gihombo",
+     "Karambi",
+     "Bushekeri",
+     "Nyabitekeli",
+     "Busogo",
+     "Shangi",
+     "Kayonza",
+     "Cyato"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 37,
+    "citiesSearched": 0,
     "searchesDone": 8,
-    "searchesTotal": 8,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 228,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Solomon Islands": {
@@ -3529,17 +4203,20 @@
    },
    "prospect": {
     "cities": [
-     "Honiara"
+     "Honiara",
+     "Panatina",
+     "Nggosi",
+     "Tandai",
+     "Kola'a"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 5,
+    "citiesSearched": 0,
     "searchesDone": 8,
-    "searchesTotal": 8,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 36,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Tanzania": {
@@ -3572,18 +4249,44 @@
    "prospect": {
     "cities": [
      "Dar es Salaam",
+     "Mwanza",
+     "Dodoma",
+     "Zanzibar",
      "Arusha",
-     "Zanzibar"
+     "Mbeya",
+     "Morogoro",
+     "Kahama",
+     "Tanga",
+     "Geita",
+     "Tabora",
+     "Sumbawanga",
+     "Songea",
+     "Kibaha",
+     "Bariadi",
+     "Kasulu",
+     "Singida",
+     "Kigoma",
+     "Moshi",
+     "Tunduma",
+     "Ifakara",
+     "Mpanda",
+     "Iringa",
+     "Bunda",
+     "Musoma",
+     "Bukoba",
+     "Mtwara",
+     "Shinyanga",
+     "Tarime",
+     "Nzega"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 169,
+    "citiesSearched": 0,
     "searchesDone": 16,
-    "searchesTotal": 16,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 1020,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Uganda": {
@@ -3616,17 +4319,44 @@
    "prospect": {
     "cities": [
      "Kampala",
-     "Entebbe"
+     "Nansana",
+     "Kira",
+     "Bunamwaya",
+     "Kyengera",
+     "Mbarara",
+     "Kasangati",
+     "Mukono",
+     "Njeru",
+     "Gulu",
+     "Katabi",
+     "Kajansi",
+     "Lugazi",
+     "Hoima",
+     "Mubende",
+     "Lira",
+     "Ibanda",
+     "Masaka",
+     "Kasese",
+     "Mbale",
+     "Masindi",
+     "Mityana",
+     "Entebbe",
+     "Jinja",
+     "Wakiso",
+     "Rutoma",
+     "Bwizibwera",
+     "Kotido",
+     "Arua",
+     "Nakivale Refugee Camp"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 102,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 618,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Zambia": {
@@ -3661,17 +4391,43 @@
     "cities": [
      "Lusaka",
      "Kitwe",
-     "Ndola"
+     "Ndola",
+     "Chipata",
+     "Solwezi",
+     "Kabwe",
+     "Chingola",
+     "Luanshya",
+     "Kasama",
+     "Livingstone",
+     "Mansa",
+     "Mufulira",
+     "Chunga",
+     "Chililabombwe",
+     "Mongu",
+     "Mazabuka",
+     "Kafue",
+     "Kalulushi",
+     "Choma",
+     "Namalombwe",
+     "Nakonde",
+     "Kapiri Mposhi",
+     "Madido",
+     "Nchelenge",
+     "Mpika",
+     "Monze",
+     "Petauke",
+     "Chongwe",
+     "Mpulungu",
+     "Chilanga Township"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 63,
+    "citiesSearched": 0,
     "searchesDone": 16,
-    "searchesTotal": 16,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 384,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Zimbabwe": {
@@ -3705,17 +4461,43 @@
    "prospect": {
     "cities": [
      "Harare",
-     "Bulawayo"
+     "Bulawayo",
+     "Chitungwiza",
+     "Mutare",
+     "Epworth",
+     "Gweru",
+     "Kwekwe",
+     "Kadoma",
+     "Ruwa",
+     "Chinhoyi",
+     "Masvingo",
+     "Norton",
+     "Marondera",
+     "Chegutu",
+     "Zvishavane",
+     "Beitbridge",
+     "Bindura",
+     "Redcliff",
+     "Chiredzi",
+     "Hwange",
+     "Rusape",
+     "Karoi",
+     "Victoria Falls",
+     "Chipinge",
+     "Gokwe",
+     "Mount Hampden",
+     "Kariba",
+     "Gwanda",
+     "Shurugwi"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 29,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 180,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Cuba": {
@@ -3748,18 +4530,45 @@
    },
    "prospect": {
     "cities": [
-     "La Habana",
-     "Varadero",
-     "Santiago de Cuba"
+     "Havana",
+     "Santiago de Cuba",
+     "Camagüey",
+     "Holguín",
+     "Guantánamo",
+     "Santa Clara",
+     "Almendares",
+     "Diez de Octubre",
+     "Arroyo Naranjo",
+     "Mantilla",
+     "Las Tunas",
+     "Bayamo",
+     "Boyeros",
+     "Pinar del Río",
+     "Cienfuegos",
+     "Fontanar",
+     "Ciudad Camilo Cienfuegos",
+     "San Miguel del Padrón",
+     "Centro Habana",
+     "Balcón de la Lisa",
+     "Matanzas",
+     "Ciego de Ávila",
+     "Plaza de la Revolución",
+     "Marianao",
+     "Cerro",
+     "Manzanillo",
+     "Sancti Spíritus",
+     "Guanabacoa",
+     "Vedado",
+     "Palma Soriano"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 120,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 605,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Kenya": {
@@ -3793,20 +4602,44 @@
    "prospect": {
     "cities": [
      "Nairobi",
+     "Kakamega",
      "Mombasa",
-     "Kisumu",
      "Nakuru",
-     "Eldoret"
+     "Ruiru",
+     "Eldoret",
+     "Kisumu",
+     "Kikuyu",
+     "Thika",
+     "Naivasha",
+     "Karuri",
+     "Matuga",
+     "Mwala",
+     "Ongata Rongai",
+     "Lang'ata",
+     "Jomvu",
+     "Garissa",
+     "Kitale",
+     "Limuru",
+     "Juja",
+     "Kitengela",
+     "Kiambu",
+     "Mlolongo",
+     "Malindi",
+     "Mandera",
+     "Khwisero",
+     "Kisii",
+     "Ngong",
+     "Mtwapa",
+     "Wajir"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 107,
+    "citiesSearched": 0,
     "searchesDone": 24,
-    "searchesTotal": 24,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 648,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "El Salvador": {
@@ -3838,16 +4671,41 @@
    },
    "prospect": {
     "cities": [
-     "San Salvador"
+     "San Salvador",
+     "Soyapango",
+     "San Miguel",
+     "Santa Ana",
+     "Mejicanos",
+     "Santa Tecla",
+     "Apopa",
+     "Delgado",
+     "Sonsonate",
+     "San Marcos",
+     "Usulután",
+     "Cojutepeque",
+     "Cuscatancingo",
+     "San Vicente",
+     "Zacatecoluca",
+     "San Martín",
+     "Ilopango",
+     "Ahuachapán",
+     "Antiguo Cuscatlán",
+     "Chalchuapa",
+     "Quezaltepeque",
+     "La Unión",
+     "Ayutuxtepeque",
+     "Acajutla",
+     "Aguilares",
+     "Sensuntepeque"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 26,
+    "citiesSearched": 0,
     "searchesDone": 6,
-    "searchesTotal": 6,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 135,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Jamaica": {
@@ -3881,18 +4739,24 @@
    "prospect": {
     "cities": [
      "Kingston",
+     "New Kingston",
+     "Spanish Town",
+     "Portmore",
      "Montego Bay",
-     "Ocho Rios"
+     "Mandeville",
+     "May Pen",
+     "Ocho Rios",
+     "Old Harbour",
+     "Linstead"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 10,
+    "citiesSearched": 0,
     "searchesDone": 16,
-    "searchesTotal": 16,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 66,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Trinidad and Tobago": {
@@ -3924,18 +4788,24 @@
    },
    "prospect": {
     "cities": [
+     "Chaguanas",
+     "Mon Repos",
+     "San Fernando",
      "Port of Spain",
-     "San Fernando"
+     "Rio Claro",
+     "Arima",
+     "Marabella",
+     "Diego Martin",
+     "Laventille"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 9,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 60,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Fiji": {
@@ -3968,18 +4838,21 @@
    },
    "prospect": {
     "cities": [
+     "Nasinu",
      "Suva",
-     "Nadi"
+     "Lautoka",
+     "Nadi",
+     "Labasa",
+     "Lami"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 6,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 42,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Saint Lucia": {
@@ -4009,17 +4882,17 @@
    },
    "prospect": {
     "cities": [
+     "Gros Islet",
      "Castries"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 2,
+    "citiesSearched": 0,
     "searchesDone": 8,
-    "searchesTotal": 8,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 18,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Gambia": {
@@ -4051,18 +4924,38 @@
    },
    "prospect": {
     "cities": [
+     "Serekunda",
+     "Brikama",
+     "Bununka Kunda",
+     "Sukuta",
+     "Talinding",
+     "Faji Kunda",
+     "Bakau",
      "Banjul",
-     "Serekunda"
+     "Nema Kunku",
+     "Farafenni",
+     "Bakau New Town",
+     "Busumbala",
+     "Lamin",
+     "Welingara",
+     "Brufut",
+     "Ibo Town",
+     "Sanchaba",
+     "Latri Kunda",
+     "Gunjur",
+     "Manjai Kunda",
+     "Dippa Kunda",
+     "New Jeshwang",
+     "Bakoti"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 23,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 144,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "United Arab Emirates": {
@@ -4099,18 +4992,42 @@
      "Dubai",
      "Abu Dhabi",
      "Sharjah",
+     "Al Ain City",
      "Ajman",
-     "Ras Al Khaimah"
+     "Dayrah",
+     "Ras Al Khaimah",
+     "Musaffah",
+     "Jebel Ali",
+     "Business Bay",
+     "Dubai Investments Park",
+     "International City",
+     "Dubai Marina",
+     "Fujairah",
+     "Al Majaz",
+     "Warīsān",
+     "Dubai Silicon Oasis",
+     "Ar Rumaylah",
+     "Khalifah A City",
+     "Mohammed Bin Zayed City",
+     "Hawr al ‘Anz",
+     "Reef Al Fujairah City",
+     "Bani Yas City",
+     "Dubai Festival City",
+     "Al Karama",
+     "Zayed City",
+     "Al Shamkhah City",
+     "Mirdif",
+     "Al Warqaa",
+     "Umm Al Quwain City"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 53,
+    "citiesSearched": 0,
     "searchesDone": 24,
-    "searchesTotal": 24,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 324,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Cyprus": {
@@ -4146,18 +5063,27 @@
     "cities": [
      "Nicosia",
      "Limassol",
+     "Larnaca",
+     "Stróvolos",
+     "Famagusta",
+     "Káto Lakatámeia",
      "Paphos",
-     "Larnaca"
+     "Kyrenia",
+     "Mórfou",
+     "Káto Polemídia",
+     "Aradíppou",
+     "Aglantziá",
+     "Égkomi",
+     "Protaras"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 14,
+    "citiesSearched": 0,
     "searchesDone": 20,
-    "searchesTotal": 20,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 90,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Egypt": {
@@ -4193,20 +5119,42 @@
      "Cairo",
      "Alexandria",
      "Giza",
+     "Shubrā al Khaymah",
+     "Port Said",
+     "Suez",
+     "Madīnat an Naşr",
+     "Al Mansurah",
+     "Al Maḩallah al Kubrá",
+     "Tanta",
+     "Assiut",
+     "Al Fayyum",
+     "Al Khuşūş",
+     "Esna",
+     "Zagazig",
+     "Ismailia",
+     "Luxor",
+     "Kom Ombo",
+     "Aswān",
+     "6th of October City",
+     "Ḩadā’iq al Qubbah",
+     "Damanhur",
      "New Cairo",
-     "Maadi",
-     "Sharm El Sheikh",
-     "Hurghada"
+     "Al Qāhirah al Jadīdah",
+     "Damietta",
+     "Rosetta",
+     "Minya",
+     "Banī Suwayf",
+     "Shibīn al Kawm",
+     "Sohag"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 231,
+    "citiesSearched": 0,
     "searchesDone": 32,
-    "searchesTotal": 32,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 1392,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Hong Kong": {
@@ -4237,16 +5185,46 @@
     "via": "overpass.kumi.systems"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "cities": [
+     "Hong Kong",
+     "New Territories",
+     "Kowloon",
+     "Hong Kong Island",
+     "Victoria",
+     "Tuen Mun",
+     "Sha Tin",
+     "Sham Shui Po",
+     "Wong Tai Sin",
+     "Kowloon City",
+     "Tseung Kwan O",
+     "Kwai Chung",
+     "Tsuen Wan",
+     "Tin Shui Wai",
+     "Tai Po",
+     "Fanling",
+     "Ma On Shan",
+     "Yuen Long San Hui",
+     "Yuen Long",
+     "Kowloon City Centre",
+     "Tsing Yi Town",
+     "Yuen Long Kau Hui",
+     "Wan Chai",
+     "Aberdeen",
+     "San Tung Chung Hang",
+     "Tung Chung",
+     "Sha Tin Wai",
+     "Shap Pat Heung",
+     "Pok Fu Lam",
+     "Nam Cheong"
     ],
+    "citiesTotal": 80,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 486,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Bermuda": {
@@ -4278,15 +5256,14 @@
    },
    "prospect": {
     "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 0,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 6,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Cayman Islands": {
@@ -4317,16 +5294,17 @@
     "via": "overpass.kumi.systems"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "cities": [
+     "George Town"
     ],
+    "citiesTotal": 1,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 12,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Gibraltar": {
@@ -4357,16 +5335,17 @@
     "via": "overpass.private.coffee"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "cities": [
+     "Gibraltar"
     ],
+    "citiesTotal": 1,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 12,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Jersey": {
@@ -4397,16 +5376,17 @@
     "via": "overpass.kumi.systems"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "cities": [
+     "Saint Helier"
     ],
+    "citiesTotal": 1,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 12,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Isle of Man": {
@@ -4438,16 +5418,17 @@
     "via": "overpass.kumi.systems"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "cities": [
+     "Douglas"
     ],
+    "citiesTotal": 1,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 12,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Puerto Rico": {
@@ -4480,20 +5461,31 @@
    "prospect": {
     "cities": [
      "San Juan",
+     "Bayamón",
+     "Carolina",
      "Ponce",
-     "Guaynabo",
+     "Arecibo",
      "Caguas",
+     "Guaynabo",
+     "Trujillo Alto",
      "Mayagüez",
-     "Dorado"
+     "Fajardo",
+     "Levittown",
+     "Vega Baja",
+     "Cataño",
+     "Barceloneta",
+     "Guayama",
+     "Humacao",
+     "Yauco"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 17,
+    "citiesSearched": 0,
     "searchesDone": 21,
-    "searchesTotal": 21,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 90,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Guatemala": {
@@ -4526,18 +5518,45 @@
    },
    "prospect": {
     "cities": [
-     "Ciudad de Guatemala",
+     "Guatemala City",
+     "Villa Nueva",
+     "Mixco",
+     "Cobán",
      "Quetzaltenango",
-     "Antigua Guatemala"
+     "Jalapa",
+     "Escuintla",
+     "Villa Canales",
+     "Jutiapa",
+     "Chichicastenango",
+     "San Juan Sacatepéquez",
+     "Petapa",
+     "Santa Lucía Cotzumalguapa",
+     "Chiquimula",
+     "Coatepeque",
+     "Chinautla",
+     "Totonicapán",
+     "Puerto Barrios",
+     "Chimaltenango",
+     "Malacatán",
+     "Retalhuleu",
+     "Santa Catarina Pinula",
+     "San José Pinula",
+     "Huehuetenango",
+     "Santa Cruz del Quiché",
+     "Mazatenango",
+     "Panzos",
+     "Amatitlán",
+     "Palín",
+     "Salamá"
     ],
-    "terms": [
-     "club de tenis",
-     "club de pádel",
-     "club de squash"
-    ],
+    "citiesTotal": 81,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 410,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Dominica": {
@@ -4568,18 +5587,15 @@
     "via": "overpass.private.coffee"
    },
    "prospect": {
-    "cities": [
-     "Roseau"
-    ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
-    "searchesDone": 8,
-    "searchesTotal": 8,
-    "last": "2026-08-14T08:45:48.473Z"
+    "cities": [],
+    "citiesTotal": 0,
+    "citiesSearched": 0,
+    "searchesDone": 6,
+    "searchesTotal": 6,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.596Z"
    }
   },
   "Seychelles": {
@@ -4608,16 +5624,17 @@
     "via": "overpass.kumi.systems"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "cities": [
+     "Victoria"
     ],
+    "citiesTotal": 1,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 12,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Belize": {
@@ -4650,15 +5667,28 @@
      "Belize City",
      "San Ignacio"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "citiesTotal": 2,
+    "citiesSearched": 2,
+    "searchesDone": 18,
+    "searchesTotal": 18,
+    "found": 0,
+    "countrywide": {
+     "s": 2,
+     "f": 0
+    },
+    "cityStats": [
+     {
+      "n": "Belize City",
+      "s": 2,
+      "f": 0
+     },
+     {
+      "n": "San Ignacio",
+      "s": 2,
+      "f": 0
+     }
     ],
-    "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "last": "2026-08-14T09:14:34.753Z"
    }
   },
   "Lesotho": {
@@ -4687,16 +5717,26 @@
     "via": "overpass.kumi.systems"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "cities": [
+     "Maseru",
+     "Maputsoe",
+     "Mohale's Hoek",
+     "Mafeteng",
+     "Hlotse",
+     "Butha-Buthe",
+     "Mabote",
+     "Quthing",
+     "Teyateyaneng",
+     "Qacha’s Nek"
     ],
+    "citiesTotal": 10,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 66,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Sierra Leone": {
@@ -4726,17 +5766,24 @@
    },
    "prospect": {
     "cities": [
-     "Freetown"
+     "Freetown",
+     "Kenema",
+     "Bo",
+     "Koidu",
+     "Makeni",
+     "Waterloo",
+     "Port Loko",
+     "Njala",
+     "Lunsar"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 9,
+    "citiesSearched": 0,
     "searchesDone": 8,
-    "searchesTotal": 8,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 60,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Vanuatu": {
@@ -4766,17 +5813,16 @@
    },
    "prospect": {
     "cities": [
-     "Port Vila"
+     "Port-Vila"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 1,
+    "citiesSearched": 0,
     "searchesDone": 8,
-    "searchesTotal": 8,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 12,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Marshall Islands": {
@@ -4805,16 +5851,18 @@
     "via": "overpass.kumi.systems"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "cities": [
+     "Majuro",
+     "Dalap-Uliga-Dorrit"
     ],
+    "citiesTotal": 2,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 18,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Micronesia": {
@@ -4844,15 +5892,14 @@
    },
    "prospect": {
     "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 0,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 6,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Samoa": {
@@ -4884,15 +5931,14 @@
     "cities": [
      "Apia"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 1,
+    "citiesSearched": 0,
     "searchesDone": 8,
-    "searchesTotal": 8,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 12,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Kiribati": {
@@ -4921,16 +5967,26 @@
     "via": "overpass.kumi.systems"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "cities": [
+     "Tarawa"
     ],
-    "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "citiesTotal": 1,
+    "citiesSearched": 1,
+    "searchesDone": 10,
+    "searchesTotal": 12,
+    "found": 0,
+    "countrywide": {
+     "s": 2,
+     "f": 0
+    },
+    "cityStats": [
+     {
+      "n": "Tarawa",
+      "s": 4,
+      "f": 0
+     }
+    ],
+    "last": "2026-08-14T09:15:31.839Z"
    }
   },
   "Saint Kitts and Nevis": {
@@ -4959,18 +6015,15 @@
     "via": "overpass.kumi.systems"
    },
    "prospect": {
-    "cities": [
-     "Basseterre"
-    ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
-    "searchesDone": 8,
-    "searchesTotal": 8,
-    "last": "2026-08-14T08:45:48.473Z"
+    "cities": [],
+    "citiesTotal": 0,
+    "citiesSearched": 0,
+    "searchesDone": 6,
+    "searchesTotal": 6,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Cape Verde": {
@@ -5001,16 +6054,42 @@
    "prospect": {
     "cities": [
      "Praia",
-     "Mindelo"
+     "Mindelo",
+     "Espargos",
+     "Assomada"
     ],
-    "terms": [
-     "clube de ténis",
-     "clube de padel",
-     "clube de squash"
+    "citiesTotal": 4,
+    "citiesSearched": 4,
+    "searchesDone": 25,
+    "searchesTotal": 25,
+    "found": 0,
+    "countrywide": {
+     "s": 2,
+     "f": 0
+    },
+    "cityStats": [
+     {
+      "n": "Assomada",
+      "s": 5,
+      "f": 0
+     },
+     {
+      "n": "Espargos",
+      "s": 5,
+      "f": 0
+     },
+     {
+      "n": "Mindelo",
+      "s": 2,
+      "f": 0
+     },
+     {
+      "n": "Praia",
+      "s": 2,
+      "f": 0
+     }
     ],
-    "searchesDone": 9,
-    "searchesTotal": 9,
-    "last": "2026-08-14T08:45:48.473Z"
+    "last": "2026-08-14T09:06:23.988Z"
    }
   },
   "Grenada": {
@@ -5040,15 +6119,17 @@
    },
    "prospect": {
     "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
-    "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "citiesTotal": 0,
+    "citiesSearched": 0,
+    "searchesDone": 6,
+    "searchesTotal": 6,
+    "found": 0,
+    "countrywide": {
+     "s": 2,
+     "f": 0
+    },
+    "cityStats": [],
+    "last": "2026-08-14T09:14:46.648Z"
    }
   },
   "Antigua and Barbuda": {
@@ -5077,16 +6158,26 @@
     "via": "overpass.kumi.systems"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "cities": [
+     "Saint John’s"
     ],
-    "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "citiesTotal": 1,
+    "citiesSearched": 1,
+    "searchesDone": 12,
+    "searchesTotal": 12,
+    "found": 0,
+    "countrywide": {
+     "s": 2,
+     "f": 0
+    },
+    "cityStats": [
+     {
+      "n": "Saint John’s",
+      "s": 6,
+      "f": 0
+     }
+    ],
+    "last": "2026-08-14T09:13:46.565Z"
    }
   },
   "South Sudan": {
@@ -5116,17 +6207,28 @@
    },
    "prospect": {
     "cities": [
-     "Juba"
+     "Juba",
+     "Winejok",
+     "Yei",
+     "Malakal",
+     "Wau",
+     "Kuacjok",
+     "Pajok",
+     "Gogrial",
+     "Yambio",
+     "Aweil",
+     "Rumbek",
+     "Bor",
+     "Torit"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 13,
+    "citiesSearched": 0,
     "searchesDone": 8,
-    "searchesTotal": 8,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 84,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Sudan": {
@@ -5157,17 +6259,44 @@
    "prospect": {
     "cities": [
      "Khartoum",
-     "Omdurman"
+     "Omdurman",
+     "Khartoum North",
+     "Nyala",
+     "Port Sudan",
+     "Kassala",
+     "El Obeid",
+     "Al Qadarif",
+     "Kosti",
+     "Wad Medani",
+     "El Daein",
+     "El Fasher",
+     "Singa",
+     "Ad-Damazin",
+     "Al-Junaynah",
+     "Rabak",
+     "El Geneina Fort",
+     "Sennar",
+     "Al Manāqil",
+     "Gereida",
+     "Atbara",
+     "An Nuhūd",
+     "Ad-Damir",
+     "Kadugli",
+     "Ad Douiem",
+     "Burām",
+     "Shendi",
+     "New Halfa",
+     "Dilling",
+     "Er Roseires"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 68,
+    "citiesSearched": 0,
     "searchesDone": 12,
-    "searchesTotal": 12,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 414,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Liberia": {
@@ -5197,17 +6326,30 @@
    },
    "prospect": {
     "cities": [
-     "Monrovia"
+     "Monrovia",
+     "Gbarnga",
+     "Buchanan",
+     "Ganta",
+     "Kakata",
+     "Zwedru",
+     "Harbel",
+     "Harper",
+     "Pleebo City",
+     "Foya Kamara",
+     "New Yekepa",
+     "Voinjama",
+     "Tubmanburg",
+     "Saclepea",
+     "Greenville"
     ],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 15,
+    "citiesSearched": 0,
     "searchesDone": 8,
-    "searchesTotal": 8,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 96,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "East Timor": {
@@ -5237,16 +6379,37 @@
    },
    "prospect": {
     "cities": [
-     "Díli"
+     "Dili",
+     "Maliana",
+     "Suai"
     ],
-    "terms": [
-     "clube de ténis",
-     "clube de padel",
-     "clube de squash"
+    "citiesTotal": 3,
+    "citiesSearched": 3,
+    "searchesDone": 20,
+    "searchesTotal": 20,
+    "found": 0,
+    "countrywide": {
+     "s": 2,
+     "f": 0
+    },
+    "cityStats": [
+     {
+      "n": "Dili",
+      "s": 5,
+      "f": 0
+     },
+     {
+      "n": "Maliana",
+      "s": 5,
+      "f": 0
+     },
+     {
+      "n": "Suai",
+      "s": 5,
+      "f": 0
+     }
     ],
-    "searchesDone": 6,
-    "searchesTotal": 6,
-    "last": "2026-08-14T08:45:48.473Z"
+    "last": "2026-08-14T09:08:38.645Z"
    }
   },
   "Guinea-Bissau": {
@@ -5276,16 +6439,76 @@
    },
    "prospect": {
     "cities": [
-     "Bissau"
+     "Bissau",
+     "Bairro Militar",
+     "Gabú",
+     "Contumo",
+     "Reino de Bandim",
+     "Missira",
+     "Bafatá",
+     "Reino de Antula",
+     "Quelele",
+     "Plaque",
+     "Luanda",
+     "Sintra-Nema"
     ],
-    "terms": [
-     "clube de ténis",
-     "clube de padel",
-     "clube de squash"
+    "citiesTotal": 12,
+    "citiesSearched": 9,
+    "searchesDone": 46,
+    "searchesTotal": 65,
+    "found": 0,
+    "countrywide": {
+     "s": 2,
+     "f": 0
+    },
+    "cityStats": [
+     {
+      "n": "Bafatá",
+      "s": 5,
+      "f": 0
+     },
+     {
+      "n": "Bairro Militar",
+      "s": 5,
+      "f": 0
+     },
+     {
+      "n": "Contumo",
+      "s": 5,
+      "f": 0
+     },
+     {
+      "n": "Gabú",
+      "s": 5,
+      "f": 0
+     },
+     {
+      "n": "Missira",
+      "s": 5,
+      "f": 0
+     },
+     {
+      "n": "Reino de Antula",
+      "s": 5,
+      "f": 0
+     },
+     {
+      "n": "Reino de Bandim",
+      "s": 5,
+      "f": 0
+     },
+     {
+      "n": "Bissau",
+      "s": 2,
+      "f": 0
+     },
+     {
+      "n": "Quelele",
+      "s": 1,
+      "f": 0
+     }
     ],
-    "searchesDone": 6,
-    "searchesTotal": 6,
-    "last": "2026-08-14T08:45:48.473Z"
+    "last": "2026-08-14T09:12:21.928Z"
    }
   },
   "São Tomé and Príncipe": {
@@ -5314,15 +6537,26 @@
     "via": "overpass.kumi.systems"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "clube de ténis",
-     "clube de padel",
-     "clube de squash"
+    "cities": [
+     "São Tomé"
     ],
-    "searchesDone": 3,
-    "searchesTotal": 3,
-    "last": "2026-08-14T08:45:48.473Z"
+    "citiesTotal": 1,
+    "citiesSearched": 1,
+    "searchesDone": 10,
+    "searchesTotal": 10,
+    "found": 0,
+    "countrywide": {
+     "s": 2,
+     "f": 0
+    },
+    "cityStats": [
+     {
+      "n": "São Tomé",
+      "s": 5,
+      "f": 0
+     }
+    ],
+    "last": "2026-08-14T09:13:14.283Z"
    }
   },
   "Tonga": {
@@ -5351,16 +6585,17 @@
     "via": "overpass.kumi.systems"
    },
    "prospect": {
-    "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
+    "cities": [
+     "Nuku‘alofa"
     ],
+    "citiesTotal": 1,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 12,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Nauru": {
@@ -5390,15 +6625,14 @@
    },
    "prospect": {
     "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 0,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 6,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   },
   "Tuvalu": {
@@ -5428,47 +6662,46 @@
    },
    "prospect": {
     "cities": [],
-    "terms": [
-     "tennis club",
-     "padel club",
-     "squash club",
-     "racquet club"
-    ],
+    "citiesTotal": 0,
+    "citiesSearched": 0,
     "searchesDone": 4,
-    "searchesTotal": 4,
-    "last": "2026-08-14T08:45:48.473Z"
+    "searchesTotal": 6,
+    "found": 0,
+    "countrywide": null,
+    "cityStats": [],
+    "last": "2026-08-14T08:54:37.595Z"
    }
   }
  },
  "recent": [
-  "2026-08-14T08:45:28.353Z  tick done in 7.8m — crawled 7 sites, +0 emails; osm 3 countries (ES,US,AU,IN,FJ,LR,KN,SD,NA,CO,MX,SG) +0, 3 failed | 2668 emails total, 139 still queued",
-  "2026-08-14T08:46:53.929Z  mine wikidata: the query service did not answer for Tennis, will retry",
-  "2026-08-14T08:47:59.073Z  mine wikidata: the query service did not answer for Padel, will retry",
-  "2026-08-14T08:49:04.206Z  mine wikidata: the query service did not answer for Squash, will retry",
-  "2026-08-14T08:49:04.319Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-08-14T08:49:04.322Z  discover: opened 0 pages, skipped 11 already known",
-  "2026-08-14T08:49:04.323Z  discover: 0 new seeds, tree exhausted",
-  "2026-08-14T08:52:12.571Z  osm KN: failed — subdivisions: out of time",
-  "2026-08-14T08:52:15.454Z  osm GB: failed — busy (406)",
-  "2026-08-14T08:52:15.738Z  osm PR Puerto Rico: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
-  "2026-08-14T08:52:18.489Z  osm NR Nauru: 1 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-14T08:52:42.242Z  osm ES: too big for one query — 10 of 23 subdivisions read, carries on next round",
-  "2026-08-14T08:52:42.246Z  osm ES Spain: 62 places -> +0 new, 4 merged, 0 with an email already, 0 leads with no contact tag, 27 dropped as public",
-  "2026-08-14T08:54:13.643Z  osm NZ New Zealand: 235 places -> +0 new, 46 merged, 0 with an email already, 0 leads with no contact tag, 39 dropped as public"
+  "2026-08-14T09:16:14.746Z  mine wikidata: the query service did not answer for Tennis, will retry",
+  "2026-08-14T09:17:14.890Z  mine wikidata: the query service did not answer for Padel, will retry",
+  "2026-08-14T09:18:20.022Z  mine wikidata: the query service did not answer for Squash, will retry",
+  "2026-08-14T09:18:20.150Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-08-14T09:18:20.153Z  discover: opened 0 pages, skipped 11 already known",
+  "2026-08-14T09:18:20.154Z  discover: 0 new seeds, tree exhausted",
+  "2026-08-14T09:25:34.222Z  osm US: failed — fetch failed",
+  "2026-08-14T09:25:34.227Z  osm BR: failed — fetch failed",
+  "2026-08-14T09:25:37.269Z  osm IN: failed — subdivisions: busy (504)",
+  "2026-08-14T09:25:39.722Z  osm AU: too big for one query — 0 of 15 subdivisions read, carries on next round",
+  "2026-08-14T09:25:39.726Z  osm AU Australia: 0 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 0 dropped as public",
+  "2026-08-14T09:25:50.724Z  osm GB: failed — busy (504)",
+  "2026-08-14T09:26:40.234Z  osm ES: too big for one query — 10 of 23 subdivisions read, carries on next round",
+  "2026-08-14T09:26:40.240Z  osm ES Spain: 62 places -> +0 new, 4 merged, 0 with an email already, 0 leads with no contact tag, 27 dropped as public"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-14T08:45:48.371Z",
+ "roundStarted": "2026-08-14T09:05:26.743Z",
  "lastRound": {
-  "at": "2026-08-14T08:54:13.686Z",
-  "minutes": 8.4,
-  "summary": "crawled 0 sites, +0 emails; osm 4 countries (ES,GB,NZ,NR,PR,KN,SD,NA,CO,MX,SG,BS) +0, 2 failed",
-  "crawled": 0,
+  "at": "2026-08-14T09:26:40.287Z",
+  "minutes": 21.2,
+  "summary": "crawled 2 sites, +0 emails; prospected 8 empty countries, +0 clubs; osm 2 countries (ES,GB,BR,US,AU,IN,CA,KN,SD,NA,CO,MX) +0, 4 failed",
+  "crawled": 2,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 4,
+  "osmCountries": 2,
   "osmAdded": 0,
-  "osmFailed": 2
+  "osmFailed": 4
  }
 }
