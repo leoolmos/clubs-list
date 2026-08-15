@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-15T22:56:19.650Z",
- "clubs": 3889,
- "records": 5866,
+ "generated": "2026-08-15T23:06:50.851Z",
+ "clubs": 3890,
+ "records": 5873,
  "crawl": {
   "ready": 7,
-  "waiting": 129,
-  "exhausted": 1550
+  "waiting": 133,
+  "exhausted": 1552
  },
  "osm": {
   "imported": 85,
@@ -13,27 +13,27 @@
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "AU",
-   "error": "partial: 3 of 15 subdivisions read",
-   "at": "2026-08-15T22:56:19.535Z"
+   "cc": "CA",
+   "error": "server cut the query short: runtime error: Query timed out in \"query\" at line 2 after 92 seconds.",
+   "at": "2026-08-15T23:06:50.732Z"
   }
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 2730
+   "n": 2731
   },
   {
    "note": "no email published",
-   "n": 1188
+   "n": 1190
   },
   {
    "note": "unreachable",
-   "n": 365
+   "n": 366
   },
   {
    "note": "blocked by a challenge page",
-   "n": 133
+   "n": 132
   },
   {
    "note": "/contact",
@@ -68,6 +68,98 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-15T23:00:36.880Z",
+   "kind": "prospect",
+   "text": "United Kingdom: found Accrington Cricket Club -> https://accringtoncc.com",
+   "ok": true,
+   "url": "https://accringtoncc.com"
+  },
+  {
+   "t": "2026-08-15T23:00:36.880Z",
+   "kind": "prospect",
+   "text": "United Kingdom: found Accrington Cricket Club -> https://accringtoncricketclub.co.uk",
+   "ok": true,
+   "url": "https://accringtoncricketclub.co.uk"
+  },
+  {
+   "t": "2026-08-15T23:00:36.879Z",
+   "kind": "prospect",
+   "text": "United Kingdom: found Accrington Tennis Club in England -> https://accrington-tennis-club.sports-ground.uk",
+   "ok": true,
+   "url": "https://accrington-tennis-club.sports-ground.uk"
+  },
+  {
+   "t": "2026-08-15T22:59:10.832Z",
+   "kind": "prospect",
+   "text": "Spain: found Club de padel en Torrelodones -> https://padelpeopletorrelodones.com",
+   "ok": true,
+   "url": "https://padelpeopletorrelodones.com"
+  },
+  {
+   "t": "2026-08-15T22:59:10.832Z",
+   "kind": "prospect",
+   "text": "Spain: found Hotel Nerja Club & Spa by Dorobe -> https://www.nerjaclub.com",
+   "ok": true,
+   "url": "https://www.nerjaclub.com"
+  },
+  {
+   "t": "2026-08-15T22:59:10.832Z",
+   "kind": "prospect",
+   "text": "Spain: found Nerja Padel -> https://nerjapadel.se",
+   "ok": true,
+   "url": "https://nerjapadel.se"
+  },
+  {
+   "t": "2026-08-15T22:59:10.831Z",
+   "kind": "prospect",
+   "text": "Spain: found Padel Moncada Indoor -> http://padelmoncadaindoor.com",
+   "ok": true,
+   "url": "http://padelmoncadaindoor.com"
+  },
+  {
+   "t": "2026-08-15T22:56:53.714Z",
+   "kind": "crawl",
+   "text": "CLUB DE PADEL OCAÑA — https://clubpadelocana.blogspot.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://clubpadelocana.blogspot.com"
+  },
+  {
+   "t": "2026-08-15T22:56:53.572Z",
+   "kind": "crawl",
+   "text": "Win Pádel Club — https://winpadel.cl: site read, publishes no address",
+   "ok": false,
+   "url": "https://winpadel.cl"
+  },
+  {
+   "t": "2026-08-15T22:56:42.372Z",
+   "kind": "crawl",
+   "text": "Hillside Tennis Club — https://hillsidetennis.ca: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://hillsidetennis.ca"
+  },
+  {
+   "t": "2026-08-15T22:56:42.014Z",
+   "kind": "crawl",
+   "text": "MONTEMAR PADEL SPORT CENTER — http://www.padelmontemar.cl -> montemarpadel@gmail.com",
+   "ok": true,
+   "url": "http://www.padelmontemar.cl",
+   "email": "montemarpadel@gmail.com"
+  },
+  {
+   "t": "2026-08-15T22:56:41.935Z",
+   "kind": "crawl",
+   "text": "Bright Tennis Club — https://brightideasfortennis.org: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://brightideasfortennis.org"
+  },
+  {
+   "t": "2026-08-15T22:56:41.644Z",
+   "kind": "crawl",
+   "text": "Court 11 — https://opencourtdata.uk: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://opencourtdata.uk"
+  },
   {
    "t": "2026-08-15T22:46:38.834Z",
    "kind": "prospect",
@@ -1139,108 +1231,13 @@
    "ok": true,
    "url": "https://www.charlestonracquetclub.com",
    "email": "info@charlestonracquetclub.com"
-  },
-  {
-   "t": "2026-08-15T21:11:26.888Z",
-   "kind": "crawl",
-   "text": "Padel Munda Club — https://www.padelmunda.es /contacto -> padelmunda@gmail.com",
-   "ok": true,
-   "url": "https://www.padelmunda.es",
-   "email": "padelmunda@gmail.com"
-  },
-  {
-   "t": "2026-08-15T21:11:25.729Z",
-   "kind": "crawl",
-   "text": "Padel Ponteareas — http://padelponteareas.com -> info@piscinadeponteareas.com",
-   "ok": true,
-   "url": "http://padelponteareas.com",
-   "email": "info@piscinadeponteareas.com"
-  },
-  {
-   "t": "2026-08-15T21:11:25.723Z",
-   "kind": "crawl",
-   "text": "Racket Restringer — https://www.racketrestringer.co.uk -> racketrestringer@outlook.com",
-   "ok": true,
-   "url": "https://www.racketrestringer.co.uk",
-   "email": "racketrestringer@outlook.com"
-  },
-  {
-   "t": "2026-08-15T21:11:25.569Z",
-   "kind": "crawl",
-   "text": "Prince Rupert Rotary Tennis Courts — https://www.princerupertrotaryclub.ca: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.princerupertrotaryclub.ca"
-  },
-  {
-   "t": "2026-08-15T21:11:25.231Z",
-   "kind": "crawl",
-   "text": "Caracas Sports Club — https://caracassportsclub.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://caracassportsclub.com"
-  },
-  {
-   "t": "2026-08-15T21:11:24.878Z",
-   "kind": "crawl",
-   "text": "Portage Tennis Club — https://www.portagecc.org: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.portagecc.org"
-  },
-  {
-   "t": "2026-08-15T21:11:24.829Z",
-   "kind": "crawl",
-   "text": "Taylor Tennis Centre — https://www.taylortenniscentre.ca: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.taylortenniscentre.ca"
-  },
-  {
-   "t": "2026-08-15T21:11:24.652Z",
-   "kind": "crawl",
-   "text": "CLUB TENIS PONTEAREAS — https://clubtenisponteareas.blogspot.com -> clubtenisponteareas@hotmail.com",
-   "ok": true,
-   "url": "https://clubtenisponteareas.blogspot.com",
-   "email": "clubtenisponteareas@hotmail.com"
-  },
-  {
-   "t": "2026-08-15T21:11:24.631Z",
-   "kind": "crawl",
-   "text": "Arabian — https://sa.arabianoud.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://sa.arabianoud.com"
-  },
-  {
-   "t": "2026-08-15T21:11:24.496Z",
-   "kind": "crawl",
-   "text": "Bede's Tennis Courts — https://www.bedes.org: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.bedes.org"
-  },
-  {
-   "t": "2026-08-15T21:11:24.464Z",
-   "kind": "crawl",
-   "text": "Croydon Tennis Club — https://www.croydontennisclub.com.au: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.croydontennisclub.com.au"
-  },
-  {
-   "t": "2026-08-15T21:11:24.400Z",
-   "kind": "crawl",
-   "text": "North Park Tennis Club — http://www.northparktennis.org: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "http://www.northparktennis.org"
-  },
-  {
-   "t": "2026-08-15T21:11:24.336Z",
-   "kind": "crawl",
-   "text": "Lamar Tennis Center — https://lamarcardinals.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://lamarcardinals.com"
   }
  ],
  "perCountry": {
   "Spain": {
-   "clubs": 1211,
+   "clubs": 1215,
    "emails": 969,
-   "sites": 990,
+   "sites": 994,
    "read": 763,
    "unreachable": 59,
    "noAddress": 132,
@@ -1248,8 +1245,8 @@
    "leadsSearched": 354,
    "leadsFound": 237,
    "sports": {
-    "Tennis": 752,
-    "Padel": 613,
+    "Tennis": 753,
+    "Padel": 617,
     "Squash": 38
    },
    "sources": {
@@ -1260,10 +1257,10 @@
    },
    "seeds": 56,
    "osm": {
-    "at": "2026-08-15T22:54:36.621Z",
-    "seen": 145,
+    "at": "2026-08-15T23:06:19.742Z",
+    "seen": 146,
     "added": 0,
-    "rejected": 68,
+    "rejected": 69,
     "error": "partial: 14 of 23 subdivisions read",
     "via": "overpass.private.coffee"
    },
@@ -1302,10 +1299,10 @@
      "Terrassa"
     ],
     "citiesTotal": 559,
-    "citiesSearched": 503,
-    "searchesDone": 2536,
+    "citiesSearched": 511,
+    "searchesDone": 2576,
     "searchesTotal": 2800,
-    "found": 396,
+    "found": 400,
     "emails": 682,
     "countrywide": {
      "s": 2,
@@ -2405,6 +2402,12 @@
       "e": 1
      },
      {
+      "n": "Nerja",
+      "s": 5,
+      "f": 2,
+      "e": 1
+     },
+     {
       "n": "Quintana",
       "s": 5,
       "f": 2,
@@ -3173,6 +3176,12 @@
       "e": 1
      },
      {
+      "n": "Laguna de Duero",
+      "s": 3,
+      "f": 0,
+      "e": 1
+     },
+     {
       "n": "A Coruña",
       "s": 2,
       "f": 0,
@@ -3215,12 +3224,6 @@
       "e": 1
      },
      {
-      "n": "Laguna de Duero",
-      "s": 0,
-      "f": 0,
-      "e": 1
-     },
-     {
       "n": "Las Torres de Cotillas",
       "s": 0,
       "f": 0,
@@ -3228,12 +3231,6 @@
      },
      {
       "n": "Loja",
-      "s": 0,
-      "f": 0,
-      "e": 1
-     },
-     {
-      "n": "Nerja",
       "s": 0,
       "f": 0,
       "e": 1
@@ -3317,6 +3314,12 @@
       "e": 0
      },
      {
+      "n": "Moncada",
+      "s": 5,
+      "f": 1,
+      "e": 0
+     },
+     {
       "n": "Opañel",
       "s": 5,
       "f": 1,
@@ -3324,6 +3327,12 @@
      },
      {
       "n": "Ribeira",
+      "s": 5,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Torrelodones",
       "s": 5,
       "f": 1,
       "e": 0
@@ -3354,6 +3363,12 @@
      },
      {
       "n": "Sant Feliu de Llobregat",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Sant Joan d'Alacant",
       "s": 6,
       "f": 0,
       "e": 0
@@ -3581,6 +3596,12 @@
       "e": 0
      },
      {
+      "n": "Coín",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Colmenar Viejo",
       "s": 5,
       "f": 0,
@@ -3588,6 +3609,12 @@
      },
      {
       "n": "Comillas",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Costillares",
       "s": 5,
       "f": 0,
       "e": 0
@@ -3681,45 +3708,15 @@
       "s": 5,
       "f": 0,
       "e": 0
-     },
-     {
-      "n": "Erandio",
-      "s": 5,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Esplugues de Llobregat",
-      "s": 5,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Fort Pienc",
-      "s": 5,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Galapagar",
-      "s": 5,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Gamonal",
-      "s": 5,
-      "f": 0,
-      "e": 0
      }
     ],
-    "last": "2026-08-15T22:30:33.801Z"
+    "last": "2026-08-15T22:59:10.831Z"
    }
   },
   "United Kingdom": {
-   "clubs": 1189,
+   "clubs": 1192,
    "emails": 822,
-   "sites": 1081,
+   "sites": 1084,
    "read": 1052,
    "unreachable": 83,
    "noAddress": 260,
@@ -3727,7 +3724,7 @@
    "leadsSearched": 721,
    "leadsFound": 617,
    "sports": {
-    "Tennis": 884,
+    "Tennis": 887,
     "Padel": 217,
     "Squash": 329
    },
@@ -3739,12 +3736,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-15T22:55:05.706Z",
-    "seen": 162,
+    "at": "2026-08-15T23:06:50.571Z",
+    "seen": 166,
     "added": 0,
-    "rejected": 29,
+    "rejected": 32,
     "error": "partial: 1 of 9 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "GB",
@@ -3781,10 +3778,10 @@
      "Stoke-on-Trent"
     ],
     "citiesTotal": 652,
-    "citiesSearched": 373,
-    "searchesDone": 2239,
+    "citiesSearched": 379,
+    "searchesDone": 2275,
     "searchesTotal": 3918,
-    "found": 427,
+    "found": 430,
     "emails": 643,
     "countrywide": {
      "s": 2,
@@ -4680,6 +4677,12 @@
       "e": 2
      },
      {
+      "n": "Hoddesdon",
+      "s": 6,
+      "f": 0,
+      "e": 2
+     },
+     {
       "n": "Mangotsfield",
       "s": 6,
       "f": 0,
@@ -4789,12 +4792,6 @@
      },
      {
       "n": "Heswall",
-      "s": 0,
-      "f": 0,
-      "e": 2
-     },
-     {
-      "n": "Hoddesdon",
       "s": 0,
       "f": 0,
       "e": 2
@@ -5736,6 +5733,12 @@
       "e": 1
      },
      {
+      "n": "Accrington",
+      "s": 6,
+      "f": 3,
+      "e": 0
+     },
+     {
       "n": "East Kilbride",
       "s": 6,
       "f": 2,
@@ -5763,6 +5766,12 @@
       "n": "Streatham",
       "s": 6,
       "f": 2,
+      "e": 0
+     },
+     {
+      "n": "Briton Ferry",
+      "s": 7,
+      "f": 1,
       "e": 0
      },
      {
@@ -5904,12 +5913,6 @@
       "e": 0
      },
      {
-      "n": "Briton Ferry",
-      "s": 2,
-      "f": 1,
-      "e": 0
-     },
-     {
       "n": "Liverpool",
       "s": 2,
       "f": 1,
@@ -5982,6 +5985,12 @@
       "e": 0
      },
      {
+      "n": "Bentley",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Bexhill-on-Sea",
       "s": 6,
       "f": 0,
@@ -6013,6 +6022,18 @@
      },
      {
       "n": "Bridgwater",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Bridlington",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Bromsgrove",
       "s": 6,
       "f": 0,
       "e": 0
@@ -6166,33 +6187,9 @@
       "s": 6,
       "f": 0,
       "e": 0
-     },
-     {
-      "n": "Great Sankey",
-      "s": 6,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Greenock",
-      "s": 6,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Hartlepool",
-      "s": 6,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Heston",
-      "s": 6,
-      "f": 0,
-      "e": 0
      }
     ],
-    "last": "2026-08-15T22:06:19.022Z"
+    "last": "2026-08-15T23:00:36.879Z"
    }
   },
   "Ireland": {
@@ -6476,7 +6473,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-15T22:56:19.051Z",
+    "at": "2026-08-15T23:05:51.464Z",
     "seen": 18,
     "added": 0,
     "rejected": 11,
@@ -12076,7 +12073,7 @@
    "emails": 267,
    "sites": 433,
    "read": 417,
-   "unreachable": 43,
+   "unreachable": 44,
    "noAddress": 89,
    "leads": 622,
    "leadsSearched": 622,
@@ -12093,7 +12090,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-15T22:56:19.535Z",
+    "at": "2026-08-15T23:06:22.159Z",
     "seen": 298,
     "added": 0,
     "rejected": 67,
@@ -13364,9 +13361,9 @@
    "clubs": 57,
    "emails": 37,
    "sites": 57,
-   "read": 56,
+   "read": 57,
    "unreachable": 1,
-   "noAddress": 17,
+   "noAddress": 18,
    "leads": 26,
    "leadsSearched": 26,
    "leadsFound": 13,
@@ -13836,11 +13833,11 @@
   },
   "Chile": {
    "clubs": 112,
-   "emails": 80,
+   "emails": 81,
    "sites": 112,
-   "read": 108,
+   "read": 110,
    "unreachable": 9,
-   "noAddress": 21,
+   "noAddress": 22,
    "leads": 84,
    "leadsSearched": 84,
    "leadsFound": 53,
@@ -13852,7 +13849,7 @@
    "sources": {
     "osm": 2,
     "search": 30,
-    "prospect": 48
+    "prospect": 49
    },
    "seeds": 0,
    "osm": {
@@ -13902,7 +13899,7 @@
     "searchesDone": 359,
     "searchesTotal": 605,
     "found": 41,
-    "emails": 60,
+    "emails": 61,
     "countrywide": {
      "s": 2,
      "f": 6
@@ -13957,6 +13954,12 @@
       "e": 2
      },
      {
+      "n": "Concón",
+      "s": 5,
+      "f": 1,
+      "e": 2
+     },
+     {
       "n": "Curicó",
       "s": 5,
       "f": 1,
@@ -13994,12 +13997,6 @@
      },
      {
       "n": "Buin",
-      "s": 5,
-      "f": 1,
-      "e": 1
-     },
-     {
-      "n": "Concón",
       "s": 5,
       "f": 1,
       "e": 1
@@ -18771,11 +18768,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-15T22:26:31.410Z",
+    "at": "2026-08-15T23:06:50.732Z",
     "seen": 117,
     "added": 3,
     "rejected": 81,
-    "error": "server cut the query short: runtime error: Query timed out in \"query\" at line 2 after 91 seconds.",
+    "error": "server cut the query short: runtime error: Query timed out in \"query\" at line 2 after 92 seconds.",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
@@ -21325,7 +21322,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-15T22:26:44.162Z",
+    "at": "2026-08-15T23:06:01.423Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -31353,30 +31350,30 @@
   }
  },
  "recent": [
-  "2026-08-15T22:55:42.357Z  osm IN: failed — subdivisions: out of time",
-  "2026-08-15T22:56:19.047Z  osm BR: too big for one query — 0 of 29 subdivisions read, carries on next round",
-  "2026-08-15T22:56:19.051Z  osm BR Brazil: 18 places -> +0 new, 1 merged, 0 with an email already, 0 leads with no contact tag, 11 dropped as public",
-  "2026-08-15T22:56:19.529Z  osm AU: too big for one query — 3 of 15 subdivisions read, carries on next round",
-  "2026-08-15T22:56:19.535Z  osm AU Australia: 298 places -> +0 new, 30 merged, 0 with an email already, 0 leads with no contact tag, 67 dropped as public",
-  "2026-08-15T22:56:19.561Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-15T22:56:19.565Z  dropped info@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-15T22:56:19.565Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-15T22:56:19.575Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-15T22:56:19.577Z  dropped info@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-15T22:56:19.577Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-15T22:56:19.587Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-15T22:56:19.588Z  dropped info@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-15T22:56:19.589Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club"
+  "2026-08-15T23:06:22.151Z  osm AU: too big for one query — 3 of 15 subdivisions read, carries on next round",
+  "2026-08-15T23:06:22.159Z  osm AU Australia: 298 places -> +0 new, 30 merged, 0 with an email already, 0 leads with no contact tag, 67 dropped as public",
+  "2026-08-15T23:06:50.565Z  osm GB: too big for one query — 1 of 9 subdivisions read, carries on next round",
+  "2026-08-15T23:06:50.571Z  osm GB United Kingdom: 166 places -> +0 new, 19 merged, 0 with an email already, 0 leads with no contact tag, 32 dropped as public",
+  "2026-08-15T23:06:50.736Z  osm CA: failed — server cut the query short: runtime error: Query timed out in \"query\" at line 2 after 92 seconds.",
+  "2026-08-15T23:06:50.764Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-15T23:06:50.767Z  dropped info@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-15T23:06:50.768Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-15T23:06:50.776Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-15T23:06:50.778Z  dropped info@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-15T23:06:50.778Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-15T23:06:50.789Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-15T23:06:50.792Z  dropped info@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-15T23:06:50.793Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-15T22:37:27.349Z",
+ "roundStarted": "2026-08-15T22:56:41.437Z",
  "lastRound": {
-  "at": "2026-08-15T22:56:19.597Z",
-  "minutes": 18.9,
-  "summary": "crawled 0 sites, +0 emails; prospected 6 empty countries, +3 clubs; osm 4 countries (ES,GB,BR,US,AU,IN,CA,BW,NZ,SD,SG,CO) +0, 2 failed",
-  "crawled": 0,
-  "emailsFound": 0,
+  "at": "2026-08-15T23:06:50.802Z",
+  "minutes": 10.2,
+  "summary": "crawled 7 sites, +1 emails; prospected 2 empty countries, +7 clubs; osm 4 countries (ES,GB,BR,AU,CA,BW,NZ,SD,SG,CO,NA,KN) +0, 2 failed",
+  "crawled": 7,
+  "emailsFound": 1,
   "pagesRead": 0,
   "clubsAdded": 0,
   "osmCountries": 4,
