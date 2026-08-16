@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-16T09:58:13.534Z",
- "clubs": 4108,
- "records": 6182,
+ "generated": "2026-08-16T10:08:35.020Z",
+ "clubs": 4109,
+ "records": 6186,
  "crawl": {
-  "ready": 3,
-  "waiting": 132,
+  "ready": 9,
+  "waiting": 129,
   "exhausted": 1634
  },
  "osm": {
-  "imported": 83,
-  "failed": 10,
+  "imported": 84,
+  "failed": 9,
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "AU",
-   "error": "partial: 5 of 15 subdivisions read",
-   "at": "2026-08-16T09:58:13.413Z"
+   "cc": "GB",
+   "error": "partial: 1 of 9 subdivisions read",
+   "at": "2026-08-16T10:08:34.895Z"
   }
  },
  "crawlReasons": [
@@ -29,11 +29,11 @@
   },
   {
    "note": "unreachable",
-   "n": 372
+   "n": 371
   },
   {
    "note": "blocked by a challenge page",
-   "n": 132
+   "n": 133
   },
   {
    "note": "/contact",
@@ -68,6 +68,49 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-16T10:00:56.918Z",
+   "kind": "prospect",
+   "text": "India: found Otters club -> https://ottersclub.com",
+   "ok": true,
+   "url": "https://ottersclub.com"
+  },
+  {
+   "t": "2026-08-16T10:00:56.918Z",
+   "kind": "prospect",
+   "text": "India: found International Squash Academy -> https://www.internationalsquashacademy.com",
+   "ok": true,
+   "url": "https://www.internationalsquashacademy.com"
+  },
+  {
+   "t": "2026-08-16T10:00:56.918Z",
+   "kind": "prospect",
+   "text": "India: found Jalandhar Sports Centre Tennis Academy -> https://jsctennis.com",
+   "ok": true,
+   "url": "https://jsctennis.com"
+  },
+  {
+   "t": "2026-08-16T10:00:56.917Z",
+   "kind": "prospect",
+   "text": "India: found Olympian's Den Sports Club -> https://olympiansdensportsclub.com",
+   "ok": true,
+   "url": "https://olympiansdensportsclub.com"
+  },
+  {
+   "t": "2026-08-16T09:58:39.701Z",
+   "kind": "crawl",
+   "text": "Etching Hill Tennis Club — https://etchinghilltc.weebly.com /contact-us.html -> etchinghilltennisclub@gmail.com",
+   "ok": true,
+   "url": "https://etchinghilltc.weebly.com",
+   "email": "etchinghilltennisclub@gmail.com"
+  },
+  {
+   "t": "2026-08-16T09:58:35.538Z",
+   "kind": "crawl",
+   "text": "Bewdley Tennis Club — https://bewdleytennisclub.org.uk: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://bewdleytennisclub.org.uk"
+  },
   {
    "t": "2026-08-16T09:52:01.008Z",
    "kind": "prospect",
@@ -1176,48 +1219,6 @@
    "text": "United Kingdom: found Windscale Squash & Fitness Club -> https://windscale.mycourts.co.uk",
    "ok": true,
    "url": "https://windscale.mycourts.co.uk"
-  },
-  {
-   "t": "2026-08-16T08:08:50.139Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Wickford Lawn Tennis Club -> https://www.wickfordlawntennisclub.co.uk",
-   "ok": true,
-   "url": "https://www.wickfordlawntennisclub.co.uk"
-  },
-  {
-   "t": "2026-08-16T08:08:50.139Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Evesham Rowing Club -> https://www.evesham-rowing-club.co.uk",
-   "ok": true,
-   "url": "https://www.evesham-rowing-club.co.uk"
-  },
-  {
-   "t": "2026-08-16T08:08:50.139Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Evesham Rowing and Racquets Club -> https://errc.myclubhouse.co.uk",
-   "ok": true,
-   "url": "https://errc.myclubhouse.co.uk"
-  },
-  {
-   "t": "2026-08-16T08:08:50.138Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found The Padel Rooms -> https://www.padelrooms.co.uk",
-   "ok": true,
-   "url": "https://www.padelrooms.co.uk"
-  },
-  {
-   "t": "2026-08-16T08:08:50.138Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Evesham Tennis Club -> https://eveshamtennis.weebly.com",
-   "ok": true,
-   "url": "https://eveshamtennis.weebly.com"
-  },
-  {
-   "t": "2026-08-16T08:08:50.138Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Evesham Rowing & Racquets Club -> https://www.erc.club",
-   "ok": true,
-   "url": "https://www.erc.club"
   }
  ],
  "perCountry": {
@@ -1244,12 +1245,12 @@
    },
    "seeds": 56,
    "osm": {
-    "at": "2026-08-16T09:57:10.047Z",
-    "seen": 328,
+    "at": "2026-08-16T10:07:37.535Z",
+    "seen": 0,
     "added": 0,
-    "rejected": 178,
+    "rejected": 0,
     "error": "partial: 15 of 23 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": ""
    },
    "prospect": {
     "cc": "ES",
@@ -3702,10 +3703,10 @@
   },
   "United Kingdom": {
    "clubs": 1288,
-   "emails": 893,
+   "emails": 894,
    "sites": 1180,
-   "read": 1150,
-   "unreachable": 84,
+   "read": 1151,
+   "unreachable": 83,
    "noAddress": 287,
    "leads": 721,
    "leadsSearched": 721,
@@ -3719,16 +3720,16 @@
     "harvest": 37,
     "osm": 118,
     "search": 296,
-    "prospect": 442
+    "prospect": 443
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-16T09:57:57.496Z",
-    "seen": 162,
+    "at": "2026-08-16T10:08:34.895Z",
+    "seen": 167,
     "added": 0,
-    "rejected": 29,
+    "rejected": 33,
     "error": "partial: 1 of 9 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "GB",
@@ -3769,7 +3770,7 @@
     "searchesDone": 2982,
     "searchesTotal": 3918,
     "found": 526,
-    "emails": 714,
+    "emails": 715,
     "countrywide": {
      "s": 2,
      "f": 0
@@ -5498,6 +5499,12 @@
       "e": 1
      },
      {
+      "n": "Rugeley",
+      "s": 6,
+      "f": 1,
+      "e": 1
+     },
+     {
       "n": "Sale",
       "s": 6,
       "f": 1,
@@ -6110,12 +6117,6 @@
       "e": 0
      },
      {
-      "n": "Rugeley",
-      "s": 6,
-      "f": 1,
-      "e": 0
-     },
-     {
       "n": "Saint Neots",
       "s": 6,
       "f": 1,
@@ -6435,7 +6436,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T07:00:12.603Z"
+    "last": "2026-08-16T10:00:56.918Z"
    }
   },
   "Brazil": {
@@ -12647,12 +12648,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-16T09:58:13.413Z",
-    "seen": 0,
+    "at": "2026-08-16T10:06:44.916Z",
+    "seen": 190,
     "added": 0,
-    "rejected": 0,
+    "rejected": 54,
     "error": "partial: 5 of 15 subdivisions read",
-    "via": ""
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "AU",
@@ -13544,9 +13545,9 @@
    }
   },
   "India": {
-   "clubs": 163,
+   "clubs": 167,
    "emails": 127,
-   "sites": 163,
+   "sites": 167,
    "read": 163,
    "unreachable": 7,
    "noAddress": 29,
@@ -13554,9 +13555,9 @@
    "leadsSearched": 166,
    "leadsFound": 113,
    "sports": {
-    "Tennis": 145,
+    "Tennis": 147,
     "Padel": 26,
-    "Squash": 35
+    "Squash": 37
    },
    "sources": {
     "prospect": 83,
@@ -13564,11 +13565,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-16T09:57:10.175Z",
+    "at": "2026-08-16T10:07:37.536Z",
     "seen": 46,
     "added": 0,
     "rejected": 10,
-    "error": "partial: 0 of 39 subdivisions read",
+    "error": "timed out",
     "via": "overpass.private.coffee"
    },
    "prospect": {
@@ -13606,10 +13607,10 @@
      "Rājkot"
     ],
     "citiesTotal": 2937,
-    "citiesSearched": 66,
-    "searchesDone": 418,
+    "citiesSearched": 72,
+    "searchesDone": 458,
     "searchesTotal": 17628,
-    "found": 42,
+    "found": 46,
     "emails": 89,
     "countrywide": {
      "s": 2,
@@ -13647,6 +13648,12 @@
       "e": 2
      },
      {
+      "n": "Bhubaneswar",
+      "s": 6,
+      "f": 3,
+      "e": 2
+     },
+     {
       "n": "Jodhpur",
       "s": 6,
       "f": 2,
@@ -13673,12 +13680,6 @@
      {
       "n": "Rājkot",
       "s": 6,
-      "f": 2,
-      "e": 2
-     },
-     {
-      "n": "Bhubaneswar",
-      "s": 2,
       "f": 2,
       "e": 2
      },
@@ -13983,7 +13984,25 @@
       "e": 1
      },
      {
+      "n": "Bhayandar",
+      "s": 6,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Jalandhar",
+      "s": 6,
+      "f": 1,
+      "e": 0
+     },
+     {
       "n": "Navi Mumbai",
+      "s": 6,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Rohini",
       "s": 6,
       "f": 1,
       "e": 0
@@ -13996,6 +14015,12 @@
      },
      {
       "n": "Aurangabad",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Bhiwandi",
       "s": 6,
       "f": 0,
       "e": 0
@@ -14037,6 +14062,12 @@
       "e": 0
      },
      {
+      "n": "Kanayannur",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Kota",
       "s": 6,
       "f": 0,
@@ -14050,6 +14081,12 @@
      },
      {
       "n": "Najafgarh",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Narela",
       "s": 6,
       "f": 0,
       "e": 0
@@ -14157,7 +14194,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T07:00:12.601Z"
+    "last": "2026-08-16T10:00:56.917Z"
    }
   },
   "Colombia": {
@@ -20393,7 +20430,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-16T09:34:30.483Z",
+    "at": "2026-08-16T10:06:25.952Z",
     "seen": 117,
     "added": 3,
     "rejected": 81,
@@ -21099,12 +21136,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-16T09:33:27.835Z",
+    "at": "2026-08-16T10:06:57.828Z",
     "seen": 2,
     "added": 0,
     "rejected": 0,
-    "error": "subdivisions: busy (504)",
-    "via": "overpass.kumi.systems"
+    "error": null,
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "MZ",
@@ -29374,8 +29411,8 @@
      "Wajir"
     ],
     "citiesTotal": 107,
-    "citiesSearched": 65,
-    "searchesDone": 392,
+    "citiesSearched": 67,
+    "searchesDone": 402,
     "searchesTotal": 648,
     "found": 4,
     "emails": 6,
@@ -29413,6 +29450,12 @@
       "s": 6,
       "f": 0,
       "e": 1
+     },
+     {
+      "n": "Masalani",
+      "s": 7,
+      "f": 0,
+      "e": 0
      },
      {
       "n": "Athi River",
@@ -29661,6 +29704,12 @@
       "e": 0
      },
      {
+      "n": "Murang’a",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Mwala",
       "s": 6,
       "f": 0,
@@ -29745,12 +29794,6 @@
       "e": 0
      },
      {
-      "n": "Masalani",
-      "s": 3,
-      "f": 0,
-      "e": 0
-     },
-     {
       "n": "Eldoret",
       "s": 2,
       "f": 0,
@@ -29773,9 +29816,15 @@
       "s": 2,
       "f": 0,
       "e": 0
+     },
+     {
+      "n": "Webuye",
+      "s": 1,
+      "f": 0,
+      "e": 0
      }
     ],
-    "last": "2026-08-16T07:01:44.639Z"
+    "last": "2026-08-16T10:01:19.052Z"
    }
   },
   "El Salvador": {
@@ -30121,7 +30170,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T07:00:12.603Z"
+    "last": "2026-08-16T10:00:56.918Z"
    }
   },
   "Trinidad and Tobago": {
@@ -34811,29 +34860,29 @@
   }
  },
  "recent": [
-  "2026-08-16T09:58:13.444Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T09:58:13.444Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T09:58:13.445Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T09:58:13.445Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T09:58:13.454Z  dropped example@mysite.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T09:58:13.457Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T09:58:13.457Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T09:58:13.457Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T09:58:13.458Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T09:58:13.468Z  dropped example@mysite.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T09:58:13.470Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T09:58:13.471Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T09:58:13.471Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T09:58:13.472Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club"
+  "2026-08-16T10:08:34.927Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:08:34.928Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:08:34.928Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:08:34.929Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:08:34.939Z  dropped example@mysite.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:08:34.941Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:08:34.942Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:08:34.942Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:08:34.943Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:08:34.954Z  dropped example@mysite.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:08:34.956Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:08:34.956Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:08:34.956Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:08:34.957Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-16T09:51:37.750Z",
+ "roundStarted": "2026-08-16T09:58:35.396Z",
  "lastRound": {
-  "at": "2026-08-16T09:58:13.481Z",
-  "minutes": 6.6,
-  "summary": "crawled 1 sites, +1 emails; prospected 1 empty countries, +1 clubs; osm 4 countries (ES,GB,AU,IN,BW,PY,GY,CL,UY,VE,SV,DM) +0, 2 failed",
-  "crawled": 1,
+  "at": "2026-08-16T10:08:34.965Z",
+  "minutes": 10,
+  "summary": "crawled 3 sites, +1 emails; prospected 2 empty countries, +4 clubs; osm 4 countries (ES,GB,AU,IN,CA,MZ,GY,CL,UY,VE,SV,DM) +0, 2 failed",
+  "crawled": 3,
   "emailsFound": 1,
   "pagesRead": 0,
   "clubsAdded": 0,
