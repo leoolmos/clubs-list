@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-16T10:51:04.632Z",
+ "generated": "2026-08-16T10:58:39.049Z",
  "clubs": 4117,
- "records": 6193,
+ "records": 6195,
  "crawl": {
-  "ready": 0,
+  "ready": 2,
   "waiting": 134,
   "exhausted": 1635
  },
  "osm": {
-  "imported": 85,
-  "failed": 8,
+  "imported": 84,
+  "failed": 9,
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "GB",
-   "error": "partial: 1 of 9 subdivisions read",
-   "at": "2026-08-16T10:51:04.512Z"
+   "cc": "AU",
+   "error": "partial: 5 of 15 subdivisions read",
+   "at": "2026-08-16T10:58:38.927Z"
   }
  },
  "crawlReasons": [
@@ -51,9 +51,9 @@
   "pagesRead": 70
  },
  "leads": {
-  "total": 4598,
-  "searched": 4597,
-  "left": 1
+  "total": 4600,
+  "searched": 4598,
+  "left": 2
  },
  "mine": {
   "patterns": 9,
@@ -68,6 +68,26 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-16T10:51:49.020Z",
+   "kind": "prospect",
+   "text": "United Kingdom: found Wellington Health & Fitness Club -> https://www.wellingtonfitness.co.uk",
+   "ok": true,
+   "url": "https://www.wellingtonfitness.co.uk"
+  },
+  {
+   "t": "2026-08-16T10:51:49.019Z",
+   "kind": "prospect",
+   "text": "United Kingdom: found Coulsdon Club -> https://www.coulsdonclub.co.uk",
+   "ok": true,
+   "url": "https://www.coulsdonclub.co.uk"
+  },
+  {
+   "t": "2026-08-16T10:51:27.368Z",
+   "kind": "search",
+   "text": "no site found for Harris Avenue Sports Complex (Australia)",
+   "ok": false
+  },
   {
    "t": "2026-08-16T10:43:04.184Z",
    "kind": "crawl",
@@ -1201,29 +1221,6 @@
    "ok": true,
    "url": "https://www.stceciliastennis.club",
    "email": "stceciliastennisclub@gmail.com"
-  },
-  {
-   "t": "2026-08-16T08:47:43.647Z",
-   "kind": "crawl",
-   "text": "Sydney CBD Table Tennis Club — https://www.sydneycbdtabletennisclub.com.au -> sydneycbdtabletennisclub@gmail.com",
-   "ok": true,
-   "url": "https://www.sydneycbdtabletennisclub.com.au",
-   "email": "sydneycbdtabletennisclub@gmail.com"
-  },
-  {
-   "t": "2026-08-16T08:47:43.388Z",
-   "kind": "crawl",
-   "text": "Tonic Squash and Gym Personal Training — https://www.tonicsquashandgym.com -> info@tonicsquashandgym.com",
-   "ok": true,
-   "url": "https://www.tonicsquashandgym.com",
-   "email": "info@tonicsquashandgym.com"
-  },
-  {
-   "t": "2026-08-16T08:47:42.921Z",
-   "kind": "crawl",
-   "text": "Club Atlético Unión Erin — https://www.clubaunion.com.ar: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.clubaunion.com.ar"
   }
  ],
  "perCountry": {
@@ -1250,12 +1247,12 @@
    },
    "seeds": 56,
    "osm": {
-    "at": "2026-08-16T10:49:21.776Z",
-    "seen": 0,
+    "at": "2026-08-16T10:57:12.082Z",
+    "seen": 331,
     "added": 0,
-    "rejected": 0,
+    "rejected": 179,
     "error": "partial: 15 of 23 subdivisions read",
-    "via": ""
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "ES",
@@ -3703,13 +3700,13 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T10:34:26.193Z"
+    "last": "2026-08-16T10:51:27.473Z"
    }
   },
   "United Kingdom": {
-   "clubs": 1291,
+   "clubs": 1293,
    "emails": 897,
-   "sites": 1183,
+   "sites": 1185,
    "read": 1154,
    "unreachable": 83,
    "noAddress": 287,
@@ -3717,9 +3714,9 @@
    "leadsSearched": 721,
    "leadsFound": 617,
    "sports": {
-    "Tennis": 952,
+    "Tennis": 954,
     "Padel": 242,
-    "Squash": 365
+    "Squash": 366
    },
    "sources": {
     "harvest": 37,
@@ -3729,12 +3726,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-16T10:51:04.512Z",
-    "seen": 0,
+    "at": "2026-08-16T10:58:08.622Z",
+    "seen": 162,
     "added": 0,
-    "rejected": 0,
+    "rejected": 29,
     "error": "partial: 1 of 9 subdivisions read",
-    "via": ""
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "GB",
@@ -3771,10 +3768,10 @@
      "Stoke-on-Trent"
     ],
     "citiesTotal": 652,
-    "citiesSearched": 507,
-    "searchesDone": 3045,
+    "citiesSearched": 509,
+    "searchesDone": 3058,
     "searchesTotal": 3918,
-    "found": 529,
+    "found": 531,
     "emails": 718,
     "countrywide": {
      "s": 2,
@@ -4694,6 +4691,12 @@
       "e": 2
      },
      {
+      "n": "Crowthorne",
+      "s": 6,
+      "f": 1,
+      "e": 2
+     },
+     {
       "n": "Eastleigh",
       "s": 6,
       "f": 1,
@@ -4929,12 +4932,6 @@
      },
      {
       "n": "Bishopbriggs",
-      "s": 0,
-      "f": 0,
-      "e": 2
-     },
-     {
-      "n": "Crowthorne",
       "s": 0,
       "f": 0,
       "e": 2
@@ -5966,6 +5963,12 @@
       "e": 0
      },
      {
+      "n": "Coulsdon",
+      "s": 7,
+      "f": 1,
+      "e": 0
+     },
+     {
       "n": "Barnsley",
       "s": 6,
       "f": 1,
@@ -6174,15 +6177,9 @@
       "s": 7,
       "f": 0,
       "e": 0
-     },
-     {
-      "n": "Cannock",
-      "s": 7,
-      "f": 0,
-      "e": 0
      }
     ],
-    "last": "2026-08-16T10:35:49.168Z"
+    "last": "2026-08-16T10:51:49.019Z"
    }
   },
   "Ireland": {
@@ -12675,7 +12672,7 @@
    "unreachable": 44,
    "noAddress": 96,
    "leads": 640,
-   "leadsSearched": 639,
+   "leadsSearched": 640,
    "leadsFound": 364,
    "sports": {
     "Tennis": 394,
@@ -12689,8 +12686,8 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-16T10:49:16.763Z",
-    "seen": 192,
+    "at": "2026-08-16T10:58:38.927Z",
+    "seen": 190,
     "added": 0,
     "rejected": 54,
     "error": "partial: 5 of 15 subdivisions read",
@@ -13606,7 +13603,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-16T10:49:27.820Z",
+    "at": "2026-08-16T10:58:16.736Z",
     "seen": 46,
     "added": 0,
     "rejected": 10,
@@ -22316,7 +22313,7 @@
    "read": 20,
    "unreachable": 3,
    "noAddress": 3,
-   "leads": 22,
+   "leads": 24,
    "leadsSearched": 22,
    "leadsFound": 11,
    "sports": {
@@ -22330,10 +22327,10 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T13:24:21.561Z",
-    "seen": 34,
+    "at": "2026-08-16T10:56:31.167Z",
+    "seen": 38,
     "added": 0,
-    "rejected": 13,
+    "rejected": 14,
     "error": null,
     "via": "overpass.private.coffee"
    },
@@ -23825,7 +23822,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T13:22:47.092Z",
+    "at": "2026-08-16T10:57:03.322Z",
     "seen": 22,
     "added": 0,
     "rejected": 8,
@@ -30081,11 +30078,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T13:36:27.624Z",
+    "at": "2026-08-16T10:57:10.040Z",
     "seen": 11,
     "added": 0,
     "rejected": 8,
-    "error": null,
+    "error": "fetch failed",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
@@ -35093,34 +35090,34 @@
   }
  },
  "recent": [
-  "2026-08-16T10:51:04.543Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T10:51:04.544Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T10:51:04.544Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T10:51:04.545Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T10:51:04.554Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T10:51:04.555Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T10:51:04.555Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T10:51:04.556Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T10:51:04.556Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T10:51:04.566Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T10:51:04.568Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T10:51:04.569Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T10:51:04.569Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T10:51:04.569Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club"
+  "2026-08-16T10:58:38.957Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:58:38.958Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:58:38.958Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:58:38.959Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:58:38.968Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:58:38.970Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:58:38.970Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:58:38.971Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:58:38.971Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:58:38.982Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:58:38.983Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:58:38.984Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:58:38.985Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T10:58:38.985Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-16T10:43:00.276Z",
+ "roundStarted": "2026-08-16T10:51:26.429Z",
  "lastRound": {
-  "at": "2026-08-16T10:51:04.577Z",
-  "minutes": 8.1,
-  "summary": "crawled 3 sites, +2 emails; prospected 1 empty countries, +0 clubs; osm 4 countries (ES,GB,US,AU,IN,BW,UY,VE,SV,DM,SC,EC) +0, 2 failed",
-  "crawled": 3,
-  "emailsFound": 2,
+  "at": "2026-08-16T10:58:38.994Z",
+  "minutes": 7.2,
+  "summary": "crawled 0 sites, +0 emails; searched 1 club names, found 0 sites, +0 emails; prospected 1 empty countries, +2 clubs; osm 6 countries (ES,GB,AU,IN,UY,VE,SV,DM,SC,EC,RW,NG) +0, 1 failed",
+  "crawled": 0,
+  "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 4,
+  "osmCountries": 6,
   "osmAdded": 0,
-  "osmFailed": 2
+  "osmFailed": 1
  }
 }
