@@ -1,10 +1,10 @@
 {
- "generated": "2026-08-16T07:49:48.025Z",
+ "generated": "2026-08-16T07:57:48.688Z",
  "clubs": 4079,
  "records": 6139,
  "crawl": {
-  "ready": 4,
-  "waiting": 130,
+  "ready": 0,
+  "waiting": 134,
   "exhausted": 1623
  },
  "osm": {
@@ -15,7 +15,7 @@
   "lastError": {
    "cc": "AU",
    "error": "partial: 4 of 15 subdivisions read",
-   "at": "2026-08-16T07:49:47.904Z"
+   "at": "2026-08-16T07:57:48.575Z"
   }
  },
  "crawlReasons": [
@@ -52,8 +52,8 @@
  },
  "leads": {
   "total": 4597,
-  "searched": 4594,
-  "left": 3
+  "searched": 4597,
+  "left": 0
  },
  "mine": {
   "patterns": 9,
@@ -68,6 +68,56 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-16T07:50:21.662Z",
+   "kind": "search",
+   "text": "no site found for The Reforma Athletic Club (Mexico)",
+   "ok": false
+  },
+  {
+   "t": "2026-08-16T07:50:19.775Z",
+   "kind": "search",
+   "text": "Club Monteverde (Mexico) -> https://www.clubmonteverde.es -> info@clubmonteverde.es",
+   "ok": true,
+   "url": "https://www.clubmonteverde.es",
+   "email": "info@clubmonteverde.es"
+  },
+  {
+   "t": "2026-08-16T07:50:17.092Z",
+   "kind": "search",
+   "text": "Club Deportivo Altozano (Mexico) -> https://altozano.com.mx, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://altozano.com.mx",
+   "email": ""
+  },
+  {
+   "t": "2026-08-16T07:50:10.795Z",
+   "kind": "crawl",
+   "text": "Mission Point Resort Tennis Courts — https://www.missionpoint.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.missionpoint.com"
+  },
+  {
+   "t": "2026-08-16T07:50:10.559Z",
+   "kind": "crawl",
+   "text": "Tennis Montréal — https://tennismontreal.qc.ca: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://tennismontreal.qc.ca"
+  },
+  {
+   "t": "2026-08-16T07:50:10.398Z",
+   "kind": "crawl",
+   "text": "Springettsbury Park Tennis Courts — https://springettsbury.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://springettsbury.com"
+  },
+  {
+   "t": "2026-08-16T07:50:10.299Z",
+   "kind": "crawl",
+   "text": "Oakwood Tennis Club — https://www.oakwoodtennisclub.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.oakwoodtennisclub.com"
+  },
   {
    "t": "2026-08-16T07:42:53.110Z",
    "kind": "search",
@@ -1184,55 +1234,6 @@
    "text": "United Kingdom: found Tennis Club -> https://www.stpatricksracquetsclub.com",
    "ok": true,
    "url": "https://www.stpatricksracquetsclub.com"
-  },
-  {
-   "t": "2026-08-16T05:27:35.842Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Knole Park Squash Club -> https://knolepark.mycourts.co.uk",
-   "ok": true,
-   "url": "https://knolepark.mycourts.co.uk"
-  },
-  {
-   "t": "2026-08-16T05:27:35.842Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Hollybush Padel -> https://hollybushpadel.com",
-   "ok": true,
-   "url": "https://hollybushpadel.com"
-  },
-  {
-   "t": "2026-08-16T05:27:35.842Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Sevenoaks Padel -> https://sevenoakspadel.co.uk",
-   "ok": true,
-   "url": "https://sevenoakspadel.co.uk"
-  },
-  {
-   "t": "2026-08-16T05:27:35.842Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Oakbury Tennis Club -> https://www.tennis-sevenoaks.co.uk",
-   "ok": true,
-   "url": "https://www.tennis-sevenoaks.co.uk"
-  },
-  {
-   "t": "2026-08-16T05:27:35.841Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Sevenoaks Tennis Centre -> https://www.sevenoakswhtc.co.uk",
-   "ok": true,
-   "url": "https://www.sevenoakswhtc.co.uk"
-  },
-  {
-   "t": "2026-08-16T05:27:35.841Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Sevenoaks Lawn Tennis Club -> https://www.sevenoakstennis.co.uk",
-   "ok": true,
-   "url": "https://www.sevenoakstennis.co.uk"
-  },
-  {
-   "t": "2026-08-16T05:27:35.841Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Sports Clubs Directory UK -> http://www.sports-teams.co.uk",
-   "ok": true,
-   "url": "http://www.sports-teams.co.uk"
   }
  ],
  "perCountry": {
@@ -1259,12 +1260,12 @@
    },
    "seeds": 56,
    "osm": {
-    "at": "2026-08-16T07:48:38.562Z",
-    "seen": 326,
+    "at": "2026-08-16T07:56:11.987Z",
+    "seen": 0,
     "added": 0,
-    "rejected": 177,
+    "rejected": 0,
     "error": "partial: 15 of 23 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": ""
    },
    "prospect": {
     "cc": "ES",
@@ -3712,7 +3713,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T07:33:06.931Z"
+    "last": "2026-08-16T07:50:21.765Z"
    }
   },
   "United Kingdom": {
@@ -3738,8 +3739,8 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-16T07:48:04.782Z",
-    "seen": 163,
+    "at": "2026-08-16T07:55:56.492Z",
+    "seen": 162,
     "added": 0,
     "rejected": 29,
     "error": "partial: 1 of 9 subdivisions read",
@@ -3780,8 +3781,8 @@
      "Stoke-on-Trent"
     ],
     "citiesTotal": 652,
-    "citiesSearched": 470,
-    "searchesDone": 2823,
+    "citiesSearched": 471,
+    "searchesDone": 2829,
     "searchesTotal": 3918,
     "found": 502,
     "emails": 699,
@@ -5105,6 +5106,12 @@
       "e": 1
      },
      {
+      "n": "Melton Mowbray",
+      "s": 7,
+      "f": 1,
+      "e": 1
+     },
+     {
       "n": "Redruth",
       "s": 7,
       "f": 1,
@@ -5575,12 +5582,6 @@
      {
       "n": "Yeadon",
       "s": 6,
-      "f": 1,
-      "e": 1
-     },
-     {
-      "n": "Melton Mowbray",
-      "s": 4,
       "f": 1,
       "e": 1
      },
@@ -6191,7 +6192,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T07:33:51.160Z"
+    "last": "2026-08-16T07:50:32.856Z"
    }
   },
   "Ireland": {
@@ -6475,7 +6476,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-16T07:48:07.415Z",
+    "at": "2026-08-16T07:56:11.691Z",
     "seen": 18,
     "added": 0,
     "rejected": 11,
@@ -11468,12 +11469,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-14T11:15:05.401Z",
+    "at": "2026-08-16T07:57:24.259Z",
     "seen": 261,
     "added": 0,
     "rejected": 67,
     "error": null,
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "ZA",
@@ -11964,8 +11965,8 @@
    "unreachable": 6,
    "noAddress": 39,
    "leads": 102,
-   "leadsSearched": 99,
-   "leadsFound": 46,
+   "leadsSearched": 102,
+   "leadsFound": 48,
    "sports": {
     "Tennis": 63,
     "Padel": 60,
@@ -12590,12 +12591,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-16T07:49:47.904Z",
+    "at": "2026-08-16T07:57:48.575Z",
     "seen": 2,
     "added": 0,
     "rejected": 1,
     "error": "partial: 4 of 15 subdivisions read",
-    "via": "overpass.kumi.systems"
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "AU",
@@ -13477,12 +13478,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-16T07:48:26.934Z",
+    "at": "2026-08-16T07:55:51.350Z",
     "seen": 46,
     "added": 0,
     "rejected": 10,
     "error": "partial: 0 of 39 subdivisions read",
-    "via": "overpass.kumi.systems"
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "IN",
@@ -34220,34 +34221,34 @@
   }
  },
  "recent": [
-  "2026-08-16T07:49:47.894Z  osm AU: too big for one query — 4 of 15 subdivisions read, carries on next round",
-  "2026-08-16T07:49:47.903Z  osm AU Australia: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
-  "2026-08-16T07:49:47.934Z  dropped example@mysite.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T07:49:47.935Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T07:49:47.936Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T07:49:47.936Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T07:49:47.945Z  dropped example@mysite.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T07:49:47.945Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T07:49:47.946Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T07:49:47.947Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T07:49:47.957Z  dropped example@mysite.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T07:49:47.958Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T07:49:47.958Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T07:49:47.959Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club"
+  "2026-08-16T07:57:48.570Z  osm AU: too big for one query — 4 of 15 subdivisions read, carries on next round",
+  "2026-08-16T07:57:48.574Z  osm AU Australia: 2 places -> +0 new, 0 merged, 0 with an email already, 0 leads with no contact tag, 1 dropped as public",
+  "2026-08-16T07:57:48.601Z  dropped example@mysite.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T07:57:48.604Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T07:57:48.605Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T07:57:48.605Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T07:57:48.613Z  dropped example@mysite.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T07:57:48.615Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T07:57:48.616Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T07:57:48.616Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T07:57:48.626Z  dropped example@mysite.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T07:57:48.628Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T07:57:48.628Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T07:57:48.629Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-16T07:41:02.562Z",
+ "roundStarted": "2026-08-16T07:50:09.883Z",
  "lastRound": {
-  "at": "2026-08-16T07:49:47.968Z",
-  "minutes": 8.8,
-  "summary": "crawled 4 sites, +4 emails; searched 4 club names, found 0 sites, +0 emails; prospected 1 empty countries, +0 clubs; osm 5 countries (ES,GB,BR,US,AU,IN,BW,ZA,BO,MZ,PY,GY) +0, 2 failed",
+  "at": "2026-08-16T07:57:48.637Z",
+  "minutes": 7.6,
+  "summary": "crawled 4 sites, +0 emails; searched 3 club names, found 2 sites, +0 emails; prospected 1 empty countries, +0 clubs; osm 6 countries (ES,GB,BR,AU,IN,ZA,BO,MZ,PY,GY,CL,UY) +0",
   "crawled": 4,
-  "emailsFound": 4,
+  "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
+  "osmCountries": 6,
   "osmAdded": 0,
-  "osmFailed": 2
+  "osmFailed": 0
  }
 }
