@@ -1,10 +1,10 @@
 {
- "generated": "2026-08-16T21:56:47.182Z",
- "clubs": 4262,
- "records": 6417,
+ "generated": "2026-08-16T22:15:53.720Z",
+ "clubs": 4264,
+ "records": 6418,
  "crawl": {
-  "ready": 2,
-  "waiting": 132,
+  "ready": 9,
+  "waiting": 124,
   "exhausted": 1698
  },
  "osm": {
@@ -13,15 +13,15 @@
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "BR",
-   "error": "partial: 0 of 29 subdivisions read",
-   "at": "2026-08-16T21:56:47.052Z"
+   "cc": "AU",
+   "error": "partial: 5 of 15 subdivisions read",
+   "at": "2026-08-16T22:15:53.588Z"
   }
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 3047
+   "n": 3049
   },
   {
    "note": "no email published",
@@ -68,6 +68,29 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-16T22:09:14.721Z",
+   "kind": "prospect",
+   "text": "Colombia: found Padel Montenegro -> https://padelmontenegro.me",
+   "ok": true,
+   "url": "https://padelmontenegro.me"
+  },
+  {
+   "t": "2026-08-16T21:57:09.812Z",
+   "kind": "crawl",
+   "text": "Home Ampthill Great Park Tennis Club Shop — https://www.ampthilltennisshop.co.uk -> sales@balconyshirts.co.uk",
+   "ok": true,
+   "url": "https://www.ampthilltennisshop.co.uk",
+   "email": "sales@balconyshirts.co.uk"
+  },
+  {
+   "t": "2026-08-16T21:57:09.533Z",
+   "kind": "crawl",
+   "text": "Buxton Sports Centre — https://www.buxtonsportscentre.org -> hhsportscentre@gmail.com",
+   "ok": true,
+   "url": "https://www.buxtonsportscentre.org",
+   "email": "hhsportscentre@gmail.com"
+  },
   {
    "t": "2026-08-16T21:50:05.640Z",
    "kind": "prospect",
@@ -1190,27 +1213,6 @@
    "text": "Chiswick Tennis Club — https://chiswickcalendar.co.uk: turned away by a captcha, will retry",
    "ok": false,
    "url": "https://chiswickcalendar.co.uk"
-  },
-  {
-   "t": "2026-08-16T19:35:27.362Z",
-   "kind": "crawl",
-   "text": "Birchwood Leisure & Tennis Centre — https://birchwoodleisure.co.uk: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://birchwoodleisure.co.uk"
-  },
-  {
-   "t": "2026-08-16T19:35:27.347Z",
-   "kind": "crawl",
-   "text": "Merchiston Tennis Court — https://www.merchiston.co.uk: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.merchiston.co.uk"
-  },
-  {
-   "t": "2026-08-16T19:27:31.360Z",
-   "kind": "crawl",
-   "text": "Warlingham Squash and Racketball Club — https://wsc.mycourts.co.uk: site read, publishes no address",
-   "ok": false,
-   "url": "https://wsc.mycourts.co.uk"
   }
  ],
  "perCountry": {
@@ -1237,10 +1239,10 @@
    },
    "seeds": 56,
    "osm": {
-    "at": "2026-08-16T21:55:49.191Z",
-    "seen": 331,
+    "at": "2026-08-16T22:14:48.217Z",
+    "seen": 328,
     "added": 0,
-    "rejected": 179,
+    "rejected": 178,
     "error": "partial: 15 of 23 subdivisions read",
     "via": "overpass.private.coffee"
    },
@@ -3695,9 +3697,9 @@
   },
   "United Kingdom": {
    "clubs": 1370,
-   "emails": 947,
+   "emails": 949,
    "sites": 1262,
-   "read": 1231,
+   "read": 1233,
    "unreachable": 84,
    "noAddress": 314,
    "leads": 721,
@@ -3712,16 +3714,16 @@
     "harvest": 37,
     "osm": 118,
     "search": 296,
-    "prospect": 496
+    "prospect": 498
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-16T21:56:14.603Z",
-    "seen": 162,
+    "at": "2026-08-16T22:14:43.043Z",
+    "seen": 0,
     "added": 0,
-    "rejected": 29,
+    "rejected": 0,
     "error": "partial: 1 of 9 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": ""
    },
    "prospect": {
     "cc": "GB",
@@ -3762,7 +3764,7 @@
     "searchesDone": 3893,
     "searchesTotal": 3918,
     "found": 608,
-    "emails": 768,
+    "emails": 770,
     "countrywide": {
      "s": 2,
      "f": 0
@@ -4705,6 +4707,12 @@
       "e": 2
      },
      {
+      "n": "Ampthill",
+      "s": 6,
+      "f": 1,
+      "e": 2
+     },
+     {
       "n": "Banstead",
       "s": 6,
       "f": 1,
@@ -5239,12 +5247,6 @@
       "e": 1
      },
      {
-      "n": "Ampthill",
-      "s": 6,
-      "f": 1,
-      "e": 1
-     },
-     {
       "n": "Aylesbury",
       "s": 6,
       "f": 1,
@@ -5306,6 +5308,12 @@
      },
      {
       "n": "Bury",
+      "s": 6,
+      "f": 1,
+      "e": 1
+     },
+     {
+      "n": "Buxton",
       "s": 6,
       "f": 1,
       "e": 1
@@ -6161,12 +6169,6 @@
       "s": 6,
       "f": 1,
       "e": 0
-     },
-     {
-      "n": "Barrow in Furness",
-      "s": 6,
-      "f": 1,
-      "e": 0
      }
     ],
     "last": "2026-08-16T21:50:05.639Z"
@@ -6453,12 +6455,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-16T21:56:47.052Z",
+    "at": "2026-08-16T22:14:25.129Z",
     "seen": 18,
     "added": 0,
     "rejected": 11,
     "error": "partial: 0 of 29 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "BR",
@@ -9170,7 +9172,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:23:33.558Z"
+    "last": "2026-08-16T22:06:55.488Z"
    }
   },
   "Portugal": {
@@ -13342,12 +13344,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-16T21:56:01.066Z",
-    "seen": 0,
+    "at": "2026-08-16T22:15:53.588Z",
+    "seen": 190,
     "added": 0,
-    "rejected": 0,
+    "rejected": 54,
     "error": "partial: 5 of 15 subdivisions read",
-    "via": ""
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "AU",
@@ -15360,9 +15362,9 @@
    }
   },
   "Colombia": {
-   "clubs": 63,
+   "clubs": 64,
    "emails": 43,
-   "sites": 63,
+   "sites": 64,
    "read": 63,
    "unreachable": 1,
    "noAddress": 18,
@@ -15370,9 +15372,9 @@
    "leadsSearched": 26,
    "leadsFound": 13,
    "sports": {
-    "Tennis": 35,
-    "Padel": 31,
-    "Squash": 9
+    "Tennis": 36,
+    "Padel": 32,
+    "Squash": 10
    },
    "sources": {
     "osm": 1,
@@ -15423,10 +15425,10 @@
      "Barrancabermeja"
     ],
     "citiesTotal": 245,
-    "citiesSearched": 118,
-    "searchesDone": 591,
+    "citiesSearched": 119,
+    "searchesDone": 597,
     "searchesTotal": 1230,
-    "found": 25,
+    "found": 26,
     "emails": 33,
     "countrywide": {
      "s": 2,
@@ -15604,6 +15606,12 @@
      {
       "n": "Soacha",
       "s": 5,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Montenegro",
+      "s": 2,
       "f": 1,
       "e": 0
      },
@@ -15902,6 +15910,12 @@
       "e": 0
      },
      {
+      "n": "Miranda",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Mocoa",
       "s": 5,
       "f": 0,
@@ -16152,15 +16166,9 @@
       "s": 2,
       "f": 0,
       "e": 0
-     },
-     {
-      "n": "Miranda",
-      "s": 1,
-      "f": 0,
-      "e": 0
      }
     ],
-    "last": "2026-08-16T20:30:20.359Z"
+    "last": "2026-08-16T22:09:14.720Z"
    }
   },
   "Chile": {
@@ -16958,7 +16966,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:27:32.882Z"
+    "last": "2026-08-16T22:08:55.983Z"
    }
   },
   "Ecuador": {
@@ -18027,7 +18035,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T19:59:10.305Z"
+    "last": "2026-08-16T21:59:40.669Z"
    }
   },
   "New Zealand": {
@@ -18389,11 +18397,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-16T21:37:39.385Z",
+    "at": "2026-08-16T22:15:03.937Z",
     "seen": 2460,
     "added": 0,
     "rejected": 902,
-    "error": "fetch failed",
+    "error": "subdivisions: out of time",
     "via": "overpass.private.coffee"
    },
    "prospect": {
@@ -21544,8 +21552,8 @@
      "Pasay"
     ],
     "citiesTotal": 448,
-    "citiesSearched": 93,
-    "searchesDone": 580,
+    "citiesSearched": 100,
+    "searchesDone": 620,
     "searchesTotal": 2694,
     "found": 9,
     "emails": 26,
@@ -21723,6 +21731,12 @@
       "e": 0
      },
      {
+      "n": "Angono",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Antipolo",
       "s": 6,
       "f": 0,
@@ -21742,6 +21756,12 @@
      },
      {
       "n": "Bago City",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Baliuag",
       "s": 6,
       "f": 0,
       "e": 0
@@ -21796,6 +21816,12 @@
      },
      {
       "n": "Caloocan",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Candelaria",
       "s": 6,
       "f": 0,
       "e": 0
@@ -22071,6 +22097,12 @@
       "e": 0
      },
      {
+      "n": "Rodriguez",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Roxas City",
       "s": 6,
       "f": 0,
@@ -22084,6 +22116,18 @@
      },
      {
       "n": "San Jose del Monte",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "San Juan",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "San Mateo",
       "s": 6,
       "f": 0,
       "e": 0
@@ -22149,6 +22193,12 @@
       "e": 0
      },
      {
+      "n": "Talisay",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Cagayan de Oro",
       "s": 2,
       "f": 0,
@@ -22173,7 +22223,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T19:59:10.305Z"
+    "last": "2026-08-16T21:59:40.669Z"
    }
   },
   "Canada": {
@@ -22198,11 +22248,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-16T21:31:23.335Z",
+    "at": "2026-08-16T22:15:02.393Z",
     "seen": 117,
     "added": 0,
     "rejected": 81,
-    "error": "busy (504)",
+    "error": "server cut the query short: runtime error: Query timed out in \"query\" at line 2 after 91 seconds.",
     "via": "overpass.private.coffee"
    },
    "prospect": {
@@ -23007,7 +23057,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.981Z"
    }
   },
   "Mozambique": {
@@ -23425,7 +23475,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Honduras": {
@@ -23795,7 +23845,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Dominican Republic": {
@@ -25589,7 +25639,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:23:33.558Z"
+    "last": "2026-08-16T22:06:55.488Z"
    }
   },
   "Panama": {
@@ -27720,7 +27770,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Malawi": {
@@ -29427,7 +29477,7 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Papua New Guinea": {
@@ -29530,7 +29580,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T19:57:03.493Z"
+    "last": "2026-08-16T21:57:09.915Z"
    }
   },
   "Rwanda": {
@@ -29828,7 +29878,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T19:59:10.305Z"
+    "last": "2026-08-16T21:59:40.669Z"
    }
   },
   "Solomon Islands": {
@@ -29909,7 +29959,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.981Z"
    }
   },
   "Tanzania": {
@@ -29974,8 +30024,8 @@
      "Nzega"
     ],
     "citiesTotal": 169,
-    "citiesSearched": 88,
-    "searchesDone": 533,
+    "citiesSearched": 95,
+    "searchesDone": 573,
     "searchesTotal": 1020,
     "found": 5,
     "emails": 4,
@@ -30057,6 +30107,12 @@
       "e": 0
      },
      {
+      "n": "Bugarama",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Bukoba",
       "s": 6,
       "f": 0,
@@ -30082,6 +30138,12 @@
      },
      {
       "n": "Chalinze",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Chanika",
       "s": 6,
       "f": 0,
       "e": 0
@@ -30327,6 +30389,12 @@
       "e": 0
      },
      {
+      "n": "Mvomero",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Mwandege",
       "s": 6,
       "f": 0,
@@ -30363,6 +30431,12 @@
       "e": 0
      },
      {
+      "n": "Ngudu",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Nguruka",
       "s": 6,
       "f": 0,
@@ -30370,6 +30444,12 @@
      },
      {
       "n": "Njombe",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Nungwi",
       "s": 6,
       "f": 0,
       "e": 0
@@ -30447,6 +30527,12 @@
       "e": 0
      },
      {
+      "n": "Tumbi",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Tunduma",
       "s": 6,
       "f": 0,
@@ -30454,6 +30540,12 @@
      },
      {
       "n": "Tunduru",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Urambo",
       "s": 6,
       "f": 0,
       "e": 0
@@ -30495,8 +30587,8 @@
       "e": 0
      },
      {
-      "n": "Tumbi",
-      "s": 5,
+      "n": "Kibiti",
+      "s": 3,
       "f": 0,
       "e": 0
      },
@@ -30513,7 +30605,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:03:48.844Z"
+    "last": "2026-08-16T22:01:50.572Z"
    }
   },
   "Uganda": {
@@ -30578,8 +30670,8 @@
      "Nakivale Refugee Camp"
     ],
     "citiesTotal": 102,
-    "citiesSearched": 74,
-    "searchesDone": 448,
+    "citiesSearched": 81,
+    "searchesDone": 488,
     "searchesTotal": 618,
     "found": 4,
     "emails": 4,
@@ -30649,6 +30741,12 @@
       "e": 0
      },
      {
+      "n": "Abim",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Adjumani",
       "s": 6,
       "f": 0,
@@ -30685,6 +30783,12 @@
       "e": 0
      },
      {
+      "n": "Bukuya",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Bunamwaya",
       "s": 6,
       "f": 0,
@@ -30692,6 +30796,12 @@
      },
      {
       "n": "Busia",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Buwenge",
       "s": 6,
       "f": 0,
       "e": 0
@@ -30811,6 +30921,12 @@
       "e": 0
      },
      {
+      "n": "Kasozi",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Katabi",
       "s": 6,
       "f": 0,
@@ -30841,6 +30957,12 @@
       "e": 0
      },
      {
+      "n": "Kyaka II Refugee Camp",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Kyegegwa",
       "s": 6,
       "f": 0,
@@ -30866,6 +30988,12 @@
      },
      {
       "n": "Lugazi",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Lukaya",
       "s": 6,
       "f": 0,
       "e": 0
@@ -30908,6 +31036,12 @@
      },
      {
       "n": "Mubende",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Muhorro",
       "s": 6,
       "f": 0,
       "e": 0
@@ -31021,8 +31155,8 @@
       "e": 0
      },
      {
-      "n": "Muhorro",
-      "s": 4,
+      "n": "Butaleja",
+      "s": 2,
       "f": 0,
       "e": 0
      },
@@ -31033,7 +31167,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:06:23.307Z"
+    "last": "2026-08-16T22:04:04.299Z"
    }
   },
   "Zambia": {
@@ -31488,7 +31622,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:06:23.307Z"
+    "last": "2026-08-16T22:04:04.299Z"
    }
   },
   "Zimbabwe": {
@@ -31738,7 +31872,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:06:23.307Z"
+    "last": "2026-08-16T22:04:04.300Z"
    }
   },
   "Cuba": {
@@ -33511,7 +33645,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.983Z"
    }
   },
   "Fiji": {
@@ -33658,7 +33792,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Gambia": {
@@ -33865,7 +33999,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "United Arab Emirates": {
@@ -34261,7 +34395,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:06:23.308Z"
+    "last": "2026-08-16T22:04:04.300Z"
    }
   },
   "Cyprus": {
@@ -34407,7 +34541,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:06:23.308Z"
+    "last": "2026-08-16T22:04:04.300Z"
    }
   },
   "Egypt": {
@@ -34473,8 +34607,8 @@
      "Sohag"
     ],
     "citiesTotal": 231,
-    "citiesSearched": 81,
-    "searchesDone": 500,
+    "citiesSearched": 88,
+    "searchesDone": 540,
     "searchesTotal": 1392,
     "found": 4,
     "emails": 2,
@@ -34544,6 +34678,12 @@
       "e": 0
      },
      {
+      "n": "Abū Qurqāş",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Abū Tīj",
       "s": 6,
       "f": 0,
@@ -34563,6 +34703,12 @@
      },
      {
       "n": "Al ‘Āshir min Ramaḑān",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Al Badrashayn",
       "s": 6,
       "f": 0,
       "e": 0
@@ -34611,6 +34757,12 @@
      },
      {
       "n": "Al Maţarīyah",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Al Minshāh",
       "s": 6,
       "f": 0,
       "e": 0
@@ -34671,6 +34823,12 @@
      },
      {
       "n": "Aswān",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Awsīm",
       "s": 6,
       "f": 0,
       "e": 0
@@ -34748,6 +34906,12 @@
       "e": 0
      },
      {
+      "n": "El Shorouk",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Esna",
       "s": 6,
       "f": 0,
@@ -34755,6 +34919,12 @@
      },
      {
       "n": "Fāqūs",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Fuwwah",
       "s": 6,
       "f": 0,
       "e": 0
@@ -34946,6 +35116,12 @@
       "e": 0
      },
      {
+      "n": "Biyalā",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Alexandria",
       "s": 2,
       "f": 0,
@@ -34970,7 +35146,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:09:03.587Z"
+    "last": "2026-08-16T22:06:55.488Z"
    }
   },
   "Hong Kong": {
@@ -35035,8 +35211,8 @@
      "Nam Cheong"
     ],
     "citiesTotal": 80,
-    "citiesSearched": 75,
-    "searchesDone": 456,
+    "citiesSearched": 79,
+    "searchesDone": 480,
     "searchesTotal": 486,
     "found": 17,
     "emails": 14,
@@ -35154,6 +35330,12 @@
       "e": 0
      },
      {
+      "n": "Fairview Park",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Fanling",
       "s": 6,
       "f": 0,
@@ -35179,6 +35361,12 @@
      },
      {
       "n": "Hong Kong Island",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Hong Lok Yuen",
       "s": 6,
       "f": 0,
       "e": 0
@@ -35245,6 +35433,12 @@
      },
      {
       "n": "Ma On Shan",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Ma Tau Wai",
       "s": 6,
       "f": 0,
       "e": 0
@@ -35359,6 +35553,12 @@
      },
      {
       "n": "Shek O",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Sheung Shui",
       "s": 6,
       "f": 0,
       "e": 0
@@ -35502,7 +35702,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:08:55.981Z"
    }
   },
   "Bermuda": {
@@ -35546,7 +35746,7 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.983Z"
    }
   },
   "Cayman Islands": {
@@ -35599,7 +35799,7 @@
       "e": 2
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.983Z"
    }
   },
   "Gibraltar": {
@@ -35645,7 +35845,7 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.983Z"
    }
   },
   "Jersey": {
@@ -35698,7 +35898,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.983Z"
    }
   },
   "Isle of Man": {
@@ -35752,7 +35952,7 @@
       "e": 2
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.983Z"
    }
   },
   "Puerto Rico": {
@@ -35917,7 +36117,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.983Z"
    }
   },
   "Guatemala": {
@@ -36640,7 +36840,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Sierra Leone": {
@@ -36749,7 +36949,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.981Z"
    }
   },
   "Sudan": {
@@ -37233,7 +37433,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.983Z"
    }
   },
   "Guinea-Bissau": {
@@ -37363,7 +37563,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Liberia": {
@@ -37514,7 +37714,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Seychelles": {
@@ -37567,7 +37767,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.981Z"
    }
   },
   "Belize": {
@@ -37625,7 +37825,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Vanuatu": {
@@ -37676,7 +37876,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.983Z"
    }
   },
   "Marshall Islands": {
@@ -37734,7 +37934,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Micronesia": {
@@ -37776,7 +37976,7 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Samoa": {
@@ -37827,7 +38027,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.981Z"
    }
   },
   "Kiribati": {
@@ -37878,7 +38078,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Saint Kitts and Nevis": {
@@ -37920,7 +38120,7 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Cape Verde": {
@@ -37992,7 +38192,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Grenada": {
@@ -38034,7 +38234,7 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Antigua and Barbuda": {
@@ -38085,7 +38285,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "South Sudan": {
@@ -38220,7 +38420,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.981Z"
    }
   },
   "East Timor": {
@@ -38285,7 +38485,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "São Tomé and Príncipe": {
@@ -38336,7 +38536,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Tonga": {
@@ -38387,7 +38587,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.983Z"
    }
   },
   "Nauru": {
@@ -38429,7 +38629,7 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-16T20:25:54.385Z"
+    "last": "2026-08-16T22:06:55.489Z"
    }
   },
   "Tuvalu": {
@@ -38471,35 +38671,35 @@
      "f": 0
     },
     "cityStats": [],
-    "last": "2026-08-16T20:25:54.386Z"
+    "last": "2026-08-16T22:08:55.983Z"
    }
   }
  },
  "recent": [
-  "2026-08-16T21:56:47.085Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T21:56:47.086Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T21:56:47.095Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T21:56:47.097Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T21:56:47.098Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T21:56:47.098Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T21:56:47.098Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T21:56:47.099Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T21:56:47.111Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T21:56:47.112Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T21:56:47.112Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T21:56:47.112Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T21:56:47.113Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-16T21:56:47.113Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club"
+  "2026-08-16T22:15:53.620Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T22:15:53.620Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T22:15:53.628Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T22:15:53.632Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T22:15:53.633Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T22:15:53.633Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T22:15:53.634Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T22:15:53.634Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T22:15:53.646Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T22:15:53.648Z  dropped info@website.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T22:15:53.648Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T22:15:53.649Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T22:15:53.649Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-16T22:15:53.649Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-16T21:48:43.709Z",
+ "roundStarted": "2026-08-16T21:57:09.034Z",
  "lastRound": {
-  "at": "2026-08-16T21:56:47.123Z",
-  "minutes": 8.1,
-  "summary": "crawled 0 sites, +0 emails; prospected 1 empty countries, +2 clubs; osm 4 countries (ES,GB,BR,AU,IN,ST,IE,CV,PE,CR,SB,PK) +0, 2 failed",
-  "crawled": 0,
-  "emailsFound": 0,
+  "at": "2026-08-16T22:15:53.658Z",
+  "minutes": 18.7,
+  "summary": "crawled 2 sites, +2 emails; prospected 6 empty countries, +1 clubs; osm 4 countries (ES,GB,BR,US,AU,CA,BW,IE,CV,PE,CR,SB) +0, 2 failed",
+  "crawled": 2,
+  "emailsFound": 2,
   "pagesRead": 0,
   "clubsAdded": 0,
   "osmCountries": 4,
