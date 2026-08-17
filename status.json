@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-17T19:58:23.259Z",
- "clubs": 4498,
- "records": 6735,
+ "generated": "2026-08-17T20:09:41.543Z",
+ "clubs": 4501,
+ "records": 6736,
  "crawl": {
-  "ready": 7,
-  "waiting": 129,
-  "exhausted": 1759
+  "ready": 12,
+  "waiting": 121,
+  "exhausted": 1760
  },
  "osm": {
   "imported": 85,
@@ -13,19 +13,19 @@
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "IN",
-   "error": "partial: 0 of 39 subdivisions read",
-   "at": "2026-08-17T19:58:23.112Z"
+   "cc": "CA",
+   "error": "server cut the query short: runtime error: Query timed out in \"query\" at line 2 after 91 seconds.",
+   "at": "2026-08-17T20:09:41.391Z"
   }
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 3241
+   "n": 3242
   },
   {
    "note": "no email published",
-   "n": 1388
+   "n": 1389
   },
   {
    "note": "unreachable",
@@ -68,6 +68,65 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-17T20:01:45.832Z",
+   "kind": "prospect",
+   "text": "Canada: found Club de Tennis de Table de Rimouski -> https://www.cttrimouski.ca",
+   "ok": true,
+   "url": "https://www.cttrimouski.ca"
+  },
+  {
+   "t": "2026-08-17T19:58:58.066Z",
+   "kind": "crawl",
+   "text": "Net Set Padel in KwaZulu-Natal — https://www.nottiespadel.co.za: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.nottiespadel.co.za"
+  },
+  {
+   "t": "2026-08-17T19:58:47.550Z",
+   "kind": "crawl",
+   "text": "Davis Tennis Club — https://davistennisclub.org /membership/ -> info@davistennisclub.org",
+   "ok": true,
+   "url": "https://davistennisclub.org",
+   "email": "info@davistennisclub.org"
+  },
+  {
+   "t": "2026-08-17T19:58:47.520Z",
+   "kind": "crawl",
+   "text": "Bossier City Tennis Center — https://www.bossiercity.playtennissb.com /pages/index.cfm -> toddkillen00@gmail.com",
+   "ok": true,
+   "url": "https://www.bossiercity.playtennissb.com",
+   "email": "toddkillen00@gmail.com"
+  },
+  {
+   "t": "2026-08-17T19:58:46.677Z",
+   "kind": "crawl",
+   "text": "Golf Country Club — https://www.yorbalindaclub.com -> membership@yorbalindaclub.com",
+   "ok": true,
+   "url": "https://www.yorbalindaclub.com",
+   "email": "membership@yorbalindaclub.com"
+  },
+  {
+   "t": "2026-08-17T19:58:45.526Z",
+   "kind": "crawl",
+   "text": "Gimnàs EKKE — https://infogimnasios.es: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://infogimnasios.es"
+  },
+  {
+   "t": "2026-08-17T19:58:45.522Z",
+   "kind": "crawl",
+   "text": "Highbank Orchard Tennis Court — https://highbankorchards.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://highbankorchards.com"
+  },
+  {
+   "t": "2026-08-17T19:58:45.490Z",
+   "kind": "crawl",
+   "text": "West Hants Club — https://www.westhants.co.uk: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.westhants.co.uk"
+  },
   {
    "t": "2026-08-17T19:51:50.457Z",
    "kind": "prospect",
@@ -1166,62 +1225,6 @@
    "text": "Vibora Club Padel Guadalajara — https://plazasguadalajara.com: turned away by a captcha, will retry",
    "ok": false,
    "url": "https://plazasguadalajara.com"
-  },
-  {
-   "t": "2026-08-17T16:01:13.169Z",
-   "kind": "crawl",
-   "text": "Karingal Drive Tennis Club — https://karingaldrivetennis.org.au: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://karingaldrivetennis.org.au"
-  },
-  {
-   "t": "2026-08-17T16:01:13.089Z",
-   "kind": "crawl",
-   "text": "Bundoora Tennis Club — https://bundooratennisclub.com.au: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://bundooratennisclub.com.au"
-  },
-  {
-   "t": "2026-08-17T16:01:13.070Z",
-   "kind": "crawl",
-   "text": "Powlett Reserve Tennis Centre — https://www.victennisacademy.com.au/venues/powlett-reserve/: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.victennisacademy.com.au/venues/powlett-reserve/"
-  },
-  {
-   "t": "2026-08-17T16:01:12.873Z",
-   "kind": "crawl",
-   "text": "Longford Tennis Club — https://longfordtennis.ie: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://longfordtennis.ie"
-  },
-  {
-   "t": "2026-08-17T16:01:12.793Z",
-   "kind": "crawl",
-   "text": "Glass Padel — https://glasspadelclub.co.uk: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://glasspadelclub.co.uk"
-  },
-  {
-   "t": "2026-08-17T16:01:12.714Z",
-   "kind": "crawl",
-   "text": "Miami Tennis Club — https://www.miamitennisclub.com.au: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.miamitennisclub.com.au"
-  },
-  {
-   "t": "2026-08-17T16:01:12.691Z",
-   "kind": "crawl",
-   "text": "Club de Tenis Sibora — https://www.tenissibora.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.tenissibora.com"
-  },
-  {
-   "t": "2026-08-17T16:01:12.640Z",
-   "kind": "crawl",
-   "text": "Beverly Hills Tennis Club — https://beverlyhillstennisclub.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://beverlyhillstennisclub.com"
   }
  ],
  "perCountry": {
@@ -1248,7 +1251,7 @@
    },
    "seeds": 56,
    "osm": {
-    "at": "2026-08-17T19:57:32.013Z",
+    "at": "2026-08-17T20:09:12.386Z",
     "seen": 328,
     "added": 0,
     "rejected": 178,
@@ -3727,12 +3730,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-17T19:56:57.895Z",
-    "seen": 0,
+    "at": "2026-08-17T20:08:57.870Z",
+    "seen": 167,
     "added": 0,
-    "rejected": 0,
+    "rejected": 33,
     "error": "partial: 1 of 9 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "GB",
@@ -6464,7 +6467,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-17T19:57:29.083Z",
+    "at": "2026-08-17T20:09:09.294Z",
     "seen": 18,
     "added": 0,
     "rejected": 11,
@@ -11606,9 +11609,9 @@
    "clubs": 208,
    "emails": 157,
    "sites": 208,
-   "read": 206,
+   "read": 207,
    "unreachable": 6,
-   "noAddress": 44,
+   "noAddress": 45,
    "leads": 122,
    "leadsSearched": 122,
    "leadsFound": 74,
@@ -15543,7 +15546,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-17T19:57:59.044Z",
+    "at": "2026-08-17T20:08:59.361Z",
     "seen": 81,
     "added": 0,
     "rejected": 15,
@@ -16766,12 +16769,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-17T19:58:23.112Z",
+    "at": "2026-08-17T20:08:47.956Z",
     "seen": 46,
     "added": 0,
     "rejected": 10,
     "error": "partial: 0 of 39 subdivisions read",
-    "via": "overpass.kumi.systems"
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "IN",
@@ -22454,9 +22457,9 @@
   },
   "United States": {
    "clubs": 960,
-   "emails": 650,
+   "emails": 653,
    "sites": 959,
-   "read": 944,
+   "read": 947,
    "unreachable": 62,
    "noAddress": 216,
    "leads": 927,
@@ -22470,7 +22473,7 @@
    "sources": {
     "osm": 67,
     "search": 182,
-    "prospect": 401
+    "prospect": 404
    },
    "seeds": 0,
    "osm": {
@@ -22520,7 +22523,7 @@
     "searchesDone": 3620,
     "searchesTotal": 13836,
     "found": 430,
-    "emails": 545,
+    "emails": 548,
     "countrywide": {
      "s": 2,
      "f": 1
@@ -23121,6 +23124,12 @@
       "e": 2
      },
      {
+      "n": "Davis",
+      "s": 2,
+      "f": 1,
+      "e": 2
+     },
+     {
       "n": "Birmingham",
       "s": 6,
       "f": 0,
@@ -23392,6 +23401,12 @@
      },
      {
       "n": "Boise",
+      "s": 6,
+      "f": 1,
+      "e": 1
+     },
+     {
+      "n": "Bossier City",
       "s": 6,
       "f": 1,
       "e": 1
@@ -23907,6 +23922,12 @@
       "e": 1
      },
      {
+      "n": "Yorba Linda",
+      "s": 6,
+      "f": 1,
+      "e": 1
+     },
+     {
       "n": "Chicago",
       "s": 2,
       "f": 1,
@@ -23914,12 +23935,6 @@
      },
      {
       "n": "Dallas",
-      "s": 2,
-      "f": 1,
-      "e": 1
-     },
-     {
-      "n": "Davis",
       "s": 2,
       "f": 1,
       "e": 1
@@ -24645,12 +24660,6 @@
       "e": 0
      },
      {
-      "n": "Bossier City",
-      "s": 6,
-      "f": 1,
-      "e": 0
-     },
-     {
       "n": "Bryan",
       "s": 6,
       "f": 1,
@@ -24802,12 +24811,6 @@
      },
      {
       "n": "Whittier",
-      "s": 6,
-      "f": 1,
-      "e": 0
-     },
-     {
-      "n": "Yorba Linda",
       "s": 6,
       "f": 1,
       "e": 0
@@ -26958,9 +26961,9 @@
    }
   },
   "Canada": {
-   "clubs": 265,
+   "clubs": 266,
    "emails": 213,
-   "sites": 265,
+   "sites": 266,
    "read": 264,
    "unreachable": 8,
    "noAddress": 36,
@@ -26968,7 +26971,7 @@
    "leadsSearched": 149,
    "leadsFound": 100,
    "sports": {
-    "Tennis": 211,
+    "Tennis": 212,
     "Padel": 40,
     "Squash": 60
    },
@@ -26979,11 +26982,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-17T19:37:36.062Z",
+    "at": "2026-08-17T20:09:41.391Z",
     "seen": 117,
     "added": 0,
     "rejected": 81,
-    "error": "timed out",
+    "error": "server cut the query short: runtime error: Query timed out in \"query\" at line 2 after 91 seconds.",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
@@ -27021,10 +27024,10 @@
      "Burlington"
     ],
     "citiesTotal": 383,
-    "citiesSearched": 174,
-    "searchesDone": 1055,
+    "citiesSearched": 181,
+    "searchesDone": 1095,
     "searchesTotal": 2304,
-    "found": 115,
+    "found": 116,
     "emails": 166,
     "countrywide": {
      "s": 2,
@@ -27668,6 +27671,12 @@
       "e": 0
      },
      {
+      "n": "Rimouski",
+      "s": 6,
+      "f": 1,
+      "e": 0
+     },
+     {
       "n": "Saint-Léonard",
       "s": 6,
       "f": 1,
@@ -27747,6 +27756,12 @@
      },
      {
       "n": "Charlesbourg",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Châteauguay",
       "s": 6,
       "f": 0,
       "e": 0
@@ -27855,6 +27870,12 @@
      },
      {
       "n": "Kensington-Cedar Cottage",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Kitsilano",
       "s": 6,
       "f": 0,
       "e": 0
@@ -28028,6 +28049,12 @@
       "e": 0
      },
      {
+      "n": "Saint-Eustache",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Saint-Hubert",
       "s": 6,
       "f": 0,
@@ -28064,6 +28091,12 @@
       "e": 0
      },
      {
+      "n": "Salaberry-de-Valleyfield",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Sault Ste. Marie",
       "s": 6,
       "f": 0,
@@ -28076,6 +28109,12 @@
       "e": 0
      },
      {
+      "n": "Sorel-Tracy",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "St. John's",
       "s": 6,
       "f": 0,
@@ -28083,6 +28122,12 @@
      },
      {
       "n": "Terrebonne",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Timmins",
       "s": 6,
       "f": 0,
       "e": 0
@@ -28172,12 +28217,6 @@
       "e": 0
      },
      {
-      "n": "Kitsilano",
-      "s": 3,
-      "f": 0,
-      "e": 0
-     },
-     {
       "n": "Halifax",
       "s": 2,
       "f": 0,
@@ -28188,9 +28227,15 @@
       "s": 2,
       "f": 0,
       "e": 0
+     },
+     {
+      "n": "Mission",
+      "s": 1,
+      "f": 0,
+      "e": 0
      }
     ],
-    "last": "2026-08-17T19:13:19.999Z"
+    "last": "2026-08-17T20:01:45.831Z"
    }
   },
   "Saint Vincent and the Grenadines": {
@@ -35175,8 +35220,8 @@
      "Pindi Bhattian"
     ],
     "citiesTotal": 326,
-    "citiesSearched": 170,
-    "searchesDone": 1022,
+    "citiesSearched": 176,
+    "searchesDone": 1059,
     "searchesTotal": 1962,
     "found": 20,
     "emails": 19,
@@ -35456,6 +35501,12 @@
       "e": 0
      },
      {
+      "n": "Chuhar Kana",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Chunian",
       "s": 6,
       "f": 0,
@@ -35475,6 +35526,12 @@
      },
      {
       "n": "Dajal",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Darya Khan",
       "s": 6,
       "f": 0,
       "e": 0
@@ -35576,6 +35633,12 @@
       "e": 0
      },
      {
+      "n": "Gujar Khan",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Gujrat",
       "s": 6,
       "f": 0,
@@ -35666,6 +35729,12 @@
       "e": 0
      },
      {
+      "n": "Kahror Pakka",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Kamalia",
       "s": 6,
       "f": 0,
@@ -35745,6 +35814,12 @@
      },
      {
       "n": "Kot Addu",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Kot Malik Barkhurdar",
       "s": 6,
       "f": 0,
       "e": 0
@@ -35949,6 +36024,12 @@
      },
      {
       "n": "Quetta",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Rabwah",
       "s": 6,
       "f": 0,
       "e": 0
@@ -36194,19 +36275,19 @@
       "e": 0
      },
      {
-      "n": "Islamabad",
-      "s": 2,
+      "n": "Shorkot",
+      "s": 4,
       "f": 0,
       "e": 0
      },
      {
-      "n": "Rabwah",
+      "n": "Islamabad",
       "s": 2,
       "f": 0,
       "e": 0
      }
     ],
-    "last": "2026-08-17T19:22:33.240Z"
+    "last": "2026-08-17T20:03:42.400Z"
    }
   },
   "Palau": {
@@ -46851,30 +46932,30 @@
   }
  },
  "recent": [
-  "2026-08-17T19:58:23.161Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T19:58:23.163Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T19:58:23.163Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T19:58:23.164Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T19:58:23.164Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T19:58:23.164Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T19:58:23.164Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T19:58:23.175Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T19:58:23.177Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T19:58:23.178Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T19:58:23.178Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T19:58:23.178Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T19:58:23.178Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T19:58:23.179Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
+  "2026-08-17T20:09:41.444Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T20:09:41.446Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T20:09:41.446Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T20:09:41.447Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T20:09:41.447Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T20:09:41.447Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T20:09:41.448Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T20:09:41.460Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T20:09:41.461Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T20:09:41.462Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T20:09:41.462Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T20:09:41.462Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T20:09:41.463Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T20:09:41.463Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-17T19:39:31.741Z",
+ "roundStarted": "2026-08-17T19:58:45.266Z",
  "lastRound": {
-  "at": "2026-08-17T19:58:23.188Z",
-  "minutes": 18.9,
-  "summary": "crawled 3 sites, +1 emails; prospected 5 empty countries, +4 clubs; osm 5 countries (ES,GB,BR,US,AU,IN,GD,DO,TO,TL,PA,VC) +0, 1 failed",
-  "crawled": 3,
-  "emailsFound": 1,
+  "at": "2026-08-17T20:09:41.473Z",
+  "minutes": 10.9,
+  "summary": "crawled 7 sites, +3 emails; prospected 2 empty countries, +1 clubs; osm 5 countries (ES,GB,BR,AU,IN,CA,BW,GD,DO,TO,TL,PA) +0, 1 failed",
+  "crawled": 7,
+  "emailsFound": 3,
   "pagesRead": 0,
   "clubsAdded": 0,
   "osmCountries": 5,
