@@ -1083,7 +1083,12 @@ function writeStatusJSON(extra){
     for(const [n, e] of Object.entries(cityEmails[cname] || {})){
       if(!merged.has(n)) merged.set(n, {s: 0, f: 0, e});
     }
-    const cityRows = Array.from(merged);
+    // Biggest city first, the order the prospector works in and the order
+    // the page prints, so the rows diff quietly from one round to the next.
+    const rank = new Map(cities.map((n, i) => [n, i]));
+    const cityRows = Array.from(merged)
+      .sort((a, b) => (rank.has(a[0]) ? rank.get(a[0]) : 1e9) - (rank.has(b[0]) ? rank.get(b[0]) : 1e9)
+                   || a[0].localeCompare(b[0]));
     s.prospect = {
       // the coverage tab joins this back to lib/cities.json by country code
       cc,
@@ -1095,10 +1100,24 @@ function writeStatusJSON(extra){
       found: Object.values(cs).reduce((n, v) => n + (v.f || 0), 0),
       emails: Object.values(cityEmails[cname] || {}).reduce((n, e) => n + e, 0),
       countrywide: cs[''] || null,
-      cityStats: cityRows
-        .sort((a, b) => (b[1].e - a[1].e) || (b[1].f - a[1].f) || (b[1].s - a[1].s) || a[0].localeCompare(b[0]))
-        .slice(0, 400)
-        .map(([n, v]) => ({n, s: v.s, f: v.f, e: v.e})),
+      // Every city that has been searched, not a top slice of them. The cap
+      // used to be 400 rows ranked by emails, and the page prints all of a
+      // country's cities and reads a missing row as nought searches — so the
+      // 502 quietest Brazilian cities, already searched and simply low
+      // yielding, were shown as untouched, and the marker for where the
+      // scraper stands landed on the first city the cap had dropped.
+      // The row shape stays as it is, deliberately. A compact [name, count]
+      // pair costs seventeen bytes against thirty-seven and would have paid
+      // for the extra rows outright — but the page reading these is whatever
+      // GitHub Pages last served, and it cannot be updated in the same
+      // breath: index.html is one of the files publish.js keeps, so the
+      // running collector restores its own copy and a page pushed from
+      // elsewhere never reaches the site until that collector is restarted.
+      // Uncapping alone fixes what readers actually see, and it does it
+      // through every old page as well as every new one. 6,638 rows in
+      // 236 KB before, 7,844 in 279 KB now, near 551 KB at full coverage —
+      // the compact shape is worth having later, with the page beside it.
+      cityStats: cityRows.map(([n, v]) => ({n, s: v.s, f: v.f, e: v.e})),
       last: pst.last || null
     };
   }

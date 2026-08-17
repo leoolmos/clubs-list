@@ -783,7 +783,15 @@ function fillCoverage(det){
   det.dataset.filled = "1";
   var cc = det.dataset.cc, pr = covProspect[cc] || {};
   var stats = {};
-  (pr.cityStats||[]).forEach(function(c){ stats[c.n] = c; });
+  // Rows arrive as [name, searches] or [name, searches, clubs, emails]. A
+  // status.json written before that shape carries {n,s,f,e} objects, and a
+  // published page outlives the file beside it by an hour at most, so both
+  // are read rather than the older one being treated as empty coverage.
+  (pr.cityStats||[]).forEach(function(c){
+    stats[Array.isArray(c) ? c[0] : c.n] = Array.isArray(c)
+      ? {s: c[1]||0, f: c[2]||0, e: c[3]||0}
+      : {s: c.s||0, f: c.f||0, e: c.e||0};
+  });
   var all = (CITY_DATA && CITY_DATA[cc]) || [];
   var head = pr.countrywide
     ? "<p class='meta' style='margin:4px 0'>country-wide: "+pr.countrywide.s+" searches · "+(pr.countrywide.f||0)+" clubs</p>"
