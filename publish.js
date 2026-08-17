@@ -154,9 +154,22 @@ function rebaseOntoRemote(cfg, say){
     return false;
   }
 
-  // Keep the freshly generated files, take the remote's history
+  // Keep the freshly generated files, take the remote's history.
+  //
+  // Only the generated ones. index.html is tracked so that an edit made here
+  // still publishes, but the daemon never writes it — so holding the copy on
+  // disk through the reset restored this machine's older page over a newer
+  // one pushed from elsewhere, and committed the reversal as "clubs: N".
+  // A fix to the page pushed from a laptop lasted until the next round.
+  // Unless this machine is the one that changed it, which is the case the
+  // tracking is for: then it is real work and it still wins. `changed` is
+  // already that question answered — the three-dot diff lists what this side
+  // touched since the histories parted, and publish() has committed any edit
+  // sitting in the tree before this runs.
+  const keepPage = changed.includes('index.html');
   const keep = new Map();
   for(const f of TRACKED){
+    if(f === 'index.html' && !keepPage) continue;
     const p = path.join(ROOT, f);
     if(fs.existsSync(p)) keep.set(f, fs.readFileSync(p));
   }
