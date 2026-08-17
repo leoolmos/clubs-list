@@ -1,9 +1,9 @@
 {
- "generated": "2026-08-17T15:11:18.968Z",
- "clubs": 4458,
+ "generated": "2026-08-17T15:21:14.338Z",
+ "clubs": 4460,
  "records": 6678,
  "crawl": {
-  "ready": 2,
+  "ready": 0,
   "waiting": 131,
   "exhausted": 1748
  },
@@ -13,15 +13,15 @@
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "CA",
+   "cc": "BW",
    "error": "timed out",
-   "at": "2026-08-17T15:11:18.824Z"
+   "at": "2026-08-17T15:21:14.190Z"
   }
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 3209
+   "n": 3211
   },
   {
    "note": "no email published",
@@ -68,6 +68,22 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-17T15:11:41.176Z",
+   "kind": "crawl",
+   "text": "Quinte Tennis Club — https://www.quintetennis.ca -> quintetennisclub@gmail.com",
+   "ok": true,
+   "url": "https://www.quintetennis.ca",
+   "email": "quintetennisclub@gmail.com"
+  },
+  {
+   "t": "2026-08-17T15:11:40.985Z",
+   "kind": "crawl",
+   "text": "Pole Padel — https://polepadel.fr -> polepadelbelleville@gmail.com",
+   "ok": true,
+   "url": "https://polepadel.fr",
+   "email": "polepadelbelleville@gmail.com"
+  },
   {
    "t": "2026-08-17T15:00:08.090Z",
    "kind": "prospect",
@@ -1215,22 +1231,6 @@
    "text": "Pistas de pádel en Bélgica — https://belgium.padelen.com: site read, publishes no address",
    "ok": false,
    "url": "https://belgium.padelen.com"
-  },
-  {
-   "t": "2026-08-17T10:41:29.727Z",
-   "kind": "crawl",
-   "text": "Squash NB — https://squashnb.ca /contact-us -> squashnb@outlook.com",
-   "ok": true,
-   "url": "https://squashnb.ca",
-   "email": "squashnb@outlook.com"
-  },
-  {
-   "t": "2026-08-17T10:41:25.999Z",
-   "kind": "crawl",
-   "text": "Halton Hills Tennis Club — https://www.haltonhillstennis.com -> haltonhillstennisinfo@gmail.com",
-   "ok": true,
-   "url": "https://www.haltonhillstennis.com",
-   "email": "haltonhillstennisinfo@gmail.com"
   }
  ],
  "perCountry": {
@@ -1257,12 +1257,12 @@
    },
    "seeds": 56,
    "osm": {
-    "at": "2026-08-17T15:10:29.448Z",
-    "seen": 0,
+    "at": "2026-08-17T15:19:08.298Z",
+    "seen": 331,
     "added": 0,
-    "rejected": 0,
+    "rejected": 179,
     "error": "partial: 15 of 23 subdivisions read",
-    "via": ""
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "ES",
@@ -3710,7 +3710,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-17T14:33:11.630Z"
+    "last": "2026-08-17T15:11:41.399Z"
    }
   },
   "United Kingdom": {
@@ -3736,12 +3736,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-17T15:11:17.895Z",
-    "seen": 162,
+    "at": "2026-08-17T15:20:20.190Z",
+    "seen": 0,
     "added": 0,
-    "rejected": 29,
+    "rejected": 0,
     "error": "partial: 1 of 9 subdivisions read",
-    "via": "overpass.kumi.systems"
+    "via": ""
    },
    "prospect": {
     "cc": "GB",
@@ -6189,7 +6189,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-17T14:33:11.631Z"
+    "last": "2026-08-17T15:11:41.400Z"
    }
   },
   "Ireland": {
@@ -6473,11 +6473,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-17T15:10:44.761Z",
+    "at": "2026-08-17T15:20:43.495Z",
     "seen": 18,
     "added": 0,
     "rejected": 11,
-    "error": "partial: 0 of 29 subdivisions read",
+    "error": "timed out",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
@@ -6515,8 +6515,8 @@
      "Joinville"
     ],
     "citiesTotal": 1808,
-    "citiesSearched": 823,
-    "searchesDone": 4118,
+    "citiesSearched": 831,
+    "searchesDone": 4158,
     "searchesTotal": 9045,
     "found": 112,
     "emails": 91,
@@ -8236,6 +8236,12 @@
       "e": 0
      },
      {
+      "n": "Cerquilho",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Chapadinha",
       "s": 5,
       "f": 0,
@@ -8918,15 +8924,9 @@
       "s": 5,
       "f": 0,
       "e": 0
-     },
-     {
-      "n": "Iranduba",
-      "s": 5,
-      "f": 0,
-      "e": 0
      }
     ],
-    "last": "2026-08-17T14:35:35.314Z"
+    "last": "2026-08-17T15:14:02.569Z"
    }
   },
   "Bolivia": {
@@ -11608,7 +11608,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-17T14:35:35.314Z"
+    "last": "2026-08-17T15:14:02.571Z"
    }
   },
   "South Africa": {
@@ -14916,7 +14916,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-17T15:10:16.832Z",
+    "at": "2026-08-17T15:19:27.645Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -21313,7 +21313,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-17T14:51:37.330Z",
+    "at": "2026-08-17T15:20:01.541Z",
     "seen": 2460,
     "added": 0,
     "rejected": 902,
@@ -21355,7 +21355,7 @@
      "Detroit"
     ],
     "citiesTotal": 2305,
-    "citiesSearched": 547,
+    "citiesSearched": 548,
     "searchesDone": 3300,
     "searchesTotal": 13836,
     "found": 408,
@@ -23766,7 +23766,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-17T14:38:01.285Z"
+    "last": "2026-08-17T15:14:06.208Z"
    }
   },
   "Peru": {
@@ -25606,9 +25606,9 @@
   },
   "Canada": {
    "clubs": 257,
-   "emails": 204,
+   "emails": 206,
    "sites": 257,
-   "read": 254,
+   "read": 256,
    "unreachable": 8,
    "noAddress": 35,
    "leads": 149,
@@ -25622,7 +25622,7 @@
    "sources": {
     "osm": 24,
     "search": 40,
-    "prospect": 140
+    "prospect": 142
    },
    "seeds": 0,
    "osm": {
@@ -25672,7 +25672,7 @@
     "searchesDone": 925,
     "searchesTotal": 2304,
     "found": 107,
-    "emails": 157,
+    "emails": 159,
     "countrywide": {
      "s": 2,
      "f": 0
@@ -25843,6 +25843,12 @@
      {
       "n": "St. Catharines",
       "s": 6,
+      "f": 2,
+      "e": 2
+     },
+     {
+      "n": "Belleville",
+      "s": 5,
       "f": 2,
       "e": 2
      },
@@ -26259,12 +26265,6 @@
       "s": 0,
       "f": 0,
       "e": 1
-     },
-     {
-      "n": "Belleville",
-      "s": 5,
-      "f": 2,
-      "e": 0
      },
      {
       "n": "Longueuil",
@@ -29632,7 +29632,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-17T14:51:44.126Z",
+    "at": "2026-08-17T15:21:14.190Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -44868,34 +44868,34 @@
   }
  },
  "recent": [
-  "2026-08-17T15:11:18.873Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T15:11:18.875Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T15:11:18.876Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T15:11:18.876Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T15:11:18.876Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T15:11:18.877Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T15:11:18.877Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T15:11:18.888Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T15:11:18.890Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T15:11:18.891Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T15:11:18.891Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T15:11:18.892Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T15:11:18.892Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T15:11:18.892Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
+  "2026-08-17T15:21:14.241Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T15:21:14.243Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T15:21:14.243Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T15:21:14.244Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T15:21:14.244Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T15:21:14.245Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T15:21:14.245Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T15:21:14.256Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T15:21:14.258Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T15:21:14.259Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T15:21:14.259Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T15:21:14.260Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T15:21:14.260Z  dropped eben@eyebytes.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T15:21:14.260Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-17T14:52:31.510Z",
+ "roundStarted": "2026-08-17T15:11:40.776Z",
  "lastRound": {
-  "at": "2026-08-17T15:11:18.902Z",
-  "minutes": 18.8,
-  "summary": "crawled 10 sites, +6 emails; prospected 6 empty countries, +2 clubs; osm 4 countries (ES,GB,BR,AU,IN,CA,AO,PT,GW,PH,JM,GD) +0, 2 failed",
-  "crawled": 10,
-  "emailsFound": 6,
+  "at": "2026-08-17T15:21:14.270Z",
+  "minutes": 9.6,
+  "summary": "crawled 2 sites, +2 emails; prospected 2 empty countries, +0 clubs; osm 3 countries (ES,GB,BR,US,AU,BW,AO,PT,GW,PH,JM,GD) +0, 3 failed",
+  "crawled": 2,
+  "emailsFound": 2,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 4,
+  "osmCountries": 3,
   "osmAdded": 0,
-  "osmFailed": 2
+  "osmFailed": 3
  }
 }
