@@ -1,10 +1,10 @@
 {
- "generated": "2026-08-17T16:40:07.369Z",
+ "generated": "2026-08-17T16:58:56.715Z",
  "clubs": 4466,
- "records": 6687,
+ "records": 6692,
  "crawl": {
-  "ready": 0,
-  "waiting": 131,
+  "ready": 14,
+  "waiting": 122,
   "exhausted": 1750
  },
  "osm": {
@@ -13,9 +13,9 @@
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "GB",
-   "error": "partial: 1 of 9 subdivisions read",
-   "at": "2026-08-17T16:40:07.222Z"
+   "cc": "ES",
+   "error": "partial: 15 of 23 subdivisions read",
+   "at": "2026-08-17T16:58:56.570Z"
   }
  },
  "crawlReasons": [
@@ -68,6 +68,41 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-17T16:52:26.602Z",
+   "kind": "prospect",
+   "text": "South Africa: found GST Padel -> https://gstpadel.co.za",
+   "ok": true,
+   "url": "https://gstpadel.co.za"
+  },
+  {
+   "t": "2026-08-17T16:45:27.612Z",
+   "kind": "prospect",
+   "text": "United States: found Maywood Tennis Club Summer Academy -> https://www.mtcsummeracademy.com",
+   "ok": true,
+   "url": "https://www.mtcsummeracademy.com"
+  },
+  {
+   "t": "2026-08-17T16:45:27.611Z",
+   "kind": "prospect",
+   "text": "United States: found Indoor Tennis Club in Maywood -> https://www.maywoodracquetsclub.com",
+   "ok": true,
+   "url": "https://www.maywoodracquetsclub.com"
+  },
+  {
+   "t": "2026-08-17T16:45:27.611Z",
+   "kind": "prospect",
+   "text": "United States: found Padelton -> https://padelton.com",
+   "ok": true,
+   "url": "https://padelton.com"
+  },
+  {
+   "t": "2026-08-17T16:43:07.259Z",
+   "kind": "prospect",
+   "text": "Brazil: found Iate Clube São Lourenço do Sul -> https://www.icsls.com.br",
+   "ok": true,
+   "url": "https://www.icsls.com.br"
+  },
   {
    "t": "2026-08-17T16:22:20.288Z",
    "kind": "crawl",
@@ -1177,42 +1212,6 @@
    "text": "Venezuela: found All In Tennis Academy -> https://www.allintennisacademylv.com",
    "ok": true,
    "url": "https://www.allintennisacademylv.com"
-  },
-  {
-   "t": "2026-08-17T13:53:06.583Z",
-   "kind": "prospect",
-   "text": "Colombia: found Albania Padel Group -> https://albaniapadel.com",
-   "ok": true,
-   "url": "https://albaniapadel.com"
-  },
-  {
-   "t": "2026-08-17T13:49:44.848Z",
-   "kind": "crawl",
-   "text": "Mango Smash Club — https://mangosmash.club: site read, publishes no address",
-   "ok": false,
-   "url": "https://mangosmash.club"
-  },
-  {
-   "t": "2026-08-17T13:49:44.393Z",
-   "kind": "crawl",
-   "text": "Jbay Squash — https://jbaysquash.co.za: site read, publishes no address",
-   "ok": false,
-   "url": "https://jbaysquash.co.za"
-  },
-  {
-   "t": "2026-08-17T13:49:33.698Z",
-   "kind": "crawl",
-   "text": "Gimnàs EKKE — https://infogimnasios.es: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://infogimnasios.es"
-  },
-  {
-   "t": "2026-08-17T13:49:33.184Z",
-   "kind": "crawl",
-   "text": "Racquets and Stringing — https://www.racquetmasteriowa.com -> racquetmaster@gmail.com",
-   "ok": true,
-   "url": "https://www.racquetmasteriowa.com",
-   "email": "racquetmaster@gmail.com"
   }
  ],
  "perCountry": {
@@ -1239,12 +1238,12 @@
    },
    "seeds": 56,
    "osm": {
-    "at": "2026-08-17T16:39:46.821Z",
-    "seen": 0,
+    "at": "2026-08-17T16:58:56.570Z",
+    "seen": 331,
     "added": 0,
-    "rejected": 0,
+    "rejected": 179,
     "error": "partial: 15 of 23 subdivisions read",
-    "via": ""
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "ES",
@@ -3692,7 +3691,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-17T16:01:14.843Z"
+    "last": "2026-08-17T16:40:29.626Z"
    }
   },
   "United Kingdom": {
@@ -3718,12 +3717,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-17T16:40:07.222Z",
-    "seen": 0,
+    "at": "2026-08-17T16:57:41.276Z",
+    "seen": 162,
     "added": 0,
-    "rejected": 0,
+    "rejected": 29,
     "error": "partial: 1 of 9 subdivisions read",
-    "via": ""
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "GB",
@@ -6171,7 +6170,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-17T16:01:14.849Z"
+    "last": "2026-08-17T16:40:29.628Z"
    }
   },
   "Ireland": {
@@ -6434,9 +6433,9 @@
    }
   },
   "Brazil": {
-   "clubs": 193,
+   "clubs": 194,
    "emails": 121,
-   "sites": 191,
+   "sites": 192,
    "read": 188,
    "unreachable": 5,
    "noAddress": 67,
@@ -6444,8 +6443,8 @@
    "leadsSearched": 64,
    "leadsFound": 30,
    "sports": {
-    "Tennis": 126,
-    "Padel": 68,
+    "Tennis": 127,
+    "Padel": 69,
     "Squash": 32
    },
    "sources": {
@@ -6455,12 +6454,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-17T16:39:41.832Z",
+    "at": "2026-08-17T16:57:32.293Z",
     "seen": 18,
     "added": 0,
     "rejected": 11,
     "error": "partial: 0 of 29 subdivisions read",
-    "via": "overpass.kumi.systems"
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "BR",
@@ -6497,10 +6496,10 @@
      "Joinville"
     ],
     "citiesTotal": 1808,
-    "citiesSearched": 847,
-    "searchesDone": 4238,
+    "citiesSearched": 855,
+    "searchesDone": 4278,
     "searchesTotal": 9045,
-    "found": 114,
+    "found": 115,
     "emails": 93,
     "countrywide": {
      "s": 2,
@@ -7168,6 +7167,12 @@
       "e": 0
      },
      {
+      "n": "São Lourenço do Sul",
+      "s": 5,
+      "f": 1,
+      "e": 0
+     },
+     {
       "n": "Sertãozinho",
       "s": 5,
       "f": 1,
@@ -7511,6 +7516,12 @@
      },
      {
       "n": "Araruama",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Arcos",
       "s": 5,
       "f": 0,
       "e": 0
@@ -8009,6 +8020,12 @@
      },
      {
       "n": "Camocim",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Campina Grande do Sul",
       "s": 5,
       "f": 0,
       "e": 0
@@ -8888,27 +8905,9 @@
       "s": 5,
       "f": 0,
       "e": 0
-     },
-     {
-      "n": "Ijuí",
-      "s": 5,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Imbituba",
-      "s": 5,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Imperatriz",
-      "s": 5,
-      "f": 0,
-      "e": 0
      }
     ],
-    "last": "2026-08-17T16:03:21.240Z"
+    "last": "2026-08-17T16:43:07.258Z"
    }
   },
   "Bolivia": {
@@ -10000,7 +9999,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-17T16:05:22.718Z"
+    "last": "2026-08-17T16:45:27.613Z"
    }
   },
   "Argentina": {
@@ -11590,13 +11589,13 @@
       "e": 0
      }
     ],
-    "last": "2026-08-17T16:03:21.241Z"
+    "last": "2026-08-17T16:43:07.261Z"
    }
   },
   "South Africa": {
-   "clubs": 197,
+   "clubs": 198,
    "emails": 150,
-   "sites": 197,
+   "sites": 198,
    "read": 196,
    "unreachable": 5,
    "noAddress": 42,
@@ -11605,7 +11604,7 @@
    "leadsFound": 74,
    "sports": {
     "Tennis": 103,
-    "Padel": 73,
+    "Padel": 74,
     "Squash": 62
    },
    "sources": {
@@ -11658,10 +11657,10 @@
      "Vanderbijlpark"
     ],
     "citiesTotal": 245,
-    "citiesSearched": 194,
-    "searchesDone": 1169,
+    "citiesSearched": 200,
+    "searchesDone": 1209,
     "searchesTotal": 1476,
-    "found": 91,
+    "found": 92,
     "emails": 113,
     "countrywide": {
      "s": 2,
@@ -11801,6 +11800,12 @@
       "e": 2
      },
      {
+      "n": "Shakaskraal",
+      "s": 6,
+      "f": 0,
+      "e": 2
+     },
+     {
       "n": "Cape Town",
       "s": 2,
       "f": 0,
@@ -11809,12 +11814,6 @@
      {
       "n": "Somerset West",
       "s": 2,
-      "f": 0,
-      "e": 2
-     },
-     {
-      "n": "Shakaskraal",
-      "s": 0,
       "f": 0,
       "e": 2
      },
@@ -12041,6 +12040,12 @@
       "e": 0
      },
      {
+      "n": "Hartbeespoort",
+      "s": 6,
+      "f": 1,
+      "e": 0
+     },
+     {
       "n": "Jeffreys Bay",
       "s": 6,
       "f": 1,
@@ -12144,6 +12149,12 @@
      },
      {
       "n": "Balfour",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Ballitoville",
       "s": 6,
       "f": 0,
       "e": 0
@@ -12384,6 +12395,12 @@
      },
      {
       "n": "Heilbron",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Hendrina",
       "s": 6,
       "f": 0,
       "e": 0
@@ -12653,6 +12670,12 @@
       "e": 0
      },
      {
+      "n": "Praktiseer",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Queenstown",
       "s": 6,
       "f": 0,
@@ -12767,6 +12790,12 @@
       "e": 0
      },
      {
+      "n": "Ventersdorp",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Volksrust",
       "s": 6,
       "f": 0,
@@ -12827,6 +12856,12 @@
       "e": 0
      },
      {
+      "n": "Estcourt",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Bloemfontein",
       "s": 2,
       "f": 0,
@@ -12843,15 +12878,9 @@
       "s": 2,
       "f": 0,
       "e": 0
-     },
-     {
-      "n": "Ballitoville",
-      "s": 1,
-      "f": 0,
-      "e": 0
      }
     ],
-    "last": "2026-08-17T16:13:17.792Z"
+    "last": "2026-08-17T16:52:26.601Z"
    }
   },
   "Mexico": {
@@ -12918,8 +12947,8 @@
      "Tlaquepaque"
     ],
     "citiesTotal": 490,
-    "citiesSearched": 353,
-    "searchesDone": 1777,
+    "citiesSearched": 361,
+    "searchesDone": 1817,
     "searchesTotal": 2455,
     "found": 65,
     "emails": 69,
@@ -13391,6 +13420,12 @@
       "e": 0
      },
      {
+      "n": "Ajalpan",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Altamira",
       "s": 5,
       "f": 0,
@@ -13410,6 +13445,12 @@
      },
      {
       "n": "Amozoc de Mota",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Apaseo el Alto",
       "s": 5,
       "f": 0,
       "e": 0
@@ -13452,6 +13493,12 @@
      },
      {
       "n": "Benito Juárez",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Berriozábal",
       "s": 5,
       "f": 0,
       "e": 0
@@ -14249,6 +14296,12 @@
       "e": 0
      },
      {
+      "n": "Nuevo México",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Ocosingo",
       "s": 5,
       "f": 0,
@@ -14262,6 +14315,12 @@
      },
      {
       "n": "Ocozocoautla de Espinosa",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Ojinaga",
       "s": 5,
       "f": 0,
       "e": 0
@@ -14388,6 +14447,12 @@
      },
      {
       "n": "Ramos Arizpe",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Rincón de Romos",
       "s": 5,
       "f": 0,
       "e": 0
@@ -14598,6 +14663,12 @@
      },
      {
       "n": "San Salvador Tizatlalli",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "San Sebastián el Grande",
       "s": 5,
       "f": 0,
       "e": 0
@@ -14843,6 +14914,12 @@
       "e": 0
      },
      {
+      "n": "Tultitlán de Mariano Escobedo",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Túxpam de Rodríguez Cano",
       "s": 5,
       "f": 0,
@@ -14969,7 +15046,7 @@
       "e": 0
      },
      {
-      "n": "San Sebastián el Grande",
+      "n": "San Francisco Acuautla",
       "s": 3,
       "f": 0,
       "e": 0
@@ -15047,7 +15124,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-17T16:07:49.907Z"
+    "last": "2026-08-17T16:48:02.598Z"
    }
   },
   "Australia": {
@@ -15072,7 +15149,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-17T16:39:28.832Z",
+    "at": "2026-08-17T16:58:32.047Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -16271,7 +16348,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-17T16:05:22.717Z"
+    "last": "2026-08-17T16:45:27.612Z"
    }
   },
   "India": {
@@ -16337,8 +16414,8 @@
      "Rājkot"
     ],
     "citiesTotal": 2937,
-    "citiesSearched": 262,
-    "searchesDone": 1590,
+    "citiesSearched": 269,
+    "searchesDone": 1630,
     "searchesTotal": 17628,
     "found": 91,
     "emails": 131,
@@ -17098,6 +17175,12 @@
       "e": 0
      },
      {
+      "n": "Bhālswa Jahangirpur",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Bharatpur",
       "s": 6,
       "f": 0,
@@ -17128,7 +17211,19 @@
       "e": 0
      },
      {
+      "n": "Bhind",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Bhiwandi",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Bhiwāni",
       "s": 6,
       "f": 0,
       "e": 0
@@ -17165,6 +17260,12 @@
      },
      {
       "n": "Borivli",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Bulandshahr",
       "s": 6,
       "f": 0,
       "e": 0
@@ -17435,6 +17536,12 @@
      },
      {
       "n": "Katihar",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Khammam",
       "s": 6,
       "f": 0,
       "e": 0
@@ -17824,6 +17931,12 @@
       "e": 0
      },
      {
+      "n": "Sambhal",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Sāngli",
       "s": 6,
       "f": 0,
@@ -17998,6 +18111,12 @@
       "e": 0
      },
      {
+      "n": "Panvel",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Bhopal",
       "s": 2,
       "f": 0,
@@ -18028,7 +18147,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-17T16:10:27.220Z"
+    "last": "2026-08-17T16:50:36.026Z"
    }
   },
   "Colombia": {
@@ -21574,9 +21693,9 @@
    }
   },
   "United States": {
-   "clubs": 942,
+   "clubs": 945,
    "emails": 639,
-   "sites": 941,
+   "sites": 944,
    "read": 929,
    "unreachable": 62,
    "noAddress": 212,
@@ -21584,9 +21703,9 @@
    "leadsSearched": 927,
    "leadsFound": 702,
    "sports": {
-    "Tennis": 800,
-    "Padel": 164,
-    "Squash": 81
+    "Tennis": 803,
+    "Padel": 166,
+    "Squash": 82
    },
    "sources": {
     "osm": 67,
@@ -21595,7 +21714,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-17T16:20:47.377Z",
+    "at": "2026-08-17T16:57:47.612Z",
     "seen": 2460,
     "added": 0,
     "rejected": 902,
@@ -21637,10 +21756,10 @@
      "Detroit"
     ],
     "citiesTotal": 2305,
-    "citiesSearched": 561,
-    "searchesDone": 3380,
+    "citiesSearched": 567,
+    "searchesDone": 3420,
     "searchesTotal": 13836,
-    "found": 412,
+    "found": 415,
     "emails": 534,
     "countrywide": {
      "s": 2,
@@ -23676,6 +23795,12 @@
       "e": 0
      },
      {
+      "n": "Passaic",
+      "s": 6,
+      "f": 2,
+      "e": 0
+     },
+     {
       "n": "Tallahassee",
       "s": 6,
       "f": 2,
@@ -23755,6 +23880,12 @@
      },
      {
       "n": "Fairfield",
+      "s": 6,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Flower Mound",
       "s": 6,
       "f": 1,
       "e": 0
@@ -24034,21 +24165,9 @@
       "s": 6,
       "f": 0,
       "e": 0
-     },
-     {
-      "n": "Bolingbrook",
-      "s": 6,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Borough Park",
-      "s": 6,
-      "f": 0,
-      "e": 0
      }
     ],
-    "last": "2026-08-17T16:05:22.717Z"
+    "last": "2026-08-17T16:45:27.611Z"
    }
   },
   "Peru": {
@@ -25944,11 +26063,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-17T15:40:18.238Z",
+    "at": "2026-08-17T16:57:31.715Z",
     "seen": 117,
     "added": 0,
     "rejected": 81,
-    "error": "timed out",
+    "error": "busy (504)",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
@@ -27054,7 +27173,7 @@
      },
      {
       "n": "Brandon",
-      "s": 3,
+      "s": 4,
       "f": 0,
       "e": 0
      },
@@ -27071,7 +27190,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-17T16:28:22.402Z"
+    "last": "2026-08-17T16:52:30.229Z"
    }
   },
   "Saint Vincent and the Grenadines": {
@@ -45390,34 +45509,34 @@
   }
  },
  "recent": [
-  "2026-08-17T16:40:07.269Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T16:40:07.271Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T16:40:07.272Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T16:40:07.272Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T16:40:07.272Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T16:40:07.273Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T16:40:07.273Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T16:40:07.284Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T16:40:07.286Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T16:40:07.286Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T16:40:07.286Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T16:40:07.287Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T16:40:07.287Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-17T16:40:07.287Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
+  "2026-08-17T16:58:56.617Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T16:58:56.619Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T16:58:56.620Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T16:58:56.620Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T16:58:56.620Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T16:58:56.620Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T16:58:56.621Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T16:58:56.632Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T16:58:56.634Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T16:58:56.634Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T16:58:56.635Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T16:58:56.635Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T16:58:56.636Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-17T16:58:56.636Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-17T16:22:07.923Z",
+ "roundStarted": "2026-08-17T16:40:29.293Z",
  "lastRound": {
-  "at": "2026-08-17T16:40:07.298Z",
-  "minutes": 18,
-  "summary": "crawled 3 sites, +2 emails; prospected 5 empty countries, +0 clubs; osm 5 countries (ES,GB,BR,AU,PT,IN,CA,PH,BW,JM,GD,DO) +0, 1 failed",
-  "crawled": 3,
-  "emailsFound": 2,
+  "at": "2026-08-17T16:58:56.646Z",
+  "minutes": 18.5,
+  "summary": "crawled 0 sites, +0 emails; prospected 6 empty countries, +5 clubs; osm 4 countries (ES,GB,BR,US,AU,CA,PH,BW,JM,GD,DO,TO) +0, 2 failed",
+  "crawled": 0,
+  "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
+  "osmCountries": 4,
   "osmAdded": 0,
-  "osmFailed": 1
+  "osmFailed": 2
  }
 }
