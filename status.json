@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-18T07:20:09.877Z",
+ "generated": "2026-08-18T07:28:13.486Z",
  "clubs": 4562,
  "records": 6818,
  "crawl": {
-  "ready": 5,
-  "waiting": 61,
-  "exhausted": 1852
+  "ready": 4,
+  "waiting": 62,
+  "exhausted": 1853
  },
  "osm": {
   "imported": 85,
@@ -13,9 +13,9 @@
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "US",
-   "error": "subdivisions: out of time",
-   "at": "2026-08-18T07:20:09.723Z"
+   "cc": "BW",
+   "error": "partial: 2 of 16 subdivisions read",
+   "at": "2026-08-18T07:28:13.336Z"
   }
  },
  "crawlReasons": [
@@ -29,7 +29,7 @@
   },
   {
    "note": "unreachable",
-   "n": 459
+   "n": 458
   },
   {
    "note": "/contact",
@@ -68,6 +68,13 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-18T07:20:59.892Z",
+   "kind": "crawl",
+   "text": "Gladstone Squash Courts — https://gladstonetennisandsquash.com.au: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://gladstonetennisandsquash.com.au"
+  },
   {
    "t": "2026-08-18T07:10:23.894Z",
    "kind": "crawl",
@@ -1211,14 +1218,6 @@
    "ok": true,
    "url": "https://franschhoektennis.co.za",
    "email": "nickygordon5@gmail.com"
-  },
-  {
-   "t": "2026-08-17T23:13:00.184Z",
-   "kind": "crawl",
-   "text": "Rancho Niguel Tennis Academy — https://www.ranchotennis.com /contact -> fredde@ranchotennis.com",
-   "ok": true,
-   "url": "https://www.ranchotennis.com",
-   "email": "fredde@ranchotennis.com"
   }
  ],
  "perCountry": {
@@ -1245,12 +1244,12 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-18T07:18:52.147Z",
-    "seen": 0,
+    "at": "2026-08-18T07:27:15.633Z",
+    "seen": 328,
     "added": 0,
-    "rejected": 0,
+    "rejected": 178,
     "error": "partial: 15 of 23 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "ES",
@@ -3698,7 +3697,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-18T07:03:09.100Z"
+    "last": "2026-08-18T07:21:03.149Z"
    }
   },
   "United Kingdom": {
@@ -3724,12 +3723,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-18T07:18:37.912Z",
-    "seen": 162,
+    "at": "2026-08-18T07:27:08.817Z",
+    "seen": 0,
     "added": 0,
-    "rejected": 29,
+    "rejected": 0,
     "error": "partial: 1 of 9 subdivisions read",
-    "via": "overpass.private.coffee"
+    "via": ""
    },
    "prospect": {
     "cc": "GB",
@@ -6177,7 +6176,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-18T07:03:09.102Z"
+    "last": "2026-08-18T07:21:03.151Z"
    }
   },
   "Ireland": {
@@ -8344,6 +8343,12 @@
       "e": 0
      },
      {
+      "n": "Campo Novo do Parecis",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Campo Verde",
       "s": 5,
       "f": 0,
@@ -8906,15 +8911,9 @@
       "s": 5,
       "f": 0,
       "e": 0
-     },
-     {
-      "n": "Esperantina",
-      "s": 5,
-      "f": 0,
-      "e": 0
      }
     ],
-    "last": "2026-08-18T07:03:36.132Z"
+    "last": "2026-08-18T07:21:30.173Z"
    }
   },
   "Bolivia": {
@@ -15631,7 +15630,7 @@
    "emails": 307,
    "sites": 487,
    "read": 471,
-   "unreachable": 72,
+   "unreachable": 71,
    "noAddress": 100,
    "leads": 657,
    "leadsSearched": 657,
@@ -15648,7 +15647,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-18T07:19:00.429Z",
+    "at": "2026-08-18T07:27:23.062Z",
     "seen": 427,
     "added": 0,
     "rejected": 110,
@@ -16871,11 +16870,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-18T07:18:15.113Z",
+    "at": "2026-08-18T07:26:46.721Z",
     "seen": 46,
     "added": 0,
     "rejected": 10,
-    "error": "partial: 0 of 39 subdivisions read",
+    "error": "busy (406)",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
@@ -27786,11 +27785,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-18T07:01:11.256Z",
+    "at": "2026-08-18T07:26:47.302Z",
     "seen": 117,
     "added": 0,
     "rejected": 81,
-    "error": "fetch failed",
+    "error": "server cut the query short: runtime error: Query timed out in \"query\" at line 2 after 91 seconds.",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
@@ -32182,7 +32181,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-18T07:20:05.973Z",
+    "at": "2026-08-18T07:28:13.336Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -48720,34 +48719,34 @@
   }
  },
  "recent": [
-  "2026-08-18T07:20:09.775Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-18T07:20:09.777Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-18T07:20:09.777Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-18T07:20:09.778Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-18T07:20:09.778Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-18T07:20:09.778Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-18T07:20:09.779Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-18T07:20:09.791Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-18T07:20:09.792Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-18T07:20:09.792Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-18T07:20:09.793Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-18T07:20:09.793Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-18T07:20:09.793Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-18T07:20:09.794Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
+  "2026-08-18T07:28:13.383Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-18T07:28:13.385Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-18T07:28:13.386Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-18T07:28:13.386Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-18T07:28:13.386Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-18T07:28:13.387Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-18T07:28:13.387Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-18T07:28:13.398Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-18T07:28:13.400Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-18T07:28:13.401Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-18T07:28:13.401Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-18T07:28:13.401Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-18T07:28:13.402Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-18T07:28:13.402Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-18T07:10:23.569Z",
+ "roundStarted": "2026-08-18T07:20:57.816Z",
  "lastRound": {
-  "at": "2026-08-18T07:20:09.805Z",
-  "minutes": 9.8,
-  "summary": "crawled 3 sites, +0 emails; prospected 1 empty countries, +0 clubs; osm 5 countries (ES,GB,US,AU,IN,BW,MW,EG,IM,JE,GH,KY) +0, 1 failed",
-  "crawled": 3,
+  "at": "2026-08-18T07:28:13.412Z",
+  "minutes": 7.3,
+  "summary": "crawled 5 sites, +0 emails; prospected 1 empty countries, +0 clubs; osm 4 countries (ES,GB,AU,IN,CA,BW,MW,EG,IM,JE,GH,KY) +0, 2 failed",
+  "crawled": 5,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
+  "osmCountries": 4,
   "osmAdded": 0,
-  "osmFailed": 1
+  "osmFailed": 2
  }
 }
