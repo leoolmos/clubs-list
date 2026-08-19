@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-19T13:19:25.870Z",
+ "generated": "2026-08-19T13:29:56.153Z",
  "clubs": 4763,
  "records": 7096,
  "crawl": {
-  "ready": 1,
+  "ready": 0,
   "waiting": 10,
-  "exhausted": 1969
+  "exhausted": 1970
  },
  "osm": {
   "imported": 85,
@@ -13,9 +13,9 @@
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "US",
-   "error": "subdivisions: out of time",
-   "at": "2026-08-19T13:19:25.704Z"
+   "cc": "IN",
+   "error": "partial: 2 of 39 subdivisions read",
+   "at": "2026-08-19T13:29:55.981Z"
   }
  },
  "crawlReasons": [
@@ -25,7 +25,7 @@
   },
   {
    "note": "no email published",
-   "n": 1471
+   "n": 1472
   },
   {
    "note": "unreachable",
@@ -68,6 +68,13 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-19T13:20:00.170Z",
+   "kind": "crawl",
+   "text": "Wilkes-Barre Squash Club — https://wbsquashclub.blogspot.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://wbsquashclub.blogspot.com"
+  },
   {
    "t": "2026-08-19T13:12:28.598Z",
    "kind": "prospect",
@@ -1221,13 +1228,6 @@
    "text": "Brazil: found Fomera Padelclub -> https://www.fomerapadelclub.com.br",
    "ok": true,
    "url": "https://www.fomerapadelclub.com.br"
-  },
-  {
-   "t": "2026-08-19T07:14:19.574Z",
-   "kind": "crawl",
-   "text": "Mentor Net Tennis Club — http://asdmentor.matchenjoy.net: site read, publishes no address",
-   "ok": false,
-   "url": "http://asdmentor.matchenjoy.net"
   }
  ],
  "perCountry": {
@@ -1254,7 +1254,7 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-19T13:18:19.859Z",
+    "at": "2026-08-19T13:28:22.618Z",
     "seen": 328,
     "added": 0,
     "rejected": 178,
@@ -3707,7 +3707,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-19T13:03:32.913Z"
+    "last": "2026-08-19T13:20:00.443Z"
    }
   },
   "United Kingdom": {
@@ -3733,12 +3733,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-19T13:19:22.137Z",
-    "seen": 162,
+    "at": "2026-08-19T13:29:21.455Z",
+    "seen": 0,
     "added": 0,
-    "rejected": 29,
+    "rejected": 0,
     "error": "partial: 1 of 9 subdivisions read",
-    "via": "overpass.kumi.systems"
+    "via": ""
    },
    "prospect": {
     "cc": "GB",
@@ -6186,7 +6186,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-19T13:03:32.915Z"
+    "last": "2026-08-19T13:20:00.444Z"
    }
   },
   "Ireland": {
@@ -6512,8 +6512,8 @@
      "Joinville"
     ],
     "citiesTotal": 1808,
-    "citiesSearched": 1648,
-    "searchesDone": 8244,
+    "citiesSearched": 1656,
+    "searchesDone": 8284,
     "searchesTotal": 9045,
     "found": 144,
     "emails": 113,
@@ -7507,6 +7507,12 @@
       "e": 0
      },
      {
+      "n": "Cunha",
+      "s": 6,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Escada",
       "s": 6,
       "f": 0,
@@ -7712,6 +7718,12 @@
      },
      {
       "n": "Acopiara",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Acreúna",
       "s": 5,
       "f": 0,
       "e": 0
@@ -8767,6 +8779,12 @@
       "e": 0
      },
      {
+      "n": "Bom Jesus dos Perdões",
+      "s": 5,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Bom Retiro",
       "s": 5,
       "f": 0,
@@ -8903,27 +8921,9 @@
       "s": 5,
       "f": 0,
       "e": 0
-     },
-     {
-      "n": "Buritis",
-      "s": 5,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Buritizeiro",
-      "s": 5,
-      "f": 0,
-      "e": 0
-     },
-     {
-      "n": "Butanta",
-      "s": 5,
-      "f": 0,
-      "e": 0
      }
     ],
-    "last": "2026-08-19T13:03:45.849Z"
+    "last": "2026-08-19T13:22:18.130Z"
    }
   },
   "Bolivia": {
@@ -11605,7 +11605,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-19T13:10:39.332Z"
+    "last": "2026-08-19T13:22:18.131Z"
    }
   },
   "South Africa": {
@@ -15657,12 +15657,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-19T13:17:44.046Z",
+    "at": "2026-08-19T13:29:12.631Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
     "error": "partial: 9 of 15 subdivisions read",
-    "via": "overpass.kumi.systems"
+    "via": ""
    },
    "prospect": {
     "cc": "AU",
@@ -16880,7 +16880,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-19T13:18:37.035Z",
+    "at": "2026-08-19T13:29:55.981Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -23092,9 +23092,9 @@
    "clubs": 1167,
    "emails": 818,
    "sites": 1166,
-   "read": 1153,
+   "read": 1154,
    "unreachable": 90,
-   "noAddress": 256,
+   "noAddress": 257,
    "leads": 927,
    "leadsSearched": 927,
    "leadsFound": 702,
@@ -23152,8 +23152,8 @@
      "Detroit"
     ],
     "citiesTotal": 2305,
-    "citiesSearched": 1138,
-    "searchesDone": 6842,
+    "citiesSearched": 1141,
+    "searchesDone": 6860,
     "searchesTotal": 13836,
     "found": 637,
     "emails": 713,
@@ -25563,7 +25563,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-19T13:12:28.597Z"
+    "last": "2026-08-19T13:23:01.459Z"
    }
   },
   "Peru": {
@@ -28839,11 +28839,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-19T13:02:31.366Z",
+    "at": "2026-08-19T13:29:49.061Z",
     "seen": 117,
     "added": 0,
     "rejected": 81,
-    "error": "timed out",
+    "error": "busy (504)",
     "via": "overpass.private.coffee"
    },
    "prospect": {
@@ -34111,12 +34111,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-19T13:18:03.315Z",
+    "at": "2026-08-19T13:28:42.197Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
     "error": "partial: 3 of 16 subdivisions read",
-    "via": "overpass.kumi.systems"
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "BW",
@@ -51249,29 +51249,29 @@
   }
  },
  "recent": [
-  "2026-08-19T13:19:25.755Z  dropped hello@rfuenzalida.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-19T13:19:25.756Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-19T13:19:25.756Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-19T13:19:25.756Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-19T13:19:25.756Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-19T13:19:25.757Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-19T13:19:25.769Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-19T13:19:25.769Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-19T13:19:25.769Z  dropped hello@rfuenzalida.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-19T13:19:25.770Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-19T13:19:25.770Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-19T13:19:25.770Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-19T13:19:25.771Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-19T13:19:25.771Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
+  "2026-08-19T13:29:56.034Z  dropped hello@rfuenzalida.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-19T13:29:56.035Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-19T13:29:56.035Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-19T13:29:56.036Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-19T13:29:56.036Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-19T13:29:56.036Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-19T13:29:56.050Z  dropped example@mysite.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-19T13:29:56.054Z  dropped info@website.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-19T13:29:56.054Z  dropped hello@rfuenzalida.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-19T13:29:56.055Z  dropped info@mysite.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-19T13:29:56.055Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-19T13:29:56.055Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-19T13:29:56.056Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-19T13:29:56.056Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-19T13:10:39.104Z",
+ "roundStarted": "2026-08-19T13:19:47.861Z",
  "lastRound": {
-  "at": "2026-08-19T13:19:25.782Z",
-  "minutes": 8.8,
-  "summary": "crawled 0 sites, +0 emails; prospected 1 empty countries, +1 clubs; osm 5 countries (ES,GB,US,AU,IN,BW,BS,KN,CU,AR,LC,MX) +0, 1 failed",
-  "crawled": 0,
+  "at": "2026-08-19T13:29:56.066Z",
+  "minutes": 10.1,
+  "summary": "crawled 1 sites, +0 emails; prospected 2 empty countries, +0 clubs; osm 5 countries (ES,GB,AU,IN,CA,BW,BS,KN,CU,AR,LC,MX) +0, 1 failed",
+  "crawled": 1,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
