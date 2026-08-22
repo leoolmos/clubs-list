@@ -473,6 +473,9 @@ async function phaseCrawl(db, deadline){
       delete r.retryAfter;
       again++;
     }
+    // The store first, then the marker: a restart between the two would
+    // otherwise find the epoch already written and the sites still settled.
+    writeJSON(DB_FILE, db);
     writeJSON(epochFile, {crawl: CRAWL_EPOCH, at: new Date().toISOString(), again});
     log(`crawl: reading ${again} settled sites again — the contact-page list changed (epoch ${CRAWL_EPOCH})`);
     activity('crawl', `reading ${again} settled sites again with the new contact-page list (epoch ${CRAWL_EPOCH})`, {ok:true});
@@ -1388,6 +1391,18 @@ async function tick(){
     const c = await phaseCrawl(db, Math.min(deadline, Date.now() + CFG.crawlMinutes*60*1000));
     writeJSON(DB_FILE, db);
 
+    // The LTA register: 994 British venues with the address each one gave its
+    // federation. Walked once, then done for good — which is why it goes
+    // before the two searching phases rather than after them: the prospector
+    // always has twelve minutes of cities to ask and the crawl has a backlog,
+    // and at the end of the round the register never got a turn at all.
+    let lt = {pages:0, added:0, scanned:0};
+    if(Date.now() < deadline){
+      busy('reading the LTA venue register');
+      lt = await phaseLTA(db, deadline);
+      writeJSON(DB_FILE, db);
+    }
+
     // The two phases that search share one rate-limited engine, and whichever
     // goes first spends the quota. Leads went first by default and took 126
     // queries; prospecting then stalled after seven countries against an
@@ -1419,15 +1434,6 @@ async function tick(){
     if(Date.now() < deadline){
       busy('mining certificate logs for club domains');
       m = await phaseMine(db, deadline);
-      writeJSON(DB_FILE, db);
-    }
-
-    // The LTA register: 994 British venues with the address each one gave its
-    // federation. Walked once, then done for good.
-    let lt = {pages:0, added:0, scanned:0};
-    if(Date.now() < deadline){
-      busy('reading the LTA venue register');
-      lt = await phaseLTA(db, deadline);
       writeJSON(DB_FILE, db);
     }
 
