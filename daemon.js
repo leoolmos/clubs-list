@@ -86,6 +86,10 @@ const { detectSports, privateClub, extractEmails, extractContactName,
 const osm = require('./lib/osm');
 const search = require('./lib/search');
 const prospect = require('./lib/prospect');
+
+/* Bumped when the questions or the vetting change enough that the answers
+ * already on file were read through a worse lens. See phaseProspect. */
+const QUERY_EPOCH = 2;
 const mine = require('./lib/mine');
 const discover = require('./discover');
 
@@ -161,8 +165,12 @@ function outboundSite(html, base, chrome, clubName){
   return '';
 }
 
-const CONTACT_PATHS = ['/contact','/contact-us','/contacto','/contactos','/contacta','/contato','/kontakt','/about','/quienes-somos','/sobre-nos','/socios','/membership','/reservas','/impressum'];
-const RE_CONTACT_LINK = /contact|contacto|contacta|contato|kontakt|about|quienes|sobre|nosotros|socios|membership|impressum|reservas/i;
+// Brazil calls it "fale conosco", and neither the paths nor the link test
+// knew the phrase: Tenis Clube de Santos publishes secretaria@tcds.com.br on
+// /fale-conosco/ in plain sight, and the crawl walked past it to try six
+// English and Spanish paths that do not exist on that site.
+const CONTACT_PATHS = ['/contato','/fale-conosco','/faleconosco','/fale-com-a-gente','/atendimento','/contact','/contact-us','/contacto','/contactos','/contacta','/kontakt','/about','/quienes-somos','/sobre-nos','/socios','/membership','/reservas','/impressum'];
+const RE_CONTACT_LINK = /contact|contacto|contacta|contato|fale[-\s]?conosco|fale[-\s]?com|atendimento|contate|kontakt|about|quienes|sobre|nosotros|socios|membership|impressum|reservas/i;
 
 /* ------------------------------------------------------------------ *
  * State
@@ -384,7 +392,11 @@ async function harvestSite(website){
     .filter(l=>RE_CONTACT_LINK.test(l.url) || RE_CONTACT_LINK.test(l.text))
     .map(l=>l.url).filter(u=>u.startsWith(origin));
 
-  const queue = Array.from(new Set(found.concat(CONTACT_PATHS.map(p=>origin+p)))).slice(0,6);
+  // The links the site itself offers come first — they are real pages, where
+  // the guessed paths mostly are not — and eight rather than six, because the
+  // guesses now cover four languages and a club that answers in the last one
+  // deserves the same chance as a club that answers in the first.
+  const queue = Array.from(new Set(found.concat(CONTACT_PATHS.map(p=>origin+p)))).slice(0,8);
   for(const url of queue){
     const html = await getPage(url);
     if(!html) continue;
@@ -542,6 +554,30 @@ async function phaseProspect(db, deadline){
 
   const stateFile = path.join(DATA_DIR, 'prospect.json');
   const state = readJSON(stateFile, {});
+
+  /* Every query ever asked is remembered so none is paid for twice, which is
+   * right until the asking itself improves. Three things changed at once: a
+   * club whose title reads "Home - X" is no longer thrown away, tênis with a
+   * circumflex is recognised as tennis at last, and Brazil is asked in its
+   * own spelling. Together they mean the old answers were read through a
+   * worse lens than the new ones would be — Tênis Clube de Santos ranked
+   * first for its own city and was discarded on all three counts.
+   *
+   * So the ledger is torn up when the lens changes, once, and every city is
+   * asked again. Raise this when the questions or the vetting change enough
+   * to be worth another pass; leave it alone for anything smaller. */
+  if(state.__epoch !== QUERY_EPOCH){
+    const had = Object.keys(state).filter(k => k !== '__epoch').length;
+    for(const k of Object.keys(state)){
+      if(k === '__epoch') continue;
+      state[k].queriesDone = [];
+      state[k].cityStats = {};      // else every city counts its searches twice
+    }
+    state.__epoch = QUERY_EPOCH;
+    writeJSON(stateFile, state);
+    log(`prospect: searching every city again — ${had} countries, better vetting`);
+    activity('prospect', `starting a fresh pass over every city (epoch ${QUERY_EPOCH})`, {ok:true});
+  }
 
   // Every host already known, so a country is not re-vetted into a duplicate
   // of a club another engine found first.
@@ -1079,7 +1115,7 @@ function writeStatusJSON(extra){
   for(const [cc, [cname, clang]] of Object.entries(COUNTRIES)){
     const s = slot(cname); if(!s) continue;
     const cities = prospectLib.CITIES[cc] || [];
-    const terms = prospectLib.TERMS[clang] || prospectLib.TERMS.English;
+    const terms = prospectLib.termsFor(cc, clang);
     // The city named after its own country is searched by the country-wide
     // pass, not by a set of its own, so its terms are not a separate target.
     // Counting them made four countries permanently six searches short.
