@@ -154,6 +154,22 @@ function rebaseOntoRemote(cfg, say){
     return false;
   }
 
+  // The collector runs in the working repository now (Leo, 2026-08-22), so
+  // an edit sitting uncommitted in this folder is somebody's work in
+  // progress, and the reset below would erase it. Publishing waits instead;
+  // the data is safe on disk and goes out on the next round.
+  let dirty = [];
+  try{
+    dirty = git(['status','--porcelain','--untracked-files=no'])
+      .split(/\r?\n/).map(l => l.slice(3).trim().replace(/^.* -> /, ''))
+      .filter(f => f && !TRACKED.includes(f));
+  }catch(e){}
+  if(dirty.length){
+    say(`  Not publishing: uncommitted changes to ${dirty.slice(0,3).join(', ')}` +
+        `${dirty.length>3?' and more':''} in this folder. Commit or stash them first.`);
+    return false;
+  }
+
   // Keep the freshly generated files, take the remote's history.
   //
   // Only the generated ones. index.html is tracked so that an edit made here
