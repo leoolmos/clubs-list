@@ -158,9 +158,16 @@ typed it by hand. The daemon runs it when every seed is exhausted, which is
 the state that used to simply end the round early.
 
 **The site crawl.** Anything with a website but no email yet gets its
-homepage and up to six likely contact pages read, in Spanish, Portuguese
-and English. Cloudflare-obfuscated and "info [at] club [dot] com" style
-addresses are decoded.
+homepage read, then the links the site itself offers — contact pages first,
+then the about, membership and location pages, then the legal small print,
+which prints an address on sites that have no contact page — and then up to
+fourteen guessed paths in the club's own language first: `/contato` and
+`/fale-conosco` for Brazil, `/contactos` for Portugal, `/contacto` and
+`/contactanos` for Spanish, `/contact-us` for English. The vocabulary is in
+`lib/contact.js`, shared with the prospector's queries. Cloudflare-obfuscated
+and "info [at] club [dot] com" style addresses are decoded. When that list
+changes (`CRAWL_EPOCH` in daemon.js), every site settled as "publishes no
+address" is read once more with the new list.
 
 ## What counts as collected
 
@@ -242,4 +249,5 @@ work before it stops and waits for the next hour.
 ```
 TICK_MINUTES=60  BUDGET_MINUTES=20  CONCURRENCY=8  HOST_DELAY_MS=2000
 PAGES_PER_TICK=25  OSM=off  LTA_MINUTES=6  LTA=off
+CRAWL_MINUTES=12  CONTACT_PAGES=14  PROSPECT_MINUTES=12
 ```

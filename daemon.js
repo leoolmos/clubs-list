@@ -68,6 +68,11 @@ const CFG = {
   // The prospect-then-crawl chain is where the emails come from, so it
   // holds the largest slice of the round.
   prospectMinutes: parseInt(process.env.PROSPECT_MINUTES || '12', 10),
+  // The crawl used to take the whole round when the queue was long, and a
+  // fresh pass over two thousand settled sites is exactly that. Twelve
+  // minutes keeps the LTA register, the prospector and OpenStreetMap moving
+  // while it works through the backlog a round at a time.
+  crawlMinutes:    parseInt(process.env.CRAWL_MINUTES || '12', 10),
   // The LTA register is 994 venues behind 100 listing pages, and at the
   // spacing this crawls at that is about half an hour of reading, once.
   // Six minutes a round walks it in a handful of rounds and then costs
@@ -94,8 +99,11 @@ const prospect = require('./lib/prospect');
 const lta = require('./lib/lta');
 
 /* Bumped when the questions or the vetting change enough that the answers
- * already on file were read through a worse lens. See phaseProspect. */
-const QUERY_EPOCH = 2;
+ * already on file were read through a worse lens. See phaseProspect.
+ *   3: the contact word in every query now alternates between two spellings
+ *      per language (lib/contact.js), so each city is asked a different set
+ *      of questions than before — and is asked them all again. */
+const QUERY_EPOCH = 3;
 const mine = require('./lib/mine');
 const discover = require('./discover');
 
@@ -171,12 +179,19 @@ function outboundSite(html, base, chrome, clubName){
   return '';
 }
 
-// Brazil calls it "fale conosco", and neither the paths nor the link test
-// knew the phrase: Tenis Clube de Santos publishes secretaria@tcds.com.br on
-// /fale-conosco/ in plain sight, and the crawl walked past it to try six
-// English and Spanish paths that do not exist on that site.
-const CONTACT_PATHS = ['/contato','/fale-conosco','/faleconosco','/fale-com-a-gente','/atendimento','/contact','/contact-us','/contacto','/contactos','/contacta','/kontakt','/about','/quienes-somos','/sobre-nos','/socios','/membership','/reservas','/impressum'];
-const RE_CONTACT_LINK = /contact|contacto|contacta|contato|fale[-\s]?conosco|fale[-\s]?com|atendimento|contate|kontakt|about|quienes|sobre|nosotros|socios|membership|impressum|reservas/i;
+// Where a club keeps its address depends on the language its site is
+// written in: Tenis Clube de Santos publishes secretaria@tcds.com.br on
+// /fale-conosco/, a Spanish club on /contacto or /contactanos, an English one
+// on /contact-us — and when none of those exists the legal or membership
+// page usually prints one. The vocabulary lives in lib/contact.js, shared
+// with the prospector; the crawl asks in the club's own language first.
+const { contactPaths, linkTier } = require('./lib/contact');
+
+/* Pages read per site after the homepage: the links the site itself offers,
+ * best first, then the guessed paths in the club's language. Eight was the
+ * cap when the guesses spanned four languages in one list; fourteen covers
+ * a language's own list and the top of the other two. */
+const CONTACT_PAGES = parseInt(process.env.CONTACT_PAGES || '14', 10);
 
 /* ------------------------------------------------------------------ *
  * State
@@ -378,7 +393,7 @@ function syncQueue(){
 /* ------------------------------------------------------------------ *
  * Work: crawl club sites that still lack an email
  * ------------------------------------------------------------------ */
-async function harvestSite(website){
+async function harvestSite(website, lang, cc){
   let origin, host;
   try{ const u=new URL(website); origin=u.origin; host=u.hostname; }
   catch(e){ return {emails:[], note:'bad url'}; }
@@ -394,15 +409,19 @@ async function harvestSite(website){
   let emails = extractEmails(home, host);
   if(emails.length) return {emails, contact:extractContactName(home), note:'homepage'};
 
-  const found = links(home, origin)
-    .filter(l=>RE_CONTACT_LINK.test(l.url) || RE_CONTACT_LINK.test(l.text))
-    .map(l=>l.url).filter(u=>u.startsWith(origin));
-
   // The links the site itself offers come first — they are real pages, where
-  // the guessed paths mostly are not — and eight rather than six, because the
-  // guesses now cover four languages and a club that answers in the last one
-  // deserves the same chance as a club that answers in the first.
-  const queue = Array.from(new Set(found.concat(CONTACT_PATHS.map(p=>origin+p)))).slice(0,8);
+  // the guessed paths mostly are not — contact pages before the about page,
+  // the about page before the cookie policy. Then the guesses, in the club's
+  // own language first: a Brazilian site is asked for /contato and
+  // /fale-conosco before anyone asks it for /contact-us.
+  const found = links(home, origin)
+    .filter(l => l.url.startsWith(origin))
+    .map(l => ({url: l.url.split('#')[0], tier: linkTier(l.url, l.text)}))
+    .filter(l => l.tier >= 0)
+    .sort((a, b) => a.tier - b.tier)
+    .map(l => l.url);
+
+  const queue = Array.from(new Set(found.concat(contactPaths(lang, cc).map(p=>origin+p)))).slice(0, CONTACT_PAGES);
   for(const url of queue){
     const html = await getPage(url);
     if(!html) continue;
@@ -431,8 +450,34 @@ async function pool(items, limit, fn){
  * for ever: anything out of attempts gets one fresh look every thirty days. */
 const SETTLED_REVIEW_MS = 30*24*60*60*1000;
 
+/* Bumped when the crawl learns to find pages it used to walk past. "Publishes
+ * no address" was settled by the old list of contact pages — one list, four
+ * languages, eight fetches — and 1,543 sites were written off on its say-so.
+ * The lens changed (lib/contact.js: the club's own language first, the
+ * site's own links ranked, the legal and membership pages included), so
+ * every settled site gets one fresh look, once, without waiting out the
+ * month. Raise this when the crawl changes enough to deserve another. */
+const CRAWL_EPOCH = 2;
+
 async function phaseCrawl(db, deadline){
   const today = Date.now();
+
+  const epochFile = path.join(DATA_DIR, 'crawl-epoch.json');
+  const epoch = readJSON(epochFile, {});
+  if(epoch.crawl !== CRAWL_EPOCH){
+    let again = 0;
+    for(const r of Object.values(db)){
+      if(r.email || !r.website) continue;
+      if((r.attempts||0) < CFG.maxAttempts) continue;
+      r.attempts = CFG.maxAttempts - 1;      // one look with the new list
+      delete r.retryAfter;
+      again++;
+    }
+    writeJSON(epochFile, {crawl: CRAWL_EPOCH, at: new Date().toISOString(), again});
+    log(`crawl: reading ${again} settled sites again — the contact-page list changed (epoch ${CRAWL_EPOCH})`);
+    activity('crawl', `reading ${again} settled sites again with the new contact-page list (epoch ${CRAWL_EPOCH})`, {ok:true});
+  }
+
   for(const r of Object.values(db)){
     if(r.email || !r.website) continue;
     if((r.attempts||0) < CFG.maxAttempts) continue;
@@ -451,7 +496,7 @@ async function phaseCrawl(db, deadline){
   let tried=0, found=0, stopped=false;
   await pool(todo, CFG.concurrency, async rec=>{
     if(stopped || Date.now() > deadline){ stopped = true; return; }
-    const {emails, contact, note} = await harvestSite(rec.website);
+    const {emails, contact, note} = await harvestSite(rec.website, rec.lang, rec.cc);
     tried++;
     rec.attempts = (rec.attempts||0)+1;
     rec.crawlNote = note;
@@ -932,7 +977,7 @@ async function phaseLeads(db, deadline){
 
     // Straight on to the email while we are here, rather than leaving it for
     // a later round — the whole point is to convert a name into a contact.
-    const {emails:found_, contact, note} = await harvestSite(r.url);
+    const {emails:found_, contact, note} = await harvestSite(r.url, lead.lang, lead.cc);
     const email = found_.length ? found_[0] : '';
 
     const rec = {
@@ -1340,7 +1385,7 @@ async function tick(){
     // Emails first: it is the point of the whole thing, and the queue of
     // uncrawled sites is what actually converts into records.
     busy('crawling club websites for email addresses');
-    const c = await phaseCrawl(db, deadline);
+    const c = await phaseCrawl(db, Math.min(deadline, Date.now() + CFG.crawlMinutes*60*1000));
     writeJSON(DB_FILE, db);
 
     // The two phases that search share one rate-limited engine, and whichever
