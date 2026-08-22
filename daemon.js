@@ -595,6 +595,17 @@ async function phaseProspect(db, deadline){
         c.s += v.s; c.f += v.f;
       }
     }
+    // The city named after its country is searched by the country-wide pass
+    // and has no query set of its own. On a machine that asked those queries
+    // before this landed they are already marked done, so nothing runs and
+    // nothing would ever credit the city: Singapore, Hong Kong, Gibraltar and
+    // Ilha de Mocambique would read nought searches for ever. Mirror the
+    // country-wide count onto it — set, never added, so running it every
+    // round settles on the right number instead of inflating it.
+    const twin = prospect.twinCity(cc);
+    if(twin && st.cityStats && st.cityStats['']){
+      st.cityStats[twin] = {s: st.cityStats[''].s, f: (st.cityStats[twin] || {}).f || 0};
+    }
     if(!r.queries) continue;          // every query already asked; move on
     countries++;
     vetted += r.candidates;
@@ -1069,7 +1080,10 @@ function writeStatusJSON(extra){
     const s = slot(cname); if(!s) continue;
     const cities = prospectLib.CITIES[cc] || [];
     const terms = prospectLib.TERMS[clang] || prospectLib.TERMS.English;
-    const total = terms.length * (1 + cities.length);
+    // The city named after its own country is searched by the country-wide
+    // pass, not by a set of its own, so its terms are not a separate target.
+    // Counting them made four countries permanently six searches short.
+    const total = terms.length * (1 + cities.length - (prospectLib.twinCity(cc) ? 1 : 0));
     const pst = prospectState[cc] || {};
     const done = (pst.queriesDone || []).length;
     const cs = pst.cityStats || {};
