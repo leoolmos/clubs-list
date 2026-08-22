@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- page-rev: coverage-v3 -->
 <title>Racket Club Database</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -783,7 +784,14 @@ function fillCoverage(det){
   det.dataset.filled = "1";
   var cc = det.dataset.cc, pr = covProspect[cc] || {};
   var stats = {};
-  (pr.cityStats||[]).forEach(function(c){ stats[c.n] = c; });
+  // Rows arrive as {n,s,f,e} objects today and may arrive as [name, searches]
+  // or [name, searches, clubs, emails] later; both are read, so the page and
+  // the daemon can be updated in either order.
+  (pr.cityStats||[]).forEach(function(c){
+    stats[Array.isArray(c) ? c[0] : c.n] = Array.isArray(c)
+      ? {s: c[1]||0, f: c[2]||0, e: c[3]||0}
+      : {s: c.s||0, f: c.f||0, e: c.e||0};
+  });
   var all = (CITY_DATA && CITY_DATA[cc]) || [];
   var head = pr.countrywide
     ? "<p class='meta' style='margin:4px 0'>country-wide: "+pr.countrywide.s+" searches · "+(pr.countrywide.f||0)+" clubs</p>"
@@ -800,8 +808,19 @@ function fillCoverage(det){
   // first city, biggest first, whose searches have not all run yet.
   var termCount = Math.max(1, Math.round((pr.searchesTotal||0) / ((pr.citiesTotal||0) + 1)));
   var marked = false;
-  var rows = all.map(function(city){
-    var st = stats[city] || {s:0, f:0, e:0};
+  var rows = all.map(function(city, i){
+    var st = stats[city];
+    if(!st){
+      // status.json carried only the top 400 rows per country until the
+      // collector's 2026-08-22 restart, ranked by emails — so the missing
+      // rows are precisely the searched cities that found nothing, and
+      // reading absence as nought searches painted 6,000 searched cities
+      // as untouched. But the prospector works biggest city first, so the
+      // first citiesSearched cities of this very list are the searched
+      // ones: a missing row inside that prefix was searched with the full
+      // set of terms, and one beyond it is genuinely still waiting.
+      st = (i < (pr.citiesSearched||0)) ? {s:termCount, f:0, e:0} : {s:0, f:0, e:0};
+    }
     var cur = !marked && (st.s||0) < termCount;
     if(cur) marked = true;
     return "<tr"+(cur ? " class='covcur'" : "")+"><td>"+(cur ? "<span class='cdot'></span>" : "")+esc(city)+"</td>"
