@@ -74,6 +74,30 @@ JavaScript. Checks are recorded in `data/checked.log`, so nothing is
 investigated twice, and `seeds.txt` keeps a list of what was rejected and
 why.
 
+**The LTA venue register** — `lib/lta.js`. Britain's federation lists 994
+venues and prints each one's own email and website on its page, which makes
+it the richest British source there is — the same shape as Spain's RFET.
+
+```bash
+node lib/lta.js --status         where the walk has got to
+node lib/lta.js --pages=3        read three pages and print what they hold
+```
+
+Getting at it needed care, because the two obvious routes are closed. The
+sitemap carries 5,900 pages and not one venue among them. And the map
+search, the one the site actually uses, is disallowed:
+`Disallow: /*?*latitude*longitude*`. It works and it is not ours to use.
+
+What is allowed is the plain alphabetical listing —
+`/play/find-a-tennis-court?fltr=y&sort=nameAsc&p=2` — which paginates ten to
+a page and ends at p=100.
+
+The register lists places with a court, not clubs: scout huts, park courts
+and a venue whose published address is `nonmember@nonmember.com` are all on
+it. Where the name does not say what it is, the venue's own website decides,
+by the same test the prospector puts a stranger's site through. Seventy
+venues read gave twenty clubs, the All England Lawn Tennis Club among them.
+
 **OpenStreetMap** — `lib/osm.js`. Federation directories only exist where
 there is a federation with a crawlable website, which leaves most of the
 eighty-three countries with nothing: there is no Tuvalu tennis directory.
@@ -160,6 +184,7 @@ harvest.js          add one directory and work it immediately
 publish.js          commit clubs.json and push
 install-windows.ps1 hourly Scheduled Task
 seeds.txt           directories, with notes on what was rejected and why
+lib/lta.js          the LTA's 994 British venues, walked once
 lib/prospect.js     search a country's clubs out from nothing
 lib/countries.js    the eighty-three countries, languages, domain to country
 lib/classify.js     sports, private-club rules, email extraction
@@ -216,5 +241,5 @@ work before it stops and waits for the next hour.
 
 ```
 TICK_MINUTES=60  BUDGET_MINUTES=20  CONCURRENCY=8  HOST_DELAY_MS=2000
-PAGES_PER_TICK=25  OSM=off
+PAGES_PER_TICK=25  OSM=off  LTA_MINUTES=6  LTA=off
 ```

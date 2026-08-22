@@ -68,6 +68,11 @@ const CFG = {
   // The prospect-then-crawl chain is where the emails come from, so it
   // holds the largest slice of the round.
   prospectMinutes: parseInt(process.env.PROSPECT_MINUTES || '12', 10),
+  // The LTA register is 994 venues behind 100 listing pages, and at the
+  // spacing this crawls at that is about half an hour of reading, once.
+  // Six minutes a round walks it in a handful of rounds and then costs
+  // nothing, because a walked register is marked done.
+  ltaMinutes:      parseInt(process.env.LTA_MINUTES || '6', 10),
   // Curlie is volunteer-run and answers at 3s a page, so this is minutes of
   // walking rather than a page count worth tuning.
   discoverMinutes: parseInt(process.env.DISCOVER_MINUTES || '5',  10),
@@ -86,6 +91,7 @@ const { detectSports, privateClub, extractEmails, extractContactName,
 const osm = require('./lib/osm');
 const search = require('./lib/search');
 const prospect = require('./lib/prospect');
+const lta = require('./lib/lta');
 
 /* Bumped when the questions or the vetting change enough that the answers
  * already on file were read through a worse lens. See phaseProspect. */
@@ -549,6 +555,61 @@ async function phaseDiscover(queue, deadline){
  * candidates are vetted hard in lib/prospect.js, because a query with no
  * club name in it cannot be checked against one afterwards.
  */
+/* ------------------------------------------------------------------ *
+ * Work: the LTA's venue register
+ * ------------------------------------------------------------------ *
+ *
+ * A national federation that publishes each venue's own email is the richest
+ * source there is — Spain's RFET gave 330 addresses from 45 pages — and
+ * Britain has one. lib/lta.js explains what is and is not allowed to be read
+ * there; this is the slice of the round that reads it.
+ *
+ * It walks once. The register is bookmarked by page and by venue, so the
+ * walk resumes where the round before it stopped, and a register walked to
+ * the end costs nothing on every round after that.
+ */
+async function phaseLTA(db, deadline){
+  if(process.env.LTA === 'off') return {pages:0, added:0, scanned:0};
+
+  const st = readJSON(path.join(DATA_DIR, 'lta.json'), {page:1, seen:{}, done:false, added:0, refused:{}});
+  if(st.done) return {pages:0, added:0, scanned:0, done:true};
+
+  const knownHosts = new Set();
+  for(const r of Object.values(db)){
+    if(!r.website) continue;
+    try{ knownHosts.add(new URL(r.website).hostname.replace(/^www\./,'').toLowerCase()); }catch(e){}
+  }
+
+  const budget = Math.min(deadline, Date.now() + CFG.ltaMinutes*60*1000);
+  const r = await lta.importLTA({
+    state: st, knownHosts, deadline: budget,
+    timeoutMs: CFG.pageTimeoutMs + 4000, log: m => log(m)
+  });
+
+  let added = 0;
+  for(const rec of r.added){
+    const key = keyFor(rec);
+    if(db[key]){
+      // The register knows the address the club gave its federation, which is
+      // worth having even when another engine found the site first.
+      if(!db[key].email && rec.email) db[key].email = rec.email;
+      if(!db[key].website && rec.website) db[key].website = rec.website;
+      continue;
+    }
+    db[key] = rec;
+    added++;
+    activity('lta', `${rec.name}${rec.email ? ' -> ' + rec.email : ''}`, {ok:true, url:rec.website||rec.srcPage});
+  }
+
+  writeJSON(path.join(DATA_DIR, 'lta.json'), st);
+  if(r.pages || added){
+    log(`lta: ${r.pages} pages, ${r.scanned} venues read, ${added} clubs added (page ${st.page} of about 100)`);
+    const top = Object.entries(st.refused || {}).sort((a,b)=>b[1]-a[1]).slice(0, 4);
+    if(top.length) log(`lta: turned down — ` + top.map(([k,n])=>`${k} ×${n}`).join(', '));
+  }
+  return {pages:r.pages, added, scanned:r.scanned, done:!!st.done};
+}
+
 async function phaseProspect(db, deadline){
   if(process.env.PROSPECT === 'off') return {countries:0, added:0};
 
@@ -1316,6 +1377,15 @@ async function tick(){
       writeJSON(DB_FILE, db);
     }
 
+    // The LTA register: 994 British venues with the address each one gave its
+    // federation. Walked once, then done for good.
+    let lt = {pages:0, added:0, scanned:0};
+    if(Date.now() < deadline){
+      busy('reading the LTA venue register');
+      lt = await phaseLTA(db, deadline);
+      writeJSON(DB_FILE, db);
+    }
+
     // Then extend the frontier if there is time left
     let h = {pages:0, added:0, source:null};
     busy('reading directory pages');
@@ -1353,6 +1423,7 @@ async function tick(){
         (L.tried ? `; searched ${L.tried} club names, found ${L.found} sites, +${L.emails} emails` : '') +
         (m.vetted || m.added ? `; mined ${m.vetted} domains, +${m.added} clubs` : '') +
         (h.pages ? `; read ${h.pages} pages from ${h.source}, +${h.added} clubs` : '') +
+        (lt.pages ? `; lta ${lt.scanned} venues, +${lt.added} clubs` : '') +
         (d.found ? `; found ${d.found} new directories` : '') +
         (p.countries ? `; prospected ${p.countries} empty countries, +${p.added} clubs` : '') +
         (o.cc ? `; osm ${o.countries||0} countries (${o.cc}) +${o.added}` +

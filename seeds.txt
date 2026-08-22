@@ -266,3 +266,10 @@ GB  https://www.020.co.uk/s/squash/london.shtml
 AUTO  https://curlie.org/en/Sports/Squash/Clubs
 GB  https://curlie.org/en/Regional/Europe/United_Kingdom/Scotland/Edinburgh%2C_City_of/Recreation_and_Sports/Tennis
 GB  https://curlie.org/en/Regional/Europe/United_Kingdom/Recreation_and_Sports/Sports/Tennis/Organisations/Clubs
+
+# lta.org.uk — not a seed, and not for want of trying. The court finder draws
+# its list with JavaScript, so check.js sees only the site's own navigation
+# and calls it five clubs. The listing that does render server-side needs
+# latitude and longitude, which robots.txt disallows outright. The plain
+# alphabetical listing is allowed and is walked by lib/lta.js instead:
+# 994 venues, each with the email it gave its federation. Checked 2026-08-22.
