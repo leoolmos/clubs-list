@@ -67,7 +67,9 @@ const CFG = {
   leadMinutes:   parseInt(process.env.LEAD_MINUTES   || '6', 10),
   // The prospect-then-crawl chain is where the emails come from, so it
   // holds the largest slice of the round.
-  prospectMinutes: parseInt(process.env.PROSPECT_MINUTES || '14', 10),
+  // Eighteen of the twenty: the searching lane runs beside the reading
+  // lane now (see tick), so this is the round, less the leads' turn.
+  prospectMinutes: parseInt(process.env.PROSPECT_MINUTES || '18', 10),
   // The crawl used to take the whole round when the queue was long, and a
   // fresh pass over two thousand settled sites is exactly that. Twelve
   // minutes keeps the LTA register, the prospector and OpenStreetMap moving
@@ -951,10 +953,11 @@ async function phaseProspect(db, deadline){
     const st = state[cc] || (state[cc] = {queriesDone:[], found:0});
     const r = await prospect.prospectCountry(cc, {
       knownHosts, deadline: budget, timeoutMs: CFG.pageTimeoutMs + 4000,
-      queriesDone: st.queriesDone, maxQueries: 40, log: m => log(m)
+      queriesDone: st.queriesDone, deferred: st.deferred || [], maxQueries: 40, log: m => log(m)
     });
 
     st.queriesDone = r.queriesDone;
+    st.deferred = r.deferred || [];
     st.last = new Date().toISOString();
 
     // Which cities were searched and what each produced, kept per country
@@ -1001,7 +1004,7 @@ async function phaseProspect(db, deadline){
     // The engine turning us away is not this country having no clubs, and
     // marking the queries done would write it off for good.
     if(r.throttled){
-      log(`prospect: the search engine stopped answering (${r.throttleWhy || 'refused'}) — pausing this phase`);
+      log(`prospect: the search engine stopped answering (${r.throttleWhy || 'refused'}; gap now ${Math.round(search.currentGapMs()/1000)}s) — pausing this phase`);
       break;
     }
   }
@@ -1613,99 +1616,112 @@ async function tick(){
     const roundStarted = new Date().toISOString();
     const busy = phase => writeStatusJSON({running:true, phase, roundStarted});
 
-    // Emails first: it is the point of the whole thing, and the queue of
-    // uncrawled sites is what actually converts into records.
-    busy('crawling club websites for email addresses');
-    const c = await phaseCrawl(db, Math.min(deadline, Date.now() + CFG.crawlMinutes*60*1000));
-    writeJSON(DB_FILE, db);
+    // Two lanes, side by side. One reads club sites — the crawl, the LTA
+    // register, the placing, the directories, OpenStreetMap — and the other
+    // talks to the search engine, which is the one thing in this program
+    // with a rate limit and the one thing that reaches a country holding
+    // nothing. They used to run in sequence, and the searching lane got
+    // what was left of the round after the crawl: two or three minutes out
+    // of twenty. Now it gets the round. The engine is paced by design
+    // (lib/search.js), so nothing is gained by hurrying it, and everything
+    // by letting it run the whole time the other lane is reading.
+    const lane = {reading: '', searching: ''};
+    const show = () => busy([lane.reading, lane.searching].filter(Boolean).join(' · '));
+    const reading   = what => { lane.reading = what; show(); };
+    const searching = what => { lane.searching = what; show(); };
 
-    // The LTA register: 994 British venues with the address each one gave its
-    // federation. Walked once, then done for good — which is why it goes
-    // before the two searching phases rather than after them: the prospector
-    // always has twelve minutes of cities to ask and the crawl has a backlog,
-    // and at the end of the round the register never got a turn at all.
-    let lt = {pages:0, added:0, scanned:0};
-    if(Date.now() < deadline){
-      busy('reading the LTA venue register');
-      lt = await phaseLTA(db, deadline);
-      writeJSON(DB_FILE, db);
-    }
-
-    // The clubs that have an address but no city yet: the coverage tab
-    // counts emails city by city and cannot count these until they are placed.
-    let pl = {tried:0, placed:0};
-    if(Date.now() < deadline){
-      busy('reading club sites for the city they are in');
-      pl = await phasePlace(db, deadline);
-      writeJSON(DB_FILE, db);
-    }
-
-    // The two phases that search share one rate-limited engine, and whichever
-    // goes first spends the quota. Leads went first by default and took 126
-    // queries; prospecting then stalled after seven countries against an
-    // engine that had stopped answering. That is not a judgement about which
-    // matters more, it is just the order they happened to be written in, so
-    // they take turns instead: leads convert a name into an address, and
-    // prospecting is the only thing that reaches a country holding nothing.
-    let L = {tried:0, found:0, emails:0};
-    let p = {countries:0, added:0};
-    const leadsFirst = (roundNo % 2) === 1;
-
-    const runLeads = async () => {
-      busy('searching the web for clubs we only know the name of');
-      L = await phaseLeads(db, deadline);
-      writeJSON(DB_FILE, db);
-    };
-    const runProspect = async () => {
-      if(Date.now() >= deadline) return;
-      busy('searching out clubs in the countries that have none');
-      p = await phaseProspect(db, deadline);
-      writeJSON(DB_FILE, db);
-    };
-
-    if(leadsFirst){ await runLeads(); await runProspect(); }
-    else          { await runProspect(); await runLeads(); }
-
-    // Domains from the certificate logs and Wikidata, vetted page by page.
-    // Every other round: the certificate words refresh weekly and Wikidata
-    // backs off for hours, so most rounds this phase only waits on them.
-    let m = {queried:0, vetted:0, added:0};
-    if(Date.now() < deadline && roundNo % 2 === 0){
-      busy('mining certificate logs for club domains');
-      m = await phaseMine(db, deadline);
-      writeJSON(DB_FILE, db);
-    }
-
-    // Then extend the frontier if there is time left
-    let h = {pages:0, added:0, source:null};
-    busy('reading directory pages');
-    if(Date.now() < deadline) h = await phaseHarvest(db, queue, deadline);
-
-    // Nothing left to walk means it is time to go and find more to walk,
-    // not time to end the round early.
-    let d = {opened:0, found:0};
-    if(Date.now() < deadline){
-      busy('looking for new club directories');
-      d = await phaseDiscover(queue, deadline);
-    }
-
-    // Save between phases, not only at the end. A round that hangs in a
-    // later phase used to throw away everything the earlier ones collected:
-    // one round spent half an hour crawling, stalled waiting on Overpass,
-    // and was killed with all of it still only in memory.
-    writeJSON(DB_FILE, db);
-    writeJSON(QUEUE_FILE, queue);
-
-    // Countries from OpenStreetMap. This is what reaches the places with no
-    // federation directory to walk.
-    // Every third round. The countries still unimported are the six biggest,
-    // which Overpass answers with 504s most of the day: five minutes of
-    // every round bought nothing for a night, while the searches waited.
+    let c = {tried:0, found:0}, lt = {pages:0, added:0, scanned:0}, pl = {tried:0, placed:0};
+    let m = {queried:0, vetted:0, added:0}, h = {pages:0, added:0, source:null}, d = {opened:0, found:0};
     let o = {cc:null, added:0};
-    if(roundNo % 3 === 0){
-      busy('importing countries from OpenStreetMap');
-      o = await phaseOSM(db, deadline);
-    }
+    let L = {tried:0, found:0, emails:0}, p = {countries:0, added:0};
+
+    const readingLane = async () => {
+      // Emails first: it is the point of the whole thing, and the queue of
+      // uncrawled sites is what actually converts into records.
+      reading('crawling club websites for email addresses');
+      c = await phaseCrawl(db, Math.min(deadline, Date.now() + CFG.crawlMinutes*60*1000));
+      writeJSON(DB_FILE, db);
+
+      // The LTA register: 994 British venues with the address each one gave
+      // its federation. Walked once, then done for good.
+      if(Date.now() < deadline){
+        reading('reading the LTA venue register');
+        lt = await phaseLTA(db, deadline);
+        writeJSON(DB_FILE, db);
+      }
+
+      // The clubs that have an address but no city yet: the coverage tab
+      // counts emails city by city and cannot count these until placed.
+      if(Date.now() < deadline){
+        reading('reading club sites for the city they are in');
+        pl = await phasePlace(db, deadline);
+        writeJSON(DB_FILE, db);
+      }
+
+      // Domains from the certificate logs and Wikidata, every other round:
+      // the certificate words refresh weekly and Wikidata backs off for
+      // hours, so most rounds this phase only waits on them.
+      if(Date.now() < deadline && roundNo % 2 === 0){
+        reading('mining certificate logs for club domains');
+        m = await phaseMine(db, deadline);
+        writeJSON(DB_FILE, db);
+      }
+
+      // Then extend the frontier if there is time left
+      if(Date.now() < deadline){
+        reading('reading directory pages');
+        h = await phaseHarvest(db, queue, deadline);
+      }
+
+      // Nothing left to walk means it is time to go and find more to walk,
+      // not time to end the round early.
+      if(Date.now() < deadline){
+        reading('looking for new club directories');
+        d = await phaseDiscover(queue, deadline);
+      }
+
+      // Save between phases, not only at the end. A round that hangs in a
+      // later phase used to throw away everything the earlier ones
+      // collected: one round spent half an hour crawling, stalled waiting
+      // on Overpass, and was killed with all of it still only in memory.
+      writeJSON(DB_FILE, db);
+      writeJSON(QUEUE_FILE, queue);
+
+      // Countries from OpenStreetMap, every third round. The countries still
+      // unimported are the six biggest, which Overpass answers with 504s
+      // most of the day: five minutes of every round bought nothing for a
+      // night, while the searches waited.
+      if(roundNo % 3 === 0){
+        reading('importing countries from OpenStreetMap');
+        o = await phaseOSM(db, deadline);
+      }
+      lane.reading = '';
+    };
+
+    const searchingLane = async () => {
+      // The two phases that search share one rate-limited engine, and
+      // whichever goes first spends the quota, so they take turns: leads
+      // convert a name into an address, and prospecting is the only thing
+      // that reaches a country holding nothing.
+      const leadsFirst = (roundNo % 2) === 1;
+      const runLeads = async () => {
+        if(Date.now() >= deadline) return;
+        searching('searching the web for clubs we only know the name of');
+        L = await phaseLeads(db, deadline);
+        writeJSON(DB_FILE, db);
+      };
+      const runProspect = async () => {
+        if(Date.now() >= deadline) return;
+        searching('searching out clubs, city by city');
+        p = await phaseProspect(db, deadline);
+        writeJSON(DB_FILE, db);
+      };
+      if(leadsFirst){ await runLeads(); await runProspect(); }
+      else          { await runProspect(); await runLeads(); }
+      lane.searching = '';
+    };
+
+    await Promise.all([readingLane(), searchingLane()]);
 
     writeJSON(DB_FILE, db);
     writeJSON(QUEUE_FILE, queue);
