@@ -501,6 +501,10 @@ async function harvestSite(website, lang, cc){
   try{ const u=new URL(website); origin=u.origin; host=u.hostname; }
   catch(e){ return {emails:[], note:'bad url'}; }
 
+  // A Foursquare, Facebook or Wikipedia page is not the club's site, and
+  // reading it end to end turns up Foursquare's address, not the club's.
+  if(search.NOT_A_CLUB_SITE.test(website)) return {emails:[], contact:'', note:"not the club's own site"};
+
   const started = Date.now();
   const timeLeft = () => Date.now() - started < SITE_MS;
 
@@ -577,6 +581,11 @@ async function harvestSite(website, lang, cc){
     if(isChallenge(html)) continue;
 
     emails = extractEmails(html, host);
+    // On the contact and about pages any address is the club's. On the
+    // legal pages and the rest of the site — a news post, an open-source
+    // credit, a partner's write-up — only an address on the club's own
+    // domain is: a gmail on a blog post belongs to whoever wrote the post.
+    if(next.tier >= 2) emails = emails.filter(e => siteKey(e.split('@')[1] || '') === site);
     if(emails.length){
       const contact = extractContactName(html);
       let note = 'contact page';
@@ -687,9 +696,11 @@ async function phaseCrawl(db, deadline){
       activity('crawl', `${rec.name} — ${rec.website}: turned away by a captcha, will retry`, {ok:false, url:rec.website});
       rec.retryAfter = today + 6*60*60*1000;
       rec.attempts = Math.max(0, (rec.attempts||1) - 1);   // do not burn an attempt on a door we never got through
-    } else if(note === 'no email published' || note === 'contact form, no address'){
-      activity('crawl', `${rec.name} — ${rec.website}: site read, ` +
-               (note === 'contact form, no address' ? 'a contact form but no address' : 'publishes no address'),
+    } else if(note === 'no email published' || note === 'contact form, no address' || note === "not the club's own site"){
+      activity('crawl', `${rec.name} — ${rec.website}: ` +
+               (note === 'contact form, no address' ? 'site read, a contact form but no address'
+                : note === "not the club's own site" ? 'not the club\'s own site, not read'
+                : 'site read, publishes no address'),
                {ok:false, url:rec.website});
       rec.attempts = CFG.maxAttempts;         // settled, do not retry
       rec.crawled = true;
