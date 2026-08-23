@@ -1,10 +1,10 @@
 {
- "generated": "2026-08-23T19:14:20.030Z",
+ "generated": "2026-08-23T19:32:45.629Z",
  "clubs": 5930,
- "records": 7942,
+ "records": 7947,
  "crawl": {
-  "ready": 0,
-  "waiting": 147,
+  "ready": 6,
+  "waiting": 146,
   "exhausted": 1435
  },
  "osm": {
@@ -65,6 +65,41 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-23T19:32:45.162Z",
+   "kind": "prospect",
+   "text": "Panama: found Club de Golf de Panamá -> https://www.clubdegolfdepanama.com",
+   "ok": true,
+   "url": "https://www.clubdegolfdepanama.com"
+  },
+  {
+   "t": "2026-08-23T19:32:45.162Z",
+   "kind": "prospect",
+   "text": "Panama: found Park & Padel -> https://www.parknpadel.com",
+   "ok": true,
+   "url": "https://www.parknpadel.com"
+  },
+  {
+   "t": "2026-08-23T19:32:45.161Z",
+   "kind": "prospect",
+   "text": "Panama: found Padel Plaza -> https://padelplaza.club",
+   "ok": true,
+   "url": "https://padelplaza.club"
+  },
+  {
+   "t": "2026-08-23T19:27:12.842Z",
+   "kind": "prospect",
+   "text": "Nicaragua: found Padel con el Viejo -> https://www.padelconelviejo.com",
+   "ok": true,
+   "url": "https://www.padelconelviejo.com"
+  },
+  {
+   "t": "2026-08-23T19:27:12.841Z",
+   "kind": "prospect",
+   "text": "Nicaragua: found CLUB DE TENIS GRANADA -> https://ctgranada.blogspot.com",
+   "ok": true,
+   "url": "https://ctgranada.blogspot.com"
+  },
   {
    "t": "2026-08-23T19:07:55.811Z",
    "kind": "crawl",
@@ -1181,41 +1216,6 @@
    "text": "Varsity Tennis Courts — https://www.varsitycourts.com: turned away by a captcha, will retry",
    "ok": false,
    "url": "https://www.varsitycourts.com"
-  },
-  {
-   "t": "2026-08-23T15:35:26.919Z",
-   "kind": "crawl",
-   "text": "Springettsbury Park Tennis Courts — https://springettsbury.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://springettsbury.com"
-  },
-  {
-   "t": "2026-08-23T15:35:26.874Z",
-   "kind": "crawl",
-   "text": "DeKalb Tennis Center — https://dekalb.agapetennisacademy.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://dekalb.agapetennisacademy.com"
-  },
-  {
-   "t": "2026-08-23T15:35:26.791Z",
-   "kind": "crawl",
-   "text": "Cherry Hill Health & Racquet Club — https://chhrc.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://chhrc.com"
-  },
-  {
-   "t": "2026-08-23T15:35:26.636Z",
-   "kind": "crawl",
-   "text": "Salina South HS Courts — https://www.305southhigh.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.305southhigh.com"
-  },
-  {
-   "t": "2026-08-23T15:35:26.482Z",
-   "kind": "crawl",
-   "text": "Safari Villas Tennis Court — https://terrafricasafari.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://terrafricasafari.com"
   }
  ],
  "perCountry": {
@@ -19804,9 +19804,9 @@
    }
   },
   "Panama": {
-   "clubs": 13,
+   "clubs": 16,
    "emails": 9,
-   "sites": 12,
+   "sites": 15,
    "read": 12,
    "unreachable": 1,
    "noAddress": 2,
@@ -19814,8 +19814,8 @@
    "leadsSearched": 6,
    "leadsFound": 1,
    "sports": {
-    "Tennis": 8,
-    "Padel": 6,
+    "Tennis": 9,
+    "Padel": 8,
     "Squash": 5
    },
    "sources": {
@@ -19854,27 +19854,54 @@
      "Alcalde Díaz"
     ],
     "citiesTotal": 18,
-    "citiesSearched": 0,
-    "searchesDone": 0,
+    "citiesSearched": 6,
+    "searchesDone": 19,
     "searchesTotal": 57,
-    "found": 0,
+    "found": 3,
     "emails": 4,
-    "countrywide": null,
+    "countrywide": {
+     "s": 3,
+     "f": 2
+    },
     "cityStats": [
      {
       "n": "Panama City",
-      "s": 0,
+      "s": 3,
       "f": 0,
       "e": 1
      },
      {
+      "n": "San Miguelito",
+      "s": 3,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Juan Díaz",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "David",
-      "s": 0,
+      "s": 3,
       "f": 0,
       "e": 3
+     },
+     {
+      "n": "Colón",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Arraiján",
+      "s": 1,
+      "f": 0,
+      "e": 0
      }
     ],
-    "last": "2026-08-23T01:27:30.621Z"
+    "last": "2026-08-23T19:32:45.161Z"
    }
   },
   "Uruguay": {
@@ -20005,9 +20032,9 @@
    }
   },
   "Nicaragua": {
-   "clubs": 6,
+   "clubs": 8,
    "emails": 5,
-   "sites": 6,
+   "sites": 8,
    "read": 6,
    "unreachable": 1,
    "noAddress": 0,
@@ -20015,8 +20042,8 @@
    "leadsSearched": 4,
    "leadsFound": 3,
    "sports": {
-    "Tennis": 3,
-    "Padel": 3,
+    "Tennis": 4,
+    "Padel": 4,
     "Squash": 0
    },
    "sources": {
@@ -20067,24 +20094,93 @@
      "Rama"
     ],
     "citiesTotal": 31,
-    "citiesSearched": 0,
-    "searchesDone": 0,
+    "citiesSearched": 13,
+    "searchesDone": 40,
     "searchesTotal": 96,
-    "found": 0,
+    "found": 2,
     "emails": 5,
-    "countrywide": null,
+    "countrywide": {
+     "s": 3,
+     "f": 0
+    },
     "cityStats": [
      {
       "n": "Managua",
-      "s": 0,
+      "s": 3,
       "f": 0,
       "e": 3
      },
      {
-      "n": "Granada",
-      "s": 0,
+      "n": "León",
+      "s": 3,
       "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Masaya",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Chinandega",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Matagalpa",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Estelí",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Granada",
+      "s": 3,
+      "f": 1,
       "e": 1
+     },
+     {
+      "n": "Mateare",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Jinotega",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "El Viejo",
+      "s": 3,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Nueva Guinea",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Tipitapa",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Juigalpa",
+      "s": 1,
+      "f": 0,
+      "e": 0
      },
      {
       "n": "Ciudad Sandino",
@@ -20093,7 +20189,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-23T01:14:23.766Z"
+    "last": "2026-08-23T19:27:12.841Z"
    }
   },
   "Angola": {
@@ -24299,34 +24395,34 @@
   }
  },
  "recent": [
-  "2026-08-23T19:14:19.859Z  dropped info@opensourceforall.org — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T19:14:19.859Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T19:14:19.860Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T19:14:19.860Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T19:14:19.861Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T19:14:19.882Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T19:14:19.885Z  dropped info@website.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T19:14:19.886Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T19:14:19.887Z  dropped info@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T19:14:19.887Z  dropped info@opensourceforall.org — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T19:14:19.888Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T19:14:19.890Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T19:14:19.890Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T19:14:19.891Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
+  "2026-08-23T19:32:45.486Z  dropped info@opensourceforall.org — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T19:32:45.487Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T19:32:45.487Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T19:32:45.488Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T19:32:45.488Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T19:32:45.516Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T19:32:45.519Z  dropped info@website.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T19:32:45.520Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T19:32:45.520Z  dropped info@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T19:32:45.521Z  dropped info@opensourceforall.org — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T19:32:45.522Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T19:32:45.522Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T19:32:45.523Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T19:32:45.524Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-23T19:08:18.813Z",
+ "roundStarted": "2026-08-23T19:14:42.070Z",
  "lastRound": {
-  "at": "2026-08-23T19:14:19.914Z",
-  "minutes": 6,
-  "summary": "crawled 0 sites, +0 emails; prospected 1 empty countries, +0 clubs; osm 5 countries (ES,GB,AU,IN,PE,PY,BO,NG,BW,MZ,CV,RW) +0, 4 failed",
+  "at": "2026-08-23T19:32:45.541Z",
+  "minutes": 18.1,
+  "summary": "crawled 0 sites, +0 emails; prospected 2 empty countries, +5 clubs",
   "crawled": 0,
   "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
+  "osmCountries": 0,
   "osmAdded": 0,
-  "osmFailed": 4
+  "osmFailed": 0
  }
 }
