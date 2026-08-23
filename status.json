@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-23T12:41:49.710Z",
- "clubs": 5841,
+ "generated": "2026-08-23T12:57:51.115Z",
+ "clubs": 5885,
  "records": 7882,
  "crawl": {
-  "ready": 86,
-  "waiting": 149,
-  "exhausted": 1391
+  "ready": 0,
+  "waiting": 155,
+  "exhausted": 1426
  },
  "osm": {
   "imported": 70,
@@ -13,31 +13,31 @@
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "AU",
-   "error": "partial: 10 of 15 subdivisions read",
-   "at": "2026-08-23T12:14:07.643Z"
+   "cc": "US",
+   "error": "busy (500)",
+   "at": "2026-08-23T12:57:50.894Z"
   }
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 3744
+   "n": 3779
   },
   {
    "note": "no email published",
-   "n": 683
+   "n": 673
   },
   {
    "note": "contact form, no address",
-   "n": 386
+   "n": 399
   },
   {
    "note": "unreachable",
-   "n": 357
+   "n": 356
   },
   {
    "note": "/contact",
-   "n": 147
+   "n": 148
   },
   {
    "note": "blocked by a challenge page",
@@ -61,10 +61,620 @@
   "added": 0,
   "wikidata": {
    "sports": {},
-   "failedAt": "2026-08-23T08:34:23.307Z"
+   "failedAt": "2026-08-23T12:51:25.351Z"
   }
  },
  "activity": [
+  {
+   "t": "2026-08-23T12:48:22.187Z",
+   "kind": "crawl",
+   "text": "Mesk Padel Tarragona — https://www.meskpadeltgn.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.meskpadeltgn.com"
+  },
+  {
+   "t": "2026-08-23T12:48:08.212Z",
+   "kind": "crawl",
+   "text": "Madrid Squash Open 2026 — https://madridsquashopen.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://madridsquashopen.com"
+  },
+  {
+   "t": "2026-08-23T12:47:57.331Z",
+   "kind": "crawl",
+   "text": "ligas y torneos de Squash — https://squash.15iguales.com / -> info@15iguales.com",
+   "ok": true,
+   "url": "https://squash.15iguales.com",
+   "email": "info@15iguales.com"
+  },
+  {
+   "t": "2026-08-23T12:47:33.119Z",
+   "kind": "crawl",
+   "text": "Cercle Sabadellès 1856 — https://lligues.cerclesabadelles.cat /tournaments/6835195-the-padel-cup-by-cupra-sabadell -> svioleta@cerclesabadelles.cat",
+   "ok": true,
+   "url": "https://lligues.cerclesabadelles.cat",
+   "email": "svioleta@cerclesabadelles.cat"
+  },
+  {
+   "t": "2026-08-23T12:47:31.558Z",
+   "kind": "crawl",
+   "text": "Euroindoor Padel — https://euroindoorpadel.es /aviso-legal -> info@euroindoorpadel.com",
+   "ok": true,
+   "url": "https://euroindoorpadel.es",
+   "email": "info@euroindoorpadel.com"
+  },
+  {
+   "t": "2026-08-23T12:47:27.593Z",
+   "kind": "crawl",
+   "text": "Ѳ PadelValladolid : Tu comunidad de pádel Amateur. — https://padelvalladolid.es: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://padelvalladolid.es"
+  },
+  {
+   "t": "2026-08-23T12:47:20.840Z",
+   "kind": "crawl",
+   "text": "Padelife: noticias — https://padelife.com /club-raqueta-valladolid/ -> info@clubraquet.es",
+   "ok": true,
+   "url": "https://padelife.com",
+   "email": "info@clubraquet.es"
+  },
+  {
+   "t": "2026-08-23T12:47:15.669Z",
+   "kind": "crawl",
+   "text": "Tennis lessons and Tennis courts — https://www.tennisbirmingham.co.uk -> matt.corp@live.co.uk",
+   "ok": true,
+   "url": "https://www.tennisbirmingham.co.uk",
+   "email": "matt.corp@live.co.uk"
+  },
+  {
+   "t": "2026-08-23T12:47:14.796Z",
+   "kind": "crawl",
+   "text": "Sícoris Club — https://www.sicorisclub.cat -> info@sicorisclub.com",
+   "ok": true,
+   "url": "https://www.sicorisclub.cat",
+   "email": "info@sicorisclub.com"
+  },
+  {
+   "t": "2026-08-23T12:47:14.485Z",
+   "kind": "crawl",
+   "text": "Club de Pádel la Volea — http://www.clubdepadellavolea.com -> info@clubdepadellavolea.com",
+   "ok": true,
+   "url": "http://www.clubdepadellavolea.com",
+   "email": "info@clubdepadellavolea.com"
+  },
+  {
+   "t": "2026-08-23T12:47:13.872Z",
+   "kind": "crawl",
+   "text": "gijonsquashclub — http://www.gijonsquashclub.com /18.html -> info@gijonsquashclub.com",
+   "ok": true,
+   "url": "http://www.gijonsquashclub.com",
+   "email": "info@gijonsquashclub.com"
+  },
+  {
+   "t": "2026-08-23T12:47:12.929Z",
+   "kind": "crawl",
+   "text": "Ladies Squash Valencia — https://ladiessquashvalencia.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://ladiessquashvalencia.com"
+  },
+  {
+   "t": "2026-08-23T12:47:12.128Z",
+   "kind": "crawl",
+   "text": "CATEDRAL PÁDEL CLUB — https://catedraltemplopadelclub.matchpoint.com.es -> catedralpadelclub@gmail.com",
+   "ok": true,
+   "url": "https://catedraltemplopadelclub.matchpoint.com.es",
+   "email": "catedralpadelclub@gmail.com"
+  },
+  {
+   "t": "2026-08-23T12:47:11.764Z",
+   "kind": "crawl",
+   "text": "Club Padel Time — https://ligasytorneospadeltime.com -> info@padeltime.es",
+   "ok": true,
+   "url": "https://ligasytorneospadeltime.com",
+   "email": "info@padeltime.es"
+  },
+  {
+   "t": "2026-08-23T12:47:11.620Z",
+   "kind": "crawl",
+   "text": "Barroca Tênis Clube — https://barroca.com.br /site/servicos/seja-socio/ -> secretaria@barroca.com.br",
+   "ok": true,
+   "url": "https://barroca.com.br",
+   "email": "secretaria@barroca.com.br"
+  },
+  {
+   "t": "2026-08-23T12:47:10.757Z",
+   "kind": "crawl",
+   "text": "London Squash — https://londonsquash.org.uk -> csvconsultancyltd@gmail.com",
+   "ok": true,
+   "url": "https://londonsquash.org.uk",
+   "email": "csvconsultancyltd@gmail.com"
+  },
+  {
+   "t": "2026-08-23T12:47:10.625Z",
+   "kind": "crawl",
+   "text": "Fitness y Pádel en San Blas — https://www.factoryfit.es -> info@factoryfit.es",
+   "ok": true,
+   "url": "https://www.factoryfit.es",
+   "email": "info@factoryfit.es"
+  },
+  {
+   "t": "2026-08-23T12:47:10.079Z",
+   "kind": "crawl",
+   "text": "Club Tenis de Mesa Hortaleza * Hortaleza TM — https://www.hortalezatm.com -> contacto@hortalezatm.com",
+   "ok": true,
+   "url": "https://www.hortalezatm.com",
+   "email": "contacto@hortalezatm.com"
+  },
+  {
+   "t": "2026-08-23T12:47:09.808Z",
+   "kind": "crawl",
+   "text": "FesPádel Can Dragó — https://fespadelcandrago.com -> fespadelcandrago@gmail.com",
+   "ok": true,
+   "url": "https://fespadelcandrago.com",
+   "email": "fespadelcandrago@gmail.com"
+  },
+  {
+   "t": "2026-08-23T12:47:09.619Z",
+   "kind": "crawl",
+   "text": "Club de Tenis Castellón — https://clubdeteniscastellon.wordpress.com -> deportes@ctcastellon.com",
+   "ok": true,
+   "url": "https://clubdeteniscastellon.wordpress.com",
+   "email": "deportes@ctcastellon.com"
+  },
+  {
+   "t": "2026-08-23T12:47:09.492Z",
+   "kind": "crawl",
+   "text": "Academia de Tenis de Alto Rendimiento — https://sevillatennisreal.com: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://sevillatennisreal.com"
+  },
+  {
+   "t": "2026-08-23T12:47:03.256Z",
+   "kind": "crawl",
+   "text": "World Padel Point — https://worldpadelpoint.com /trabaja-con-nosotros/ -> rrhh@worldpadelpoint.com",
+   "ok": true,
+   "url": "https://worldpadelpoint.com",
+   "email": "rrhh@worldpadelpoint.com"
+  },
+  {
+   "t": "2026-08-23T12:46:47.891Z",
+   "kind": "crawl",
+   "text": "Club Social & Deportivo Los Llanos — https://www.clublosllanos.com -> club@clublosllanos.es",
+   "ok": true,
+   "url": "https://www.clublosllanos.com",
+   "email": "club@clublosllanos.es"
+  },
+  {
+   "t": "2026-08-23T12:46:47.466Z",
+   "kind": "crawl",
+   "text": "Más Que Pádel Albacete — https://masquepadelalbacete.matchpoint.com.es -> info@masquepadelab.com",
+   "ok": true,
+   "url": "https://masquepadelalbacete.matchpoint.com.es",
+   "email": "info@masquepadelab.com"
+  },
+  {
+   "t": "2026-08-23T12:46:47.112Z",
+   "kind": "crawl",
+   "text": "Padelicious — https://padelicious.com -> info@padelicious.com",
+   "ok": true,
+   "url": "https://padelicious.com",
+   "email": "info@padelicious.com"
+  },
+  {
+   "t": "2026-08-23T12:46:45.680Z",
+   "kind": "crawl",
+   "text": "PADEL SPORT INDOOR GETAFE — https://padelsportindoorgetafe.com /contacto/ -> info@padelsportindoorgetafe.com",
+   "ok": true,
+   "url": "https://padelsportindoorgetafe.com",
+   "email": "info@padelsportindoorgetafe.com"
+  },
+  {
+   "t": "2026-08-23T12:46:42.348Z",
+   "kind": "crawl",
+   "text": "Academia Tenis Burgos — https://www.academiatenisburgos.es -> info@academiatenisburgos.es",
+   "ok": true,
+   "url": "https://www.academiatenisburgos.es",
+   "email": "info@academiatenisburgos.es"
+  },
+  {
+   "t": "2026-08-23T12:46:42.077Z",
+   "kind": "crawl",
+   "text": "Club Buenavista — https://clubbuenavista.es -> consultasocios@clubbuenavista.es",
+   "ok": true,
+   "url": "https://clubbuenavista.es",
+   "email": "consultasocios@clubbuenavista.es"
+  },
+  {
+   "t": "2026-08-23T12:46:41.836Z",
+   "kind": "crawl",
+   "text": "Tu club de tenis. Tu pista. Tu momento. — https://iparbit.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://iparbit.com"
+  },
+  {
+   "t": "2026-08-23T12:46:40.678Z",
+   "kind": "crawl",
+   "text": "Padel Indoor — https://www.setpoint.es -> contacto@setpoint.es",
+   "ok": true,
+   "url": "https://www.setpoint.es",
+   "email": "contacto@setpoint.es"
+  },
+  {
+   "t": "2026-08-23T12:46:39.467Z",
+   "kind": "crawl",
+   "text": "Centro deportivo S7 Padel Center — https://b44952174.es -> contabilidad@s7padelcenter.com",
+   "ok": true,
+   "url": "https://b44952174.es",
+   "email": "contabilidad@s7padelcenter.com"
+  },
+  {
+   "t": "2026-08-23T12:46:38.690Z",
+   "kind": "crawl",
+   "text": "Club Deportivo Willy Garena — https://clubdeportivowillygarena.com -> contacto@clubdeportivowillygarena.com",
+   "ok": true,
+   "url": "https://clubdeportivowillygarena.com",
+   "email": "contacto@clubdeportivowillygarena.com"
+  },
+  {
+   "t": "2026-08-23T12:46:38.461Z",
+   "kind": "crawl",
+   "text": "Harlem Padel — https://www.harlempadel.com -> info@harlempadel.com",
+   "ok": true,
+   "url": "https://www.harlempadel.com",
+   "email": "info@harlempadel.com"
+  },
+  {
+   "t": "2026-08-23T12:46:37.542Z",
+   "kind": "crawl",
+   "text": "360 Club Colors Padel — https://360colorspadel.com -> info@dominio.com",
+   "ok": true,
+   "url": "https://360colorspadel.com",
+   "email": "info@dominio.com"
+  },
+  {
+   "t": "2026-08-23T12:46:34.125Z",
+   "kind": "crawl",
+   "text": "CLUB DE MAR ALMERÍA — https://actividades.clubdemaralmeria.es -> administracion@clubdemaralmeria.es",
+   "ok": true,
+   "url": "https://actividades.clubdemaralmeria.es",
+   "email": "administracion@clubdemaralmeria.es"
+  },
+  {
+   "t": "2026-08-23T12:46:33.885Z",
+   "kind": "crawl",
+   "text": "OnpadelClub Navarra — https://www.onpadelclub.es -> info@onpadelclub.es",
+   "ok": true,
+   "url": "https://www.onpadelclub.es",
+   "email": "info@onpadelclub.es"
+  },
+  {
+   "t": "2026-08-23T12:46:33.592Z",
+   "kind": "crawl",
+   "text": "Squash Urbano — https://www.squashurbanocol.org /contact-us/ -> info@squashurbanocol.org",
+   "ok": true,
+   "url": "https://www.squashurbanocol.org",
+   "email": "info@squashurbanocol.org"
+  },
+  {
+   "t": "2026-08-23T12:46:26.845Z",
+   "kind": "crawl",
+   "text": "CNS PADEL — https://cnspadel.com -> info@cnspadel.com",
+   "ok": true,
+   "url": "https://cnspadel.com",
+   "email": "info@cnspadel.com"
+  },
+  {
+   "t": "2026-08-23T12:46:25.564Z",
+   "kind": "crawl",
+   "text": "Academia de Tenis — https://harrisontenis.com.py: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://harrisontenis.com.py"
+  },
+  {
+   "t": "2026-08-23T12:46:22.536Z",
+   "kind": "crawl",
+   "text": "PÁDEL OVIEDO — https://padeloviedo.matchpoint.com.es -> hola@padeloviedo.com",
+   "ok": true,
+   "url": "https://padeloviedo.matchpoint.com.es",
+   "email": "hola@padeloviedo.com"
+  },
+  {
+   "t": "2026-08-23T12:46:21.822Z",
+   "kind": "crawl",
+   "text": "Real Club de Polo de Barcelona — https://rcpolo.com -> info@rcpolo.com",
+   "ok": true,
+   "url": "https://rcpolo.com",
+   "email": "info@rcpolo.com"
+  },
+  {
+   "t": "2026-08-23T12:46:21.517Z",
+   "kind": "crawl",
+   "text": "Club Tenis Oliva — https://clubtenisoliva.es -> administracion@clubtenisoliva.es",
+   "ok": true,
+   "url": "https://clubtenisoliva.es",
+   "email": "administracion@clubtenisoliva.es"
+  },
+  {
+   "t": "2026-08-23T12:46:18.568Z",
+   "kind": "crawl",
+   "text": "Club de Tenis Elche Pepe Oliva — https://teniselche.es -> info@teniselche.es",
+   "ok": true,
+   "url": "https://teniselche.es",
+   "email": "info@teniselche.es"
+  },
+  {
+   "t": "2026-08-23T12:46:14.598Z",
+   "kind": "crawl",
+   "text": "Club Fuencarral ALAPAR — https://www.clubfuencarral.com -> info@clubfuencarral.com",
+   "ok": true,
+   "url": "https://www.clubfuencarral.com",
+   "email": "info@clubfuencarral.com"
+  },
+  {
+   "t": "2026-08-23T12:46:13.563Z",
+   "kind": "crawl",
+   "text": "Bar Top Pádel Club — https://www.bartoppadelclub.es -> padeltopclub@hotmail.com",
+   "ok": true,
+   "url": "https://www.bartoppadelclub.es",
+   "email": "padeltopclub@hotmail.com"
+  },
+  {
+   "t": "2026-08-23T12:46:13.114Z",
+   "kind": "crawl",
+   "text": "Bakh-Playpadel Gasteiz — https://playpadel.es /Contacto -> info@playpadel.es",
+   "ok": true,
+   "url": "https://playpadel.es",
+   "email": "info@playpadel.es"
+  },
+  {
+   "t": "2026-08-23T12:46:10.680Z",
+   "kind": "crawl",
+   "text": "Clube Esportivo na Aclimação — https://lp.tenisclubepaulista.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://lp.tenisclubepaulista.com"
+  },
+  {
+   "t": "2026-08-23T12:45:44.314Z",
+   "kind": "crawl",
+   "text": "Real Aero Club de Córdoba — https://www.realaeroclubdecordoba.com -> gerencia@realaeroclubdecordoba.com",
+   "ok": true,
+   "url": "https://www.realaeroclubdecordoba.com",
+   "email": "gerencia@realaeroclubdecordoba.com"
+  },
+  {
+   "t": "2026-08-23T12:45:43.238Z",
+   "kind": "crawl",
+   "text": "Alicante Pádel Travel — https://alicantepadeltravel.com -> dani.montilla@alicantepadeltravel.com",
+   "ok": true,
+   "url": "https://alicantepadeltravel.com",
+   "email": "dani.montilla@alicantepadeltravel.com"
+  },
+  {
+   "t": "2026-08-23T12:45:41.339Z",
+   "kind": "crawl",
+   "text": "Club deportivo Alicante — https://alicantetm.es /contacto -> info@alicantetm.es",
+   "ok": true,
+   "url": "https://alicantetm.es",
+   "email": "info@alicantetm.es"
+  },
+  {
+   "t": "2026-08-23T12:45:40.480Z",
+   "kind": "crawl",
+   "text": "Palma Sport & Tennis Club — https://www.palmasportclub.com /contact -> info@palmatennis.com",
+   "ok": true,
+   "url": "https://www.palmasportclub.com",
+   "email": "info@palmatennis.com"
+  },
+  {
+   "t": "2026-08-23T12:45:39.177Z",
+   "kind": "crawl",
+   "text": "SportClub — https://sportclubalicante.com -> info@sportclubalicante.com",
+   "ok": true,
+   "url": "https://sportclubalicante.com",
+   "email": "info@sportclubalicante.com"
+  },
+  {
+   "t": "2026-08-23T12:45:38.769Z",
+   "kind": "crawl",
+   "text": "PADEL CLUB MALLORCA — https://padelclubmallorca.com -> info@padelclubmallorca.com",
+   "ok": true,
+   "url": "https://padelclubmallorca.com",
+   "email": "info@padelclubmallorca.com"
+  },
+  {
+   "t": "2026-08-23T12:45:38.433Z",
+   "kind": "crawl",
+   "text": "Wycombe House Lawn Tennis Club — https://www.whtennis.co.uk/: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://www.whtennis.co.uk/"
+  },
+  {
+   "t": "2026-08-23T12:45:35.690Z",
+   "kind": "crawl",
+   "text": "Padel Solano — https://josesolanopadel.com -> aquajose@gmail.com",
+   "ok": true,
+   "url": "https://josesolanopadel.com",
+   "email": "aquajose@gmail.com"
+  },
+  {
+   "t": "2026-08-23T12:45:31.643Z",
+   "kind": "crawl",
+   "text": "Asunción Tenis Club — https://asunciontenisclub.com.py: site read, publishes no address",
+   "ok": false,
+   "url": "https://asunciontenisclub.com.py"
+  },
+  {
+   "t": "2026-08-23T12:45:29.222Z",
+   "kind": "crawl",
+   "text": "Impulsando el squash en España desde 1983.\" — https://realfederaciondesquash.com -> administracion@realfederaciondesquash.com",
+   "ok": true,
+   "url": "https://realfederaciondesquash.com",
+   "email": "administracion@realfederaciondesquash.com"
+  },
+  {
+   "t": "2026-08-23T12:45:27.900Z",
+   "kind": "crawl",
+   "text": "Paraguay Squash — https://paraguaysquash.com.py: site read, publishes no address",
+   "ok": false,
+   "url": "https://paraguaysquash.com.py"
+  },
+  {
+   "t": "2026-08-23T12:45:27.265Z",
+   "kind": "crawl",
+   "text": "Padelmania — https://jc-padel-club.com: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://jc-padel-club.com"
+  },
+  {
+   "t": "2026-08-23T12:45:23.342Z",
+   "kind": "crawl",
+   "text": "Entrenador y profesor de squash en Quito — https://squashcouchecuador.jimdofree.com: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://squashcouchecuador.jimdofree.com"
+  },
+  {
+   "t": "2026-08-23T12:45:14.254Z",
+   "kind": "crawl",
+   "text": "Art Fit Academia — https://www.artfitacademia.com.br /contato/ -> atendimento@deniasalu.com.br",
+   "ok": true,
+   "url": "https://www.artfitacademia.com.br",
+   "email": "atendimento@deniasalu.com.br"
+  },
+  {
+   "t": "2026-08-23T12:45:09.166Z",
+   "kind": "crawl",
+   "text": "Padelería — https://padeleria.com: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://padeleria.com"
+  },
+  {
+   "t": "2026-08-23T12:45:08.545Z",
+   "kind": "crawl",
+   "text": "LOMAS CLUB — https://lomas-club.reservio.com: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://lomas-club.reservio.com"
+  },
+  {
+   "t": "2026-08-23T12:45:06.826Z",
+   "kind": "crawl",
+   "text": "Mapperley Park Tennis Club — http://www.racketeer.free-online.co.uk/: site read, publishes no address",
+   "ok": false,
+   "url": "http://www.racketeer.free-online.co.uk/"
+  },
+  {
+   "t": "2026-08-23T12:44:33.123Z",
+   "kind": "crawl",
+   "text": "What A Racket Ealing — https://www.whataracket.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.whataracket.com"
+  },
+  {
+   "t": "2026-08-23T12:44:29.532Z",
+   "kind": "crawl",
+   "text": "Saffron Walden Squash Club — https://saffronwaldensquashclub.co.uk: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://saffronwaldensquashclub.co.uk"
+  },
+  {
+   "t": "2026-08-23T12:44:19.870Z",
+   "kind": "crawl",
+   "text": "Padelife — http://padelife.es/: site read, a contact form but no address",
+   "ok": false,
+   "url": "http://padelife.es/"
+  },
+  {
+   "t": "2026-08-23T12:44:10.643Z",
+   "kind": "crawl",
+   "text": "Squash Femenino Salta — https://squashfemeninosalta.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://squashfemeninosalta.com"
+  },
+  {
+   "t": "2026-08-23T12:44:10.003Z",
+   "kind": "crawl",
+   "text": "AQUA_SQUASH — http://www.aqua-squash.banda.cz / -> info@banda.cz",
+   "ok": true,
+   "url": "http://www.aqua-squash.banda.cz",
+   "email": "info@banda.cz"
+  },
+  {
+   "t": "2026-08-23T12:44:08.362Z",
+   "kind": "crawl",
+   "text": "Blairgowrie Tennis Club — http://www.blairgowrietennisclub.co.uk/: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "http://www.blairgowrietennisclub.co.uk/"
+  },
+  {
+   "t": "2026-08-23T12:44:07.799Z",
+   "kind": "crawl",
+   "text": "Córdoba Lawn Tenis Club — http://www.cordobalawntenis.com.ar: site read, publishes no address",
+   "ok": false,
+   "url": "http://www.cordobalawntenis.com.ar"
+  },
+  {
+   "t": "2026-08-23T12:44:05.712Z",
+   "kind": "crawl",
+   "text": "Top Spin Tennis Academy — https://topspintennisacademy.in: site read, publishes no address",
+   "ok": false,
+   "url": "https://topspintennisacademy.in"
+  },
+  {
+   "t": "2026-08-23T12:43:26.717Z",
+   "kind": "crawl",
+   "text": "TC Schiebroek — https://www.tc-schiebroek.nl: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://www.tc-schiebroek.nl"
+  },
+  {
+   "t": "2026-08-23T12:43:23.217Z",
+   "kind": "crawl",
+   "text": "Padelstadion Rotterdam — https://www.tennisstadionrotterdam.nl: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.tennisstadionrotterdam.nl"
+  },
+  {
+   "t": "2026-08-23T12:43:22.917Z",
+   "kind": "crawl",
+   "text": "Ox Ridge Riding & Racquet Club — https://www.oxridge.com /squash1.html -> squash@oxridge.com",
+   "ok": true,
+   "url": "https://www.oxridge.com",
+   "email": "squash@oxridge.com"
+  },
+  {
+   "t": "2026-08-23T12:43:19.019Z",
+   "kind": "crawl",
+   "text": "The Eastern Sports Club — https://theeasternsportsclub.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://theeasternsportsclub.com"
+  },
+  {
+   "t": "2026-08-23T12:43:15.308Z",
+   "kind": "crawl",
+   "text": "The Club at Sugar Hill — https://theclubatsugarhill.weebly.com: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://theclubatsugarhill.weebly.com"
+  },
+  {
+   "t": "2026-08-23T12:43:11.323Z",
+   "kind": "crawl",
+   "text": "Hatta Padel at Wadi Hub — https://www.hattapadel.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.hattapadel.com"
+  },
+  {
+   "t": "2026-08-23T12:43:09.062Z",
+   "kind": "crawl",
+   "text": "Padel City Fletcher Rotterdam — https://padelcity-rotterdam.nl: site read, publishes no address",
+   "ok": false,
+   "url": "https://padelcity-rotterdam.nl"
+  },
+  {
+   "t": "2026-08-23T12:43:08.858Z",
+   "kind": "crawl",
+   "text": "Court Hub — https://padelgva.ch: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://padelgva.ch"
+  },
   {
    "t": "2026-08-23T12:41:49.029Z",
    "kind": "crawl",
@@ -639,585 +1249,16 @@
    "text": "Kingsville Tennis Club — https://kingsvilletennisclub.weebly.com: site read, publishes no address",
    "ok": false,
    "url": "https://kingsvilletennisclub.weebly.com"
-  },
-  {
-   "t": "2026-08-23T12:26:57.262Z",
-   "kind": "crawl",
-   "text": "High Park Club — https://members.highparkclub.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://members.highparkclub.com"
-  },
-  {
-   "t": "2026-08-23T12:26:57.057Z",
-   "kind": "crawl",
-   "text": "Padel Joaçaba — https://padeljoacaba.com.br: site read, publishes no address",
-   "ok": false,
-   "url": "https://padeljoacaba.com.br"
-  },
-  {
-   "t": "2026-08-23T12:26:54.412Z",
-   "kind": "crawl",
-   "text": "Bradenton Country Club — https://www.bradentoncc.org: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://www.bradentoncc.org"
-  },
-  {
-   "t": "2026-08-23T12:26:38.904Z",
-   "kind": "crawl",
-   "text": "Ambala Club — http://www.ambalaclub.in: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.ambalaclub.in"
-  },
-  {
-   "t": "2026-08-23T12:26:20.060Z",
-   "kind": "crawl",
-   "text": "Doug Bowie Tennis Center — https://dougbowietennis.weebly.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://dougbowietennis.weebly.com"
-  },
-  {
-   "t": "2026-08-23T12:26:18.331Z",
-   "kind": "crawl",
-   "text": "Cypress Hills Tennis Club — http://cypresshillstennis.weebly.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "http://cypresshillstennis.weebly.com"
-  },
-  {
-   "t": "2026-08-23T12:26:02.818Z",
-   "kind": "crawl",
-   "text": "IF Tennis Academy: Tennis Lessons in Idaho Falls — https://www.iftennisacademy.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.iftennisacademy.com"
-  },
-  {
-   "t": "2026-08-23T12:25:58.421Z",
-   "kind": "crawl",
-   "text": "ACRE CLUBE — https://www.acreclube.com.br: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.acreclube.com.br"
-  },
-  {
-   "t": "2026-08-23T12:25:55.898Z",
-   "kind": "crawl",
-   "text": "BT Cali Club — https://teamcup.btcaliclub.com /privacy-policy -> info@btcaliclub.com",
-   "ok": true,
-   "url": "https://teamcup.btcaliclub.com",
-   "email": "info@btcaliclub.com"
-  },
-  {
-   "t": "2026-08-23T12:25:51.962Z",
-   "kind": "crawl",
-   "text": "The Country Club of Ocala Home Page — https://www.thecountryclubofocala.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://www.thecountryclubofocala.com"
-  },
-  {
-   "t": "2026-08-23T12:25:41.363Z",
-   "kind": "crawl",
-   "text": "Gym/physical Fitness Center — https://www.betterbodieswhitehorse.ca: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://www.betterbodieswhitehorse.ca"
-  },
-  {
-   "t": "2026-08-23T12:25:19.505Z",
-   "kind": "crawl",
-   "text": "Junction Indoor Tennis Center — https://jitctennis.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://jitctennis.com"
-  },
-  {
-   "t": "2026-08-23T12:25:14.630Z",
-   "kind": "crawl",
-   "text": "Bath + Racquet Club — https://club.bathracquet.com / -> info@bathracquet.com",
-   "ok": true,
-   "url": "https://club.bathracquet.com",
-   "email": "info@bathracquet.com"
-  },
-  {
-   "t": "2026-08-23T12:25:09.818Z",
-   "kind": "crawl",
-   "text": "Squash Niagara — https://squashniagara.org: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://squashniagara.org"
-  },
-  {
-   "t": "2026-08-23T12:25:05.153Z",
-   "kind": "crawl",
-   "text": "Pilar Tenis y Padel — https://www.pilartenisypadel.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.pilartenisypadel.com"
-  },
-  {
-   "t": "2026-08-23T12:24:55.324Z",
-   "kind": "crawl",
-   "text": "Coliseum Racquet Club — http://coliseumsportsclub.com: site read, publishes no address",
-   "ok": false,
-   "url": "http://coliseumsportsclub.com"
-  },
-  {
-   "t": "2026-08-23T12:24:50.126Z",
-   "kind": "crawl",
-   "text": "GVR Tennis Club — https://www.gvtennis.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://www.gvtennis.com"
-  },
-  {
-   "t": "2026-08-23T12:24:44.048Z",
-   "kind": "crawl",
-   "text": "Mt Pleasant Squash Club — https://mps.bookingboy.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://mps.bookingboy.com"
-  },
-  {
-   "t": "2026-08-23T12:24:25.894Z",
-   "kind": "crawl",
-   "text": "CLUB DE TENIS LA CARLOTA — https://clubtenislacarlota.blogspot.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://clubtenislacarlota.blogspot.com"
-  },
-  {
-   "t": "2026-08-23T12:24:18.549Z",
-   "kind": "crawl",
-   "text": "Salt & Grip Padel — https://saltandgrippadel.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://saltandgrippadel.com"
-  },
-  {
-   "t": "2026-08-23T12:24:05.424Z",
-   "kind": "crawl",
-   "text": "Mosman Park Tennis Courts — https://mosmanparktennisclub.com.au: site read, publishes no address",
-   "ok": false,
-   "url": "https://mosmanparktennisclub.com.au"
-  },
-  {
-   "t": "2026-08-23T12:23:51.535Z",
-   "kind": "crawl",
-   "text": "Horarios y Partidas Disponibles en Pádel Peña Solana — https://www.padelpenasolana.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://www.padelpenasolana.com"
-  },
-  {
-   "t": "2026-08-23T12:23:48.322Z",
-   "kind": "crawl",
-   "text": "The Club — https://theclubatranchoniguel.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://theclubatranchoniguel.com"
-  },
-  {
-   "t": "2026-08-23T12:23:36.618Z",
-   "kind": "crawl",
-   "text": "Sunset Padel Club — https://www.sunsetpadelclub.fr: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://www.sunsetpadelclub.fr"
-  },
-  {
-   "t": "2026-08-23T12:23:26.432Z",
-   "kind": "crawl",
-   "text": "buenavista tennis club — https://buenavista-tennis-club.kookxtra.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://buenavista-tennis-club.kookxtra.com"
-  },
-  {
-   "t": "2026-08-23T12:23:23.333Z",
-   "kind": "crawl",
-   "text": "Northbrook Racquet Club — https://northbrookracquetclub.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://northbrookracquetclub.com"
-  },
-  {
-   "t": "2026-08-23T12:23:22.067Z",
-   "kind": "crawl",
-   "text": "Padel Saint Charles (école — https://www.padelsaintcharles.fr: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://www.padelsaintcharles.fr"
-  },
-  {
-   "t": "2026-08-23T12:23:20.925Z",
-   "kind": "crawl",
-   "text": "Portland Basketball Stadium — https://www.modaportland.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.modaportland.com"
-  },
-  {
-   "t": "2026-08-23T12:23:18.650Z",
-   "kind": "crawl",
-   "text": "Swellendam Squash — https://breederiver.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://breederiver.com"
-  },
-  {
-   "t": "2026-08-23T12:23:07.156Z",
-   "kind": "crawl",
-   "text": "St Thomas Health Club & Gym — https://www.stthomashealthclub.ca: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://www.stthomashealthclub.ca"
-  },
-  {
-   "t": "2026-08-23T12:22:32.393Z",
-   "kind": "crawl",
-   "text": "SQUASH — https://squash.marinosquash.com.br: site read, publishes no address",
-   "ok": false,
-   "url": "https://squash.marinosquash.com.br"
-  },
-  {
-   "t": "2026-08-23T12:22:23.367Z",
-   "kind": "crawl",
-   "text": "La Pelota Squash & Fronton — http://www.lapelotasf.com: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.lapelotasf.com"
-  },
-  {
-   "t": "2026-08-23T12:22:05.224Z",
-   "kind": "crawl",
-   "text": "Club Fadoq Boucherville — https://fadoqboucherville.org /mot-de-la-direction/nous-rejoindre/ -> presidence@fadoqboucherville.org",
-   "ok": true,
-   "url": "https://fadoqboucherville.org",
-   "email": "presidence@fadoqboucherville.org"
-  },
-  {
-   "t": "2026-08-23T12:22:00.044Z",
-   "kind": "crawl",
-   "text": "Korolev Tennis Academy — https://korolevtennisacademy.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://korolevtennisacademy.com"
-  },
-  {
-   "t": "2026-08-23T12:21:55.571Z",
-   "kind": "crawl",
-   "text": "Cuddalore Tennis Centre — http://www.cuddaloretenniscentre.com: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.cuddaloretenniscentre.com"
-  },
-  {
-   "t": "2026-08-23T12:21:43.803Z",
-   "kind": "crawl",
-   "text": "OH! PADEL — https://www.ohpadel.net: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.ohpadel.net"
-  },
-  {
-   "t": "2026-08-23T12:21:33.362Z",
-   "kind": "crawl",
-   "text": "Star Island Tennis Courts — https://starislandtennis.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://starislandtennis.com"
-  },
-  {
-   "t": "2026-08-23T12:21:22.137Z",
-   "kind": "crawl",
-   "text": "Scottburgh Country Club Squash Bookings — https://scottburghsquash.co.za: site read, publishes no address",
-   "ok": false,
-   "url": "https://scottburghsquash.co.za"
-  },
-  {
-   "t": "2026-08-23T12:21:13.685Z",
-   "kind": "crawl",
-   "text": "Reitz Padel — https://reitzpadel.co.za: site read, publishes no address",
-   "ok": false,
-   "url": "https://reitzpadel.co.za"
-  },
-  {
-   "t": "2026-08-23T12:20:59.937Z",
-   "kind": "crawl",
-   "text": "The Mission Athletic Club — https://www.missionathletic.club /application -> prince@wimbeldon.com",
-   "ok": true,
-   "url": "https://www.missionathletic.club",
-   "email": "prince@wimbeldon.com"
-  },
-  {
-   "t": "2026-08-23T12:20:58.942Z",
-   "kind": "crawl",
-   "text": "Club de la Haya — https://www.clubdelahaya.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.clubdelahaya.com"
-  },
-  {
-   "t": "2026-08-23T12:20:50.639Z",
-   "kind": "crawl",
-   "text": "Weston super Mare Squash and Racketball Club — http://www.squashclub.freeuk.com: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.squashclub.freeuk.com"
-  },
-  {
-   "t": "2026-08-23T12:20:49.484Z",
-   "kind": "crawl",
-   "text": "Puri Tennis Club — https://www.puridistrictennisassociation.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://www.puridistrictennisassociation.com"
-  },
-  {
-   "t": "2026-08-23T12:20:45.257Z",
-   "kind": "crawl",
-   "text": "DPC Tennis Academy — https://dpctennisacademy.co.za: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://dpctennisacademy.co.za"
-  },
-  {
-   "t": "2026-08-23T12:20:39.496Z",
-   "kind": "crawl",
-   "text": "Padel Temple — http://padeltemple.fr: site read, publishes no address",
-   "ok": false,
-   "url": "http://padeltemple.fr"
-  },
-  {
-   "t": "2026-08-23T12:20:19.871Z",
-   "kind": "crawl",
-   "text": "Port Alfred Tennis Club — https://patennis.co.za: site read, publishes no address",
-   "ok": false,
-   "url": "https://patennis.co.za"
-  },
-  {
-   "t": "2026-08-23T12:20:17.054Z",
-   "kind": "crawl",
-   "text": "Dekalb Tennis Center — http://www.dekalbtenniscenter.com: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.dekalbtenniscenter.com"
-  },
-  {
-   "t": "2026-08-23T12:20:12.893Z",
-   "kind": "crawl",
-   "text": "Jardín de Padel — https://padelgarden.mx: site read, publishes no address",
-   "ok": false,
-   "url": "https://padelgarden.mx"
-  },
-  {
-   "t": "2026-08-23T12:20:02.414Z",
-   "kind": "crawl",
-   "text": "Jbay Squash — https://jbaysquash.co.za: site read, publishes no address",
-   "ok": false,
-   "url": "https://jbaysquash.co.za"
-  },
-  {
-   "t": "2026-08-23T12:19:52.417Z",
-   "kind": "crawl",
-   "text": "Mango Smash Club — https://mangosmash.club: site read, publishes no address",
-   "ok": false,
-   "url": "https://mangosmash.club"
-  },
-  {
-   "t": "2026-08-23T12:19:49.094Z",
-   "kind": "crawl",
-   "text": "Circolo Tennis Santa Teresa Gallura — https://www.circolotennissantateresa.it: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://www.circolotennissantateresa.it"
-  },
-  {
-   "t": "2026-08-23T12:19:37.236Z",
-   "kind": "crawl",
-   "text": "LifeSport Tennis Club — http://racine.lifesport.com: site read, publishes no address",
-   "ok": false,
-   "url": "http://racine.lifesport.com"
-  },
-  {
-   "t": "2026-08-23T12:19:22.629Z",
-   "kind": "crawl",
-   "text": "LYNCHBURG TABLE TENNIS CLUB — https://www.lynchburgtabletennis.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://www.lynchburgtabletennis.com"
-  },
-  {
-   "t": "2026-08-23T12:19:18.527Z",
-   "kind": "crawl",
-   "text": "Rally Point Tennis Club — https://rallypointtennis.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://rallypointtennis.com"
-  },
-  {
-   "t": "2026-08-23T12:19:14.649Z",
-   "kind": "crawl",
-   "text": "Three Oaks Racquet Club in Arkansas — https://three-oaks-racquet-club.sportsgrounds.us.com /contact -> info@sportsgrounds.us.com",
-   "ok": true,
-   "url": "https://three-oaks-racquet-club.sportsgrounds.us.com",
-   "email": "info@sportsgrounds.us.com"
-  },
-  {
-   "t": "2026-08-23T12:19:13.268Z",
-   "kind": "crawl",
-   "text": "WP Squash — https://wpsquash.co.za /masters-squash-coming-soon/ -> administration@wpsquash.co.za",
-   "ok": true,
-   "url": "https://wpsquash.co.za",
-   "email": "administration@wpsquash.co.za"
-  },
-  {
-   "t": "2026-08-23T12:19:06.082Z",
-   "kind": "crawl",
-   "text": "Gunners Padel Parma — https://www.gunnerspadel.it: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.gunnerspadel.it"
-  },
-  {
-   "t": "2026-08-23T12:18:55.805Z",
-   "kind": "crawl",
-   "text": "Medicine Hat Squash — https://medicinehatsquash.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://medicinehatsquash.com"
-  },
-  {
-   "t": "2026-08-23T12:18:49.232Z",
-   "kind": "crawl",
-   "text": "Lakeside Tennis Centre — https://lakesidetenniscentre.weebly.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://lakesidetenniscentre.weebly.com"
-  },
-  {
-   "t": "2026-08-23T12:18:41.600Z",
-   "kind": "crawl",
-   "text": "What Is Squash Sport — https://gpsportcouncil.ca: site read, publishes no address",
-   "ok": false,
-   "url": "https://gpsportcouncil.ca"
-  },
-  {
-   "t": "2026-08-23T12:18:41.061Z",
-   "kind": "crawl",
-   "text": "Qurtuba Padel — https://qurtubapadel.co.za: site read, publishes no address",
-   "ok": false,
-   "url": "https://qurtubapadel.co.za"
-  },
-  {
-   "t": "2026-08-23T12:18:16.074Z",
-   "kind": "crawl",
-   "text": "Inhumas Tênis Clube — https://inhumastenisclube.wordpress.com /professional-email/ -> info@opensourceforall.org",
-   "ok": true,
-   "url": "https://inhumastenisclube.wordpress.com",
-   "email": "info@opensourceforall.org"
-  },
-  {
-   "t": "2026-08-23T12:18:07.000Z",
-   "kind": "crawl",
-   "text": "Tumkur Club — https://tumkurclub.in: site read, publishes no address",
-   "ok": false,
-   "url": "https://tumkurclub.in"
-  },
-  {
-   "t": "2026-08-23T12:18:02.793Z",
-   "kind": "crawl",
-   "text": "Premier Padel Colombia — https://premierpadelcol.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://premierpadelcol.com"
-  },
-  {
-   "t": "2026-08-23T12:17:58.988Z",
-   "kind": "crawl",
-   "text": "Playford Tennis Centre — https://playfordtennis.com.au: site read, publishes no address",
-   "ok": false,
-   "url": "https://playfordtennis.com.au"
-  },
-  {
-   "t": "2026-08-23T12:17:51.405Z",
-   "kind": "crawl",
-   "text": "G.C.C. Court Conditions — https://courtconditions.blogspot.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://courtconditions.blogspot.com"
-  },
-  {
-   "t": "2026-08-23T12:17:42.650Z",
-   "kind": "crawl",
-   "text": "Archana Tennis Academy — http://archana-tennis-academy.com: site read, publishes no address",
-   "ok": false,
-   "url": "http://archana-tennis-academy.com"
-  },
-  {
-   "t": "2026-08-23T12:17:40.995Z",
-   "kind": "crawl",
-   "text": "Padel Club — https://www.padelclub.com.pk: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.padelclub.com.pk"
-  },
-  {
-   "t": "2026-08-23T12:17:29.545Z",
-   "kind": "crawl",
-   "text": "Greater Whittier Tennis Club — https://greaterwhittiertennisclub.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://greaterwhittiertennisclub.com"
-  },
-  {
-   "t": "2026-08-23T12:17:07.803Z",
-   "kind": "crawl",
-   "text": "Indoor Pickleball Center — https://playcrosscourt.net: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://playcrosscourt.net"
-  },
-  {
-   "t": "2026-08-23T12:17:02.150Z",
-   "kind": "crawl",
-   "text": "Padel Up Indio — https://indio2026.padelup.club: site read, publishes no address",
-   "ok": false,
-   "url": "https://indio2026.padelup.club"
-  },
-  {
-   "t": "2026-08-23T12:16:57.934Z",
-   "kind": "crawl",
-   "text": "Frontera Padel — https://fronterapadel.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://fronterapadel.com"
-  },
-  {
-   "t": "2026-08-23T12:16:52.838Z",
-   "kind": "crawl",
-   "text": "REPUBLICA DEL PADEL club social y deportivo — http://republicadelpadel.weebly.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "http://republicadelpadel.weebly.com"
-  },
-  {
-   "t": "2026-08-23T12:16:52.466Z",
-   "kind": "crawl",
-   "text": "Field Club — http://fieldclubindia.com /fact-sheet/ -> reservation@fieldclubindia.com",
-   "ok": true,
-   "url": "http://fieldclubindia.com",
-   "email": "reservation@fieldclubindia.com"
-  },
-  {
-   "t": "2026-08-23T12:16:44.104Z",
-   "kind": "crawl",
-   "text": "TENIS Y PADEL CLUB LAGUNILLAS — https://tenispadelclublagunillas.blogspot.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://tenispadelclublagunillas.blogspot.com"
-  },
-  {
-   "t": "2026-08-23T12:16:39.682Z",
-   "kind": "crawl",
-   "text": "MyPadelSA — https://mypadelsa.co.za -> info@mypadelsa.co.za",
-   "ok": true,
-   "url": "https://mypadelsa.co.za",
-   "email": "info@mypadelsa.co.za"
-  },
-  {
-   "t": "2026-08-23T12:16:23.615Z",
-   "kind": "crawl",
-   "text": "TENIS Y PADEL CLUB LAGUNILLAS — https://tenislagunillas.blogspot.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://tenislagunillas.blogspot.com"
-  },
-  {
-   "t": "2026-08-23T12:16:22.296Z",
-   "kind": "crawl",
-   "text": "Mossel Bay Indoor Padel Courts — https://www.mosselbaypadel.co.za: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.mosselbaypadel.co.za"
-  },
-  {
-   "t": "2026-08-23T12:16:05.347Z",
-   "kind": "crawl",
-   "text": "Pádel Vacaria — https://www.padelvacaria.com.br: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.padelvacaria.com.br"
-  },
-  {
-   "t": "2026-08-23T12:16:03.342Z",
-   "kind": "crawl",
-   "text": "Piet Retief Country Club — https://pietretiefcc.blogspot.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://pietretiefcc.blogspot.com"
   }
  ],
  "perCountry": {
   "Spain": {
    "clubs": 1333,
-   "emails": 1082,
+   "emails": 1126,
    "sites": 1110,
-   "read": 830,
+   "read": 880,
    "unreachable": 62,
-   "noAddress": 55,
+   "noAddress": 57,
    "leads": 388,
    "leadsSearched": 388,
    "leadsFound": 264,
@@ -1230,11 +1271,11 @@
     "harvest": 377,
     "osm": 88,
     "search": 141,
-    "prospect": 476
+    "prospect": 520
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-23T12:12:50.882Z",
+    "at": "2026-08-23T12:57:00.885Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -1280,7 +1321,7 @@
     "searchesDone": 216,
     "searchesTotal": 1680,
     "found": 50,
-    "emails": 880,
+    "emails": 924,
     "countrywide": {
      "s": 3,
      "f": 1
@@ -1290,7 +1331,7 @@
       "n": "Madrid",
       "s": 3,
       "f": 0,
-      "e": 17
+      "e": 18
      },
      {
       "n": "Barcelona",
@@ -1320,7 +1361,7 @@
       "n": "Málaga",
       "s": 3,
       "f": 1,
-      "e": 5
+      "e": 6
      },
      {
       "n": "Murcia",
@@ -1332,7 +1373,7 @@
       "n": "Palma",
       "s": 3,
       "f": 2,
-      "e": 6
+      "e": 8
      },
      {
       "n": "Las Palmas de Gran Canaria",
@@ -1344,7 +1385,7 @@
       "n": "Alicante",
       "s": 3,
       "f": 3,
-      "e": 10
+      "e": 13
      },
      {
       "n": "Bilbao",
@@ -1356,7 +1397,7 @@
       "n": "Córdoba",
       "s": 3,
       "f": 1,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Valladolid",
@@ -1374,7 +1415,7 @@
       "n": "Gijón",
       "s": 3,
       "f": 1,
-      "e": 8
+      "e": 9
      },
      {
       "n": "Eixample",
@@ -1386,13 +1427,13 @@
       "n": "Gasteiz / Vitoria",
       "s": 3,
       "f": 1,
-      "e": 2
+      "e": 3
      },
      {
       "n": "L'Hospitalet de Llobregat",
       "s": 3,
       "f": 1,
-      "e": 3
+      "e": 4
      },
      {
       "n": "Latina",
@@ -1422,7 +1463,7 @@
       "n": "Fuencarral",
       "s": 3,
       "f": 1,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Sant Martí",
@@ -1434,7 +1475,7 @@
       "n": "Elche",
       "s": 3,
       "f": 1,
-      "e": 7
+      "e": 8
      },
      {
       "n": "Granada",
@@ -1446,7 +1487,7 @@
       "n": "Ciudad Lineal",
       "s": 3,
       "f": 2,
-      "e": 0
+      "e": 2
      },
      {
       "n": "Fuencarral-El Pardo",
@@ -1458,7 +1499,7 @@
       "n": "Oviedo",
       "s": 3,
       "f": 1,
-      "e": 3
+      "e": 4
      },
      {
       "n": "Terrassa",
@@ -1476,7 +1517,7 @@
       "n": "Cartagena",
       "s": 3,
       "f": 1,
-      "e": 4
+      "e": 5
      },
      {
       "n": "Jerez de la Frontera",
@@ -1488,7 +1529,7 @@
       "n": "Sabadell",
       "s": 3,
       "f": 2,
-      "e": 4
+      "e": 6
      },
      {
       "n": "Santa Cruz de Tenerife",
@@ -1500,7 +1541,7 @@
       "n": "Pamplona",
       "s": 3,
       "f": 1,
-      "e": 5
+      "e": 6
      },
      {
       "n": "Móstoles",
@@ -1512,19 +1553,19 @@
       "n": "Almería",
       "s": 3,
       "f": 2,
-      "e": 4
+      "e": 6
      },
      {
       "n": "Alcalá de Henares",
       "s": 3,
       "f": 2,
-      "e": 2
+      "e": 4
      },
      {
       "n": "Fuenlabrada",
       "s": 3,
       "f": 1,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Leganés",
@@ -1536,7 +1577,7 @@
       "n": "Getafe",
       "s": 3,
       "f": 3,
-      "e": 2
+      "e": 5
      },
      {
       "n": "Donostia / San Sebastián",
@@ -1554,7 +1595,7 @@
       "n": "Burgos",
       "s": 3,
       "f": 3,
-      "e": 8
+      "e": 11
      },
      {
       "n": "Santander",
@@ -1566,19 +1607,19 @@
       "n": "Albacete",
       "s": 3,
       "f": 2,
-      "e": 4
+      "e": 6
      },
      {
       "n": "Alcorcón",
       "s": 3,
       "f": 2,
-      "e": 2
+      "e": 4
      },
      {
       "n": "Castelló de la Plana",
       "s": 3,
       "f": 1,
-      "e": 2
+      "e": 3
      },
      {
       "n": "Horta-Guinardó",
@@ -1590,19 +1631,19 @@
       "n": "Nou Barris",
       "s": 3,
       "f": 1,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Hortaleza",
       "s": 3,
       "f": 1,
-      "e": 1
+      "e": 2
      },
      {
       "n": "San Blas-Canillejas",
       "s": 3,
       "f": 1,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Marbella",
@@ -1650,13 +1691,13 @@
       "n": "Sarrià-Sant Gervasi",
       "s": 3,
       "f": 1,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Salamanca",
       "s": 3,
       "f": 2,
-      "e": 11
+      "e": 13
      },
      {
       "n": "Chamberí",
@@ -1668,7 +1709,7 @@
       "n": "Huelva",
       "s": 3,
       "f": 1,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Sant Andreu",
@@ -1692,7 +1733,7 @@
       "n": "Lleida",
       "s": 3,
       "f": 1,
-      "e": 12
+      "e": 13
      },
      {
       "n": "Chamartín",
@@ -3458,11 +3499,11 @@
   },
   "United Kingdom": {
    "clubs": 1673,
-   "emails": 1335,
+   "emails": 1337,
    "sites": 1469,
-   "read": 1245,
-   "unreachable": 84,
-   "noAddress": 97,
+   "read": 1247,
+   "unreachable": 83,
+   "noAddress": 96,
    "leads": 721,
    "leadsSearched": 721,
    "leadsFound": 617,
@@ -3475,12 +3516,12 @@
     "harvest": 44,
     "osm": 128,
     "search": 328,
-    "prospect": 546,
+    "prospect": 548,
     "lta": 289
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-23T12:12:56.602Z",
+    "at": "2026-08-23T12:57:32.834Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -3526,7 +3567,7 @@
     "searchesDone": 5,
     "searchesTotal": 2612,
     "found": 2,
-    "emails": 1075,
+    "emails": 1077,
     "countrywide": {
      "s": 2,
      "f": 0
@@ -3536,13 +3577,13 @@
       "n": "London",
       "s": 2,
       "f": 1,
-      "e": 50
+      "e": 51
      },
      {
       "n": "Birmingham",
       "s": 1,
       "f": 1,
-      "e": 6
+      "e": 7
      },
      {
       "n": "Glasgow",
@@ -6380,11 +6421,11 @@
   },
   "Brazil": {
    "clubs": 236,
-   "emails": 166,
+   "emails": 168,
    "sites": 234,
    "read": 231,
    "unreachable": 6,
-   "noAddress": 45,
+   "noAddress": 43,
    "leads": 64,
    "leadsSearched": 64,
    "leadsFound": 30,
@@ -6395,16 +6436,16 @@
    },
    "sources": {
     "osm": 6,
-    "prospect": 139,
+    "prospect": 141,
     "search": 21
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-23T12:13:15.554Z",
+    "at": "2026-08-23T12:57:26.740Z",
     "seen": 18,
     "added": 0,
     "rejected": 11,
-    "error": "busy (502)",
+    "error": "busy (500)",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
@@ -6446,14 +6487,14 @@
     "searchesDone": 0,
     "searchesTotal": 5427,
     "found": 0,
-    "emails": 162,
+    "emails": 164,
     "countrywide": null,
     "cityStats": [
      {
       "n": "São Paulo",
       "s": 0,
       "f": 0,
-      "e": 10
+      "e": 11
      },
      {
       "n": "Rio de Janeiro",
@@ -6465,7 +6506,7 @@
       "n": "Belo Horizonte",
       "s": 0,
       "f": 0,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Salvador",
@@ -7867,7 +7908,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-23T12:11:46.847Z",
+    "at": "2026-08-23T12:56:38.515Z",
     "seen": 591,
     "added": 0,
     "rejected": 251,
@@ -9659,12 +9700,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-23T12:14:07.643Z",
+    "at": "2026-08-23T12:57:28.331Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
     "error": "partial: 10 of 15 subdivisions read",
-    "via": ""
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "AU",
@@ -10416,11 +10457,11 @@
   },
   "India": {
    "clubs": 277,
-   "emails": 242,
+   "emails": 243,
    "sites": 277,
    "read": 277,
    "unreachable": 5,
-   "noAddress": 23,
+   "noAddress": 22,
    "leads": 167,
    "leadsSearched": 167,
    "leadsFound": 113,
@@ -10430,7 +10471,7 @@
     "Squash": 61
    },
    "sources": {
-    "prospect": 193,
+    "prospect": 194,
     "search": 49
    },
    "seeds": 0,
@@ -10481,7 +10522,7 @@
     "searchesDone": 0,
     "searchesTotal": 11752,
     "found": 0,
-    "emails": 233,
+    "emails": 234,
     "countrywide": null,
     "cityStats": [
      {
@@ -11325,6 +11366,12 @@
       "e": 1
      },
      {
+      "n": "Banda",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
       "n": "Muvattupuzha",
       "s": 0,
       "f": 0,
@@ -12126,7 +12173,7 @@
    "sites": 37,
    "read": 36,
    "unreachable": 1,
-   "noAddress": 5,
+   "noAddress": 4,
    "leads": 25,
    "leadsSearched": 25,
    "leadsFound": 14,
@@ -12290,7 +12337,7 @@
    "sites": 15,
    "read": 15,
    "unreachable": 0,
-   "noAddress": 4,
+   "noAddress": 3,
    "leads": 20,
    "leadsSearched": 20,
    "leadsFound": 6,
@@ -12820,11 +12867,11 @@
   },
   "United States": {
    "clubs": 1462,
-   "emails": 1168,
+   "emails": 1169,
    "sites": 1461,
    "read": 1449,
    "unreachable": 53,
-   "noAddress": 133,
+   "noAddress": 129,
    "leads": 927,
    "leadsSearched": 927,
    "leadsFound": 702,
@@ -12836,11 +12883,11 @@
    "sources": {
     "osm": 73,
     "search": 215,
-    "prospect": 880
+    "prospect": 881
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-23T12:11:04.156Z",
+    "at": "2026-08-23T12:57:50.894Z",
     "seen": 2460,
     "added": 0,
     "rejected": 902,
@@ -12886,7 +12933,7 @@
     "searchesDone": 0,
     "searchesTotal": 9224,
     "found": 0,
-    "emails": 1148,
+    "emails": 1149,
     "countrywide": null,
     "cityStats": [
      {
@@ -16907,7 +16954,7 @@
       "n": "Darien",
       "s": 0,
       "f": 0,
-      "e": 4
+      "e": 5
      },
      {
       "n": "Merrick",
@@ -18748,7 +18795,7 @@
    "sites": 12,
    "read": 12,
    "unreachable": 0,
-   "noAddress": 3,
+   "noAddress": 2,
    "leads": 2,
    "leadsSearched": 2,
    "leadsFound": 2,
@@ -19119,7 +19166,7 @@
    "sites": 25,
    "read": 25,
    "unreachable": 0,
-   "noAddress": 5,
+   "noAddress": 4,
    "leads": 6,
    "leadsSearched": 6,
    "leadsFound": 4,
@@ -20622,7 +20669,7 @@
     "emails": 0,
     "countrywide": null,
     "cityStats": [],
-    "last": null
+    "last": "2026-08-23T12:42:12.167Z"
    }
   },
   "Papua New Guinea": {
@@ -23903,34 +23950,34 @@
   }
  },
  "recent": [
-  "2026-08-23T12:41:49.603Z  dropped info@opensourceforall.org — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T12:41:49.603Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T12:41:49.604Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T12:41:49.604Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T12:41:49.605Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T12:41:49.629Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T12:41:49.632Z  dropped info@website.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T12:41:49.632Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T12:41:49.633Z  dropped info@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T12:41:49.633Z  dropped info@opensourceforall.org — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T12:41:49.634Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T12:41:49.634Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T12:41:49.635Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T12:41:49.635Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
+  "2026-08-23T12:57:50.981Z  dropped info@opensourceforall.org — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T12:57:50.981Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T12:57:50.981Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T12:57:50.982Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T12:57:50.982Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T12:57:51.006Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T12:57:51.009Z  dropped info@website.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T12:57:51.009Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T12:57:51.010Z  dropped info@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T12:57:51.010Z  dropped info@opensourceforall.org — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T12:57:51.011Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T12:57:51.011Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T12:57:51.012Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T12:57:51.012Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-23T12:28:33.644Z",
+ "roundStarted": "2026-08-23T12:42:11.962Z",
  "lastRound": {
-  "at": "2026-08-23T12:41:49.652Z",
-  "minutes": 13.3,
-  "summary": "crawled 78 sites, +15 emails; prospected 1 empty countries, +0 clubs",
-  "crawled": 78,
-  "emailsFound": 15,
+  "at": "2026-08-23T12:57:51.031Z",
+  "minutes": 15.7,
+  "summary": "crawled 86 sites, +50 emails; prospected 1 empty countries, +0 clubs; osm 3 countries (ES,GB,BR,AR,US,AU,IN,CA,PE,PY,BO,NG) +0, 3 failed",
+  "crawled": 86,
+  "emailsFound": 50,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 0,
+  "osmCountries": 3,
   "osmAdded": 0,
-  "osmFailed": 0
+  "osmFailed": 3
  }
 }
