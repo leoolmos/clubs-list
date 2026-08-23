@@ -157,17 +157,26 @@ always were, and until now the walk that fixes it only ran when somebody
 typed it by hand. The daemon runs it when every seed is exhausted, which is
 the state that used to simply end the round early.
 
-**The site crawl.** Anything with a website but no email yet gets its
-homepage read, then the links the site itself offers — contact pages first,
-then the about, membership and location pages, then the legal small print,
-which prints an address on sites that have no contact page — and then up to
-fourteen guessed paths in the club's own language first: `/contato` and
-`/fale-conosco` for Brazil, `/contactos` for Portugal, `/contacto` and
-`/contactanos` for Spanish, `/contact-us` for English. The vocabulary is in
-`lib/contact.js`, shared with the prospector's queries. Cloudflare-obfuscated
-and "info [at] club [dot] com" style addresses are decoded. When that list
-changes (`CRAWL_EPOCH` in daemon.js), every site settled as "publishes no
-address" is read once more with the new list.
+**The site crawl.** Anything with a website but no email yet gets the whole
+site read, within reason: the homepage and its footer; every page the
+homepage links to that a contact word describes in any of the three
+languages — contact pages first, then about, members and where-we-are,
+then the legal small print, which prints an address on sites with no
+contact page; the pages the sitemap lists under the same words; the
+guessed paths in the club's own language (`/contato` and `/fale-conosco` for
+Brazil, `/contactos` for Portugal, `/contacto` and `/contactanos` for
+Spanish, `/contact-us` for English); and then the rest of the site's own
+pages, up to thirty in all, each page read adding the contact-word links it
+carries, so a contact page reachable only from "About" is reached. A site
+that only answers at the other scheme or without `www` is tried both ways
+before it is called unreachable. The vocabulary is in `lib/contact.js`,
+shared with the prospector. Cloudflare-obfuscated, entity-encoded,
+`'info' + '@' + 'club.com'` and "info [at] club [dot] com" style addresses
+are decoded; a site with a contact form and no address is noted as exactly
+that. The page that carried the address also names the club's city, which
+is what the coverage tab counts by. When the crawl changes (`CRAWL_EPOCH`
+in daemon.js), every site settled as "publishes no address" is read once
+more.
 
 ## What counts as collected
 
@@ -249,5 +258,6 @@ work before it stops and waits for the next hour.
 ```
 TICK_MINUTES=60  BUDGET_MINUTES=20  CONCURRENCY=8  HOST_DELAY_MS=2000
 PAGES_PER_TICK=25  OSM=off  LTA_MINUTES=6  LTA=off
-CRAWL_MINUTES=12  CONTACT_PAGES=14  PROSPECT_MINUTES=12
+CRAWL_MINUTES=12  CONTACT_PAGES=30  SITE_MS=150000  PROSPECT_MINUTES=14  PLACE_MINUTES=3
+VET_PARALLEL=4  SEARCH_GAP_MS=2500  SEARCH_RETRY_WAIT_MS=45000  SEARCH_COOLDOWN_MS=180000
 ```

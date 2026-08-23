@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- page-rev: coverage-v3 -->
+<!-- page-rev: coverage-v4 -->
 <title>Racket Club Database</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -221,8 +221,14 @@ dialog::backdrop{ background:rgba(20,32,30,.45); }
 .covt th{ @apply font-mono text-[10px] tracking-[.1em] uppercase text-inksoft text-left font-medium py-1.5 px-2.5 border-b border-rule bg-panel sticky top-0; }
 .covt td{ @apply py-1 px-2.5 border-b border-rule; }
 .covt td:nth-child(n+2){ @apply font-mono text-[11px]; }
-/* green bullet: where the scraper stands — the next city it will search */
-tr.covcur td{ background:#DDE9E2; }
+/* green row: every search for the city has run; yellow row: the next
+   round's cities; green bullet: where the scraper stands */
+tr.covdone td{ background:#DDE9E2; }
+tr.covnext td{ background:#FBF1C2; }
+.covkey{ margin:4px 0 2px; }
+.sw{ display:inline-block; width:11px; height:11px; border:1px solid #c9d1cc; vertical-align:middle; margin-right:3px; }
+.swdone{ background:#DDE9E2; }
+.swnext{ background:#FBF1C2; }
 .cdot{ @apply inline-block w-1.5 h-1.5 rounded-full bg-grass mr-1 align-middle; }
 
 /* the activity rows reuse .act, whose time column is nowrap by default */
@@ -804,10 +810,13 @@ function fillCoverage(det){
     return;
   }
 
-  // The green bullet marks where the scraper stands in this country: the
-  // first city, biggest first, whose searches have not all run yet.
+  // Green: every search for the city has run. Yellow: the cities the next
+  // round reaches — the prospector takes them biggest first, about forty
+  // queries a country a round, so that many terms' worth of unfinished
+  // cities from where it stands. The bullet marks where it stands.
   var termCount = Math.max(1, Math.round((pr.searchesTotal||0) / ((pr.citiesTotal||0) + 1)));
-  var marked = false;
+  var nextRound = Math.max(1, Math.ceil(40 / termCount));
+  var marked = false, queued = 0;
   var rows = all.map(function(city, i){
     var st = stats[city];
     if(!st){
@@ -821,12 +830,18 @@ function fillCoverage(det){
       // set of terms, and one beyond it is genuinely still waiting.
       st = (i < (pr.citiesSearched||0)) ? {s:termCount, f:0, e:0} : {s:0, f:0, e:0};
     }
-    var cur = !marked && (st.s||0) < termCount;
+    var done = (st.s||0) >= termCount;
+    var cur = !marked && !done;
     if(cur) marked = true;
-    return "<tr"+(cur ? " class='covcur'" : "")+"><td>"+(cur ? "<span class='cdot'></span>" : "")+esc(city)+"</td>"
+    var next = !done && queued < nextRound;
+    if(next) queued++;
+    var cls = done ? "covdone" : (next ? "covnext" : "");
+    return "<tr"+(cls ? " class='"+cls+"'" : "")+"><td>"+(cur ? "<span class='cdot'></span>" : "")+esc(city)+"</td>"
          + "<td>"+(st.s||0)+"</td><td>"+(st.f||0)+"</td><td>"+(st.e||0)+"</td></tr>";
   }).join("");
   det.querySelector(".covcities").innerHTML = head
+    + "<p class='meta covkey'><span class='sw swdone'></span> all searches done &nbsp; "
+    + "<span class='sw swnext'></span> next round &nbsp; <span class='cdot'></span> where the search stands</p>"
     + "<div class='covwrap'><table class='covt'>"
     + "<thead><tr><th>City</th><th>Searches</th><th>Clubs</th><th>Emails</th></tr></thead>"
     + "<tbody>" + rows + "</tbody></table></div>";

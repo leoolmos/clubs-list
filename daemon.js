@@ -67,12 +67,15 @@ const CFG = {
   leadMinutes:   parseInt(process.env.LEAD_MINUTES   || '6', 10),
   // The prospect-then-crawl chain is where the emails come from, so it
   // holds the largest slice of the round.
-  prospectMinutes: parseInt(process.env.PROSPECT_MINUTES || '12', 10),
+  prospectMinutes: parseInt(process.env.PROSPECT_MINUTES || '14', 10),
   // The crawl used to take the whole round when the queue was long, and a
   // fresh pass over two thousand settled sites is exactly that. Twelve
   // minutes keeps the LTA register, the prospector and OpenStreetMap moving
   // while it works through the backlog a round at a time.
   crawlMinutes:    parseInt(process.env.CRAWL_MINUTES || '12', 10),
+  // Giving the clubs that already have an address their city: one homepage
+  // and one contact page each, a few minutes a round until they are placed.
+  placeMinutes:    parseInt(process.env.PLACE_MINUTES || '3', 10),
   // The LTA register is 994 venues behind 100 listing pages, and at the
   // spacing this crawls at that is about half an hour of reading, once.
   // Six minutes a round walks it in a handful of rounds and then costs
@@ -102,8 +105,13 @@ const lta = require('./lib/lta');
  * already on file were read through a worse lens. See phaseProspect.
  *   3: the contact word in every query now alternates between two spellings
  *      per language (lib/contact.js), so each city is asked a different set
- *      of questions than before — and is asked them all again. */
-const QUERY_EPOCH = 3;
+ *      of questions than before — and is asked them all again.
+ *   4: every query names the country in its own language beside the city
+ *      ("clube de tênis Santos Brasil contato"), three terms a city instead
+ *      of six, the engine asked at a gentler and less regular pace on two
+ *      endpoints in turn, and the proof-of-place test knows Brasil as well
+ *      as Brazil. Asked again from the first city. */
+const QUERY_EPOCH = 4;
 const mine = require('./lib/mine');
 const discover = require('./discover');
 
@@ -186,12 +194,14 @@ function outboundSite(html, base, chrome, clubName){
 // page usually prints one. The vocabulary lives in lib/contact.js, shared
 // with the prospector; the crawl asks in the club's own language first.
 const { contactPaths, linkTier } = require('./lib/contact');
+const { cityIn } = require('./lib/place');
 
-/* Pages read per site after the homepage: the links the site itself offers,
- * best first, then the guessed paths in the club's language. Eight was the
- * cap when the guesses spanned four languages in one list; fourteen covers
- * a language's own list and the top of the other two. */
-const CONTACT_PAGES = parseInt(process.env.CONTACT_PAGES || '14', 10);
+/* Pages read per site, the homepage included: the pages the site itself
+ * names under a contact word, the sitemap's, the guessed paths in the
+ * club's language, then the rest of the site. Thirty is enough to walk a
+ * club site end to end; a site bigger than that is a federation or a
+ * shop, and the address is on one of the first pages or nowhere. */
+const CONTACT_PAGES = parseInt(process.env.CONTACT_PAGES || '30', 10);
 
 /* ------------------------------------------------------------------ *
  * State
@@ -393,12 +403,128 @@ function syncQueue(){
 /* ------------------------------------------------------------------ *
  * Work: crawl club sites that still lack an email
  * ------------------------------------------------------------------ */
+/* Files and pages that never carry the club's address, and would only
+ * spend the site's page budget: images, documents, feeds, the shop, the
+ * login, the blog archive by month. Contact-word links are read whatever
+ * their path; this only prunes the "other pages" tier. */
+const RE_ASSET = /\.(jpe?g|png|gif|svg|webp|avif|bmp|ico|pdf|docx?|xlsx?|pptx?|zip|rar|7z|gz|mp[34]|m4a|mov|avi|webm|css|js|json|rss|woff2?|ttf|eot)(\?|#|$)/i;
+const RE_NOISE = /\/wp-admin|\/wp-login|\/wp-json|\/xmlrpc|\/feed\/?(\?|$)|\/tag\/|\/etiqueta\/|\/category\/|\/categoria\/|\/page\/\d+|\/pagina\/\d+|[?&](p|page|paged|replytocom|share|add-to-cart|s|q|orderby|filter)=|\/cart|\/carrinho|\/carrito|\/checkout|\/login|\/logout|\/signin|\/register|\/registro|\/cadastro|\/my-account|\/minha-conta|\/mi-cuenta|\/author\/|\/autor\/|\/\d{4}\/\d{2}\/|\/galeria|\/gallery|\/fotos|\/photos|\/videos?\//i;
+
+/* The part of a hostname that says whose site it is: club.com.br and
+ * contato.club.com.br are one site, club.com.br and other.com.br are not. */
+function siteKey(host){
+  const p = String(host||'').toLowerCase().replace(/^www\./,'').split('.');
+  if(p.length <= 2) return p.join('.');
+  const sld = p[p.length-2];
+  return (/^(co|com|org|net|gov|edu|ac|gob|nom|or|ne|art|esp)$/.test(sld) && p[p.length-1].length === 2)
+    ? p.slice(-3).join('.') : p.slice(-2).join('.');
+}
+
+function pageText(html){
+  return String(html||'').replace(/<script[\s\S]*?<\/script>/gi,' ')
+                         .replace(/<style[\s\S]*?<\/style>/gi,' ')
+                         .replace(/<[^>]+>/g,' ').replace(/&nbsp;/gi,' ').replace(/\s+/g,' ');
+}
+
+/* The site's own map of itself, when it publishes one. Only the pages a
+ * contact word describes are taken from it — a 2,000-URL sitemap is mostly
+ * posts — and a sitemap index is followed one level, pages before posts. */
+async function sitemapPages(origin, timeoutMs){
+  const out = [];
+  async function fetchXml(url){
+    const ctl = new AbortController();
+    const t = setTimeout(() => ctl.abort(), timeoutMs || 6000);
+    try{
+      const r = await fetch(url, {headers:{'User-Agent':UA,'Accept':'application/xml,text/xml,*/*'}, redirect:'follow', signal:ctl.signal});
+      if(!r.ok) return '';
+      const buf = await r.arrayBuffer();
+      if(buf.byteLength > 1500000) return '';
+      return Buffer.from(buf).toString('utf8');
+    }catch(e){ return ''; }
+    finally{ clearTimeout(t); }
+  }
+  const locs = xml => Array.from(String(xml).matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/gi)).map(m => m[1].trim());
+
+  let xml = await fetchXml(origin + '/sitemap.xml');
+  if(!xml) xml = await fetchXml(origin + '/sitemap_index.xml');
+  if(!xml) return out;
+
+  let urls = locs(xml);
+  if(/<sitemapindex/i.test(xml)){
+    // pages first, posts last, and never more than three child maps
+    const kids = urls.sort((a, b) => (/page/i.test(b) ? 1 : 0) - (/page/i.test(a) ? 1 : 0)).slice(0, 3);
+    urls = [];
+    for(const k of kids){
+      const child = await fetchXml(k);
+      if(child) urls = urls.concat(locs(child));
+      if(urls.length > 3000) break;
+    }
+  }
+  for(const u of urls){
+    const tier = linkTier(u, '');
+    if(tier >= 0 && tier <= 1) out.push({url: u, tier});
+    if(out.length >= 30) break;
+  }
+  return out;
+}
+
+/* Time one site may take, however many pages it has: a slow host must not
+ * hold a worker for the rest of the round. */
+const SITE_MS = parseInt(process.env.SITE_MS || '150000', 10);
+
+/**
+ * Read a club's site for its address. The whole site, within reason, not a
+ * list of guessed paths — the guesses missed every club whose contact page
+ * is /atendimento-ao-socio, /the-club/contact, or a page the menu calls
+ * "Fale com a gente" under a path nobody would guess.
+ *
+ *   1. the homepage, and its footer, which is where most clubs keep it
+ *   2. every page the homepage links to that a contact word describes, in
+ *      any of the three languages — contact pages first, then the club's
+ *      about/members/where-we-are pages, then the legal small print
+ *   3. the pages the sitemap lists under those same words
+ *   4. the guessed paths, in the club's own language first
+ *   5. the rest of the site's own pages, menu order, until the page budget
+ *      or the clock runs out — and each page read adds the contact-word
+ *      links it carries, so a contact page linked only from "About" is
+ *      reached through "About"
+ *
+ * A site reachable only at the other scheme or without www is tried both
+ * ways before it is called unreachable. A page with a contact form and no
+ * address is noted as such — that club chose not to publish one, and the
+ * page says so rather than "no email published" — and the city named on
+ * the page that carried the address comes back with it, for the coverage
+ * tab.
+ */
 async function harvestSite(website, lang, cc){
   let origin, host;
   try{ const u=new URL(website); origin=u.origin; host=u.hostname; }
   catch(e){ return {emails:[], note:'bad url'}; }
 
-  const home = await getPage(origin);
+  const started = Date.now();
+  const timeLeft = () => Date.now() - started < SITE_MS;
+
+  let home = await getPage(origin);
+  if(!home){
+    // http <-> https, www <-> bare: a site that moved and did not redirect
+    const alts = [];
+    try{
+      const u = new URL(origin);
+      const other = u.protocol === 'https:' ? 'http:' : 'https:';
+      const bare  = u.hostname.replace(/^www\./,'');
+      const www   = /^www\./.test(u.hostname) ? u.hostname : 'www.' + u.hostname;
+      for(const h of [u.hostname, /^www\./.test(u.hostname) ? bare : www]){
+        for(const p of [u.protocol, other]){
+          const o = p + '//' + h;
+          if(o !== origin && !alts.includes(o)) alts.push(o);
+        }
+      }
+    }catch(e){}
+    for(const o of alts.slice(0, 3)){
+      home = await getPage(o);
+      if(home){ origin = o; host = new URL(o).hostname; break; }
+    }
+  }
   if(!home) return {emails:[], contact:'', note:'unreachable'};
 
   // A challenge page is not the club's site. Read as an ordinary page it
@@ -406,33 +532,70 @@ async function harvestSite(website, lang, cc){
   // treated as settled, so each one was struck off after a single look.
   if(isChallenge(home)) return {emails:[], contact:'', note:'blocked by a challenge page'};
 
+  const homeText = pageText(home);
+  const cityOf = (text) => cityIn(cc, text) || cityIn(cc, homeText) || '';
+
   let emails = extractEmails(home, host);
-  if(emails.length) return {emails, contact:extractContactName(home), note:'homepage'};
+  if(emails.length) return {emails, contact:extractContactName(home), note:'homepage', city: cityOf(homeText), pages: 1};
 
-  // The links the site itself offers come first — they are real pages, where
-  // the guessed paths mostly are not — contact pages before the about page,
-  // the about page before the cookie policy. Then the guesses, in the club's
-  // own language first: a Brazilian site is asked for /contato and
-  // /fale-conosco before anyone asks it for /contact-us.
-  const found = links(home, origin)
-    .filter(l => l.url.startsWith(origin))
-    .map(l => ({url: l.url.split('#')[0], tier: linkTier(l.url, l.text)}))
-    .filter(l => l.tier >= 0)
-    .sort((a, b) => a.tier - b.tier)
-    .map(l => l.url);
+  const site = siteKey(host);
+  const seen = new Set([origin.replace(/\/$/, ''), origin + '/']);
+  const queue = [];                 // {url, tier, order}
+  let order = 0;
+  const add = (url, tier) => {
+    let u;
+    try{ u = new URL(url, origin); }catch(e){ return; }
+    if(!/^https?:$/.test(u.protocol)) return;
+    if(siteKey(u.hostname) !== site) return;
+    u.hash = '';
+    const key = u.toString().replace(/\/$/, '');
+    if(seen.has(key)) return;
+    if(RE_ASSET.test(u.pathname)) return;
+    if(tier < 0 && RE_NOISE.test(u.pathname + u.search)) return;
+    if(tier < 0 && u.search) return;          // other pages: no query strings
+    seen.add(key);
+    queue.push({url: u.toString(), tier: tier < 0 ? 3 : tier, order: order++});
+  };
 
-  const queue = Array.from(new Set(found.concat(contactPaths(lang, cc).map(p=>origin+p)))).slice(0, CONTACT_PAGES);
-  for(const url of queue){
-    const html = await getPage(url);
+  // 1. the homepage's own links, every tier — "other pages" included, at
+  //    the back of the queue
+  for(const l of links(home, origin)) add(l.url, linkTier(l.url, l.text));
+  // 2. the sitemap's contact-word pages
+  for(const s of await sitemapPages(origin, CFG.pageTimeoutMs)) add(s.url, s.tier);
+  // 3. the guesses, in the club's language — after the pages the site
+  //    itself names (tiers 0 and 1), before the legal pages and the rest
+  for(const p of contactPaths(lang, cc)) add(origin + p, 1.5);
+
+  let formSeen = false, read = 1;
+  while(queue.length && read < CONTACT_PAGES && timeLeft()){
+    // the best page known right now: lowest tier, then the order it was found
+    queue.sort((a, b) => a.tier - b.tier || a.order - b.order);
+    const next = queue.shift();
+    const html = await getPage(next.url);
     if(!html) continue;
+    read++;
+    if(isChallenge(html)) continue;
+
     emails = extractEmails(html, host);
     if(emails.length){
       const contact = extractContactName(html);
-      try{ return {emails, contact, note:new URL(url).pathname}; }
-      catch(e){ return {emails, contact, note:'contact page'}; }
+      let note = 'contact page';
+      try{ note = new URL(next.url).pathname || '/'; }catch(e){}
+      return {emails, contact, note, city: cityOf(pageText(html)), pages: read};
+    }
+    if(/<form\b[^>]*>[\s\S]*?(type\s*=\s*["']email["']|name\s*=\s*["'][^"']*e-?mail[^"']*["']|<textarea)/i.test(html)) formSeen = true;
+
+    // 5. what this page links to, contact words only — depth two is where
+    //    "About -> Contact the secretary" lives
+    if(next.tier <= 1){
+      for(const l of links(html, next.url)){
+        const t = linkTier(l.url, l.text);
+        if(t >= 0 && t <= 1) add(l.url, t);
+      }
     }
   }
-  return {emails:[], contact:'', note:'no email published'};
+  return {emails:[], contact:'', note: formSeen ? 'contact form, no address' : 'no email published',
+          city: cityOf(''), pages: read};
 }
 
 async function pool(items, limit, fn){
@@ -457,7 +620,10 @@ const SETTLED_REVIEW_MS = 30*24*60*60*1000;
  * site's own links ranked, the legal and membership pages included), so
  * every settled site gets one fresh look, once, without waiting out the
  * month. Raise this when the crawl changes enough to deserve another. */
-const CRAWL_EPOCH = 2;
+/*   3: the crawl reads the whole site — the pages the site itself names,
+ *      the sitemap, depth two, thirty pages — instead of a list of guesses,
+ *      and decodes more of the ways an address is hidden from a regex. */
+const CRAWL_EPOCH = 3;
 
 async function phaseCrawl(db, deadline){
   const today = Date.now();
@@ -499,11 +665,14 @@ async function phaseCrawl(db, deadline){
   let tried=0, found=0, stopped=false;
   await pool(todo, CFG.concurrency, async rec=>{
     if(stopped || Date.now() > deadline){ stopped = true; return; }
-    const {emails, contact, note} = await harvestSite(rec.website, rec.lang, rec.cc);
+    const {emails, contact, note, city} = await harvestSite(rec.website, rec.lang, rec.cc);
     tried++;
     rec.attempts = (rec.attempts||0)+1;
     rec.crawlNote = note;
     rec.lastTried = new Date().toISOString().slice(0,10);
+    // The city the site names, for the coverage tab — whether or not an
+    // address turned up, because the next round may find one.
+    if(city && !rec.city) rec.city = city;
     if(emails.length){
       rec.email = emails[0];
       rec.alt = emails.slice(1,4);
@@ -518,8 +687,10 @@ async function phaseCrawl(db, deadline){
       activity('crawl', `${rec.name} — ${rec.website}: turned away by a captcha, will retry`, {ok:false, url:rec.website});
       rec.retryAfter = today + 6*60*60*1000;
       rec.attempts = Math.max(0, (rec.attempts||1) - 1);   // do not burn an attempt on a door we never got through
-    } else if(note === 'no email published'){
-      activity('crawl', `${rec.name} — ${rec.website}: site read, publishes no address`, {ok:false, url:rec.website});
+    } else if(note === 'no email published' || note === 'contact form, no address'){
+      activity('crawl', `${rec.name} — ${rec.website}: site read, ` +
+               (note === 'contact form, no address' ? 'a contact form but no address' : 'publishes no address'),
+               {ok:false, url:rec.website});
       rec.attempts = CFG.maxAttempts;         // settled, do not retry
       rec.crawled = true;
     } else {
@@ -658,6 +829,50 @@ async function phaseLTA(db, deadline){
   return {pages:r.pages, added, scanned:r.scanned, done:!!st.done};
 }
 
+/* ------------------------------------------------------------------ *
+ * Work: give the clubs that already have an address their city
+ * ------------------------------------------------------------------ *
+ * The coverage tab counts emails city by city, and only a record that
+ * carries a city counts. Everything the crawl finds from now on arrives
+ * with the city its contact page names; this is for the thousands found
+ * before that — one look at the homepage and a contact page each, a few
+ * minutes a round, until every placeable record is placed.
+ */
+async function phasePlace(db, deadline){
+  if(process.env.PLACE === 'off') return {tried:0, placed:0};
+  const budget = Math.min(deadline, Date.now() + CFG.placeMinutes*60*1000);
+  const todo = Object.values(db).filter(r => r.email && r.website && !r.city && !r.placeTried);
+  if(!todo.length) return {tried:0, placed:0, left:0};
+
+  let tried = 0, placed = 0, stopped = false;
+  await pool(todo, CFG.concurrency, async rec => {
+    if(stopped || Date.now() > budget){ stopped = true; return; }
+    tried++;
+    rec.placeTried = new Date().toISOString().slice(0,10);
+    let origin; try{ origin = new URL(rec.website).origin; }catch(e){ return; }
+    const home = await getPage(origin);
+    if(!home || isChallenge(home)) return;
+    let city = cityIn(rec.cc, pageText(home));
+    if(!city){
+      // the contact page carries the address when the homepage does not
+      const found = links(home, origin)
+        .filter(l => l.url.startsWith(origin) && linkTier(l.url, l.text) === 0)
+        .map(l => l.url.split('#')[0]).slice(0, 2);
+      const pages = found.length ? found : contactPaths(rec.lang, rec.cc).slice(0, 2).map(p => origin + p);
+      for(const u of pages){
+        const html = await getPage(u);
+        if(!html) continue;
+        city = cityIn(rec.cc, pageText(html));
+        if(city) break;
+      }
+    }
+    if(city){ rec.city = city; placed++; }
+  });
+  const left = Object.values(db).filter(r => r.email && r.website && !r.city && !r.placeTried).length;
+  if(tried) log(`place: read ${tried} sites for their city, ${placed} placed, ${left} left`);
+  return {tried, placed, left};
+}
+
 async function phaseProspect(db, deadline){
   if(process.env.PROSPECT === 'off') return {countries:0, added:0};
 
@@ -775,8 +990,7 @@ async function phaseProspect(db, deadline){
     // The engine turning us away is not this country having no clubs, and
     // marking the queries done would write it off for good.
     if(r.throttled){
-      st.queriesDone = st.queriesDone.filter(q => q !== r.lastQuery);
-      log(`prospect: the search engine stopped answering — pausing this phase`);
+      log(`prospect: the search engine stopped answering (${r.throttleWhy || 'refused'}) — pausing this phase`);
       break;
     }
   }
@@ -980,7 +1194,7 @@ async function phaseLeads(db, deadline){
 
     // Straight on to the email while we are here, rather than leaving it for
     // a later round — the whole point is to convert a name into a contact.
-    const {emails:found_, contact, note} = await harvestSite(r.url, lead.lang, lead.cc);
+    const {emails:found_, contact, note, city} = await harvestSite(r.url, lead.lang, lead.cc);
     const email = found_.length ? found_[0] : '';
 
     const rec = {
@@ -988,6 +1202,9 @@ async function phaseLeads(db, deadline){
       sports: lead.sports, website: r.url, email,
       contact: contact || lead.contact || '',
       src: 'search', srcPage: lead.srcPage || '',
+      // the town OpenStreetMap recorded, if it is a listed city, else the
+      // one the site names
+      city: cityIn(lead.cc, lead.town || '') || city || '',
       crawled: !!email, attempts: email ? 0 : 1,
       crawlNote: note
     };
@@ -1403,6 +1620,15 @@ async function tick(){
       writeJSON(DB_FILE, db);
     }
 
+    // The clubs that have an address but no city yet: the coverage tab
+    // counts emails city by city and cannot count these until they are placed.
+    let pl = {tried:0, placed:0};
+    if(Date.now() < deadline){
+      busy('reading club sites for the city they are in');
+      pl = await phasePlace(db, deadline);
+      writeJSON(DB_FILE, db);
+    }
+
     // The two phases that search share one rate-limited engine, and whichever
     // goes first spends the quota. Leads went first by default and took 126
     // queries; prospecting then stalled after seven countries against an
@@ -1430,8 +1656,10 @@ async function tick(){
     else          { await runProspect(); await runLeads(); }
 
     // Domains from the certificate logs and Wikidata, vetted page by page.
+    // Every other round: the certificate words refresh weekly and Wikidata
+    // backs off for hours, so most rounds this phase only waits on them.
     let m = {queried:0, vetted:0, added:0};
-    if(Date.now() < deadline){
+    if(Date.now() < deadline && roundNo % 2 === 0){
       busy('mining certificate logs for club domains');
       m = await phaseMine(db, deadline);
       writeJSON(DB_FILE, db);
@@ -1459,8 +1687,14 @@ async function tick(){
 
     // Countries from OpenStreetMap. This is what reaches the places with no
     // federation directory to walk.
-    busy('importing countries from OpenStreetMap');
-    const o = await phaseOSM(db, deadline);
+    // Every third round. The countries still unimported are the six biggest,
+    // which Overpass answers with 504s most of the day: five minutes of
+    // every round bought nothing for a night, while the searches waited.
+    let o = {cc:null, added:0};
+    if(roundNo % 3 === 0){
+      busy('importing countries from OpenStreetMap');
+      o = await phaseOSM(db, deadline);
+    }
 
     writeJSON(DB_FILE, db);
     writeJSON(QUEUE_FILE, queue);
@@ -1475,6 +1709,7 @@ async function tick(){
         (m.vetted || m.added ? `; mined ${m.vetted} domains, +${m.added} clubs` : '') +
         (h.pages ? `; read ${h.pages} pages from ${h.source}, +${h.added} clubs` : '') +
         (lt.pages ? `; lta ${lt.scanned} venues, +${lt.added} clubs` : '') +
+        (pl.tried ? `; placed ${pl.placed} of ${pl.tried} clubs in their city` : '') +
         (d.found ? `; found ${d.found} new directories` : '') +
         (p.countries ? `; prospected ${p.countries} empty countries, +${p.added} clubs` : '') +
         (o.cc ? `; osm ${o.countries||0} countries (${o.cc}) +${o.added}` +
