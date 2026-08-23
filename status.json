@@ -1,10 +1,10 @@
 {
- "generated": "2026-08-23T01:25:17.897Z",
+ "generated": "2026-08-23T01:32:56.906Z",
  "clubs": 5654,
- "records": 7802,
+ "records": 7803,
  "crawl": {
-  "ready": 0,
-  "waiting": 150,
+  "ready": 2,
+  "waiting": 146,
   "exhausted": 1609
  },
  "osm": {
@@ -13,9 +13,9 @@
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "GB",
-   "error": "partial: 1 of 9 subdivisions read",
-   "at": "2026-08-23T01:25:17.763Z"
+   "cc": "NG",
+   "error": "fetch failed",
+   "at": "2026-08-23T01:32:56.764Z"
   }
  },
  "crawlReasons": [
@@ -65,6 +65,13 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-23T01:27:30.622Z",
+   "kind": "prospect",
+   "text": "Panama: found Santa María Country Club -> https://www.santamariacountryclubpanama.com",
+   "ok": true,
+   "url": "https://www.santamariacountryclubpanama.com"
+  },
   {
    "t": "2026-08-23T01:19:48.551Z",
    "kind": "crawl",
@@ -1244,13 +1251,6 @@
    "text": "Future Demand Tennis — https://www.fdtennis.com.au: turned away by a captcha, will retry",
    "ok": false,
    "url": "https://www.fdtennis.com.au"
-  },
-  {
-   "t": "2026-08-22T23:08:47.158Z",
-   "kind": "crawl",
-   "text": "Audubon Tennis Courts — https://audubonnatureinstitute.org: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://audubonnatureinstitute.org"
   }
  ],
  "perCountry": {
@@ -1277,7 +1277,7 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-23T01:25:07.419Z",
+    "at": "2026-08-23T01:32:35.418Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -3397,12 +3397,12 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-23T01:25:17.763Z",
-    "seen": 0,
+    "at": "2026-08-23T01:32:38.714Z",
+    "seen": 162,
     "added": 0,
-    "rejected": 0,
+    "rejected": 29,
     "error": "partial: 1 of 9 subdivisions read",
-    "via": ""
+    "via": "overpass.kumi.systems"
    },
    "prospect": {
     "cc": "GB",
@@ -7397,11 +7397,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-23T01:03:53.406Z",
+    "at": "2026-08-23T01:32:18.311Z",
     "seen": 591,
     "added": 0,
     "rejected": 251,
-    "error": "busy (500)",
+    "error": "subdivisions: busy (500)",
     "via": "overpass.kumi.systems"
    },
    "prospect": {
@@ -9030,7 +9030,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-23T01:25:16.265Z",
+    "at": "2026-08-23T01:32:38.715Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -9740,12 +9740,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-23T01:25:01.753Z",
-    "seen": 0,
+    "at": "2026-08-23T01:32:47.734Z",
+    "seen": 1,
     "added": 0,
     "rejected": 0,
     "error": "partial: 2 of 39 subdivisions read",
-    "via": ""
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "IN",
@@ -11956,7 +11956,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-23T01:03:54.050Z",
+    "at": "2026-08-23T01:29:11.985Z",
     "seen": 2460,
     "added": 0,
     "rejected": 902,
@@ -16488,11 +16488,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-23T01:02:12.484Z",
+    "at": "2026-08-23T01:32:33.288Z",
     "seen": 117,
     "added": 0,
     "rejected": 81,
-    "error": "busy (500)",
+    "error": "fetch failed",
     "via": "overpass.private.coffee"
    },
    "prospect": {
@@ -18273,9 +18273,9 @@
    }
   },
   "Panama": {
-   "clubs": 12,
+   "clubs": 13,
    "emails": 8,
-   "sites": 11,
+   "sites": 12,
    "read": 11,
    "unreachable": 1,
    "noAddress": 3,
@@ -18283,7 +18283,7 @@
    "leadsSearched": 6,
    "leadsFound": 1,
    "sports": {
-    "Tennis": 7,
+    "Tennis": 8,
     "Padel": 6,
     "Squash": 5
    },
@@ -18323,18 +18323,27 @@
      "Alcalde Díaz"
     ],
     "citiesTotal": 18,
-    "citiesSearched": 0,
-    "searchesDone": 0,
+    "citiesSearched": 2,
+    "searchesDone": 11,
     "searchesTotal": 95,
-    "found": 0,
+    "found": 1,
     "emails": 4,
-    "countrywide": null,
+    "countrywide": {
+     "s": 5,
+     "f": 1
+    },
     "cityStats": [
      {
       "n": "Panama City",
-      "s": 0,
+      "s": 5,
       "f": 0,
       "e": 1
+     },
+     {
+      "n": "San Miguelito",
+      "s": 2,
+      "f": 0,
+      "e": 0
      },
      {
       "n": "David",
@@ -18343,7 +18352,7 @@
       "e": 3
      }
     ],
-    "last": null
+    "last": "2026-08-23T01:27:30.621Z"
    }
   },
   "Uruguay": {
@@ -19025,11 +19034,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-23T01:00:56.951Z",
+    "at": "2026-08-23T01:32:56.764Z",
     "seen": 23,
     "added": 0,
     "rejected": 10,
-    "error": "busy (500)",
+    "error": "fetch failed",
     "via": "overpass.private.coffee"
    },
    "prospect": {
@@ -22528,34 +22537,34 @@
   }
  },
  "recent": [
-  "2026-08-23T01:25:17.812Z  dropped hello@rfuenzalida.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T01:25:17.813Z  dropped info@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T01:25:17.814Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T01:25:17.814Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T01:25:17.814Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T01:25:17.815Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T01:25:17.828Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T01:25:17.829Z  dropped info@website.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T01:25:17.829Z  dropped hello@rfuenzalida.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T01:25:17.830Z  dropped info@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T01:25:17.830Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T01:25:17.830Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T01:25:17.831Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-23T01:25:17.831Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
+  "2026-08-23T01:32:56.818Z  dropped hello@rfuenzalida.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T01:32:56.819Z  dropped info@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T01:32:56.819Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T01:32:56.819Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T01:32:56.820Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T01:32:56.820Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T01:32:56.834Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T01:32:56.837Z  dropped info@website.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T01:32:56.838Z  dropped hello@rfuenzalida.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T01:32:56.839Z  dropped info@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T01:32:56.839Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T01:32:56.839Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T01:32:56.840Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-23T01:32:56.840Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-23T01:19:48.069Z",
+ "roundStarted": "2026-08-23T01:25:39.816Z",
  "lastRound": {
-  "at": "2026-08-23T01:25:17.842Z",
-  "minutes": 5.5,
-  "summary": "crawled 1 sites, +1 emails; prospected 1 empty countries, +0 clubs; osm 5 countries (ES,GB,AU,IN,PY,BO,BW,KN,SS,ST,NI,MT) +0, 5 failed",
-  "crawled": 1,
-  "emailsFound": 1,
+  "at": "2026-08-23T01:32:56.851Z",
+  "minutes": 7.3,
+  "summary": "crawled 0 sites, +0 emails; prospected 1 empty countries, +1 clubs; osm 4 countries (ES,GB,AR,US,AU,IN,CA,NG,BW,MZ,CV,NI) +0, 4 failed",
+  "crawled": 0,
+  "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 5,
+  "osmCountries": 4,
   "osmAdded": 0,
-  "osmFailed": 5
+  "osmFailed": 4
  }
 }
