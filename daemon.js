@@ -904,9 +904,9 @@ async function phaseProspect(db, deadline){
    * asked again. Raise this when the questions or the vetting change enough
    * to be worth another pass; leave it alone for anything smaller. */
   if(state.__epoch !== QUERY_EPOCH){
-    const had = Object.keys(state).filter(k => k !== '__epoch').length;
+    const had = Object.keys(state).filter(k => !k.startsWith('__')).length;
     for(const k of Object.keys(state)){
-      if(k === '__epoch') continue;
+      if(k.startsWith('__')) continue;
       state[k].queriesDone = [];
       state[k].cityStats = {};      // else every city counts its searches twice
     }
@@ -931,9 +931,18 @@ async function phaseProspect(db, deadline){
   // So the rounds alternate: odd rounds walk the dense countries first
   // (PRIORITY is ordered by exactly that), even rounds take whoever has
   // waited longest, so no country is ever abandoned.
-  let order;
+  let order, maxQ = 40;
   if(roundNo % 2 === 1){
-    order = require('./lib/countries').PRIORITY.map(cc => ({cc}));
+    // The dense countries in turn — starting where the last odd round left
+    // off, twelve queries each. Starting from the top every time meant
+    // Spain ate every odd round until it was finished (1,680 queries) while
+    // Brazil sat at forty and Santos was never reached; now each round
+    // serves a few countries a modest helping and the next round serves
+    // the next few.
+    const PRIORITY = require('./lib/countries').PRIORITY;
+    const cur = (state.__cursor || 0) % PRIORITY.length;
+    order = PRIORITY.slice(cur).concat(PRIORITY.slice(0, cur)).map(cc => ({cc}));
+    maxQ = 12;
   } else {
     order = Object.keys(COUNTRIES)
       .map(cc => ({cc, last: (state[cc]||{}).last || ''}))
@@ -941,7 +950,7 @@ async function phaseProspect(db, deadline){
   }
 
   const budget = Math.min(deadline, Date.now() + CFG.prospectMinutes*60*1000);
-  let countries = 0, added = 0, vetted = 0;
+  let countries = 0, added = 0, vetted = 0, served = 0;
 
   // Counted by kind, not by candidate: the reasons carry the site's own name
   // in them, and a hundred of those in the log is not a summary.
@@ -953,7 +962,7 @@ async function phaseProspect(db, deadline){
     const st = state[cc] || (state[cc] = {queriesDone:[], found:0});
     const r = await prospect.prospectCountry(cc, {
       knownHosts, deadline: budget, timeoutMs: CFG.pageTimeoutMs + 4000,
-      queriesDone: st.queriesDone, deferred: st.deferred || [], maxQueries: 40, log: m => log(m)
+      queriesDone: st.queriesDone, deferred: st.deferred || [], maxQueries: maxQ, log: m => log(m)
     });
 
     st.queriesDone = r.queriesDone;
@@ -980,6 +989,7 @@ async function phaseProspect(db, deadline){
     if(twin && st.cityStats && st.cityStats['']){
       st.cityStats[twin] = {s: st.cityStats[''].s, f: (st.cityStats[twin] || {}).f || 0};
     }
+    served++;                         // this country had its turn, cursor moves past it
     if(!r.queries) continue;          // every query already asked; move on
     countries++;
     vetted += r.candidates;
@@ -1009,6 +1019,9 @@ async function phaseProspect(db, deadline){
     }
   }
 
+  if(roundNo % 2 === 1 && served){
+    state.__cursor = ((state.__cursor || 0) + served) % require('./lib/countries').PRIORITY.length;
+  }
   writeJSON(stateFile, state);
   if(countries){
     log(`prospect: ${countries} countries searched, ${vetted} sites read, ${added} clubs added`);
@@ -1593,6 +1606,10 @@ function writeStandalone(db){
 let running = false;
 let failures = 0;
 let failingSince = null;
+/* Publishing is damped: the idle rounds between engine cooldowns were
+ * committing an unchanged count every twenty seconds — hundreds of
+ * "clubs: 6039" commits and a Pages build for each. */
+let lastPublishAt = 0, lastPublishCount = -1;
 /* Which round this process is on, so the two searching phases can take
  * turns at the engine rather than one of them always going second. */
 let roundNo = 0;
@@ -1726,7 +1743,7 @@ async function tick(){
     writeJSON(DB_FILE, db);
     writeJSON(QUEUE_FILE, queue);
     const total = writeExport(db);
-    writeSiteJSON(db);
+    const published = writeSiteJSON(db);
     writeStandalone(db);
 
     const mins = ((Date.now()-started)/60000).toFixed(1);
@@ -1753,10 +1770,21 @@ async function tick(){
         osmCountries: o.countries||0, osmAdded: o.added||0, osmFailed: o.failed||0
       }
     });
-    publishIfConfigured();
+    // Any change in the count goes out at once; a quiet spell goes out
+    // every fifteen minutes, so status.json on the page stays honest
+    // without a commit per idle round.
+    if(published !== lastPublishCount || Date.now() - lastPublishAt > 15*60*1000){
+      publishIfConfigured();
+      lastPublishAt = Date.now();
+      lastPublishCount = published;
+    }
 
     failures = 0; failingSince = null;
     log(`tick done in ${mins}m — ${summary} | ${total} emails total, ${queued} still queued`);
+
+    // Did this round move anything? The main loop rests longer when not.
+    return !!(c.found || p.added || L.found || lt.added || m.added || h.pages || d.found ||
+              (o && o.added) || c.tried > 10 || (pl && pl.placed));
   }catch(e){
     /* A round that throws must say so where it can be seen.
      *
@@ -2012,9 +2040,13 @@ Tuning, all optional:
   let round = 0;
   while(!stopping){
     round++;
-    await tick();
+    const useful = await tick();
     if(stopping) break;
-    await sleep(CFG.restSeconds * 1000);
+    // A round that moved nothing, against an engine on cooldown, spun
+    // every twenty seconds and filled the log. Five minutes is still
+    // prompt, and the first round with work to do goes straight back to
+    // the short rest.
+    await sleep((useful ? CFG.restSeconds : Math.max(CFG.restSeconds, 300)) * 1000);
   }
   log(`stopped after ${round} round${round===1?'':'s'}`);
   process.exit(0);
