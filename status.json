@@ -1,9 +1,9 @@
 {
- "generated": "2026-08-26T08:42:14.406Z",
+ "generated": "2026-08-26T09:01:15.296Z",
  "clubs": 6083,
- "records": 8143,
+ "records": 8145,
  "crawl": {
-  "ready": 0,
+  "ready": 2,
   "waiting": 76,
   "exhausted": 1538
  },
@@ -15,7 +15,7 @@
   "lastError": {
    "cc": "GB",
    "error": "partial: 1 of 9 subdivisions read",
-   "at": "2026-08-26T08:42:14.210Z"
+   "at": "2026-08-26T08:58:46.620Z"
   }
  },
  "crawlReasons": [
@@ -65,6 +65,27 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-26T09:00:50.321Z",
+   "kind": "prospect",
+   "text": "Mexico: found DESERT PADEL -> https://www.desertpadel.mx",
+   "ok": true,
+   "url": "https://www.desertpadel.mx"
+  },
+  {
+   "t": "2026-08-26T08:56:36.140Z",
+   "kind": "prospect",
+   "text": "Portugal: found Ouriços de Viseu Padel Team -> https://ouricosviseu.pt",
+   "ok": true,
+   "url": "https://ouricosviseu.pt"
+  },
+  {
+   "t": "2026-08-26T08:52:39.893Z",
+   "kind": "crawl",
+   "text": "Seymour Tennis Club — https://www.seymourtelegraph.com.au: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.seymourtelegraph.com.au"
+  },
   {
    "t": "2026-08-26T08:36:07.939Z",
    "kind": "crawl",
@@ -1173,27 +1194,6 @@
    "text": "Halifax Central Common Tennis Courts — https://discoverhalifaxns.com: turned away by a captcha, will retry",
    "ok": false,
    "url": "https://discoverhalifaxns.com"
-  },
-  {
-   "t": "2026-08-25T22:46:52.922Z",
-   "kind": "crawl",
-   "text": "Stone Ridge Tennis Court — https://stoneridgehoa.org: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://stoneridgehoa.org"
-  },
-  {
-   "t": "2026-08-25T22:46:52.892Z",
-   "kind": "crawl",
-   "text": "Permanent site tennis court — https://courtstall-tennis.co.uk: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://courtstall-tennis.co.uk"
-  },
-  {
-   "t": "2026-08-25T22:46:52.826Z",
-   "kind": "crawl",
-   "text": "Bodega Harbor Tennis Court 1 — https://bodegaharbour.connectresident.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://bodegaharbour.connectresident.com"
   }
  ],
  "perCountry": {
@@ -1220,7 +1220,7 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-26T08:41:36.487Z",
+    "at": "2026-08-26T08:57:53.164Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -4654,7 +4654,7 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-26T08:42:14.210Z",
+    "at": "2026-08-26T08:58:46.620Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -8681,9 +8681,9 @@
    }
   },
   "Portugal": {
-   "clubs": 177,
+   "clubs": 178,
    "emails": 145,
-   "sites": 174,
+   "sites": 175,
    "read": 165,
    "unreachable": 7,
    "noAddress": 19,
@@ -8692,7 +8692,7 @@
    "leadsFound": 77,
    "sports": {
     "Tennis": 101,
-    "Padel": 91,
+    "Padel": 92,
     "Squash": 12
    },
    "sources": {
@@ -8744,10 +8744,10 @@
      "Ponte de Lima"
     ],
     "citiesTotal": 125,
-    "citiesSearched": 5,
-    "searchesDone": 12,
+    "citiesSearched": 9,
+    "searchesDone": 24,
     "searchesTotal": 378,
-    "found": 2,
+    "found": 3,
     "emails": 125,
     "countrywide": null,
     "cityStats": [
@@ -8783,20 +8783,26 @@
      },
      {
       "n": "Leiria",
-      "s": 0,
+      "s": 3,
       "f": 0,
       "e": 3
      },
      {
       "n": "Setúbal",
-      "s": 0,
+      "s": 3,
       "f": 0,
       "e": 3
      },
      {
-      "n": "Viseu",
-      "s": 0,
+      "n": "Funchal",
+      "s": 3,
       "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Viseu",
+      "s": 3,
+      "f": 1,
       "e": 2
      },
      {
@@ -9178,7 +9184,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-26T04:00:07.035Z"
+    "last": "2026-08-26T08:56:36.140Z"
    }
   },
   "Argentina": {
@@ -10494,9 +10500,9 @@
    }
   },
   "Mexico": {
-   "clubs": 169,
+   "clubs": 170,
    "emails": 115,
-   "sites": 169,
+   "sites": 170,
    "read": 169,
    "unreachable": 8,
    "noAddress": 29,
@@ -10505,7 +10511,7 @@
    "leadsFound": 48,
    "sports": {
     "Tennis": 80,
-    "Padel": 95,
+    "Padel": 96,
     "Squash": 24
    },
    "sources": {
@@ -10557,10 +10563,10 @@
      "Tlaquepaque"
     ],
     "citiesTotal": 490,
-    "citiesSearched": 18,
-    "searchesDone": 52,
+    "citiesSearched": 22,
+    "searchesDone": 64,
     "searchesTotal": 1473,
-    "found": 17,
+    "found": 18,
     "emails": 108,
     "countrywide": {
      "s": 2,
@@ -10676,20 +10682,26 @@
       "e": 2
      },
      {
+      "n": "Hermosillo",
+      "s": 3,
+      "f": 1,
+      "e": 0
+     },
+     {
       "n": "Culiacán",
-      "s": 0,
+      "s": 3,
       "f": 0,
       "e": 3
      },
      {
       "n": "Morelia",
-      "s": 0,
+      "s": 3,
       "f": 0,
       "e": 1
      },
      {
       "n": "Torreón",
-      "s": 0,
+      "s": 3,
       "f": 0,
       "e": 1
      },
@@ -11036,7 +11048,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-26T04:16:41.883Z"
+    "last": "2026-08-26T09:00:50.321Z"
    }
   },
   "Australia": {
@@ -11061,7 +11073,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-26T08:41:14.180Z",
+    "at": "2026-08-26T08:57:47.001Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -11813,7 +11825,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-26T03:50:04.609Z"
+    "last": "2026-08-26T08:42:37.760Z"
    }
   },
   "India": {
@@ -11837,7 +11849,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-26T08:41:45.750Z",
+    "at": "2026-08-26T08:58:18.544Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -12853,7 +12865,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-26T04:32:14.738Z"
+    "last": "2026-08-26T09:01:15.088Z"
    }
   },
   "Colombia": {
@@ -18775,11 +18787,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-26T07:16:45.828Z",
+    "at": "2026-08-26T08:57:54.089Z",
     "seen": 30,
     "added": 0,
     "rejected": 9,
-    "error": "busy (502)",
+    "error": "busy (500)",
     "via": "overpass.private.coffee"
    },
    "prospect": {
@@ -19350,7 +19362,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-26T08:03:24.713Z",
+    "at": "2026-08-26T08:58:14.091Z",
     "seen": 117,
     "added": 0,
     "rejected": 81,
@@ -23304,7 +23316,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-25T18:49:55.317Z"
+    "last": "2026-08-26T08:47:38.503Z"
    }
   },
   "Palau": {
@@ -27278,34 +27290,34 @@
   }
  },
  "recent": [
-  "2026-08-26T08:42:14.272Z  dropped info@opensourceforall.org — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-26T08:42:14.272Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-26T08:42:14.273Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-26T08:42:14.273Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-26T08:42:14.274Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-26T08:42:14.294Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-26T08:42:14.297Z  dropped info@website.com — claimed by 11 different clubs, so it belongs to a directory, not a club",
-  "2026-08-26T08:42:14.298Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-26T08:42:14.298Z  dropped info@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-08-26T08:42:14.298Z  dropped info@opensourceforall.org — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-26T08:42:14.299Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-26T08:42:14.299Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-26T08:42:14.300Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-26T08:42:14.300Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
+  "2026-08-26T09:01:15.163Z  dropped info@opensourceforall.org — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-26T09:01:15.164Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-26T09:01:15.165Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-26T09:01:15.165Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-26T09:01:15.166Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-26T09:01:15.184Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-26T09:01:15.188Z  dropped info@website.com — claimed by 11 different clubs, so it belongs to a directory, not a club",
+  "2026-08-26T09:01:15.188Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-26T09:01:15.188Z  dropped info@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
+  "2026-08-26T09:01:15.189Z  dropped info@opensourceforall.org — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-26T09:01:15.189Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-26T09:01:15.189Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-26T09:01:15.190Z  dropped eben@eyebytes.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-26T09:01:15.190Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-26T08:35:49.287Z",
+ "roundStarted": "2026-08-26T08:52:39.260Z",
  "lastRound": {
-  "at": "2026-08-26T08:42:14.317Z",
-  "minutes": 6.4,
-  "summary": "crawled 5 sites, +5 emails; prospected 1 empty countries, +0 clubs; osm 4 countries (ES,GB,BR,AR,US,AU,IN,CA,PE,NG,BW,MZ) +0, 3 failed",
-  "crawled": 5,
-  "emailsFound": 5,
+  "at": "2026-08-26T09:01:15.205Z",
+  "minutes": 8.6,
+  "summary": "crawled 1 sites, +0 emails; prospected 3 empty countries, +2 clubs; osm 4 countries (ES,GB,AU,IN,CA,PE,NG,BW,MZ,CV,RW,AG) +0, 2 failed",
+  "crawled": 1,
+  "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
   "osmCountries": 4,
   "osmAdded": 0,
-  "osmFailed": 3
+  "osmFailed": 2
  }
 }
