@@ -950,7 +950,7 @@ async function phaseProspect(db, deadline){
   }
 
   const budget = Math.min(deadline, Date.now() + CFG.prospectMinutes*60*1000);
-  let countries = 0, added = 0, vetted = 0, served = 0;
+  let countries = 0, added = 0, vetted = 0, served = 0, poisoned = 0;
 
   // Counted by kind, not by candidate: the reasons carry the site's own name
   // in them, and a hundred of those in the log is not a summary.
@@ -990,6 +990,7 @@ async function phaseProspect(db, deadline){
       st.cityStats[twin] = {s: st.cityStats[''].s, f: (st.cityStats[twin] || {}).f || 0};
     }
     served++;                         // this country had its turn, cursor moves past it
+    poisoned += r.poisoned || 0;
     if(!r.queries) continue;          // every query already asked; move on
     countries++;
     vetted += r.candidates;
@@ -1034,6 +1035,7 @@ async function phaseProspect(db, deadline){
     state.__cursor = ((state.__cursor || 0) + served) % require('./lib/countries').PRIORITY.length;
   }
   writeJSON(stateFile, state);
+  if(poisoned) log(`prospect: ${poisoned} quer${poisoned===1?'y the':'ies the'} engine refuses on wording — dropped, the line itself is open`);
   if(countries){
     log(`prospect: ${countries} countries searched, ${vetted} sites read, ${added} clubs added`);
     // A hundred sites read for two clubs is either the countries being
