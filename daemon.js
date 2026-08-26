@@ -1014,6 +1014,17 @@ async function phaseProspect(db, deadline){
     // The engine turning us away is not this country having no clubs, and
     // marking the queries done would write it off for good.
     if(r.throttled){
+      // Wait the rest out here rather than ending the round on it. The
+      // round has a budget; if the engine will be back inside it, the time
+      // is better spent waiting than resting twice — once for the engine
+      // and again between rounds — which is what turned a day into
+      // thirty-seven queries.
+      const rest = search.searchCooldownMs();
+      if(rest > 0 && Date.now() + rest + 30000 < budget){
+        log(`prospect: the search engine asked for ${Math.round(rest/60000)} min (${r.throttleWhy || 'refused'}; gap now ${Math.round(search.currentGapMs()/1000)}s) — waiting it out`);
+        await sleep(rest + 1000);
+        continue;
+      }
       log(`prospect: the search engine stopped answering (${r.throttleWhy || 'refused'}; gap now ${Math.round(search.currentGapMs()/1000)}s) — pausing this phase`);
       break;
     }
