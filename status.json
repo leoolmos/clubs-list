@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-27T12:14:04.013Z",
+ "generated": "2026-08-27T12:32:28.068Z",
  "clubs": 6470,
- "records": 8626,
+ "records": 8628,
  "crawl": {
   "ready": 2,
-  "waiting": 73,
-  "exhausted": 1610
+  "waiting": 74,
+  "exhausted": 1611
  },
  "osm": {
   "imported": 72,
@@ -13,9 +13,9 @@
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "AU",
-   "error": "partial: 10 of 15 subdivisions read",
-   "at": "2026-08-27T11:26:04.486Z"
+   "cc": "IN",
+   "error": "partial: 2 of 39 subdivisions read",
+   "at": "2026-08-27T12:21:54.568Z"
   }
  },
  "crawlReasons": [
@@ -25,7 +25,7 @@
   },
   {
    "note": "no email published",
-   "n": 749
+   "n": 750
   },
   {
    "note": "unreachable",
@@ -65,6 +65,27 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-27T12:26:08.615Z",
+   "kind": "prospect",
+   "text": "Singapore: found Topspin SG Tennis Academy -> https://topspinsg.com",
+   "ok": true,
+   "url": "https://topspinsg.com"
+  },
+  {
+   "t": "2026-08-27T12:26:08.615Z",
+   "kind": "prospect",
+   "text": "Singapore: found Ace Club Tennis -> https://www.aceclubtennis.com",
+   "ok": true,
+   "url": "https://www.aceclubtennis.com"
+  },
+  {
+   "t": "2026-08-27T12:15:25.685Z",
+   "kind": "crawl",
+   "text": "Altamira Tennis Club — https://www.atc.org.ve: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.atc.org.ve"
+  },
   {
    "t": "2026-08-27T12:12:01.875Z",
    "kind": "prospect",
@@ -1212,27 +1233,6 @@
    "text": "Brazil: found Na Lata Squash -> https://www.nalatasquash.com.br",
    "ok": true,
    "url": "https://www.nalatasquash.com.br"
-  },
-  {
-   "t": "2026-08-27T10:50:16.576Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Welcome :: Warrington Table Tennis Club -> https://warringtonttc.clubbuzz.co.uk",
-   "ok": true,
-   "url": "https://warringtonttc.clubbuzz.co.uk"
-  },
-  {
-   "t": "2026-08-27T10:50:16.575Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Wigan Sports Club -> https://www.wigansportsclub.com",
-   "ok": true,
-   "url": "https://www.wigansportsclub.com"
-  },
-  {
-   "t": "2026-08-27T10:50:16.575Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Utopia Padel -> https://utopiapadel.co.uk",
-   "ok": true,
-   "url": "https://utopiapadel.co.uk"
   }
  ],
  "perCountry": {
@@ -1259,7 +1259,7 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-27T11:25:29.840Z",
+    "at": "2026-08-27T12:20:45.504Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -4693,7 +4693,7 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-27T11:25:35.880Z",
+    "at": "2026-08-27T12:21:16.650Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -7664,7 +7664,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-27T11:25:48.304Z",
+    "at": "2026-08-27T12:20:36.973Z",
     "seen": 18,
     "added": 0,
     "rejected": 11,
@@ -8905,7 +8905,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-27T12:12:01.875Z"
+    "last": "2026-08-27T12:19:01.473Z"
    }
   },
   "Portugal": {
@@ -9530,7 +9530,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-27T11:24:42.277Z",
+    "at": "2026-08-27T12:19:42.387Z",
     "seen": 591,
     "added": 0,
     "rejected": 251,
@@ -11541,7 +11541,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-27T11:26:04.486Z",
+    "at": "2026-08-27T12:20:34.060Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -12380,7 +12380,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-27T11:25:53.477Z",
+    "at": "2026-08-27T12:21:54.568Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -14900,13 +14900,13 @@
       "e": 0
      }
     ],
-    "last": "2026-08-27T11:56:00.972Z"
+    "last": "2026-08-27T12:14:26.851Z"
    }
   },
   "Singapore": {
-   "clubs": 46,
+   "clubs": 48,
    "emails": 37,
-   "sites": 46,
+   "sites": 48,
    "read": 46,
    "unreachable": 3,
    "noAddress": 4,
@@ -14914,8 +14914,8 @@
    "leadsSearched": 29,
    "leadsFound": 20,
    "sports": {
-    "Tennis": 32,
-    "Padel": 23,
+    "Tennis": 34,
+    "Padel": 24,
     "Squash": 9
    },
    "sources": {
@@ -14967,10 +14967,10 @@
      "Jurong East"
     ],
     "citiesTotal": 58,
-    "citiesSearched": 17,
-    "searchesDone": 65,
+    "citiesSearched": 20,
+    "searchesDone": 77,
     "searchesTotal": 232,
-    "found": 13,
+    "found": 15,
     "emails": 37,
     "countrywide": {
      "s": 3,
@@ -15075,15 +15075,27 @@
      },
      {
       "n": "Kampong Pasir Ris",
-      "s": 3,
+      "s": 4,
       "f": 0,
       "e": 1
      },
      {
-      "n": "Kembangan",
-      "s": 0,
+      "n": "Bukit Panjang New Town",
+      "s": 4,
       "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Kembangan",
+      "s": 4,
+      "f": 2,
       "e": 1
+     },
+     {
+      "n": "Toa Payoh New Town",
+      "s": 3,
+      "f": 0,
+      "e": 0
      },
      {
       "n": "Geylang",
@@ -15122,7 +15134,7 @@
       "e": 2
      }
     ],
-    "last": "2026-08-27T09:12:23.940Z"
+    "last": "2026-08-27T12:26:08.614Z"
    }
   },
   "New Zealand": {
@@ -15484,7 +15496,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-27T11:24:50.801Z",
+    "at": "2026-08-27T12:20:24.488Z",
     "seen": 2460,
     "added": 0,
     "rejected": 902,
@@ -20169,8 +20181,8 @@
      "Pasay"
     ],
     "citiesTotal": 448,
-    "citiesSearched": 12,
-    "searchesDone": 46,
+    "citiesSearched": 15,
+    "searchesDone": 58,
     "searchesTotal": 1796,
     "found": 2,
     "emails": 56,
@@ -20247,6 +20259,24 @@
      },
      {
       "n": "Cagayan de Oro",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Valenzuela",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "General Santos",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Paranaque City",
       "s": 2,
       "f": 0,
       "e": 0
@@ -20510,7 +20540,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-27T09:14:53.729Z"
+    "last": "2026-08-27T12:28:30.968Z"
    }
   },
   "Canada": {
@@ -20535,7 +20565,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-27T11:25:20.973Z",
+    "at": "2026-08-27T12:20:27.612Z",
     "seen": 117,
     "added": 0,
     "rejected": 81,
@@ -22008,13 +22038,13 @@
      "El Rosario"
     ],
     "citiesTotal": 49,
-    "citiesSearched": 47,
+    "citiesSearched": 49,
     "searchesDone": 150,
     "searchesTotal": 150,
     "found": 1,
     "emails": 8,
     "countrywide": {
-     "s": 1,
+     "s": 3,
      "f": 0
     },
     "cityStats": [
@@ -22140,13 +22170,13 @@
      },
      {
       "n": "Teupasenti",
-      "s": 3,
+      "s": 4,
       "f": 0,
       "e": 0
      },
      {
       "n": "Lepaera",
-      "s": 2,
+      "s": 3,
       "f": 0,
       "e": 0
      },
@@ -22299,9 +22329,21 @@
       "s": 3,
       "f": 0,
       "e": 0
+     },
+     {
+      "n": "Cofradía",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Azacualpa",
+      "s": 3,
+      "f": 0,
+      "e": 0
      }
     ],
-    "last": "2026-08-27T12:14:03.409Z"
+    "last": "2026-08-27T12:21:08.824Z"
    }
   },
   "Dominican Republic": {
@@ -22623,16 +22665,16 @@
       "e": 0
      }
     ],
-    "last": "2026-08-27T11:56:00.976Z"
+    "last": "2026-08-27T12:16:42.534Z"
    }
   },
   "Venezuela": {
    "clubs": 46,
    "emails": 30,
    "sites": 46,
-   "read": 45,
+   "read": 46,
    "unreachable": 3,
-   "noAddress": 7,
+   "noAddress": 8,
    "leads": 25,
    "leadsSearched": 25,
    "leadsFound": 12,
@@ -22689,8 +22731,8 @@
      "San Felipe"
     ],
     "citiesTotal": 198,
-    "citiesSearched": 57,
-    "searchesDone": 199,
+    "citiesSearched": 61,
+    "searchesDone": 211,
     "searchesTotal": 597,
     "found": 14,
     "emails": 26,
@@ -23037,6 +23079,30 @@
      },
      {
       "n": "Cagua",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Mariara",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Tinaquillo",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Punta Cardón",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Yaritagua",
       "s": 1,
       "f": 0,
       "e": 0
@@ -23096,7 +23162,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-27T12:12:01.875Z"
+    "last": "2026-08-27T12:19:01.473Z"
    }
   },
   "Costa Rica": {
@@ -23365,7 +23431,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-27T11:56:00.976Z"
+    "last": "2026-08-27T12:14:26.851Z"
    }
   },
   "Malta": {
@@ -23993,7 +24059,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-27T11:56:00.976Z"
+    "last": "2026-08-27T12:14:26.851Z"
    }
   },
   "Uruguay": {
@@ -24464,7 +24530,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-27T09:07:28.991Z"
+    "last": "2026-08-27T12:21:08.824Z"
    }
   },
   "Angola": {
@@ -25703,8 +25769,8 @@
      "Pindi Bhattian"
     ],
     "citiesTotal": 326,
-    "citiesSearched": 22,
-    "searchesDone": 87,
+    "citiesSearched": 25,
+    "searchesDone": 99,
     "searchesTotal": 1308,
     "found": 11,
     "emails": 48,
@@ -25841,6 +25907,24 @@
      },
      {
       "n": "Gujrat",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Sukkur",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Sahiwal",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Okara",
       "s": 2,
       "f": 0,
       "e": 0
@@ -25888,7 +25972,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-27T09:17:18.618Z"
+    "last": "2026-08-27T12:30:57.829Z"
    }
   },
   "Palau": {
@@ -27152,8 +27236,8 @@
      "Palma Soriano"
     ],
     "citiesTotal": 120,
-    "citiesSearched": 55,
-    "searchesDone": 205,
+    "citiesSearched": 59,
+    "searchesDone": 217,
     "searchesTotal": 363,
     "found": 3,
     "emails": 5,
@@ -27488,6 +27572,30 @@
      },
      {
       "n": "Corralillo",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Jesús Menéndez",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Jobabo",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Baracoa",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Jovellanos",
       "s": 2,
       "f": 0,
       "e": 0
@@ -27499,7 +27607,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-27T09:09:53.832Z"
+    "last": "2026-08-27T12:23:53.648Z"
    }
   },
   "Kenya": {
@@ -27565,8 +27673,8 @@
      "Wajir"
     ],
     "citiesTotal": 107,
-    "citiesSearched": 21,
-    "searchesDone": 81,
+    "citiesSearched": 23,
+    "searchesDone": 89,
     "searchesTotal": 432,
     "found": 5,
     "emails": 17,
@@ -27697,9 +27805,21 @@
      },
      {
       "n": "Kitengela",
-      "s": 1,
+      "s": 4,
       "f": 1,
       "e": 1
+     },
+     {
+      "n": "Kiambu",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Mlolongo",
+      "s": 1,
+      "f": 0,
+      "e": 0
      },
      {
       "n": "Malindi",
@@ -27720,7 +27840,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-27T09:19:46.902Z"
+    "last": "2026-08-27T12:32:27.687Z"
    }
   },
   "El Salvador": {
@@ -27949,7 +28069,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-27T12:12:01.876Z"
+    "last": "2026-08-27T12:19:01.473Z"
    }
   },
   "Jamaica": {
@@ -30041,8 +30161,8 @@
      "Salamá"
     ],
     "citiesTotal": 81,
-    "citiesSearched": 67,
-    "searchesDone": 216,
+    "citiesSearched": 71,
+    "searchesDone": 228,
     "searchesTotal": 246,
     "found": 2,
     "emails": 6,
@@ -30449,18 +30569,36 @@
      },
      {
       "n": "San Luis Jilotepeque",
-      "s": 2,
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "San Felipe",
+      "s": 3,
       "f": 0,
       "e": 0
      },
      {
       "n": "Zaragoza",
-      "s": 0,
+      "s": 3,
       "f": 0,
       "e": 1
+     },
+     {
+      "n": "La Gomera",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Alotenango",
+      "s": 2,
+      "f": 0,
+      "e": 0
      }
     ],
-    "last": "2026-08-27T12:04:01.253Z"
+    "last": "2026-08-27T12:16:42.533Z"
    }
   },
   "Dominica": {
@@ -32236,34 +32374,34 @@
   }
  },
  "recent": [
-  "2026-08-27T12:14:03.805Z  dropped info@opensourceforall.org — claimed by 11 different clubs, so it belongs to a directory, not a club",
-  "2026-08-27T12:14:03.805Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-27T12:14:03.806Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-27T12:14:03.806Z  dropped eben@eyebytes.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-27T12:14:03.807Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-27T12:14:03.835Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-08-27T12:14:03.838Z  dropped info@website.com — claimed by 12 different clubs, so it belongs to a directory, not a club",
-  "2026-08-27T12:14:03.839Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-27T12:14:03.839Z  dropped info@mysite.com — claimed by 12 different clubs, so it belongs to a directory, not a club",
-  "2026-08-27T12:14:03.839Z  dropped info@opensourceforall.org — claimed by 11 different clubs, so it belongs to a directory, not a club",
-  "2026-08-27T12:14:03.840Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-27T12:14:03.840Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-27T12:14:03.840Z  dropped eben@eyebytes.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-27T12:14:03.841Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
+  "2026-08-27T12:32:27.827Z  dropped info@opensourceforall.org — claimed by 11 different clubs, so it belongs to a directory, not a club",
+  "2026-08-27T12:32:27.828Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-27T12:32:27.828Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-27T12:32:27.843Z  dropped eben@eyebytes.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-27T12:32:27.843Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-27T12:32:27.872Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
+  "2026-08-27T12:32:27.873Z  dropped info@website.com — claimed by 12 different clubs, so it belongs to a directory, not a club",
+  "2026-08-27T12:32:27.874Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-27T12:32:27.874Z  dropped info@mysite.com — claimed by 12 different clubs, so it belongs to a directory, not a club",
+  "2026-08-27T12:32:27.875Z  dropped info@opensourceforall.org — claimed by 11 different clubs, so it belongs to a directory, not a club",
+  "2026-08-27T12:32:27.875Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-27T12:32:27.876Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-27T12:32:27.876Z  dropped eben@eyebytes.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-27T12:32:27.877Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-27T11:56:00.534Z",
+ "roundStarted": "2026-08-27T12:14:26.210Z",
  "lastRound": {
-  "at": "2026-08-27T12:14:03.862Z",
-  "minutes": 18.1,
-  "summary": "crawled 30 sites, +10 emails; prospected 3 empty countries, +1 clubs",
-  "crawled": 30,
-  "emailsFound": 10,
+  "at": "2026-08-27T12:32:27.902Z",
+  "minutes": 18,
+  "summary": "crawled 2 sites, +0 emails; prospected 8 empty countries, +2 clubs; osm 4 countries (ES,GB,BR,AR,US,AU,IN,CA,PE,NG,BW,MZ) +0, 4 failed",
+  "crawled": 2,
+  "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 0,
+  "osmCountries": 4,
   "osmAdded": 0,
-  "osmFailed": 0
+  "osmFailed": 4
  }
 }
