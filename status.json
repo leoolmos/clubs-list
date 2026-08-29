@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-29T06:24:43.207Z",
- "clubs": 6843,
- "records": 9119,
+ "generated": "2026-08-29T06:43:17.818Z",
+ "clubs": 6844,
+ "records": 9123,
  "crawl": {
-  "ready": 3,
-  "waiting": 72,
-  "exhausted": 1702
+  "ready": 20,
+  "waiting": 56,
+  "exhausted": 1704
  },
  "osm": {
   "imported": 72,
@@ -13,15 +13,15 @@
   "pending": 0,
   "total": 93,
   "lastError": {
-   "cc": "AU",
-   "error": "partial: 10 of 15 subdivisions read",
-   "at": "2026-08-29T05:34:46.973Z"
+   "cc": "IN",
+   "error": "partial: 2 of 39 subdivisions read",
+   "at": "2026-08-29T06:31:45.823Z"
   }
  },
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 4555
+   "n": 4556
   },
   {
    "note": "no email published",
@@ -29,7 +29,7 @@
   },
   {
    "note": "contact form, no address",
-   "n": 471
+   "n": 473
   },
   {
    "note": "unreachable",
@@ -65,6 +65,56 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-29T06:32:54.744Z",
+   "kind": "prospect",
+   "text": "Mexico: found Padelify -> https://getpadelify.com",
+   "ok": true,
+   "url": "https://getpadelify.com"
+  },
+  {
+   "t": "2026-08-29T06:32:54.744Z",
+   "kind": "prospect",
+   "text": "Mexico: found Club Deportivo Villacoapa -> http://www.squashmexico.com.mx",
+   "ok": true,
+   "url": "http://www.squashmexico.com.mx"
+  },
+  {
+   "t": "2026-08-29T06:32:54.743Z",
+   "kind": "prospect",
+   "text": "Mexico: found Padel Society -> https://padelsociety.mx",
+   "ok": true,
+   "url": "https://padelsociety.mx"
+  },
+  {
+   "t": "2026-08-29T06:32:54.743Z",
+   "kind": "prospect",
+   "text": "Mexico: found Club Casablanca Santa Mónica -> https://clubcasablanca.com.mx",
+   "ok": true,
+   "url": "https://clubcasablanca.com.mx"
+  },
+  {
+   "t": "2026-08-29T06:26:41.281Z",
+   "kind": "crawl",
+   "text": "Tengo Padel — https://tengopadel.com.ar: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://tengopadel.com.ar"
+  },
+  {
+   "t": "2026-08-29T06:26:18.350Z",
+   "kind": "crawl",
+   "text": "Providence Country Club — https://www.providencecc.com: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://www.providencecc.com"
+  },
+  {
+   "t": "2026-08-29T06:25:07.687Z",
+   "kind": "crawl",
+   "text": "Sport Club Cañadense — https://sportcc.com.ar -> info@sportcc.com.ar",
+   "ok": true,
+   "url": "https://sportcc.com.ar",
+   "email": "info@sportcc.com.ar"
+  },
   {
    "t": "2026-08-29T06:23:24.162Z",
    "kind": "prospect",
@@ -1186,57 +1236,6 @@
    "text": "Canada: found Fitness Unlimited Health Club -> https://www.fitnessunlimited.ca",
    "ok": true,
    "url": "https://www.fitnessunlimited.ca"
-  },
-  {
-   "t": "2026-08-29T01:34:25.251Z",
-   "kind": "crawl",
-   "text": "Roseland Squash Club Home page — https://roselandsquashclub.org.uk: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://roselandsquashclub.org.uk"
-  },
-  {
-   "t": "2026-08-29T01:34:24.677Z",
-   "kind": "crawl",
-   "text": "Clube em Rio Claro/SP — https://gremiocp.com.br: site read, publishes no address",
-   "ok": false,
-   "url": "https://gremiocp.com.br"
-  },
-  {
-   "t": "2026-08-29T01:34:22.717Z",
-   "kind": "crawl",
-   "text": "Kinnoull Tennis Club — https://kinnoulltennisclub.org.uk: site read, publishes no address",
-   "ok": false,
-   "url": "https://kinnoulltennisclub.org.uk"
-  },
-  {
-   "t": "2026-08-29T01:34:20.663Z",
-   "kind": "crawl",
-   "text": "Scottish Squash Rackets Club — https://ssrcsquash.webflow.io: site read, publishes no address",
-   "ok": false,
-   "url": "https://ssrcsquash.webflow.io"
-  },
-  {
-   "t": "2026-08-29T01:34:20.608Z",
-   "kind": "crawl",
-   "text": "Club Deportivo Chascomús — https://www.prueba.solutions: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.prueba.solutions"
-  },
-  {
-   "t": "2026-08-29T01:33:39.959Z",
-   "kind": "crawl",
-   "text": "Chatswood Tennis Club — https://chatswoodtennisclub.com.au -> support@chatswoodtennisclub.com.au",
-   "ok": true,
-   "url": "https://chatswoodtennisclub.com.au",
-   "email": "support@chatswoodtennisclub.com.au"
-  },
-  {
-   "t": "2026-08-29T01:33:37.918Z",
-   "kind": "crawl",
-   "text": "Pacific Sands Cabana Club — https://www.cabanaclubhb.org /club-calendar/ -> cabanaclubmanager@gmail.com",
-   "ok": true,
-   "url": "https://www.cabanaclubhb.org",
-   "email": "cabanaclubmanager@gmail.com"
   }
  ],
  "perCountry": {
@@ -1263,7 +1262,7 @@
    },
    "seeds": 52,
    "osm": {
-    "at": "2026-08-29T05:34:45.241Z",
+    "at": "2026-08-29T06:31:45.821Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -4697,7 +4696,7 @@
    },
    "seeds": 7,
    "osm": {
-    "at": "2026-08-29T05:34:45.726Z",
+    "at": "2026-08-29T06:31:44.353Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -7794,7 +7793,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-29T05:34:46.967Z",
+    "at": "2026-08-29T06:31:43.755Z",
     "seen": 18,
     "added": 0,
     "rejected": 11,
@@ -10571,14 +10570,14 @@
       "e": 1
      }
     ],
-    "last": "2026-08-29T05:29:39.948Z"
+    "last": "2026-08-29T06:25:05.634Z"
    }
   },
   "Argentina": {
    "clubs": 355,
-   "emails": 243,
+   "emails": 244,
    "sites": 354,
-   "read": 346,
+   "read": 348,
    "unreachable": 19,
    "noAddress": 66,
    "leads": 269,
@@ -10592,11 +10591,11 @@
    "sources": {
     "osm": 20,
     "search": 91,
-    "prospect": 132
+    "prospect": 133
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-29T05:31:00.664Z",
+    "at": "2026-08-29T06:27:58.285Z",
     "seen": 591,
     "added": 0,
     "rejected": 251,
@@ -10642,7 +10641,7 @@
     "searchesDone": 491,
     "searchesTotal": 759,
     "found": 48,
-    "emails": 216,
+    "emails": 217,
     "countrywide": {
      "s": 2,
      "f": 2
@@ -11582,7 +11581,7 @@
       "n": "Cañada de Gómez",
       "s": 3,
       "f": 2,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Esperanza",
@@ -11857,8 +11856,8 @@
      "Vanderbijlpark"
     ],
     "citiesTotal": 245,
-    "citiesSearched": 124,
-    "searchesDone": 493,
+    "citiesSearched": 127,
+    "searchesDone": 505,
     "searchesTotal": 984,
     "found": 40,
     "emails": 201,
@@ -12607,6 +12606,24 @@
      },
      {
       "n": "Nkowakowa",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Musina",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Modimolle",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Letlhabile",
       "s": 2,
       "f": 0,
       "e": 0
@@ -12750,13 +12767,13 @@
       "e": 3
      }
     ],
-    "last": "2026-08-29T05:36:51.203Z"
+    "last": "2026-08-29T06:43:17.201Z"
    }
   },
   "Mexico": {
-   "clubs": 199,
+   "clubs": 203,
    "emails": 142,
-   "sites": 199,
+   "sites": 203,
    "read": 199,
    "unreachable": 8,
    "noAddress": 32,
@@ -12764,9 +12781,9 @@
    "leadsSearched": 102,
    "leadsFound": 48,
    "sports": {
-    "Tennis": 94,
-    "Padel": 113,
-    "Squash": 28
+    "Tennis": 95,
+    "Padel": 115,
+    "Squash": 30
    },
    "sources": {
     "osm": 5,
@@ -12817,10 +12834,10 @@
      "Tlaquepaque"
     ],
     "citiesTotal": 490,
-    "citiesSearched": 233,
-    "searchesDone": 717,
+    "citiesSearched": 246,
+    "searchesDone": 757,
     "searchesTotal": 1473,
-    "found": 47,
+    "found": 51,
     "emails": 134,
     "countrywide": {
      "s": 3,
@@ -14221,19 +14238,85 @@
      },
      {
       "n": "Valle Hermoso",
-      "s": 1,
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "San Pedro",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "San Juan de los Lagos",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Colonia del Sol",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Santa Ana Chiautempan",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Tierra Blanca",
+      "s": 3,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Tlapa de Comonfort",
+      "s": 3,
+      "f": 2,
+      "e": 0
+     },
+     {
+      "n": "Tizimín",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Autlán de Navarro",
+      "s": 3,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Chiapa de Corzo",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "San Buenaventura",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Purísima de Bustos",
+      "s": 3,
       "f": 0,
       "e": 0
      },
      {
       "n": "Tizayuca",
-      "s": 0,
+      "s": 3,
       "f": 0,
       "e": 1
      },
      {
       "n": "Moroleón",
-      "s": 0,
+      "s": 2,
       "f": 0,
       "e": 1
      },
@@ -14298,7 +14381,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-29T05:32:00.988Z"
+    "last": "2026-08-29T06:32:54.742Z"
    }
   },
   "Australia": {
@@ -14323,7 +14406,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-29T05:34:46.973Z",
+    "at": "2026-08-29T06:31:43.790Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -15360,7 +15443,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-29T05:34:45.242Z",
+    "at": "2026-08-29T06:31:45.823Z",
     "seen": 0,
     "added": 0,
     "rejected": 0,
@@ -15402,8 +15485,8 @@
      "Rājkot"
     ],
     "citiesTotal": 2937,
-    "citiesSearched": 164,
-    "searchesDone": 652,
+    "citiesSearched": 174,
+    "searchesDone": 692,
     "searchesTotal": 11752,
     "found": 49,
     "emails": 275,
@@ -16392,15 +16475,69 @@
      },
      {
       "n": "Parbhani",
-      "s": 2,
+      "s": 4,
       "f": 0,
       "e": 0
      },
      {
       "n": "Hisar",
-      "s": 0,
+      "s": 4,
       "f": 0,
       "e": 1
+     },
+     {
+      "n": "Fīrozābād",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Kulti",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Karnāl",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Barddhamān",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Gundupālaiyam",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Bārāsat",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Mulugu",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Bihār Sharīf",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Bāli",
+      "s": 2,
+      "f": 0,
+      "e": 0
      },
      {
       "n": "Tirupati",
@@ -16925,7 +17062,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-29T05:34:33.374Z"
+    "last": "2026-08-29T06:40:54.168Z"
    }
   },
   "Colombia": {
@@ -20312,7 +20449,7 @@
    "clubs": 1578,
    "emails": 1268,
    "sites": 1577,
-   "read": 1564,
+   "read": 1565,
    "unreachable": 75,
    "noAddress": 134,
    "leads": 927,
@@ -20330,11 +20467,11 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-29T05:31:00.290Z",
+    "at": "2026-08-29T06:27:57.925Z",
     "seen": 2460,
     "added": 0,
     "rejected": 902,
-    "error": "busy (502)",
+    "error": "busy (500)",
     "via": "overpass.private.coffee"
    },
    "prospect": {
@@ -26791,7 +26928,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-08-29T05:34:46.971Z",
+    "at": "2026-08-29T06:31:43.759Z",
     "seen": 117,
     "added": 0,
     "rejected": 81,
@@ -45740,34 +45877,34 @@
   }
  },
  "recent": [
-  "2026-08-29T06:24:42.961Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-29T06:24:42.962Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-29T06:24:42.962Z  dropped eben@eyebytes.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-29T06:24:42.963Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-29T06:24:42.992Z  dropped example@mysite.com — claimed by 12 different clubs, so it belongs to a directory, not a club",
-  "2026-08-29T06:24:42.995Z  dropped info@website.com — claimed by 12 different clubs, so it belongs to a directory, not a club",
-  "2026-08-29T06:24:42.996Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-29T06:24:42.996Z  dropped impallari@gmail.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-29T06:24:42.997Z  dropped info@mysite.com — claimed by 14 different clubs, so it belongs to a directory, not a club",
-  "2026-08-29T06:24:42.997Z  dropped info@opensourceforall.org — claimed by 12 different clubs, so it belongs to a directory, not a club",
-  "2026-08-29T06:24:42.997Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-29T06:24:42.998Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-29T06:24:42.998Z  dropped eben@eyebytes.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-08-29T06:24:42.999Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
+  "2026-08-29T06:43:17.613Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-29T06:43:17.614Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-29T06:43:17.614Z  dropped eben@eyebytes.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-29T06:43:17.615Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-29T06:43:17.640Z  dropped example@mysite.com — claimed by 12 different clubs, so it belongs to a directory, not a club",
+  "2026-08-29T06:43:17.643Z  dropped info@website.com — claimed by 12 different clubs, so it belongs to a directory, not a club",
+  "2026-08-29T06:43:17.644Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-29T06:43:17.645Z  dropped impallari@gmail.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-29T06:43:17.645Z  dropped info@mysite.com — claimed by 14 different clubs, so it belongs to a directory, not a club",
+  "2026-08-29T06:43:17.646Z  dropped info@opensourceforall.org — claimed by 12 different clubs, so it belongs to a directory, not a club",
+  "2026-08-29T06:43:17.646Z  dropped info@indiantypefoundry.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-29T06:43:17.647Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-29T06:43:17.647Z  dropped eben@eyebytes.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-08-29T06:43:17.648Z  dropped info@sportsground.ca — claimed by 9 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-29T06:06:33.919Z",
+ "roundStarted": "2026-08-29T06:25:05.195Z",
  "lastRound": {
-  "at": "2026-08-29T06:24:43.019Z",
+  "at": "2026-08-29T06:43:17.668Z",
   "minutes": 18.2,
-  "summary": "crawled 15 sites, +0 emails; prospected 8 empty countries, +3 clubs",
-  "crawled": 15,
-  "emailsFound": 0,
+  "summary": "crawled 3 sites, +1 emails; prospected 3 empty countries, +4 clubs; osm 4 countries (ES,GB,BR,AR,US,AU,IN,CA,PE,NG,BW,MZ) +0, 4 failed",
+  "crawled": 3,
+  "emailsFound": 1,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 0,
+  "osmCountries": 4,
   "osmAdded": 0,
-  "osmFailed": 0
+  "osmFailed": 4
  }
 }
