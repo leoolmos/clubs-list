@@ -69,17 +69,18 @@ tailwind.config = {
 /* ---- engine cards ---- */
 .enggroups{ @apply grid gap-x-4 gap-y-3 mt-3.5 items-start; grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr)); }
 .enggroup > h4{ @apply font-mono text-[10px] tracking-[.14em] uppercase text-inksoft m-0 mb-1.5; }
-.engs{ @apply grid gap-1.5; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); }
-.eng{ font:inherit; @apply w-full text-left bg-line border border-rule rounded-crt px-3 py-2.5 cursor-pointer grid gap-1.5 text-inherit; transition:border-color .12s ease; }
+.engs{ @apply grid gap-1.5; grid-template-columns:minmax(0,1fr); }
+.eng{ font:inherit; @apply w-full text-left bg-line border border-rule rounded-crt px-3 py-2.5 cursor-pointer grid gap-1.5 text-inherit content-start min-h-[112px]; grid-template-rows:auto auto auto auto; transition:border-color .12s ease; }
 .eng:hover{ @apply border-inksoft; }
 .eng.on{ @apply border-ink; box-shadow:inset 0 0 0 1px var(--ink); }
 .eng-top{ @apply flex items-center gap-2 flex-wrap; }
 .eng-top b{ @apply text-[12.5px] font-semibold; }
 .eng-live{ @apply ml-auto font-mono text-[9.5px] uppercase tracking-[.12em] text-inksoft; }
-.eng-num{ @apply block font-display font-extrabold text-[19px] leading-none tracking-[-.02em]; }
+.eng-num{ @apply block font-display font-extrabold text-[19px] leading-[1.15] tracking-[-.02em]; }
 .eng-num i{ @apply not-italic font-sans font-normal text-[11.5px] text-inksoft tracking-normal; }
 .eng-bar{ @apply block h-1.5 bg-out border border-rule overflow-hidden; }
 .eng-bar i{ transition:width .5s ease; @apply block h-full bg-grass not-italic; }
+.eng-bar.none{ @apply opacity-40; }
 .eng-note{ @apply block text-[11.5px] text-inksoft leading-snug; }
 
 /* ---- the panel under whichever card is open ---- */
@@ -784,7 +785,9 @@ function engCard(e){
     + "<span class='eng-top'><span class='st-dot " + (e.warn ? "st-off" : e.live ? "st-on" : "st-idle") + "'></span>"
     + "<b>" + esc(e.name) + "</b><span class='eng-live'>" + state + "</span></span>"
     + "<span class='eng-num'>" + esc(e.big) + " <i>" + esc(e.sub) + "</i></span>"
-    + (e.bar === null ? "" : "<span class='eng-bar'><i style='width:" + e.bar.toFixed(1) + "%'></i></span>")
+    + (e.bar === null
+        ? "<span class='eng-bar none' aria-hidden='true'></span>"
+        : "<span class='eng-bar'><i style='width:" + e.bar.toFixed(1) + "%'></i></span>")
     + "<span class='eng-note" + (e.warn ? " st-warn" : "") + "'>" + esc(e.note) + "</span>"
     + "</button>";
 }
