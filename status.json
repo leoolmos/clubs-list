@@ -1,11 +1,11 @@
 {
- "generated": "2026-08-30T11:56:36.331Z",
+ "generated": "2026-08-30T12:15:10.062Z",
  "clubs": 7053,
- "records": 9396,
+ "records": 9400,
  "crawl": {
-  "ready": 2,
-  "waiting": 61,
-  "exhausted": 1761
+  "ready": 7,
+  "waiting": 58,
+  "exhausted": 1763
  },
  "osm": {
   "imported": 72,
@@ -25,7 +25,7 @@
   },
   {
    "note": "no email published",
-   "n": 828
+   "n": 830
   },
   {
    "note": "contact form, no address",
@@ -65,6 +65,48 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-30T12:13:08.677Z",
+   "kind": "prospect",
+   "text": "United States: found Ann Arbor Tennis Club Tennis -> http://aatc.royalwebhosting.net",
+   "ok": true,
+   "url": "http://aatc.royalwebhosting.net"
+  },
+  {
+   "t": "2026-08-30T12:04:54.396Z",
+   "kind": "prospect",
+   "text": "Brazil: found Saint Moritz Country Club -> https://clubestmoritz.com",
+   "ok": true,
+   "url": "https://clubestmoritz.com"
+  },
+  {
+   "t": "2026-08-30T12:04:54.396Z",
+   "kind": "prospect",
+   "text": "Brazil: found Lausanne Futebol Clube FC -> https://lausannepfc.com.br",
+   "ok": true,
+   "url": "https://lausannepfc.com.br"
+  },
+  {
+   "t": "2026-08-30T12:04:54.395Z",
+   "kind": "prospect",
+   "text": "Brazil: found Muito Além de uma Academia -> https://winnerarenasports.com",
+   "ok": true,
+   "url": "https://winnerarenasports.com"
+  },
+  {
+   "t": "2026-08-30T11:58:55.590Z",
+   "kind": "crawl",
+   "text": "Assis Tênis Clube — https://www.assistenisclube.com.br: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.assistenisclube.com.br"
+  },
+  {
+   "t": "2026-08-30T11:57:55.313Z",
+   "kind": "crawl",
+   "text": "Premier Tennis Academy — https://www.sat-sports.in: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.sat-sports.in"
+  },
   {
    "t": "2026-08-30T11:47:45.527Z",
    "kind": "prospect",
@@ -1173,48 +1215,6 @@
    "text": "Johnson Reserve Public Tennis Courts (2) — https://courtreserve.com: turned away by a captcha, will retry",
    "ok": false,
    "url": "https://courtreserve.com"
-  },
-  {
-   "t": "2026-08-30T01:30:35.670Z",
-   "kind": "crawl",
-   "text": "Victoria Paddle — https://vic.paddle.org.au: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://vic.paddle.org.au"
-  },
-  {
-   "t": "2026-08-30T01:30:35.537Z",
-   "kind": "crawl",
-   "text": "Campos de Padel do NaturWaterPark — https://naturwaterpark.pt: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://naturwaterpark.pt"
-  },
-  {
-   "t": "2026-08-30T01:30:35.468Z",
-   "kind": "crawl",
-   "text": "Caracas Sports Club — https://caracassportsclub.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://caracassportsclub.com"
-  },
-  {
-   "t": "2026-08-30T01:30:35.434Z",
-   "kind": "crawl",
-   "text": "Club Atlético Unión Erin — https://www.clubaunion.com.ar: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.clubaunion.com.ar"
-  },
-  {
-   "t": "2026-08-30T01:30:35.359Z",
-   "kind": "crawl",
-   "text": "Penguin Sports Centre — https://www.thepenguinsportsfoundation.co.uk: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.thepenguinsportsfoundation.co.uk"
-  },
-  {
-   "t": "2026-08-30T01:30:35.171Z",
-   "kind": "crawl",
-   "text": "Arrayanes Country Club — https://arrayanes.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://arrayanes.com"
   }
  ],
  "perCountry": {
@@ -7991,18 +7991,18 @@
    }
   },
   "Brazil": {
-   "clubs": 340,
+   "clubs": 343,
    "emails": 244,
-   "sites": 338,
-   "read": 334,
+   "sites": 341,
+   "read": 335,
    "unreachable": 6,
-   "noAddress": 59,
+   "noAddress": 60,
    "leads": 64,
    "leadsSearched": 64,
    "leadsFound": 30,
    "sports": {
-    "Tennis": 240,
-    "Padel": 107,
+    "Tennis": 243,
+    "Padel": 108,
     "Squash": 49
    },
    "sources": {
@@ -8054,10 +8054,10 @@
      "Joinville"
     ],
     "citiesTotal": 1808,
-    "citiesSearched": 372,
-    "searchesDone": 1132,
+    "citiesSearched": 386,
+    "searchesDone": 1172,
     "searchesTotal": 5427,
-    "found": 104,
+    "found": 107,
     "emails": 240,
     "countrywide": {
      "s": 3,
@@ -10298,15 +10298,87 @@
      },
      {
       "n": "Ourinhos",
-      "s": 0,
+      "s": 3,
+      "f": 1,
+      "e": 1
+     },
+     {
+      "n": "Poá",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Mandaqui",
+      "s": 3,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Vila Matilde",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Itabaiana",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Cursino",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Caieiras",
+      "s": 3,
       "f": 0,
       "e": 1
      },
      {
-      "n": "Caieiras",
-      "s": 0,
+      "n": "Perdizes",
+      "s": 3,
       "f": 0,
-      "e": 1
+      "e": 0
+     },
+     {
+      "n": "Francisco Beltrão",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Japeri",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Mairiporã",
+      "s": 3,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Pôr do Sol",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Parintins",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Lagarto",
+      "s": 1,
+      "f": 0,
+      "e": 0
      },
      {
       "n": "Leme",
@@ -10663,7 +10735,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-30T11:40:40.275Z"
+    "last": "2026-08-30T12:04:54.395Z"
    }
   },
   "Bolivia": {
@@ -11755,7 +11827,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-30T11:42:58.904Z"
+    "last": "2026-08-30T12:13:08.678Z"
    }
   },
   "Argentina": {
@@ -13345,7 +13417,7 @@
       "e": 0
      }
     ],
-    "last": "2026-08-30T11:40:40.276Z"
+    "last": "2026-08-30T12:04:54.397Z"
    }
   },
   "South Africa": {
@@ -14961,8 +15033,8 @@
      "Tlaquepaque"
     ],
     "citiesTotal": 490,
-    "citiesSearched": 477,
-    "searchesDone": 1450,
+    "citiesSearched": 481,
+    "searchesDone": 1460,
     "searchesTotal": 1473,
     "found": 69,
     "emails": 152,
@@ -17834,6 +17906,30 @@
       "e": 0
      },
      {
+      "n": "El Grullo",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Acajete",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "San Rafael",
+      "s": 3,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Las Margaritas",
+      "s": 1,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Mezcales",
       "s": 0,
       "f": 0,
@@ -17846,7 +17942,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-30T11:45:21.797Z"
+    "last": "2026-08-30T12:15:09.410Z"
    }
   },
   "Australia": {
@@ -19070,16 +19166,16 @@
       "e": 0
      }
     ],
-    "last": "2026-08-30T11:42:58.904Z"
+    "last": "2026-08-30T12:13:08.679Z"
    }
   },
   "India": {
    "clubs": 341,
    "emails": 298,
    "sites": 341,
-   "read": 340,
+   "read": 341,
    "unreachable": 5,
-   "noAddress": 27,
+   "noAddress": 28,
    "leads": 167,
    "leadsSearched": 167,
    "leadsFound": 113,
@@ -25531,9 +25627,9 @@
    }
   },
   "United States": {
-   "clubs": 1635,
+   "clubs": 1636,
    "emails": 1318,
-   "sites": 1634,
+   "sites": 1635,
    "read": 1622,
    "unreachable": 76,
    "noAddress": 136,
@@ -25541,7 +25637,7 @@
    "leadsSearched": 927,
    "leadsFound": 702,
    "sports": {
-    "Tennis": 1366,
+    "Tennis": 1367,
     "Padel": 294,
     "Squash": 176
    },
@@ -25594,10 +25690,10 @@
      "Detroit"
     ],
     "citiesTotal": 2305,
-    "citiesSearched": 265,
-    "searchesDone": 1061,
+    "citiesSearched": 275,
+    "searchesDone": 1101,
     "searchesTotal": 9224,
-    "found": 173,
+    "found": 174,
     "emails": 1297,
     "countrywide": {
      "s": 4,
@@ -27196,27 +27292,63 @@
      },
      {
       "n": "Ann Arbor",
-      "s": 0,
-      "f": 0,
+      "s": 4,
+      "f": 1,
       "e": 2
      },
      {
+      "n": "El Monte",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Harlem",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Westminster",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Round Rock",
-      "s": 0,
+      "s": 4,
       "f": 0,
       "e": 3
      },
      {
       "n": "Wilmington",
-      "s": 0,
+      "s": 4,
       "f": 0,
       "e": 4
      },
      {
+      "n": "East Harlem",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Arvada",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Beaumont",
-      "s": 0,
+      "s": 4,
       "f": 0,
       "e": 4
+     },
+     {
+      "n": "Provo",
+      "s": 4,
+      "f": 0,
+      "e": 0
      },
      {
       "n": "Carlsbad",
@@ -30501,7 +30633,7 @@
       "e": 1
      }
     ],
-    "last": "2026-08-30T11:42:58.903Z"
+    "last": "2026-08-30T12:13:08.677Z"
    }
   },
   "Peru": {
@@ -54484,34 +54616,34 @@
   }
  },
  "recent": [
-  "2026-08-30T11:56:36.068Z  dropped info@indiantypefoundry.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-30T11:56:36.069Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-30T11:56:36.070Z  dropped eben@eyebytes.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-08-30T11:56:36.071Z  dropped info@sportsground.ca — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-08-30T11:56:36.099Z  dropped example@mysite.com — claimed by 13 different clubs, so it belongs to a directory, not a club",
-  "2026-08-30T11:56:36.103Z  dropped info@website.com — claimed by 14 different clubs, so it belongs to a directory, not a club",
-  "2026-08-30T11:56:36.103Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-30T11:56:36.104Z  dropped impallari@gmail.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-30T11:56:36.104Z  dropped info@mysite.com — claimed by 14 different clubs, so it belongs to a directory, not a club",
-  "2026-08-30T11:56:36.104Z  dropped info@opensourceforall.org — claimed by 12 different clubs, so it belongs to a directory, not a club",
-  "2026-08-30T11:56:36.105Z  dropped info@indiantypefoundry.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-30T11:56:36.105Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-30T11:56:36.106Z  dropped eben@eyebytes.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-08-30T11:56:36.106Z  dropped info@sportsground.ca — claimed by 10 different clubs, so it belongs to a directory, not a club"
+  "2026-08-30T12:15:09.840Z  dropped info@indiantypefoundry.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-30T12:15:09.841Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-30T12:15:09.841Z  dropped eben@eyebytes.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
+  "2026-08-30T12:15:09.842Z  dropped info@sportsground.ca — claimed by 10 different clubs, so it belongs to a directory, not a club",
+  "2026-08-30T12:15:09.870Z  dropped example@mysite.com — claimed by 13 different clubs, so it belongs to a directory, not a club",
+  "2026-08-30T12:15:09.874Z  dropped info@website.com — claimed by 14 different clubs, so it belongs to a directory, not a club",
+  "2026-08-30T12:15:09.874Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-30T12:15:09.875Z  dropped impallari@gmail.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-30T12:15:09.875Z  dropped info@mysite.com — claimed by 14 different clubs, so it belongs to a directory, not a club",
+  "2026-08-30T12:15:09.876Z  dropped info@opensourceforall.org — claimed by 12 different clubs, so it belongs to a directory, not a club",
+  "2026-08-30T12:15:09.876Z  dropped info@indiantypefoundry.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-30T12:15:09.877Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-30T12:15:09.877Z  dropped eben@eyebytes.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
+  "2026-08-30T12:15:09.877Z  dropped info@sportsground.ca — claimed by 10 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-08-30T11:38:29.571Z",
+ "roundStarted": "2026-08-30T11:56:58.470Z",
  "lastRound": {
-  "at": "2026-08-30T11:56:36.130Z",
-  "minutes": 18.1,
-  "summary": "crawled 6 sites, +2 emails; prospected 8 empty countries, +2 clubs; osm 4 countries (ES,GB,BR,AR,US,AU,IN,CA,PE,NG,BW,MZ) +0, 4 failed",
-  "crawled": 6,
-  "emailsFound": 2,
+  "at": "2026-08-30T12:15:09.902Z",
+  "minutes": 18.2,
+  "summary": "crawled 2 sites, +0 emails; prospected 3 empty countries, +4 clubs",
+  "crawled": 2,
+  "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 4,
+  "osmCountries": 0,
   "osmAdded": 0,
-  "osmFailed": 4
+  "osmFailed": 0
  }
 }
