@@ -57,8 +57,60 @@ tailwind.config = {
 .st-idle{ background:#b8860b; box-shadow:0 0 0 3px rgba(184,134,11,.14); }
 .st-off{ background:#b33; box-shadow:0 0 0 3px rgba(187,51,51,.14); }
 .st-line{ @apply my-[3px]; }
-.st-note{ @apply opacity-70; }
 .st-warn{ color:#a33; }
+.st-sum{ @apply text-[12.5px] text-inksoft mt-0.5; }
+/* One line for a lane that is actually blocked, and it opens the card it
+   belongs to. Everything else on this panel waits to be clicked. */
+.st-flag{ font:inherit; @apply block w-full text-left mt-2 px-2.5 py-1.5 text-[12px] border rounded-crt cursor-pointer; border-color:#d9b3b3; background:#FBECEC; color:#8a2b2b; }
+.st-flag:hover{ border-color:#a33; }
+.st-flag.mild{ border-color:#dccb8e; background:#FBF1C2; color:#6b5511; }
+.st-flag.mild:hover{ border-color:#8A6A12; }
+
+/* ---- engine cards ---- */
+.enggroups{ @apply grid gap-x-4 gap-y-3 mt-3.5 items-start; grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr)); }
+.enggroup > h4{ @apply font-mono text-[10px] tracking-[.14em] uppercase text-inksoft m-0 mb-1.5; }
+.engs{ @apply grid gap-1.5; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); }
+.eng{ font:inherit; @apply w-full text-left bg-line border border-rule rounded-crt px-3 py-2.5 cursor-pointer grid gap-1.5 text-inherit; transition:border-color .12s ease; }
+.eng:hover{ @apply border-inksoft; }
+.eng.on{ @apply border-ink; box-shadow:inset 0 0 0 1px var(--ink); }
+.eng-top{ @apply flex items-center gap-2 flex-wrap; }
+.eng-top b{ @apply text-[12.5px] font-semibold; }
+.eng-live{ @apply ml-auto font-mono text-[9.5px] uppercase tracking-[.12em] text-inksoft; }
+.eng-num{ @apply block font-display font-extrabold text-[19px] leading-none tracking-[-.02em]; }
+.eng-num i{ @apply not-italic font-sans font-normal text-[11.5px] text-inksoft tracking-normal; }
+.eng-bar{ @apply block h-1.5 bg-out border border-rule overflow-hidden; }
+.eng-bar i{ transition:width .5s ease; @apply block h-full bg-grass not-italic; }
+.eng-note{ @apply block text-[11.5px] text-inksoft leading-snug; }
+
+/* ---- the panel under whichever card is open ---- */
+.engd{ @apply mt-3.5 pt-3.5 border-t border-rule; }
+.engd h5{ @apply font-display font-bold text-[14px] m-0 mb-0.5; }
+.engwhat{ @apply text-[12.5px] text-inksoft m-0 mb-2.5; }
+.engd .lead{ @apply flex items-baseline gap-x-2 gap-y-1 flex-wrap mb-2.5; }
+.engd .lead b{ @apply font-display font-extrabold text-[22px] leading-none tracking-[-.02em]; }
+.engd .lead b + span{ @apply text-[12.5px] text-inksoft mr-2.5; }
+.kv{ @apply grid gap-x-3.5 gap-y-1.5 m-0 mb-2.5 text-[12.5px]; grid-template-columns:max-content minmax(0,1fr); }
+.kv dt{ @apply font-mono text-[10px] uppercase tracking-[.1em] text-inksoft pt-1; }
+.kv dd{ @apply m-0 min-w-0; }
+.citychips{ @apply flex gap-1 flex-wrap; }
+.citychip{ @apply font-mono text-[11px] px-2 py-1 bg-line border border-rule rounded-crt; }
+.citychip i{ @apply not-italic opacity-60 ml-1; }
+.citychip b{ color:#1a8f3c; }
+.citychip.found{ background:#DDE9E2; }
+.citychip.next{ background:#FBF1C2; }
+.citychip.now{ @apply bg-ink text-out border-ink; }
+.citychip.now i{ @apply opacity-70; }
+.nextrow{ @apply flex items-center gap-2 flex-wrap mb-1; }
+.cname{ @apply cursor-pointer underline decoration-dotted underline-offset-2 text-[12px]; }
+.cname:hover{ color:var(--grass); }
+.engtwrap{ @apply max-h-[300px] overflow-y-auto overflow-x-auto border border-rule rounded-crt; }
+.engt{ @apply w-full border-collapse text-[12px]; }
+.engt th{ @apply sticky top-0 z-[1] text-left font-mono text-[9.5px] font-normal uppercase tracking-[.1em] text-inksoft bg-panel px-2 py-1.5 border-b border-rule; }
+.engt td{ @apply px-2 py-1.5 border-b border-rule align-middle; }
+.engt tbody tr:last-child td{ @apply border-b-0; }
+.engt .num{ @apply text-right font-mono text-[11.5px] whitespace-nowrap; }
+.minibar{ @apply inline-block w-[64px] h-1.5 bg-out border border-rule align-middle overflow-hidden; }
+.minibar i{ @apply block h-full bg-grass not-italic; }
 /* ---- tabs and activity ---- */
 .tabs{ @apply flex gap-0 border-b border-rule mt-[22px] mb-0; }
 .tab{ font:inherit; @apply bg-transparent border-0 border-b-2 border-b-transparent px-4 py-[9px] cursor-pointer text-[13px] tracking-[.02em] opacity-60 text-inherit; }
@@ -596,74 +648,455 @@ function ago(iso){
 /* Both: the clock time for the record, the relative one for the glance. */
 function when(iso){ return stamp(iso) + " (" + ago(iso) + ")"; }
 
+/* ------------------------------------------------------------------
+   COLLECTOR PANEL — one card per engine, grouped by what the engine does
+
+   What stood here was eight sentences of prose. Every number in them was
+   true, and none of it answered what a glance is actually asking: which
+   of the six things this program does is moving, how far through it is,
+   and what it is on right now. So the sentences became cards — a name, a
+   fraction, a bar, a state — and the sentence each one replaced is inside
+   it, one click away, next to the trail that sentence was summarising.
+------------------------------------------------------------------ */
+var ENG_OPEN = null;          // which card is expanded, kept across refreshes
+
+function stN(n){ return (Number(n)||0).toLocaleString(); }
+function stPct(a, b){ return b > 0 ? Math.max(0, Math.min(100, (a/b)*100)) : 0; }
+
+/* A city counts as searched once it has been asked every term, and the
+   number of terms varies with the country's language — so it is derived
+   from the country's own totals, the same way the coverage tab does it. */
+function termCountOf(pr){
+  return Math.max(1, Math.round((pr.searchesTotal||0) / ((pr.citiesTotal||0) + 1)));
+}
+/* Rows arrive as {n,s,f,e} today and may arrive as [name, searches, …]
+   later; both are read, so page and daemon can be updated in either order. */
+function cityStatsOf(pr){
+  var m = {};
+  (pr.cityStats||[]).forEach(function(c){
+    if(Array.isArray(c)) m[c[0]] = {s:c[1]||0, f:c[2]||0, e:c[3]||0};
+    else                 m[c.n]  = {s:c.s||0,  f:c.f||0,  e:c.e||0};
+  });
+  return m;
+}
+
+/* Every country's prospecting, added up, plus a row each for the table. */
+function prospectAgg(){
+  var pc = (STATUS && STATUS.perCountry) || {};
+  var ag = {cities:0, searched:0, queries:0, queriesTotal:0, clubs:0, emails:0, rows:[]};
+  Object.keys(pc).forEach(function(name){
+    var pr = pc[name].prospect; if(!pr) return;
+    var row = {
+      name: name, cc: pr.cc || CC_OF[name] || "",
+      total: pr.citiesTotal||0, searched: pr.citiesSearched||0,
+      qd: pr.searchesDone||0,   qt: pr.searchesTotal||0,
+      clubs: pr.found||0,       emails: pr.emails||0, last: pr.last||""
+    };
+    row.left = Math.max(0, row.total - row.searched);
+    ag.cities += row.total;   ag.searched += row.searched;
+    ag.queries += row.qd;     ag.queriesTotal += row.qt;
+    ag.clubs += row.clubs;    ag.emails += row.emails;
+    ag.rows.push(row);
+  });
+  ag.left = Math.max(0, ag.cities - ag.searched);
+  ag.rows.sort(function(a,b){ return b.searched - a.searched || b.total - a.total || a.name.localeCompare(b.name); });
+  return ag;
+}
+
+/* The per-country figures that have no country-blind total in status.json */
+function countryTotals(){
+  var pc = (STATUS && STATUS.perCountry) || {};
+  var t = {sites:0, read:0, unreachable:0, noAddress:0, leads:0, leadsSearched:0, leadsFound:0};
+  Object.keys(pc).forEach(function(k){
+    var c = pc[k];
+    t.sites += c.sites||0; t.read += c.read||0;
+    t.unreachable += c.unreachable||0; t.noAddress += c.noAddress||0;
+    t.leads += c.leads||0; t.leadsSearched += c.leadsSearched||0; t.leadsFound += c.leadsFound||0;
+  });
+  return t;
+}
+
+var ENG_GROUPS = [
+  {id:"search", label:"Asking the search engine"},
+  {id:"lists",  label:"Walking lists and maps"},
+  {id:"pages",  label:"Reading club pages"}
+];
+
+/* Which engine is running is read off the phase line the daemon publishes:
+   two lanes joined by a middle dot, so more than one card can be live. */
+function engineList(){
+  var s = STATUS || {}, c = s.crawl||{}, o = s.osm||{}, sd = s.seeds||{}, L = s.leads||{}, mi = s.mine||{};
+  var ph = String(s.phase || ""), on = !!s.running;
+  var live = function(re){ return on && re.test(ph); };
+  var ag = prospectAgg(), tot = countryTotals();
+
+  return [
+    { id:"cities", group:"search", name:"Cities",
+      live: live(/city by city/i),
+      big: stN(ag.searched), sub: "of " + stN(ag.cities) + " cities searched",
+      bar: stPct(ag.queries, ag.queriesTotal),
+      note: stN(ag.queries) + " of " + stN(ag.queriesTotal) + " searches · " + stN(ag.clubs) + " clubs found",
+      what: "One web search per term, per city, biggest city first. The only engine that reaches a country holding nothing." },
+
+    { id:"names", group:"search", name:"Club names",
+      live: live(/only know the name/i),
+      big: stN(L.searched), sub: "of " + stN(L.total) + " names searched",
+      bar: stPct(L.searched, L.total),
+      note: stN(tot.leadsFound) + " had a site found · " + stN(L.left) + " still queued",
+      what: "Clubs the map knew by name and nothing else — searched for on the web until a website turns up." },
+
+    { id:"dirs", group:"lists", name:"Directories",
+      live: live(/director|venue register/i),
+      big: stN(sd.exhausted), sub: "of " + stN(sd.total) + " directories walked out",
+      bar: stPct(sd.exhausted, sd.total),
+      note: stN(sd.pagesRead) + " pages read · " + stN(sd.working) + " still have pages",
+      what: "Listing sites and federation registers, walked page by page until they run out." },
+
+    { id:"osm", group:"lists", name:"OpenStreetMap",
+      live: live(/OpenStreetMap/i), warn: !!o.lastError,
+      big: stN(o.imported), sub: "of " + stN(o.total) + " countries imported",
+      bar: stPct(o.imported, o.total),
+      note: o.lastError
+        ? "refusing queries — " + stN(o.failed) + " refused, " + stN(o.pending) + " to go"
+        : stN(o.failed) + " refused · " + stN(o.pending) + " to go",
+      what: "Every mapped racket venue in a country, in one Overpass query. Refused countries are retried each round." },
+
+    { id:"mine", group:"lists", name:"Domain mining",
+      live: live(/certificate logs/i),
+      big: stN((mi.added||0) + ((mi.wikidata && mi.wikidata.added)||0)), sub: "clubs from mined domains",
+      bar: null,
+      note: stN(mi.patterns) + " name patterns · " + stN(mi.queued) + " domains queued",
+      what: "Certificate logs and Wikidata, read for domains that look like a club and vetted one by one." },
+
+    { id:"crawl", group:"pages", name:"Club websites",
+      live: live(/crawling club websites|city they are in/i),
+      big: stN(tot.read), sub: "of " + stN(tot.sites) + " club sites read",
+      bar: stPct(tot.read, tot.sites),
+      note: stN(c.ready) + " ready now · " + stN(c.waiting) + " backing off · " + stN(c.exhausted) + " gave nothing",
+      what: "Opening each club's own site and its contact page, looking for an address." }
+  ];
+}
+
+function engCard(e){
+  var open = ENG_OPEN === e.id;
+  var state = e.warn ? "blocked" : e.live ? "running" : "idle";
+  return "<button class='eng" + (open ? " on" : "") + "' data-eng='" + e.id + "' aria-expanded='" + open + "'>"
+    + "<span class='eng-top'><span class='st-dot " + (e.warn ? "st-off" : e.live ? "st-on" : "st-idle") + "'></span>"
+    + "<b>" + esc(e.name) + "</b><span class='eng-live'>" + state + "</span></span>"
+    + "<span class='eng-num'>" + esc(e.big) + " <i>" + esc(e.sub) + "</i></span>"
+    + (e.bar === null ? "" : "<span class='eng-bar'><i style='width:" + e.bar.toFixed(1) + "%'></i></span>")
+    + "<span class='eng-note" + (e.warn ? " st-warn" : "") + "'>" + esc(e.note) + "</span>"
+    + "</button>";
+}
+
+function openEngine(id){
+  ENG_OPEN = (ENG_OPEN === id) ? null : id;
+  renderStatus();
+}
+
 function renderStatus(){
   var el = document.getElementById("collector");
   if(!el) return;
   if(!STATUS){ el.style.display = "none"; return; }
   el.style.display = "";
 
-  var s = STATUS, c = s.crawl || {}, o = s.osm || {};
-  var stale = (Date.now() - new Date(s.generated).getTime()) > 45*60*1000;
-
+  var s = STATUS;
+  var stale  = (Date.now() - new Date(s.generated).getTime()) > 45*60*1000;
   var broken = !!s.error;
-  var doing = broken
-    ? "Rounds are failing"
-    : stale
-    ? "Not running — last heard from " + ago(s.generated)
-    : (s.running ? s.phase : (s.phase || "resting between rounds"));
+  var doing = broken ? "Rounds are failing"
+            : stale  ? "Not running — last heard from " + ago(s.generated)
+            : (s.running ? s.phase : (s.phase || "resting between rounds"));
 
-  var bits = [];
+  var out = "";
 
   // A crash has to be the first thing on the panel. A missing export made
   // every round fail on its first line for twelve hours while this said
   // "resting between rounds", and nothing on the page contradicted it.
   if(broken){
-    bits.push("<div class='st-line st-warn'><b>" + esc(String(s.error)) + "</b>" +
+    out += "<div class='st-line st-warn'><b>" + esc(String(s.error)) + "</b>" +
       (s.failedRounds ? " &mdash; " + s.failedRounds + " rounds have failed in a row" : "") +
       (s.failingSince ? ", since " + esc(when(s.failingSince)) : "") +
-      ". Nothing is being collected until this is fixed.</div>");
+      ". Nothing is being collected until this is fixed.</div>";
   }
 
-  bits.push("<div class='st-row'><span class='st-dot " + (broken ? "st-off" : stale ? "st-off" : (s.running ? "st-on" : "st-idle")) +
-            "'></span><b>" + esc(doing) + "</b><span class='meta'> &middot; updated " + esc(when(s.generated)) + "</span></div>");
+  out += "<div class='st-row'><span class='st-dot " + (broken || stale ? "st-off" : (s.running ? "st-on" : "st-idle")) +
+         "'></span><b>" + esc(doing) + "</b><span class='meta'> &middot; updated " + esc(when(s.generated)) + "</span></div>";
 
   if(s.lastRound){
     var lr = s.lastRound;
-    bits.push("<div class='st-line'>Last round " + esc(when(lr.at)) + ", took " + esc(String(lr.minutes)) +
-              " min: " + esc(lr.summary || "") + "</div>");
+    out += "<div class='st-sum' title='" + esc(lr.summary || "") + "'>Last round " + esc(when(lr.at)) + ", " +
+           esc(String(lr.minutes)) + " min &mdash; +" + stN(lr.clubsAdded) + " clubs, +" +
+           stN(lr.emailsFound) + " emails, " + stN(lr.crawled) + " sites read</div>";
   }
 
-  // The crawl queue, which is the usual reason the number is not moving
-  var totalQ = (c.ready||0) + (c.waiting||0) + (c.exhausted||0);
-  if(totalQ){
-    bits.push("<div class='st-line'><b>Clubs found but no email yet: " + totalQ + "</b> &mdash; " +
-      (c.ready||0) + " ready to try, " +
-      (c.waiting||0) + " waiting out a retry, " +
-      (c.exhausted||0) + " give no address" +
-      ((c.ready===0 && c.waiting>0) ? " <span class='st-note'>(nothing to crawl right now: the rest are backing off for a day or so)</span>" : "") +
-      "</div>");
+  // Anything actually blocking a lane goes above the cards, as one line that
+  // opens the card it belongs to. Everything else waits to be clicked.
+  if(s.osm && s.osm.lastError){
+    out += "<button class='st-flag' data-eng='osm'>OpenStreetMap is refusing queries &mdash; " +
+           esc(s.osm.lastError.cc) + " &middot; " + esc(String(s.osm.lastError.error).slice(0, 70)) + "</button>";
+  }
+  if(s.crawl && !s.crawl.ready && s.crawl.waiting){
+    out += "<button class='st-flag mild' data-eng='crawl'>Nothing to crawl right now &mdash; all " +
+           stN(s.crawl.waiting) + " sites left are backing off</button>";
   }
 
-  bits.push("<div class='st-line'>Countries from OpenStreetMap: " + (o.imported||0) + " done, " +
-            (o.failed||0) + " refused, " + (o.pending||0) + " to go, of " + (o.total||0) + "</div>");
+  var engs = engineList();
+  out += "<div class='enggroups'>";
+  ENG_GROUPS.forEach(function(g){
+    var mine = engs.filter(function(e){ return e.group === g.id; });
+    if(!mine.length) return;
+    out += "<div class='enggroup'><h4>" + esc(g.label) + "</h4><div class='engs'>" +
+           mine.map(engCard).join("") + "</div></div>";
+  });
+  out += "</div>";
 
+  var open = engs.filter(function(e){ return e.id === ENG_OPEN; })[0];
+  out += "<div class='engd' id='engDetail'" + (open ? "" : " style='display:none'") + "></div>";
+
+  el.innerHTML = out;
+  el.querySelectorAll("[data-eng]").forEach(function(b){
+    b.addEventListener("click", function(){ openEngine(b.getAttribute("data-eng")); });
+  });
+  if(open) fillEngine(open);
+}
+
+/* The full city lists are a separate file, fetched once and shared with the
+   coverage tab. The panel paints without it and repaints when it lands, so
+   opening a card is never a wait. */
+function ensureCityData(cb){
+  if(CITY_DATA) return cb();
+  fetch("lib/cities.json").then(function(r){ return r.json(); })
+    .then(function(j){ CITY_DATA = j; cb(); })
+    .catch(function(){ CITY_DATA = {}; cb(); });
+}
+
+function fillEngine(e){
+  var host = document.getElementById("engDetail");
+  if(!host) return;
+  host.style.display = "";
+  var paint = function(){
+    host.innerHTML = "<h5>" + esc(e.name) + "</h5><p class='engwhat'>" + esc(e.what) + "</p>" + engBody(e.id);
+    host.querySelectorAll("[data-country]").forEach(function(b){
+      b.addEventListener("click", function(){ showCountry(b.getAttribute("data-country")); });
+    });
+  };
+  paint();
+  if(e.id === "cities" && !CITY_DATA) ensureCityData(function(){ if(ENG_OPEN === "cities") paint(); });
+}
+
+function engBody(id){
+  if(id === "cities") return bodyCities();
+  if(id === "names")  return bodyNames();
+  if(id === "dirs")   return bodyDirs();
+  if(id === "osm")    return bodyOSM();
+  if(id === "mine")   return bodyMine();
+  if(id === "crawl")  return bodyCrawl();
+  return "";
+}
+
+function lead(pairs, tail){
+  return "<div class='lead'>" + pairs.map(function(p){
+    return "<b>" + esc(p[0]) + "</b><span>" + esc(p[1]) + "</span>";
+  }).join("") + (tail ? "<span class='meta'>" + tail + "</span>" : "") + "</div>";
+}
+
+/* ---------------- cities: the engine that moves city by city ---------------- */
+function bodyCities(){
+  var s = STATUS, ag = prospectAgg();
+  var out = lead([[stN(ag.searched), "cities searched"], [stN(ag.left), "still to reach"]],
+    stN(ag.queries) + " of " + stN(ag.queriesTotal) + " searches &middot; " +
+    stN(ag.clubs) + " clubs found by searching &middot; " + stN(ag.emails) + " clubs with an email in those cities");
+
+  out += "<dl class='kv'>";
+
+  // Running now. The daemon publishes the city it is on; older status files
+  // do not carry it, and saying so beats guessing.
+  var now = s.nowSearching, phase = String(s.phase || "");
+  var fresh = now && now.at && (Date.now() - new Date(now.at).getTime()) < 30*60*1000;
+  out += "<dt>Running now</dt><dd>";
+  if(s.running && fresh && now.city)
+    out += "<span class='citychip now'>" + esc(now.city) + " <i>" + esc(now.country || now.cc || "") + "</i></span>";
+  else if(s.running && fresh)
+    out += "<span class='citychip now'>country-wide <i>" + esc(now.country || now.cc || "") + "</i></span>";
+  else if(s.running && /city by city/i.test(phase))
+    out += "<span class='meta'>searching — this collector does not publish which city yet</span>";
+  else if(s.running)
+    out += "<span class='meta'>the search lane is on club names this moment</span>";
+  else
+    out += "<span class='meta'>resting between rounds</span>";
+  out += "</dd>";
+
+  // Just finished
+  var rec = (s.prospectRecent || []).slice(0, 16);
+  out += "<dt>Just finished</dt><dd>";
+  if(rec.length){
+    out += "<div class='citychips'>" + rec.map(function(r){
+      return "<span class='citychip" + (r.f ? " found" : "") + "' title='" + esc(when(r.at)) + "'>" +
+             esc(r.city) + (r.f ? " <b>+" + r.f + "</b>" : "") + "</span>";
+    }).join("") + "</div>";
+  } else {
+    var last = ag.rows.filter(function(r){ return r.last; })
+      .sort(function(a,b){ return b.last.localeCompare(a.last); }).slice(0, 6);
+    out += last.length
+      ? "<div class='citychips'>" + last.map(function(r){
+          return "<span class='citychip' data-country='" + esc(r.name) + "'>" + esc(r.name) +
+                 " <i>" + esc(ago(r.last)) + "</i></span>";
+        }).join("") +
+        "</div><div class='meta' style='margin-top:4px'>countries, not cities — this collector does not publish a city trail yet</div>"
+      : "<span class='meta'>nothing recorded yet</span>";
+  }
+  out += "</dd>";
+
+  out += "<dt>Next up</dt><dd>" + nextUpHTML(ag) + "</dd></dl>";
+
+  out += "<div class='engtwrap'><table class='engt'><thead><tr><th>Country</th>" +
+         "<th class='num'>Cities</th><th>Searches</th><th class='num'>Clubs</th>" +
+         "<th class='num'>Emails in city</th><th class='num'>Last touched</th></tr></thead><tbody>";
+  ag.rows.forEach(function(r){
+    out += "<tr><td><span class='cname' data-country='" + esc(r.name) + "'>" + esc(r.name) + "</span></td>" +
+           "<td class='num'>" + stN(r.searched) + " / " + stN(r.total) + "</td>" +
+           "<td><span class='minibar'><i style='width:" + stPct(r.qd, r.qt).toFixed(1) + "%'></i></span></td>" +
+           "<td class='num'>" + stN(r.clubs) + "</td><td class='num'>" + stN(r.emails) + "</td>" +
+           "<td class='num'>" + (r.last ? esc(ago(r.last)) : "—") + "</td></tr>";
+  });
+  out += "</tbody></table></div><p class='meta' style='margin:6px 0 0'>Click a country for what every engine has done to it. " +
+         "The city-by-city trail is in the Search coverage tab.</p>";
+  return out;
+}
+
+/* Even rounds serve whoever has waited longest, so that order is the one
+   worth showing: these are the countries the next round reaches first. */
+function nextUpHTML(ag){
+  var waiting = ag.rows.filter(function(r){ return r.left > 0; })
+    .sort(function(a,b){ return String(a.last||"").localeCompare(String(b.last||"")) || b.left - a.left; })
+    .slice(0, 4);
+  if(!waiting.length) return "<span class='meta'>every listed city has been searched</span>";
+  return waiting.map(function(r){
+    var cs = nextCities(r, 4);
+    return "<div class='nextrow'><span class='cname' data-country='" + esc(r.name) + "'>" + esc(r.name) + "</span>" +
+      (cs.length
+        ? "<span class='citychips'>" + cs.map(function(c){ return "<span class='citychip next'>" + esc(c) + "</span>"; }).join("") + "</span>"
+        : "<span class='meta'>" + stN(r.left) + " cities left</span>") + "</div>";
+  }).join("") +
+  "<div class='meta' style='margin-top:5px'>the countries that have waited longest, and the biggest cities each still owes</div>";
+}
+
+function nextCities(row, limit){
+  var pr = ((STATUS.perCountry[row.name] || {}).prospect) || {};
+  var all = (CITY_DATA && CITY_DATA[row.cc]) || pr.cities || [];
+  var stats = cityStatsOf(pr), term = termCountOf(pr), out = [];
+  for(var i = 0; i < all.length && out.length < limit; i++){
+    var st = stats[all[i]];
+    // A missing row inside the searched prefix was searched: the prospector
+    // works biggest city first, and older status files carried a top slice.
+    var n = st ? st.s : (i < (pr.citiesSearched||0) ? term : 0);
+    if(n < term) out.push(all[i]);
+  }
+  return out;
+}
+
+/* ---------------- the other five ---------------- */
+function bodyNames(){
+  var L = STATUS.leads || {}, t = countryTotals();
+  var out = lead([[stN(L.searched), "names searched"], [stN(L.left), "still queued"]],
+    stN(t.leadsFound) + " of the searched ones had a website found");
+  var rows = Object.keys(STATUS.perCountry || {})
+    .map(function(k){ var c = STATUS.perCountry[k]; return {name:k, n:c.leads||0, s:c.leadsSearched||0, f:c.leadsFound||0}; })
+    .filter(function(r){ return r.n; })
+    .sort(function(a,b){ return (b.n-b.s) - (a.n-a.s) || b.n - a.n; });
+  if(!rows.length) return out + "<p class='meta'>No club is known by name alone right now.</p>";
+  out += "<div class='engtwrap'><table class='engt'><thead><tr><th>Country</th>" +
+         "<th class='num'>Names</th><th class='num'>Searched</th><th class='num'>Left</th>" +
+         "<th class='num'>Site found</th></tr></thead><tbody>";
+  rows.forEach(function(r){
+    out += "<tr><td><span class='cname' data-country='" + esc(r.name) + "'>" + esc(r.name) + "</span></td>" +
+           "<td class='num'>" + stN(r.n) + "</td><td class='num'>" + stN(r.s) + "</td>" +
+           "<td class='num'>" + stN(r.n - r.s) + "</td><td class='num'>" + stN(r.f) + "</td></tr>";
+  });
+  return out + "</tbody></table></div>";
+}
+
+function bodyDirs(){
+  var sd = STATUS.seeds || {}, lr = STATUS.lastRound || {};
+  return lead([[stN(sd.working), "still have pages"], [stN(sd.exhausted), "walked out"]],
+      stN(sd.pagesRead) + " pages read since the collector started") +
+    "<dl class='kv'>" +
+    "<dt>Directories</dt><dd>" + stN(sd.total) + " in the queue — " + stN(sd.working) +
+      " still yielding, " + stN(sd.exhausted) + " read to the end</dd>" +
+    "<dt>Last round</dt><dd>" + stN(lr.pagesRead) + " pages read, +" + stN(lr.clubsAdded) + " clubs" +
+      (lr.at ? " <span class='meta'>· " + esc(when(lr.at)) + "</span>" : "") + "</dd>" +
+    "<dt>Where they come from</dt><dd class='meta'>seeds.txt, plus whatever the discovery pass turns up. " +
+      "A directory that stops producing new pages is marked walked out and never re-read.</dd></dl>";
+}
+
+function bodyOSM(){
+  var o = STATUS.osm || {};
+  var out = lead([[stN(o.imported), "countries imported"], [stN(o.pending), "still to go"]],
+    stN(o.failed) + " refused, and retried every round");
   if(o.lastError){
-    bits.push("<div class='st-line st-warn'>OpenStreetMap is refusing queries &mdash; last: " +
-              esc(o.lastError.cc) + ", " + esc(String(o.lastError.error).slice(0,110)) +
-              ". Those countries stay unimported and are retried each round.</div>");
+    out += "<p class='st-warn' style='margin:0 0 8px'><b>Overpass is refusing queries.</b> Last refusal: " +
+           esc(o.lastError.cc) + " — " + esc(String(o.lastError.error).slice(0, 160)) +
+           (o.lastError.at ? " <span class='meta'>(" + esc(when(o.lastError.at)) + ")</span>" : "") + "</p>";
   }
+  var rows = Object.keys(STATUS.perCountry || {})
+    .map(function(k){ return {name:k, o:(STATUS.perCountry[k] || {}).osm}; })
+    .filter(function(r){ return r.o; })
+    .sort(function(a,b){ return String(b.o.at||"").localeCompare(String(a.o.at||"")); });
+  if(!rows.length) return out + "<p class='meta'>Nothing imported yet.</p>";
+  out += "<div class='engtwrap'><table class='engt'><thead><tr><th>Country</th>" +
+         "<th class='num'>Places seen</th><th class='num'>Kept</th><th class='num'>Dropped</th>" +
+         "<th class='num'>Read</th></tr></thead><tbody>";
+  rows.forEach(function(r){
+    out += "<tr><td><span class='cname' data-country='" + esc(r.name) + "'>" + esc(r.name) + "</span></td>" +
+      (r.o.error
+        ? "<td colspan='3' class='st-warn'>" + esc(String(r.o.error).slice(0, 70)) + "</td>"
+        : "<td class='num'>" + stN(r.o.seen) + "</td><td class='num'>" + stN(r.o.added) +
+          "</td><td class='num'>" + stN(r.o.rejected) + "</td>") +
+      "<td class='num'>" + (r.o.at ? esc(ago(r.o.at)) : "—") + "</td></tr>";
+  });
+  return out + "</tbody></table></div>";
+}
 
-  if(s.leads && s.leads.total){
-    bits.push("<div class='st-line'><b>Clubs known only by name: " + s.leads.total + "</b> &mdash; " +
-      s.leads.searched + " searched for on the web, " + s.leads.left + " still to search</div>");
+function bodyMine(){
+  var m = STATUS.mine || {}, w = m.wikidata || null;
+  // wikidata.sports is a map of sport -> when it was last read, not a count
+  var read = w && w.sports ? (typeof w.sports === "object" ? Object.keys(w.sports).length : (w.sports||0)) : 0;
+  return lead([[stN((m.added||0) + ((w && w.added)||0)), "clubs kept"], [stN(m.queued), "domains queued"]],
+      stN(m.patterns) + " name patterns being watched") +
+    "<dl class='kv'>" +
+    "<dt>Certificate logs</dt><dd>Every certificate issued to a domain whose name reads like a club. " +
+      stN(m.patterns) + " patterns, " + stN(m.queued) + " domains still to vet.</dd>" +
+    "<dt>Wikidata</dt><dd>" + (w
+      ? (stN(read) + " sport catalogues read, +" + stN(w.added) + " clubs" + (w.failedAt ? " <span class='st-warn'>· the query service is down, backing off since " + esc(when(w.failedAt)) + "</span>" : ""))
+      : "<span class='meta'>not read yet</span>") + "</dd>" +
+    "<dt>Cadence</dt><dd class='meta'>Every other round — the certificate words refresh weekly and Wikidata backs off for hours.</dd></dl>";
+}
+
+function bodyCrawl(){
+  var c = STATUS.crawl || {}, t = countryTotals();
+  var out = lead([[stN(t.read), "sites read"], [stN((c.ready||0) + (c.waiting||0)), "still to read"]],
+    stN(t.read - t.unreachable - t.noAddress) + " gave an address &middot; " +
+    stN(t.unreachable) + " did not respond &middot; " + stN(t.noAddress) + " publish none");
+  out += "<dl class='kv'><dt>Queue</dt><dd>" + stN(c.ready) + " ready to try now, " + stN(c.waiting) +
+    " waiting out a retry, " + stN(c.exhausted) + " given up on" +
+    (!c.ready && c.waiting ? " <span class='st-warn'>— nothing to crawl this moment; the rest are backing off for a day or so</span>" : "") +
+    "</dd></dl>";
+  if(STATUS.crawlReasons && STATUS.crawlReasons.length){
+    out += "<div class='engtwrap'><table class='engt'><thead><tr><th>What the site did</th>" +
+           "<th class='num'>Sites</th></tr></thead><tbody>" +
+      STATUS.crawlReasons.map(function(r){
+        return "<tr><td>" + esc(r.note) + "</td><td class='num'>" + stN(r.n) + "</td></tr>";
+      }).join("") + "</tbody></table></div>";
   }
-
-  if(s.crawlReasons && s.crawlReasons.length){
-    bits.push("<div class='st-line meta'>Where addresses came from, or did not: " +
-      s.crawlReasons.map(function(r){ return esc(r.note) + " " + r.n; }).join(" &middot; ") + "</div>");
+  var recent = (STATUS.activity || []).filter(function(a){ return a.kind === "crawl"; }).slice(0, 8);
+  if(recent.length){
+    out += "<p class='meta' style='margin:8px 0 4px'>Last few sites opened</p><div class='citychips'>" +
+      recent.map(function(a){
+        return "<span class='citychip" + (a.ok ? " found" : "") + "' title='" + esc(a.text) + "'>" +
+               esc(String(a.text).split(" — ")[0].slice(0, 34)) + "</span>";
+      }).join("") + "</div>";
   }
-
-  el.innerHTML = bits.join("");
+  return out + "<p class='meta' style='margin:6px 0 0'>The whole trail is in the “What it is doing” tab.</p>";
 }
 
 /* ------------------------------------------------------------------

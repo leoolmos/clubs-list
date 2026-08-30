@@ -886,7 +886,14 @@ async function phasePlace(db, deadline){
   return {tried, placed, left};
 }
 
-async function phaseProspect(db, deadline){
+/* Where the prospector is this second, and the cities it has just
+ * finished. Both are read by writeStatusJSON, so the page can answer
+ * "what is it on right now" while the round is still running — the club
+ * count and the phase line both stand still for twenty minutes at a time. */
+let PROSPECT_NOW = null;
+let PROSPECT_RECENT = [];
+
+async function phaseProspect(db, deadline, note){
   if(process.env.PROSPECT === 'off') return {countries:0, added:0};
 
   const stateFile = path.join(DATA_DIR, 'prospect.json');
@@ -951,6 +958,10 @@ async function phaseProspect(db, deadline){
 
   const budget = Math.min(deadline, Date.now() + CFG.prospectMinutes*60*1000);
   let countries = 0, added = 0, vetted = 0, served = 0, poisoned = 0;
+  // Kept in memory as well as on disk: the state file is written once at
+  // the end of the phase, and the trail is worth having while it runs.
+  if(!PROSPECT_RECENT.length) PROSPECT_RECENT = state.__recent || [];
+  let lastNote = 0;
 
   // Counted by kind, not by candidate: the reasons carry the site's own name
   // in them, and a hundred of those in the log is not a summary.
@@ -962,7 +973,14 @@ async function phaseProspect(db, deadline){
     const st = state[cc] || (state[cc] = {queriesDone:[], found:0});
     const r = await prospect.prospectCountry(cc, {
       knownHosts, deadline: budget, timeoutMs: CFG.pageTimeoutMs + 4000,
-      queriesDone: st.queriesDone, deferred: st.deferred || [], maxQueries: maxQ, log: m => log(m)
+      queriesDone: st.queriesDone, deferred: st.deferred || [], maxQueries: maxQ, log: m => log(m),
+      onQuery: info => {
+        PROSPECT_NOW = {cc: info.cc, country: info.country, city: info.city, at: new Date().toISOString()};
+        // Republished at most once a minute. Writing status.json is a full
+        // pass over the store, and the engine is paced at one query every
+        // ten seconds or so, so a minute is as live as this usefully gets.
+        if(note && Date.now() - lastNote > 60000){ lastNote = Date.now(); note(); }
+      }
     });
 
     st.queriesDone = r.queriesDone;
@@ -973,10 +991,17 @@ async function phaseProspect(db, deadline){
     // so the coverage tab can show the trail city by city.
     if(r.perCity){
       st.cityStats = st.cityStats || {};
+      const at = new Date().toISOString();
+      const justDone = [];
       for(const [city, v] of Object.entries(r.perCity)){
         const c = st.cityStats[city] || (st.cityStats[city] = {s:0, f:0});
         c.s += v.s; c.f += v.f;
+        if(city) justDone.push({cc, city, at, s: v.s, f: v.f});
       }
+      // Newest first, forty deep. This is the half of the panel that moves
+      // when the club count does not, which is most of the time.
+      PROSPECT_RECENT = justDone.reverse().concat(PROSPECT_RECENT).slice(0, 40);
+      state.__recent = PROSPECT_RECENT;
     }
     // The city named after its country is searched by the country-wide pass
     // and has no query set of its own. On a machine that asked those queries
@@ -1034,6 +1059,7 @@ async function phaseProspect(db, deadline){
   if(roundNo % 2 === 1 && served){
     state.__cursor = ((state.__cursor || 0) + served) % require('./lib/countries').PRIORITY.length;
   }
+  PROSPECT_NOW = null;
   writeJSON(stateFile, state);
   if(poisoned) log(`prospect: ${poisoned} quer${poisoned===1?'y the':'ies the'} engine refuses on wording — dropped, the line itself is open`);
   if(countries){
@@ -1563,6 +1589,8 @@ function writeStatusJSON(extra){
               added: ps.reduce((n,v)=>n+(v.added||0),0), wikidata: s.wikidata||null}; })(),
     activity: readActivity(160),
     perCountry,
+    nowSearching: PROSPECT_NOW,
+    prospectRecent: PROSPECT_RECENT.length ? PROSPECT_RECENT : (prospectState.__recent || []),
     recent
   }, extra||{});
 
@@ -1743,7 +1771,7 @@ async function tick(){
       const runProspect = async () => {
         if(Date.now() >= deadline) return;
         searching('searching out clubs, city by city');
-        p = await phaseProspect(db, deadline);
+        p = await phaseProspect(db, deadline, () => searching('searching out clubs, city by city'));
         writeJSON(DB_FILE, db);
       };
       if(leadsFirst){ await runLeads(); await runProspect(); }
