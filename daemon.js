@@ -50,12 +50,13 @@ const CFG = {
   // have a good hour, and the subdivision bookmarks carry across rounds.
   osmMinutes:    parseInt(process.env.OSM_MINUTES    || '5',  10),
   osmCountries:  parseInt(process.env.OSM_COUNTRIES  || '12', 10),  // countries per round
-  // Two of the three Overpass mirrors publish no concurrency limit and the
-  // third allows two per IP (see lib/osm.js). Six in flight spreads across
-  // all three without queueing on the limited one. The ceiling is their
-  // donated hardware, not this machine, so raising it a lot buys refusals
-  // rather than speed.
-  osmParallel:   parseInt(process.env.OSM_PARALLEL   || '6',  10),
+  // Three of the four Overpass mirrors publish no concurrency limit and the
+  // fourth allows two per IP (see lib/osm.js). The ceiling is their donated
+  // hardware, not this machine, so raising this buys refusals rather than
+  // speed — and when a mirror is benched or down, six in flight is six
+  // countries queueing on whatever is left. Three keeps a fair share on each
+  // mirror that is still answering.
+  osmParallel:   parseInt(process.env.OSM_PARALLEL   || '3',  10),
   restSeconds:   parseInt(process.env.REST_SECONDS   || '20', 10),  // gap between rounds
   // Five seconds per page. A club site that has not answered in five is not
   // worth a worker's time when there are thousands of others waiting; it
