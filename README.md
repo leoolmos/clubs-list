@@ -105,7 +105,7 @@ OSM covers all of them, through the public Overpass endpoint — read-only,
 no key, no account.
 
 ```bash
-node lib/osm.js --all --parallel=6   # every country, several at a time
+node lib/osm.js --all --parallel=3   # every country, several at a time
 node lib/osm.js --status             # what has been imported
 node lib/osm.js ES PT BR             # named countries
 ```
@@ -113,9 +113,26 @@ node lib/osm.js ES PT BR             # named countries
 **Overpass is the bottleneck, and more parallelism does not fix it.** The
 mirrors publish their limits at `/api/status` — measured 2026-08-08,
 `overpass-api.de` allows two queries at a time per IP, while
-`kumi.systems` and `private.coffee` declare no limit. So six in flight
-spreads across all three without queueing. Beyond that the extra workers
-collect refusals.
+`kumi.systems`, `private.coffee` and `maps.mail.ru` declare no limit.
+Beyond a handful in flight the extra workers collect refusals, and when
+mirrors are down — which happens — they only queue on whatever is left.
+
+**Every mirror can be down at once, and on 2026-08-31 they were.** Three
+mirrors read as redundancy right up to the morning kumi and private.coffee
+both answered `502` while `overpass-api.de` stopped answering this address
+at all: the TCP connect times out on both of its IPs while
+openstreetmap.org itself is fine, which is a firewall, not a busy server.
+Nothing had been imported since 25 August and the log was a wall of
+`busy (502)`. Two changes came out of it. A fourth, independently operated
+global mirror (`maps.mail.ru`, the VK one, the only other free planet-wide
+instance the OSM wiki lists), and a health check: one cheap `/api/status`
+call per mirror before the countries start, and a mirror that fails three
+times running is benched for fifteen minutes. Without it a dead mirror
+costs every request its full timeout, and the round's whole Overpass slice
+goes on servers that are not there. Only whole-planet mirrors belong in
+that list — a regional extract like `overpass.osm.ch` answers a Malta query
+with `200` and zero elements, which reads as "no clubs here" and would file
+the country as done.
 
 They also have bad afternoons. A country-wide query that returned in
 seconds in the morning came back `504`, or `200` with a "Query timed out"
