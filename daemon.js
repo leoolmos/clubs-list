@@ -1428,13 +1428,33 @@ function writeStatusJSON(extra){
 
   const seeds = Object.values(queue);
   const countries = require('./lib/countries').PRIORITY;
+  /* A country half-read is not a country refused, and the page had no way to
+   * tell them apart: the United States comes back four states at a time by
+   * design, and that filed itself under `error` alongside a genuine 502. The
+   * banner then read "OpenStreetMap is refusing queries" through an entire
+   * morning of successful imports. Partial is progress and is counted as
+   * such; only a real refusal is an error. */
+  const isPartial = cc => /^partial:/.test(String((osmState[cc]||{}).error || ''));
+  const refusedCC = countries.filter(cc => osmState[cc] && osmState[cc].error && !isPartial(cc));
   const osm = {
-    imported: countries.filter(cc => osmState[cc] && !osmState[cc].error).length,
-    failed:   countries.filter(cc => osmState[cc] && osmState[cc].error).length,
-    pending:  countries.filter(cc => !osmState[cc]).length,
-    total:    countries.length,
+    imported:   countries.filter(cc => osmState[cc] && !osmState[cc].error).length,
+    inProgress: countries.filter(cc => osmState[cc] && isPartial(cc)).length,
+    failed:     refusedCC.length,
+    pending:    countries.filter(cc => !osmState[cc]).length,
+    total:      countries.length,
+    // The biggest country still being read a subdivision at a time, so the
+    // page can say what is actually happening rather than just a count.
+    slowest: (()=>{
+      const parts = countries.filter(cc => osmState[cc] && isPartial(cc))
+        .map(cc => {
+          const m = /^partial: (\d+) of (\d+)/.exec(osmState[cc].error) || [];
+          return {cc, done: +m[1] || 0, total: +m[2] || 0, at: osmState[cc].at};
+        })
+        .sort((a,b)=>(b.total-b.done)-(a.total-a.done));
+      return parts.length ? parts[0] : null;
+    })(),
     lastError: (()=>{
-      const errs = countries.filter(cc=>osmState[cc] && osmState[cc].error)
+      const errs = refusedCC
         .sort((a,b)=>String(osmState[b].at||'').localeCompare(String(osmState[a].at||'')));
       return errs.length ? {cc: errs[0], error: osmState[errs[0]].error, at: osmState[errs[0]].at} : null;
     })()

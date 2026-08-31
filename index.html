@@ -723,10 +723,43 @@ var ENG_GROUPS = [
   {id:"pages",  label:"Reading club pages"}
 ];
 
+/* Imported, refused, and half-read are three different things, and the page
+   used to show the third as the second: the United States is read seventy-five
+   states at a time by design, and every round it carried on it said
+   "OpenStreetMap is refusing queries". A partial is progress.
+
+   Older status.json files have no inProgress field, so it is counted here from
+   the per-country errors instead — a page kept open across a collector restart
+   still reads its own numbers correctly. */
+function osmCounts(){
+  var s = STATUS || {}, o = s.osm || {};
+  var partial = 0;
+  if(typeof o.inProgress === "number"){
+    partial = o.inProgress;
+  } else {
+    var pc = s.perCountry || {};
+    Object.keys(pc).forEach(function(k){
+      var e = (pc[k] && pc[k].osm && pc[k].osm.error) || "";
+      if(/^partial:/.test(e)) partial++;
+    });
+  }
+  // Before the split, o.failed counted both; after it, only real refusals.
+  var refused = typeof o.inProgress === "number" ? (o.failed||0)
+                                                 : Math.max(0, (o.failed||0) - partial);
+  /* A refusal from three hours ago is history, not a state. The banner stays
+     up only while it is current — a refused country is retried every round,
+     so anything older than that has already been tried again. */
+  var last = o.lastError && !/^partial:/.test(String(o.lastError.error||"")) ? o.lastError : null;
+  if(last && last.at && (Date.now() - new Date(last.at).getTime()) > 45*60*1000) last = null;
+  return {imported:o.imported||0, pending:o.pending||0, total:o.total||0,
+          inProgress:partial, refused:refused, lastRefusal:last, slowest:o.slowest||null};
+}
+
 /* Which engine is running is read off the phase line the daemon publishes:
    two lanes joined by a middle dot, so more than one card can be live. */
 function engineList(){
   var s = STATUS || {}, c = s.crawl||{}, o = s.osm||{}, sd = s.seeds||{}, L = s.leads||{}, mi = s.mine||{};
+  var oc = osmCounts();
   var ph = String(s.phase || ""), on = !!s.running;
   var live = function(re){ return on && re.test(ph); };
   var ag = prospectAgg(), tot = countryTotals();
@@ -754,12 +787,17 @@ function engineList(){
       what: "Listing sites and federation registers, walked page by page until they run out." },
 
     { id:"osm", group:"lists", name:"OpenStreetMap",
-      live: live(/OpenStreetMap/i), warn: !!o.lastError,
+      live: live(/OpenStreetMap/i), warn: !!oc.lastRefusal,
       big: stN(o.imported), sub: "of " + stN(o.total) + " countries imported",
       bar: stPct(o.imported, o.total),
-      note: o.lastError
-        ? "refusing queries — " + stN(o.failed) + " refused, " + stN(o.pending) + " to go"
-        : stN(o.failed) + " refused · " + stN(o.pending) + " to go",
+      note: oc.refused
+        ? stN(oc.refused) + " refused on the last try · " + stN(oc.pending) + " to go"
+        : oc.inProgress
+          ? stN(oc.inProgress) + " big countries mid-import" +
+            (oc.slowest ? " — " + esc(oc.slowest.cc) + " " + stN(oc.slowest.done) + " of " +
+                          stN(oc.slowest.total) + " states read" : "") +
+            " · " + stN(oc.pending) + " to go"
+          : stN(oc.pending) + " to go",
       what: "Every mapped racket venue in a country, in one Overpass query. Refused countries are retried each round." },
 
     { id:"mine", group:"lists", name:"Domain mining",
@@ -834,9 +872,13 @@ function renderStatus(){
 
   // Anything actually blocking a lane goes above the cards, as one line that
   // opens the card it belongs to. Everything else waits to be clicked.
-  if(s.osm && s.osm.lastError){
+  // Only a real refusal is a flag. A country being read a subdivision at a
+  // time is the importer working, and saying otherwise made a morning of
+  // successful imports read as an outage.
+  var ocf = osmCounts();
+  if(ocf.lastRefusal){
     out += "<button class='st-flag' data-eng='osm'>OpenStreetMap is refusing queries &mdash; " +
-           esc(s.osm.lastError.cc) + " &middot; " + esc(String(s.osm.lastError.error).slice(0, 70)) + "</button>";
+           esc(ocf.lastRefusal.cc) + " &middot; " + esc(String(ocf.lastRefusal.error).slice(0, 70)) + "</button>";
   }
   if(s.crawl && !s.crawl.ready && s.crawl.waiting){
     out += "<button class='st-flag mild' data-eng='crawl'>Nothing to crawl right now &mdash; all " +
@@ -1033,13 +1075,19 @@ function bodyDirs(){
 }
 
 function bodyOSM(){
-  var o = STATUS.osm || {};
-  var out = lead([[stN(o.imported), "countries imported"], [stN(o.pending), "still to go"]],
-    stN(o.failed) + " refused, and retried every round");
-  if(o.lastError){
+  var o = STATUS.osm || {}, oc = osmCounts();
+  var out = lead([[stN(o.imported), "countries imported"], [stN(oc.pending), "still to go"]],
+    oc.refused ? stN(oc.refused) + " refused on their last try, and retried every round"
+               : stN(oc.inProgress) + " being read a state at a time, and carried on every round");
+  if(oc.lastRefusal){
     out += "<p class='st-warn' style='margin:0 0 8px'><b>Overpass is refusing queries.</b> Last refusal: " +
-           esc(o.lastError.cc) + " — " + esc(String(o.lastError.error).slice(0, 160)) +
-           (o.lastError.at ? " <span class='meta'>(" + esc(when(o.lastError.at)) + ")</span>" : "") + "</p>";
+           esc(oc.lastRefusal.cc) + " — " + esc(String(oc.lastRefusal.error).slice(0, 160)) +
+           (oc.lastRefusal.at ? " <span class='meta'>(" + esc(when(oc.lastRefusal.at)) + ")</span>" : "") + "</p>";
+  } else if(oc.inProgress){
+    out += "<p class='meta' style='margin:0 0 8px'>The mirrors are answering. " + stN(oc.inProgress) +
+           " countries are too big for one query and come back a subdivision at a time" +
+           (oc.slowest ? ", the furthest off being " + esc(oc.slowest.cc) + " at " + stN(oc.slowest.done) +
+                         " of " + stN(oc.slowest.total) : "") + ".</p>";
   }
   var rows = Object.keys(STATUS.perCountry || {})
     .map(function(k){ return {name:k, o:(STATUS.perCountry[k] || {}).osm}; })
@@ -1052,7 +1100,8 @@ function bodyOSM(){
   rows.forEach(function(r){
     out += "<tr><td><span class='cname' data-country='" + esc(r.name) + "'>" + esc(r.name) + "</span></td>" +
       (r.o.error
-        ? "<td colspan='3' class='st-warn'>" + esc(String(r.o.error).slice(0, 70)) + "</td>"
+        ? "<td colspan='3' class='" + (/^partial:/.test(String(r.o.error)) ? "meta" : "st-warn") + "'>" +
+          esc(String(r.o.error).replace(/^partial: /, "reading it in pieces — ").slice(0, 80)) + "</td>"
         : "<td class='num'>" + stN(r.o.seen) + "</td><td class='num'>" + stN(r.o.added) +
           "</td><td class='num'>" + stN(r.o.rejected) + "</td>") +
       "<td class='num'>" + (r.o.at ? esc(ago(r.o.at)) : "—") + "</td></tr>";
