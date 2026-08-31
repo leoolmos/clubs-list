@@ -790,14 +790,19 @@ function engineList(){
       live: live(/OpenStreetMap/i), warn: !!oc.lastRefusal,
       big: stN(o.imported), sub: "of " + stN(o.total) + " countries imported",
       bar: stPct(o.imported, o.total),
-      note: oc.refused
-        ? stN(oc.refused) + " refused on the last try · " + stN(oc.pending) + " to go"
+      /* What is happening now comes first. A stale refusal from this morning
+         is a retry queue, not a state, and putting it first hid the fact that
+         six countries were being read state by state at that very moment. */
+      note: oc.lastRefusal
+        ? "mirrors refusing — " + stN(oc.refused) + " to retry · " + stN(oc.pending) + " to go"
         : oc.inProgress
           ? stN(oc.inProgress) + " big countries mid-import" +
             (oc.slowest ? " — " + esc(oc.slowest.cc) + " " + stN(oc.slowest.done) + " of " +
-                          stN(oc.slowest.total) + " states read" : "") +
-            " · " + stN(oc.pending) + " to go"
-          : stN(oc.pending) + " to go",
+                          stN(oc.slowest.total) : "") +
+            (oc.refused ? " · " + stN(oc.refused) + " to retry" : "")
+          : oc.refused
+            ? stN(oc.refused) + " refused on the last try, retried every round"
+            : stN(oc.pending) + " to go",
       what: "Every mapped racket venue in a country, in one Overpass query. Refused countries are retried each round." },
 
     { id:"mine", group:"lists", name:"Domain mining",
@@ -1076,9 +1081,11 @@ function bodyDirs(){
 
 function bodyOSM(){
   var o = STATUS.osm || {}, oc = osmCounts();
-  var out = lead([[stN(o.imported), "countries imported"], [stN(oc.pending), "still to go"]],
-    oc.refused ? stN(oc.refused) + " refused on their last try, and retried every round"
-               : stN(oc.inProgress) + " being read a state at a time, and carried on every round");
+  var out = lead([[stN(o.imported), "countries imported"],
+                  [stN(oc.inProgress), "being read state by state"]],
+    (oc.refused ? stN(oc.refused) + " refused on their last try and retried every round"
+                : "nothing refused")
+    + (oc.pending ? " · " + stN(oc.pending) + " never tried" : ""));
   if(oc.lastRefusal){
     out += "<p class='st-warn' style='margin:0 0 8px'><b>Overpass is refusing queries.</b> Last refusal: " +
            esc(oc.lastRefusal.cc) + " — " + esc(String(oc.lastRefusal.error).slice(0, 160)) +
