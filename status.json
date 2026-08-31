@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-31T13:25:27.352Z",
+ "generated": "2026-08-31T13:26:28.703Z",
  "clubs": 7380,
  "records": 9886,
  "crawl": {
@@ -9,13 +9,20 @@
  },
  "osm": {
   "imported": 74,
-  "failed": 19,
+  "inProgress": 6,
+  "failed": 13,
   "pending": 0,
   "total": 93,
+  "slowest": {
+   "cc": "US",
+   "done": 4,
+   "total": 75,
+   "at": "2026-08-31T11:33:30.108Z"
+  },
   "lastError": {
-   "cc": "ES",
-   "error": "partial: 21 of 23 subdivisions read",
-   "at": "2026-08-31T13:13:16.210Z"
+   "cc": "CA",
+   "error": "busy (502)",
+   "at": "2026-08-31T09:37:37.336Z"
   }
  },
  "crawlReasons": [
@@ -65,6 +72,35 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-08-31T13:25:54.413Z",
+   "kind": "crawl",
+   "text": "Killara Lawn Tennis Club — https://www.killaralawntennisclub.com.au: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.killaralawntennisclub.com.au"
+  },
+  {
+   "t": "2026-08-31T13:25:53.431Z",
+   "kind": "crawl",
+   "text": "sua próxima academia — https://penaquadra.com -> atendimento@penaquadra.com",
+   "ok": true,
+   "url": "https://penaquadra.com",
+   "email": "atendimento@penaquadra.com"
+  },
+  {
+   "t": "2026-08-31T13:25:53.224Z",
+   "kind": "crawl",
+   "text": "Croydon Tennis Club — https://www.croydontennisclub.com.au: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.croydontennisclub.com.au"
+  },
+  {
+   "t": "2026-08-31T13:25:50.471Z",
+   "kind": "crawl",
+   "text": "Centro Deportivo El Álamo — https://centrodeportivoelalamo.es: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://centrodeportivoelalamo.es"
+  },
   {
    "t": "2026-08-31T13:18:17.122Z",
    "kind": "prospect",
@@ -1231,34 +1267,6 @@
    "ok": false,
    "url": "https://labarranca.com.mx",
    "email": ""
-  },
-  {
-   "t": "2026-08-31T11:03:19.368Z",
-   "kind": "prospect",
-   "text": "Brazil: found Tabajara Tênis Clube -> https://conecte.tabanet.com.br",
-   "ok": true,
-   "url": "https://conecte.tabanet.com.br"
-  },
-  {
-   "t": "2026-08-31T10:55:11.137Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Park Drive Health Club Maldon -> https://www.parkdrivehealthclub.co.uk",
-   "ok": true,
-   "url": "https://www.parkdrivehealthclub.co.uk"
-  },
-  {
-   "t": "2026-08-31T10:55:11.136Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Penarth Table Tennis Club -> https://penarthtabletennis.co.uk",
-   "ok": true,
-   "url": "https://penarthtabletennis.co.uk"
-  },
-  {
-   "t": "2026-08-31T10:55:11.136Z",
-   "kind": "prospect",
-   "text": "United Kingdom: found Golf Club Rugby -> https://www.whitefieldsgolfclub.co.uk",
-   "ok": true,
-   "url": "https://www.whitefieldsgolfclub.co.uk"
   }
  ],
  "perCountry": {
@@ -64196,34 +64204,22 @@
   }
  ],
  "recent": [
-  "2026-08-31T13:25:27.140Z  dropped info@indiantypefoundry.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-31T13:25:27.140Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-31T13:25:27.140Z  dropped eben@eyebytes.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-08-31T13:25:27.141Z  dropped info@sportsground.ca — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-08-31T13:25:27.170Z  dropped example@mysite.com — claimed by 14 different clubs, so it belongs to a directory, not a club",
-  "2026-08-31T13:25:27.173Z  dropped info@website.com — claimed by 14 different clubs, so it belongs to a directory, not a club",
-  "2026-08-31T13:25:27.173Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-31T13:25:27.174Z  dropped impallari@gmail.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
-  "2026-08-31T13:25:27.174Z  dropped info@mysite.com — claimed by 15 different clubs, so it belongs to a directory, not a club",
-  "2026-08-31T13:25:27.174Z  dropped info@opensourceforall.org — claimed by 12 different clubs, so it belongs to a directory, not a club",
-  "2026-08-31T13:25:27.175Z  dropped info@indiantypefoundry.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
-  "2026-08-31T13:25:27.175Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-08-31T13:25:27.175Z  dropped eben@eyebytes.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-08-31T13:25:27.176Z  dropped info@sportsground.ca — claimed by 10 different clubs, so it belongs to a directory, not a club"
+  "2026-08-31T13:25:50.128Z  dropped info@sportsground.ca — claimed by 10 different clubs, so it belongs to a directory, not a club",
+  "2026-08-31T13:26:28.324Z  daemon started — continuous, 20m per round, 20s between rounds",
+  "2026-08-31T13:26:28.327Z  crawl concurrency 8, osm 12 countries per round 3 at a time",
+  "2026-08-31T13:26:28.327Z  seeds: C:\\Users\\Leo\\apps\\clubs-list\\seeds.txt",
+  "2026-08-31T13:26:28.500Z  dropped example@mysite.com — claimed by 14 different clubs, so it belongs to a directory, not a club",
+  "2026-08-31T13:26:28.501Z  dropped info@website.com — claimed by 14 different clubs, so it belongs to a directory, not a club",
+  "2026-08-31T13:26:28.502Z  dropped hello@rfuenzalida.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-31T13:26:28.502Z  dropped impallari@gmail.com — claimed by 7 different clubs, so it belongs to a directory, not a club",
+  "2026-08-31T13:26:28.502Z  dropped info@mysite.com — claimed by 15 different clubs, so it belongs to a directory, not a club",
+  "2026-08-31T13:26:28.503Z  dropped info@opensourceforall.org — claimed by 12 different clubs, so it belongs to a directory, not a club",
+  "2026-08-31T13:26:28.503Z  dropped info@indiantypefoundry.com — claimed by 8 different clubs, so it belongs to a directory, not a club",
+  "2026-08-31T13:26:28.503Z  dropped hello@nationaltennis.org.uk — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-08-31T13:26:28.504Z  dropped eben@eyebytes.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
+  "2026-08-31T13:26:28.504Z  dropped info@sportsground.ca — claimed by 10 different clubs, so it belongs to a directory, not a club"
  ],
- "running": false,
- "phase": "resting between rounds",
- "roundStarted": "2026-08-31T13:05:52.902Z",
- "lastRound": {
-  "at": "2026-08-31T13:25:27.194Z",
-  "minutes": 19.6,
-  "summary": "crawled 6 sites, +2 emails; searched 11 club names, found 10 sites, +1 emails; placed 0 of 1 clubs in their city; prospected 5 empty countries, +2 clubs; osm 3 countries (ES,GB,BR,US,IN,CA,PE,NG,BW,MZ,CV,RW) +0",
-  "crawled": 6,
-  "emailsFound": 2,
-  "pagesRead": 0,
-  "clubsAdded": 0,
-  "osmCountries": 3,
-  "osmAdded": 0,
-  "osmFailed": 0
- }
+ "running": true,
+ "phase": "crawling club websites for email addresses · searching the web for clubs we only know the name of",
+ "roundStarted": "2026-08-31T13:26:28.357Z"
 }
