@@ -19,7 +19,7 @@ param(
     [switch]$Status,
     [int]$BudgetMinutes = 20,
     [int]$OsmCountries  = 12,
-    [int]$OsmParallel   = 6
+    [int]$OsmParallel   = 3
 )
 
 $ErrorActionPreference = "Stop"
