@@ -894,6 +894,66 @@ async function phasePlace(db, deadline){
 let PROSPECT_NOW = null;
 let PROSPECT_RECENT = [];
 
+/* Passes. The prospector asks every term of every city once, and when the
+ * last query of the last country has been asked it is not finished: sites
+ * change, engines re-rank, a club that ranked eleventh in June ranks fourth
+ * in September. So it goes round again — and the page has to say so in as
+ * many words, because a second lap reads exactly like the first on every
+ * counter. "789 of 13,753 cities searched" after months of work looks like
+ * a collector that lost its memory, not one starting its second pass.
+ * Leo, 2026-09-03: it had lost its memory that morning, in fact — data/ was
+ * gone with a fresh clone — and asked for the distinction to be explicit.
+ *
+ *   __pass = {n, startedAt, history:[{n, startedAt, finishedAt, why,
+ *             cities, searches, found}]}
+ *
+ * A pass ends when every country's queries are all done, checked once per
+ * phase (fifty thousand set lookups), or when QUERY_EPOCH changes, which
+ * is the same fresh start for a different reason. Rolling over tears up
+ * the ledger the way the epoch always did and keeps what the finished pass
+ * found per country, so the table can show pass 1 beside pass 2. */
+function prospectPassOf(state){
+  if(!state.__pass){
+    // First seen on a ledger that already has history: the pass has been
+    // running since the oldest country was touched, near enough.
+    const lasts = Object.keys(state).filter(k => !k.startsWith('__'))
+      .map(k => state[k] && state[k].last).filter(Boolean).sort();
+    state.__pass = {n: 1, startedAt: lasts[0] || new Date().toISOString(), history: []};
+  }
+  return state.__pass;
+}
+
+function prospectComplete(state){
+  for(const cc of Object.keys(COUNTRIES)){
+    const done = new Set((state[cc] || {}).queriesDone || []);
+    if(!done.size) return false;
+    if(!prospect.queriesFor(cc).every(x => done.has(x.q))) return false;
+  }
+  return true;
+}
+
+function rollProspectPass(state, why){
+  const pass = prospectPassOf(state);
+  const now = new Date().toISOString();
+  let cities = 0, searches = 0, found = 0;
+  for(const cc of Object.keys(state)){
+    if(cc.startsWith('__')) continue;
+    const st = state[cc];
+    cities   += Object.keys(st.cityStats || {}).filter(k => k !== '').length;
+    searches += (st.queriesDone || []).length;
+    found    += st.found || 0;
+    st.prevFound = st.found || 0;      // what the pass just finished found here
+    st.queriesDone = [];
+    st.deferred = [];
+    st.cityStats = {};                 // else every city counts its searches twice
+    st.found = 0;
+  }
+  pass.history.push({n: pass.n, startedAt: pass.startedAt, finishedAt: now, why, cities, searches, found});
+  pass.n++;
+  pass.startedAt = now;
+  return pass;
+}
+
 async function phaseProspect(db, deadline, note){
   if(process.env.PROSPECT === 'off') return {countries:0, added:0};
 
@@ -911,17 +971,24 @@ async function phaseProspect(db, deadline, note){
    * So the ledger is torn up when the lens changes, once, and every city is
    * asked again. Raise this when the questions or the vetting change enough
    * to be worth another pass; leave it alone for anything smaller. */
+  prospectPassOf(state);
   if(state.__epoch !== QUERY_EPOCH){
     const had = Object.keys(state).filter(k => !k.startsWith('__')).length;
-    for(const k of Object.keys(state)){
-      if(k.startsWith('__')) continue;
-      state[k].queriesDone = [];
-      state[k].cityStats = {};      // else every city counts its searches twice
+    // A ledger with history is torn up and that counts as a pass; a store
+    // that has never asked anything is simply stamped with the epoch.
+    if(state.__epoch !== undefined && had){
+      const pass = rollProspectPass(state, `better vetting (epoch ${QUERY_EPOCH})`);
+      log(`prospect: searching every city again — ${had} countries, better vetting; this is pass ${pass.n}`);
+      activity('prospect', `starting pass ${pass.n} over every city (epoch ${QUERY_EPOCH}, better vetting)`, {ok:true});
     }
     state.__epoch = QUERY_EPOCH;
     writeJSON(stateFile, state);
-    log(`prospect: searching every city again — ${had} countries, better vetting`);
-    activity('prospect', `starting a fresh pass over every city (epoch ${QUERY_EPOCH})`, {ok:true});
+  } else if(prospectComplete(state)){
+    const pass = rollProspectPass(state, 'every city searched');
+    const done = pass.history[pass.history.length - 1];
+    writeJSON(stateFile, state);
+    log(`prospect: pass ${done.n} finished — ${done.cities} cities, ${done.searches} searches, ${done.found} clubs; starting pass ${pass.n}, every city again`);
+    activity('prospect', `pass ${done.n} finished: every city searched (${done.searches} searches, ${done.found} clubs found). Starting pass ${pass.n} — every city again, from the biggest`, {ok:true});
   }
 
   // Every host already known, so a country is not re-vetted into a duplicate
@@ -1581,6 +1648,8 @@ function writeStatusJSON(extra){
       // 236 KB before, 7,844 in 279 KB now, near 551 KB at full coverage —
       // the compact shape is worth having later, with the page beside it.
       cityStats: cityRows.map(([n, v]) => ({n, s: v.s, f: v.f, e: v.e})),
+      // what the previous pass found here, so pass 2 can be read beside pass 1
+      prevFound: pst.prevFound || 0,
       last: pst.last || null
     };
   }
@@ -1611,6 +1680,9 @@ function writeStatusJSON(extra){
     activity: readActivity(160),
     perCountry,
     nowSearching: PROSPECT_NOW,
+    // Which lap the prospector is on. See phaseProspect: the counters in
+    // perCountry start from zero each pass, and the page says which.
+    prospectPass: prospectState.__pass || {n: 1, startedAt: null, history: []},
     prospectRecent: PROSPECT_RECENT.length ? PROSPECT_RECENT : (prospectState.__recent || []),
     recent
   }, extra||{});

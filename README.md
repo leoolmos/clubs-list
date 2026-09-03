@@ -175,6 +175,22 @@ that ranked for El Salvador, a squash magazine that would have been
 published as the only club in Equatorial Guinea, and a booking platform
 titled "Court Booking System for South Africa" that ranked for Kenya.
 
+It works in passes. Every term is asked of every city once, biggest city
+first, and when the last query of the last country has been asked the
+whole list is searched again, because sites change and engines re-rank.
+The page says which pass it is on, in words, at the top of the Cities
+card and the Search coverage tab, and keeps what the previous pass found
+beside it — every counter under that line starts from zero each pass, so
+without it a second lap reads exactly like a collector that forgot
+everything. `data/prospect.json` is the ledger of what has been asked. It
+is not in git, and when it is lost with the rest of `data/`, most of it
+comes back from the `status.json` that is:
+
+```bash
+node scripts/restore-prospect.js --from=git:<commit>          # what would change
+node scripts/restore-prospect.js --from=git:<commit> --apply  # with the collector stopped
+```
+
 **Finding new directories** — `discover.js`. Seeds are the bottleneck and
 always were, and until now the walk that fixes it only ran when somebody
 typed it by hand. The daemon runs it when every seed is exhausted, which is
