@@ -87,7 +87,35 @@ $env:BUDGET_MINUTES = "$BudgetMinutes"
 $env:OSM_COUNTRIES  = "$OsmCountries"
 $env:OSM_PARALLEL   = "$OsmParallel"
 
+# Which node. Node 24 ships undici 7, whose HTTP/1 parser kills the whole
+# process with an uncatchable AssertionError (assert(!this.paused)) when a
+# server closes the socket while a response body sits unread - which the
+# crawl does on every non-OK or non-HTML answer. Leo, 2026-09-03: one such
+# crash took the collector down mid-round, and the v7 backport of the fix
+# was abandoned (nodejs/undici#5360, fixed in undici 8.4.1 / Node 26). So
+# when the node on PATH is older than 26, prefer the newest 26+ that
+# nvm-windows has installed, without touching the machine's default.
 $node = (Get-Command node).Source
+$nodeMajor = [int](((& $node --version) -replace '^v','') -split '\.')[0]
+# nvm's root: NVM_HOME where the shell has it, otherwise the folder the
+# nodejs symlink points into (C:\nvm4w\nodejs -> C:\ProgramData\nvm\vN).
+$nvmRoot = $env:NVM_HOME
+if (-not $nvmRoot) {
+    $target = (Get-Item (Split-Path $node) -Force -ErrorAction SilentlyContinue).Target | Select-Object -First 1
+    if ($target) { $nvmRoot = Split-Path $target }
+}
+if ($nodeMajor -lt 26 -and $nvmRoot -and (Test-Path $nvmRoot)) {
+    $newer = Get-ChildItem $nvmRoot -Directory -Filter 'v*' |
+        Where-Object { $_.Name -match '^v(\d+)\.' -and [int]$Matches[1] -ge 26 -and (Test-Path (Join-Path $_.FullName 'node.exe')) } |
+        Sort-Object { [version]($_.Name.TrimStart('v')) } -Descending |
+        Select-Object -First 1
+    if ($newer) {
+        $node = Join-Path $newer.FullName 'node.exe'
+        Write-Host "  Using $node (the node on PATH is v$nodeMajor, whose undici crashes the collector)." -ForegroundColor Yellow
+    } else {
+        Write-Host "  Warning: node v$nodeMajor on PATH and no Node 26+ under $nvmRoot - undici 7 can crash the collector; the watchdog restarts it." -ForegroundColor Yellow
+    }
+}
 $p = Start-Process -FilePath $node -ArgumentList "daemon.js" `
         -WorkingDirectory $root -WindowStyle Hidden -PassThru `
         -RedirectStandardOutput $outLog -RedirectStandardError "$outLog.err"

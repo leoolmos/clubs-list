@@ -45,6 +45,12 @@ files and the same git branch.
 Log: `data/daemon.log`. Follow it with
 `Get-Content data\daemon.log -Wait -Tail 5`.
 
+Run it on Node 26 or newer. Node 24's bundled HTTP client (undici 7) kills
+the process with an uncatchable `assert(!this.paused)` when a server closes
+the socket on an unread response body — nodejs/undici#5360, fixed in undici
+8.4.1 and never backported to 7. `start-collector.ps1` picks the newest
+Node 26+ that nvm-windows has installed when the one on PATH is older.
+
 `install-windows.ps1` still exists for an hourly Scheduled Task instead,
 but back-to-back rounds collect far more: an hourly job sat idle for most
 of the hour while hundreds of sites were still queued for an email.
