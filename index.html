@@ -19,7 +19,7 @@ tailwind.config = {
       colors: {
         out:'#E4E9EA', panel:'#EEF2F2', ink:'#14201E', inksoft:'#4A5A57',
         line:'#FFFFFF', rule:'#B7C3C5', clay:'#A8452A', glass:'#2B5EA7',
-        tin:'#7D2E4C', grass:'#1D6B4B', warn:'#8A6A12'
+        tin:'#7D2E4C', grass:'#1D6B4B', warn:'#8A6A12', gourd:'#6B4C9A'
       },
       fontFamily: {
         display:['Archivo','sans-serif'],
@@ -37,7 +37,7 @@ tailwind.config = {
 :root{
   --out:#E4E9EA; --panel:#EEF2F2; --ink:#14201E; --ink-soft:#4A5A57;
   --line:#FFFFFF; --rule:#B7C3C5; --clay:#A8452A; --glass:#2B5EA7;
-  --tin:#7D2E4C; --grass:#1D6B4B; --warn:#8A6A12; --r:3px;
+  --tin:#7D2E4C; --grass:#1D6B4B; --warn:#8A6A12; --gourd:#6B4C9A; --r:3px;
 }
 @layer base{
   body{ @apply bg-out text-ink font-sans text-[14px] leading-normal antialiased; }
@@ -184,11 +184,13 @@ input:focus-visible,select:focus-visible,button:focus-visible,textarea:focus-vis
 .chip[data-sport="Tennis"] .dot,.chip[data-pick="Tennis"] .dot{ @apply bg-clay; }
 .chip[data-sport="Padel"] .dot,.chip[data-pick="Padel"] .dot{ @apply bg-glass; }
 .chip[data-sport="Squash"] .dot,.chip[data-pick="Squash"] .dot{ @apply bg-tin; }
+.chip[data-sport="Pickleball"] .dot,.chip[data-pick="Pickleball"] .dot{ @apply bg-gourd; }
 /* Selected chips with no sport of their own still need a fill to read against */
 .chip.on{ @apply bg-ink text-line border-transparent; }
 .chip.on[data-sport="Tennis"],.chip.on[data-pick="Tennis"]{ @apply bg-clay; }
 .chip.on[data-sport="Padel"],.chip.on[data-pick="Padel"]{ @apply bg-glass; }
 .chip.on[data-sport="Squash"],.chip.on[data-pick="Squash"]{ @apply bg-tin; }
+.chip.on[data-sport="Pickleball"],.chip.on[data-pick="Pickleball"]{ @apply bg-gourd; }
 .chip.on:hover{ @apply border-transparent opacity-[.88]; }
 .chip.on .dot{ @apply bg-line; }
 select{ @apply px-[11px] py-[9px] border border-rule bg-line text-ink rounded-crt font-mono text-[11.5px] cursor-pointer; }
@@ -222,6 +224,7 @@ tbody tr:hover{ @apply bg-panel; }
 .tag.Tennis{ @apply bg-clay; }
 .tag.Padel{ @apply bg-glass; }
 .tag.Squash{ @apply bg-tin; }
+.tag.Pickleball{ @apply bg-gourd; }
 .flagmark{ @apply font-mono text-[9.5px] text-warn border border-warn px-[5px] py-0.5 rounded-sm whitespace-nowrap inline-block; }
 .rowdel{ @apply bg-transparent border-0 text-rule cursor-pointer text-[16px] leading-none px-1 py-0.5; }
 .rowdel:hover{ @apply text-clay; }
@@ -389,6 +392,7 @@ footer a{ @apply text-grass; }
       <button class="chip" data-sport="Tennis"><span class="dot"></span>Tennis</button>
       <button class="chip" data-sport="Padel"><span class="dot"></span>Padel</button>
       <button class="chip" data-sport="Squash"><span class="dot"></span>Squash</button>
+      <button class="chip" data-sport="Pickleball"><span class="dot"></span>Pickleball</button>
     </div>
     <select id="fLang"><option value="">All languages</option></select>
     <select id="fCountry"><option value="">All countries</option></select>
@@ -451,6 +455,7 @@ Sandton Squash Club, Squash, , admin@sandtonsquash.co.za, South Africa"></textar
           <button class="chip" data-pick="Tennis"><span class="dot"></span>Tennis</button>
           <button class="chip" data-pick="Padel"><span class="dot"></span>Padel</button>
           <button class="chip" data-pick="Squash"><span class="dot"></span>Squash</button>
+          <button class="chip" data-pick="Pickleball"><span class="dot"></span>Pickleball</button>
         </div>
       </div>
       <button class="btn go" id="addOne">Add club</button>
@@ -801,6 +806,11 @@ function osmCounts(){
 function engineList(){
   var s = STATUS || {}, c = s.crawl||{}, o = s.osm||{}, sd = s.seeds||{}, L = s.leads||{}, mi = s.mine||{};
   var oc = osmCounts();
+  /* A status.json written before Overture existed has no key for it at all,
+     and the page has to render the same either way — so everything below
+     defaults rather than assuming the collector has been updated. */
+  var ov = s.overture || {};
+  var ovCountries = ov.perCountry ? Object.keys(ov.perCountry).length : 0;
   var ph = String(s.phase || ""), on = !!s.running;
   var live = function(re){ return on && re.test(ph); };
   var ag = prospectAgg(), tot = countryTotals();
@@ -819,6 +829,24 @@ function engineList(){
       bar: stPct(L.searched, L.total),
       note: stN(tot.leadsFound) + " had a site found · " + stN(L.left) + " still queued",
       what: "Clubs the map knew by name and nothing else — searched for on the web until a website turns up." },
+
+    /* First in the column, because it is the one that reaches everywhere.
+       A row group is a block of the world about a degree across, which is
+       the unit the dataset is stored in — "map blocks" here, because the
+       page is read by people who have no reason to know what Parquet calls
+       its pages. Only the blocks that touch a country in the brief are ever
+       read, so the total is those, not all 4,096. */
+    { id:"overture", group:"lists", name:"Overture Maps",
+      live: live(/Overture/i),
+      big: stN(ov.done), sub: ov.indexed ? "of " + stN(ov.wanted) + " map blocks read" : "map blocks read",
+      bar: ov.indexed ? stPct(ov.done, ov.wanted) : 0,
+      note: !ov.indexed
+        ? "index not built yet — the first round builds it"
+        : stN(ov.added) + " clubs kept · " + stN(ov.leads) + " leads · " +
+          stN(ovCountries) + " countries touched",
+      what: "Seventy-four million places from a public map dataset, read block by block. " +
+            "Many arrive with the club's email already on them, which is the one thing " +
+            "every other engine here has to go and find." },
 
     { id:"dirs", group:"lists", name:"Directories",
       live: live(/director|venue register/i),
@@ -980,6 +1008,7 @@ function engBody(id){
   if(id === "names")  return bodyNames();
   if(id === "dirs")   return bodyDirs();
   if(id === "osm")    return bodyOSM();
+  if(id === "overture") return bodyOverture();
   if(id === "mine")   return bodyMine();
   if(id === "crawl")  return bodyCrawl();
   return "";
@@ -1144,6 +1173,44 @@ function bodyDirs(){
       (lr.at ? " <span class='meta'>· " + esc(when(lr.at)) + "</span>" : "") + "</dd>" +
     "<dt>Where they come from</dt><dd class='meta'>seeds.txt, plus whatever the discovery pass turns up. " +
       "A directory that stops producing new pages is marked walked out and never re-read.</dd></dl>";
+}
+
+function bodyOverture(){
+  var ov = STATUS.overture || {}, lr = STATUS.lastRound || {};
+  if(!ov.indexed)
+    return "<dl class='kv'><dt>Not started</dt><dd>The index of the dataset has not been built yet. " +
+      "The first round that reaches this engine builds it — sixteen file footers, about 26 MB — " +
+      "and everything after that is answered from disk.</dd></dl>";
+
+  var per = ov.perCountry || {};
+  var top = Object.keys(per).sort(function(a,b){ return per[b]-per[a]; }).slice(0, 12);
+  var left = Math.max(0, (ov.wanted||0) - (ov.done||0));
+
+  return lead([[stN(ov.done), "map blocks read"], [stN(ov.added), "clubs kept"]],
+      stN(left) + " blocks still to read" +
+      (ov.leads ? " · " + stN(ov.leads) + " leads with a name and no site yet" : "")) +
+    "<dl class='kv'>" +
+    "<dt>Release</dt><dd>" + esc(String(ov.release || "—")) +
+      "<span class='meta'> · indexed " + esc(when(ov.built)) + "</span>" +
+      "<div class='meta'>Overture publishes monthly. A new release resets the walk, because the " +
+      "old byte offsets no longer point anywhere.</div></dd>" +
+    "<dt>Coverage</dt><dd>" + stN(ov.wanted) + " of " + stN(ov.rowGroups) +
+      " blocks in the dataset touch a country in the brief" +
+      "<div class='meta'>The rest of the planet is never read. A block is about a degree of " +
+      "longitude across — the dataset is sorted west to east, so a country is a handful of them.</div></dd>" +
+    (top.length ? "<dt>Clubs found</dt><dd>" +
+      top.map(function(cc){ return esc(cc) + " " + stN(per[cc]); }).join(" · ") +
+      (Object.keys(per).length > top.length
+        ? " <span class='meta'>+" + (Object.keys(per).length - top.length) + " more</span>" : "") +
+      "</dd>" : "") +
+    (lr.overtureGroups ? "<dt>Last round</dt><dd>" + stN(lr.overtureGroups) + " blocks read, " +
+      stN(lr.overtureMB) + " MB, +" + stN(lr.overtureAdded) + " clubs" +
+      (lr.at ? " <span class='meta'>· " + esc(when(lr.at)) + "</span>" : "") + "</dd>" : "") +
+    "<dt>Why it is here</dt><dd class='meta'>It carries the email, the website and the social " +
+      "accounts per place, so a share of what it finds needs no crawling at all. It holds no " +
+      "OpenStreetMap data, so the two engines cannot be collecting the same thing twice. And it " +
+      "is a static bucket rather than a query service, so unlike Overpass there is nothing to " +
+      "refuse a request.</dd></dl>";
 }
 
 function bodyOSM(){
@@ -1662,7 +1729,7 @@ function splitLine(line){
 }
 function normSports(s){
   var found = [];
-  ["Tennis","Padel","Squash"].forEach(function(k){
+  ["Tennis","Padel","Squash","Pickleball"].forEach(function(k){
     if(new RegExp(k.replace("Padel","P[aá]del"),"i").test(s)) found.push(k);
   });
   return found;
@@ -1855,6 +1922,7 @@ function showCountry(country){
   if(c.sports.Tennis) sp.push(c.sports.Tennis + " tennis");
   if(c.sports.Padel)  sp.push(c.sports.Padel + " padel");
   if(c.sports.Squash) sp.push(c.sports.Squash + " squash");
+  if(c.sports.Pickleball) sp.push(c.sports.Pickleball + " pickleball");
   if(sp.length) out += row("Sports", sp.join(" · "));
 
   if(c.osm){
