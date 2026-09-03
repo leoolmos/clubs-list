@@ -57,6 +57,15 @@ const CFG = {
   // countries queueing on whatever is left. Three keeps a fair share on each
   // mirror that is still answering.
   osmParallel:   parseInt(process.env.OSM_PARALLEL   || '3',  10),
+  /* Overture is a static bucket, not a query service, so unlike Overpass the
+   * limit here is this machine's patience rather than someone else's server.
+   * Six minutes and 150 MB a round walks the whole world in about half a day
+   * and leaves the rest of the round to the crawl, which is still where the
+   * emails come from. Four row groups at a time: measured on Brazil, the
+   * same 87 MB took 2m26s one at a time and 59s at four. */
+  overtureMinutes:  parseInt(process.env.OVERTURE_MINUTES  || '6',   10),
+  overtureMB:       parseInt(process.env.OVERTURE_MB       || '150', 10),
+  overtureParallel: parseInt(process.env.OVERTURE_PARALLEL || '4',   10),
   restSeconds:   parseInt(process.env.REST_SECONDS   || '20', 10),  // gap between rounds
   // Five seconds per page. A club site that has not answered in five is not
   // worth a worker's time when there are thousands of others waiting; it
@@ -98,8 +107,9 @@ const CFG = {
 
 const { COUNTRIES, ccFromHost, isWanted } = require('./lib/countries');
 const { detectSports, privateClub, extractEmails, extractContactName,
-        plausibleSite, siteFromEmail, RE_PUBLIC, RE_PUBLIC_DOMAIN, RE_CLUBWORD } = require('./lib/classify');
+        plausibleSite, siteFromEmail, SPORTS, RE_PUBLIC, RE_PUBLIC_DOMAIN, RE_CLUBWORD } = require('./lib/classify');
 const osm = require('./lib/osm');
+const overture = require('./lib/overture');
 const search = require('./lib/search');
 const prospect = require('./lib/prospect');
 const lta = require('./lib/lta');
@@ -1409,6 +1419,55 @@ async function phaseOSM(db, deadline){
   }
 }
 
+/**
+ * Overture Maps: 74 million places from a static bucket.
+ *
+ * The counterweight to phaseOSM. Overpass is a query service run on donated
+ * hardware and it answers the six biggest countries with 504s most of the
+ * day, which is why 88 of 93 countries sat pending while the seeds ran out
+ * and the crawl queue emptied. This asks nobody for anything: it reads byte
+ * ranges out of sixteen Parquet files that either download or do not, and
+ * a fair share of what comes back already carries the email.
+ *
+ * The two do not overlap. Overture states that its places theme contains no
+ * OpenStreetMap data at all, so a round can run both and collect twice.
+ *
+ * The index is built on first use and again whenever Overture cuts a new
+ * monthly release. It is sixteen footer reads, about 26 MB, and everything
+ * after it is answered from disk.
+ */
+async function phaseOverture(db, deadline){
+  if(process.env.OVERTURE === 'off') return {groups:0, added:0};
+  if(Date.now() > deadline - 60*1000) return {groups:0, added:0, skipped:'no time left'};
+
+  try{
+    if(!overture.status().indexed){
+      log('overture: no index yet, building it (sixteen footers, about 26 MB)');
+      await overture.buildIndex(m => log(m));
+    }
+
+    const r = await overture.importSlice(db, {
+      log: m => log(m),
+      deadline: Math.min(deadline, Date.now() + CFG.overtureMinutes*60*1000),
+      budgetMB: CFG.overtureMB,
+      parallel: CFG.overtureParallel
+    });
+
+    /* A release that has moved on invalidates the byte offsets in the index,
+     * and importSlice says so by finding nothing to do. Rebuilding here
+     * rather than on a schedule means the collector notices within a round
+     * of Overture publishing, and never rebuilds while there is still work. */
+    if(r.done && !r.groups){
+      log('overture: every row group has been read — checking for a new release');
+      await overture.buildIndex(m => log(m));
+    }
+    return r;
+  }catch(e){
+    log(`overture threw: ${e.message}`);
+    return {groups:0, added:0, error:e.message};
+  }
+}
+
 /* ------------------------------------------------------------------ *
  * Export
  * ------------------------------------------------------------------ */
@@ -1526,6 +1585,15 @@ function writeStatusJSON(extra){
       return errs.length ? {cc: errs[0], error: osmState[errs[0]].error, at: osmState[errs[0]].at} : null;
     })()
   };
+
+  /* Overture's progress is a walk through row groups rather than through
+   * countries: one row group is a patch of the world a degree or so across,
+   * and a country is however many of those it takes to cover it. `wanted` is
+   * the ones that touch a country in the brief at all — the rest of the
+   * planet is never read. */
+  const overtureState = (()=>{
+    try{ return overture.status(); }catch(e){ return {indexed:false}; }
+  })();
 
   /* Per country, what has actually been done to it.
    *
@@ -1664,6 +1732,7 @@ function writeStatusJSON(extra){
     clubs:     publishable(db).length,
     records:   all.length,
     crawl, osm,
+    overture: overtureState,
     crawlReasons: topReasons.map(([note,n])=>({note, n})),
     seeds: {
       total:     seeds.length,
@@ -1695,7 +1764,8 @@ function writeStatusJSON(extra){
  * Written every tick; publish.js is what pushes it. */
 function writeSiteJSON(db){
   const clubs = publishable(db);
-  const byCountry = {}, bySport = {Tennis:0, Padel:0, Squash:0};
+  const byCountry = {}, bySport = {};
+  for(const s of SPORTS) bySport[s] = 0;
   for(const c of clubs){
     byCountry[c.country] = (byCountry[c.country]||0)+1;
     for(const s of c.sports) if(s in bySport) bySport[s]++;
@@ -1783,7 +1853,7 @@ async function tick(){
 
     let c = {tried:0, found:0}, lt = {pages:0, added:0, scanned:0}, pl = {tried:0, placed:0};
     let m = {queried:0, vetted:0, added:0}, h = {pages:0, added:0, source:null}, d = {opened:0, found:0};
-    let o = {cc:null, added:0};
+    let o = {cc:null, added:0}, ov = {groups:0, added:0};
     let L = {tried:0, found:0, emails:0}, p = {countries:0, added:0};
 
     const readingLane = async () => {
@@ -1792,6 +1862,26 @@ async function tick(){
       reading('crawling club websites for email addresses');
       c = await phaseCrawl(db, Math.min(deadline, Date.now() + CFG.crawlMinutes*60*1000));
       writeJSON(DB_FILE, db);
+
+      /* Overture second, not last.
+       *
+       * The first wiring put it at the end of the lane, after the harvest
+       * and the directory walk, and in an eight-minute round it never ran
+       * once: the phases ahead of it work until the deadline and there is
+       * never a remainder. That is not a new problem — it is why the
+       * OpenStreetMap import shows 88 of 93 countries still pending — but
+       * there is no reason to inherit it. A slice taken early is a slice
+       * that happens.
+       *
+       * Second rather than first because the crawl is the point: this fills
+       * the queue that the crawl empties, and a round that discovers
+       * hundreds of clubs and reads none of their sites has not collected
+       * anything. The queue it fills is waiting for the next round anyway. */
+      if(Date.now() < deadline){
+        reading('reading places from Overture Maps');
+        ov = await phaseOverture(db, deadline);
+        writeJSON(DB_FILE, db);
+      }
 
       // The LTA register: 994 British venues with the address each one gave
       // its federation. Walked once, then done for good.
@@ -1846,6 +1936,7 @@ async function tick(){
         reading('importing countries from OpenStreetMap');
         o = await phaseOSM(db, deadline);
       }
+
       lane.reading = '';
     };
 
@@ -1891,7 +1982,9 @@ async function tick(){
         (d.found ? `; found ${d.found} new directories` : '') +
         (p.countries ? `; prospected ${p.countries} empty countries, +${p.added} clubs` : '') +
         (o.cc ? `; osm ${o.countries||0} countries (${o.cc}) +${o.added}` +
-                (o.failed ? `, ${o.failed} failed` : '') : '');
+                (o.failed ? `, ${o.failed} failed` : '') : '') +
+        (ov.groups ? `; overture ${ov.groups} row groups (${ov.megabytes} MB) +${ov.added}` +
+                     (ov.withEmail ? `, ${ov.withEmail} with an email` : '') : '');
 
     writeStatusJSON({
       running: false,
@@ -1901,7 +1994,8 @@ async function tick(){
         at: new Date().toISOString(), minutes: Number(mins), summary,
         crawled: c.tried, emailsFound: c.found,
         pagesRead: h.pages, clubsAdded: h.added,
-        osmCountries: o.countries||0, osmAdded: o.added||0, osmFailed: o.failed||0
+        osmCountries: o.countries||0, osmAdded: o.added||0, osmFailed: o.failed||0,
+        overtureGroups: ov.groups||0, overtureAdded: ov.added||0, overtureMB: ov.megabytes||0
       }
     });
     // Any change in the count goes out at once; a quiet spell goes out
@@ -2129,7 +2223,8 @@ First run creates seeds.txt. Put your directory URLs in there.
 
 Each round crawls the clubs that have a website but no email yet, advances
 the seed directories, then imports ${CFG.osmCountries} countries from
-OpenStreetMap, and publishes. Then it starts again.
+OpenStreetMap, reads ${CFG.overtureMB} MB of places from Overture Maps, and
+publishes. Then it starts again.
 
 Tuning, all optional:
   BUDGET_MINUTES=20     how long a round may work
@@ -2143,6 +2238,12 @@ Tuning, all optional:
                         and there are three mirrors; past about six the extra
                         ones only collect refusals. Higher is not faster.
   OSM=off               skip the OpenStreetMap step entirely
+  OVERTURE_MINUTES=6    slice of the round given to Overture Maps
+  OVERTURE_MB=150       how much of the bucket one round may read
+  OVERTURE_PARALLEL=4   row groups in flight at once. This one is a static
+                        S3 bucket rather than a query service, so the limit
+                        is bandwidth, not somebody's server
+  OVERTURE=off          skip the Overture step entirely
   PROSPECT_MINUTES=10   slice for searching out the countries that have none
   PROSPECT=off          skip that step
   DISCOVER_MINUTES=5    slice for walking Curlie for new directories, which
@@ -2155,7 +2256,8 @@ Tuning, all optional:
   ensureDirs();
   syncQueue();
   log(`daemon started — continuous, ${CFG.budgetMinutes}m per round, ${CFG.restSeconds}s between rounds`);
-  log(`crawl concurrency ${CFG.concurrency}, osm ${CFG.osmCountries} countries per round ${CFG.osmParallel} at a time`);
+  log(`crawl concurrency ${CFG.concurrency}, osm ${CFG.osmCountries} countries per round ${CFG.osmParallel} at a time, ` +
+      `overture ${CFG.overtureMB} MB per round ${CFG.overtureParallel} row groups at a time`);
   log(`seeds: ${SEEDS_FILE}`);
   if(!fs.existsSync(APP_FILE)) log(`note: index.html is not in this folder, so no page will be generated`);
 

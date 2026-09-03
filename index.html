@@ -19,7 +19,7 @@ tailwind.config = {
       colors: {
         out:'#E4E9EA', panel:'#EEF2F2', ink:'#14201E', inksoft:'#4A5A57',
         line:'#FFFFFF', rule:'#B7C3C5', clay:'#A8452A', glass:'#2B5EA7',
-        tin:'#7D2E4C', grass:'#1D6B4B', warn:'#8A6A12'
+        tin:'#7D2E4C', grass:'#1D6B4B', warn:'#8A6A12', gourd:'#6B4C9A'
       },
       fontFamily: {
         display:['Archivo','sans-serif'],
@@ -37,7 +37,7 @@ tailwind.config = {
 :root{
   --out:#E4E9EA; --panel:#EEF2F2; --ink:#14201E; --ink-soft:#4A5A57;
   --line:#FFFFFF; --rule:#B7C3C5; --clay:#A8452A; --glass:#2B5EA7;
-  --tin:#7D2E4C; --grass:#1D6B4B; --warn:#8A6A12; --r:3px;
+  --tin:#7D2E4C; --grass:#1D6B4B; --warn:#8A6A12; --gourd:#6B4C9A; --r:3px;
 }
 @layer base{
   body{ @apply bg-out text-ink font-sans text-[14px] leading-normal antialiased; }
@@ -184,11 +184,13 @@ input:focus-visible,select:focus-visible,button:focus-visible,textarea:focus-vis
 .chip[data-sport="Tennis"] .dot,.chip[data-pick="Tennis"] .dot{ @apply bg-clay; }
 .chip[data-sport="Padel"] .dot,.chip[data-pick="Padel"] .dot{ @apply bg-glass; }
 .chip[data-sport="Squash"] .dot,.chip[data-pick="Squash"] .dot{ @apply bg-tin; }
+.chip[data-sport="Pickleball"] .dot,.chip[data-pick="Pickleball"] .dot{ @apply bg-gourd; }
 /* Selected chips with no sport of their own still need a fill to read against */
 .chip.on{ @apply bg-ink text-line border-transparent; }
 .chip.on[data-sport="Tennis"],.chip.on[data-pick="Tennis"]{ @apply bg-clay; }
 .chip.on[data-sport="Padel"],.chip.on[data-pick="Padel"]{ @apply bg-glass; }
 .chip.on[data-sport="Squash"],.chip.on[data-pick="Squash"]{ @apply bg-tin; }
+.chip.on[data-sport="Pickleball"],.chip.on[data-pick="Pickleball"]{ @apply bg-gourd; }
 .chip.on:hover{ @apply border-transparent opacity-[.88]; }
 .chip.on .dot{ @apply bg-line; }
 select{ @apply px-[11px] py-[9px] border border-rule bg-line text-ink rounded-crt font-mono text-[11.5px] cursor-pointer; }
@@ -222,6 +224,7 @@ tbody tr:hover{ @apply bg-panel; }
 .tag.Tennis{ @apply bg-clay; }
 .tag.Padel{ @apply bg-glass; }
 .tag.Squash{ @apply bg-tin; }
+.tag.Pickleball{ @apply bg-gourd; }
 .flagmark{ @apply font-mono text-[9.5px] text-warn border border-warn px-[5px] py-0.5 rounded-sm whitespace-nowrap inline-block; }
 .rowdel{ @apply bg-transparent border-0 text-rule cursor-pointer text-[16px] leading-none px-1 py-0.5; }
 .rowdel:hover{ @apply text-clay; }
@@ -389,6 +392,7 @@ footer a{ @apply text-grass; }
       <button class="chip" data-sport="Tennis"><span class="dot"></span>Tennis</button>
       <button class="chip" data-sport="Padel"><span class="dot"></span>Padel</button>
       <button class="chip" data-sport="Squash"><span class="dot"></span>Squash</button>
+      <button class="chip" data-sport="Pickleball"><span class="dot"></span>Pickleball</button>
     </div>
     <select id="fLang"><option value="">All languages</option></select>
     <select id="fCountry"><option value="">All countries</option></select>
@@ -451,6 +455,7 @@ Sandton Squash Club, Squash, , admin@sandtonsquash.co.za, South Africa"></textar
           <button class="chip" data-pick="Tennis"><span class="dot"></span>Tennis</button>
           <button class="chip" data-pick="Padel"><span class="dot"></span>Padel</button>
           <button class="chip" data-pick="Squash"><span class="dot"></span>Squash</button>
+          <button class="chip" data-pick="Pickleball"><span class="dot"></span>Pickleball</button>
         </div>
       </div>
       <button class="btn go" id="addOne">Add club</button>
@@ -1662,7 +1667,7 @@ function splitLine(line){
 }
 function normSports(s){
   var found = [];
-  ["Tennis","Padel","Squash"].forEach(function(k){
+  ["Tennis","Padel","Squash","Pickleball"].forEach(function(k){
     if(new RegExp(k.replace("Padel","P[aá]del"),"i").test(s)) found.push(k);
   });
   return found;
@@ -1855,6 +1860,7 @@ function showCountry(country){
   if(c.sports.Tennis) sp.push(c.sports.Tennis + " tennis");
   if(c.sports.Padel)  sp.push(c.sports.Padel + " padel");
   if(c.sports.Squash) sp.push(c.sports.Squash + " squash");
+  if(c.sports.Pickleball) sp.push(c.sports.Pickleball + " pickleball");
   if(sp.length) out += row("Sports", sp.join(" · "));
 
   if(c.osm){

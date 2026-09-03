@@ -1,9 +1,16 @@
 # Racket club contact database
 
-Tennis, padel and squash clubs across the eighty-three countries in the
-brief, with the contact email each club publishes itself. Private clubs
-only — council, community, university, school and government venues are
+Tennis, padel, squash and pickleball clubs across the eighty-three countries
+in the brief, with the contact email each club publishes itself. Private
+clubs only — council, community, university, school and government venues are
 excluded on purpose.
+
+Four sports and no others. Table tennis, beach tennis, racquetball, badminton
+and frontón all say one of the four in one language or another, and all of
+them used to be collected: "Tenis de Mesa Lidia Calderón" was filed as a
+Colombian tennis club. A place whose only racket sport is one of those is
+dropped now, while a club that plays one of the four *and* something else —
+"Tênis e Tênis de Mesa" is a common pairing in Brazil — is kept as what it is.
 
 **Live page: https://leoolmos.github.io/clubs-list/**
 
@@ -152,6 +159,77 @@ It keeps places that publish a website or an email. Named clubs with
 neither go to `data/osm-leads.json` rather than being discarded, so they
 are not rediscovered every run.
 
+**Overture Maps** — `lib/overture.js`. Seventy-four million places, from a
+public S3 bucket with nothing to sign up for. It is the counterweight to
+Overpass: no query service to overload, no mirrors to go down, just sixteen
+Parquet files that either download or do not.
+
+```bash
+node lib/overture.js --index       # build the row-group index, once per release
+node lib/overture.js --status      # how far the walk has got
+node lib/overture.js --scan --cc=BR --verbose   # read a slice, save nothing
+node lib/overture.js --import      # read a slice and keep what it finds
+```
+
+Three reasons it earns its place over the alternatives. Its schema carries
+`emails`, `websites` and `socials` per place, so a fair share of records
+arrive with the address already on them instead of costing a site crawl.
+It contains no OpenStreetMap data — Overture says so plainly — so it cannot
+be re-collecting what `lib/osm.js` already has. And its licence is CDLA
+Permissive 2.0 and Apache 2.0, with none of the ODbL's share-alike
+obligation, which is the thing that keeps OSM a source of candidates here.
+
+Foursquare's own release was the other candidate and is deliberately not
+used. Its public S3 bucket answers a listing of `release/` with zero keys —
+the data moved to a gated Hugging Face dataset in early 2026, so a form, an
+account and a token. Nothing else here needs an account, and Foursquare is
+already one of Overture's four upstream providers, alongside Meta, Microsoft
+and PinMeTo.
+
+**Reading Parquet without a package.json.** `lib/parquet.js` is a reader cut
+down to the one shape Overture publishes: ZSTD, v1 data pages,
+RLE_DICTIONARY values, RLE levels, three-level lists. Anything outside that
+throws by name rather than guessing, because a reader that guesses at an
+encoding returns plausible rubbish, and rubbish shaped like a club name gets
+published as a club.
+
+**10.5 GB is not downloaded.** The files are sorted west to east and each row
+group publishes the box it covers — a degree of longitude by half a degree of
+latitude, typically — so a country is a box test against the footer
+statistics. The index that holds those boxes and the byte range of every
+column worth reading is 2.4 MB, built once per release from sixteen footer
+reads. After that a round reads only the row groups that touch a country in
+the brief: 2,607 of the 4,096 there are.
+
+Each of those is read twice over. The first pass takes the name, the category
+and the address's country code — about a third of the bytes — and the
+contact columns are only fetched for a row group that has something in it
+worth the rest. Four row groups run at once: the same 87 MB of Brazil took
+2m26s one at a time and 59s at four.
+
+**What it turns down is most of what it sees.** On that Brazil pass, 1,128
+racket places became 81 records and 933 rejections. Shops are the bulk of it —
+Overture files a padel retailer as `sporting_goods`, which contains "sport"
+and passes any test for "is this a sports venue" — and the ones the category
+does not catch are caught by the name: "TÊNis Viral Modas" is filed as
+`tennis_court` and sells clothes off a MercadoLivre link.
+
+A name that describes a facility rather than a club — "Quadras de Tênis",
+"Cancha de Padel" — is allowed to merge into a club already on file and never
+to start a record. Keyed by website that is exactly right: three such rows
+against `iatebsb.com.br` are the Iate Clube de Brasília's tennis courts, its
+squash court and its beach tennis, and they become one club that plays two of
+the four. The same row against a hotel's website would otherwise invent
+"Quadras de Tênis" as a Brazilian tennis club, and a hotel with a court is
+not a club.
+
+**It runs second in the round, not last.** The first wiring put it at the end
+of the reading lane and in an eight-minute round it never ran at all: the
+phases ahead of it work until the deadline and there is never a remainder.
+That is the same reason the OpenStreetMap import shows 88 of 93 countries
+still pending, and it is worth knowing before adding anything else to the
+tail of that lane.
+
 **Prospecting** — `lib/prospect.js`. The two engines above between them
 left sixty-two of the eighty-three countries at zero, and not because they
 failed there. Every one of the 64 directory seeds is Spain, Ireland or
@@ -245,6 +323,8 @@ lib/countries.js    the eighty-three countries, languages, domain to country
 lib/classify.js     sports, private-club rules, email extraction
 lib/http.js         character sets, robots.txt, per-host spacing
 lib/osm.js          OpenStreetMap importer
+lib/overture.js     Overture Maps importer — 74M places from a public bucket
+lib/parquet.js      the part of Parquet that Overture uses, and no more
 data/               working store, queue, logs — not committed
 ```
 
@@ -297,6 +377,7 @@ work before it stops and waits for the next hour.
 ```
 TICK_MINUTES=60  BUDGET_MINUTES=20  CONCURRENCY=8  HOST_DELAY_MS=2000
 PAGES_PER_TICK=25  OSM=off  LTA_MINUTES=6  LTA=off
+OVERTURE_MINUTES=6  OVERTURE_MB=150  OVERTURE_PARALLEL=4  OVERTURE=off
 CRAWL_MINUTES=12  CONTACT_PAGES=30  SITE_MS=150000  PROSPECT_MINUTES=18  PLACE_MINUTES=3
 VET_PARALLEL=4  SEARCH_GAP_MS=30000  SEARCH_GAP_MAX_MS=120000
 SEARCH_COOLDOWN_MS=300000  SEARCH_COOLDOWN_MAX_MS=900000  SEARCH_PAGES=1
