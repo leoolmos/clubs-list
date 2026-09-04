@@ -52,6 +52,35 @@ files and the same git branch.
 Log: `data/daemon.log`. Follow it with
 `Get-Content data\daemon.log -Wait -Tail 5`.
 
+### After a code change
+
+A running collector executes the `daemon.js` it started with. Pulling does
+not change that, and neither does the hard reset `publish.js` does onto the
+remote — the new file lands on disk and the old process carries on ignoring
+it, publishing a `status.json` that has never heard of whatever was added.
+Nothing looks wrong: the process is alive and the rounds are healthy.
+
+Three things now handle it, in the order they get the chance:
+
+```bash
+powershell -File start-collector.ps1 -Status   # says whether it is running old code
+powershell -File start-collector.ps1 -Stop; powershell -File start-collector.ps1
+```
+
+The daemon checks its own sources between rounds and hands over to a fresh
+process when they change. The watchdog checks the same thing every fifteen
+minutes, and restarts the collector when the files on disk are newer than
+the process — that one is the backstop, because it is re-read from disk on
+every run, so it works even when the running code is too old to check
+anything itself. **The watchdog only exists if it has been installed:**
+
+```bash
+powershell -ExecutionPolicy Bypass -File watchdog.ps1 -Install
+```
+
+Without it, and with a collector old enough to predate the self-handover,
+the two commands above are the way.
+
 Run it on Node 26 or newer. Node 24's bundled HTTP client (undici 7) kills
 the process with an uncatchable `assert(!this.paused)` when a server closes
 the socket on an unread response body — nodejs/undici#5360, fixed in undici
