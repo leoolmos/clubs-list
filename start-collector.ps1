@@ -88,6 +88,15 @@ if ($Stop) {
     if ($p) {
         Stop-Process -Id $p.Id -Force
         Remove-Item $pidFile -ErrorAction SilentlyContinue
+        # The daemon gives its lock back in an exit handler, and a forced kill
+        # never runs one - so the file is left behind holding a dead pid. It
+        # is normally harmless, because the daemon tests whether that pid is
+        # still alive before believing it. Normally: Windows reuses pids, and
+        # a recycled one belonging to something else reads as a collector
+        # still running, and the restart refuses. Removing it here is the
+        # difference between a restart that always works and one that works
+        # almost always.
+        Remove-Item (Join-Path $root "data\collector.lock") -ErrorAction SilentlyContinue
         Write-Host "  Stopped (PID $($p.Id)). Everything collected so far is in data\." -ForegroundColor Yellow
     } else {
         Write-Host "  Not running."
