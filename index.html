@@ -228,6 +228,31 @@ tbody tr:hover{ @apply bg-panel; }
 .flagmark{ @apply font-mono text-[9.5px] text-warn border border-warn px-[5px] py-0.5 rounded-sm whitespace-nowrap inline-block; }
 .rowdel{ @apply bg-transparent border-0 text-rule cursor-pointer text-[16px] leading-none px-1 py-0.5; }
 .rowdel:hover{ @apply text-clay; }
+
+/* The club card: everything known about one club, on hover or on click.
+   The table can only afford a handful of columns, and the record carries
+   more than that — the town, the page it was found on, a social account.
+   Fixed rather than absolute so it is positioned against the viewport and
+   never clipped by the table's own scroll container. */
+.ccard{ @apply fixed z-[60] w-[340px] max-w-[calc(100vw-24px)] bg-line border border-ink rounded-crt p-3.5
+        shadow-[0_10px_30px_rgba(0,0,0,.14)] text-[12px] leading-[1.45]; }
+.ccard[hidden]{ display:none !important; }
+.ccard h4{ @apply font-semibold text-[13.5px] leading-[1.25] mb-1.5 pr-5; }
+.ccard .sports{ @apply mb-2.5; }
+.ccard dl{ @apply grid grid-cols-[86px_1fr] gap-x-2.5 gap-y-1 m-0; }
+.ccard dt{ @apply font-mono text-[9.5px] tracking-[.07em] uppercase text-inksoft pt-[3px]; }
+.ccard dd{ @apply m-0 break-words; }
+.ccard a{ @apply underline decoration-dotted underline-offset-2; }
+.ccard a:hover{ color:var(--grass); }
+.ccard .govisit{ @apply mt-3 block text-center font-mono text-[11px] tracking-[.05em] uppercase
+                 px-3 py-2 border border-ink bg-ink text-out rounded-crt no-underline; }
+.ccard .govisit:hover{ @apply opacity-[.88] text-out; }
+.ccard .nosite{ @apply mt-3 block text-center font-mono text-[11px] tracking-[.05em] uppercase
+                px-3 py-2 border border-rule text-inksoft rounded-crt; }
+.ccard .pin{ @apply absolute top-2 right-2 bg-transparent border-0 text-rule cursor-pointer text-[15px] leading-none; }
+.ccard .pin:hover{ @apply text-ink; }
+.cweb{ @apply text-[11.5px] underline decoration-dotted underline-offset-2 break-all; }
+.cweb:hover{ color:var(--grass); }
 .empty{ @apply py-11 px-5 text-center text-inksoft text-[13px]; }
 .empty b{ @apply block font-display text-[15px] text-ink mb-1.5; }
 
@@ -410,7 +435,7 @@ footer a{ @apply text-grass; }
   <div class="tablewrap">
     <table>
       <thead><tr>
-        <th>Club</th><th>Sports</th><th>Contact</th><th>Email</th><th>Lang</th><th>Country</th><th>Source</th><th></th>
+        <th>Club</th><th>Sports</th><th>Contact</th><th>Email</th><th>Website</th><th>Lang</th><th>Country</th><th>Source</th><th></th>
       </tr></thead>
       <tbody id="tbody"></tbody>
     </table>
@@ -581,7 +606,13 @@ var SEED = [
  ["Lawn Tennis Clube da Foz","Tennis","Miguel Pereira Leite","tenisdafoz@mail.telepac.pt","Portugal","CTC",1]
 ];
 
-var SRC_LABEL = {CTC:"Centenary TC",USCTA:"USCTA intl",web:"Web search",manual:"Added by you",batch:"Pasted batch"};
+/* What found a club, in words. The collector writes these as short codes,
+   and the card puts them in front of somebody who has no reason to know
+   that "harvest" is a directory listing. */
+var SRC_LABEL = {CTC:"Centenary TC",USCTA:"USCTA intl",web:"Web search",manual:"Added by you",batch:"Pasted batch",
+                 overture:"Overture Maps",osm:"OpenStreetMap",lta:"LTA venue register",
+                 harvest:"Directory listing",prospect:"Country search",search:"Name search",
+                 mine:"Domain mining",daemon:"Collector"};
 
 /* ------------------------------------------------------------------
    STATE
@@ -609,6 +640,7 @@ var liveSource = "";
 function adopt(list){
   return list.map(function(c){
     return {name:c.name, sports:c.sports||[], contact:c.contact||"", email:c.email,
+            website:c.website||"", city:c.city||"", social:c.social||"", srcPage:c.srcPage||"",
             lang:c.lang, country:c.country, src:c.src||"daemon", stale:!!c.stale};
   });
 }
@@ -1482,6 +1514,7 @@ async function load(){
   if(window.__CLUBS__ && Array.isArray(window.__CLUBS__)){
     clubs = window.__CLUBS__.map(function(c){
       return {name:c.name, sports:c.sports||[], contact:c.contact||"", email:c.email,
+              website:c.website||"", city:c.city||"", social:c.social||"", srcPage:c.srcPage||"",
               lang:c.lang, country:c.country, src:c.src||"daemon", stale:!!c.stale};
     });
     ledger = window.__LEDGER__ || {};
@@ -1557,7 +1590,7 @@ function filtered(){
     if(filters.country && c.country !== filters.country) return false;
     for(var i=0;i<filters.sports.length;i++){ if(c.sports.indexOf(filters.sports[i])<0) return false; }
     if(q){
-      var hay = (c.name+" "+c.contact+" "+c.email+" "+c.country).toLowerCase();
+      var hay = (c.name+" "+c.contact+" "+c.email+" "+(c.website||"")+" "+c.country).toLowerCase();
       if(hay.indexOf(q)<0) return false;
     }
     return true;
@@ -1615,6 +1648,134 @@ function renderPager(total){
   });
 }
 
+/* ------------------------------------------------------------------
+   THE CLUB CARD
+   ------------------------------------------------------------------
+   Hover a club to see everything the record holds; click to pin it open
+   so the links inside can be used. The table shows eight columns because
+   that is what fits, and the record knows more than that — which town,
+   which page it was found on, whether there is a social account.
+
+   Pinning matters more than it looks. A card that only exists while the
+   pointer is over the row cannot be clicked: the moment you move towards
+   the website link you leave the row and it vanishes. So hovering opens
+   it, the card keeps itself open while the pointer is inside it, and a
+   click pins it until Escape or a click elsewhere. Touch has no hover at
+   all, which the same click path covers.
+------------------------------------------------------------------- */
+var CARD = {el:null, idx:-1, pinned:false, inCard:false, hideT:0, showT:0};
+
+function niceHost(u){
+  try{ return new URL(u).hostname.replace(/^www\./, ""); }catch(e){ return String(u||""); }
+}
+
+/* The Website column: the host, linked. The full URL is the title, because
+   a column of long paths pushes every other column off the screen. */
+function siteCell(u){
+  if(!u) return "<span class='meta'>—</span>";
+  return "<a class='cweb' href='" + esc(u) + "' target='_blank' rel='noopener noreferrer' title='" +
+         esc(u) + "'>" + esc(niceHost(u)) + "</a>";
+}
+
+function cardHTML(c){
+  var rows = "";
+  function add(label, html){ if(html) rows += "<dt>" + label + "</dt><dd>" + html + "</dd>"; }
+
+  add("Email", "<a href='mailto:" + esc(c.email) + "'>" + esc(c.email) + "</a>");
+  add("Contact", c.contact ? esc(c.contact) : "");
+  add("Town", c.city ? esc(c.city) : "");
+  add("Country", esc(c.country) + " <span class='meta'>· " + esc(c.lang) + "</span>");
+  add("Website", c.website
+      ? "<a href='" + esc(c.website) + "' target='_blank' rel='noopener noreferrer'>" +
+        esc(niceHost(c.website)) + "</a>" : "");
+  add("Social", c.social
+      ? "<a href='" + esc(c.social) + "' target='_blank' rel='noopener noreferrer'>" +
+        esc(niceHost(c.social)) + "</a>" : "");
+  add("Found by", esc(SRC_LABEL[c.src] || c.src || "—"));
+  add("Found on", c.srcPage
+      ? "<a href='" + esc(c.srcPage) + "' target='_blank' rel='noopener noreferrer'>" +
+        esc(niceHost(c.srcPage)) + "</a>" : "");
+  if(c.stale) add("Flagged", "<span class='flagmark'>needs verification</span>");
+
+  return "<button class='pin' data-cardclose='1' aria-label='Close'>&times;</button>"
+    + "<h4>" + esc(c.name) + "</h4>"
+    + "<div class='sports'>" + c.sports.map(function(s){
+        return "<span class='tag " + esc(s) + "'>" + esc(s) + "</span>"; }).join(" ") + "</div>"
+    + "<dl>" + rows + "</dl>"
+    + (c.website
+        ? "<a class='govisit' href='" + esc(c.website) + "' target='_blank' rel='noopener noreferrer'>Visit website</a>"
+        : "<span class='nosite'>No website on file</span>");
+}
+
+function placeCard(anchor){
+  var el = CARD.el, r = anchor.getBoundingClientRect();
+  el.hidden = false;                       // measure it before deciding where it goes
+  var h = el.offsetHeight, w = el.offsetWidth, pad = 10;
+  var top = r.bottom + 6;
+  if(top + h > window.innerHeight - pad) top = Math.max(pad, r.top - h - 6);
+  var left = r.left;
+  if(left + w > window.innerWidth - pad) left = Math.max(pad, window.innerWidth - w - pad);
+  el.style.top = top + "px";
+  el.style.left = left + "px";
+}
+
+function showCard(idx, anchor){
+  var c = clubs[idx];
+  if(!c) return;
+  clearTimeout(CARD.hideT);
+  if(CARD.idx !== idx){ CARD.el.innerHTML = cardHTML(c); CARD.idx = idx; }
+  placeCard(anchor);
+}
+
+function hideCard(now){
+  clearTimeout(CARD.showT);
+  clearTimeout(CARD.hideT);
+  var go = function(){
+    if(CARD.pinned || CARD.inCard) return;
+    CARD.el.hidden = true;
+    CARD.idx = -1;
+  };
+  if(now){ CARD.pinned = false; CARD.inCard = false; CARD.el.hidden = true; CARD.idx = -1; }
+  else CARD.hideT = setTimeout(go, 220);
+}
+
+function wireCard(){
+  CARD.el = document.getElementById("clubcard");
+  if(!CARD.el) return;
+  var tb = document.getElementById("tbody");
+
+  CARD.el.addEventListener("mouseenter", function(){ CARD.inCard = true; clearTimeout(CARD.hideT); });
+  CARD.el.addEventListener("mouseleave", function(){ CARD.inCard = false; hideCard(); });
+  CARD.el.addEventListener("click", function(e){
+    if(e.target.closest("[data-cardclose]")) hideCard(true);
+  });
+
+  tb.addEventListener("mouseover", function(e){
+    var n = e.target.closest("[data-card]");
+    if(!n || CARD.pinned) return;
+    clearTimeout(CARD.showT);
+    CARD.showT = setTimeout(function(){ showCard(+n.dataset.card, n); }, 110);
+  });
+  tb.addEventListener("mouseout", function(e){
+    if(e.target.closest("[data-card]") && !CARD.pinned) hideCard();
+  });
+  tb.addEventListener("click", function(e){
+    var n = e.target.closest("[data-card]");
+    if(!n) return;
+    CARD.pinned = true;
+    showCard(+n.dataset.card, n);
+  });
+
+  document.addEventListener("click", function(e){
+    if(!CARD.pinned) return;
+    if(e.target.closest("#clubcard") || e.target.closest("[data-card]")) return;
+    hideCard(true);
+  });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") hideCard(true); });
+  // A card pinned to a row that has scrolled away points at nothing.
+  window.addEventListener("scroll", function(){ if(!CARD.pinned) hideCard(true); }, {passive:true});
+}
+
 function renderTable(){
   var all = filtered(), tb = document.getElementById("tbody"), out = "";
   var pages = Math.max(1, Math.ceil(all.length / PAGE_SIZE));
@@ -1626,10 +1787,13 @@ function renderTable(){
   rows.forEach(function(c,i){
     var idx = clubs.indexOf(c);
     out += "<tr>"
-      + "<td><span class='cname'>"+esc(c.name)+"</span>"+(c.stale?" <span class='flagmark'>verify</span>":"")+"</td>"
+      + "<td><span class='cname' data-card='"+idx+"' tabindex='0' role='button' "
+      +   "title='Everything on file for this club'>"+esc(c.name)+"</span>"
+      +   (c.stale?" <span class='flagmark'>verify</span>":"")+"</td>"
       + "<td><span class='sports'>"+c.sports.map(function(s){return "<span class='tag "+esc(s)+"'>"+esc(s)+"</span>";}).join("")+"</span></td>"
       + "<td>"+(c.contact?esc(c.contact):"<span class='meta'>—</span>")+"</td>"
       + "<td><a class='cmail' href='mailto:"+esc(c.email)+"'>"+esc(c.email)+"</a></td>"
+      + "<td>"+siteCell(c.website)+"</td>"
       + "<td><span class='meta'>"+esc(c.lang)+"</span></td>"
       + "<td><span class='meta'>"+esc(c.country)+"</span></td>"
       + "<td><span class='meta'>"+esc(SRC_LABEL[c.src]||c.src)+"</span></td>"
@@ -1694,10 +1858,10 @@ function download(name, text){
 }
 function exportCSV(){
   var rows = filtered();
-  var head = ["Club Name","Sports","Contact","Email","Language","Country","Source","Needs verification"];
+  var head = ["Club Name","Sports","Contact","Email","Website","Language","Country","Source","Needs verification"];
   var lines = [head.map(csvCell).join(",")];
   rows.forEach(function(c){
-    lines.push([c.name, c.sports.join(" + "), c.contact, c.email, c.lang, c.country, SRC_LABEL[c.src]||c.src, c.stale?"yes":""].map(csvCell).join(","));
+    lines.push([c.name, c.sports.join(" + "), c.contact, c.email, c.website||"", c.lang, c.country, SRC_LABEL[c.src]||c.src, c.stale?"yes":""].map(csvCell).join(","));
   });
   var d = new Date().toISOString().slice(0,10);
   download("racket-clubs-"+d+".csv", lines.join("\n"));
@@ -1827,6 +1991,8 @@ function wire(){
     var b = e.target.closest("[data-del]"); if(!b) return;
     clubs.splice(parseInt(b.dataset.del,10),1); save(); renderAll();
   });
+
+  wireCard();
 
   // single add
   document.querySelector(".sportpick").addEventListener("click", function(e){
@@ -2041,5 +2207,6 @@ function showCountry(country){
 
 })();
 </script>
+<div class="ccard" id="clubcard" hidden></div>
 </body>
 </html>

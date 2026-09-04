@@ -1587,7 +1587,8 @@ async function phaseOverture(db, deadline){
 function csvCell(v){ const s=String(v==null?'':v); return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s; }
 function writeExport(db){
   const rows = publishable(db);
-  const lines = rows.map(r=>[r.name, r.sports.join('+'), r.contact||'', r.email, r.country].map(csvCell).join(','));
+  const lines = rows.map(r=>[r.name, r.sports.join('+'), r.contact||'', r.email, r.website||'', r.country]
+    .map(csvCell).join(','));
   fs.writeFileSync(CSV_FILE, lines.join('\n'));
   return rows.length;
 }
@@ -1599,6 +1600,7 @@ function publishable(db){
   const rows = Object.values(db)
     .filter(r => r.name && r.email && r.lang && r.sports && r.sports.length)
     .map(r => ({name:r.name, sports:r.sports.slice(), contact:r.contact||'', email:String(r.email).toLowerCase(),
+                website:r.website||'', city:r.city||'', social:r.social||'', srcPage:r.srcPage||'',
                 lang:r.lang, country:r.country, src:r.src, stale:!!r.stale}));
 
   // One row per address. Records are keyed by website in the store, so the
@@ -1613,6 +1615,10 @@ function publishable(db){
     shared.set(r.email, shared.get(r.email)+1);
     seen.sports  = Array.from(new Set(seen.sports.concat(r.sports)));
     if(!seen.contact && r.contact) seen.contact = r.contact;
+    if(!seen.website && r.website) seen.website = r.website;
+    if(!seen.city    && r.city)    seen.city    = r.city;
+    if(!seen.social  && r.social)  seen.social  = r.social;
+    if(!seen.srcPage && r.srcPage) seen.srcPage = r.srcPage;
     if(seen.name.length < r.name.length) seen.name = r.name;   // prefer the fuller name
   }
 
@@ -1626,6 +1632,30 @@ function publishable(db){
       log(`dropped ${email} — claimed by ${n} different clubs, so it belongs to a directory, not a club`);
     }
   }
+
+  /* The website, for the roughly half of these that never had one recorded.
+   *
+   * A club that was found through a directory or a search gives up an email
+   * and often nothing else, so `website` is empty on the record — but the
+   * address itself names the site whenever it is not a free mailbox:
+   * geral@kikuxivillasclub.com is kikuxivillasclub.com, and that is the
+   * club's own domain by definition, because that is where it receives its
+   * mail. `siteFromEmail` is the rule the crawler already trusts for this,
+   * and it declines the free providers and the public ones rather than
+   * publishing gmail.com as somebody's website.
+   *
+   * Done after the deduplication, not before, so a real recorded site always
+   * wins over one worked out from an address. */
+  for(const r of byEmail.values())
+    if(!r.website) r.website = siteFromEmail(r.email);
+
+  /* An empty string still costs its key in the published file, and most of
+   * these are empty for most clubs — four optional fields across 7,700 rows
+   * is most of a megabyte of `"social":""`. Dropped rather than shipped, and
+   * the page treats a missing field and an empty one the same way. */
+  for(const r of byEmail.values())
+    for(const k of ['contact','website','city','social','srcPage'])
+      if(!r[k]) delete r[k];
 
   return Array.from(byEmail.values())
     .sort((a,b)=>a.country.localeCompare(b.country) || a.name.localeCompare(b.name));
