@@ -18,7 +18,12 @@ param(
     [switch]$Stop,
     [switch]$Status,
     [int]$BudgetMinutes = 20,
-    [int]$OsmCountries  = 12,
+    # Four, matching the daemon's own default. It used to say twelve here,
+    # which quietly overrode the daemon whatever the daemon thought: twelve
+    # countries sharing one slice is seconds each, an Overpass query against
+    # a country takes longer than that, and every country was started and
+    # none finished. Anything set here wins, so it has to agree.
+    [int]$OsmCountries  = 4,
     [int]$OsmParallel   = 3
 )
 
@@ -44,6 +49,29 @@ if ($Status) {
         $mins = [math]::Round(((Get-Date) - $p.StartTime).TotalMinutes, 1)
         Write-Host ""
         Write-Host "  Running. PID $($p.Id), up $mins minutes." -ForegroundColor Green
+
+        # Is it running the code that is on disk? A collector reads daemon.js
+        # once and then executes that copy for days, so a pulled change sits
+        # there doing nothing and everything still looks healthy. This is the
+        # question to ask when a new engine never appears in status.json.
+        $newest = $null
+        $src = @((Join-Path $root "daemon.js"), (Join-Path $root "publish.js"))
+        $src += (Get-ChildItem (Join-Path $root "lib") -Filter *.js -ErrorAction SilentlyContinue |
+                 ForEach-Object { $_.FullName })
+        foreach ($f in $src) {
+            if (Test-Path $f) {
+                $t = (Get-Item $f).LastWriteTime
+                if ($null -eq $newest -or $t -gt $newest) { $newest = $t }
+            }
+        }
+        if ($newest -and $newest -gt $p.StartTime) {
+            Write-Host "  Running OLD CODE: the files on disk were written $($newest.ToString('s'))," -ForegroundColor Yellow
+            Write-Host "  after this process started. Restart to pick them up:" -ForegroundColor Yellow
+            Write-Host "    powershell -File start-collector.ps1 -Stop; powershell -File start-collector.ps1" -ForegroundColor Yellow
+        } else {
+            Write-Host "  Running the code that is on disk." -ForegroundColor Green
+        }
+
         Write-Host "  Log:  $root\data\daemon.log"
         Write-Host "  Data: node daemon.js status"
         Write-Host ""
@@ -124,7 +152,7 @@ Set-Content -Path $pidFile -Value $p.Id -Encoding ascii
 
 Write-Host ""
 Write-Host "  Collector running continuously. PID $($p.Id)." -ForegroundColor Green
-Write-Host "  Rounds back to back: crawl for emails, advance directories,"
+Write-Host "  Rounds back to back: crawl for emails, read places from Overture Maps,"
 Write-Host "  import $OsmCountries countries from OpenStreetMap ($OsmParallel at once), publish."
 Write-Host ""
 Write-Host "  Watch    : Get-Content $root\data\daemon.log -Wait -Tail 5"
