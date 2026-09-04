@@ -1,11 +1,11 @@
 {
- "generated": "2026-09-04T09:31:42.276Z",
+ "generated": "2026-09-04T09:52:38.686Z",
  "clubs": 7734,
- "records": 10292,
+ "records": 10309,
  "crawl": {
-  "ready": 3,
+  "ready": 15,
   "waiting": 63,
-  "exhausted": 470
+  "exhausted": 472
  },
  "osm": {
   "imported": 6,
@@ -15,14 +15,14 @@
   "total": 93,
   "slowest": {
    "cc": "US",
-   "done": 6,
+   "done": 7,
    "total": 80,
-   "at": "2026-09-04T08:35:47.214Z"
+   "at": "2026-09-04T09:40:16.813Z"
   },
   "lastError": {
-   "cc": "BR",
+   "cc": "IN",
    "error": "subdivisions: out of time",
-   "at": "2026-09-04T08:36:55.768Z"
+   "at": "2026-09-04T09:41:21.486Z"
   }
  },
  "crawlReasons": [
@@ -58,9 +58,9 @@
   "pagesRead": 69
  },
  "leads": {
-  "total": 2484,
-  "searched": 600,
-  "left": 1884
+  "total": 2620,
+  "searched": 602,
+  "left": 2018
  },
  "mine": {
   "patterns": 9,
@@ -72,6 +72,32 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-09-04T09:52:38.478Z",
+   "kind": "search",
+   "text": "no site found for Grass Court 9 (United Kingdom)",
+   "ok": false
+  },
+  {
+   "t": "2026-09-04T09:51:33.518Z",
+   "kind": "search",
+   "text": "no site found for Grass Court 11 (United Kingdom)",
+   "ok": false
+  },
+  {
+   "t": "2026-09-04T09:50:39.105Z",
+   "kind": "prospect",
+   "text": "India: found Peninsula Tennis Academy -> https://www.peninsulatennisacademy.com",
+   "ok": true,
+   "url": "https://www.peninsulatennisacademy.com"
+  },
+  {
+   "t": "2026-09-04T09:34:28.307Z",
+   "kind": "crawl",
+   "text": "Grass Court 6 — https://grasscourtreport.com: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://grasscourtreport.com"
+  },
   {
    "t": "2026-09-04T09:18:25.195Z",
    "kind": "search",
@@ -1219,32 +1245,6 @@
    "t": "2026-09-04T04:20:33.141Z",
    "kind": "search",
    "text": "Swaythling Tennis Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-09-04T04:20:31.433Z",
-   "kind": "crawl",
-   "text": "Middlebury Indoor Tennis — https://www.vermontcf.org/ACAF/AboutUs/MiddleburyIndoorTennisMIT.aspx -> philanthropy@vermontcf.org",
-   "ok": true,
-   "url": "https://www.vermontcf.org/ACAF/AboutUs/MiddleburyIndoorTennisMIT.aspx",
-   "email": "philanthropy@vermontcf.org"
-  },
-  {
-   "t": "2026-09-04T04:20:29.133Z",
-   "kind": "search",
-   "text": "Botley PC Courts: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-09-04T04:20:25.124Z",
-   "kind": "search",
-   "text": "Billingshurst Tennis Club: search engine did not answer, will try again",
-   "ok": false
-  },
-  {
-   "t": "2026-09-04T04:20:21.111Z",
-   "kind": "search",
-   "text": "Reigate Squash Club: search engine did not answer, will try again",
    "ok": false
   }
  ],
@@ -4829,7 +4829,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T08:37:36.051Z"
+    "last": "2026-09-04T09:32:37.843Z"
    }
   },
   "Bahamas": {
@@ -5445,7 +5445,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-09-04T08:36:55.768Z",
+    "at": "2026-09-04T09:39:57.054Z",
     "error": "subdivisions: out of time",
     "via": ""
    },
@@ -26274,9 +26274,9 @@
    }
   },
   "India": {
-   "clubs": 372,
+   "clubs": 373,
    "emails": 365,
-   "sites": 63,
+   "sites": 64,
    "read": 63,
    "unreachable": 0,
    "noAddress": 4,
@@ -26284,7 +26284,7 @@
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
-    "Tennis": 326,
+    "Tennis": 327,
     "Padel": 61,
     "Squash": 113
    },
@@ -26295,7 +26295,7 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-09-04T08:36:49.612Z",
+    "at": "2026-09-04T09:41:21.486Z",
     "error": "subdivisions: out of time",
     "via": ""
    },
@@ -26334,10 +26334,10 @@
      "Rājkot"
     ],
     "citiesTotal": 2937,
-    "citiesSearched": 708,
-    "searchesDone": 2831,
+    "citiesSearched": 713,
+    "searchesDone": 2851,
     "searchesTotal": 11752,
-    "found": 125,
+    "found": 126,
     "emails": 53,
     "countrywide": {
      "s": 4,
@@ -30588,6 +30588,36 @@
      },
      {
       "n": "Sindhnūr",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Madhubani",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Bodināyakkanūr",
+      "s": 4,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Khadki",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Dhrāngadhra",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Tezpur",
       "s": 3,
       "f": 0,
       "e": 0
@@ -30600,7 +30630,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T08:50:26.817Z"
+    "last": "2026-09-04T09:50:39.105Z"
    }
   },
   "Ireland": {
@@ -35385,7 +35415,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T08:37:36.053Z"
+    "last": "2026-09-04T09:32:37.844Z"
    }
   },
   "Mozambique": {
@@ -44876,7 +44906,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T08:37:36.051Z"
+    "last": "2026-09-04T09:32:37.841Z"
    }
   },
   "Puerto Rico": {
@@ -53811,7 +53841,7 @@
    "unreachable": 86,
    "noAddress": 64,
    "leads": 822,
-   "leadsSearched": 600,
+   "leadsSearched": 602,
    "leadsFound": 520,
    "sports": {
     "Tennis": 1972,
@@ -57797,33 +57827,33 @@
    }
   },
   "United States": {
-   "clubs": 1725,
-   "emails": 1672,
-   "sites": 283,
+   "clubs": 1741,
+   "emails": 1675,
+   "sites": 298,
    "read": 275,
    "unreachable": 6,
    "noAddress": 14,
-   "leads": 133,
+   "leads": 269,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
-    "Tennis": 1433,
-    "Padel": 311,
-    "Squash": 232
+    "Tennis": 1447,
+    "Padel": 312,
+    "Squash": 233
    },
    "sources": {
     "prospect": 1324,
     "search": 222,
-    "osm": 126
+    "osm": 129
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-09-04T08:35:47.214Z",
-    "seen": 248,
-    "added": 10,
-    "rejected": 65,
-    "error": "partial: 6 of 80 subdivisions read",
-    "via": "maps.mail.ru"
+    "at": "2026-09-04T09:40:16.813Z",
+    "seen": 357,
+    "added": 16,
+    "rejected": 98,
+    "error": "partial: 7 of 80 subdivisions read",
+    "via": "overpass.private.coffee"
    },
    "prospect": {
     "cc": "US",
@@ -66870,6 +66900,48 @@
  },
  "prospectRecent": [
   {
+   "cc": "IN",
+   "city": "Tezpur",
+   "at": "2026-09-04T09:50:39.105Z",
+   "s": 3,
+   "f": 0
+  },
+  {
+   "cc": "IN",
+   "city": "Dhrāngadhra",
+   "at": "2026-09-04T09:50:39.105Z",
+   "s": 4,
+   "f": 0
+  },
+  {
+   "cc": "IN",
+   "city": "Khadki",
+   "at": "2026-09-04T09:50:39.105Z",
+   "s": 4,
+   "f": 0
+  },
+  {
+   "cc": "IN",
+   "city": "Bodināyakkanūr",
+   "at": "2026-09-04T09:50:39.105Z",
+   "s": 4,
+   "f": 1
+  },
+  {
+   "cc": "IN",
+   "city": "Madhubani",
+   "at": "2026-09-04T09:50:39.105Z",
+   "s": 4,
+   "f": 0
+  },
+  {
+   "cc": "IN",
+   "city": "Sindhnūr",
+   "at": "2026-09-04T09:50:39.105Z",
+   "s": 1,
+   "f": 0
+  },
+  {
    "cc": "US",
    "city": "City of Sammamish",
    "at": "2026-09-04T09:31:42.041Z",
@@ -67106,79 +67178,37 @@
    "at": "2026-09-04T06:43:29.374Z",
    "s": 4,
    "f": 0
-  },
-  {
-   "cc": "IN",
-   "city": "Fazilka",
-   "at": "2026-09-04T06:43:29.374Z",
-   "s": 2,
-   "f": 0
-  },
-  {
-   "cc": "BR",
-   "city": "Ribas do Rio Pardo",
-   "at": "2026-09-04T06:20:11.927Z",
-   "s": 2,
-   "f": 0
-  },
-  {
-   "cc": "BR",
-   "city": "Conceição do Mato Dentro",
-   "at": "2026-09-04T06:20:11.927Z",
-   "s": 3,
-   "f": 1
-  },
-  {
-   "cc": "BR",
-   "city": "Feira Grande",
-   "at": "2026-09-04T06:20:11.927Z",
-   "s": 3,
-   "f": 0
-  },
-  {
-   "cc": "BR",
-   "city": "Cambará",
-   "at": "2026-09-04T06:20:11.927Z",
-   "s": 1,
-   "f": 0
-  },
-  {
-   "cc": "US",
-   "city": "Lacey",
-   "at": "2026-09-04T06:01:14.417Z",
-   "s": 1,
-   "f": 0
   }
  ],
  "recent": [
-  "2026-09-04T09:18:25.459Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T09:20:19.138Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T09:21:35.927Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T09:23:35.684Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T09:25:29.111Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T09:26:37.402Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T09:27:37.651Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T09:28:38.944Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T09:29:39.260Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T09:31:42.049Z  prospect: 2 countries searched, 49 sites read, 0 clubs added",
-  "2026-09-04T09:31:42.053Z  prospect: turned down — unreachable ×15, no racket sport on the page ×15, no club signal in ×5, blocked by a challenge page ×3, a governing body, not a club: ×2",
-  "2026-09-04T09:31:42.101Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T09:31:42.131Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T09:31:42.164Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club"
+  "2026-09-04T09:40:26.480Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T09:41:21.487Z  osm IN: failed — subdivisions: out of time",
+  "2026-09-04T09:41:30.579Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T09:43:19.769Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T09:45:03.603Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T09:47:02.268Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T09:48:56.963Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T09:50:39.117Z  prospect: 1 countries searched, 70 sites read, 1 clubs added",
+  "2026-09-04T09:50:39.121Z  prospect: turned down — no racket sport on the page ×23, unreachable ×12, no club signal in ×10, blocked by a challenge page ×7, nothing on its pages ties it ×5",
+  "2026-09-04T09:50:39.236Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T09:52:38.485Z  leads: searched 2, found 0 sites, 0 new emails, 2018 leads left",
+  "2026-09-04T09:52:38.528Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T09:52:38.556Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T09:52:38.584Z  dropped example@mysite.com — claimed by 9 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-09-04T09:11:36.835Z",
+ "roundStarted": "2026-09-04T09:32:37.591Z",
  "lastRound": {
-  "at": "2026-09-04T09:31:42.185Z",
-  "minutes": 20.1,
-  "summary": "crawled 8 sites, +2 emails; searched 6 club names, found 2 sites, +0 emails; prospected 2 empty countries, +0 clubs",
-  "crawled": 8,
-  "emailsFound": 2,
+  "at": "2026-09-04T09:52:38.602Z",
+  "minutes": 20,
+  "summary": "crawled 3 sites, +0 emails; searched 2 club names, found 0 sites, +0 emails; prospected 1 empty countries, +1 clubs; osm 1 countries (BR,US,IN,ZA,CA,IE,NZ,CL,CO,PE,UY,EC) +16, 2 failed",
+  "crawled": 3,
+  "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 0,
-  "osmAdded": 0,
-  "osmFailed": 0
+  "osmCountries": 1,
+  "osmAdded": 16,
+  "osmFailed": 2
  }
 }
