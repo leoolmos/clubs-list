@@ -372,6 +372,50 @@ spent.
 **`BUDGET_MINUTES` is minutes, not money.** How long a round is allowed to
 work before it stops and waits for the next hour.
 
+**A running collector does not notice that it has been updated.** Node reads
+a file once, so the daemon.js in memory is the one the process started with.
+`publish.js` does `git reset --hard origin/<branch>` whenever the branch has
+moved, which is how a change reaches the collector at all — so every fix
+lands on disk, correctly, and is then ignored for as long as the process
+stays up. The Overture importer was merged, pulled, written to disk, and
+went on being absent from every `status.json` the collector published,
+because the process writing them had never heard of it. The watchdog does
+not catch this: it restarts a collector that is dead or wedged, and this one
+is healthy and old. The round loop now fingerprints its own sources between
+rounds and hands over to a fresh process when they change.
+
+**A phase at the end of the reading lane does not run.** The phases ahead of
+it work until the deadline and there is no remainder. Overture was wired in
+at the end and executed exactly zero times; OpenStreetMap sat there too, and
+that is most of why it had 82 of 93 countries pending after weeks. Both
+importers now take their slice out of the crawl's before the round starts,
+rather than hoping for what is left.
+
+**Running out of the round is not Overpass refusing.** The two were recorded
+as the same thing: a country cut off by the deadline was filed with an error,
+counted towards the circuit breaker, and three of them in a row had the round
+announce that Overpass was not answering today — while every mirror answered
+every request it was given. The page then showed "OpenStreetMap is refusing
+queries" over a morning of successful imports. A timeout now says so, keeps
+whatever `partial:` progress the country had, and leaves the breaker alone.
+
+**Twelve countries a round finished none of them.** The slice is shared, and
+a country's first act is an area lookup that takes longer than the seconds it
+was getting, so every country was started and none completed. Four a round,
+with the subdivision lookup on a budget of its own so a slow one gives its
+turn back instead of spending the whole slice waiting. Measured on one round
+after the change: Britain +301 clubs and Spain +148, against about 16 every
+third round before it.
+
+**What is still not fixed about Overpass.** On a bad hour the mirrors answer
+a country-wide query with something that reads as "too big", the country
+falls into the split path, and the lookup of its own subdivisions then times
+out as well — so Brazil can still spend a turn and save nothing. The budget
+above caps that at two and a half minutes instead of a whole slice, and the
+subdivision list is kept whenever it is obtained, but neither helps when the
+lookup itself never returns. This is what the free mirrors are; Overture now
+covers the same ground without depending on them.
+
 ## Tuning
 
 ```
