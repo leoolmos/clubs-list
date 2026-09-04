@@ -45,11 +45,21 @@ const CFG = {
   concurrency:   parseInt(process.env.CONCURRENCY    || '8',  10),
   hostDelayMs:   parseInt(process.env.HOST_DELAY_MS  || '2000',10), // per host
   pagesPerTick:  parseInt(process.env.PAGES_PER_TICK || '25', 10),
-  // Five minutes. Eight bought nothing while Overpass answers the biggest
-  // countries with 504s — the widened statements land whenever the mirrors
-  // have a good hour, and the subdivision bookmarks carry across rounds.
-  osmMinutes:    parseInt(process.env.OSM_MINUTES    || '5',  10),
-  osmCountries:  parseInt(process.env.OSM_COUNTRIES  || '12', 10),  // countries per round
+  /* Eight minutes, and now it gets them: the phase used to sit at the end
+   * of the reading lane behind everything else, so its five were usually
+   * whatever was left of nothing. */
+  osmMinutes:    parseInt(process.env.OSM_MINUTES    || '8',  10),
+  /* Four countries a round, not twelve.
+   *
+   * Twelve was the count that produced "subdivisions: out of time" over and
+   * over. Three workers sharing a five-minute slice across twelve countries
+   * is twenty-five seconds each, and a single Overpass statement against a
+   * country-sized area takes longer than that on a good day — so every
+   * country was started and none was finished. Four countries against three
+   * workers is roughly two minutes each, which is a query that returns.
+   * Progress is bookmarked either way; the difference is whether a round
+   * ends having finished something. */
+  osmCountries:  parseInt(process.env.OSM_COUNTRIES  || '4', 10),   // countries per round
   // Three of the four Overpass mirrors publish no concurrency limit and the
   // fourth allows two per IP (see lib/osm.js). The ceiling is their donated
   // hardware, not this machine, so raising this buys refusals rather than
@@ -335,6 +345,102 @@ function takeLock(cmd){
   }catch(e){} };
   process.on('exit', release);
   return true;
+}
+
+/* ------------------------------------------------------------------ *
+ * Running the code that is on disk
+ * ------------------------------------------------------------------ *
+ * Node reads a file once. The collector is a process that stays up for
+ * days, so the daemon.js it is executing is the one it was started with,
+ * and no amount of pulling changes that.
+ *
+ * That is not a theoretical problem here, it is the normal case. publish.js
+ * does `git reset --hard origin/<branch>` whenever the branch has moved,
+ * which is how a code change reaches this machine at all — so every fix
+ * lands on disk, correctly, and then sits there being ignored while the old
+ * process carries on. The Overture importer was merged, pulled, and written
+ * to disk, and status.json went on being published without so much as a key
+ * for it, because the process writing status.json had never heard of it.
+ *
+ * The watchdog does not catch this either: it restarts a collector that is
+ * dead or wedged, and this one is neither. It is healthy, and it is old.
+ *
+ * So the round loop looks at its own sources between rounds, and when they
+ * have changed it hands over to a fresh process. Fingerprinting on size and
+ * modification time rather than hashing keeps this to a few stat calls; a
+ * `git reset --hard` rewrites both.
+ */
+const SOURCE_FILES = (() => {
+  const files = [path.join(ROOT, 'daemon.js'), path.join(ROOT, 'publish.js')];
+  try{
+    for(const f of fs.readdirSync(path.join(ROOT, 'lib')).sort())
+      if(f.endsWith('.js')) files.push(path.join(ROOT, 'lib', f));
+  }catch(e){}
+  return files;
+})();
+
+function sourceFingerprint(){
+  return SOURCE_FILES.map(f => {
+    try{ const s = fs.statSync(f); return f + ':' + s.size + ':' + s.mtimeMs; }
+    catch(e){ return f + ':gone'; }
+  }).join('|');
+}
+
+const SOURCE_AT_START = sourceFingerprint();
+
+/**
+ * Hand over to a new process running the code that is now on disk.
+ *
+ * Spawned detached and unref'd so this process can exit while the new one
+ * keeps going, which on Windows means it survives the parent whatever the
+ * parent was started by.
+ *
+ * Two details keep the handover clean. The lock is given back here, before
+ * the child gets far enough to want it, and the child waits a couple of
+ * seconds before taking it — a child that checked while this process was
+ * still exiting would find the lock held, refuse to start, and leave the
+ * machine collecting nothing at all. And data/collector.pid is repointed at
+ * the child, because that is the file the watchdog judges liveness by;
+ * leaving it on a dead pid would have the watchdog launch a second
+ * collector every fifteen minutes, each one refused by the lock.
+ */
+function restartForNewCode(){
+  const cp = require('child_process');
+  log('the code on disk has changed — handing over to a new process');
+
+  try{
+    const held = JSON.parse(fs.readFileSync(LOCK_FILE, 'utf8'));
+    if(held && held.pid === process.pid) fs.unlinkSync(LOCK_FILE);
+  }catch(e){}
+
+  try{
+    /* The launcher redirects this process's console to a file of its own,
+     * and a detached child cannot inherit that handle — so it gets one.
+     * Everything that matters is in data/daemon.log either way, but a
+     * stack trace on the way down is not, and that is exactly the output
+     * somebody goes looking for when a handover goes wrong. */
+    let out = 'ignore';
+    try{
+      out = fs.openSync(path.join(DATA_DIR, 'daemon-console.log'), 'a');
+    }catch(e){}
+
+    const child = cp.spawn(process.execPath, process.argv.slice(1), {
+      cwd: ROOT,
+      detached: true,
+      stdio: out === 'ignore' ? 'ignore' : ['ignore', out, out],
+      env: Object.assign({}, process.env, {CLUBS_HANDOVER_MS: '2500'})
+    });
+    child.unref();
+    try{ fs.writeFileSync(path.join(DATA_DIR, 'collector.pid'), String(child.pid)); }catch(e){}
+    log(`new process is pid ${child.pid}; this one (pid ${process.pid}) is done`);
+  }catch(e){
+    /* If the handover cannot be spawned, stopping is still better than
+     * carrying on: the watchdog restarts a collector that is not running,
+     * and a fifteen-minute gap costs less than days of running code that
+     * was replaced. */
+    log(`could not start the new process (${e.message}) — exiting for the watchdog to restart`);
+  }
+  process.exit(0);
 }
 
 function keyFor(rec){
@@ -1394,9 +1500,16 @@ async function phaseLeads(db, deadline){
  */
 async function phaseOSM(db, deadline){
   if(process.env.OSM === 'off') return {cc:null, added:0};
-  // Needs a few minutes of headroom; a country cut off halfway would be
-  // marked done and silently under-collected.
-  if(Date.now() > deadline - 4*60*1000) return {cc:null, added:0, skipped:'no time left'};
+  /* Two minutes of headroom, not four.
+   *
+   * The four were there because "a country cut off halfway would be marked
+   * done and silently under-collected" — which stopped being true once big
+   * countries started being read a subdivision at a time and an unfinished
+   * one was filed as `partial:` rather than done. Being cut off is now
+   * ordinary and safe, and the round after picks the bookmark up. Four
+   * minutes of headroom against an eight-minute slice was mostly a way of
+   * skipping the phase. */
+  if(Date.now() > deadline - 2*60*1000) return {cc:null, added:0, skipped:'no time left'};
 
   // OSM gets a slice of the round, not the remainder of it. Discovery is
   // useless on its own — a club with a website and no email is not a
@@ -1857,29 +1970,52 @@ async function tick(){
     let L = {tried:0, found:0, emails:0}, p = {countries:0, added:0};
 
     const readingLane = async () => {
-      // Emails first: it is the point of the whole thing, and the queue of
-      // uncrawled sites is what actually converts into records.
+      /* Emails first: it is the point of the whole thing, and the queue of
+       * uncrawled sites is what actually converts into records.
+       *
+       * But the crawl may not spend the whole round, because the two
+       * importers behind it are what fill that queue in the first place.
+       * Their slice is subtracted here rather than left as a remainder —
+       * a phase that runs on what is left over does not run. That is not a
+       * guess: Overture was wired in at the end of this lane and never
+       * executed once, and the OpenStreetMap import has 82 of 93 countries
+       * still pending after weeks for exactly the same reason.
+       *
+       * The crawl keeps a minute whatever happens, and in practice loses
+       * nothing: it stops early when the queue is empty, and right now
+       * there are fifteen sites ready and 472 exhausted. It is short of
+       * clubs, not of time. */
+      const importerSlice = (CFG.overtureMinutes + CFG.osmMinutes) * 60 * 1000;
+      const crawlUntil = Math.min(deadline - importerSlice, Date.now() + CFG.crawlMinutes*60*1000);
       reading('crawling club websites for email addresses');
-      c = await phaseCrawl(db, Math.min(deadline, Date.now() + CFG.crawlMinutes*60*1000));
+      c = await phaseCrawl(db, Math.max(Date.now() + 60*1000, crawlUntil));
       writeJSON(DB_FILE, db);
 
-      /* Overture second, not last.
+      /* The two bulk importers, together and early.
        *
-       * The first wiring put it at the end of the lane, after the harvest
-       * and the directory walk, and in an eight-minute round it never ran
-       * once: the phases ahead of it work until the deadline and there is
-       * never a remainder. That is not a new problem — it is why the
-       * OpenStreetMap import shows 88 of 93 countries still pending — but
-       * there is no reason to inherit it. A slice taken early is a slice
-       * that happens.
-       *
-       * Second rather than first because the crawl is the point: this fills
-       * the queue that the crawl empties, and a round that discovers
-       * hundreds of clubs and reads none of their sites has not collected
-       * anything. The queue it fills is waiting for the next round anyway. */
+       * They are the only engines that reach a country nobody has seeded,
+       * and they are the ones that were being starved. Overture goes first:
+       * it is a static bucket, so its slice is spent transferring rather
+       * than waiting, and it either works or it does not. OpenStreetMap
+       * follows and takes as long as Overpass makes it take. */
       if(Date.now() < deadline){
         reading('reading places from Overture Maps');
         ov = await phaseOverture(db, deadline);
+        writeJSON(DB_FILE, db);
+      }
+
+      /* Every round now, not every third.
+       *
+       * Every third was a reaction to Overpass answering the big countries
+       * with 504s, and it made the real problem worse. A country too big for
+       * one query is read a subdivision at a time and its progress is
+       * bookmarked, so the United States needs eighty separate reads — at
+       * one attempt every third round it was seven of them in a fortnight.
+       * Overpass being slow is an argument for asking it more often, not
+       * less, because every round that answers moves the bookmark on. */
+      if(Date.now() < deadline){
+        reading('importing countries from OpenStreetMap');
+        o = await phaseOSM(db, deadline);
         writeJSON(DB_FILE, db);
       }
 
@@ -1927,15 +2063,6 @@ async function tick(){
       // on Overpass, and was killed with all of it still only in memory.
       writeJSON(DB_FILE, db);
       writeJSON(QUEUE_FILE, queue);
-
-      // Countries from OpenStreetMap, every third round. The countries still
-      // unimported are the six biggest, which Overpass answers with 504s
-      // most of the day: five minutes of every round bought nothing for a
-      // night, while the searches waited.
-      if(roundNo % 3 === 0){
-        reading('importing countries from OpenStreetMap');
-        o = await phaseOSM(db, deadline);
-      }
 
       lane.reading = '';
     };
@@ -2203,6 +2330,13 @@ crontab -e   then add:
   // Everything below here collects, and two collectors must never run at
   // once. Taking the lock is the first thing any of them does.
   if(cmd === 'serve' || cmd === 'run' || cmd === 'once'){
+    /* Started by a collector handing over to newer code (see
+     * restartForNewCode). The one being replaced releases the lock as it
+     * exits, and this waits for that to have happened — asking for the lock
+     * while the old process is still on its way out would be refused, and
+     * the handover would end with nothing running. */
+    const handover = parseInt(process.env.CLUBS_HANDOVER_MS || '0', 10);
+    if(handover > 0) await sleep(Math.min(handover, 10000));
     if(!takeLock(cmd)) process.exit(1);
   }
 
@@ -2233,7 +2367,9 @@ Tuning, all optional:
   HOST_DELAY_MS=2000    spacing per host
   PAGES_PER_TICK=25     directory pages per round
   OSM_MINUTES=8         slice of the round given to OpenStreetMap
-  OSM_COUNTRIES=6       countries per round
+  OSM_COUNTRIES=4       countries per round. Fewer finishes more: a slice
+                        split twelve ways is seconds each, and an Overpass
+                        query against a country takes longer than that
   OSM_PARALLEL=4        countries in flight at once. Overpass limits by IP
                         and there are three mirrors; past about six the extra
                         ones only collect refusals. Higher is not faster.
@@ -2276,6 +2412,12 @@ Tuning, all optional:
   let round = 0;
   while(!stopping){
     round++;
+
+    /* Before the round, not after: a pull that landed while the last round
+     * was resting should decide what this round runs, rather than being
+     * noticed twenty minutes later by the code it was meant to replace. */
+    if(sourceFingerprint() !== SOURCE_AT_START) restartForNewCode();
+
     const useful = await tick();
     if(stopping) break;
     // A round that moved nothing, against an engine on cooldown, spun
