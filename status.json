@@ -1,28 +1,28 @@
 {
- "generated": "2026-09-04T19:22:49.205Z",
- "clubs": 10074,
- "records": 14052,
+ "generated": "2026-09-04T19:39:58.933Z",
+ "clubs": 10137,
+ "records": 14064,
  "crawl": {
-  "ready": 380,
-  "waiting": 227,
-  "exhausted": 1023
+  "ready": 89,
+  "waiting": 349,
+  "exhausted": 1145
  },
  "osm": {
   "imported": 13,
-  "inProgress": 3,
-  "failed": 2,
+  "inProgress": 4,
+  "failed": 1,
   "pending": 75,
   "total": 93,
   "slowest": {
    "cc": "US",
-   "done": 23,
+   "done": 24,
    "total": 80,
-   "at": "2026-09-04T19:19:19.135Z"
+   "at": "2026-09-04T19:38:38.763Z"
   },
   "lastError": {
-   "cc": "IN",
-   "error": "subdivisions: out of time",
-   "at": "2026-09-04T19:00:54.516Z"
+   "cc": "BR",
+   "error": "subdivisions: busy (504)",
+   "at": "2026-09-04T19:37:28.743Z"
   }
  },
  "overture": {
@@ -93,27 +93,27 @@
  "crawlReasons": [
   {
    "note": "homepage",
-   "n": 1617
+   "n": 1672
   },
   {
    "note": "unreachable",
-   "n": 636
+   "n": 680
   },
   {
    "note": "no email published",
-   "n": 396
+   "n": 410
   },
   {
    "note": "contact form, no address",
-   "n": 195
+   "n": 203
   },
   {
    "note": "blocked by a challenge page",
-   "n": 151
+   "n": 162
   },
   {
    "note": "/contact",
-   "n": 67
+   "n": 68
   }
  ],
  "seeds": {
@@ -123,9 +123,9 @@
   "pagesRead": 69
  },
  "leads": {
-  "total": 3540,
-  "searched": 846,
-  "left": 2694
+  "total": 3571,
+  "searched": 864,
+  "left": 2707
  },
  "mine": {
   "patterns": 9,
@@ -137,6 +137,949 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-09-04T19:32:23.013Z",
+   "kind": "prospect",
+   "text": "United States: found Lakewood Racquet & Sport Club -> https://lakewoodracquetclub.com",
+   "ok": true,
+   "url": "https://lakewoodracquetclub.com"
+  },
+  {
+   "t": "2026-09-04T19:32:23.012Z",
+   "kind": "prospect",
+   "text": "United States: found Montclair Beach Club -> https://themontclairbeachclub.com",
+   "ok": true,
+   "url": "https://themontclairbeachclub.com"
+  },
+  {
+   "t": "2026-09-04T19:30:12.833Z",
+   "kind": "crawl",
+   "text": "Nick's Pro Fitness — https://www.nicksprofitness.com: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://www.nicksprofitness.com"
+  },
+  {
+   "t": "2026-09-04T19:30:04.175Z",
+   "kind": "search",
+   "text": "Invictus (Argentina) -> https://www.invictusyacht.com -> info@invictusyacht.com",
+   "ok": true,
+   "url": "https://www.invictusyacht.com",
+   "email": "info@invictusyacht.com"
+  },
+  {
+   "t": "2026-09-04T19:30:00.807Z",
+   "kind": "crawl",
+   "text": "La Tennis Academy — https://latennisacademy.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://latennisacademy.com"
+  },
+  {
+   "t": "2026-09-04T19:29:53.982Z",
+   "kind": "crawl",
+   "text": "Leroy Elmore Park — http://leroyelmorepark1.placeweb.site: site read, publishes no address",
+   "ok": false,
+   "url": "http://leroyelmorepark1.placeweb.site"
+  },
+  {
+   "t": "2026-09-04T19:29:49.494Z",
+   "kind": "crawl",
+   "text": "Paseo Racquet Center — https://www.paseoracquetcenter.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.paseoracquetcenter.com"
+  },
+  {
+   "t": "2026-09-04T19:29:48.091Z",
+   "kind": "crawl",
+   "text": "Cooper Street Tennis Courts — http://cooperstreettenniscourts.placeweb.site: site read, publishes no address",
+   "ok": false,
+   "url": "http://cooperstreettenniscourts.placeweb.site"
+  },
+  {
+   "t": "2026-09-04T19:29:46.800Z",
+   "kind": "crawl",
+   "text": "Tennis II — https://www.tennis.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.tennis.com"
+  },
+  {
+   "t": "2026-09-04T19:29:43.447Z",
+   "kind": "crawl",
+   "text": "R.h. Johnson Tennis Courts - Members Only — https://suncitywest.com: site read, a contact form but no address",
+   "ok": false,
+   "url": "https://suncitywest.com"
+  },
+  {
+   "t": "2026-09-04T19:29:21.531Z",
+   "kind": "crawl",
+   "text": "Academia Sanchez-Casal — http://www.asc-florida.com /about -> server@www.asc-florida.com",
+   "ok": true,
+   "url": "http://www.asc-florida.com",
+   "email": "server@www.asc-florida.com"
+  },
+  {
+   "t": "2026-09-04T19:29:04.227Z",
+   "kind": "crawl",
+   "text": "Burgess-Rushing Tennis Center — http://www.mylubbock.us/departmental-websites/departments/parks-recreation/tennis-center /935/Contact-Us -> selectaseat@mylubbock.us",
+   "ok": true,
+   "url": "http://www.mylubbock.us/departmental-websites/departments/parks-recreation/tennis-center",
+   "email": "selectaseat@mylubbock.us"
+  },
+  {
+   "t": "2026-09-04T19:28:56.274Z",
+   "kind": "crawl",
+   "text": "CCT Custom Courts and Tiles, Inc. — http://www.customcourtsandtiles.com -> janderson3@cox.net",
+   "ok": true,
+   "url": "http://www.customcourtsandtiles.com",
+   "email": "janderson3@cox.net"
+  },
+  {
+   "t": "2026-09-04T19:28:55.918Z",
+   "kind": "crawl",
+   "text": "Mary C Watkins Tennis Center — http://www.naplesbeachhotel.com/golf-tennis/tennis -> info@naplesbeachclub.com",
+   "ok": true,
+   "url": "http://www.naplesbeachhotel.com/golf-tennis/tennis",
+   "email": "info@naplesbeachclub.com"
+  },
+  {
+   "t": "2026-09-04T19:28:53.997Z",
+   "kind": "crawl",
+   "text": "Tennis CT — https://www.tennisct.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.tennisct.com"
+  },
+  {
+   "t": "2026-09-04T19:28:51.135Z",
+   "kind": "crawl",
+   "text": "Durango Tennis Pro — http://www.durangotennispro.com -> mike@durangotennispro.com",
+   "ok": true,
+   "url": "http://www.durangotennispro.com",
+   "email": "mike@durangotennispro.com"
+  },
+  {
+   "t": "2026-09-04T19:28:49.954Z",
+   "kind": "crawl",
+   "text": "Durangold Racket Sports — http://tennisdurango.com -> jgold2001@gmail.com",
+   "ok": true,
+   "url": "http://tennisdurango.com",
+   "email": "jgold2001@gmail.com"
+  },
+  {
+   "t": "2026-09-04T19:28:48.457Z",
+   "kind": "crawl",
+   "text": "UDC Tennis Courts — https://www.udc.edu/2020/05/07/udc-van-ness-farmers-market-is-open-for-grab-and-go /admissions/contact -> shala.mayo@udc.edu",
+   "ok": true,
+   "url": "https://www.udc.edu/2020/05/07/udc-van-ness-farmers-market-is-open-for-grab-and-go",
+   "email": "shala.mayo@udc.edu"
+  },
+  {
+   "t": "2026-09-04T19:28:46.582Z",
+   "kind": "crawl",
+   "text": "Ardmore Park Tennis Courts — https://www.cityofws.org/Departments/Recreation-Parks/Parks-Greenways -> citylink@cityofws.org",
+   "ok": true,
+   "url": "https://www.cityofws.org/Departments/Recreation-Parks/Parks-Greenways",
+   "email": "citylink@cityofws.org"
+  },
+  {
+   "t": "2026-09-04T19:28:45.158Z",
+   "kind": "crawl",
+   "text": "Tanglewood Park - Tennis Center — http://www.forsyth.cc/parks/tanglewood/ -> forsythcountync@forsyth.cc",
+   "ok": true,
+   "url": "http://www.forsyth.cc/parks/tanglewood/",
+   "email": "forsythcountync@forsyth.cc"
+  },
+  {
+   "t": "2026-09-04T19:28:44.889Z",
+   "kind": "crawl",
+   "text": "Davis Cup USA vs Brazil — https://www.daviscup.com/en/draws-results/tie.aspx /en/about/contact-us -> ticketoffice.fitp@ticketone.it",
+   "ok": true,
+   "url": "https://www.daviscup.com/en/draws-results/tie.aspx",
+   "email": "ticketoffice.fitp@ticketone.it"
+  },
+  {
+   "t": "2026-09-04T19:28:43.770Z",
+   "kind": "crawl",
+   "text": "Hidden Hills Racquet Club — http://hiddenhillsgc.com -> info@hiddenhillsgc.com",
+   "ok": true,
+   "url": "http://hiddenhillsgc.com",
+   "email": "info@hiddenhillsgc.com"
+  },
+  {
+   "t": "2026-09-04T19:28:40.256Z",
+   "kind": "crawl",
+   "text": "Kingsmill Tennis Club — http://www.kingsmill.com/recreation/the-tennis-club /member-portal/ -> pelham.felder@kingsmill.com",
+   "ok": true,
+   "url": "http://www.kingsmill.com/recreation/the-tennis-club",
+   "email": "pelham.felder@kingsmill.com"
+  },
+  {
+   "t": "2026-09-04T19:28:39.270Z",
+   "kind": "crawl",
+   "text": "Squash Courts at HCNY — http://www.hcny.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "http://www.hcny.com"
+  },
+  {
+   "t": "2026-09-04T19:28:38.452Z",
+   "kind": "crawl",
+   "text": "CU South Tennis Courts — https://bouldercolorado.gov/bvcp/cu-south /search -> accessibility@bouldercolorado.gov",
+   "ok": true,
+   "url": "https://bouldercolorado.gov/bvcp/cu-south",
+   "email": "accessibility@bouldercolorado.gov"
+  },
+  {
+   "t": "2026-09-04T19:28:38.372Z",
+   "kind": "crawl",
+   "text": "Green Arc Energy Advisors Llc — https://greenarceadv.com -> info@greenarceadv.com",
+   "ok": true,
+   "url": "https://greenarceadv.com",
+   "email": "info@greenarceadv.com"
+  },
+  {
+   "t": "2026-09-04T19:28:37.628Z",
+   "kind": "crawl",
+   "text": "Tennis Cabana — https://www.tenniscabana.com -> fun@tenniscabana.com",
+   "ok": true,
+   "url": "https://www.tenniscabana.com",
+   "email": "fun@tenniscabana.com"
+  },
+  {
+   "t": "2026-09-04T19:28:37.412Z",
+   "kind": "search",
+   "text": "no site found for Padel Center La Costa (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-09-04T19:28:34.024Z",
+   "kind": "crawl",
+   "text": "Manhasset Tennis — http://manhassettennis.com -> tennisdarrel@gmail.com",
+   "ok": true,
+   "url": "http://manhassettennis.com",
+   "email": "tennisdarrel@gmail.com"
+  },
+  {
+   "t": "2026-09-04T19:28:33.351Z",
+   "kind": "crawl",
+   "text": "The Racquet Club Apartments — https://www.theracquetclubapts.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.theracquetclubapts.com"
+  },
+  {
+   "t": "2026-09-04T19:28:29.614Z",
+   "kind": "crawl",
+   "text": "Caerphilly Tennis Courts — http://www.caerphillytennis.co.uk /contact-us/ -> jonathanmorgan@caerphillytennis.co.uk",
+   "ok": true,
+   "url": "http://www.caerphillytennis.co.uk",
+   "email": "jonathanmorgan@caerphillytennis.co.uk"
+  },
+  {
+   "t": "2026-09-04T19:28:24.928Z",
+   "kind": "search",
+   "text": "Unico_Centro deportivo (Argentina) -> https://www.unico.com.co -> coordigital@unico.com.co",
+   "ok": true,
+   "url": "https://www.unico.com.co",
+   "email": "coordigital@unico.com.co"
+  },
+  {
+   "t": "2026-09-04T19:28:22.559Z",
+   "kind": "crawl",
+   "text": "Builders In Grimsby & Cleethorpes — https://jgsbrickwork.co.uk: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://jgsbrickwork.co.uk"
+  },
+  {
+   "t": "2026-09-04T19:28:21.059Z",
+   "kind": "crawl",
+   "text": "Bruce Park Tennis Courts — http://www.greenwichct.org/Government/Departments/Parks_and_Recreation/Tennis/: site read, a contact form but no address",
+   "ok": false,
+   "url": "http://www.greenwichct.org/Government/Departments/Parks_and_Recreation/Tennis/"
+  },
+  {
+   "t": "2026-09-04T19:28:18.854Z",
+   "kind": "crawl",
+   "text": "Rochdale Squash Academy — http://doughtysquash.com /home/contact/ -> ljdoughty24@gmail.com",
+   "ok": true,
+   "url": "http://doughtysquash.com",
+   "email": "ljdoughty24@gmail.com"
+  },
+  {
+   "t": "2026-09-04T19:28:15.826Z",
+   "kind": "crawl",
+   "text": "Seminole Grand — http://www.seminolegrand.com: site read, a contact form but no address",
+   "ok": false,
+   "url": "http://www.seminolegrand.com"
+  },
+  {
+   "t": "2026-09-04T19:28:14.931Z",
+   "kind": "crawl",
+   "text": "Meadow Creek Tennis and Fitness Club — https://www.meadowcreektennis.com -> info@denverrc.com",
+   "ok": true,
+   "url": "https://www.meadowcreektennis.com",
+   "email": "info@denverrc.com"
+  },
+  {
+   "t": "2026-09-04T19:28:14.860Z",
+   "kind": "crawl",
+   "text": "Grove Park Clubhouse — http://elite-mgmt.com/grovepark: site read, a contact form but no address",
+   "ok": false,
+   "url": "http://elite-mgmt.com/grovepark"
+  },
+  {
+   "t": "2026-09-04T19:28:14.432Z",
+   "kind": "crawl",
+   "text": "Cypress Hill Tennis Center — http://www.biozymeinc.com /privacy-policy -> support@biozymeinc.com",
+   "ok": true,
+   "url": "http://www.biozymeinc.com",
+   "email": "support@biozymeinc.com"
+  },
+  {
+   "t": "2026-09-04T19:28:13.395Z",
+   "kind": "search",
+   "text": "Garden Fit (Argentina) -> https://gardenfit.fit, no address on the site (blocked by a challenge page)",
+   "ok": false,
+   "url": "https://gardenfit.fit",
+   "email": ""
+  },
+  {
+   "t": "2026-09-04T19:28:12.131Z",
+   "kind": "search",
+   "text": "Centro de Educación Física - Deportes y Recreación (CEF) - Ranchos (Argentina) -> https://educacionfisica.com.ar, no address on the site (contact form, no address)",
+   "ok": false,
+   "url": "https://educacionfisica.com.ar",
+   "email": ""
+  },
+  {
+   "t": "2026-09-04T19:27:52.986Z",
+   "kind": "crawl",
+   "text": "The Tennis Center at The Atlantic Club — http://www.theatlanticclub.com/club/scripts/section/section.asp /club/scripts/section/section.asp -> wadem@theatlanticclub.com",
+   "ok": true,
+   "url": "http://www.theatlanticclub.com/club/scripts/section/section.asp",
+   "email": "wadem@theatlanticclub.com"
+  },
+  {
+   "t": "2026-09-04T19:27:40.112Z",
+   "kind": "crawl",
+   "text": "Paddle Tennis Courts — http://www.darienct.gov/content/28025/28545/28815/default.aspx /contactus -> darienarb@darienct.gov",
+   "ok": true,
+   "url": "http://www.darienct.gov/content/28025/28545/28815/default.aspx",
+   "email": "darienarb@darienct.gov"
+  },
+  {
+   "t": "2026-09-04T19:27:32.072Z",
+   "kind": "crawl",
+   "text": "Tennis Connecticut — https://www.kingshwytennis.com -> barb@tennisct.com",
+   "ok": true,
+   "url": "https://www.kingshwytennis.com",
+   "email": "barb@tennisct.com"
+  },
+  {
+   "t": "2026-09-04T19:27:29.844Z",
+   "kind": "crawl",
+   "text": "Boca Raton Tennis Courts — http://www.theracquetcenter.org: site read, a contact form but no address",
+   "ok": false,
+   "url": "http://www.theracquetcenter.org"
+  },
+  {
+   "t": "2026-09-04T19:27:20.806Z",
+   "kind": "crawl",
+   "text": "Patch Reef Tennis Center — https://patchreefpark.org: site read, publishes no address",
+   "ok": false,
+   "url": "https://patchreefpark.org"
+  },
+  {
+   "t": "2026-09-04T19:27:17.146Z",
+   "kind": "crawl",
+   "text": "South Fulton Tennis Center — https://www.cityofsouthfultonga.gov/2573/economic-development /2986/Contact-Us -> dsf@cityofsouthfultonga.gov",
+   "ok": true,
+   "url": "https://www.cityofsouthfultonga.gov/2573/economic-development",
+   "email": "dsf@cityofsouthfultonga.gov"
+  },
+  {
+   "t": "2026-09-04T19:27:16.032Z",
+   "kind": "crawl",
+   "text": "Active Sports — http://active-sports.com -> info@active-sports.com",
+   "ok": true,
+   "url": "http://active-sports.com",
+   "email": "info@active-sports.com"
+  },
+  {
+   "t": "2026-09-04T19:27:14.837Z",
+   "kind": "crawl",
+   "text": "The Club At Indian Lakes Tennis Office — http://www.clubatindianlakes.com: site read, publishes no address",
+   "ok": false,
+   "url": "http://www.clubatindianlakes.com"
+  },
+  {
+   "t": "2026-09-04T19:27:13.211Z",
+   "kind": "crawl",
+   "text": "Foundry Padel — https://www.foundrypadel.com -> portland@foundrypadel.com",
+   "ok": true,
+   "url": "https://www.foundrypadel.com",
+   "email": "portland@foundrypadel.com"
+  },
+  {
+   "t": "2026-09-04T19:27:12.999Z",
+   "kind": "crawl",
+   "text": "Florence Country Club — https://florencecc.com -> membership@florencecc.com",
+   "ok": true,
+   "url": "https://florencecc.com",
+   "email": "membership@florencecc.com"
+  },
+  {
+   "t": "2026-09-04T19:27:12.813Z",
+   "kind": "crawl",
+   "text": "FSU Indoor Tennis Facility — http://seminoles.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "http://seminoles.com"
+  },
+  {
+   "t": "2026-09-04T19:27:10.748Z",
+   "kind": "crawl",
+   "text": "Oxford Tennis Courts — http://www.tennisoxford.com -> hello@courtside.uk",
+   "ok": true,
+   "url": "http://www.tennisoxford.com",
+   "email": "hello@courtside.uk"
+  },
+  {
+   "t": "2026-09-04T19:27:07.599Z",
+   "kind": "crawl",
+   "text": "Next Level Tennis High Performance — http://nltennis.com: site read, publishes no address",
+   "ok": false,
+   "url": "http://nltennis.com"
+  },
+  {
+   "t": "2026-09-04T19:27:03.974Z",
+   "kind": "crawl",
+   "text": "Bay Team Tennis Academy — http://www.bayteamtennisacademy.org -> bayteamtennisacademy@gmail.com",
+   "ok": true,
+   "url": "http://www.bayteamtennisacademy.org",
+   "email": "bayteamtennisacademy@gmail.com"
+  },
+  {
+   "t": "2026-09-04T19:27:02.523Z",
+   "kind": "crawl",
+   "text": "Canas Racket Padel — https://www.canastennis.com -> info@canasracket.com",
+   "ok": true,
+   "url": "https://www.canastennis.com",
+   "email": "info@canasracket.com"
+  },
+  {
+   "t": "2026-09-04T19:27:01.445Z",
+   "kind": "crawl",
+   "text": "MTSU Tennis Courts — http://www.mtsu.edu/camprec /contact/ -> admissions@mtsu.edu",
+   "ok": true,
+   "url": "http://www.mtsu.edu/camprec",
+   "email": "admissions@mtsu.edu"
+  },
+  {
+   "t": "2026-09-04T19:27:00.926Z",
+   "kind": "search",
+   "text": "no site found for Ruka Tigre (Paddle Club) (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-09-04T19:26:59.969Z",
+   "kind": "crawl",
+   "text": "Dominguez Pro Tennis — http://www.dominguezprotennis.com /contact -> domprotennis@gmail.com",
+   "ok": true,
+   "url": "http://www.dominguezprotennis.com",
+   "email": "domprotennis@gmail.com"
+  },
+  {
+   "t": "2026-09-04T19:26:57.409Z",
+   "kind": "crawl",
+   "text": "Cat5 Tennis Academy — https://cat5tennis.com -> obeich@cat5tennis.com",
+   "ok": true,
+   "url": "https://cat5tennis.com",
+   "email": "obeich@cat5tennis.com"
+  },
+  {
+   "t": "2026-09-04T19:26:57.144Z",
+   "kind": "crawl",
+   "text": "Do It Right Sports — http://doitrightsports.com /about-us/tennis-instruction/ -> allen@doitrightsports.com",
+   "ok": true,
+   "url": "http://doitrightsports.com",
+   "email": "allen@doitrightsports.com"
+  },
+  {
+   "t": "2026-09-04T19:26:52.865Z",
+   "kind": "crawl",
+   "text": "US Open Pickleball Championships — http://www.radioad.org/wtri/classifieds/index.php: site read, a contact form but no address",
+   "ok": false,
+   "url": "http://www.radioad.org/wtri/classifieds/index.php"
+  },
+  {
+   "t": "2026-09-04T19:26:50.338Z",
+   "kind": "search",
+   "text": "no site found for Canchas de Padel Contin (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-09-04T19:26:45.186Z",
+   "kind": "crawl",
+   "text": "Westchase Swim & Tennis Center — http://www.westchasewca.com -> manager@westchasewca.com",
+   "ok": true,
+   "url": "http://www.westchasewca.com",
+   "email": "manager@westchasewca.com"
+  },
+  {
+   "t": "2026-09-04T19:26:42.224Z",
+   "kind": "crawl",
+   "text": "Tennacity — https://www.tennacity.com/locations -> weho@tennacity.com",
+   "ok": true,
+   "url": "https://www.tennacity.com/locations",
+   "email": "weho@tennacity.com"
+  },
+  {
+   "t": "2026-09-04T19:26:40.067Z",
+   "kind": "crawl",
+   "text": "West Branch Tennis Club — https://www.westbranchtennis.com: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.westbranchtennis.com"
+  },
+  {
+   "t": "2026-09-04T19:26:39.257Z",
+   "kind": "crawl",
+   "text": "Desert Falls Fitness & Tennis Club — http://desertfallscountryclub.com -> luxuryproperties@gmail.com",
+   "ok": true,
+   "url": "http://desertfallscountryclub.com",
+   "email": "luxuryproperties@gmail.com"
+  },
+  {
+   "t": "2026-09-04T19:26:38.976Z",
+   "kind": "search",
+   "text": "no site found for Fpadel (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-09-04T19:26:38.606Z",
+   "kind": "crawl",
+   "text": "Ernest Grundy Tennis Center — http://www.ernestgrundytenniscenter.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "http://www.ernestgrundytenniscenter.com"
+  },
+  {
+   "t": "2026-09-04T19:26:36.207Z",
+   "kind": "crawl",
+   "text": "Sid and Hazel Dillon Tennis Center — https://huskers.com/facilities/sid-and-hazel-dillon-tennis-center/20 /contact-us -> nebraska@huskers.com",
+   "ok": true,
+   "url": "https://huskers.com/facilities/sid-and-hazel-dillon-tennis-center/20",
+   "email": "nebraska@huskers.com"
+  },
+  {
+   "t": "2026-09-04T19:26:33.623Z",
+   "kind": "crawl",
+   "text": "COR Tennis — http://www.readingrec.org /contact-us.htm -> daphne.klahr@readingpa.gov",
+   "ok": true,
+   "url": "http://www.readingrec.org",
+   "email": "daphne.klahr@readingpa.gov"
+  },
+  {
+   "t": "2026-09-04T19:26:30.409Z",
+   "kind": "crawl",
+   "text": "Riverside Clay Tennis Courts — http://www.rcta.info: site read, publishes no address",
+   "ok": false,
+   "url": "http://www.rcta.info"
+  },
+  {
+   "t": "2026-09-04T19:26:30.179Z",
+   "kind": "crawl",
+   "text": "Cypress Head Club — http://www.cypressheadhoa.com -> lmessick@cypressheadhoa.com",
+   "ok": true,
+   "url": "http://www.cypressheadhoa.com",
+   "email": "lmessick@cypressheadhoa.com"
+  },
+  {
+   "t": "2026-09-04T19:26:29.082Z",
+   "kind": "crawl",
+   "text": "Boca Raton Golf Lesson — http://bocaratongolflesson.com -> srmoore0724@gmail.com",
+   "ok": true,
+   "url": "http://bocaratongolflesson.com",
+   "email": "srmoore0724@gmail.com"
+  },
+  {
+   "t": "2026-09-04T19:26:28.284Z",
+   "kind": "crawl",
+   "text": "Joann Lee Tennis — https://www.joannlee.tennis: site read, publishes no address",
+   "ok": false,
+   "url": "https://www.joannlee.tennis"
+  },
+  {
+   "t": "2026-09-04T19:26:27.461Z",
+   "kind": "search",
+   "text": "Drive Pádel Club (Argentina) -> https://www.padeldrive.co.uk -> contact@padeldrive.co.uk",
+   "ok": true,
+   "url": "https://www.padeldrive.co.uk",
+   "email": "contact@padeldrive.co.uk"
+  },
+  {
+   "t": "2026-09-04T19:26:20.986Z",
+   "kind": "crawl",
+   "text": "Mt. Lebanon Racket Center — https://www.mtlebanon.org/25/Recreation-Department /contact/staff-directory/ -> xzptvyy@zgyronaba.bet",
+   "ok": true,
+   "url": "https://www.mtlebanon.org/25/Recreation-Department",
+   "email": "xzptvyy@zgyronaba.bet"
+  },
+  {
+   "t": "2026-09-04T19:26:18.305Z",
+   "kind": "crawl",
+   "text": "Ronan Tennis Academy — http://www.ronantennis.com -> ronantennisandfitness@gmail.com",
+   "ok": true,
+   "url": "http://www.ronantennis.com",
+   "email": "ronantennisandfitness@gmail.com"
+  },
+  {
+   "t": "2026-09-04T19:26:17.445Z",
+   "kind": "crawl",
+   "text": "Us Ctdp Inc — https://usctdp.com -> tennis@usctdp.com",
+   "ok": true,
+   "url": "https://usctdp.com",
+   "email": "tennis@usctdp.com"
+  },
+  {
+   "t": "2026-09-04T19:26:16.639Z",
+   "kind": "crawl",
+   "text": "Retreat Tennis Center — https://www.seaisland.com/experience/activities/retreat-tennis-center/: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://www.seaisland.com/experience/activities/retreat-tennis-center/"
+  },
+  {
+   "t": "2026-09-04T19:26:13.814Z",
+   "kind": "crawl",
+   "text": "St Simons Island Tennis Academy — https://ssitennis.com/contact-us /contact-us/ -> stsimonstennisacademy@gmail.com",
+   "ok": true,
+   "url": "https://ssitennis.com/contact-us",
+   "email": "stsimonstennisacademy@gmail.com"
+  },
+  {
+   "t": "2026-09-04T19:26:13.604Z",
+   "kind": "crawl",
+   "text": "Epworth Tennis Courts — http://www.epworthbythesea.org -> epworth@epworthbythesea.org",
+   "ok": true,
+   "url": "http://www.epworthbythesea.org",
+   "email": "epworth@epworthbythesea.org"
+  },
+  {
+   "t": "2026-09-04T19:26:12.571Z",
+   "kind": "search",
+   "text": "no site found for First Padel Center (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-09-04T19:26:11.059Z",
+   "kind": "crawl",
+   "text": "Tier One Tennis By Franco Davin Tennis Academy — https://tieronetennisfl.com -> gomez10ss@gmail.com",
+   "ok": true,
+   "url": "https://tieronetennisfl.com",
+   "email": "gomez10ss@gmail.com"
+  },
+  {
+   "t": "2026-09-04T19:26:10.745Z",
+   "kind": "crawl",
+   "text": "P4Tennis / Passion 4 Tennis — http://www.p4tennis.com -> fsalazar@p4tennis.com",
+   "ok": true,
+   "url": "http://www.p4tennis.com",
+   "email": "fsalazar@p4tennis.com"
+  },
+  {
+   "t": "2026-09-04T19:26:10.385Z",
+   "kind": "crawl",
+   "text": "Wright Patterson Tennis Club — https://www.88thfss.com/tennisclub.htm -> you@company.com",
+   "ok": true,
+   "url": "https://www.88thfss.com/tennisclub.htm",
+   "email": "you@company.com"
+  },
+  {
+   "t": "2026-09-04T19:26:10.360Z",
+   "kind": "crawl",
+   "text": "FIU Tennis Courts — https://recreation.fiu.edu/recreation-facilities-3/tennis-courts -> wrc@fiu.edu",
+   "ok": true,
+   "url": "https://recreation.fiu.edu/recreation-facilities-3/tennis-courts",
+   "email": "wrc@fiu.edu"
+  },
+  {
+   "t": "2026-09-04T19:26:09.239Z",
+   "kind": "crawl",
+   "text": "Lewis And Clark Tennis Courts — http://www.growthassociation.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "http://www.growthassociation.com"
+  },
+  {
+   "t": "2026-09-04T19:26:08.765Z",
+   "kind": "crawl",
+   "text": "The Pickleball Lab — https://pickleballlab.co -> support@adash.io",
+   "ok": true,
+   "url": "https://pickleballlab.co",
+   "email": "support@adash.io"
+  },
+  {
+   "t": "2026-09-04T19:26:08.350Z",
+   "kind": "crawl",
+   "text": "Clarke Creek Pickle Ball Courts - Private — https://www.highlandcreek.com -> arc@hawthornemgmt.com",
+   "ok": true,
+   "url": "https://www.highlandcreek.com",
+   "email": "arc@hawthornemgmt.com"
+  },
+  {
+   "t": "2026-09-04T19:26:07.809Z",
+   "kind": "crawl",
+   "text": "McNair Farms Tennis Court — http://mcnairfarms.wordpress.com /professional-email/ -> info@opensourceforall.org",
+   "ok": true,
+   "url": "http://mcnairfarms.wordpress.com",
+   "email": "info@opensourceforall.org"
+  },
+  {
+   "t": "2026-09-04T19:26:06.628Z",
+   "kind": "search",
+   "text": "Cancha de padel (Argentina) -> https://canchasdepadel.mx, no address on the site (unreachable)",
+   "ok": false,
+   "url": "https://canchasdepadel.mx",
+   "email": ""
+  },
+  {
+   "t": "2026-09-04T19:25:54.330Z",
+   "kind": "crawl",
+   "text": "Sandstone Park tennis court — https://coloradosprings.gov/parks-recreation-and-cultural-services/page/neighborhood-parks /Media -> city.communications@coloradosprings.gov",
+   "ok": true,
+   "url": "https://coloradosprings.gov/parks-recreation-and-cultural-services/page/neighborhood-parks",
+   "email": "city.communications@coloradosprings.gov"
+  },
+  {
+   "t": "2026-09-04T19:25:52.659Z",
+   "kind": "crawl",
+   "text": "Tennis 4 Kidz — http://www.tennis4kidz.net -> tennis4kidzmd@gmail.com",
+   "ok": true,
+   "url": "http://www.tennis4kidz.net",
+   "email": "tennis4kidzmd@gmail.com"
+  },
+  {
+   "t": "2026-09-04T19:25:52.536Z",
+   "kind": "crawl",
+   "text": "Tennis Courts Unlimited — https://www.tenniscourtsunlimitedne.com -> chanlaurent@yahoo.com",
+   "ok": true,
+   "url": "https://www.tenniscourtsunlimitedne.com",
+   "email": "chanlaurent@yahoo.com"
+  },
+  {
+   "t": "2026-09-04T19:25:52.322Z",
+   "kind": "crawl",
+   "text": "Dr James W Younge Tennis Courts — https://nccueaglepride.com/facilities/dr-younge-tennis-courts/4: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://nccueaglepride.com/facilities/dr-younge-tennis-courts/4"
+  },
+  {
+   "t": "2026-09-04T19:25:51.561Z",
+   "kind": "crawl",
+   "text": "ProsToYou Tennis — https://www.prostoyou.com/highlandsspring -> support@prostoyou.com",
+   "ok": true,
+   "url": "https://www.prostoyou.com/highlandsspring",
+   "email": "support@prostoyou.com"
+  },
+  {
+   "t": "2026-09-04T19:25:51.219Z",
+   "kind": "search",
+   "text": "Hit Paddle (Argentina) -> https://www.lakesuppaddleboard.com -> lakesup@shaw.ca",
+   "ok": true,
+   "url": "https://www.lakesuppaddleboard.com",
+   "email": "lakesup@shaw.ca"
+  },
+  {
+   "t": "2026-09-04T19:25:47.887Z",
+   "kind": "crawl",
+   "text": "PlayYourCourt.com — https://www.playyourcourt.com -> partners@playyourcourt.com",
+   "ok": true,
+   "url": "https://www.playyourcourt.com",
+   "email": "partners@playyourcourt.com"
+  },
+  {
+   "t": "2026-09-04T19:25:47.082Z",
+   "kind": "crawl",
+   "text": "Druid Hill Park Tennis Courts — https://bcrp.baltimorecity.gov/recreation/bcrprecreationcenters/locustpoint.aspx -> bcrp.info@baltimorecity.gov",
+   "ok": true,
+   "url": "https://bcrp.baltimorecity.gov/recreation/bcrprecreationcenters/locustpoint.aspx",
+   "email": "bcrp.info@baltimorecity.gov"
+  },
+  {
+   "t": "2026-09-04T19:25:46.221Z",
+   "kind": "crawl",
+   "text": "Beren Tennis Courts — https://www.marietta.edu/petro-department /about/contact-marietta -> alumni@marietta.edu",
+   "ok": true,
+   "url": "https://www.marietta.edu/petro-department",
+   "email": "alumni@marietta.edu"
+  },
+  {
+   "t": "2026-09-04T19:25:44.915Z",
+   "kind": "crawl",
+   "text": "Octagon Tennis Courts — https://www.rioc.ny.gov/399/Tennis-Information -> info@rioc.ny.gov",
+   "ok": true,
+   "url": "https://www.rioc.ny.gov/399/Tennis-Information",
+   "email": "info@rioc.ny.gov"
+  },
+  {
+   "t": "2026-09-04T19:25:44.228Z",
+   "kind": "crawl",
+   "text": "Southwood Park Tennis Courts — http://www.yellowpages.com/parkersburg-wv/southwood-park-pool: not the club's own site, not read",
+   "ok": false,
+   "url": "http://www.yellowpages.com/parkersburg-wv/southwood-park-pool"
+  },
+  {
+   "t": "2026-09-04T19:25:42.362Z",
+   "kind": "crawl",
+   "text": "island country club gym — http://island-countryclub.org -> hhall@island-countryclub.org",
+   "ok": true,
+   "url": "http://island-countryclub.org",
+   "email": "hhall@island-countryclub.org"
+  },
+  {
+   "t": "2026-09-04T19:25:41.148Z",
+   "kind": "crawl",
+   "text": "Pickleball & Tennis Courts — http://linvillelandharbor.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "http://linvillelandharbor.com"
+  },
+  {
+   "t": "2026-09-04T19:25:40.730Z",
+   "kind": "crawl",
+   "text": "RPNY Tennis — https://rpnytennis.com -> rpnytennis@aol.com",
+   "ok": true,
+   "url": "https://rpnytennis.com",
+   "email": "rpnytennis@aol.com"
+  },
+  {
+   "t": "2026-09-04T19:25:39.699Z",
+   "kind": "crawl",
+   "text": "Parkwood Indoor Tennis — http://www.gnparks.org -> gnparks@gnparks.org",
+   "ok": true,
+   "url": "http://www.gnparks.org",
+   "email": "gnparks@gnparks.org"
+  },
+  {
+   "t": "2026-09-04T19:25:39.586Z",
+   "kind": "crawl",
+   "text": "Parkwood Tennis Center — http://www.greatneckparks.org -> gnparks@gnparks.org",
+   "ok": true,
+   "url": "http://www.greatneckparks.org",
+   "email": "gnparks@gnparks.org"
+  },
+  {
+   "t": "2026-09-04T19:25:38.169Z",
+   "kind": "crawl",
+   "text": "Loyola Marymount Tennis Academy — http://www.totalcamps.com/LMUtennisCLINICS -> camps@teamworks.com",
+   "ok": true,
+   "url": "http://www.totalcamps.com/LMUtennisCLINICS",
+   "email": "camps@teamworks.com"
+  },
+  {
+   "t": "2026-09-04T19:25:37.354Z",
+   "kind": "crawl",
+   "text": "Tustin Pickleballers — http://www.ocregister.com/articles/pickleball-608860-courts-tustin.html -> local@ocregister.com",
+   "ok": true,
+   "url": "http://www.ocregister.com/articles/pickleball-608860-courts-tustin.html",
+   "email": "local@ocregister.com"
+  },
+  {
+   "t": "2026-09-04T19:25:36.449Z",
+   "kind": "crawl",
+   "text": "Tim Pawsat's Tennis Camp — https://tustinhillsracquetclub.com -> info@mythrpc.com",
+   "ok": true,
+   "url": "https://tustinhillsracquetclub.com",
+   "email": "info@mythrpc.com"
+  },
+  {
+   "t": "2026-09-04T19:25:35.446Z",
+   "kind": "crawl",
+   "text": "Fort Lee Tennis Court - Tennis Prime — https://tennis-prime.com /pages/contact-us -> info@tennis-prime.com",
+   "ok": true,
+   "url": "https://tennis-prime.com",
+   "email": "info@tennis-prime.com"
+  },
+  {
+   "t": "2026-09-04T19:25:35.029Z",
+   "kind": "crawl",
+   "text": "Stadium Park Tennis Courts — https://cantonparksandrec.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://cantonparksandrec.com"
+  },
+  {
+   "t": "2026-09-04T19:25:34.409Z",
+   "kind": "crawl",
+   "text": "SoCal Pickleball Academy — http://scpickleballacademy.com -> info@scpickleballacademy.com",
+   "ok": true,
+   "url": "http://scpickleballacademy.com",
+   "email": "info@scpickleballacademy.com"
+  },
+  {
+   "t": "2026-09-04T19:25:34.081Z",
+   "kind": "crawl",
+   "text": "Overpeck Park Tennis Center — http://tennis-prose.com -> scoop.malinowski@yahoo.com",
+   "ok": true,
+   "url": "http://tennis-prose.com",
+   "email": "scoop.malinowski@yahoo.com"
+  },
+  {
+   "t": "2026-09-04T19:25:33.231Z",
+   "kind": "crawl",
+   "text": "Strongsville Tennis Courts — http://www.strongsville.org/content/recreation.asp -> city@strongsville.org",
+   "ok": true,
+   "url": "http://www.strongsville.org/content/recreation.asp",
+   "email": "city@strongsville.org"
+  },
+  {
+   "t": "2026-09-04T19:25:32.874Z",
+   "kind": "crawl",
+   "text": "Baldwin Wallace Tennis Courts — https://bwyellowjackets.com/facilities/pop-collins-tennis-courts/7 -> info@bw.edu",
+   "ok": true,
+   "url": "https://bwyellowjackets.com/facilities/pop-collins-tennis-courts/7",
+   "email": "info@bw.edu"
+  },
+  {
+   "t": "2026-09-04T19:25:26.250Z",
+   "kind": "search",
+   "text": "no site found for New Padel (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-09-04T19:25:26.250Z",
+   "kind": "search",
+   "text": "Efecto Padel (Argentina) -> https://efectopadelclub.versorisports.com -> carobouchet19@gmail.com",
+   "ok": true,
+   "url": "https://efectopadelclub.versorisports.com",
+   "email": "carobouchet19@gmail.com"
+  },
+  {
+   "t": "2026-09-04T19:25:12.764Z",
+   "kind": "search",
+   "text": "Cancha de Padel C.A.L.Ñ (Argentina) -> https://padelmanager.net/ -> info@padelmanager.net",
+   "ok": true,
+   "url": "https://padelmanager.net/",
+   "email": "info@padelmanager.net"
+  },
+  {
+   "t": "2026-09-04T19:25:00.558Z",
+   "kind": "search",
+   "text": "no site found for Colo Pádel (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-09-04T19:24:59.932Z",
+   "kind": "search",
+   "text": "Club Atlético El Tala (Argentina) -> http://atleticotala.com.ar, no address on the site (no email published)",
+   "ok": false,
+   "url": "http://atleticotala.com.ar",
+   "email": ""
+  },
+  {
+   "t": "2026-09-04T19:23:24.645Z",
+   "kind": "search",
+   "text": "no site found for Club Union y Juventud De Beccar (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-09-04T19:23:12.346Z",
+   "kind": "crawl",
+   "text": "Village Glen Tennis & Pickleball — https://wnytennis.com: turned away by a captcha, will retry",
+   "ok": false,
+   "url": "https://wnytennis.com"
+  },
   {
    "t": "2026-09-04T19:22:48.882Z",
    "kind": "search",
@@ -398,958 +1341,6 @@
    "text": "Oakmont View Park — http://oakmontviewpark.placeweb.site: site read, publishes no address",
    "ok": false,
    "url": "http://oakmontviewpark.placeweb.site"
-  },
-  {
-   "t": "2026-09-04T19:07:54.807Z",
-   "kind": "crawl",
-   "text": "Tennis Racket Stringing Tennis Classes Staten Island — https://beststringing.com -> perfectstringing@gmail.com",
-   "ok": true,
-   "url": "https://beststringing.com",
-   "email": "perfectstringing@gmail.com"
-  },
-  {
-   "t": "2026-09-04T19:07:54.166Z",
-   "kind": "crawl",
-   "text": "High Performance Tennis Acad — http://www.hpta-riverside.com -> info@hpta-riverside.com",
-   "ok": true,
-   "url": "http://www.hpta-riverside.com",
-   "email": "info@hpta-riverside.com"
-  },
-  {
-   "t": "2026-09-04T19:07:49.296Z",
-   "kind": "crawl",
-   "text": "Seven Hills Tennis Courts — https://sevenhills-atlanta.com /privacy -> help@sevenhills-atlanta.com",
-   "ok": true,
-   "url": "https://sevenhills-atlanta.com",
-   "email": "help@sevenhills-atlanta.com"
-  },
-  {
-   "t": "2026-09-04T19:07:41.782Z",
-   "kind": "crawl",
-   "text": "Fit To A Tee: Golf, Tennis & Pickleball — https://fittoateeshop.com -> fittoatee@yahoo.com",
-   "ok": true,
-   "url": "https://fittoateeshop.com",
-   "email": "fittoatee@yahoo.com"
-  },
-  {
-   "t": "2026-09-04T19:07:40.621Z",
-   "kind": "crawl",
-   "text": "Forest Ridge Swim & Tennis — http://www.forestridge.com -> info@forestridge.com",
-   "ok": true,
-   "url": "http://www.forestridge.com",
-   "email": "info@forestridge.com"
-  },
-  {
-   "t": "2026-09-04T19:07:39.332Z",
-   "kind": "crawl",
-   "text": "Aldred Squash — https://www.aldredsquash.co.uk: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.aldredsquash.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:07:32.046Z",
-   "kind": "crawl",
-   "text": "Cunningham Park Tennis Courts — http://cunninghamtenniscenter.com -> info@cunninghamtennis.com",
-   "ok": true,
-   "url": "http://cunninghamtenniscenter.com",
-   "email": "info@cunninghamtennis.com"
-  },
-  {
-   "t": "2026-09-04T19:07:31.098Z",
-   "kind": "crawl",
-   "text": "Tiger Tennis Academy — https://tigertennisacademy.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://tigertennisacademy.com"
-  },
-  {
-   "t": "2026-09-04T19:07:30.342Z",
-   "kind": "crawl",
-   "text": "Wolfe Park Tennis & Pickleball Courts — https://monroect.myrec.com/info/facilities/details.aspx -> parksandrec@monroect.gov",
-   "ok": true,
-   "url": "https://monroect.myrec.com/info/facilities/details.aspx",
-   "email": "parksandrec@monroect.gov"
-  },
-  {
-   "t": "2026-09-04T19:07:29.767Z",
-   "kind": "crawl",
-   "text": "Inverness Junior Tennis Academy — http://invernessjuniortennisacademy.com /contactus/ -> jfreeman@heritagegolfgroup.com",
-   "ok": true,
-   "url": "http://invernessjuniortennisacademy.com",
-   "email": "jfreeman@heritagegolfgroup.com"
-  },
-  {
-   "t": "2026-09-04T19:07:29.328Z",
-   "kind": "crawl",
-   "text": "Mercer Bucks Pickleball Club — https://www.playmbpc.com -> info@playmbpc.com",
-   "ok": true,
-   "url": "https://www.playmbpc.com",
-   "email": "info@playmbpc.com"
-  },
-  {
-   "t": "2026-09-04T19:07:27.514Z",
-   "kind": "crawl",
-   "text": "She Leads Sports — https://sheleadssports.com -> info@sheleadssports.com",
-   "ok": true,
-   "url": "https://sheleadssports.com",
-   "email": "info@sheleadssports.com"
-  },
-  {
-   "t": "2026-09-04T19:07:27.342Z",
-   "kind": "crawl",
-   "text": "Estadio de Tenis del Club Argentino — https://www.estadiosdeargentina.com.ar: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://www.estadiosdeargentina.com.ar"
-  },
-  {
-   "t": "2026-09-04T19:07:27.324Z",
-   "kind": "crawl",
-   "text": "Elite Tennis Academy — http://www.mctennisacademy.com -> monte1967@yahoo.com",
-   "ok": true,
-   "url": "http://www.mctennisacademy.com",
-   "email": "monte1967@yahoo.com"
-  },
-  {
-   "t": "2026-09-04T19:07:26.857Z",
-   "kind": "crawl",
-   "text": "Player's Choice Tennis — http://www.playerschoicetennis.com -> pctennisal@gmail.com",
-   "ok": true,
-   "url": "http://www.playerschoicetennis.com",
-   "email": "pctennisal@gmail.com"
-  },
-  {
-   "t": "2026-09-04T19:07:26.561Z",
-   "kind": "crawl",
-   "text": "Sport Surfaces LLC | Nanuet New York Sport Surface Contractor — http://www.sportsurfaces.com -> pgold@sportsurfaces.com",
-   "ok": true,
-   "url": "http://www.sportsurfaces.com",
-   "email": "pgold@sportsurfaces.com"
-  },
-  {
-   "t": "2026-09-04T19:07:22.843Z",
-   "kind": "crawl",
-   "text": "Fallbrook Tennis & Pickleball Club — https://fallbrooktennisclub.com -> fallbrooktennisclub@gmail.com",
-   "ok": true,
-   "url": "https://fallbrooktennisclub.com",
-   "email": "fallbrooktennisclub@gmail.com"
-  },
-  {
-   "t": "2026-09-04T19:07:21.031Z",
-   "kind": "crawl",
-   "text": "Utopía Club de Paddle — https://utopia-padel.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://utopia-padel.com"
-  },
-  {
-   "t": "2026-09-04T19:07:20.899Z",
-   "kind": "crawl",
-   "text": "Spring Ridge Tennis Courts — http://www.springridgehoa.com -> spring-ridge-hoa@googlegroups.com",
-   "ok": true,
-   "url": "http://www.springridgehoa.com",
-   "email": "spring-ridge-hoa@googlegroups.com"
-  },
-  {
-   "t": "2026-09-04T19:07:20.462Z",
-   "kind": "crawl",
-   "text": "Rivermont: Colony Tennis Courts — http://www.rivermontliving.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "http://www.rivermontliving.com"
-  },
-  {
-   "t": "2026-09-04T19:07:19.701Z",
-   "kind": "crawl",
-   "text": "Epiphany Court Tennis Center — http://epiphanycourt.com -> winningtennis@bellsouth.com",
-   "ok": true,
-   "url": "http://epiphanycourt.com",
-   "email": "winningtennis@bellsouth.com"
-  },
-  {
-   "t": "2026-09-04T19:07:19.546Z",
-   "kind": "crawl",
-   "text": "Talbot Tennis — https://www.talbottennis.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.talbottennis.com"
-  },
-  {
-   "t": "2026-09-04T19:07:19.113Z",
-   "kind": "crawl",
-   "text": "Indoor Tennis Courts — http://www.greenvalleycc.org: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "http://www.greenvalleycc.org"
-  },
-  {
-   "t": "2026-09-04T19:07:17.639Z",
-   "kind": "crawl",
-   "text": "Mountain View Tennis — https://www.mountainviewtennis.net -> info@mountainviewtennis.net",
-   "ok": true,
-   "url": "https://www.mountainviewtennis.net",
-   "email": "info@mountainviewtennis.net"
-  },
-  {
-   "t": "2026-09-04T19:07:17.201Z",
-   "kind": "crawl",
-   "text": "Cubberley Tennis Courts — https://www.paloaltotennis.com -> dropins@paloaltotennis.com",
-   "ok": true,
-   "url": "https://www.paloaltotennis.com",
-   "email": "dropins@paloaltotennis.com"
-  },
-  {
-   "t": "2026-09-04T19:07:16.557Z",
-   "kind": "crawl",
-   "text": "Padel Republic — https://mypadelrepublic.com: site read, publishes no address",
-   "ok": false,
-   "url": "https://mypadelrepublic.com"
-  },
-  {
-   "t": "2026-09-04T19:07:14.120Z",
-   "kind": "crawl",
-   "text": "Player Capital Tennis — https://www.playercapital.com -> admin@playercapital.com",
-   "ok": true,
-   "url": "https://www.playercapital.com",
-   "email": "admin@playercapital.com"
-  },
-  {
-   "t": "2026-09-04T19:07:09.910Z",
-   "kind": "crawl",
-   "text": "JSU Tennis Courts — https://www.jsugamecocksports.com/sports/2008/8/5/GEN_0805081650.aspx: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.jsugamecocksports.com/sports/2008/8/5/GEN_0805081650.aspx"
-  },
-  {
-   "t": "2026-09-04T19:07:06.962Z",
-   "kind": "crawl",
-   "text": "Green Knoll Tennis Center — http://somersetcountyparks.org /general-info/pages/staff-contacts -> rquick@scparks.org",
-   "ok": true,
-   "url": "http://somersetcountyparks.org",
-   "email": "rquick@scparks.org"
-  },
-  {
-   "t": "2026-09-04T19:07:05.985Z",
-   "kind": "crawl",
-   "text": "Patterson Park Tennis Courts — https://www.tennisbaltimore.com/court_detail/baltimore-patterson-park -> tennisbaltimore@gmail.com",
-   "ok": true,
-   "url": "https://www.tennisbaltimore.com/court_detail/baltimore-patterson-park",
-   "email": "tennisbaltimore@gmail.com"
-  },
-  {
-   "t": "2026-09-04T19:07:05.212Z",
-   "kind": "crawl",
-   "text": "Deiner Park — http://rumaps.rutgers.edu/location/deiner-park: not the club's own site, not read",
-   "ok": false,
-   "url": "http://rumaps.rutgers.edu/location/deiner-park"
-  },
-  {
-   "t": "2026-09-04T19:07:05.211Z",
-   "kind": "crawl",
-   "text": "Nick Peck Tennis — http://nptennis.co.uk: site read, a contact form but no address",
-   "ok": false,
-   "url": "http://nptennis.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:07:01.472Z",
-   "kind": "crawl",
-   "text": "Annacone Tennis Management — https://annaconetennis.com -> info@annaconetennis.com",
-   "ok": true,
-   "url": "https://annaconetennis.com",
-   "email": "info@annaconetennis.com"
-  },
-  {
-   "t": "2026-09-04T19:06:58.809Z",
-   "kind": "crawl",
-   "text": "Willmore Tennis Club — http://www.longbeach.gov/park/park-and-facilities/directory/drake-park/ -> mayor@longbeach.gov",
-   "ok": true,
-   "url": "http://www.longbeach.gov/park/park-and-facilities/directory/drake-park/",
-   "email": "mayor@longbeach.gov"
-  },
-  {
-   "t": "2026-09-04T19:06:58.399Z",
-   "kind": "crawl",
-   "text": "The Burbank Tennis Center — https://burbanktenniscenter.com -> info@burbanktenniscenter.com",
-   "ok": true,
-   "url": "https://burbanktenniscenter.com",
-   "email": "info@burbanktenniscenter.com"
-  },
-  {
-   "t": "2026-09-04T19:06:58.128Z",
-   "kind": "crawl",
-   "text": "Kennington Park Tennis Courts — https://www.openplay.co.uk/view/149/kennington-park: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.openplay.co.uk/view/149/kennington-park"
-  },
-  {
-   "t": "2026-09-04T19:06:56.062Z",
-   "kind": "crawl",
-   "text": "Emma Wells Tennis in Wimbledon Park — http://www.emmawellstennis.com: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.emmawellstennis.com"
-  },
-  {
-   "t": "2026-09-04T19:06:26.792Z",
-   "kind": "crawl",
-   "text": "ITA Atlanta — https://itaatl.com -> info@itpta.com",
-   "ok": true,
-   "url": "https://itaatl.com",
-   "email": "info@itpta.com"
-  },
-  {
-   "t": "2026-09-04T19:06:26.750Z",
-   "kind": "crawl",
-   "text": "Saltburn Tennis Club — https://saltburn.org.uk: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://saltburn.org.uk"
-  },
-  {
-   "t": "2026-09-04T19:06:26.679Z",
-   "kind": "crawl",
-   "text": "Newmarket Liesure Centre — https://newmarketcharity.org: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://newmarketcharity.org"
-  },
-  {
-   "t": "2026-09-04T19:06:26.613Z",
-   "kind": "crawl",
-   "text": "Atlantic Tennis Centre — https://www.atlantictenniscentre.ca//atc/home/ -> impallari@gmail.com",
-   "ok": true,
-   "url": "https://www.atlantictenniscentre.ca//atc/home/",
-   "email": "impallari@gmail.com"
-  },
-  {
-   "t": "2026-09-04T19:06:26.242Z",
-   "kind": "crawl",
-   "text": "Wimbledon Park Tennis Courts — http://www.wimbledonparktennis.com: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.wimbledonparktennis.com"
-  },
-  {
-   "t": "2026-09-04T19:06:26.233Z",
-   "kind": "crawl",
-   "text": "West Lake Country Club — https://www.westlakecountryclub.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.westlakecountryclub.com"
-  },
-  {
-   "t": "2026-09-04T19:06:25.224Z",
-   "kind": "crawl",
-   "text": "Sensa Padel — https://sensapadel.com -> boston@sensapadel.com",
-   "ok": true,
-   "url": "https://sensapadel.com",
-   "email": "boston@sensapadel.com"
-  },
-  {
-   "t": "2026-09-04T19:06:24.946Z",
-   "kind": "crawl",
-   "text": "Bodyswot Tennis — http://www.bodyswottennis.co.uk: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.bodyswottennis.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:06:20.277Z",
-   "kind": "crawl",
-   "text": "Lake Hickory Country Club — https://www.lakehickorycc.com -> assistant@lakehickorycc.com",
-   "ok": true,
-   "url": "https://www.lakehickorycc.com",
-   "email": "assistant@lakehickorycc.com"
-  },
-  {
-   "t": "2026-09-04T19:06:18.327Z",
-   "kind": "crawl",
-   "text": "Carolina Pickleball Club — https://pbhickory.com -> info@carolinapickleball.net",
-   "ok": true,
-   "url": "https://pbhickory.com",
-   "email": "info@carolinapickleball.net"
-  },
-  {
-   "t": "2026-09-04T19:06:17.904Z",
-   "kind": "crawl",
-   "text": "The Courts at Pebble Creek — https://pebble-creek-sports.squarespace.com -> pebblecreeksc@gmail.com",
-   "ok": true,
-   "url": "https://pebble-creek-sports.squarespace.com",
-   "email": "pebblecreeksc@gmail.com"
-  },
-  {
-   "t": "2026-09-04T19:06:17.408Z",
-   "kind": "crawl",
-   "text": "The Courts at Pebble Creek — https://playpebblecreek.com -> pebblecreeksc@gmail.com",
-   "ok": true,
-   "url": "https://playpebblecreek.com",
-   "email": "pebblecreeksc@gmail.com"
-  },
-  {
-   "t": "2026-09-04T19:06:17.285Z",
-   "kind": "crawl",
-   "text": "Go Private Golf: Private Country Clubs Near You — https://www.goprivategolf.com -> inquiries@goprivategolf.com",
-   "ok": true,
-   "url": "https://www.goprivategolf.com",
-   "email": "inquiries@goprivategolf.com"
-  },
-  {
-   "t": "2026-09-04T19:06:17.156Z",
-   "kind": "crawl",
-   "text": "san gabriel tennis club — https://sangabrietennisclub.blogspot.com -> s_j_woo@charter.net",
-   "ok": true,
-   "url": "https://sangabrietennisclub.blogspot.com",
-   "email": "s_j_woo@charter.net"
-  },
-  {
-   "t": "2026-09-04T19:06:16.465Z",
-   "kind": "crawl",
-   "text": "Northwood Swim Club — https://www.northwoodpool.com -> northwoodpoolandclub@gmail.com",
-   "ok": true,
-   "url": "https://www.northwoodpool.com",
-   "email": "northwoodpoolandclub@gmail.com"
-  },
-  {
-   "t": "2026-09-04T19:06:15.018Z",
-   "kind": "crawl",
-   "text": "Saint James Tennis Club — https://www.saintjamestennisclub.com -> support@saintjamestennisclub.com",
-   "ok": true,
-   "url": "https://www.saintjamestennisclub.com",
-   "email": "support@saintjamestennisclub.com"
-  },
-  {
-   "t": "2026-09-04T19:06:14.905Z",
-   "kind": "crawl",
-   "text": "Crystal Lake Country Club — https://www.clcountryclub.com /contact-us -> tbaior@clcountryclub.com",
-   "ok": true,
-   "url": "https://www.clcountryclub.com",
-   "email": "tbaior@clcountryclub.com"
-  },
-  {
-   "t": "2026-09-04T19:06:12.403Z",
-   "kind": "crawl",
-   "text": "Classic Tennis Courts — http://www.classictenniscourts.com -> gerry@classictenniscourts.com",
-   "ok": true,
-   "url": "http://www.classictenniscourts.com",
-   "email": "gerry@classictenniscourts.com"
-  },
-  {
-   "t": "2026-09-04T19:06:12.109Z",
-   "kind": "crawl",
-   "text": "Brighton Sand Court — http://www.visitbrighton.com /plan-your-visit/about-the-area/plan-your-visit-to-sussex -> info@rivercafebistro.co.uk",
-   "ok": true,
-   "url": "http://www.visitbrighton.com",
-   "email": "info@rivercafebistro.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:05:55.223Z",
-   "kind": "crawl",
-   "text": "Lympstone Tennis Club — http://www.lympstonetc.co.uk /contact/committee/ -> jase.hendy@googlemail.com",
-   "ok": true,
-   "url": "http://www.lympstonetc.co.uk",
-   "email": "jase.hendy@googlemail.com"
-  },
-  {
-   "t": "2026-09-04T19:05:55.091Z",
-   "kind": "crawl",
-   "text": "ClubRackets.com — https://www.clubrackets.com -> ian@clubrackets.com",
-   "ok": true,
-   "url": "https://www.clubrackets.com",
-   "email": "ian@clubrackets.com"
-  },
-  {
-   "t": "2026-09-04T19:05:53.683Z",
-   "kind": "crawl",
-   "text": "Wincanton Sports Ground — http://www.wincantonsportsground.co.uk -> contact@wincantonsportsground.co.uk",
-   "ok": true,
-   "url": "http://www.wincantonsportsground.co.uk",
-   "email": "contact@wincantonsportsground.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:05:50.791Z",
-   "kind": "crawl",
-   "text": "PadelStars Southampton — https://padelstars.co.uk/padelstars-southampton /privacy-policy -> info@padelstars.co.uk",
-   "ok": true,
-   "url": "https://padelstars.co.uk/padelstars-southampton",
-   "email": "info@padelstars.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:05:49.929Z",
-   "kind": "crawl",
-   "text": "Norwood Padel — http://www.norwoodpadel.co.uk: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.norwoodpadel.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:05:38.760Z",
-   "kind": "crawl",
-   "text": "Buzz Padel — http://www.buzzpadel.co.uk: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.buzzpadel.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:05:33.225Z",
-   "kind": "crawl",
-   "text": "Your Tennis Coach — https://www.yourtenniscoach.co.uk -> info@yourtenniscoach.co.uk",
-   "ok": true,
-   "url": "https://www.yourtenniscoach.co.uk",
-   "email": "info@yourtenniscoach.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:05:32.751Z",
-   "kind": "crawl",
-   "text": "Leicester Forest East Tennis Club — http://www.bpconnect.co.uk: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.bpconnect.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:05:28.447Z",
-   "kind": "crawl",
-   "text": "Aceify.me — https://aceify.me: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://aceify.me"
-  },
-  {
-   "t": "2026-09-04T19:05:26.288Z",
-   "kind": "crawl",
-   "text": "Racquet Technic — http://www.racquet-technic.co.uk: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.racquet-technic.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:05:21.409Z",
-   "kind": "crawl",
-   "text": "Racquet Depot UK — https://www.racquetdepot.co.uk: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.racquetdepot.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:05:02.054Z",
-   "kind": "crawl",
-   "text": "Superstar Squash — http://www.superstarsquash.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "http://www.superstarsquash.com"
-  },
-  {
-   "t": "2026-09-04T19:05:01.263Z",
-   "kind": "crawl",
-   "text": "Burton Leonard Tennis Club — http://themethodistchurchburtonleonard.placeweb.site: site read, publishes no address",
-   "ok": false,
-   "url": "http://themethodistchurchburtonleonard.placeweb.site"
-  },
-  {
-   "t": "2026-09-04T19:04:51.309Z",
-   "kind": "crawl",
-   "text": "Newquay Padel — https://www.newquay.co.uk/listing/newquay-holiday-park-park-dean -> hello@newquay.co.uk",
-   "ok": true,
-   "url": "https://www.newquay.co.uk/listing/newquay-holiday-park-park-dean",
-   "email": "hello@newquay.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:46.626Z",
-   "kind": "crawl",
-   "text": "Cambridge Courts — https://www.cambridgecourts.co.uk -> simon@cambridgecourts.co.uk",
-   "ok": true,
-   "url": "https://www.cambridgecourts.co.uk",
-   "email": "simon@cambridgecourts.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:46.108Z",
-   "kind": "crawl",
-   "text": "Regent's Park Tennis Courts — http://www.rpgts.co.uk: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "http://www.rpgts.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:45.453Z",
-   "kind": "crawl",
-   "text": "Quarry Road Tennis Courts — http://www.pktennis.co.uk -> shane.kingsley@me.com",
-   "ok": true,
-   "url": "http://www.pktennis.co.uk",
-   "email": "shane.kingsley@me.com"
-  },
-  {
-   "t": "2026-09-04T19:04:44.748Z",
-   "kind": "crawl",
-   "text": "The Winchester Tennis & Squash club — http://www.winchesterracquetsandfitness.net -> reception@winchesterracquetsandfitness.net",
-   "ok": true,
-   "url": "http://www.winchesterracquetsandfitness.net",
-   "email": "reception@winchesterracquetsandfitness.net"
-  },
-  {
-   "t": "2026-09-04T19:04:38.569Z",
-   "kind": "crawl",
-   "text": "Locks Heath Tennis Club — http://www.locksheathtennis.co.uk -> locksheathtennis@aol.co.uk",
-   "ok": true,
-   "url": "http://www.locksheathtennis.co.uk",
-   "email": "locksheathtennis@aol.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:38.261Z",
-   "kind": "crawl",
-   "text": "All Court Tennis Club — https://allcourttennisclub.com -> hello@allcourt.club",
-   "ok": true,
-   "url": "https://allcourttennisclub.com",
-   "email": "hello@allcourt.club"
-  },
-  {
-   "t": "2026-09-04T19:04:37.947Z",
-   "kind": "crawl",
-   "text": "GSM Leisure Tennis Coaching at Charnwood — http://www.gsmleisure.co.uk -> cees@gsmtennis.co.uk",
-   "ok": true,
-   "url": "http://www.gsmleisure.co.uk",
-   "email": "cees@gsmtennis.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:37.906Z",
-   "kind": "crawl",
-   "text": "Southampton Stringing — http://www.southamptonstringing.co.uk -> southampton.stringing@gmail.com",
-   "ok": true,
-   "url": "http://www.southamptonstringing.co.uk",
-   "email": "southampton.stringing@gmail.com"
-  },
-  {
-   "t": "2026-09-04T19:04:37.501Z",
-   "kind": "crawl",
-   "text": "Memorial Tennis Courts — http://www.parksandgardens.org/places-and-people/site/4910/summary /support/contact-us -> info@parksandgardens.org",
-   "ok": true,
-   "url": "http://www.parksandgardens.org/places-and-people/site/4910/summary",
-   "email": "info@parksandgardens.org"
-  },
-  {
-   "t": "2026-09-04T19:04:36.387Z",
-   "kind": "crawl",
-   "text": "Andover Lawn Tennis Club — http://altc.net /contact -> info@altc.net",
-   "ok": true,
-   "url": "http://altc.net",
-   "email": "info@altc.net"
-  },
-  {
-   "t": "2026-09-04T19:04:36.046Z",
-   "kind": "crawl",
-   "text": "Tees Sport — http://www.teessport.com: site read, a contact form but no address",
-   "ok": false,
-   "url": "http://www.teessport.com"
-  },
-  {
-   "t": "2026-09-04T19:04:35.082Z",
-   "kind": "crawl",
-   "text": "TennisHQ.co.uk — https://www.tennishq.co.uk -> support@tennishq.co.uk",
-   "ok": true,
-   "url": "https://www.tennishq.co.uk",
-   "email": "support@tennishq.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:33.771Z",
-   "kind": "crawl",
-   "text": "Loughton tennis courts — http://www.essexwt.org.uk/reserves/roding-valley-meadows /contact-us -> membership@essexwt.org.uk",
-   "ok": true,
-   "url": "http://www.essexwt.org.uk/reserves/roding-valley-meadows",
-   "email": "membership@essexwt.org.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:29.814Z",
-   "kind": "crawl",
-   "text": "Connect Padel UK — http://www.connectpadeluk.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "http://www.connectpadeluk.com"
-  },
-  {
-   "t": "2026-09-04T19:04:29.603Z",
-   "kind": "crawl",
-   "text": "Tower Hamlets Tennis — http://www.towerhamletstennis.co.uk -> info@towerhamletstennis.org.uk",
-   "ok": true,
-   "url": "http://www.towerhamletstennis.co.uk",
-   "email": "info@towerhamletstennis.org.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:29.216Z",
-   "kind": "crawl",
-   "text": "WimX Tennis Academy — http://www.wimx.org.uk: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "http://www.wimx.org.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:28.868Z",
-   "kind": "crawl",
-   "text": "On Court Coaching — https://oncourtcoaching.co.uk -> tennis@oncourtcoaching.co.uk",
-   "ok": true,
-   "url": "https://oncourtcoaching.co.uk",
-   "email": "tennis@oncourtcoaching.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:23.560Z",
-   "kind": "crawl",
-   "text": "Tower Hamlets Tennis Court — http://tennistowerhamlets.com -> hello@courtside.uk",
-   "ok": true,
-   "url": "http://tennistowerhamlets.com",
-   "email": "hello@courtside.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:20.293Z",
-   "kind": "crawl",
-   "text": "Epsom Sports Club — http://www.epsomsportsclub.co.uk -> admin@epsomsportsclub.co.uk",
-   "ok": true,
-   "url": "http://www.epsomsportsclub.co.uk",
-   "email": "admin@epsomsportsclub.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:19.760Z",
-   "kind": "crawl",
-   "text": "Tennis Avenue academy — http://www.tennisavenue.co.uk -> office@tennisavenue.co.uk",
-   "ok": true,
-   "url": "http://www.tennisavenue.co.uk",
-   "email": "office@tennisavenue.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:19.407Z",
-   "kind": "crawl",
-   "text": "Esher Lawn Tennis — http://eshertennis.net -> hello@eshertennis.co.uk",
-   "ok": true,
-   "url": "http://eshertennis.net",
-   "email": "hello@eshertennis.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:19.053Z",
-   "kind": "crawl",
-   "text": "Surrey Tennis Coaching — http://www.surreytennis.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "http://www.surreytennis.com"
-  },
-  {
-   "t": "2026-09-04T19:04:18.365Z",
-   "kind": "crawl",
-   "text": "Ad Tennis — http://www.adtennis.com -> info@adtennis.com",
-   "ok": true,
-   "url": "http://www.adtennis.com",
-   "email": "info@adtennis.com"
-  },
-  {
-   "t": "2026-09-04T19:04:17.831Z",
-   "kind": "crawl",
-   "text": "Your Advantage Tennis Academy — http://www.youradvantage-tennisacademy.co.uk -> contact@youradvantage-tennisacademy.co.uk",
-   "ok": true,
-   "url": "http://www.youradvantage-tennisacademy.co.uk",
-   "email": "contact@youradvantage-tennisacademy.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:17.718Z",
-   "kind": "crawl",
-   "text": "Southend Leisure & Tennis Centre — http://www.leisurecentre.com: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.leisurecentre.com"
-  },
-  {
-   "t": "2026-09-04T19:04:17.362Z",
-   "kind": "crawl",
-   "text": "Glynneath Tennis Club — https://www.pitchero.com/clubs/glynneathtownfootballclub: site read, publishes no address",
-   "ok": false,
-   "url": "https://www.pitchero.com/clubs/glynneathtownfootballclub"
-  },
-  {
-   "t": "2026-09-04T19:04:13.303Z",
-   "kind": "crawl",
-   "text": "Langley Tennis Club — http://www.langleytennis.com -> info@langleytennis.com",
-   "ok": true,
-   "url": "http://www.langleytennis.com",
-   "email": "info@langleytennis.com"
-  },
-  {
-   "t": "2026-09-04T19:04:12.113Z",
-   "kind": "crawl",
-   "text": "Padel 16 — http://www.padel16.co.uk -> hello@padel16.co.uk",
-   "ok": true,
-   "url": "http://www.padel16.co.uk",
-   "email": "hello@padel16.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:04:06.981Z",
-   "kind": "crawl",
-   "text": "Tennis with Sophie — http://www.tenniswithsophie.com -> sophieintrinity@gmail.com",
-   "ok": true,
-   "url": "http://www.tenniswithsophie.com",
-   "email": "sophieintrinity@gmail.com"
-  },
-  {
-   "t": "2026-09-04T19:04:03.663Z",
-   "kind": "crawl",
-   "text": "Island Club of Hilton Head — https://islandclubofhh.com /reaching-us/ -> patty.pearson@islandclubofhh.com",
-   "ok": true,
-   "url": "https://islandclubofhh.com",
-   "email": "patty.pearson@islandclubofhh.com"
-  },
-  {
-   "t": "2026-09-04T19:04:00.284Z",
-   "kind": "crawl",
-   "text": "Bristol Lawn Tennis & Squash Club — http://www.bltsc.co.uk: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.bltsc.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:03:57.786Z",
-   "kind": "crawl",
-   "text": "CourtCare UK — http://www.courtcareuk.com: site read, publishes no address",
-   "ok": false,
-   "url": "http://www.courtcareuk.com"
-  },
-  {
-   "t": "2026-09-04T19:03:57.725Z",
-   "kind": "crawl",
-   "text": "Churston Tennis Club — http://www.churstontennisclub.co.uk -> info@churstontennisclub.co.uk",
-   "ok": true,
-   "url": "http://www.churstontennisclub.co.uk",
-   "email": "info@churstontennisclub.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:03:53.047Z",
-   "kind": "crawl",
-   "text": "Abington Park Tennis Courts — https://parkstennis.co.uk/venue/abington-park: site read, a contact form but no address",
-   "ok": false,
-   "url": "https://parkstennis.co.uk/venue/abington-park"
-  },
-  {
-   "t": "2026-09-04T19:03:46.666Z",
-   "kind": "crawl",
-   "text": "Woodfield Squash And Leisure Club — http://woodfieldsquashclub.co.uk: site read, publishes no address",
-   "ok": false,
-   "url": "http://woodfieldsquashclub.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:03:35.698Z",
-   "kind": "crawl",
-   "text": "Boyd Sport & Play — https://www.sportsequip.co.uk: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.sportsequip.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:03:34.580Z",
-   "kind": "crawl",
-   "text": "Oakbury Tennis Club Sevenoaks — http://www.tennis-sevenoaks.co.uk -> oakbury@live.co.uk",
-   "ok": true,
-   "url": "http://www.tennis-sevenoaks.co.uk",
-   "email": "oakbury@live.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:03:34.292Z",
-   "kind": "crawl",
-   "text": "Batley Sports & Tennis Centre — http://kirkleesactive.co.uk/batley-sports -> contact.centre@kal.org.uk",
-   "ok": true,
-   "url": "http://kirkleesactive.co.uk/batley-sports",
-   "email": "contact.centre@kal.org.uk"
-  },
-  {
-   "t": "2026-09-04T19:03:33.417Z",
-   "kind": "crawl",
-   "text": "The Tennis Courts — https://www.gleneagles.com -> playground.planners@gleneagles.com",
-   "ok": true,
-   "url": "https://www.gleneagles.com",
-   "email": "playground.planners@gleneagles.com"
-  },
-  {
-   "t": "2026-09-04T19:03:33.150Z",
-   "kind": "crawl",
-   "text": "Simon Porter Tennis — http://simonportertennis.co.uk -> simonportertennis@gmail.com",
-   "ok": true,
-   "url": "http://simonportertennis.co.uk",
-   "email": "simonportertennis@gmail.com"
-  },
-  {
-   "t": "2026-09-04T19:03:31.613Z",
-   "kind": "crawl",
-   "text": "Tennis House at the Maidstone Club — http://maidstoneclub.org: site read, a contact form but no address",
-   "ok": false,
-   "url": "http://maidstoneclub.org"
-  },
-  {
-   "t": "2026-09-04T19:03:00.479Z",
-   "kind": "crawl",
-   "text": "Official SCHH Pickleball Club — https://schhpickleball.com /club-news/f/waterfall-tournament -> steve.lerner@icloud.com",
-   "ok": true,
-   "url": "https://schhpickleball.com",
-   "email": "steve.lerner@icloud.com"
-  },
-  {
-   "t": "2026-09-04T19:02:54.327Z",
-   "kind": "crawl",
-   "text": "Millom Park Tennis — http://millomtowncouncil.co.uk -> theclerk@millomtowncouncil.co.uk",
-   "ok": true,
-   "url": "http://millomtowncouncil.co.uk",
-   "email": "theclerk@millomtowncouncil.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:02:53.918Z",
-   "kind": "crawl",
-   "text": "Long Cove Club — https://longcoveclub.com / -> hello@longcoveclub.com",
-   "ok": true,
-   "url": "https://longcoveclub.com",
-   "email": "hello@longcoveclub.com"
-  },
-  {
-   "t": "2026-09-04T19:02:47.265Z",
-   "kind": "crawl",
-   "text": "International Tennis Academy — http://www.itftennis.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "http://www.itftennis.com"
-  },
-  {
-   "t": "2026-09-04T19:02:46.010Z",
-   "kind": "crawl",
-   "text": "JB Tennis Court Maintenance — https://www.jbcourtmaintenance.co.uk -> enquiries@jbcourtmaintenance.co.uk",
-   "ok": true,
-   "url": "https://www.jbcourtmaintenance.co.uk",
-   "email": "enquiries@jbcourtmaintenance.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:02:45.620Z",
-   "kind": "crawl",
-   "text": "Clube Barroso — https://clubebarroso.com.br -> cnabarroso100@gmail.com",
-   "ok": true,
-   "url": "https://clubebarroso.com.br",
-   "email": "cnabarroso100@gmail.com"
-  },
-  {
-   "t": "2026-09-04T19:02:43.586Z",
-   "kind": "crawl",
-   "text": "Oak Hill Country Club MA — https://www.oakhillcc.org /membership -> sprentiss@oakhillcc.org",
-   "ok": true,
-   "url": "https://www.oakhillcc.org",
-   "email": "sprentiss@oakhillcc.org"
-  },
-  {
-   "t": "2026-09-04T19:02:42.940Z",
-   "kind": "crawl",
-   "text": "Tunbridge Wells Bowls & Tennis Club — http://www.twltc.co.uk -> admin@twltc.co.uk",
-   "ok": true,
-   "url": "http://www.twltc.co.uk",
-   "email": "admin@twltc.co.uk"
-  },
-  {
-   "t": "2026-09-04T19:02:42.299Z",
-   "kind": "crawl",
-   "text": "Khelshala :: Squashing Barriers — https://www.khelshala.in -> info@khelshala.in",
-   "ok": true,
-   "url": "https://www.khelshala.in",
-   "email": "info@khelshala.in"
-  },
-  {
-   "t": "2026-09-04T19:02:41.212Z",
-   "kind": "crawl",
-   "text": "Racquet Social India — https://racquetsocialindia.com -> partners@racquetsocialindia.com",
-   "ok": true,
-   "url": "https://racquetsocialindia.com",
-   "email": "partners@racquetsocialindia.com"
-  },
-  {
-   "t": "2026-09-04T19:02:40.903Z",
-   "kind": "crawl",
-   "text": "La Quinta Resort & Club — https://map.laquintaresort.com -> lqr-cabana@laquintaresort.com",
-   "ok": true,
-   "url": "https://map.laquintaresort.com",
-   "email": "lqr-cabana@laquintaresort.com"
-  },
-  {
-   "t": "2026-09-04T19:02:40.278Z",
-   "kind": "crawl",
-   "text": "Princeton Club Madison — https://www.princetonclub.net /contact-us/ -> tedgerry@princetonclub.net",
-   "ok": true,
-   "url": "https://www.princetonclub.net",
-   "email": "tedgerry@princetonclub.net"
-  },
-  {
-   "t": "2026-09-04T19:02:37.977Z",
-   "kind": "crawl",
-   "text": "Georgica Tennis Club — http://buckskilltennis.com /active_pages/contact.html -> info@buckskilltennis.com",
-   "ok": true,
-   "url": "http://buckskilltennis.com",
-   "email": "info@buckskilltennis.com"
   }
  ],
  "perCountry": {
@@ -2117,27 +2108,27 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Argentina": {
-   "clubs": 454,
-   "emails": 416,
-   "sites": 120,
-   "read": 73,
-   "unreachable": 19,
-   "noAddress": 14,
+   "clubs": 464,
+   "emails": 422,
+   "sites": 130,
+   "read": 83,
+   "unreachable": 20,
+   "noAddress": 15,
    "leads": 273,
-   "leadsSearched": 24,
-   "leadsFound": 16,
+   "leadsSearched": 42,
+   "leadsFound": 26,
    "sports": {
-    "Tennis": 301,
-    "Padel": 202,
+    "Tennis": 303,
+    "Padel": 210,
     "Squash": 27
    },
    "sources": {
     "prospect": 152,
-    "search": 97,
+    "search": 103,
     "osm": 38,
     "overture": 129
    },
@@ -2189,7 +2180,7 @@
     "searchesDone": 759,
     "searchesTotal": 759,
     "found": 68,
-    "emails": 158,
+    "emails": 159,
     "countrywide": {
      "s": 3,
      "f": 2
@@ -2475,7 +2466,7 @@
       "n": "Santa Rosa",
       "s": 3,
       "f": 1,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Morón",
@@ -3931,7 +3922,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.213Z"
+    "last": "2026-09-04T19:30:04.392Z"
    }
   },
   "Australia": {
@@ -5799,7 +5790,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:10:12.052Z"
+    "last": "2026-09-04T19:32:23.014Z"
    }
   },
   "Bahamas": {
@@ -5861,7 +5852,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Barbados": {
@@ -5908,7 +5899,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Bermuda": {
@@ -5954,7 +5945,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.208Z"
+    "last": "2026-09-04T19:30:04.389Z"
    }
   },
   "Bolivia": {
@@ -6213,7 +6204,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.202Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Botswana": {
@@ -6407,7 +6398,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Brazil": {
@@ -6433,8 +6424,8 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-09-04T18:59:46.737Z",
-    "error": "fetch failed",
+    "at": "2026-09-04T19:37:28.743Z",
+    "error": "subdivisions: busy (504)",
     "via": ""
    },
    "prospect": {
@@ -17386,7 +17377,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.212Z"
+    "last": "2026-09-04T19:30:04.392Z"
    }
   },
   "Canada": {
@@ -19854,7 +19845,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.201Z"
+    "last": "2026-09-04T19:30:04.382Z"
    }
   },
   "Cape Verde": {
@@ -19922,7 +19913,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Cayman Islands": {
@@ -19976,7 +19967,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.208Z"
+    "last": "2026-09-04T19:30:04.389Z"
    }
   },
   "Chile": {
@@ -20812,7 +20803,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.199Z"
+    "last": "2026-09-04T19:30:04.382Z"
    }
   },
   "Colombia": {
@@ -22380,7 +22371,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.202Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Costa Rica": {
@@ -22686,7 +22677,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.202Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Cuba": {
@@ -23477,7 +23468,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.203Z"
+    "last": "2026-09-04T19:30:04.384Z"
    }
   },
   "Cyprus": {
@@ -23672,7 +23663,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.208Z"
+    "last": "2026-09-04T19:30:04.388Z"
    }
   },
   "Dominica": {
@@ -23710,7 +23701,7 @@
     },
     "cityStats": [],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Dominican Republic": {
@@ -24033,7 +24024,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.202Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Ecuador": {
@@ -24454,7 +24445,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.202Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Egypt": {
@@ -26009,7 +26000,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.208Z"
+    "last": "2026-09-04T19:30:04.388Z"
    }
   },
   "El Salvador": {
@@ -26232,7 +26223,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.203Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Equatorial Guinea": {
@@ -26293,7 +26284,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Fiji": {
@@ -26376,7 +26367,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Gambia": {
@@ -26577,7 +26568,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Ghana": {
@@ -27218,7 +27209,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Gibraltar": {
@@ -27266,7 +27257,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.208Z"
+    "last": "2026-09-04T19:30:04.389Z"
    }
   },
   "Guatemala": {
@@ -27830,7 +27821,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.203Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Guinea-Bissau": {
@@ -27954,7 +27945,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Guyana": {
@@ -28015,7 +28006,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Honduras": {
@@ -28380,7 +28371,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.203Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Hong Kong": {
@@ -28931,7 +28922,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.208Z"
+    "last": "2026-09-04T19:30:04.388Z"
    }
   },
   "India": {
@@ -28941,7 +28932,7 @@
    "read": 92,
    "unreachable": 6,
    "noAddress": 5,
-   "leads": 0,
+   "leads": 23,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
@@ -28957,9 +28948,12 @@
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-09-04T19:00:54.516Z",
-    "error": "subdivisions: out of time",
-    "via": ""
+    "at": "2026-09-04T19:39:51.561Z",
+    "seen": 47,
+    "added": 0,
+    "rejected": 10,
+    "error": "partial: 0 of 39 subdivisions read",
+    "via": "maps.mail.ru"
    },
    "prospect": {
     "cc": "IN",
@@ -28996,8 +28990,8 @@
      "Rājkot"
     ],
     "citiesTotal": 2937,
-    "citiesSearched": 795,
-    "searchesDone": 3180,
+    "citiesSearched": 798,
+    "searchesDone": 3192,
     "searchesTotal": 11752,
     "found": 142,
     "emails": 175,
@@ -33777,6 +33771,24 @@
       "e": 0
      },
      {
+      "n": "Bihāt",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Samāstipur",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Kāranja",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
       "n": "Rāipur",
       "s": 0,
       "f": 0,
@@ -33886,7 +33898,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:18:11.186Z"
+    "last": "2026-09-04T19:34:45.324Z"
    }
   },
   "Ireland": {
@@ -34165,7 +34177,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.201Z"
+    "last": "2026-09-04T19:30:04.382Z"
    }
   },
   "Isle of Man": {
@@ -34213,7 +34225,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.208Z"
+    "last": "2026-09-04T19:30:04.389Z"
    }
   },
   "Jamaica": {
@@ -34331,7 +34343,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Jersey": {
@@ -34384,7 +34396,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.208Z"
+    "last": "2026-09-04T19:30:04.389Z"
    }
   },
   "Kenya": {
@@ -35098,7 +35110,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.204Z"
+    "last": "2026-09-04T19:30:04.386Z"
    }
   },
   "Lesotho": {
@@ -35209,7 +35221,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Liberia": {
@@ -35354,7 +35366,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Malawi": {
@@ -35534,7 +35546,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Malta": {
@@ -35616,7 +35628,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.204Z"
+    "last": "2026-09-04T19:30:04.386Z"
    }
   },
   "Mauritius": {
@@ -35719,7 +35731,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.204Z"
+    "last": "2026-09-04T19:30:04.386Z"
    }
   },
   "Mexico": {
@@ -38817,7 +38829,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:10:12.053Z"
+    "last": "2026-09-04T19:32:23.015Z"
    }
   },
   "Mozambique": {
@@ -39235,7 +39247,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Namibia": {
@@ -39404,7 +39416,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "New Zealand": {
@@ -39839,7 +39851,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.202Z"
+    "last": "2026-09-04T19:30:04.382Z"
    }
   },
   "Nicaragua": {
@@ -40096,7 +40108,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.203Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Nigeria": {
@@ -41511,7 +41523,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.205Z"
+    "last": "2026-09-04T19:30:04.386Z"
    }
   },
   "Pakistan": {
@@ -43545,7 +43557,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.205Z"
+    "last": "2026-09-04T19:30:04.385Z"
    }
   },
   "Palau": {
@@ -43583,7 +43595,7 @@
     },
     "cityStats": [],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Panama": {
@@ -43763,7 +43775,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.203Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Papua New Guinea": {
@@ -43860,7 +43872,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Paraguay": {
@@ -44109,7 +44121,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.203Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Peru": {
@@ -44903,7 +44915,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.203Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Philippines": {
@@ -47807,7 +47819,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.204Z"
+    "last": "2026-09-04T19:30:04.385Z"
    }
   },
   "Portugal": {
@@ -48739,7 +48751,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:10:12.053Z"
+    "last": "2026-09-04T19:32:23.014Z"
    }
   },
   "Puerto Rico": {
@@ -48911,7 +48923,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.208Z"
+    "last": "2026-09-04T19:30:04.389Z"
    }
   },
   "Rwanda": {
@@ -49203,7 +49215,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Saint Lucia": {
@@ -49257,7 +49269,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Saint Vincent and the Grenadines": {
@@ -49311,7 +49323,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Seychelles": {
@@ -49358,7 +49370,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Sierra Leone": {
@@ -49461,7 +49473,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Singapore": {
@@ -49888,7 +49900,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.204Z"
+    "last": "2026-09-04T19:30:04.384Z"
    }
   },
   "Solomon Islands": {
@@ -49963,7 +49975,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "South Africa": {
@@ -51592,7 +51604,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.202Z"
+    "last": "2026-09-04T19:30:04.381Z"
    }
   },
   "Spain": {
@@ -55441,7 +55453,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.208Z"
+    "last": "2026-09-04T19:30:04.389Z"
    }
   },
   "Sudan": {
@@ -55919,7 +55931,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Tanzania": {
@@ -57004,7 +57016,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.386Z"
    }
   },
   "Trinidad and Tobago": {
@@ -57109,7 +57121,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Uganda": {
@@ -57792,7 +57804,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.386Z"
    }
   },
   "United Arab Emirates": {
@@ -58201,15 +58213,15 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.388Z"
    }
   },
   "United Kingdom": {
    "clubs": 2844,
-   "emails": 2497,
+   "emails": 2499,
    "sites": 1343,
-   "read": 906,
-   "unreachable": 131,
+   "read": 920,
+   "unreachable": 142,
    "noAddress": 92,
    "leads": 822,
    "leadsSearched": 822,
@@ -58225,7 +58237,7 @@
     "harvest": 93,
     "search": 523,
     "osm": 322,
-    "overture": 181
+    "overture": 183
    },
    "seeds": 7,
    "osm": {
@@ -58275,7 +58287,7 @@
     "searchesDone": 2612,
     "searchesTotal": 2612,
     "found": 391,
-    "emails": 726,
+    "emails": 728,
     "countrywide": {
      "s": 4,
      "f": 20
@@ -58927,7 +58939,7 @@
       "n": "Rochdale",
       "s": 4,
       "f": 1,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Hemel Hempstead",
@@ -60805,7 +60817,7 @@
       "n": "Caerphilly",
       "s": 4,
       "f": 0,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Ruislip",
@@ -62495,37 +62507,37 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.210Z"
+    "last": "2026-09-04T19:30:04.390Z"
    }
   },
   "United States": {
-   "clubs": 3067,
-   "emails": 2507,
-   "sites": 1569,
-   "read": 975,
-   "unreachable": 172,
-   "noAddress": 111,
-   "leads": 520,
+   "clubs": 3069,
+   "emails": 2578,
+   "sites": 1571,
+   "read": 1108,
+   "unreachable": 204,
+   "noAddress": 124,
+   "leads": 528,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
-    "Tennis": 2665,
+    "Tennis": 2667,
     "Padel": 348,
     "Squash": 258
    },
    "sources": {
-    "prospect": 1406,
+    "prospect": 1408,
     "search": 222,
-    "osm": 148,
-    "overture": 731
+    "osm": 149,
+    "overture": 799
    },
    "seeds": 0,
    "osm": {
-    "at": "2026-09-04T19:19:19.135Z",
-    "seen": 69,
+    "at": "2026-09-04T19:38:38.763Z",
+    "seen": 16,
     "added": 0,
-    "rejected": 27,
-    "error": "partial: 23 of 80 subdivisions read",
+    "rejected": 5,
+    "error": "partial: 24 of 80 subdivisions read",
     "via": "maps.mail.ru"
    },
    "prospect": {
@@ -62563,11 +62575,11 @@
      "Detroit"
     ],
     "citiesTotal": 2305,
-    "citiesSearched": 1167,
-    "searchesDone": 4667,
+    "citiesSearched": 1170,
+    "searchesDone": 4679,
     "searchesTotal": 9224,
-    "found": 696,
-    "emails": 1056,
+    "found": 698,
+    "emails": 1127,
     "countrywide": {
      "s": 4,
      "f": 3
@@ -62583,7 +62595,7 @@
       "n": "Los Angeles",
       "s": 4,
       "f": 6,
-      "e": 17
+      "e": 18
      },
      {
       "n": "Brooklyn",
@@ -62655,7 +62667,7 @@
       "n": "Jacksonville",
       "s": 4,
       "f": 2,
-      "e": 3
+      "e": 5
      },
      {
       "n": "Fort Worth",
@@ -62667,7 +62679,7 @@
       "n": "San Jose",
       "s": 4,
       "f": 0,
-      "e": 3
+      "e": 4
      },
      {
       "n": "Austin",
@@ -62685,7 +62697,7 @@
       "n": "Charlotte",
       "s": 4,
       "f": 4,
-      "e": 2
+      "e": 3
      },
      {
       "n": "Indianapolis",
@@ -62709,13 +62721,13 @@
       "n": "Denver",
       "s": 4,
       "f": 1,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Washington",
       "s": 4,
       "f": 3,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Nashville",
@@ -62781,7 +62793,7 @@
       "n": "Baltimore",
       "s": 4,
       "f": 0,
-      "e": 2
+      "e": 3
      },
      {
       "n": "South Boston",
@@ -62823,13 +62835,13 @@
       "n": "Atlanta",
       "s": 4,
       "f": 0,
-      "e": 5
+      "e": 6
      },
      {
       "n": "Miami",
       "s": 4,
       "f": 2,
-      "e": 5
+      "e": 8
      },
      {
       "n": "Omaha",
@@ -62859,7 +62871,7 @@
       "n": "Mesa",
       "s": 4,
       "f": 0,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Staten Island",
@@ -62871,13 +62883,13 @@
       "n": "Colorado Springs",
       "s": 4,
       "f": 3,
-      "e": 2
+      "e": 3
      },
      {
       "n": "Virginia Beach",
       "s": 4,
       "f": 1,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Oakland",
@@ -62889,7 +62901,7 @@
       "n": "Tampa",
       "s": 4,
       "f": 0,
-      "e": 4
+      "e": 5
      },
      {
       "n": "Tulsa",
@@ -62967,7 +62979,7 @@
       "n": "Lexington",
       "s": 4,
       "f": 1,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Riverside",
@@ -62997,7 +63009,7 @@
       "n": "Santa Ana",
       "s": 4,
       "f": 0,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Stockton",
@@ -63009,7 +63021,7 @@
       "n": "Pittsburgh",
       "s": 4,
       "f": 1,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Saint Paul",
@@ -63021,7 +63033,7 @@
       "n": "Lincoln",
       "s": 4,
       "f": 1,
-      "e": 2
+      "e": 3
      },
      {
       "n": "Anchorage",
@@ -63141,7 +63153,7 @@
       "n": "Lubbock",
       "s": 4,
       "f": 1,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Gilbert",
@@ -63159,7 +63171,7 @@
       "n": "Winston-Salem",
       "s": 4,
       "f": 1,
-      "e": 1
+      "e": 3
      },
      {
       "n": "Glendale",
@@ -63603,7 +63615,7 @@
       "n": "Murfreesboro",
       "s": 4,
       "f": 0,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Port Saint Lucie",
@@ -63633,7 +63645,7 @@
       "n": "Cary",
       "s": 4,
       "f": 1,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Alexandria",
@@ -63867,7 +63879,7 @@
       "n": "Miramar",
       "s": 4,
       "f": 1,
-      "e": 2
+      "e": 3
      },
      {
       "n": "Van Nuys",
@@ -63885,7 +63897,7 @@
       "n": "Dayton",
       "s": 4,
       "f": 2,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Olathe",
@@ -64365,7 +64377,7 @@
       "n": "Temecula",
       "s": 4,
       "f": 0,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Murrieta",
@@ -64455,7 +64467,7 @@
       "n": "Boulder",
       "s": 4,
       "f": 1,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Broken Arrow",
@@ -64881,7 +64893,7 @@
       "n": "Boca Raton",
       "s": 4,
       "f": 2,
-      "e": 4
+      "e": 5
      },
      {
       "n": "Santa Monica",
@@ -64965,7 +64977,7 @@
       "n": "Greenville",
       "s": 4,
       "f": 1,
-      "e": 4
+      "e": 5
      },
      {
       "n": "Edmond",
@@ -65061,7 +65073,7 @@
       "n": "Reading",
       "s": 4,
       "f": 0,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Indio",
@@ -65421,7 +65433,7 @@
       "n": "Tustin",
       "s": 4,
       "f": 0,
-      "e": 2
+      "e": 3
      },
      {
       "n": "Mountain View",
@@ -65595,7 +65607,7 @@
       "n": "Fishers",
       "s": 4,
       "f": 0,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Saint Joseph",
@@ -65805,7 +65817,7 @@
       "n": "Boynton Beach",
       "s": 4,
       "f": 0,
-      "e": 2
+      "e": 3
      },
      {
       "n": "Jonesboro",
@@ -66225,7 +66237,7 @@
       "n": "Rockville",
       "s": 4,
       "f": 2,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Lincoln Park",
@@ -66789,7 +66801,7 @@
       "n": "West Hollywood",
       "s": 4,
       "f": 0,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Brentwood",
@@ -67011,7 +67023,7 @@
       "n": "Marietta",
       "s": 4,
       "f": 2,
-      "e": 4
+      "e": 5
      },
      {
       "n": "Owensboro",
@@ -67863,7 +67875,7 @@
       "n": "Palm Desert",
       "s": 4,
       "f": 4,
-      "e": 5
+      "e": 6
      },
      {
       "n": "Joplin",
@@ -68001,7 +68013,7 @@
       "n": "Coral Gables",
       "s": 4,
       "f": 3,
-      "e": 3
+      "e": 4
      },
      {
       "n": "The Trails of Frisco",
@@ -68361,7 +68373,7 @@
       "n": "McLean",
       "s": 4,
       "f": 5,
-      "e": 6
+      "e": 7
      },
      {
       "n": "Ceres",
@@ -68709,7 +68721,7 @@
       "n": "Strongsville",
       "s": 4,
       "f": 0,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Coachella",
@@ -69501,13 +69513,13 @@
       "n": "Florence",
       "s": 4,
       "f": 1,
-      "e": 0
+      "e": 1
      },
      {
       "n": "St. Johns",
       "s": 4,
       "f": 1,
-      "e": 0
+      "e": 1
      },
      {
       "n": "Shakopee",
@@ -69571,15 +69583,27 @@
      },
      {
       "n": "Montclair",
-      "s": 3,
+      "s": 4,
+      "f": 2,
+      "e": 0
+     },
+     {
+      "n": "Puyallup",
+      "s": 4,
       "f": 1,
       "e": 0
      },
      {
       "n": "Woburn",
-      "s": 0,
+      "s": 4,
       "f": 0,
       "e": 1
+     },
+     {
+      "n": "Bremerton",
+      "s": 3,
+      "f": 0,
+      "e": 0
      },
      {
       "n": "North Fort Myers",
@@ -69648,6 +69672,12 @@
       "e": 1
      },
      {
+      "n": "Sun City",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
       "n": "Lake Worth Beach",
       "s": 0,
       "f": 0,
@@ -69661,6 +69691,12 @@
      },
      {
       "n": "Clifton Park",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
+      "n": "Fort Lee",
       "s": 0,
       "f": 0,
       "e": 1
@@ -69693,7 +69729,7 @@
       "n": "Parkland",
       "s": 0,
       "f": 0,
-      "e": 1
+      "e": 2
      },
      {
       "n": "Valrico",
@@ -69715,6 +69751,12 @@
      },
      {
       "n": "Cumberland",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
+      "n": "Brunswick",
       "s": 0,
       "f": 0,
       "e": 1
@@ -69751,6 +69793,12 @@
      },
      {
       "n": "Manitowoc",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
+      "n": "Williamsburg",
       "s": 0,
       "f": 0,
       "e": 1
@@ -69990,6 +70038,12 @@
       "e": 1
      },
      {
+      "n": "Herndon",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
       "n": "Sebastian",
       "s": 0,
       "f": 0,
@@ -70035,7 +70089,13 @@
       "n": "Oxford",
       "s": 0,
       "f": 0,
-      "e": 1
+      "e": 2
+     },
+     {
+      "n": "Darien",
+      "s": 0,
+      "f": 0,
+      "e": 2
      },
      {
       "n": "Acworth",
@@ -70071,7 +70131,7 @@
       "n": "Naples",
       "s": 0,
       "f": 0,
-      "e": 4
+      "e": 6
      },
      {
       "n": "Waynesboro",
@@ -70206,6 +70266,12 @@
       "e": 1
      },
      {
+      "n": "Berea",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
       "n": "Bolton",
       "s": 0,
       "f": 0,
@@ -70320,6 +70386,12 @@
       "e": 1
      },
      {
+      "n": "Durango",
+      "s": 0,
+      "f": 0,
+      "e": 2
+     },
+     {
       "n": "Eatonton",
       "s": 0,
       "f": 0,
@@ -70407,7 +70479,7 @@
       "n": "Great Neck",
       "s": 0,
       "f": 0,
-      "e": 1
+      "e": 3
      },
      {
       "n": "Greenwich",
@@ -70548,6 +70620,12 @@
       "e": 1
      },
      {
+      "n": "Land O Lakes",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
       "n": "Lenox",
       "s": 0,
       "f": 0,
@@ -70590,7 +70668,25 @@
       "e": 1
      },
      {
+      "n": "Manasquan",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
+      "n": "Manhasset",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
       "n": "Marathon",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
+      "n": "Marco Island",
       "s": 0,
       "f": 0,
       "e": 1
@@ -70627,6 +70723,12 @@
      },
      {
       "n": "Mountain Home",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
+      "n": "Mt Lebanon",
       "s": 0,
       "f": 0,
       "e": 1
@@ -70674,6 +70776,12 @@
       "e": 1
      },
      {
+      "n": "Nebraska City",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
       "n": "New Philadelphia",
       "s": 0,
       "f": 0,
@@ -70689,7 +70797,7 @@
       "n": "New York",
       "s": 0,
       "f": 0,
-      "e": 11
+      "e": 14
      },
      {
       "n": "Norcross",
@@ -70777,6 +70885,12 @@
      },
      {
       "n": "Redington Shores",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
+      "n": "Ridgefield Park",
       "s": 0,
       "f": 0,
       "e": 1
@@ -70921,6 +71035,12 @@
      },
      {
       "n": "St Petersburg",
+      "s": 0,
+      "f": 0,
+      "e": 1
+     },
+     {
+      "n": "St Simons Island",
       "s": 0,
       "f": 0,
       "e": 1
@@ -71101,7 +71221,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:10:12.049Z"
+    "last": "2026-09-04T19:32:23.012Z"
    }
   },
   "Uruguay": {
@@ -71323,7 +71443,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.203Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Venezuela": {
@@ -72583,7 +72703,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.203Z"
+    "last": "2026-09-04T19:30:04.383Z"
    }
   },
   "Zambia": {
@@ -73032,7 +73152,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.205Z"
+    "last": "2026-09-04T19:30:04.386Z"
    }
   },
   "Zimbabwe": {
@@ -73277,7 +73397,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.386Z"
    }
   },
   "East Timor": {
@@ -73336,7 +73456,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "São Tomé and Príncipe": {
@@ -73381,7 +73501,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Antigua and Barbuda": {
@@ -73426,7 +73546,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Belize": {
@@ -73478,7 +73598,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.206Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Grenada": {
@@ -73514,7 +73634,7 @@
     },
     "cityStats": [],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Kiribati": {
@@ -73559,7 +73679,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Marshall Islands": {
@@ -73611,7 +73731,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Micronesia": {
@@ -73647,7 +73767,7 @@
     },
     "cityStats": [],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Nauru": {
@@ -73683,7 +73803,7 @@
     },
     "cityStats": [],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Saint Kitts and Nevis": {
@@ -73719,7 +73839,7 @@
     },
     "cityStats": [],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Samoa": {
@@ -73764,7 +73884,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "South Sudan": {
@@ -73893,7 +74013,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Tonga": {
@@ -73938,7 +74058,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Tuvalu": {
@@ -73974,7 +74094,7 @@
     },
     "cityStats": [],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   },
   "Vanuatu": {
@@ -74019,7 +74139,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-04T19:02:22.207Z"
+    "last": "2026-09-04T19:30:04.387Z"
    }
   }
  },
@@ -74030,6 +74150,55 @@
   "history": []
  },
  "prospectRecent": [
+  {
+   "cc": "IN",
+   "city": "Kāranja",
+   "at": "2026-09-04T19:34:45.324Z",
+   "s": 4,
+   "f": 0
+  },
+  {
+   "cc": "IN",
+   "city": "Samāstipur",
+   "at": "2026-09-04T19:34:45.324Z",
+   "s": 4,
+   "f": 0
+  },
+  {
+   "cc": "IN",
+   "city": "Bihāt",
+   "at": "2026-09-04T19:34:45.324Z",
+   "s": 4,
+   "f": 0
+  },
+  {
+   "cc": "US",
+   "city": "Bremerton",
+   "at": "2026-09-04T19:32:23.012Z",
+   "s": 3,
+   "f": 0
+  },
+  {
+   "cc": "US",
+   "city": "Woburn",
+   "at": "2026-09-04T19:32:23.012Z",
+   "s": 4,
+   "f": 0
+  },
+  {
+   "cc": "US",
+   "city": "Puyallup",
+   "at": "2026-09-04T19:32:23.012Z",
+   "s": 4,
+   "f": 1
+  },
+  {
+   "cc": "US",
+   "city": "Montclair",
+   "at": "2026-09-04T19:32:23.012Z",
+   "s": 1,
+   "f": 1
+  },
   {
    "cc": "IN",
    "city": "Nābha",
@@ -74260,89 +74429,40 @@
    "at": "2026-09-04T18:38:44.520Z",
    "s": 3,
    "f": 0
-  },
-  {
-   "cc": "US",
-   "city": "Teaneck",
-   "at": "2026-09-04T18:38:44.520Z",
-   "s": 4,
-   "f": 0
-  },
-  {
-   "cc": "US",
-   "city": "Marlboro",
-   "at": "2026-09-04T18:38:44.520Z",
-   "s": 4,
-   "f": 0
-  },
-  {
-   "cc": "US",
-   "city": "Carol Stream",
-   "at": "2026-09-04T18:38:44.520Z",
-   "s": 4,
-   "f": 0
-  },
-  {
-   "cc": "US",
-   "city": "Winter Garden",
-   "at": "2026-09-04T18:38:44.520Z",
-   "s": 4,
-   "f": 1
-  },
-  {
-   "cc": "US",
-   "city": "Beverly Cove",
-   "at": "2026-09-04T18:38:44.520Z",
-   "s": 4,
-   "f": 0
-  },
-  {
-   "cc": "US",
-   "city": "Hickory",
-   "at": "2026-09-04T18:38:44.520Z",
-   "s": 4,
-   "f": 4
-  },
-  {
-   "cc": "US",
-   "city": "San Gabriel",
-   "at": "2026-09-04T18:38:44.520Z",
-   "s": 4,
-   "f": 2
   }
  ],
  "recent": [
-  "2026-09-04T19:19:19.135Z  osm US United States: 69 places -> +0 new, 4 merged, 0 with an email already, 1 leads with no contact tag, 27 dropped as public",
-  "2026-09-04T19:19:19.252Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T19:19:19.392Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T19:19:30.517Z  place: read 2 sites for their city, 0 placed, 0 left",
-  "2026-09-04T19:19:30.627Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T19:19:30.770Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T19:19:30.884Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T19:19:30.910Z  discover: walking Curlie for club directories (up to 60 pages)",
-  "2026-09-04T19:19:30.910Z  discover: opened 0 pages, skipped 11 already known",
-  "2026-09-04T19:19:30.910Z  discover: 0 new seeds, tree exhausted",
-  "2026-09-04T19:22:48.891Z  leads: searched 13, found 9 sites, 5 new emails, 2694 leads left",
-  "2026-09-04T19:22:48.953Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T19:22:49.013Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
-  "2026-09-04T19:22:49.064Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club"
+  "2026-09-04T19:39:58.420Z  place: read 8 sites for their city, 0 placed, 0 left",
+  "2026-09-04T19:39:58.532Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T19:39:58.532Z  dropped info@opensourceforall.org — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T19:39:58.631Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T19:39:58.632Z  dropped info@opensourceforall.org — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T19:39:58.658Z  discover: walking Curlie for club directories (up to 60 pages)",
+  "2026-09-04T19:39:58.659Z  discover: opened 0 pages, skipped 11 already known",
+  "2026-09-04T19:39:58.659Z  discover: 0 new seeds, tree exhausted",
+  "2026-09-04T19:39:58.724Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T19:39:58.725Z  dropped info@opensourceforall.org — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T19:39:58.764Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T19:39:58.765Z  dropped info@opensourceforall.org — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T19:39:58.816Z  dropped example@mysite.com — claimed by 10 different clubs, so it belongs to a directory, not a club",
+  "2026-09-04T19:39:58.816Z  dropped info@opensourceforall.org — claimed by 6 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-09-04T19:02:21.925Z",
+ "roundStarted": "2026-09-04T19:23:11.814Z",
  "lastRound": {
-  "at": "2026-09-04T19:22:49.100Z",
-  "minutes": 20.5,
-  "summary": "crawled 214 sites, +91 emails; searched 13 club names, found 9 sites, +5 emails; placed 0 of 2 clubs in their city; prospected 2 empty countries, +7 clubs; osm 3 countries (US,CA,EC,PY) +0; overture 50 row groups (63.1 MB) +103, 41 with an email",
-  "crawled": 214,
-  "emailsFound": 91,
+  "at": "2026-09-04T19:39:58.868Z",
+  "minutes": 16.8,
+  "summary": "crawled 354 sites, +73 emails; searched 18 club names, found 10 sites, +6 emails; placed 0 of 8 clubs in their city; prospected 2 empty countries, +2 clubs; osm 2 countries (BR,US,IN,CA) +0, 1 failed",
+  "crawled": 354,
+  "emailsFound": 73,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 3,
+  "osmCountries": 2,
   "osmAdded": 0,
-  "osmFailed": 0,
-  "overtureGroups": 50,
-  "overtureAdded": 103,
-  "overtureMB": 63.1
+  "osmFailed": 1,
+  "overtureGroups": 0,
+  "overtureAdded": 0,
+  "overtureMB": 0
  }
 }
