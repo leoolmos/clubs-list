@@ -360,10 +360,10 @@ footer a{ @apply text-grass; }
   <div class="meter">
     <span class="big" id="mCount">0</span>
     <span class="lbl" id="liveNote"></span>
-    <span class="lbl">of 10,000 target &nbsp;·&nbsp; <span id="mCountries">0</span> countries touched of <span id="mTotalC">0</span></span>
+    <span class="lbl">of 15,000 target &nbsp;·&nbsp; <span id="mCountries">0</span> countries touched of <span id="mTotalC">0</span></span>
   </div>
   <div class="bar"><i id="mBar"></i></div>
-  <div class="bar-ticks"><span>0</span><span>2,500</span><span>5,000</span><span>7,500</span><span>10,000</span></div>
+  <div class="bar-ticks"><span>0</span><span>5,000</span><span>10,000</span><span>15,000</span></div>
 </header>
 
 <div id="collector" class="collector" style="display:none"></div>
@@ -1817,7 +1817,7 @@ function renderMeter(){
   clubs.forEach(function(c){ touched[c.country]=1; });
   document.getElementById("mCountries").textContent = Object.keys(touched).length;
   document.getElementById("mTotalC").textContent = ALL_COUNTRIES.length;
-  document.getElementById("mBar").style.width = Math.min(100, clubs.length/100) + "%";
+  document.getElementById("mBar").style.width = Math.min(100, clubs.length/150) + "%";
 }
 
 function countryCounts(){
