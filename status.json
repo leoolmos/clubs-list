@@ -1,17 +1,17 @@
 {
- "generated": "2026-09-05T11:17:05.021Z",
+ "generated": "2026-09-05T11:37:38.724Z",
  "clubs": 10265,
- "records": 14497,
+ "records": 14499,
  "crawl": {
-  "ready": 1,
-  "waiting": 163,
+  "ready": 16,
+  "waiting": 150,
   "exhausted": 1435
  },
  "osm": {
-  "imported": 39,
+  "imported": 42,
   "inProgress": 0,
   "failed": 0,
-  "pending": 54,
+  "pending": 51,
   "total": 93,
   "slowest": null,
   "lastError": null
@@ -92,7 +92,7 @@
   },
   {
    "note": "no email published",
-   "n": 456
+   "n": 457
   },
   {
    "note": "contact form, no address",
@@ -114,9 +114,9 @@
   "pagesRead": 69
  },
  "leads": {
-  "total": 5235,
+  "total": 5261,
   "searched": 1029,
-  "left": 4206
+  "left": 4232
  },
  "mine": {
   "patterns": 9,
@@ -128,6 +128,35 @@
   }
  },
  "activity": [
+  {
+   "t": "2026-09-05T11:37:38.257Z",
+   "kind": "prospect",
+   "text": "India: found Valencia Club -> https://valenciaclub.in",
+   "ok": true,
+   "url": "https://valenciaclub.in"
+  },
+  {
+   "t": "2026-09-05T11:23:41.475Z",
+   "kind": "search",
+   "text": "Pimenova Tenis Club (Argentina) -> https://kristinapimenova2005.weebly.com, no address on the site (no email published)",
+   "ok": false,
+   "url": "https://kristinapimenova2005.weebly.com",
+   "email": ""
+  },
+  {
+   "t": "2026-09-05T11:20:07.395Z",
+   "kind": "search",
+   "text": "no site found for Pimenova Tennis Club (Argentina)",
+   "ok": false
+  },
+  {
+   "t": "2026-09-05T11:19:48.806Z",
+   "kind": "search",
+   "text": "La terraza Padel (Argentina) -> https://www.laterrazadelpadel.com, no address on the site (contact form, no address)",
+   "ok": false,
+   "url": "https://www.laterrazadelpadel.com",
+   "email": ""
+  },
   {
    "t": "2026-09-05T11:17:04.518Z",
    "kind": "search",
@@ -1216,34 +1245,6 @@
    "text": "Can Via Racket Club — https://www.canviaclub.com: turned away by a captcha, will retry",
    "ok": false,
    "url": "https://www.canviaclub.com"
-  },
-  {
-   "t": "2026-09-05T07:01:35.881Z",
-   "kind": "crawl",
-   "text": "Centro Deportivo El Álamo — https://centrodeportivoelalamo.es: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://centrodeportivoelalamo.es"
-  },
-  {
-   "t": "2026-09-05T07:01:30.749Z",
-   "kind": "crawl",
-   "text": "Montecanal Centro Deportivo — https://www.cdmontecanal.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://www.cdmontecanal.com"
-  },
-  {
-   "t": "2026-09-05T06:51:26.865Z",
-   "kind": "crawl",
-   "text": "Stevens Tennis Complex — https://goccusports.com/feature/caf: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "https://goccusports.com/feature/caf"
-  },
-  {
-   "t": "2026-09-05T06:51:18.973Z",
-   "kind": "crawl",
-   "text": "NKU Tennis Courts — http://nkunorse.com: turned away by a captcha, will retry",
-   "ok": false,
-   "url": "http://nkunorse.com"
   }
  ],
  "perCountry": {
@@ -2015,17 +2016,17 @@
    }
   },
   "Argentina": {
-   "clubs": 560,
+   "clubs": 561,
    "emails": 481,
-   "sites": 226,
-   "read": 179,
+   "sites": 227,
+   "read": 180,
    "unreachable": 31,
-   "noAddress": 30,
+   "noAddress": 31,
    "leads": 273,
    "leadsSearched": 207,
    "leadsFound": 119,
    "sports": {
-    "Tennis": 367,
+    "Tennis": 368,
     "Padel": 240,
     "Squash": 30
    },
@@ -5693,7 +5694,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-05T10:56:20.488Z"
+    "last": "2026-09-05T11:23:41.795Z"
    }
   },
   "Bahamas": {
@@ -6130,7 +6131,7 @@
    "read": 2,
    "unreachable": 0,
    "noAddress": 0,
-   "leads": 0,
+   "leads": 2,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
@@ -6143,7 +6144,14 @@
     "overture": 1
    },
    "seeds": 0,
-   "osm": null,
+   "osm": {
+    "at": "2026-09-05T11:27:57.586Z",
+    "seen": 2,
+    "added": 0,
+    "rejected": 0,
+    "error": null,
+    "via": "overpass.private.coffee"
+   },
    "prospect": {
     "cc": "BW",
     "cities": [
@@ -26525,7 +26533,7 @@
    "read": 3,
    "unreachable": 0,
    "noAddress": 0,
-   "leads": 0,
+   "leads": 14,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
@@ -26538,7 +26546,14 @@
     "prospect": 9
    },
    "seeds": 0,
-   "osm": null,
+   "osm": {
+    "at": "2026-09-05T11:26:26.395Z",
+    "seen": 22,
+    "added": 0,
+    "rejected": 7,
+    "error": null,
+    "via": "maps.mail.ru"
+   },
    "prospect": {
     "cc": "GH",
     "cities": [
@@ -28887,9 +28902,9 @@
    }
   },
   "India": {
-   "clubs": 541,
+   "clubs": 542,
    "emails": 514,
-   "sites": 165,
+   "sites": 166,
    "read": 126,
    "unreachable": 10,
    "noAddress": 12,
@@ -28899,7 +28914,7 @@
    "sports": {
     "Tennis": 469,
     "Padel": 73,
-    "Squash": 136
+    "Squash": 137
    },
    "sources": {
     "prospect": 348,
@@ -28951,10 +28966,10 @@
      "Rājkot"
     ],
     "citiesTotal": 2937,
-    "citiesSearched": 989,
-    "searchesDone": 3949,
+    "citiesSearched": 991,
+    "searchesDone": 3959,
     "searchesTotal": 11752,
-    "found": 165,
+    "found": 166,
     "emails": 197,
     "countrywide": {
      "s": 4,
@@ -34891,7 +34906,19 @@
      },
      {
       "n": "Ābu Road",
-      "s": 2,
+      "s": 4,
+      "f": 1,
+      "e": 0
+     },
+     {
+      "n": "Raxaul",
+      "s": 4,
+      "f": 0,
+      "e": 0
+     },
+     {
+      "n": "Moonniyur",
+      "s": 4,
       "f": 0,
       "e": 0
      },
@@ -35005,7 +35032,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-05T11:15:16.765Z"
+    "last": "2026-09-05T11:37:38.257Z"
    }
   },
   "Ireland": {
@@ -39958,7 +39985,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-05T10:56:20.489Z"
+    "last": "2026-09-05T11:23:41.797Z"
    }
   },
   "Mozambique": {
@@ -49922,7 +49949,7 @@
      }
     ],
     "prevFound": 0,
-    "last": "2026-09-05T10:56:20.483Z"
+    "last": "2026-09-05T11:23:41.796Z"
    }
   },
   "Puerto Rico": {
@@ -58316,7 +58343,7 @@
    "read": 6,
    "unreachable": 1,
    "noAddress": 0,
-   "leads": 0,
+   "leads": 10,
    "leadsSearched": 0,
    "leadsFound": 0,
    "sports": {
@@ -58329,7 +58356,14 @@
     "prospect": 13
    },
    "seeds": 0,
-   "osm": null,
+   "osm": {
+    "at": "2026-09-05T11:25:47.776Z",
+    "seen": 12,
+    "added": 0,
+    "rejected": 1,
+    "error": null,
+    "via": "maps.mail.ru"
+   },
    "prospect": {
     "cc": "UG",
     "cities": [
@@ -76427,6 +76461,27 @@
  "prospectRecent": [
   {
    "cc": "IN",
+   "city": "Moonniyur",
+   "at": "2026-09-05T11:37:38.257Z",
+   "s": 4,
+   "f": 0
+  },
+  {
+   "cc": "IN",
+   "city": "Raxaul",
+   "at": "2026-09-05T11:37:38.257Z",
+   "s": 4,
+   "f": 0
+  },
+  {
+   "cc": "IN",
+   "city": "Ābu Road",
+   "at": "2026-09-05T11:37:38.257Z",
+   "s": 2,
+   "f": 1
+  },
+  {
+   "cc": "IN",
    "city": "Ābu Road",
    "at": "2026-09-05T11:15:16.765Z",
    "s": 2,
@@ -76683,57 +76738,36 @@
    "at": "2026-09-05T03:00:15.238Z",
    "s": 4,
    "f": 0
-  },
-  {
-   "cc": "IN",
-   "city": "Sendhwa",
-   "at": "2026-09-05T03:00:15.238Z",
-   "s": 4,
-   "f": 0
-  },
-  {
-   "cc": "IN",
-   "city": "Chakradharpur",
-   "at": "2026-09-05T03:00:15.238Z",
-   "s": 4,
-   "f": 0
-  },
-  {
-   "cc": "IN",
-   "city": "Tennala",
-   "at": "2026-09-05T03:00:15.238Z",
-   "s": 4,
-   "f": 0
   }
  ],
  "recent": [
-  "2026-09-05T11:15:16.774Z  prospect: turned down — no racket sport on the page ×13, no club signal in ×6, unreachable ×3, blocked by a challenge page ×3, a listing of clubs, not one: ×3",
-  "2026-09-05T11:15:16.973Z  dropped info@ndiscovered.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-09-05T11:15:16.973Z  dropped example@mysite.com — claimed by 11 different clubs, so it belongs to a directory, not a club",
-  "2026-09-05T11:15:16.973Z  dropped info@opensourceforall.org — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-09-05T11:17:04.528Z  leads: searched 1, found 1 sites, 0 new emails, 4206 leads left",
-  "2026-09-05T11:17:04.628Z  dropped info@ndiscovered.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-09-05T11:17:04.629Z  dropped example@mysite.com — claimed by 11 different clubs, so it belongs to a directory, not a club",
-  "2026-09-05T11:17:04.629Z  dropped info@opensourceforall.org — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-09-05T11:17:04.704Z  dropped info@ndiscovered.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-09-05T11:17:04.704Z  dropped example@mysite.com — claimed by 11 different clubs, so it belongs to a directory, not a club",
-  "2026-09-05T11:17:04.705Z  dropped info@opensourceforall.org — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-09-05T11:17:04.791Z  dropped info@ndiscovered.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
-  "2026-09-05T11:17:04.791Z  dropped example@mysite.com — claimed by 11 different clubs, so it belongs to a directory, not a club",
-  "2026-09-05T11:17:04.792Z  dropped info@opensourceforall.org — claimed by 6 different clubs, so it belongs to a directory, not a club"
+  "2026-09-05T11:36:25.035Z  dropped info@ndiscovered.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-09-05T11:36:25.036Z  dropped example@mysite.com — claimed by 11 different clubs, so it belongs to a directory, not a club",
+  "2026-09-05T11:36:25.036Z  dropped info@opensourceforall.org — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-09-05T11:37:38.265Z  prospect: 1 countries searched, 40 sites read, 1 clubs added",
+  "2026-09-05T11:37:38.265Z  prospect: turned down — no racket sport on the page ×8, unreachable ×7, a listing of clubs, not one: ×4, no club signal in ×4, nothing on its pages ties it ×4",
+  "2026-09-05T11:37:38.348Z  dropped info@ndiscovered.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-09-05T11:37:38.349Z  dropped example@mysite.com — claimed by 11 different clubs, so it belongs to a directory, not a club",
+  "2026-09-05T11:37:38.349Z  dropped info@opensourceforall.org — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-09-05T11:37:38.415Z  dropped info@ndiscovered.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-09-05T11:37:38.416Z  dropped example@mysite.com — claimed by 11 different clubs, so it belongs to a directory, not a club",
+  "2026-09-05T11:37:38.416Z  dropped info@opensourceforall.org — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-09-05T11:37:38.492Z  dropped info@ndiscovered.com — claimed by 6 different clubs, so it belongs to a directory, not a club",
+  "2026-09-05T11:37:38.493Z  dropped example@mysite.com — claimed by 11 different clubs, so it belongs to a directory, not a club",
+  "2026-09-05T11:37:38.493Z  dropped info@opensourceforall.org — claimed by 6 different clubs, so it belongs to a directory, not a club"
  ],
  "running": false,
  "phase": "resting between rounds",
- "roundStarted": "2026-09-05T10:56:20.059Z",
+ "roundStarted": "2026-09-05T11:17:29.131Z",
  "lastRound": {
-  "at": "2026-09-05T11:17:04.848Z",
-  "minutes": 20.7,
-  "summary": "crawled 10 sites, +1 emails; searched 1 club names, found 1 sites, +0 emails; placed 0 of 1 clubs in their city; prospected 1 empty countries, +0 clubs; osm 4 countries (MU,ZW,ZM,TZ) +0",
-  "crawled": 10,
-  "emailsFound": 1,
+  "at": "2026-09-05T11:37:38.558Z",
+  "minutes": 20.2,
+  "summary": "crawled 1 sites, +0 emails; searched 3 club names, found 2 sites, +0 emails; prospected 1 empty countries, +1 clubs; osm 3 countries (UG,GH,BW,NA) +0",
+  "crawled": 1,
+  "emailsFound": 0,
   "pagesRead": 0,
   "clubsAdded": 0,
-  "osmCountries": 4,
+  "osmCountries": 3,
   "osmAdded": 0,
   "osmFailed": 0,
   "overtureGroups": 0,
