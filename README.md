@@ -452,6 +452,16 @@ TICK_MINUTES=60  BUDGET_MINUTES=20  CONCURRENCY=8  HOST_DELAY_MS=2000
 PAGES_PER_TICK=25  OSM=off  LTA_MINUTES=6  LTA=off
 OVERTURE_MINUTES=6  OVERTURE_MB=150  OVERTURE_PARALLEL=4  OVERTURE=off
 CRAWL_MINUTES=12  CONTACT_PAGES=30  SITE_MS=150000  PROSPECT_MINUTES=18  PLACE_MINUTES=3
-VET_PARALLEL=4  SEARCH_GAP_MS=30000  SEARCH_GAP_MAX_MS=120000
+PAGE_TIMEOUT_MS=5000  SLOW_PAGE_TIMEOUT_MS=15000  RETRY_MINUTES=10
+VET_PARALLEL=4  SEARCH_GAP_MS=10000  SEARCH_GAP_MAX_MS=120000  SEARCH_TIMEOUT_MS=12000
 SEARCH_COOLDOWN_MS=300000  SEARCH_COOLDOWN_MAX_MS=900000  SEARCH_PAGES=1
+SEARCH_OUTAGE_REST_MS=60000  SEARCH_OUTAGE_REST_MAX_MS=300000
 ```
+
+`SLOW_PAGE_TIMEOUT_MS` is the page timeout for the second look at a site the
+ordinary five seconds called unreachable — the next day, then after three
+days, a week, and monthly from there. `SEARCH_TIMEOUT_MS` is how long the
+search engine gets to answer; a request that gets no answer at all is
+retried once on the other endpoint and then counted as an outage
+(`SEARCH_OUTAGE_REST_*`, a minute doubling to five) rather than as a
+refusal, which is what doubles the gap and starts the longer cooldown.
