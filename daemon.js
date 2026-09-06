@@ -81,6 +81,12 @@ const CFG = {
   // worth a worker's time when there are thousands of others waiting; it
   // comes round again in minutes.
   pageTimeoutMs: parseInt(process.env.PAGE_TIMEOUT_MS|| '5000', 10),
+  /* Fifteen seconds for the second look at a site the five called
+   * unreachable. Most of the sites the crawl has given up on were given up
+   * on for exactly that, and some of them are simply on hosting that
+   * answers in eight; the slow look runs when the crawl has nothing better
+   * to do, which is when patience costs nothing. See phaseCrawl. */
+  slowPageTimeoutMs: parseInt(process.env.SLOW_PAGE_TIMEOUT_MS || '15000', 10),
   retryMinutes:  parseInt(process.env.RETRY_MINUTES  || '10', 10),
   // Six minutes: the leads are all searched until their monthly retry, so
   // most rounds this is seconds — the slice matters again in September.
@@ -615,7 +621,11 @@ const SITE_MS = parseInt(process.env.SITE_MS || '150000', 10);
  * the page that carried the address comes back with it, for the coverage
  * tab.
  */
-async function harvestSite(website, lang, cc){
+async function harvestSite(website, lang, cc, opts){
+  /* The page timeout: the ordinary five seconds, or the longer one for the
+   * slow look at a site the five called unreachable (see phaseCrawl). */
+  const timeoutMs = (opts && opts.timeoutMs) || CFG.pageTimeoutMs;
+  const get = url => require('./lib/http').getPage(url, CFG.hostDelayMs, timeoutMs);
   let origin, host;
   try{ const u=new URL(website); origin=u.origin; host=u.hostname; }
   catch(e){ return {emails:[], note:'bad url'}; }
@@ -627,7 +637,7 @@ async function harvestSite(website, lang, cc){
   const started = Date.now();
   const timeLeft = () => Date.now() - started < SITE_MS;
 
-  let home = await getPage(origin);
+  let home = await get(origin);
   if(!home){
     // http <-> https, www <-> bare: a site that moved and did not redirect
     const alts = [];
@@ -644,7 +654,7 @@ async function harvestSite(website, lang, cc){
       }
     }catch(e){}
     for(const o of alts.slice(0, 3)){
-      home = await getPage(o);
+      home = await get(o);
       if(home){ origin = o; host = new URL(o).hostname; break; }
     }
   }
@@ -684,7 +694,7 @@ async function harvestSite(website, lang, cc){
   //    the back of the queue
   for(const l of links(home, origin)) add(l.url, linkTier(l.url, l.text));
   // 2. the sitemap's contact-word pages
-  for(const s of await sitemapPages(origin, CFG.pageTimeoutMs)) add(s.url, s.tier);
+  for(const s of await sitemapPages(origin, timeoutMs)) add(s.url, s.tier);
   // 3. the guesses, in the club's language — after the pages the site
   //    itself names (tiers 0 and 1), before the legal pages and the rest
   for(const p of contactPaths(lang, cc)) add(origin + p, 1.5);
@@ -694,7 +704,7 @@ async function harvestSite(website, lang, cc){
     // the best page known right now: lowest tier, then the order it was found
     queue.sort((a, b) => a.tier - b.tier || a.order - b.order);
     const next = queue.shift();
-    const html = await getPage(next.url);
+    const html = await get(next.url);
     if(!html) continue;
     read++;
     if(isChallenge(html)) continue;
@@ -740,6 +750,9 @@ async function pool(items, limit, fn){
  * secretary in July and puts one up. "Settled" therefore lasts a month, not
  * for ever: anything out of attempts gets one fresh look every thirty days. */
 const SETTLED_REVIEW_MS = 30*24*60*60*1000;
+/* Days before a site called unreachable is looked at again: the next day,
+ * then three days on, then a week, then the monthly review above. */
+const UNREACHABLE_REVIEW_DAYS = [1, 3, 7];
 
 /* Bumped when the crawl learns to find pages it used to walk past. "Publishes
  * no address" was settled by the old list of contact pages — one list, four
@@ -775,13 +788,38 @@ async function phaseCrawl(db, deadline){
     activity('crawl', `reading ${again} settled sites again with the new contact-page list (epoch ${CRAWL_EPOCH})`, {ok:true});
   }
 
+  let slowLooks = 0;
   for(const r of Object.values(db)){
     if(r.email || !r.website) continue;
     if((r.attempts||0) < CFG.maxAttempts) continue;
-    if(!r.lastTried || today - Date.parse(r.lastTried) > SETTLED_REVIEW_MS){
+    const since = r.lastTried ? today - Date.parse(r.lastTried) : Infinity;
+    /* "Unreachable" is not "publishes no address". The site was never read:
+     * it did not answer in five seconds, four times inside an hour — and a
+     * host that was down for that hour, or one that answers in eight
+     * seconds every time, was then settled for a month like a site that
+     * had been read end to end. 773 of the 1,534 settled sites were settled
+     * that way. So those come back sooner and with a longer timeout, and
+     * the wait between looks grows for a site that stays dark, so the
+     * truly dead ones settle down to the monthly look without the ones in
+     * between paying for it. */
+    if(r.crawlNote === 'unreachable'){
+      const looks = r.deadLooks || 0;
+      const due = looks < UNREACHABLE_REVIEW_DAYS.length
+        ? UNREACHABLE_REVIEW_DAYS[looks]*24*60*60*1000 : SETTLED_REVIEW_MS;
+      if(since > due){
+        r.attempts = CFG.maxAttempts - 1;
+        delete r.retryAfter;
+        r.deadLooks = looks + 1;
+        r.slowLook = true;
+        slowLooks++;
+      }
+      continue;
+    }
+    if(since > SETTLED_REVIEW_MS){
       r.attempts = CFG.maxAttempts - 1;      // one look, then settled for another month
     }
   }
+  if(slowLooks) log(`crawl: ${slowLooks} sites called unreachable get a slower look (${Math.round(CFG.slowPageTimeoutMs/1000)}s a page)`);
   const todo = Object.values(db).filter(r=>{
     if(r.email || !r.website) return false;
     if(r.attempts >= CFG.maxAttempts) return false;
@@ -793,7 +831,10 @@ async function phaseCrawl(db, deadline){
   let tried=0, found=0, stopped=false;
   await pool(todo, CFG.concurrency, async rec=>{
     if(stopped || Date.now() > deadline){ stopped = true; return; }
-    const {emails, contact, note, city} = await harvestSite(rec.website, rec.lang, rec.cc);
+    const slow = !!rec.slowLook;
+    const {emails, contact, note, city} = await harvestSite(rec.website, rec.lang, rec.cc,
+                                                            slow ? {timeoutMs: CFG.slowPageTimeoutMs} : undefined);
+    delete rec.slowLook;
     tried++;
     rec.attempts = (rec.attempts||0)+1;
     rec.crawlNote = note;
@@ -1953,6 +1994,10 @@ function writeStandalone(db){
 let running = false;
 let failures = 0;
 let failingSince = null;
+/* Set by Ctrl-C or SIGTERM. The lanes loop until the round's deadline now,
+ * so a stop that only the main loop looked at would take the whole twenty
+ * minutes to be noticed; the loops look too and give the round back. */
+let STOPPING = false;
 /* Publishing is damped: the idle rounds between engine cooldowns were
  * committing an unchanged count every twenty seconds — hundreds of
  * "clubs: 6039" commits and a Pages build for each. */
@@ -2087,6 +2132,40 @@ async function tick(){
         d = await phaseDiscover(queue, deadline);
       }
 
+      /* Then back to the crawl, for the rest of the round.
+       *
+       * Everything above runs once and, most rounds, briefly: the map
+       * imports are done or nearly, the directories are walked out, the
+       * register is read. The crawl at the top of the lane had its six
+       * minutes and a queue of nineteen, finished in seconds — and this
+       * lane then sat idle for a quarter of an hour while sites came off
+       * their ten-minute backoff and waited for the next round. Now it
+       * goes round again until the round is over: whatever is ready is
+       * read, and when nothing is, the lane waits for the next site to
+       * come due, a minute at most, rather than ending early.
+       *
+       * Nothing here can touch a record that already has an address:
+       * phaseCrawl skips those before it does anything else. */
+      while(!STOPPING && Date.now() < deadline - 30*1000){
+        const msg = 'crawling club websites for email addresses';
+        if(lane.reading !== msg) reading(msg);
+        const again = await phaseCrawl(db, deadline);
+        if(again.tried){
+          c.tried += again.tried; c.found += again.found;
+          writeJSON(DB_FILE, db);
+          continue;
+        }
+        const now = Date.now();
+        const pending = Object.values(db).filter(r => !r.email && r.website && (r.attempts||0) < CFG.maxAttempts);
+        const due = pending.reduce((m, r) => Math.min(m, r.retryAfter || Infinity), Infinity);
+        const waitMs = Math.min(60*1000, deadline - 30*1000 - now,
+                                isFinite(due) ? Math.max(5000, due - now) : 60*1000);
+        if(waitMs <= 0) break;
+        const idle = `crawl queue empty — ${pending.length} sites on backoff, waiting for the next one`;
+        if(lane.reading !== idle) reading(idle);
+        await sleep(waitMs);
+      }
+
       // Save between phases, not only at the end. A round that hangs in a
       // later phase used to throw away everything the earlier ones
       // collected: one round spent half an hour crawling, stalled waiting
@@ -2104,19 +2183,43 @@ async function tick(){
       // that reaches a country holding nothing.
       const leadsFirst = (roundNo % 2) === 1;
       const runLeads = async () => {
-        if(Date.now() >= deadline) return;
+        if(STOPPING || Date.now() >= deadline) return 0;
         searching('searching the web for clubs we only know the name of');
-        L = await phaseLeads(db, deadline);
+        const r = await phaseLeads(db, deadline);
+        L.tried += r.tried; L.found += r.found; L.emails += r.emails;
         writeJSON(DB_FILE, db);
+        return r.tried;
       };
       const runProspect = async () => {
-        if(Date.now() >= deadline) return;
+        if(STOPPING || Date.now() >= deadline) return 0;
         searching('searching out clubs, city by city');
-        p = await phaseProspect(db, deadline, () => searching('searching out clubs, city by city'));
+        const r = await phaseProspect(db, deadline, () => searching('searching out clubs, city by city'));
+        p.countries += r.countries; p.added += r.added;
         writeJSON(DB_FILE, db);
+        return r.countries;
       };
       if(leadsFirst){ await runLeads(); await runProspect(); }
       else          { await runProspect(); await runLeads(); }
+
+      /* And again, while the round lasts.
+       *
+       * Each phase has its slice and stops at a refusal, and between the
+       * two the engine used to be left alone for whatever remained of the
+       * round — with the reading lane also done early, that remainder was
+       * most of it. Now the lane waits out any rest the engine has asked
+       * for and goes back to asking. A pass that asked nothing with the
+       * line open — every lead searched, every city done — waits a minute,
+       * so this cannot spin. */
+      while(!STOPPING && Date.now() < deadline - 60*1000){
+        const rest = search.searchCooldownMs();
+        if(rest > 0){
+          searching(`the search engine asked for a rest — back in ${Math.ceil(rest/60000)} min`);
+          await sleep(Math.min(rest + 1000, Math.max(1000, deadline - Date.now())));
+          continue;
+        }
+        const asked = (await runLeads()) + (await runProspect());
+        if(!asked) await sleep(60*1000);
+      }
       lane.searching = '';
     };
 
@@ -2273,7 +2376,7 @@ function cmdStatus(){
   const email = all.filter(r=>r.email).length;
   console.log('-'.repeat(52));
   console.log('TOTAL'.padEnd(26)+String(all.length).padStart(6)+String(email).padStart(8));
-  console.log(`\n${email} of 10,000 — ${(email/100).toFixed(1)}%`);
+  console.log(`\n${email} of 15,000 — ${(email/150).toFixed(1)}%`);
   console.log(`CSV ready at ${CSV_FILE}\n`);
 }
 
@@ -2431,6 +2534,7 @@ Tuning, all optional:
   const stop = () => {
     if(stopping) process.exit(0);
     stopping = true;
+    STOPPING = true;
     log('stopping after the current round — press Ctrl-C again to force');
   };
   process.on('SIGINT', stop);
