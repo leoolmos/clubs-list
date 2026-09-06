@@ -145,7 +145,7 @@ const mine = require('./lib/mine');
 const discover = require('./discover');
 
 
-const UA = 'RacketClubResearch/1.0 (club directory research; contact: set-your-email@example.com)';
+const UA = require('./lib/http').UA;   // one contact string for every fetcher, see lib/http.js
 
 /* ------------------------------------------------------------------ *
  * Polite fetching — per-host spacing, robots.txt, character sets      *
